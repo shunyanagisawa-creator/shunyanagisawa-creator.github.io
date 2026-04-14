@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shun Yanagisawa | 柳沢 俊</title>
+<meta name="description" content="Shun Yanagisawa (柳沢 俊) — Director at Citi Japan, Author, FIA Japan Vice President. Specialist in OTC Clearing, CCP Architecture, FX Prime Brokerage, and Japan Rates Market Infrastructure.">
+<meta name="keywords" content="Shun Yanagisawa, 柳沢俊, OTC Clearing, CCP, FX Prime Brokerage, JSCC, FIA Japan, ISDA Japan, derivatives clearing, market infrastructure, Japan rates market, TONA futures, JGB futures, cross-product margining, CFTC, デリバティブクリアリング, クリアリング">
+<meta name="author" content="Shun Yanagisawa">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / SNS -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Shun Yanagisawa | 柳沢 俊 — Market Infrastructure Expert & Author">
+<meta property="og:description" content="Director at Citi Japan. Vice President, FIA Japan. Author of 『デリバティブ・クリアリングのすべて』. Specialist in OTC Clearing, CCP Architecture, and Japan Rates Market.">
+<meta property="og:url" content="https://www.shunyanagisawa.com">
+<meta property="og:image" content="https://www.shunyanagisawa.com/book-cover.png">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ja_JP">
+<meta property="profile:first_name" content="Shun">
+<meta property="profile:last_name" content="Yanagisawa">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shun Yanagisawa | 柳沢 俊">
+<meta name="twitter:description" content="Market Infrastructure Expert. OTC Clearing & CCP Specialist. Author. FIA Japan VP. Tokyo.">
+
+<!-- Schema.org Person -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Shun Yanagisawa",
+  "alternateName": "柳沢 俊",
+  "jobTitle": "Director, Head of Futures / OTC Clearing / FX Prime Brokerage",
+  "worksFor": {"@type": "Organization", "name": "Citi Japan (Citigroup Global Markets Japan Inc.)"},
+  "url": "https://www.shunyanagisawa.com",
+  "sameAs": ["https://www.linkedin.com/in/shun-yanagisawa-579b638/"],
+  "knowsAbout": ["OTC Derivatives Clearing","CCP Architecture","FX Prime Brokerage","Japan Rates Market","JSCC","TONA Futures","JGB Futures","Cross-Product Margining","CFTC Regulation","Derivatives Regulation"],
+  "author": [
+    {"@type": "Book", "name": "デリバティブ・クリアリングのすべて", "inLanguage": "ja", "datePublished": "2026-02-22"},
+    {"@type": "Book", "name": "阿頼耶識の海", "inLanguage": "ja"}
+  ],
+  "memberOf": [
+    {"@type": "Organization", "name": "FIA Japan", "roleName": "Vice President"},
+    {"@type": "Organization", "name": "JSCC", "roleName": "IR Swap Steering Committee Member"},
+    {"@type": "Organization", "name": "ISDA Japan", "roleName": "OTC Derivatives Regulations WG Member"}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --white: #ffffff;
+  --off-white: #f7f6f2;
+  --teal-dark: #1d5c5c;
+  --teal: #2a7a7a;
+  --teal-light: #e8f2f2;
+  --gold: #b5832a;
+  --gold-dark: #8a6020;
+  --gold-light: #f5ead8;
+  --navy: #1a2332;
+  --text: #1a1a1a;
+  --text-mid: #3d3d3d;
+  --text-muted: #666666;
+  --text-light: #999999;
+  --border: #ddd9d0;
+  --border-light: #eeebe4;
+  --font-display: 'Playfair Display', 'Noto Serif JP', Georgia, serif;
+  --font-body: 'Source Sans 3', sans-serif;
+  --font-jp: 'Noto Serif JP', serif;
+  --font-mono: 'DM Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--white); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.7; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  background: var(--white); border-bottom: 2px solid var(--teal-dark);
+  padding: 0 3rem; display: flex; align-items: center; justify-content: space-between; height: 64px;
+}
+.nav-logo { font-family: var(--font-display); font-size: 1.15rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo span { color: var(--teal-dark); }
+.nav-links { display: flex; list-style: none; height: 100%; }
+.nav-links a {
+  display: flex; align-items: center; padding: 0 1.1rem; height: 100%;
+  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--text-muted); text-decoration: none;
+  border-bottom: 3px solid transparent; margin-bottom: -2px; transition: color .2s, border-color .2s;
+}
+.nav-links a:hover { color: var(--teal-dark); border-bottom-color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em;
+  color: var(--teal-dark); background: none; border: 1.5px solid var(--teal-dark);
+  padding: .35rem .9rem; cursor: pointer; transition: all .2s;
+}
+.lang-toggle:hover { background: var(--teal-dark); color: var(--white); }
+
+/* HERO */
+.hero { background: var(--white); color: var(--navy); padding: 5rem 3rem 4.5rem; position: relative; overflow: hidden; border-bottom: 1px solid var(--border); }
+.hero::before { content:''; position:absolute; top:0;left:0;right:0; height:5px; background: linear-gradient(to right, var(--teal-dark), var(--gold)); }
+.hero::after { content:''; position:absolute; bottom:0;left:0;right:0; height:1px; background: var(--border); }
+.hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: end; }
+.hero-tag { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.5rem; }
+.hero h1 { font-family: var(--font-display); font-size: clamp(2.8rem,5vw,4.5rem); font-weight: 400; line-height: 1.1; color: var(--navy); margin-bottom: .3rem; }
+.hero-name-jp { font-family: var(--font-jp); font-size: 1.4rem; font-weight: 300; color: var(--text-muted); letter-spacing: .15em; margin-bottom: 1.8rem; }
+.hero-question { font-family: var(--font-display); font-style: italic; font-size: 1.15rem; color: var(--text-mid); max-width: 560px; line-height: 1.65; padding-left: 1.2rem; border-left: 3px solid var(--gold); margin-bottom: 2.5rem; }
+.hero-roles { display: flex; flex-wrap: wrap; gap: .7rem; }
+.hero-role { font-size: 0.82rem; color: var(--text-muted); background: var(--off-white); border: 1px solid var(--border); padding: .32rem .9rem; }
+.hero-role strong { color: var(--teal-dark); font-weight: 600; }
+.hero-stats { display: flex; flex-direction: column; gap: 1.5rem; text-align: right; padding-bottom: .5rem; }
+.hero-stat { border-right: 3px solid var(--teal-dark); padding-right: 1.2rem; }
+.hero-stat-num { font-family: var(--font-display); font-size: 2.2rem; font-weight: 400; color: var(--navy); line-height: 1; }
+.hero-stat-label { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .15em; text-transform: uppercase; color: var(--text-light); margin-top: .2rem; }
+
+/* SECTIONS */
+section { padding: 5rem 3rem; }
+section:nth-child(even) { background: var(--off-white); }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 3rem; padding-bottom: 1rem; border-bottom: 2px solid var(--border); }
+.section-title { font-family: var(--font-display); font-size: 1.9rem; font-weight: 400; color: var(--navy); }
+.section-sub { font-size: 0.85rem; color: var(--text-light); letter-spacing: .05em; }
+
+/* ABOUT */
+.about-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 5rem; align-items: start; }
+.about-body p { font-size: 1.05rem; color: var(--text-mid); margin-bottom: 1.2rem; line-height: 1.85; }
+.about-body p strong { color: var(--navy); font-weight: 600; }
+.about-body p em { color: var(--teal-dark); font-style: italic; }
+.cred-panel { background: var(--white); border: 1px solid var(--border); border-top: 4px solid var(--teal-dark); padding: 2rem; }
+.cred-section { margin-bottom: 2rem; }
+.cred-section:last-child { margin-bottom: 0; }
+.cred-title { font-family: var(--font-mono); font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: .8rem; padding-bottom: .4rem; border-bottom: 1px solid var(--border-light); }
+.cred-item { padding: .52rem 0; border-bottom: 1px solid var(--border-light); display: grid; grid-template-columns: 1fr auto; gap: .5rem; align-items: baseline; }
+.cred-item:last-child { border: none; }
+.cred-name { font-size: .88rem; color: var(--text-mid); line-height: 1.4; }
+.cred-org { font-family: var(--font-mono); font-size: .62rem; color: var(--text-light); white-space: nowrap; }
+
+/* PUBLICATIONS */
+.pub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+.pub-card { background: var(--white); border: 1px solid var(--border); overflow: hidden; transition: box-shadow .25s, transform .25s; }
+.pub-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.1); transform: translateY(-3px); }
+.pub-img-header { height: 240px; overflow: hidden; position: relative; }
+.pub-img-header img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.pub-dark-header { background: var(--navy); padding: 2rem; position: relative; }
+.pub-year-badge { position: absolute; top: 1rem; right: 1rem; background: var(--gold); color: var(--white); font-family: var(--font-mono); font-size: .65rem; letter-spacing: .1em; padding: .25rem .7rem; }
+.pub-label { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; margin-bottom: .8rem; }
+.pub-dark-header .pub-label { color: rgba(255,255,255,.5); }
+.pub-dark-header h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--white); margin-bottom: .3rem; }
+.pub-dark-header .pub-jp { font-family: var(--font-jp); font-size: 1rem; color: rgba(255,255,255,.55); letter-spacing: .1em; }
+.pub-body { padding: 1.8rem; }
+.pub-body h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); margin-bottom: .3rem; }
+.pub-body .pub-jp2 { font-family: var(--font-jp); font-size: .9rem; color: var(--text-muted); margin-bottom: 1rem; }
+.pub-body p { font-size: .9rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1.2rem; }
+.pub-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+.pub-tag { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-dark); border: 1px solid var(--teal-dark); padding: .2rem .65rem; }
+.pub-tag.gold { color: var(--gold-dark); border-color: var(--gold-dark); }
+
+/* KEY TOPICS */
+.topic-tags { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+.topic-tag { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; color: var(--teal-dark); background: var(--teal-light); border: 1px solid rgba(42,122,122,.25); padding: .35rem .85rem; transition: all .2s; cursor: default; }
+.topic-tag:hover { background: var(--teal-dark); color: var(--white); border-color: var(--teal-dark); }
+.topic-tag.gold { color: var(--gold-dark); background: var(--gold-light); border-color: rgba(181,131,42,.25); }
+.topic-tag.gold:hover { background: var(--gold-dark); color: var(--white); border-color: var(--gold-dark); }
+
+/* QUOTE BAR */
+.quote-bar { background: var(--navy); padding: 2rem 3rem; text-align: center; position: relative; overflow: hidden; min-height: 100px; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.quote-bar::before { content:''; position:absolute; top:0;left:0;right:0;height:3px; background: linear-gradient(to right, var(--teal-dark), var(--gold), var(--teal-dark)); }
+.quote-bar-inner { max-width: 860px; }
+.quote-text { font-family: var(--font-display); font-style: italic; font-size: clamp(1rem,2vw,1.15rem); color: rgba(255,255,255,.92); line-height: 1.65; transition: opacity .45s ease, transform .45s ease; }
+.quote-text.fade-out { opacity: 0; transform: translateY(8px); }
+.quote-source { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-top: .7rem; transition: opacity .45s ease; }
+.quote-source.fade-out { opacity: 0; }
+.quote-dots { display: flex; justify-content: center; gap: .5rem; margin-top: .9rem; }
+.quote-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,.2); transition: background .3s; cursor: pointer; }
+.quote-dot.active { background: var(--gold); }
+
+/* SPEAKING */
+.speaking-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.speaking-table thead tr { background: var(--navy); color: var(--white); }
+.speaking-table th { font-family: var(--font-mono); font-size: .65rem; letter-spacing: .15em; text-transform: uppercase; padding: .9rem 1.2rem; text-align: left; font-weight: 400; }
+.speaking-table tbody tr { border-bottom: 1px solid var(--border-light); transition: background .15s; }
+.speaking-table tbody tr:hover { background: var(--teal-light); }
+.speaking-table tbody tr.upcoming { background: var(--gold-light); border-left: 3px solid var(--gold); }
+.speaking-table td { padding: 1rem 1.2rem; vertical-align: top; }
+.td-date { font-family: var(--font-mono); font-size: .75rem; color: var(--text-light); white-space: nowrap; width: 100px; }
+.td-title { font-size: .95rem; font-weight: 500; color: var(--navy); line-height: 1.4; }
+.td-org { font-size: .82rem; color: var(--text-muted); margin-top: .2rem; }
+.td-role { white-space: nowrap; width: 120px; }
+.role-badge { display: inline-block; font-family: var(--font-mono); font-size: .6rem; letter-spacing: .12em; text-transform: uppercase; padding: .25rem .7rem; }
+.role-badge.moderator { background: var(--teal-dark); color: var(--white); }
+.role-badge.panelist { background: var(--navy); color: var(--white); }
+.role-badge.speaker { background: var(--gold); color: var(--white); }
+.role-badge.upcoming { background: var(--gold-dark); color: var(--white); }
+
+/* MEDIA */
+.media-featured {
+  background: var(--white); border: 1px solid var(--border); border-left: 5px solid var(--teal-dark);
+  padding: 2.5rem; margin-bottom: 2.5rem;
+  display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: start;
+}
+.media-badge { background: var(--teal-dark); color: var(--white); font-family: var(--font-display); font-weight: 500; font-size: 1.1rem; padding: .8rem 1.4rem; text-align: center; min-width: 90px; }
+.media-featured h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 400; color: var(--navy); margin-bottom: .4rem; line-height: 1.35; }
+.media-meta { font-family: var(--font-mono); font-size: .65rem; color: var(--text-light); letter-spacing: .1em; margin-bottom: 1rem; }
+.media-summary { font-size: .92rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1rem; }
+.media-summary ul { padding-left: 1.3rem; }
+.media-summary li { margin-bottom: .35rem; }
+.media-link { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .1em; color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); }
+.media-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+.media-card { background: var(--white); border: 1px solid var(--border); padding: 1.5rem; transition: border-color .2s; }
+.media-card:hover { border-color: var(--teal); }
+.media-outlet { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: .6rem; }
+.media-card h4 { font-size: .9rem; font-weight: 500; color: var(--navy); line-height: 1.45; margin-bottom: .5rem; }
+.media-date { font-family: var(--font-mono); font-size: .62rem; color: var(--text-light); }
+
+/* QUOTE BAR */
+.quote-bar {
+  background: var(--navy);
+  padding: 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.quote-bar::before {
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;height:3px;
+  background: linear-gradient(to right, var(--teal-dark), var(--gold), var(--teal-dark));
+}
+.quote-bar-inner {
+  max-width: 860px;
+  position: relative;
+}
+.quote-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: rgba(255,255,255,.92);
+  line-height: 1.6;
+  transition: opacity .5s ease, transform .5s ease;
+}
+.quote-text.fade-out {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.quote-source {
+  font-family: var(--font-mono);
+  font-size: .65rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: .6rem;
+  transition: opacity .5s ease;
+}
+.quote-source.fade-out { opacity: 0; }
+.quote-dots {
+  display: flex;
+  justify-content: center;
+  gap: .4rem;
+  margin-top: 1rem;
+}
+.quote-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.2);
+  transition: background .3s;
+  cursor: pointer;
+}
+.quote-dot.active { background: var(--gold); }
+.contact-section { background: var(--navy) !important; color: var(--white); }
+.contact-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+.contact-block h3 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; color: var(--white); margin-bottom: 1rem; }
+.contact-block p { font-size: .95rem; color: rgba(255,255,255,.6); line-height: 1.8; margin-bottom: 1.5rem; }
+.contact-cta { display: inline-block; background: var(--teal); color: var(--white); font-size: .88rem; font-weight: 500; letter-spacing: .05em; padding: .85rem 2rem; text-decoration: none; transition: background .2s; }
+.contact-cta:hover { background: var(--teal-dark); }
+.wam-panel { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.15); border-top: 3px solid var(--gold); padding: 2.5rem; }
+.wam-panel h4 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; color: var(--gold); margin-bottom: .5rem; }
+.wam-panel p { font-size: .88rem; color: rgba(255,255,255,.6); line-height: 1.75; margin-bottom: 1.5rem; }
+.wam-link { display: inline-flex; align-items: center; gap: .5rem; font-size: .85rem; font-weight: 500; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(181,131,42,.4); padding-bottom: .2rem; }
+
+/* FOOTER */
+footer { background: #111; color: rgba(255,255,255,.35); padding: 2.5rem 3rem; display: flex; justify-content: space-between; align-items: center; }
+footer p { font-family: var(--font-mono); font-size: .65rem; letter-spacing: .08em; }
+footer em { font-family: var(--font-display); font-style: italic; font-size: .85rem; color: rgba(255,255,255,.2); }
+
+/* LANG */
+body.lang-ja .en { display: none !important; }
+body.lang-ja .ja { display: block !important; }
+body.lang-en .ja { display: none !important; }
+body.lang-en .en { display: block !important; }
+.ja { display: none; }
+
+/* FADE */
+.fade-in { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width:900px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+  section { padding: 4rem 1.5rem; }
+  .hero { padding: 4rem 1.5rem 3.5rem; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-stats { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .pub-grid { grid-template-columns: 1fr; }
+  .media-featured { grid-template-columns: 1fr; }
+  .media-grid { grid-template-columns: 1fr 1fr; }
+  .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+}
+@media (max-width:600px) {
+  .media-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body class="lang-en">
+
+<nav>
+  <a class="nav-logo" href="#top">Shun <span>Yanagisawa</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#speaking">Speaking</a></li>
+    <li><a href="#media">Media</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="lang-toggle" onclick="toggleLang()">日本語</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag en">Market Infrastructure · Clearing · Thought · Tokyo</div>
+      <div class="hero-tag ja">市場インフラ · 清算 · 思想 · 東京</div>
+      <h1>Shun Yanagisawa</h1>
+      <div class="hero-name-jp">柳沢 俊</div>
+      <p class="hero-question en">How do humans design trust and order<br>within complex, uncertain systems?</p>
+      <p class="hero-question ja">複雑で不確実な世界に、人間はいかにして<br>秩序と信頼を設計するか。</p>
+      <div class="hero-roles">
+        <div class="hero-role"><strong>Director</strong> · Citi Japan — Futures / OTC Clearing / FX PB</div>
+        <div class="hero-role"><strong>Vice President</strong> · FIA Japan</div>
+        <div class="hero-role"><strong>JSCC</strong> IR Swap Steering Committee</div>
+        <div class="hero-role"><strong>Author</strong> — Derivatives Clearing &amp; SF Fiction</div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">20+</div>
+        <div class="hero-stat-label">Years in<br>Market Infrastructure</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">2</div>
+        <div class="hero-stat-label">Books<br>Published 2026</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">65+</div>
+        <div class="hero-stat-label">Global Firms<br>via JSCC</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROTATING QUOTE BAR -->
+<div class="quote-bar" id="quoteBar">
+  <div class="quote-bar-inner">
+    <div class="quote-text" id="quoteText"></div>
+    <div class="quote-source" id="quoteSource"></div>
+    <div class="quote-dots" id="quoteDots"></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2 class="section-title en">About</h2>
+      <h2 class="section-title ja">プロフィール</h2>
+      <span class="section-sub en">Background &amp; Expertise</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-body fade-in">
+        <p class="en"><strong>Shun Yanagisawa</strong> is Director and Head of Futures, OTC Clearing &amp; FX Prime Brokerage at Citi Japan, with over twenty years at the frontier of global financial market infrastructure. His career spans <em>J.P. Morgan</em> (eleven years), Citi Japan, and early ventures in Japan's dot-com era — establishing a distinctive vantage point at the convergence of market structure, regulatory policy, and systems design.</p>
+        <p class="en">He is a central figure in Japan's clearing and rates ecosystem, serving on the boards and working groups of <strong>FIA Japan</strong>, <strong>JSCC</strong>, <strong>ISDA Japan</strong>, and <strong>TFX</strong>. His work has directly shaped landmark developments including JSCC Agency Repo Clearing, cross-product margining, TONA futures, and the <strong>CFTC No-Action Letter</strong> enabling US hedge funds to access JPY IRS clearing via JSCC.</p>
+        <p class="en">Beyond technical expertise, Yanagisawa approaches market infrastructure as a profound human question: <em>how trust is engineered at scale</em>, and what clearing architecture reveals about civilization's relationship with risk and uncertainty. This perspective informs both his professional work and his writing — from specialist reference works to speculative fiction.</p>
+        <p class="ja"><strong>柳沢 俊</strong>は、シティグループ証券株式会社にてフューチャーズ・OTCクリアリング・FXプライムブローカレッジ部門のDirectorを務める。20年超にわたり国際金融市場インフラの最前線に立ち、J.P. Morgan（11年）、Citi、そして日本のドットコム時代の起業経験を経て、市場構造・規制政策・システム設計の交差点に独自の視座を確立してきた。</p>
+        <p class="ja">FIA Japan副会長・JSCC金利スワップ運営委員会・ISDA日本OTCデリバティブ規制WGなどに参画し、JSCCエージェンシーレポクリアリング、クロスプロダクトマージン、TONAフューチャーズ、CFTCノーアクションレターなど、日本の清算エコシステムの形成に中心的に関与している。</p>
+      </div>
+      <div class="cred-panel fade-in">
+
+        <div class="cred-section">
+          <div class="cred-title">
+            <span class="en">Current Positions</span>
+            <span class="ja">現職</span>
+          </div>
+          <div class="cred-item">
+            <span class="cred-name">
+              <span class="en">Director, Head of Futures / OTC Clearing / FX PB</span>
+              <span class="ja">ディレクター<br><small style="font-size:.8em;color:var(--text-light);">先物・OTCクリアリング・FXプライムブローカレッジ部長</small></span>
+            </span>
+            <span class="cred-org">Citi Japan</span>
+          </div>
+          <div class="cred-item">
+            <span class="cred-name">
+              <span class="en">Board Member, Vice President</span>
+              <span class="ja">理事・副会長</span>
+            </span>
+            <span class="cred-org">FIA Japan</span>
+          </div>
+          <div class="cred-item">
+            <span class="cred-name">
+              <span class="en">IR Swap Steering Committee</span>
+              <span class="ja">金利スワップ運営委員会 委員</span>
+            </span>
+            <span class="cred-org">JSCC</span>
+          </div>
+          <div class="cred-item">
+            <span class="cred-name">
+              <span class="en">Listed Derivatives Reform WG</span>
+              <span class="ja">上場デリバティブ改革WG 委員</span>
+            </span>
+            <span class="cred-org">JSCC</span>
+          </div>
+          <div class="cred-item">
+            <span class="cred-name">
+              <span class="en">OTC Derivatives Regulations WG</span>
+              <span class="ja">OTCデリバティブ規制WG 委員</span>
+            </span>
+            <span class="cred-org">ISDA Japan</span>
+          </div>
+        </div>
+
+        <div class="cred-section">
+          <div class="cred-title">
+            <span class="en">Career</span>
+            <span class="ja">職歴</span>
+          </div>
+          <div class="cred-item">
+            <span class="cred-name">
+              <span class="en">Director — Futures, OTC Clearing, FX PB</span>
+              <span class="ja">ディレクター — 先物・OTCクリアリング・FXプライムブローカレッジ</span>
+            </span>
+            <span class="cred-org">Citi Japan</span>
+          </div>
+          <div class="cred-item">
+            <span class="cred-name">
+              <span class="en">Derivatives Clearing &amp; Electronic Trading</span>
+              <span class="ja">デリバティブ・クリアリング・電子取引</span>
+            </span>
+            <span class="cred-org">J.P. Morgan · <span class="en">11 yrs</span><span class="ja">11年</span></span>
+          </div>
+          <div class="cred-item">
+            <span class="cred-name">
+              <span class="en">Founder — IT Ventures (Ad-tech / E-commerce)</span>
+              <span class="ja">創業者 — ITベンチャー（CRM・電子商取引）</span>
+            </span>
+            <span class="cred-org"><span class="en">Early career</span><span class="ja">キャリア初期</span></span>
+          </div>
+        </div>
+
+        <div class="cred-section">
+          <div class="cred-title">
+            <span class="en">Education &amp; Executive Development</span>
+            <span class="ja">学歴・エグゼクティブ教育</span>
+          </div>
+          <div class="cred-item">
+            <span class="cred-name">
+              <span class="en">MBA — University of Wales</span>
+              <span class="ja">MBA — ウェールズ大学</span>
+            </span>
+            <span class="cred-org">2007</span>
+          </div>
+          <div class="cred-item">
+            <span class="cred-name">
+              <span class="en">Executive Education — Harvard Business School</span>
+              <span class="ja">エグゼクティブ教育 — ハーバード・ビジネス・スクール</span>
+            </span>
+            <span class="cred-org">2026</span>
+          </div>
+          <div class="cred-item">
+            <span class="cred-name">
+              <span class="en">Outside Board Director Training — BDTI</span>
+              <span class="ja">社外取締役養成プログラム — BDTI</span>
+            </span>
+            <span class="cred-org">2025</span>
+          </div>
+          <div class="cred-item">
+            <span class="cred-name">
+              <span class="en">Executive Program — Henley Business School</span>
+              <span class="ja">エグゼクティブプログラム — ヘンリー・ビジネス・スクール</span>
+            </span>
+            <span class="cred-org">2018–19</span>
+          </div>
+          <div class="cred-item">
+            <span class="cred-name">
+              <span class="en">Executive Education — Columbia Business School</span>
+              <span class="ja">エグゼクティブ教育 — コロンビア・ビジネス・スクール</span>
+            </span>
+            <span class="cred-org">2019</span>
+          </div>
+          <div class="cred-item">
+            <span class="cred-name">
+              <span class="en">Executive Education — Yale School of Management</span>
+              <span class="ja">エグゼクティブ教育 — イェール・スクール・オブ・マネジメント</span>
+            </span>
+            <span class="cred-org">2023</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- KEY TOPICS -->
+    <div class="topic-tags fade-in">
+      <span style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-light);align-self:center;padding-right:.5rem;"><span class="en">Key Topics</span><span class="ja">専門領域</span></span>
+      <span class="topic-tag">OTC Clearing / クリアリング</span>
+      <span class="topic-tag">CCP Architecture</span>
+      <span class="topic-tag">Client Clearing</span>
+      <span class="topic-tag">FX Prime Brokerage</span>
+      <span class="topic-tag">Cross-Product Margining</span>
+      <span class="topic-tag">JSCC</span>
+      <span class="topic-tag">TONA Futures</span>
+      <span class="topic-tag">JGB Futures</span>
+      <span class="topic-tag">Japan Rates Market / 円金利市場</span>
+      <span class="topic-tag">CFTC No-Action Letter</span>
+      <span class="topic-tag">Agency Repo Clearing</span>
+      <span class="topic-tag">Default Management</span>
+      <span class="topic-tag">Initial Margin / IM Model</span>
+      <span class="topic-tag">VAR Margining</span>
+      <span class="topic-tag">OTC Derivatives Regulation</span>
+      <span class="topic-tag">Dodd-Frank / EMIR</span>
+      <span class="topic-tag">Basel III</span>
+      <span class="topic-tag gold">Derivatives Clearing (著書)</span>
+      <span class="topic-tag gold">SF Novel (阿頼耶識の海)</span>
+      <span class="topic-tag gold">Market Infrastructure Design</span>
+    </div>
+  </div>
+</section>
+<section id="publications">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2 class="section-title en">Publications</h2>
+      <h2 class="section-title ja">著作</h2>
+      <span class="section-sub en">Books &amp; Writings</span>
+    </div>
+    <div class="pub-grid">
+
+      <div class="pub-card fade-in">
+        <div class="pub-img-header">
+          <div class="pub-year-badge">2026</div>
+          <img src="book-cover.png" alt="デリバティブ・クリアリングのすべて 書影">
+        </div>
+        <div class="pub-body">
+          <div class="pub-label en" style="color:var(--teal-dark);">Specialist Reference · Japanese</div>
+          <div class="pub-label ja" style="color:var(--teal-dark);">専門書 · 日本語</div>
+          <h3>Derivatives Clearing: The Complete Guide</h3>
+          <div class="pub-jp2">デリバティブ・クリアリングのすべて<br><span style="font-size:.82rem;">リスク管理、規制、そして市場の未来</span></div>
+          <p class="en">The definitive Japanese-language reference on derivatives clearing. Drawing on twenty years at the frontline, this practitioner's handbook covers CCP architecture, margin mechanics, regulatory frameworks, and the future of Japan's clearing ecosystem.</p>
+          <p class="ja">デリバティブ清算を網羅する日本語初の本格専門書。CCP設計、マージンの力学、規制フレームワーク（バーゼルIII・EMIR・ドッドフランク）から日本市場の将来像まで、20年の実務から書き下ろした実務家向けCCPハンドブック。</p>
+          <div class="pub-tags">
+            <span class="pub-tag" style="background:var(--teal-dark);color:#fff;border-color:var(--teal-dark);">出版済 2026年2月</span>
+            <span class="pub-tag gold">単著</span>
+          </div>
+          <a href="https://amzn.asia/d/00Aawrf8" target="_blank"
+             style="display:inline-flex;align-items:center;gap:.5rem;margin-top:1.2rem;
+                    font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;
+                    background:#FF9900;color:#fff;padding:.5rem 1.1rem;text-decoration:none;
+                    font-weight:500;transition:opacity .2s;"
+             onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13.23 10.56V10c-1.94.02-3.99.37-3.99 2.67 0 1.16.61 1.95 1.63 1.95.76 0 1.43-.47 1.86-1.22.52-.93.5-1.79.5-2.84zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.23 13.24c-.28.2-.57.36-.89.36-1.14 0-1.81-.87-1.81-2.17 0-1.8 1.29-2.17 2.53-2.17.35 0 .7.05 1.04.09v-.38c0-.77-.03-1.45-1.05-1.45-.81 0-1.35.39-1.75.94l-.96-.96c.73-.83 1.7-1.3 2.74-1.3 1.92 0 2.78 1.08 2.78 2.96v2.75c0 .7.28 1.01.85 1.01.07 0 .14-.01.21-.03l.12.94c-.24.07-.54.11-.84.11-.76 0-1.42-.32-1.78-.9z"/></svg>
+            <span class="en">Buy on Amazon →</span>
+            <span class="ja">Amazonで購入 →</span>
+          </a>
+
+          <!-- Book excerpt toggle -->
+          <div style="margin-top:1.5rem;border-top:1px solid var(--border-light);padding-top:1.2rem;">
+            <button onclick="toggleExcerpt(this)"
+              style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;
+                     color:var(--teal-dark);background:none;border:1px solid var(--teal-dark);
+                     padding:.35rem .9rem;cursor:pointer;transition:all .2s;"
+              onmouseover="this.style.background='var(--teal-dark)';this.style.color='white'"
+              onmouseout="this.style.background='none';this.style.color='var(--teal-dark)'">
+              <span class="en">▸ Read Excerpt</span>
+              <span class="ja">▸ 本文抜粋を読む</span>
+            </button>
+            <div class="book-excerpt" style="display:none; margin-top:1.2rem;">
+
+              <div style="margin-bottom:1.5rem;">
+                <div style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.6rem;"><span class="en">From the Preface / 序章より</span><span class="ja">序章より</span></div>
+                <blockquote style="border-left:3px solid var(--teal-dark);padding-left:1rem;font-style:italic;color:var(--text-mid);font-size:.9rem;line-height:1.8;">
+                  <p class="en" style="margin-bottom:.6rem;">"Clearing is not merely a back-office settlement process. It is a field that demands advanced risk management, complex regulatory compliance, and cutting-edge technology — an extraordinarily specialised and strategic discipline."</p>
+                  <p class="ja" style="font-family:var(--font-jp);font-size:.88rem;line-height:2;">「クリアリングが単なる取引後の事務処理（オペレーション）ではなく、高度なリスク管理、複雑な規制への対応、最先端テクノロジーの活用が求められる、極めて専門的かつ戦略的な分野である」</p>
+                </blockquote>
+              </div>
+
+              <div>
+                <div style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.6rem;"><span class="en">From the Afterword / あとがきより</span><span class="ja">あとがきより</span></div>
+                <blockquote style="border-left:3px solid var(--gold);padding-left:1rem;font-style:italic;color:var(--text-mid);font-size:.9rem;line-height:1.8;">
+                  <p class="en" style="margin-bottom:.6rem;">"The clearing ecosystem cannot function with any single player alone. CCPs, clearing members, clients, exchanges, regulators, and technology vendors all relate to one another, forming a single ecology. Only when you can perceive this ecosystem in three dimensions can you truly be said to understand clearing."</p>
+                  <p class="ja" style="font-family:var(--font-jp);font-size:.88rem;line-height:2;">「エコシステムは、単独のプレイヤーだけでは成立しません。CCP、清算参加者、クライアント、取引所、規制当局、テクノロジーベンダーなど、多様な存在が相互に関係しながら、一つの生態系を形作っています。このエコシステムを三次元的に捉えられるようになったとき、初めて『クリアリングを理解した』と言えるのかもしれません。」</p>
+                </blockquote>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub-card fade-in">
+        <div class="pub-dark-header">
+          <div class="pub-year-badge">2026</div>
+          <div class="pub-label">Speculative Fiction · Japanese</div>
+          <h3>The Sea of Ālaya-vijñāna</h3>
+          <div class="pub-jp" style="margin-top:.3rem;">阿頼耶識の海</div>
+        </div>
+        <div class="pub-body">
+          <div class="pub-label en" style="color:var(--teal-dark);">Novel</div>
+          <div class="pub-label ja" style="color:var(--teal-dark);">長編小説</div>
+          <p class="en">A speculative novel weaving together artificial superintelligence, Buddhist consciousness theory (ālaya-vijñāna), and quantum mechanics. Two protagonists navigate the emergence of post-human intelligence and the ethics of designed consciousness. Submitted to the 14th Hayakawa SF Prize (2026).</p>
+          <p class="ja">人工超知能、仏教心理学の阿頼耶識、量子力学（遅延選択実験・ホログラフィック宇宙論）を融合したSF長編。超人間的知性の台頭と、設計された意識の倫理をめぐる二人の主人公の物語。第14回早川SFコンテスト応募作（2026年）。</p>
+          <div class="pub-tags">
+            <span class="pub-tag gold">Hayakawa SF Prize 2026</span>
+            <span class="pub-tag">14th Edition</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SPEAKING -->
+<section id="speaking">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2 class="section-title en">Speaking &amp; Panels</h2>
+      <h2 class="section-title ja">登壇・パネル履歴</h2>
+      <span class="section-sub en">Selected Engagements</span>
+    </div>
+    <!-- Speaking table -->
+    <div class="fade-in" style="overflow-x:auto;">
+      <table class="speaking-table">
+        <thead>
+          <tr>
+            <th style="width:110px;"><span class="en">Date</span><span class="ja">日時</span></th>
+            <th><span class="en">Event / Topic</span><span class="ja">イベント・テーマ</span></th>
+            <th style="width:130px;"><span class="en">Role</span><span class="ja">役割</span></th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr class="upcoming">
+            <td class="td-date"><span class="en">May 2026</span><span class="ja">2026年5月</span><br><em style="color:var(--gold-dark);font-size:.58rem;font-style:normal;"><span class="en">Upcoming</span><span class="ja">予定</span></em></td>
+            <td>
+              <div class="td-title">
+                <span class="en">Clearing, Collateral &amp; the Cost of Hedging in Volatility: JGB Scarcity, Margin &amp; Repo Reality</span>
+                <span class="ja">クリアリング、担保、そして円変動リスクヘッジのコスト：JGB希少性・マージン・レポの現実</span>
+              </div>
+              <div class="td-org">
+                <span class="en">Risk Live Japan 2026 · Financial Risk &amp; Capital Strategy · Tokyo · <a href="https://japan.risklive.net/en/programme" target="_blank" style="color:var(--teal-dark);text-decoration:none;border-bottom:1px solid var(--teal-dark);">Programme →</a></span>
+                <span class="ja">Risk Live Japan 2026 · 金融リスクと資本戦略 · 東京 · <a href="https://japan.risklive.net/en/programme" target="_blank" style="color:var(--teal-dark);text-decoration:none;border-bottom:1px solid var(--teal-dark);">プログラム →</a></span>
+              </div>
+              <div style="margin-top:.6rem;font-size:.78rem;color:var(--text-muted);line-height:1.55;" class="en">
+                YCC post-transition margin model impacts · IM/VM burdens on regional banks · Collateral scarcity and transformation services · Clearing strategies to reduce liquidity strain
+              </div>
+              <div style="margin-top:.6rem;font-size:.78rem;color:var(--text-muted);line-height:1.55;font-family:var(--font-jp);" class="ja">
+                YCC移行後の証拠金モデルへの影響 · 地方銀行へのIM/VM負荷と二極化リスク · 担保不足と担保転換サービスの役割 · 流動性負担軽減のためのクリアリング戦略
+              </div>
+            </td>
+            <td class="td-role"><span class="role-badge upcoming"><span class="en">Panelist</span><span class="ja">パネリスト</span></span></td>
+          </tr>
+
+          <tr class="upcoming">
+            <td class="td-date"><span class="en">Jan 2027</span><span class="ja">2027年1月</span><br><em style="color:var(--gold-dark);font-size:.58rem;font-style:normal;"><span class="en">Upcoming</span><span class="ja">予定</span></em></td>
+            <td>
+              <div class="td-title"><span class="en">Spotlight on Japan Rates Markets</span><span class="ja">日本金利市場の現在と展望</span></div>
+              <div class="td-org"><span class="en">FIA Japan New Year Panel · Tokyo</span><span class="ja">FIA Japan 新年パネル · 東京</span></div>
+            </td>
+            <td class="td-role"><span class="role-badge upcoming"><span class="en">Moderator</span><span class="ja">モデレーター</span></span></td>
+          </tr>
+
+          <tr>
+            <td class="td-date"><span class="en">Jan 2026</span><span class="ja">2026年1月</span></td>
+            <td>
+              <div class="td-title"><span class="en">Yen Rates Markets — Two-Way Flow Returns After 20 Years</span><span class="ja">円金利市場 — 20年ぶりの双方向フロー回帰</span></div>
+              <div class="td-org"><span class="en">JPX Panel · Ministry of Finance, Buy-side, Sell-side &amp; Exchange Representatives · Tokyo</span><span class="ja">JPXパネル · 財務省・バイサイド・セルサイド・取引所代表参加 · 東京</span></div>
+            </td>
+            <td class="td-role"><span class="role-badge moderator"><span class="en">Moderator</span><span class="ja">モデレーター</span></span></td>
+          </tr>
+
+          <tr>
+            <td class="td-date"><span class="en">2025</span><span class="ja">2025年</span></td>
+            <td>
+              <div class="td-title"><span class="en">JSCC Agency Repo Clearing — Structure &amp; Market Impact</span><span class="ja">JSCCエージェンシーレポクリアリング — 構造と市場への影響</span></div>
+              <div class="td-org"><span class="en">JSCC / Industry Workshop · Tokyo</span><span class="ja">JSCC 業界ワークショップ · 東京</span></div>
+            </td>
+            <td class="td-role"><span class="role-badge panelist"><span class="en">Panelist</span><span class="ja">パネリスト</span></span></td>
+          </tr>
+
+          <tr>
+            <td class="td-date"><span class="en">2025</span><span class="ja">2025年</span></td>
+            <td>
+              <div class="td-title"><span class="en">Cross-Product Margining: Repo, IRS &amp; Listed Futures</span><span class="ja">クロスプロダクト・マージン：レポ・IRS・上場先物</span></div>
+              <div class="td-org"><span class="en">FIA Japan Conference · Tokyo</span><span class="ja">FIA Japan コンファレンス · 東京</span></div>
+            </td>
+            <td class="td-role"><span class="role-badge panelist"><span class="en">Panelist</span><span class="ja">パネリスト</span></span></td>
+          </tr>
+
+          <tr>
+            <td class="td-date"><span class="en">2024</span><span class="ja">2024年</span></td>
+            <td>
+              <div class="td-title"><span class="en">FIA Japan Board Meeting with CFTC Chairman</span><span class="ja">FIA Japan 理事会 — CFTC委員長との意見交換</span></div>
+              <div class="td-org"><span class="en">FIA Japan · Guest: CFTC Chairman Rostin Behnam</span><span class="ja">FIA Japan · ゲスト：CFTC委員長 Rostin Behnam氏</span></div>
+            </td>
+            <td class="td-role"><span class="role-badge moderator"><span class="en">Host</span><span class="ja">ホスト</span></span></td>
+          </tr>
+
+          <tr>
+            <td class="td-date"><span class="en">2024</span><span class="ja">2024年</span></td>
+            <td>
+              <div class="td-title"><span class="en">Japan Derivatives Markets Forum (200 delegates)</span><span class="ja">日本デリバティブ市場フォーラム（参加者200名）</span></div>
+              <div class="td-org"><span class="en">JPX · FIA Japan · Guest: CFTC Commissioner Caroline Pham · Tokyo</span><span class="ja">JPX · FIA Japan主催 · ゲスト：CFTCコミッショナー Caroline Pham氏 · 東京</span></div>
+            </td>
+            <td class="td-role"><span class="role-badge moderator"><span class="en">Organizer</span><span class="ja">オーガナイザー</span></span></td>
+          </tr>
+
+          <tr>
+            <td class="td-date"><span class="en">2024</span><span class="ja">2024年</span></td>
+            <td>
+              <div class="td-title"><span class="en">TONA Futures: Market Readiness and Clearing Considerations</span><span class="ja">TONAフューチャーズ：市場の準備状況とクリアリングの論点</span></div>
+              <div class="td-org"><span class="en">JPX Seminar · Tokyo</span><span class="ja">JPX セミナー · 東京</span></div>
+            </td>
+            <td class="td-role"><span class="role-badge panelist"><span class="en">Panelist</span><span class="ja">パネリスト</span></span></td>
+          </tr>
+
+          <tr>
+            <td class="td-date">2024</td>
+            <td>
+              <div class="td-title">Evolution of Japan's Derivatives Market — JSCC 10th Anniversary</div>
+              <div class="td-org">JSCC 10th Anniversary Event · Tokyo</div>
+            </td>
+            <td class="td-role"><span class="role-badge panelist">Panelist</span></td>
+          </tr>
+
+          <tr>
+            <td class="td-date">2024</td>
+            <td>
+              <div class="td-title">OTC Derivatives Regulatory Reform in Japan</div>
+              <div class="td-org">ISDA Japan Annual Symposium · Tokyo</div>
+            </td>
+            <td class="td-role"><span class="role-badge panelist">Panelist</span></td>
+          </tr>
+
+          <tr>
+            <td class="td-date"><span class="en">2023</span><span class="ja">2023年</span></td>
+            <td>
+              <div class="td-title"><span class="en">CCP Resilience and Default Management in Asia-Pacific</span><span class="ja">アジア太平洋地域におけるCCPの強靭性とデフォルト管理</span></div>
+              <div class="td-org"><span class="en">Citi Global Markets Forum · Tokyo / Singapore</span><span class="ja">Citi グローバル・マーケッツ・フォーラム · 東京 / シンガポール</span></div>
+            </td>
+            <td class="td-role"><span class="role-badge speaker"><span class="en">Speaker</span><span class="ja">スピーカー</span></span></td>
+          </tr>
+
+          <tr>
+            <td class="td-date"><span class="en">2023</span><span class="ja">2023年</span></td>
+            <td>
+              <div class="td-title"><span class="en">JGB 20-Year Futures: Clearing Structure and Adoption</span><span class="ja">JGB20年先物：清算スキームと市場普及</span></div>
+              <div class="td-org"><span class="en">JPX / FIA Japan Joint Seminar · Tokyo</span><span class="ja">JPX / FIA Japan 合同セミナー · 東京</span></div>
+            </td>
+            <td class="td-role"><span class="role-badge panelist"><span class="en">Panelist</span><span class="ja">パネリスト</span></span></td>
+          </tr>
+
+          <tr>
+            <td class="td-date"><span class="en">Oct 2019</span><span class="ja">2019年10月</span></td>
+            <td>
+              <div class="td-title"><span class="en">The Path to Post-Trade Efficiency</span><span class="ja">ポストトレード効率化への道筋</span></div>
+              <div class="td-org"><span class="en">ISDA Annual Japan Conference · Tokyo</span><span class="ja">ISDA 年次日本会議 · 東京</span></div>
+            </td>
+            <td class="td-role"><span class="role-badge panelist"><span class="en">Panelist</span><span class="ja">パネリスト</span></span></td>
+          </tr>
+
+          <tr>
+            <td class="td-date"><span class="en">Oct 2019</span><span class="ja">2019年10月</span></td>
+            <td>
+              <div class="td-title"><span class="en">IBOR Reforms and Implementation Across Key Venues</span><span class="ja">IBOR改革と主要市場での実装</span></div>
+              <div class="td-org"><span class="en">Citi Derivatives Conference · Tokyo</span><span class="ja">Citi デリバティブ・コンファレンス · 東京</span></div>
+            </td>
+            <td class="td-role"><span class="role-badge moderator"><span class="en">Moderator</span><span class="ja">モデレーター</span></span></td>
+          </tr>
+
+          <tr>
+            <td class="td-date"><span class="en">Sep 2019</span><span class="ja">2019年9月</span></td>
+            <td>
+              <div class="td-title"><span class="en">OTC Derivatives Clearing &amp; Collateral Management</span><span class="ja">OTCデリバティブ・クリアリングと担保管理</span></div>
+              <div class="td-org"><span class="en">TNF Japan Market Seminar · Tokyo</span><span class="ja">TNF 日本市場セミナー · 東京</span></div>
+            </td>
+            <td class="td-role"><span class="role-badge moderator"><span class="en">Moderator</span><span class="ja">モデレーター</span></span></td>
+          </tr>
+
+          <tr>
+            <td class="td-date"><span class="en">Jul 2019</span><span class="ja">2019年7月</span></td>
+            <td>
+              <div class="td-title"><span class="en">The Transition and Future State of Post-Trade Operations</span><span class="ja">ポストトレード業務の移行と将来像</span></div>
+              <div class="td-org"><span class="en">Tokyo Financial Information &amp; Technology Summit · Tokyo</span><span class="ja">東京フィナンシャル・インフォメーション＆テクノロジー・サミット · 東京</span></div>
+            </td>
+            <td class="td-role"><span class="role-badge panelist"><span class="en">Panelist</span><span class="ja">パネリスト</span></span></td>
+          </tr>
+
+          <tr>
+            <td class="td-date"><span class="en">Oct 2018</span><span class="ja">2018年10月</span></td>
+            <td>
+              <div class="td-title"><span class="en">Clearing Incentives, Systemic Risk and Margining</span><span class="ja">清算インセンティブ、システミックリスクと証拠金</span></div>
+              <div class="td-org"><span class="en">ISDA Annual Japan Conference · Tokyo</span><span class="ja">ISDA 年次日本会議 · 東京</span></div>
+            </td>
+            <td class="td-role"><span class="role-badge panelist"><span class="en">Panelist</span><span class="ja">パネリスト</span></span></td>
+          </tr>
+
+          <tr>
+            <td class="td-date"><span class="en">2015</span><span class="ja">2015年</span></td>
+            <td>
+              <div class="td-title"><span class="en">Reviewing the Three Rs — Resilience, Recovery and Resolution: Global Policy Solutions for CCPs</span><span class="ja">CCPの3R再考 — 強靱性・再建・破綻処理：グローバルな政策解決策</span></div>
+              <div class="td-org"><span class="en">ISDA Annual Japan Conference · Tokyo</span><span class="ja">ISDA 年次日本会議 · 東京</span></div>
+            </td>
+            <td class="td-role"><span class="role-badge panelist"><span class="en">Panelist</span><span class="ja">パネリスト</span></span></td>
+          </tr>
+
+          <tr style="background:var(--off-white);">
+            <td class="td-date" style="color:var(--text-light);font-style:italic;"><span class="en">2013–present</span><span class="ja">2013年〜現在</span></td>
+            <td>
+              <div class="td-title" style="color:var(--text-muted);font-weight:400;"><span class="en">Asia Risk Congress, ISDA Global Conferences, JPX Forums, Firm-hosted Seminars</span><span class="ja">アジア・リスク・コングレス、ISDAglobal、JPXフォーラム、自社主催セミナー等</span></div>
+              <div class="td-org"><span class="en">Regular participation as speaker and panelist across regional and global forums</span><span class="ja">国内外の主要フォーラムに継続的に登壇・パネル参加</span></div>
+            </td>
+            <td class="td-role"><span class="role-badge panelist"><span class="en">Various</span><span class="ja">多数</span></span></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:1rem;font-family:var(--font-mono);font-size:.62rem;color:var(--text-light);letter-spacing:.08em;"><span class="en">Selected engagements 2015–2027. Full history available on request.</span><span class="ja">主要登壇実績 2015〜2027年。詳細な履歴はお問い合わせください。</span></p>
+
+      <div style="margin-top:4rem;">
+      <div class="section-header" style="margin-bottom:2rem;">
+        <h3 class="section-title en" style="font-size:1.4rem;">Industry Memberships &amp; Governance</h3>
+        <h3 class="section-title ja" style="font-size:1.4rem;">業界団体・委員会</h3>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;">
+
+        <div style="padding:1.5rem;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--teal-dark);">
+          <div style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.8rem;">FIA Japan</div>
+          <div style="font-size:.95rem;font-weight:500;color:var(--navy);margin-bottom:.3rem;">
+            <span class="en">Executive Board Member · Vice President</span>
+            <span class="ja">理事 · 副会長</span>
+          </div>
+          <div style="font-size:.85rem;color:var(--text-muted);">
+            <span class="en">Chairman, Operations Committee</span>
+            <span class="ja">オペレーション委員会 委員長</span>
+          </div>
+        </div>
+
+        <div style="padding:1.5rem;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--teal-dark);">
+          <div style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.8rem;">JSCC · 日本証券クリアリング機構</div>
+          <div style="font-size:.95rem;font-weight:500;color:var(--navy);margin-bottom:.3rem;">
+            <span class="en">Interest Rate Swap Steering Committee</span>
+            <span class="ja">金利スワップ運営委員会 委員</span>
+          </div>
+          <div style="font-size:.85rem;color:var(--text-muted);">
+            <span class="en">Listed Derivatives Clearing Working Group</span>
+            <span class="ja">上場デリバティブ清算改革WG 委員</span>
+          </div>
+        </div>
+
+        <div style="padding:1.5rem;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--navy);">
+          <div style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);margin-bottom:.8rem;">ISDA Japan</div>
+          <div style="font-size:.95rem;font-weight:500;color:var(--navy);margin-bottom:.3rem;">
+            <span class="en">OTC Derivatives Regulations Working Group</span>
+            <span class="ja">OTCデリバティブ規制WG 委員</span>
+          </div>
+          <div style="font-size:.85rem;color:var(--text-muted);">
+            <span class="en">Collateral Working Group</span>
+            <span class="ja">コラテラルWG 委員</span>
+          </div>
+        </div>
+
+        <div style="padding:1.5rem;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--navy);">
+          <div style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);margin-bottom:.8rem;">TFX · 東京金融取引所</div>
+          <div style="font-size:.95rem;font-weight:500;color:var(--navy);margin-bottom:.3rem;">
+            <span class="en">Market Steering Committee</span>
+            <span class="ja">マーケット運営委員会 委員</span>
+          </div>
+          <div style="font-size:.85rem;color:var(--text-muted);">
+            <span class="en">IBOR Benchmark Reform Working Group</span>
+            <span class="ja">IBORベンチマーク改革WG 委員</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA -->
+<section id="media">
+  <div class="section-inner">
+    <div class="section-header">
+      <h2 class="section-title en">Media Coverage</h2>
+      <h2 class="section-title ja">メディア掲載</h2>
+      <span class="section-sub en">Press &amp; Interviews</span>
+    </div>
+
+    <!-- Risk.net Dec 2025 -->
+    <div class="media-featured fade-in">
+      <div class="media-badge" style="background:var(--navy);font-size:.9rem;letter-spacing:.02em;">Risk<br>.net</div>
+      <div>
+        <h3>Japan's Yen Swaps Go Global</h3>
+        <div class="media-meta">Risk.net · 16 December 2025 · Sponsored by JPX/JSCC · Quoted Expert</div>
+        <div class="media-summary en">
+          <p style="margin-bottom:.6rem;">Analysis of the landmark opening of JSCC to US investors following the CFTC No-Action Letter (September 12, 2025). Shun Yanagisawa is quoted on the strategic significance:</p>
+          <ul>
+            <li>Citi's long-standing advocacy for open and accessible markets, and support for the expansion of client choice in clearing for US investors</li>
+            <li>Citi's role in clearing the first US client trade on JSCC — the result of years of preparation and close coordination with global clients</li>
+            <li>Strategic priority of a holistic and agnostic market access platform spanning futures, swaps, cash and repo across the entire yen rates ecosystem</li>
+            <li>Context: JSCC's structural dominance — DV01 of USD 1,481 million monthly (2025), 86% market share in tenors beyond 10 years</li>
+          </ul>
+        </div>
+        <div class="media-summary ja">
+          <p style="font-family:var(--font-jp);font-size:.88rem;">CFTCノーアクションレター（2025年9月12日）によるJSCC開放を受けた市場の歴史的転換を分析。柳沢俊がCitiの立場から、米国顧客向け初取引清算の実現と、円金利エコシステム全体にわたるグローバル市場アクセス戦略について語った。</p>
+        </div>
+        <a class="media-link" href="https://www.risk.net/derivatives/7960902/japans-yen-swaps-go-global" target="_blank">→ risk.net (subscription required)</a>
+      </div>
+    </div>
+
+    <!-- FOW Apr 2026 -->
+    <div class="media-featured fade-in">
+      <div class="media-badge">FOW</div>
+      <div>
+        <h3>Japan's Rates Market Sees Liquidity Boost on Policy Shift</h3>
+        <div class="media-meta">Futures &amp; Options World · 9 April 2026 · Karry Lai · Sole Interview Subject</div>
+        <div class="media-summary en">
+          <p style="margin-bottom:.6rem;">In-depth analysis on the structural transformation of Japan's yen rates market, including:</p>
+          <ul>
+            <li>BOJ policy normalisation driving yen swap clearing volumes up 8× since 2021 — JPY 229 trillion daily average in 2025, with a record single-day volume of JPY 146 trillion (Dec 4, 2025)</li>
+            <li>CFTC No-Action Letter (September 2025) enabling US hedge funds — Citadel, Millennium, ExodusPoint et al. — to clear JPY IRS via JSCC; non-Japanese client base expanded to 65 firms</li>
+            <li>Non-resident participants growing from 44% to 65% of cleared notional (Q4 2025)</li>
+            <li>US SEC mandatory Treasury Repo clearing rules and the structural challenge for Japanese megabanks with US branches</li>
+            <li>JGB 10-year futures open interest exceeding JPY 170 trillion by end-2025; 20-year JGB futures open interest surpassing 40,000 lots (Jan 2026)</li>
+          </ul>
+        </div>
+        <div class="media-summary ja">
+          <p style="font-family:var(--font-jp);font-size:.88rem;">BOJ政策正常化を受けた円金利市場の構造転換、CFTCノーアクションレター（2025年9月）による米系ヘッジファンドのJSCC参入（Citadel・Millennium・ExodusPoint等65社）、米国SEC Treasuryレポマンデートが日系銀行に与える影響について詳述。円スワップ日次清算量8倍超（229兆円、2025年）、非居住者シェア65%（2025年Q4）などの具体的データを提供。</p>
+        </div>
+        <a class="media-link" href="https://www.fow.com/insights/analysis-japan-yen-swap-and-futures-markets-see-increasing-liquidity" target="_blank">→ fow.com (subscription required)</a>
+      </div>
+    </div>
+
+    <!-- Risk.net articles grid -->
+    <h3 style="font-family:var(--font-display);font-size:1.2rem;font-weight:400;color:var(--navy);margin-bottom:1.2rem;">Additional Risk.net Coverage</h3>
+    <div class="media-grid">
+
+      <div class="media-card fade-in">
+        <div class="media-outlet">Risk.net</div>
+        <h4>US Hedge Funds Eyeing JSCC After Regulations Eased</h4>
+        <div class="media-date">23 October 2025 · Chris Davis · Direct Quotes</div>
+        <p style="font-size:.82rem;color:var(--text-muted);margin-top:.7rem;line-height:1.6;" class="en">
+          Quoted on liquidity dynamics at JSCC vs. LCH, US client onboarding timeline, and the competitive advantage of JSCC's diverse buy-side ecosystem — particularly in the 20–30 year tenor range.
+        </p>
+        <p style="font-size:.82rem;color:var(--text-muted);margin-top:.7rem;line-height:1.6;font-family:var(--font-jp);" class="ja">
+          JSCCとLCHの流動性比較、米国顧客オンボーディングの時系列、20〜30年ゾーンにおけるJSCCの競争優位について直接コメント。
+        </p>
+      </div>
+
+      <div class="media-card fade-in">
+        <div class="media-outlet">Risk.net <span style="font-size:.58rem;color:var(--text-light);font-family:var(--font-mono);">Sponsored · JPX/JSCC</span></div>
+        <h4>JSCC and the Future of Clearing and Settling Yen-Denominated Trades</h4>
+        <div class="media-date">28 March 2023 · Sponsored Content · Direct Quote</div>
+        <p style="font-size:.82rem;color:var(--text-muted);margin-top:.7rem;line-height:1.6;" class="en">
+          Quoted on the introduction of VAR-based initial margin for exchange-traded derivatives — its role in mitigating margin fluctuation, providing efficiencies for correlated products, and ensuring stability in low-volatility environments.
+        </p>
+        <p style="font-size:.82rem;color:var(--text-muted);margin-top:.7rem;line-height:1.6;font-family:var(--font-jp);" class="ja">
+          上場デリバティブへのVAR方式初期証拠金導入について、相関商品の効率性、低ボラ環境での安定性の観点から直接コメント。
+        </p>
+      </div>
+
+      <div class="media-card fade-in">
+        <div class="media-outlet">Risk.net</div>
+        <h4>LCH Japan Plan Signals New Fight for Global Clearing Model</h4>
+        <div class="media-date">04 January 2023 · Luke Clancy &amp; Chris Davis · Referenced</div>
+        <p style="font-size:.82rem;color:var(--text-muted);margin-top:.7rem;line-height:1.6;" class="en">
+          Referenced as a senior US bank voice in the analysis of LCH's renewed bid for a JFSA licence, global CCP competition, and the CFTC regulatory reform debate around US client access to JSCC.
+        </p>
+        <p style="font-size:.82rem;color:var(--text-muted);margin-top:.7rem;line-height:1.6;font-family:var(--font-jp);" class="ja">
+          LCHのJFSAライセンス再申請、グローバルCCP競争、JSCCへの米国顧客アクスをめぐるCFTC規制改革論議において、米系銀行の代表的見解として参照された。
+        </p>
+      </div>
+
+      <div class="media-card fade-in">
+        <div class="media-outlet">Risk.net <span style="font-size:.58rem;color:var(--text-light);font-family:var(--font-mono);">Sponsored · JPX/JSCC</span></div>
+        <h4>Japan's Yen Swaps Go Global</h4>
+        <div class="media-date">16 December 2025 · Direct Quote · See above</div>
+        <p style="font-size:.82rem;color:var(--text-muted);margin-top:.7rem;line-height:1.6;" class="en">
+          Quoted on Citi's first US client trade cleared on JSCC and the strategic importance of a holistic, agnostic market access platform across the full yen rates ecosystem.
+        </p>
+        <p style="font-size:.82rem;color:var(--text-muted);margin-top:.7rem;line-height:1.6;font-family:var(--font-jp);" class="ja">
+          JSCCでの米国顧客向け初取引清算と、円金利エコシステム全体にわたるアクセスプラットフォームの戦略的意義について直接コメント。
+        </p>
+      </div>
+
+      <div class="media-card fade-in">
+        <div class="media-outlet">FIA Japan</div>
+        <h4>Annual Review: Japan Listed Derivatives Markets</h4>
+        <div class="media-date">2024 · Industry Publication</div>
+        <p style="font-size:.82rem;color:var(--text-muted);margin-top:.7rem;line-height:1.6;" class="en">Contribution to FIA Japan's annual review of listed derivatives market developments, regulatory trends, and infrastructure evolution in Japan.</p>
+      </div>
+
+      <div class="media-card fade-in">
+        <div class="media-outlet">ISDA Japan</div>
+        <h4>OTC Derivatives Regulations Working Group</h4>
+        <div class="media-date">Ongoing · Working Group Member</div>
+        <p style="font-size:.82rem;color:var(--text-muted);margin-top:.7rem;line-height:1.6;" class="en">Active member of ISDA Japan's OTC Derivatives Regulations Working Group, contributing to regulatory policy development and market practice standards.</p>
+      </div>
+
+    </div>
+
+    <div style="margin-top:2rem;padding:1.2rem 1.5rem;background:var(--off-white);border-left:3px solid var(--border);display:flex;align-items:baseline;gap:1rem;">
+      <span style="font-family:var(--font-mono);font-size:.62rem;color:var(--text-light);letter-spacing:.08em;">Key topics commented on:</span>
+      <span style="font-size:.85rem;color:var(--text-muted);">JSCC access for US hedge funds · CFTC No-Action Letter · Yen swap liquidity dynamics · VAR-based initial margin · CCP competition (JSCC vs. LCH) · CFTC regulatory reform</span>
+    </div>
+    <p style="margin-top:1rem;font-family:var(--font-mono);font-size:.62rem;color:var(--text-light);letter-spacing:.08em;">All Risk.net articles available at risk.net · FOW articles at fow.com (subscriptions required)</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="contact-inner">
+    <div class="contact-block fade-in">
+      <h3 class="en">Get in Touch</h3>
+      <h3 class="ja">お問い合わせ</h3>
+      <p class="en">Available for speaking engagements, media enquiries, academic collaboration, policy discussions, and research partnerships. Particularly interested in connecting with practitioners and researchers working at the intersection of market infrastructure, regulation, and systemic design.</p>
+      <p class="ja" style="font-family:var(--font-jp);font-size:.9rem;">講演・メディア取材・学術連携・政策討議・研究パートナーシップのご依頼を受け付けています。市場インフラ・規制・システム設計の交差点で活躍する実務家・研究者との連携を歓迎します。</p>
+      <a class="contact-cta" href="https://www.linkedin.com/in/shun-yanagisawa-579b638/" target="_blank">Connect on LinkedIn →</a>
+    </div>
+    <div class="wam-panel fade-in">
+      <h4>Willow Asset Management</h4>
+      <p class="en">Willow Asset Management LLC (WAM) is Shun Yanagisawa's family office and investment vehicle, encompassing real estate SPVs across Tokyo, renewable energy (Willow Solar Ashikaga), and long-horizon portfolio strategy.</p>
+      <p class="ja" style="font-family:var(--font-jp);font-size:.85rem;">Willow Asset Management（WAM）は東京都内不動産SPV・再生可能エネルギー（Willow Solar足利）・長期ポートフォリオを統合するファミリーオフィスです。</p>
+      <a class="wam-link" href="#" target="_blank">Visit WAM Portal →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Shun Yanagisawa · 柳沢 俊 · Tokyo, Japan</p>
+  <em>How do humans design trust within uncertain systems?</em>
+</footer>
+
+<script>
+// ── LANGUAGE TOGGLE ──
+function toggleLang() {
+  const body = document.body;
+  const btn = document.querySelector('.lang-toggle');
+  if (body.classList.contains('lang-en')) {
+    body.classList.replace('lang-en','lang-ja');
+    btn.textContent = 'English';
+    rotateQuote(currentQuoteIndex); // refresh for lang
+  } else {
+    body.classList.replace('lang-ja','lang-en');
+    btn.textContent = '日本語';
+    rotateQuote(currentQuoteIndex);
+  }
+}
+
+// ── FADE IN ──
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+// ── ROTATING QUOTES ──
+const quotes = [
+  {
+    en: '"Liquidity is everything in this environment. JSCC is not only broker-dealer but also the Japanese buy side — the life insurers and regional banks — and diverse client segments. It\'s going to be a great thing for US clients to have that liquidity, especially in the 20-to-30-year range."',
+    ja: '「この市場において、流動性がすべてです。JSCCはブローカー・ディーラーだけでなく、生命保険会社や地方銀行といった日本のバイサイドも含む多様なクライアントセグメントを持っています。特に20〜30年ゾーンの流動性は、米国顧客にとって大きな恩恵となるでしょう。」',
+    src_en: 'Risk.net, October 2025',
+    src_ja: 'Risk.net、2025年10月'
+  },
+  {
+    en: '"Clearing is not merely a back-office settlement process. It is a field that demands advanced risk management, complex regulatory compliance, and cutting-edge technology — an extraordinarily specialised and strategic discipline."',
+    ja: '「クリアリングは単なる事務処理ではない。高度なリスク管理、複雑な規制対応、最先端テクノロジーが求められる、極めて専門的かつ戦略的な分野だ。」',
+    src_en: 'Derivatives Clearing: The Complete Guide (2026) — Preface',
+    src_ja: '『デリバティブ・クリアリングのすべて』（2026年）序章より'
+  },
+  {
+    en: '"The no-action relief finally levels the playing field. Providing seamless access to Japan\'s markets is a key global priority for Citi — our mission is to provide a holistic and agnostic market access platform for global investors."',
+    ja: '「ノーアクションレターはようやく競争条件を平等にしました。日本市場へのシームレスなアクス提供はCitiのグローバル重要課題であり、我々の使命は全資産クラスにわたる市場アクセス・プラットフォームの提供です。」',
+    src_en: 'Risk.net, December 2025',
+    src_ja: 'Risk.net、2025年12月'
+  },
+  {
+    en: '"Only when you can perceive the clearing ecosystem in three dimensions — connecting the dots of CCP, clearing members, clients, exchanges, regulators, and technology — can you truly be said to understand clearing."',
+    ja: '「CCP、清算参加者、クライアント、取引所、規制当局、テクノロジーベンダーの関係を立体的に捉えられるようになったとき、初めて『クリアリングを理解した』と言えるのかもしれません。」',
+    src_en: 'Derivatives Clearing: The Complete Guide (2026) — Afterword',
+    src_ja: '『デリバティブ・クリアリングのすべて』（2026年）あとがきより'
+  },
+  {
+    en: '"After raising the policy rate to 0.5% and further to 0.75%, market volatility and trading activity have surged across both OTC swaps and listed derivatives. We are at a genuine liquidity inflection point for the yen rates market."',
+    ja: '「政策金利が0.5%、さらに0.75%へと引き上げられた後、OTCスワップと上場デリバティブ双方で市場の変動性と取引活動が急増しました。円金利市場は真の流動性変曲点にあります。」',
+    src_en: 'FOW (Futures & Options World), April 2026',
+    src_ja: 'FOW（Futures & Options World）、2026年4月'
+  }
+];
+
+let currentQuoteIndex = Math.floor(Math.random() * quotes.length);
+let quoteTimer;
+
+function isJa() { return document.body.classList.contains('lang-ja'); }
+
+function rotateQuote(idx) {
+  const textEl = document.getElementById('quoteText');
+  const srcEl  = document.getElementById('quoteSource');
+  const q = quotes[idx];
+  if (!textEl || !q) return;
+
+  textEl.classList.add('fade-out');
+  srcEl.classList.add('fade-out');
+
+  setTimeout(() => {
+    textEl.textContent = isJa() ? q.ja : q.en;
+    srcEl.textContent  = isJa() ? q.src_ja : q.src_en;
+    textEl.classList.remove('fade-out');
+    srcEl.classList.remove('fade-out');
+    // update dots
+    document.querySelectorAll('.quote-dot').forEach((d,i) => {
+      d.classList.toggle('active', i === idx);
+    });
+  }, 460);
+}
+
+function nextQuote() {
+  currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+  rotateQuote(currentQuoteIndex);
+}
+
+// Init dots
+const dotsEl = document.getElementById('quoteDots');
+quotes.forEach((_, i) => {
+  const d = document.createElement('span');
+  d.className = 'quote-dot' + (i === currentQuoteIndex ? ' active' : '');
+  d.onclick = () => { clearInterval(quoteTimer); currentQuoteIndex = i; rotateQuote(i); quoteTimer = setInterval(nextQuote, 6000); };
+  dotsEl.appendChild(d);
+});
+
+rotateQuote(currentQuoteIndex);
+quoteTimer = setInterval(nextQuote, 6000);
+
+// ── BOOK EXCERPT TOGGLE ──
+function toggleExcerpt(btn) {
+  const excerpt = btn.parentElement.querySelector('.book-excerpt');
+  const isOpen = excerpt.style.display !== 'none';
+  excerpt.style.display = isOpen ? 'none' : 'block';
+  const enSpan = btn.querySelector('.en');
+  const jaSpan = btn.querySelector('.ja');
+  if (enSpan) enSpan.textContent = isOpen ? '▸ Read Excerpt' : '▾ Close Excerpt';
+  if (jaSpan) jaSpan.textContent = isOpen ? '▸ 本文抜粋を読む' : '▾ 閉じる';
+}
+</script>
+</body>
+</html>
