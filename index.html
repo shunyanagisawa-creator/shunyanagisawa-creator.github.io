@@ -143,8 +143,8 @@ section:nth-child(even) { background: var(--off-white); }
 .pub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
 .pub-card { background: var(--white); border: 1px solid var(--border); overflow: hidden; transition: box-shadow .25s, transform .25s; }
 .pub-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,.1); transform: translateY(-3px); }
-.pub-img-header { height: 240px; overflow: hidden; position: relative; }
-.pub-img-header img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.pub-img-header { height: 320px; overflow: hidden; position: relative; background: var(--off-white); display: flex; align-items: center; justify-content: center; }
+.pub-img-header img { width: 100%; height: 100%; object-fit: contain; object-position: center; padding: 1rem; }
 .pub-dark-header { background: var(--navy); padding: 2rem; position: relative; }
 .pub-year-badge { position: absolute; top: 1rem; right: 1rem; background: var(--gold); color: var(--white); font-family: var(--font-mono); font-size: .65rem; letter-spacing: .1em; padding: .25rem .7rem; }
 .pub-label { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; margin-bottom: .8rem; }
