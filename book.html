@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デリバティブ・クリアリングのすべて — 無料試し読み | 柳沢 俊</title>
+<meta name="description" content="柳沢俊著『デリバティブ・クリアリングのすべて』序章・第1章を無料公開。OTCクリアリング、CCP、証拠金制度を体系的に解説。金融実務家・学生・研究者向け。">
+<meta name="keywords" content="デリバティブクリアリング, OTCクリアリング, CCP, 中央清算機関, 証拠金, 柳沢俊, Shun Yanagisawa, JSCC, derivatives clearing">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --teal-dark: #1d5c5c;
+  --teal: #2a7a7a;
+  --teal-light: #e8f2f2;
+  --gold: #b5832a;
+  --gold-light: #f5ead8;
+  --navy: #1a2332;
+  --white: #ffffff;
+  --off-white: #faf9f6;
+  --text-muted: #666;
+  --border: #ddd9d0;
+  --font-jp: 'Noto Serif JP', serif;
+  --font-sans: 'Noto Sans JP', sans-serif;
+  --font-display: 'Playfair Display', serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: #2a2a2a; color: #333; font-family: var(--font-sans); }
+
+/* ── SITE NAV ── */
+.site-nav {
+  position: sticky; top: 0; z-index: 200;
+  background: var(--white); border-bottom: 2px solid var(--teal-dark);
+  padding: 0 2rem; height: 52px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem;
+}
+.site-nav-logo {
+  font-family: var(--font-display); font-size: 1rem;
+  color: var(--navy); text-decoration: none; white-space: nowrap;
+}
+.site-nav-logo span { color: var(--teal-dark); }
+.site-nav-right { display: flex; align-items: center; gap: 1rem; }
+.site-nav-back {
+  font-family: var(--font-mono); font-size: .65rem; letter-spacing: .1em;
+  color: var(--teal-dark); text-decoration: none;
+  border: 1px solid var(--teal-dark); padding: .3rem .8rem;
+  transition: all .2s; white-space: nowrap;
+}
+.site-nav-back:hover { background: var(--teal-dark); color: white; }
+
+/* ── BOOK HEADER ── */
+.book-header {
+  background: var(--navy); color: white;
+  padding: 2.5rem 2rem 2rem; position: relative;
+}
+.book-header::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 4px; background: linear-gradient(to right, var(--teal), var(--gold));
+}
+.book-header-inner {
+  max-width: 1000px; margin: 0 auto;
+  display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;
+}
+.book-cover-thumb {
+  width: 90px; flex-shrink: 0;
+  box-shadow: 0 6px 24px rgba(0,0,0,.4);
+}
+.book-meta { flex: 1; min-width: 200px; }
+.book-badge {
+  font-family: var(--font-mono); font-size: .6rem; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: .6rem;
+  display: inline-block;
+  background: rgba(181,131,42,.15); padding: .2rem .7rem; border: 1px solid rgba(181,131,42,.3);
+}
+.book-title-jp {
+  font-family: var(--font-jp); font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  font-weight: 500; color: white; line-height: 1.4; margin-bottom: .2rem;
+}
+.book-subtitle { font-size: .82rem; color: rgba(255,255,255,.5); margin-bottom: .6rem; }
+.book-author { font-size: .85rem; color: rgba(255,255,255,.7); margin-bottom: 1rem; }
+.book-cta-row { display: flex; gap: .7rem; flex-wrap: wrap; align-items: center; }
+.btn-amazon {
+  display: inline-flex; align-items: center; gap: .4rem;
+  background: #FF9900; color: white;
+  font-family: var(--font-sans); font-size: .78rem; font-weight: 500;
+  padding: .45rem 1rem; text-decoration: none; transition: opacity .2s;
+  white-space: nowrap;
+}
+.btn-amazon:hover { opacity: .88; }
+.preview-note {
+  font-size: .75rem; color: rgba(255,255,255,.45);
+  font-family: var(--font-mono); letter-spacing: .05em;
+}
+
+/* ── VIEWER TOOLBAR ── */
+.viewer-toolbar {
+  background: #3a3a3a; border-bottom: 1px solid #555;
+  padding: .6rem 1.5rem; display: flex; align-items: center;
+  justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+}
+.toolbar-left { display: flex; align-items: center; gap: .8rem; }
+.toolbar-right { display: flex; align-items: center; gap: .8rem; }
+
+.toolbar-btn {
+  background: rgba(255,255,255,.12); color: white; border: none;
+  padding: .4rem .8rem; cursor: pointer; font-family: var(--font-mono);
+  font-size: .7rem; letter-spacing: .08em; transition: background .2s;
+  display: flex; align-items: center; gap: .4rem;
+}
+.toolbar-btn:hover { background: rgba(255,255,255,.22); }
+.toolbar-btn:disabled { opacity: .4; cursor: default; }
+
+.page-info {
+  font-family: var(--font-mono); font-size: .72rem; color: rgba(255,255,255,.7);
+  white-space: nowrap;
+}
+.page-input {
+  width: 48px; background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.2);
+  color: white; text-align: center; padding: .3rem .4rem;
+  font-family: var(--font-mono); font-size: .72rem;
+}
+
+.zoom-select {
+  background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2);
+  color: white; padding: .35rem .6rem; font-family: var(--font-mono); font-size: .7rem;
+  cursor: pointer;
+}
+
+.toolbar-divider { width: 1px; height: 20px; background: rgba(255,255,255,.2); }
+
+.scope-label {
+  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--gold);
+  background: rgba(181,131,42,.15); border: 1px solid rgba(181,131,42,.3);
+  padding: .25rem .7rem;
+}
+
+/* ── PDF VIEWER AREA ── */
+.viewer-wrap {
+  background: #2a2a2a;
+  display: flex; justify-content: center;
+  padding: 1.5rem 1rem; min-height: calc(100vh - 52px - 60px - 120px);
+  position: relative;
+}
+
+#pdf-canvas-wrap {
+  position: relative; display: inline-block;
+  box-shadow: 0 4px 32px rgba(0,0,0,.6);
+}
+#pdf-canvas { display: block; }
+
+/* Loading state */
+#loading-indicator {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: rgba(255,255,255,.7); font-family: var(--font-mono); font-size: .8rem;
+  letter-spacing: .1em;
+}
+.loading-spinner {
+  width: 36px; height: 36px; border: 3px solid rgba(255,255,255,.15);
+  border-top-color: var(--teal); border-radius: 50%;
+  animation: spin .8s linear infinite; margin-bottom: 1rem;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── BOTTOM CTA ── */
+.bottom-cta {
+  background: var(--navy); color: white;
+  padding: 2.5rem 2rem; text-align: center;
+  border-top: 3px solid var(--teal-dark);
+}
+.bottom-cta h3 {
+  font-family: var(--font-display); font-size: 1.3rem; font-weight: 400;
+  color: white; margin-bottom: .6rem;
+}
+.bottom-cta p {
+  font-size: .88rem; color: rgba(255,255,255,.6);
+  margin-bottom: 1.5rem; line-height: 1.8;
+  font-family: var(--font-jp);
+}
+.bottom-cta-row { display: flex; gap: 1rem; justify-content: center; align-items: center; flex-wrap: wrap; }
+.btn-author {
+  font-family: var(--font-mono); font-size: .72rem; letter-spacing: .1em;
+  color: rgba(255,255,255,.6); text-decoration: none;
+  border: 1px solid rgba(255,255,255,.25); padding: .45rem 1.1rem;
+  transition: all .2s;
+}
+.btn-author:hover { border-color: white; color: white; }
+
+footer {
+  background: #111; color: rgba(255,255,255,.3);
+  padding: 1.2rem 2rem; text-align: center;
+  font-family: var(--font-mono); font-size: .6rem; letter-spacing: .08em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .viewer-toolbar { padding: .5rem .8rem; gap: .5rem; }
+  .toolbar-right .zoom-select { display: none; }
+  .scope-label { display: none; }
+  .book-cover-thumb { width: 70px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Site Nav -->
+<nav class="site-nav">
+  <a class="site-nav-logo" href="https://shun-yanagisawa.com">Shun <span>Yanagisawa</span></a>
+  <div class="site-nav-right">
+    <a class="btn-amazon" href="https://amzn.asia/d/00Aawrf8" target="_blank">Amazonで購入</a>
+    <a class="site-nav-back" href="https://shun-yanagisawa.com#publications">← 著者ページ</a>
+  </div>
+</nav>
+
+<!-- Book Header -->
+<div class="book-header">
+  <div class="book-header-inner">
+    <img class="book-cover-thumb" src="book-cover.png" alt="デリバティブ・クリアリングのすべて 書影">
+    <div class="book-meta">
+      <div class="book-badge">無料試し読み · Free Preview — 序章 + 第1章（全105ページ）</div>
+      <div class="book-title-jp">デリバティブ・クリアリングのすべて</div>
+      <div class="book-subtitle">リスク管理、規制、そして市場の未来</div>
+      <div class="book-author">著者：柳沢 俊（Shun Yanagisawa）｜2026年2月出版</div>
+      <div class="book-cta-row">
+        <a class="btn-amazon" href="https://amzn.asia/d/00Aawrf8" target="_blank">
+          📖 Amazonで全章を読む →
+        </a>
+        <span class="preview-note">※ 本ページは序章・第1章を無料公開</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Viewer Toolbar -->
+<div class="viewer-toolbar">
+  <div class="toolbar-left">
+    <button class="toolbar-btn" id="btnFirst" onclick="goToPage(1)" title="最初のページ">⏮ 最初</button>
+    <button class="toolbar-btn" id="btnPrev" onclick="changePage(-1)">◀ 前へ</button>
+    <span class="page-info">
+      <input class="page-input" id="pageInput" type="number" min="1" value="1" onchange="goToPage(parseInt(this.value))">
+      / <span id="totalPages">—</span> ページ
+    </span>
+    <button class="toolbar-btn" id="btnNext" onclick="changePage(1)">次へ ▶</button>
+    <button class="toolbar-btn" id="btnLast" onclick="goToLastPage()">最後 ⏭</button>
+  </div>
+  <div class="toolbar-right">
+    <span class="scope-label">序章 + 第1章 無料公開</span>
+    <div class="toolbar-divider"></div>
+    <select class="zoom-select" id="zoomSelect" onchange="setZoom(parseFloat(this.value))">
+      <option value="0.7">70%</option>
+      <option value="0.85">85%</option>
+      <option value="1.0" selected>100%</option>
+      <option value="1.2">120%</option>
+      <option value="1.5">150%</option>
+      <option value="fit">幅に合わせる</option>
+    </select>
+    <button class="toolbar-btn" onclick="downloadPDF()">⬇ ダウンロード</button>
+  </div>
+</div>
+
+<!-- PDF Canvas -->
+<div class="viewer-wrap" id="viewerWrap">
+  <div id="pdf-canvas-wrap">
+    <canvas id="pdf-canvas"></canvas>
+    <div id="loading-indicator">
+      <div class="loading-spinner"></div>
+      <span>PDFを読み込んでいます...</span>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom CTA -->
+<div class="bottom-cta">
+  <h3>続きは書籍でお読みください</h3>
+  <p>
+    第2章以降（クリアリング対象商品・規制フレームワーク・リスク管理・<br>
+    CCPデフォルト管理・プライムブローカレッジ・未来展望）は、<br>
+    Amazonよりお買い求めいただけます。
+  </p>
+  <div class="bottom-cta-row">
+    <a class="btn-amazon" href="https://amzn.asia/d/00Aawrf8" target="_blank" style="font-size:.85rem;padding:.6rem 1.5rem;">
+      📖 Amazonで購入する →
+    </a>
+    <a class="btn-author" href="https://shun-yanagisawa.com">著者プロフィール →</a>
+  </div>
+</div>
+
+<footer>
+  © 2026 柳沢 俊 (Shun Yanagisawa). All rights reserved. 本コンテンツの無断転載・複製を禁じます。
+</footer>
+
+<!-- PDF.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+// PDF.js worker
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+  'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+const PDF_URL = 'book-preview.pdf';
+let pdfDoc = null;
+let currentPage = 1;
+let currentScale = 1.0;
+let rendering = false;
+
+const canvas = document.getElementById('pdf-canvas');
+const ctx = canvas.getContext('2d');
+const loadingEl = document.getElementById('loading-indicator');
+
+// Load PDF
+pdfjsLib.getDocument(PDF_URL).promise.then(doc => {
+  pdfDoc = doc;
+  document.getElementById('totalPages').textContent = doc.numPages;
+  document.getElementById('pageInput').max = doc.numPages;
+  document.getElementById('btnLast').title = `最後のページ (${doc.numPages})`;
+  loadingEl.style.display = 'none';
+  renderPage(currentPage);
+}).catch(err => {
+  loadingEl.innerHTML = `
+    <div style="text-align:center;color:rgba(255,255,255,.6);padding:2rem;">
+      <div style="font-size:2rem;margin-bottom:1rem;">📄</div>
+      <div style="font-family:var(--font-mono);font-size:.75rem;letter-spacing:.1em;margin-bottom:.5rem;">
+        PDF FILE NOT FOUND
+      </div>
+      <div style="font-size:.82rem;line-height:1.7;">
+        <strong style="color:white;">book-preview.pdf</strong> をこのHTMLと<br>
+        同じフォルダにアップロードしてください。
+      </div>
+    </div>`;
+});
+
+function getAutoScale() {
+  const wrap = document.getElementById('viewerWrap');
+  const maxW = wrap.clientWidth - 32;
+  return Math.min(maxW / 595, 1.5); // A5 width = ~419pt, but target ~595 for A4 feel
+}
+
+function renderPage(num) {
+  if (!pdfDoc || rendering) return;
+  rendering = true;
+
+  pdfDoc.getPage(num).then(page => {
+    const scale = currentScale === 'fit' ? getAutoScale() : currentScale;
+    const viewport = page.getViewport({ scale });
+
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+
+    const renderCtx = { canvasContext: ctx, viewport };
+    page.render(renderCtx).promise.then(() => {
+      rendering = false;
+      currentPage = num;
+      document.getElementById('pageInput').value = num;
+      updateButtons();
+      // Scroll to top of viewer
+      document.getElementById('viewerWrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+}
+
+function changePage(delta) {
+  const next = currentPage + delta;
+  if (next < 1 || next > pdfDoc.numPages) return;
+  renderPage(next);
+}
+
+function goToPage(num) {
+  if (!pdfDoc) return;
+  num = Math.max(1, Math.min(num, pdfDoc.numPages));
+  renderPage(num);
+}
+
+function goToLastPage() {
+  if (pdfDoc) renderPage(pdfDoc.numPages);
+}
+
+function setZoom(val) {
+  currentScale = val;
+  renderPage(currentPage);
+}
+
+function updateButtons() {
+  document.getElementById('btnFirst').disabled = currentPage <= 1;
+  document.getElementById('btnPrev').disabled = currentPage <= 1;
+  document.getElementById('btnNext').disabled = !pdfDoc || currentPage >= pdfDoc.numPages;
+  document.getElementById('btnLast').disabled = !pdfDoc || currentPage >= pdfDoc.numPages;
+}
+
+function downloadPDF() {
+  const a = document.createElement('a');
+  a.href = PDF_URL;
+  a.download = 'デリバティブクリアリングのすべて_第1章_試し読み.pdf';
+  a.click();
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') changePage(1);
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   changePage(-1);
+});
+
+// Auto-fit on resize
+window.addEventListener('resize', () => {
+  if (currentScale === 'fit' && pdfDoc) renderPage(currentPage);
+});
+
+// Init
+updateButtons();
+</script>
+
+</body>
+</html>
