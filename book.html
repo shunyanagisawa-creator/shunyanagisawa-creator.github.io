@@ -342,15 +342,32 @@ pdfjsLib.getDocument(PDF_URL).promise
   });
 
 // ── SCALE CALCULATION ─────────────────────────────────
+const DPR = window.devicePixelRatio || 1; // Retina対応
+
 function getScale(vpW, vpH) {
   const stageW = stage.clientWidth  - 32;
   const stageH = stage.clientHeight - 16;
-  if (zoomMode !== 'auto') return parseFloat(zoomMode);
-  const cols = (spreadMode && pdfDoc && currentPage < pdfDoc.numPages) ? 2 : 1;
-  const gap   = cols > 1 ? 4 : 0;
-  const scaleW = (stageW - gap) / (vpW * cols);
-  const scaleH = stageH / vpH;
-  return Math.min(scaleW, scaleH, 1.6);
+  const baseScale = (() => {
+    if (zoomMode !== 'auto') return parseFloat(zoomMode);
+    const cols = (spreadMode && pdfDoc && currentPage < pdfDoc.numPages) ? 2 : 1;
+    const gap   = cols > 1 ? 4 : 0;
+    const scaleW = (stageW - gap) / (vpW * cols);
+    const scaleH = stageH / vpH;
+    return Math.min(scaleW, scaleH, 1.6);
+  })();
+  return baseScale; // CSS scale — DPR applied separately in renderCanvas
+}
+
+// Render a single page onto a canvas at DPR-aware resolution
+async function renderCanvas(pdfPage, canvas, ctx, scale) {
+  const viewport = pdfPage.getViewport({ scale: scale * DPR });
+  // Physical canvas size = CSS size × DPR (sharp on Retina)
+  canvas.width  = viewport.width;
+  canvas.height = viewport.height;
+  // CSS display size = physical / DPR (keeps layout correct)
+  canvas.style.width  = (viewport.width  / DPR) + 'px';
+  canvas.style.height = (viewport.height / DPR) + 'px';
+  await pdfPage.render({ canvasContext: ctx, viewport }).promise;
 }
 
 // ── RENDER ────────────────────────────────────────────
@@ -368,22 +385,16 @@ async function render(pageNum) {
   const pageL = await pdfDoc.getPage(pageNum);
   const vpL   = pageL.getViewport({ scale: 1 });
   const scale = getScale(vpL.width, vpL.height);
-  const vfL   = pageL.getViewport({ scale });
 
-  // Render left canvas
-  canvasL.width  = vfL.width;
-  canvasL.height = vfL.height;
-  await pageL.render({ canvasContext: ctxL, viewport: vfL }).promise;
+  // Render left canvas at full DPR resolution
+  await renderCanvas(pageL, canvasL, ctxL, scale);
 
   // Right page (spread)
   const hasRight = spreadMode && pageNum + 1 <= pdfDoc.numPages;
   if (hasRight) {
     const pageR = await pdfDoc.getPage(pageNum + 1);
-    const vfR   = pageR.getViewport({ scale });
-    canvasR.width  = vfR.width;
-    canvasR.height = vfR.height;
+    await renderCanvas(pageR, canvasR, ctxR, scale);
     wrapR.style.display = 'block';
-    await pageR.render({ canvasContext: ctxR, viewport: vfR }).promise;
   } else {
     wrapR.style.display = 'none';
   }
