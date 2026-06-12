@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learning as a Luxury Good — Shun Yanagisawa</title>
+<meta name="description" content="What is quality in learning? On price, bounded time, leisure (skholē), and the quality of friction — notes from HBS 'Competing in the Age of AI' (June 2026).">
+<meta property="og:title" content="Learning as a Luxury Good — What Is Quality in Learning?">
+<meta property="og:description" content="If knowledge is becoming free, why do the most expensive classrooms keep selling out? On commitment devices, leisure in its original sense, and the quality of friction.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.shun-yanagisawa.com/essays/learning-as-a-luxury-good.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
+  --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f5ead8;
+  --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
+  --text: #1a1a1a; --text-mid: #3d3d3d; --text-muted: #666666; --border: #ddd9d0;
+  --font-display: 'Playfair Display', 'Noto Serif JP', Georgia, serif;
+  --font-body: 'Source Sans 3', sans-serif;
+  --font-jp: 'Noto Serif JP', serif;
+  --font-mono: 'DM Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--white); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.85; }
+body.lang-en .ja { display: none; }
+body.lang-ja .en { display: none; }
+body.lang-ja { font-family: var(--font-jp); }
+
+nav {
+  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+.nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1.2rem; }
+.nav-back { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--text-muted); text-decoration: none; }
+.nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .35rem .8rem; cursor: pointer; color: var(--text-mid);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
+
+.essay { max-width: 720px; margin: 0 auto; padding: 4rem 1.6rem 5rem; }
+.essay-kicker { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.2rem; }
+h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 500; line-height: 1.3; color: var(--navy); margin-bottom: .8rem; }
+.essay-sub { font-size: 1.02rem; color: var(--text-muted); margin-bottom: 1.4rem; line-height: 1.7; }
+.essay-meta { display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); padding-bottom: 1.6rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.4rem; }
+.essay-meta a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); }
+
+/* 書籍風: 番号付き節見出し (罫線で立てる、太字に頼らない) */
+.essay h2 {
+  font-family: var(--font-display); font-size: 1.22rem; font-weight: 500; color: var(--navy);
+  margin: 2.8rem 0 1rem; padding: .35rem 0 .45rem .9rem;
+  border-left: 3px solid var(--navy); border-bottom: 1px solid var(--border);
+}
+body.lang-ja .essay h2 { font-family: var(--font-jp); font-weight: 500; }
+.essay h2 .hnum { font-family: var(--font-mono); font-size: .85rem; color: var(--teal-dark); margin-right: .7rem; letter-spacing: .05em; }
+
+.essay p { margin: 1.1rem 0; color: var(--text-mid); text-align: justify; }
+.essay a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.4); }
+
+/* 強調: 太字でなく、日本語=傍点 / 英語=イタリック (書籍の作法) */
+.ja .em { -webkit-text-emphasis: filled dot var(--navy); text-emphasis: filled dot var(--navy); font-style: normal; }
+.en .em { font-style: italic; }
+
+/* 要点ボックス: 細罫の囲み + 小ラベル (Word 専門書の囲み欄スタイル) */
+.pull {
+  border: 1px solid var(--gold); background: var(--gold-light);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 1.9rem 0; border-radius: 2px;
+  font-size: 1rem; color: var(--navy); line-height: 1.8; position: relative; text-align: justify;
+}
+.pull .pull-label {
+  position: absolute; top: -0.7rem; left: 1rem; background: var(--white);
+  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em;
+  color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase;
+}
+
+/* 図版: 細罫ボックス + 図番キャプション (書籍の図組み) */
+.figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 1.9rem 0; background: var(--white); }
+.figure svg { width: 100%; height: auto; display: block; }
+.figcap {
+  margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); text-align: center;
+}
+body.lang-ja .figcap { font-family: var(--font-jp); font-size: .76rem; }
+
+/* 結語: 種としての一行 */
+.seed-box {
+  border: 1px solid var(--gold); border-left: 4px solid var(--gold);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0 0; border-radius: 2px;
+  font-size: 1.02rem; color: var(--navy); line-height: 1.85; position: relative; text-align: justify;
+}
+.seed-box .pull-label { position: absolute; top: -0.7rem; left: 1rem; background: var(--white); font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase; }
+
+.essay-close { border-top: 2px solid var(--gold); margin-top: 3rem; padding-top: 1.6rem; }
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
+footer a { color: var(--teal-dark); text-decoration: none; }
+@media (max-width: 560px) { nav { padding: 0 1.2rem; } .essay { padding-top: 2.6rem; } }
+</style>
+</head>
+<body class="lang-en">
+
+<nav>
+  <a class="nav-logo" href="../index.html">Shun <span>Yanagisawa</span></a>
+  <div class="nav-right">
+    <a class="nav-back" href="../index.html#essays"><span class="en">← Essays</span><span class="ja">← エッセイ一覧</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="en">日本語</span><span class="ja">English</span></button>
+  </div>
+</nav>
+
+<article class="essay">
+  <div class="essay-kicker">Essay 001 · Learning &amp; AI</div>
+  <h1>
+    <span class="en">Learning as a Luxury Good</span>
+    <span class="ja">学びは贅沢財になった</span>
+  </h1>
+  <p class="essay-sub">
+    <span class="en">What is quality in learning? On price, bounded time, leisure in its original sense, and the quality of friction — notes from a week at Harvard Business School.</span>
+    <span class="ja">学びの質とは何か — 価格、拘束、本来の意味でのレジャー、そして摩擦の質をめぐる、ハーバード・ビジネス・スクールでの一週間の覚書。</span>
+  </p>
+  <div class="essay-meta">
+    <span>June 2026</span>
+    <span><a href="https://www.exed.hbs.edu/competing-age-ai" target="_blank" rel="noopener">HBS Exec Ed · Competing in the Age of AI →</a></span>
+    <span class="en">12 min read</span>
+    <span class="ja">日本語 約12分</span>
+  </div>
+
+  <p class="en">This June I spent four days at Harvard Business School, in an executive program called <a href="https://www.exed.hbs.edu/competing-age-ai" target="_blank" rel="noopener"><em>Competing in the Age of AI</em></a>. Tuition for the week runs over two million yen; with flights and hotels, the all-in cost approaches three million.</p>
+  <p class="ja">この6月、ハーバード・ビジネス・スクールの <a href="https://www.exed.hbs.edu/competing-age-ai" target="_blank" rel="noopener"><em>Competing in the Age of AI</em></a> というエグゼクティブ・プログラムで4日間を過ごした。授業料だけで1週間200万円超、渡航・宿泊を含めれば300万円近い。</p>
+  <p class="en">Let me say this upfront: this essay is neither a boast nor an advertisement. <span class="em">The number itself is the subject.</span> To Japanese sensibilities — mine included — it is an almost indecent figure for four days of classes. And yet here is the puzzle worth taking seriously: in an age when knowledge is becoming free, this kind of program does not merely survive. It sells out, with repeat customers. If the content can be had for nearly nothing, what exactly is being bought? The most durable thing I carried home from Boston was not the course content but a sketch of an answer — a view on what "quality" actually means in learning.</p>
+  <p class="ja">最初に断っておくと、これは自慢でも宣伝でもない。<span class="em">この金額そのものが、このエッセイの題材である</span>。4日間の授業にこの数字は、日本の感覚では — 私自身の感覚でも — ほとんど非常識に映る。だが、ここに真剣に考える価値のあるパズルがある。知識が無料に近づいていく時代に、この種のプログラムは生き残っているどころか、満席になり、リピーターを抱えている。中身がほぼタダで手に入るなら、いったい何が買われているのか。ボストンから持ち帰ったもののうち最も長持ちしそうなのは、講義の中身ではなく、この問いへの答えの素描 — 「学びの質」とは何か、についての一つの見方だった。</p>
+
+  <h2><span class="hnum">1</span><span class="en">The repeat learners</span><span class="ja">繰り返し学びに来る人たち</span></h2>
+  <p class="en">The first clue was the room itself. It was full of people for whom this was a second or third Harvard program. Several were staying on campus to take another course back-to-back. One classmate, who runs his own company, put it plainly: "Nobody assigns me homework anymore. I have to create my own occasions to learn — so I build them into the calendar."</p>
+  <p class="ja">最初の手がかりは教室の顔ぶれだった。ハーバードで学ぶのが2回目・3回目という参加者が珍しくない。コース終了後、そのままキャンパスに残って別コースを連続受講する人も複数いた。自分で会社を経営しているという同級生は、こう言い切った。「もう誰も宿題を出してくれない。学びの場は自分で作り出すしかない。だからカレンダーに組み込んでいる」。</p>
+  <p class="en">For these people, learning is not a remedial act — filling a gap, fixing a deficiency, collecting a credential. It is an annual ritual: a deliberately scheduled exposure to something they cannot get at their desks. The thickness of the endowment behind the campus, the sheer respect a society pays to its institutions of higher learning — these read like a barometer of a certain kind of wealth. Whatever they were buying, they were buying it knowingly, repeatedly, at full price.</p>
+  <p class="ja">彼らにとって学びは「足りないものを補う」行為ではない。資格集めでもない。年中行事である — 自分のデスクでは手に入らない何かを浴びる機会を、意図的に予定へ組み込む営み。エンダウメント（大学基金）に支えられた環境の厚み、高等教育機関に社会が払うリスペクトの分厚さは、ある種の豊かさのバロメーターに見えた。彼らが買っているものが何であれ、それを承知の上で、繰り返し、定価で買っているのだ。</p>
+
+  <h2><span class="hnum">2</span><span class="en">What is actually being sold</span><span class="ja">実際に売られているものは何か</span></h2>
+  <p class="en">Run the arithmetic honestly. The frameworks, the cases, the readings — most of it is available in books, and increasingly available from AI for close to nothing. If knowledge itself is being commoditized, the price must be carried by something else.</p>
+  <p class="ja">正直に算数をしてみる。フレームワーク、ケース、リーディング — 大半は本で手に入るし、いまや AI からほぼ無料で手に入る。知識そのものがコモディティ化していくなら、この価格は別の何かが支えているはずだ。</p>
+  <div class="pull">
+    <span class="pull-label"><span class="en">Key</span><span class="ja">要点</span></span>
+    <span class="en">What the fee buys is a set of three things: (1) deadlines and seat-time you cannot refuse, (2) the curated quality of the people in the room, and (3) the credibility of having been in that room. In other words: a subscription to enforced, high-quality friction.</span>
+    <span class="ja">この対価で買っているのは三点セットだ。（1）断れない締切と拘束時間、（2）選別された参加者の質、（3）その部屋に自分がいたという信用。要するに、「強制された良質な摩擦」の購読契約である。</span>
+  </div>
+
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 196" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <rect x="8" y="10" width="200" height="58" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.2"/>
+      <text x="108" y="34" font-size="12.5" text-anchor="middle" fill="#1a2332">(1) Deadlines &amp; seat-time</text>
+      <text x="108" y="52" font-size="12.5" text-anchor="middle" fill="#1a2332">you cannot refuse</text>
+      <rect x="230" y="10" width="200" height="58" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.2"/>
+      <text x="330" y="34" font-size="12.5" text-anchor="middle" fill="#1a2332">(2) Curated quality</text>
+      <text x="330" y="52" font-size="12.5" text-anchor="middle" fill="#1a2332">of the peers in the room</text>
+      <rect x="452" y="10" width="200" height="58" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.2"/>
+      <text x="552" y="34" font-size="12.5" text-anchor="middle" fill="#1a2332">(3) Credibility of having</text>
+      <text x="552" y="52" font-size="12.5" text-anchor="middle" fill="#1a2332">been in that room</text>
+      <line x1="108" y1="68" x2="108" y2="108" stroke="#1d5c5c" stroke-width="1.2"/>
+      <line x1="330" y1="68" x2="330" y2="108" stroke="#1d5c5c" stroke-width="1.2"/>
+      <line x1="552" y1="68" x2="552" y2="108" stroke="#1d5c5c" stroke-width="1.2"/>
+      <polygon points="108,112 103,103 113,103" fill="#1d5c5c"/>
+      <polygon points="330,112 325,103 335,103" fill="#1d5c5c"/>
+      <polygon points="552,112 547,103 557,103" fill="#1d5c5c"/>
+      <rect x="8" y="116" width="644" height="56" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/>
+      <text x="330" y="140" font-size="13.5" text-anchor="middle" fill="#1d5c5c">A subscription to enforced, high-quality friction</text>
+      <text x="330" y="160" font-size="11.5" text-anchor="middle" fill="#3d3d3d">— the part of the price that does not commoditize</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 196" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <rect x="8" y="10" width="200" height="58" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.2"/>
+      <text x="108" y="34" font-size="12.5" text-anchor="middle" fill="#1a2332">（1）断れない締切と</text>
+      <text x="108" y="52" font-size="12.5" text-anchor="middle" fill="#1a2332">拘束時間</text>
+      <rect x="230" y="10" width="200" height="58" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.2"/>
+      <text x="330" y="34" font-size="12.5" text-anchor="middle" fill="#1a2332">（2）選別された</text>
+      <text x="330" y="52" font-size="12.5" text-anchor="middle" fill="#1a2332">参加者の質</text>
+      <rect x="452" y="10" width="200" height="58" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.2"/>
+      <text x="552" y="34" font-size="12.5" text-anchor="middle" fill="#1a2332">（3）その部屋にいた</text>
+      <text x="552" y="52" font-size="12.5" text-anchor="middle" fill="#1a2332">という信用</text>
+      <line x1="108" y1="68" x2="108" y2="108" stroke="#1d5c5c" stroke-width="1.2"/>
+      <line x1="330" y1="68" x2="330" y2="108" stroke="#1d5c5c" stroke-width="1.2"/>
+      <line x1="552" y1="68" x2="552" y2="108" stroke="#1d5c5c" stroke-width="1.2"/>
+      <polygon points="108,112 103,103 113,103" fill="#1d5c5c"/>
+      <polygon points="330,112 325,103 335,103" fill="#1d5c5c"/>
+      <polygon points="552,112 547,103 557,103" fill="#1d5c5c"/>
+      <rect x="8" y="116" width="644" height="56" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/>
+      <text x="330" y="140" font-size="13.5" text-anchor="middle" fill="#1d5c5c">「強制された良質な摩擦」の購読契約</text>
+      <text x="330" y="160" font-size="11.5" text-anchor="middle" fill="#3d3d3d">— 価格のうち、コモディティ化しない部分</text>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 1 — The three things the fee actually buys</span><span class="ja">図1　授業料が実際に買っている三点セット</span></div>
+  </div>
+
+  <p class="en">And the dynamic is self-reinforcing: the closer AI pushes the price of knowledge toward zero, the higher the price of these three things climbs. Education is simply the leading edge of a broader shift — <span class="em">presence is becoming a luxury good</span>. Anything that requires selected humans to be in the same room at the same time will appreciate, precisely because everything else is becoming free.</p>
+  <p class="ja">しかもこの力学は自己強化的だ。AI が知識の価格をゼロに近づけるほど、この三点の価格は上がっていく。教育はより大きな変化の最先端にすぎない — <span class="em">現前（プレゼンス）の贅沢財化</span>である。選別された人間が同じ部屋に同じ時間いることを要求する営みは、それ以外のすべてが無料化していくがゆえに、値上がりしていく。</p>
+  <p class="en">Each of the three deserves its own look. The first two, in particular, turned out to be deeper than they appear.</p>
+  <p class="ja">三点はそれぞれ掘る価値がある。とくに最初の二つは、見かけより深いところに根を持っていた。</p>
+
+  <h2><span class="hnum">3</span><span class="en">Paying to be bound</span><span class="ja">拘束を買う</span></h2>
+  <p class="en">"Deadlines and seat-time you cannot refuse" sounds like a cost of the program. It is actually part of the product. For a working adult, the scarcest resource is not information, and not even time in the aggregate — it is <span class="em">protected concentration</span>: hours in which nothing can interrupt and nothing can be postponed to.</p>
+  <p class="ja">「断れない締切と拘束時間」はプログラムのコストのように聞こえる。実際には商品の一部である。働く大人にとって最も希少な資源は情報ではなく、総量としての時間ですらない。<span class="em">守られた集中</span> — 何にも中断されず、何にも先送りできない時間 — である。</p>
+  <p class="en">The program's design strips away choice, on purpose. Cases are due tomorrow morning. The cold call can land on anyone. Days start at eight and run through evening sessions. Stepping out to handle email means visibly failing the room. You are paying, in part, for <span class="em">the right to be unavailable</span> — an economist would call it a commitment device. An athlete pays a trainer not only for expertise but so that skipping the session is no longer an option. The fee converts "I should think hard about AI someday" into "I have no choice but to be ready by eight tomorrow." Deliberately manufactured constraint is what makes concentrated learning physically happen.</p>
+  <p class="ja">プログラムの設計は、意図的に選択肢を奪う。ケースの予習は明朝まで。コールドコール（突然の指名）は誰にでも飛んでくる。一日は朝8時に始まり、夜のセッションまで続く。途中でメールを処理しに抜ければ、教室の全員にそれと分かる。つまり対価の一部で買っているのは<span class="em">「連絡がつかない権利」</span>だ — 経済学者ならコミットメント・デバイス（自己拘束装置）と呼ぶだろう。アスリートがトレーナーに金を払うのは、専門知識のためだけではない。「サボる」という選択肢を消すためでもある。この授業料は「いつか AI について真剣に考えねば」を「明朝8時までに準備するしかない」に変換する。拘束をあえて作り出すことが、集中的な学びを物理的に成立させるのだ。</p>
+
+  <h2><span class="hnum">4</span><span class="en">Leisure, in the original sense</span><span class="ja">本来の意味でのレジャー</span></h2>
+  <p class="en">There is an older way to see all of this. The word <em>school</em> descends from the Greek <em>skholē</em> — which meant, of all things, <span class="em">leisure</span>: the free time in which a free person did what was worth doing for its own sake. In its original sense, learning was not remediation and not credentialing. It was the highest form of leisure.</p>
+  <p class="ja">これら全体を、もっと古い視点から見ることもできる。<em>school</em> という語はギリシャ語の<em>スコレー（skholē）</em>に遡る — その意味は、こともあろうに<span class="em">「閑暇（レジャー）」</span>である。自由人が、それ自体に価値のあることに使う自由な時間。本来の意味において、学びは欠損の補填でも資格取得でもなかった。レジャーの最高形態だったのである。</p>
+  <p class="en">Watching my classmates — many with nothing left to prove professionally — relish a case discussion the way others savor a vintage wine or a hard climb, I understood that the luxury framing is not decadence. It is a homecoming. <span class="em">Leisure equals luxury</span> is not a complaint about inequality; it is a statement about what learning is like when it is enjoyed properly, for its own sake.</p>
+  <p class="ja">職業的にはもう何も証明する必要のない同級生たちが、ヴィンテージワインや困難な登攀を味わうようにケース討議を楽しむのを見て、腑に落ちた。「学び=贅沢財」というフレーミングは退廃ではない。<span class="em">原義への回帰</span>である。Leisure＝Luxury とは格差への嘆きではなく、学びがそれ自体のために正しく楽しまれるとき、それがどういう営みになるかについての記述なのだ。</p>
+  <p class="en">This reframing matters because it changes the quality test. Good leisure is judged by the quality of the experience itself — the depth of engagement, the company, the aftertaste — not by a utility calculation. Nobody asks whether a great climb was "useful." Once learning is allowed to be leisure in this sense, "was the program worth three million yen?" becomes a different question: was the experience of thinking, at that intensity, in that company, worth it? That is a question about quality, not quantity — and it is the right question.</p>
+  <p class="ja">この捉え直しが重要なのは、品質の判定基準が変わるからだ。良いレジャーは、効用計算ではなく経験そのものの質 — 没入の深さ、共にいる相手、余韻 — で評価される。素晴らしい登攀に対して「で、役に立ったの?」と聞く人はいない。学びがこの意味でのレジャーであることを許すなら、「あのプログラムは300万円の価値があったか」は別の問いに変わる。<span class="em">あの強度で、あの顔ぶれと、考えるという経験そのものに、その価値があったか</span>。これは量ではなく質の問いであり、そしてそれが正しい問いなのだ。</p>
+
+  <h2><span class="hnum">5</span><span class="en">The quality of friction</span><span class="ja">摩擦の質</span></h2>
+  <p class="en">So if bounded concentration is the container, and leisure is the mode, what is the active ingredient? I keep coming back to one word: <span class="em">friction</span>. Learning happens at the moment your existing frame fails to process what is in front of you — when you are forced to take an idea you thought you understood and re-articulate it under pressure. Everything else is review.</p>
+  <p class="ja">守られた集中が「器」、レジャーが「様式」だとすれば、有効成分は何か。私は一つの言葉に戻り続けている。<span class="em">摩擦</span>である。学びが起きるのは、手持ちのフレームでは目の前のものを処理できなくなった瞬間 — 分かったつもりでいた考えを、圧力の下で言い直すことを強いられた瞬間だ。それ以外は復習にすぎない。</p>
+  <p class="en">Then the practical questions become: how do you get friction, what kind, and — decisively — from whom?</p>
+  <p class="ja">そうなると実務的な問いはこうなる。摩擦をどうやって得るのか。どのような摩擦を得るのか。そして決定的なのは — 誰から得るのか。</p>
+  <p class="en">How: by placing yourself where coasting is impossible. The case method is friction engineering: the instructor spoke for less than a third of the time, and the rest was engineered collision among prepared peers. What kind: the productive varieties have a shape. Disagreement from someone whose industry and assumptions differ from yours. A question that sounds naive and turns out to be foundational. The experience of being, on some axis, the least informed person in the room. Each one forces re-articulation; none of them is available alone at a desk with a chatbot that is trained to be agreeable.</p>
+  <p class="ja">どうやって — 惰性で流すことが不可能な場所に身を置くことによって。ケースメソッドは摩擦の工学である。講師の発話は全体の3分の1以下。残りは、準備してきた参加者同士の衝突として設計されていた。どのような — 生産的な摩擦には形がある。業界も前提も異なる相手からの反論。素朴に聞こえて実は根本を突いている質問。ある軸においては自分が教室で一番無知だ、という経験。どれもが「言い直し」を強制する。そしてどれも、従順に調教されたチャットボットを相手にデスクで一人、では手に入らない。</p>
+  <div class="pull">
+    <span class="pull-label"><span class="en">Key</span><span class="ja">要点</span></span>
+    <span class="en">But the essential variable is the counterpart. Friction is not noise. Low-quality friction — anonymous arguments, unprepared meetings, status games — generates heat without learning: it abrades. High-quality friction polishes. The difference lies entirely in who is on the other side: someone prepared, with skin in the game, different enough to surprise you, and committed to staying in the room when the disagreement gets real.</span>
+    <span class="ja">だが本質的な変数は「相手」である。摩擦はノイズではない。質の低い摩擦 — 匿名の論争、準備のない会議、マウンティング — は学びなき熱を生むだけだ。それは消耗させる。質の高い摩擦は研磨する。違いはすべて、向こう側に誰がいるかにある。準備をしてきて、自分も賭け金を積んでいて、こちらを驚かせるほど異質で、そして意見が本気で割れたときに部屋から出ていかない相手かどうか。</span>
+  </div>
+
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 218" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <rect x="8" y="10" width="310" height="170" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.2" stroke-dasharray="5 4"/>
+      <text x="163" y="36" font-size="13.5" text-anchor="middle" fill="#666">Low-quality friction</text>
+      <text x="163" y="62" font-size="12" text-anchor="middle" fill="#666">anonymous arguments</text>
+      <text x="163" y="82" font-size="12" text-anchor="middle" fill="#666">unprepared meetings</text>
+      <text x="163" y="102" font-size="12" text-anchor="middle" fill="#666">status games</text>
+      <line x1="60" y1="120" x2="266" y2="120" stroke="#8a8a8a" stroke-width="1"/>
+      <text x="163" y="146" font-size="13" text-anchor="middle" fill="#1a1a1a">heat without learning</text>
+      <text x="163" y="166" font-size="13" text-anchor="middle" fill="#1a1a1a">→ it abrades</text>
+      <rect x="342" y="10" width="310" height="170" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/>
+      <text x="497" y="36" font-size="13.5" text-anchor="middle" fill="#1d5c5c">High-quality friction</text>
+      <text x="497" y="62" font-size="12" text-anchor="middle" fill="#3d3d3d">prepared, with skin in the game</text>
+      <text x="497" y="82" font-size="12" text-anchor="middle" fill="#3d3d3d">different enough to surprise you</text>
+      <text x="497" y="102" font-size="12" text-anchor="middle" fill="#3d3d3d">stays in the room when it gets real</text>
+      <line x1="394" y1="120" x2="600" y2="120" stroke="#1d5c5c" stroke-width="1"/>
+      <text x="497" y="146" font-size="13" text-anchor="middle" fill="#1a2332">re-articulation under pressure</text>
+      <text x="497" y="166" font-size="13" text-anchor="middle" fill="#1a2332">→ it polishes</text>
+      <text x="330" y="206" font-size="11.5" text-anchor="middle" fill="#8a6020">the decisive variable is the counterpart — screening is the product</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 218" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <rect x="8" y="10" width="310" height="170" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.2" stroke-dasharray="5 4"/>
+      <text x="163" y="36" font-size="13.5" text-anchor="middle" fill="#666">質の低い摩擦</text>
+      <text x="163" y="62" font-size="12" text-anchor="middle" fill="#666">匿名の論争</text>
+      <text x="163" y="82" font-size="12" text-anchor="middle" fill="#666">準備のない会議</text>
+      <text x="163" y="102" font-size="12" text-anchor="middle" fill="#666">マウンティング</text>
+      <line x1="60" y1="120" x2="266" y2="120" stroke="#8a8a8a" stroke-width="1"/>
+      <text x="163" y="146" font-size="13" text-anchor="middle" fill="#1a1a1a">学びなき熱</text>
+      <text x="163" y="166" font-size="13" text-anchor="middle" fill="#1a1a1a">→ 消耗</text>
+      <rect x="342" y="10" width="310" height="170" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/>
+      <text x="497" y="36" font-size="13.5" text-anchor="middle" fill="#1d5c5c">質の高い摩擦</text>
+      <text x="497" y="62" font-size="12" text-anchor="middle" fill="#3d3d3d">準備と賭け金がある</text>
+      <text x="497" y="82" font-size="12" text-anchor="middle" fill="#3d3d3d">驚かせるほど異質</text>
+      <text x="497" y="102" font-size="12" text-anchor="middle" fill="#3d3d3d">割れても部屋から出ていかない</text>
+      <line x1="394" y1="120" x2="600" y2="120" stroke="#1d5c5c" stroke-width="1"/>
+      <text x="497" y="146" font-size="13" text-anchor="middle" fill="#1a2332">圧力の下での言い直し</text>
+      <text x="497" y="166" font-size="13" text-anchor="middle" fill="#1a2332">→ 研磨</text>
+      <text x="330" y="206" font-size="11.5" text-anchor="middle" fill="#8a6020">決定的な変数は「相手」 — スクリーニングこそが商品である</text>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 2 — The quality of friction: abrasion vs. polish</span><span class="ja">図2　摩擦の質 — 消耗と研磨</span></div>
+  </div>
+
+  <p class="en">Seen this way, the expensive classroom resolves into something concrete: <span class="em">a quality-control mechanism for friction counterparts</span>. The admissions filter, the fee itself, the preparation discipline of the case method — every one of them is a screening device that guarantees the person colliding with you tomorrow at 8 a.m. is worth colliding with. That is the essential value, and it is exactly the thing that does not commoditize.</p>
+  <p class="ja">こう見ると、あの高額な教室の正体は具体的なものに分解される。<span class="em">摩擦の相手の品質管理機構</span>である。入学選考というフィルター、授業料という参入障壁、ケースメソッドが課す予習の規律 — そのすべてが、明朝8時に自分とぶつかってくる相手が「ぶつかる価値のある相手」であることを保証するスクリーニング装置なのだ。それこそが本質的価値であり、まさにコモディティ化しないものである。</p>
+
+  <h2><span class="hnum">6</span><span class="en">Buy it, or build it</span><span class="ja">買うか、作るか</span></h2>
+  <p class="en">Once you see learning this way, the operative question changes. It is no longer "what should I learn?" but <span class="em">"where will I get my friction — and should I buy it, or build it?"</span></p>
+  <p class="ja">学びをこう捉え直すと、実務的な問いが変わる。もはや「何を学ぶべきか」ではない。<span class="em">「質の高い摩擦をどこで得るか — それを買うのか、作るのか」</span>である。</p>
+  <p class="en">Buying is what I did in June: pay for a seat in someone else's well-designed room. Building is the other path: convening a small, repeated room of your own. And here is the part I find most interesting: <span class="em">there is a kind of friction that only reaches the host</span>. Whom to invite, what to ask, when to break a silence — convening is itself a discipline, and it trains a muscle that attending never touches. To build a room is to do friction quality-control with your own hands: curating the counterparts, setting the preparation bar, designing the collisions. The teacher learns most, yes; but more than that, the convener receives signals no participant ever sees.</p>
+  <p class="ja">「買う」は6月に私がやったことだ。誰かが精密に設計した部屋の椅子に、対価を払って座る。「作る」はもう一方の道 — 少人数の反復する部屋を、自分で主宰することである。そして一番面白いのはここだ。<span class="em">場を主宰する人間にしか届かない種類の摩擦がある</span>。誰を呼ぶか、何を問うか、どこで沈黙を破るか — 主宰は一つの修練であり、参加では決して鍛えられない筋肉を鍛える。部屋を作るとは、摩擦の品質管理を自分の手でやることだ。相手を選び、予習の水準を設定し、衝突を設計する。「教える者が最も学ぶ」と言うが、それ以上に、主宰者には参加者には見えない信号が届く。</p>
+  <p class="en">Broadcasting builds an audience, but it does not build relationships — small rooms, repeated, do. The same insight that explains why the Harvard classroom works is the design spec for the room you might build yourself.</p>
+  <p class="ja">放送型の発信は聴衆を作るが、関係は作らない。関係を作るのは、少人数の部屋の反復である。ハーバードの教室がなぜ機能するのかを説明する洞察は、そのまま、自分が作るかもしれない部屋の設計仕様書になる。</p>
+
+  <div class="essay-close">
+    <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">7</span><span class="en">Both, in rhythm</span><span class="ja">両方を、リズムで回す</span></h2>
+    <p class="en">So the answer is not a choice. Buy occasionally — a deliberately spaced calibration against the best-designed rooms in the world. Build continuously — a room of your own, convened under your own name, where you control the quality of the friction. The two are not separate activities; climbing as a participant and convening as a host feed each other.</p>
+    <p class="ja">だから答えは二者択一ではない。時々「買う」 — 世界で最も精密に設計された部屋を定点観測として、意図的な間隔で。日々「作る」 — 摩擦の質を自分で管理する、自分の名前で主宰する部屋を。この二つは別々の活動ではない。参加者として高みに登ることと、主宰者として場を回すことは、互いに養分になる。</p>
+
+    <div class="figure">
+      <svg class="en" viewBox="0 0 660 190" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+        <circle cx="170" cy="78" r="56" fill="#fff" stroke="#1a2332" stroke-width="1.4"/>
+        <text x="170" y="70" font-size="14" text-anchor="middle" fill="#1a2332">Buy</text>
+        <text x="170" y="90" font-size="10.5" text-anchor="middle" fill="#666">periodic calibration</text>
+        <text x="170" y="105" font-size="10.5" text-anchor="middle" fill="#666">in the best rooms</text>
+        <circle cx="490" cy="78" r="56" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/>
+        <text x="490" y="70" font-size="14" text-anchor="middle" fill="#1d5c5c">Build</text>
+        <text x="490" y="90" font-size="10.5" text-anchor="middle" fill="#3d3d3d">a room of your own,</text>
+        <text x="490" y="105" font-size="10.5" text-anchor="middle" fill="#3d3d3d">convened repeatedly</text>
+        <path d="M 226 52 Q 330 12 434 52" fill="none" stroke="#b5832a" stroke-width="1.3"/>
+        <polygon points="434,52 421,46 425,58" fill="#b5832a"/>
+        <path d="M 434 104 Q 330 144 226 104" fill="none" stroke="#b5832a" stroke-width="1.3"/>
+        <polygon points="226,104 239,110 235,98" fill="#b5832a"/>
+        <text x="330" y="28" font-size="10.5" text-anchor="middle" fill="#8a6020">what you observe becomes your design spec</text>
+        <text x="330" y="136" font-size="10.5" text-anchor="middle" fill="#8a6020">what you host sharpens what you seek</text>
+        <text x="330" y="176" font-size="12" text-anchor="middle" fill="#1a2332">both loops → access to high-quality friction</text>
+      </svg>
+      <svg class="ja" viewBox="0 0 660 190" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+        <circle cx="170" cy="78" r="56" fill="#fff" stroke="#1a2332" stroke-width="1.4"/>
+        <text x="170" y="70" font-size="14" text-anchor="middle" fill="#1a2332">買う</text>
+        <text x="170" y="90" font-size="10.5" text-anchor="middle" fill="#666">最良の部屋での</text>
+        <text x="170" y="105" font-size="10.5" text-anchor="middle" fill="#666">定点観測（数年に一度）</text>
+        <circle cx="490" cy="78" r="56" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/>
+        <text x="490" y="70" font-size="14" text-anchor="middle" fill="#1d5c5c">作る</text>
+        <text x="490" y="90" font-size="10.5" text-anchor="middle" fill="#3d3d3d">自分の名前で主宰する</text>
+        <text x="490" y="105" font-size="10.5" text-anchor="middle" fill="#3d3d3d">少人数の反復する部屋</text>
+        <path d="M 226 52 Q 330 12 434 52" fill="none" stroke="#b5832a" stroke-width="1.3"/>
+        <polygon points="434,52 421,46 425,58" fill="#b5832a"/>
+        <path d="M 434 104 Q 330 144 226 104" fill="none" stroke="#b5832a" stroke-width="1.3"/>
+        <polygon points="226,104 239,110 235,98" fill="#b5832a"/>
+        <text x="330" y="28" font-size="10.5" text-anchor="middle" fill="#8a6020">観察した設計が、自分の部屋の仕様書になる</text>
+        <text x="330" y="136" font-size="10.5" text-anchor="middle" fill="#8a6020">主宰の経験が、次に買うものの目利きを鍛える</text>
+        <text x="330" y="176" font-size="12" text-anchor="middle" fill="#1a2332">両方のループ → 質の高い摩擦へのアクセス</text>
+      </svg>
+      <div class="figcap"><span class="en">Fig. 3 — Buy and build, in rhythm</span><span class="ja">図3　買うと作るを、リズムで回す</span></div>
+    </div>
+
+    <div class="seed-box">
+      <span class="pull-label"><span class="en">The Seed</span><span class="ja">種としての一行</span></span>
+      <span class="en">In an age when knowledge is free, the wealth worth pursuing is access to high-quality friction. Those who run both loops — buying it and building it — will be the ones who get to define what "rich learning" means.</span>
+      <span class="ja">知識が無料になる時代に追求する価値のある豊かさは、質の高い摩擦へのアクセスである。買うことと作ること、その両方のループを回す者が、「豊かな学び」の定義を決める側に立つ。</span>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div><span class="en">Essay 001 · June 2026 · Written on returning from Boston</span><span class="ja">Essay 001 · 2026年6月 · ボストンからの帰国便を降りて</span></div>
+  <div><a href="../index.html">shun-yanagisawa.com</a> · <a href="../index.html#essays"><span class="en">All essays</span><span class="ja">エッセイ一覧</span></a></div>
+</footer>
+
+<script>
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+}
+if ((navigator.language || '').startsWith('ja')) toggleLang();
+</script>
+</body>
+</html>
