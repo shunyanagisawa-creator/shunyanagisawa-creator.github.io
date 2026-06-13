@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Contents Page Is a Map — Shun Yanagisawa</title>
+<meta name="description" content="In the age of free knowledge, value lives in structure, not content. On the library of Alexandria, expert vs novice organization, why an LLM predicts language while an expert predicts results from structure, the bitter lesson, and the contents page as a map.">
+<meta property="og:title" content="The Contents Page Is a Map — In the Age of Free Knowledge, Value Lives in Structure">
+<meta property="og:description" content="If AI can generate any content for nearly nothing, what stays scarce? The judgment of structure — what to include, in what order, at what depth — which lives only in a master's tacit knowledge.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.shun-yanagisawa.com/essays/value-lives-in-structure.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
+  --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f5ead8;
+  --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
+  --text: #1a1a1a; --text-mid: #3d3d3d; --text-muted: #666666; --border: #ddd9d0;
+  --font-display: 'Playfair Display', 'Noto Serif JP', Georgia, serif;
+  --font-body: 'Source Sans 3', sans-serif;
+  --font-jp: 'Noto Serif JP', serif;
+  --font-mono: 'DM Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--white); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.85; }
+body.lang-en .ja { display: none; }
+body.lang-ja .en { display: none; }
+body.lang-ja { font-family: var(--font-jp); }
+
+nav {
+  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+.nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1.2rem; }
+.nav-back { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--text-muted); text-decoration: none; }
+.nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .35rem .8rem; cursor: pointer; color: var(--text-mid);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
+
+.essay { max-width: 720px; margin: 0 auto; padding: 4rem 1.6rem 5rem; }
+.essay-kicker { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.2rem; }
+h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 500; line-height: 1.3; color: var(--navy); margin-bottom: .8rem; }
+.essay-sub { font-size: 1.02rem; color: var(--text-muted); margin-bottom: 1.4rem; line-height: 1.7; }
+.essay-meta { display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); padding-bottom: 1.6rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.4rem; }
+.essay-meta a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); }
+
+/* 書籍風: 番号付き節見出し */
+.essay h2 {
+  font-family: var(--font-display); font-size: 1.22rem; font-weight: 500; color: var(--navy);
+  margin: 2.8rem 0 1rem; padding: .35rem 0 .45rem .9rem;
+  border-left: 3px solid var(--navy); border-bottom: 1px solid var(--border);
+}
+body.lang-ja .essay h2 { font-family: var(--font-jp); font-weight: 500; }
+.essay h2 .hnum { font-family: var(--font-mono); font-size: .85rem; color: var(--teal-dark); margin-right: .7rem; letter-spacing: .05em; }
+
+.essay p { margin: 1.1rem 0; color: var(--text-mid); text-align: justify; }
+.essay a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.4); }
+
+/* 強調: 日本語=傍点(短句のみ) / 英語=イタリック */
+.ja .em { -webkit-text-emphasis: filled dot var(--navy); text-emphasis: filled dot var(--navy); font-style: normal; }
+.en .em { font-style: italic; }
+
+/* 要点ボックス */
+.pull {
+  border: 1px solid var(--gold); background: var(--gold-light);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 1.9rem 0; border-radius: 2px;
+  font-size: 1rem; color: var(--navy); line-height: 1.8; position: relative; text-align: justify;
+}
+.pull .pull-label {
+  position: absolute; top: -0.7rem; left: 1rem; background: var(--white);
+  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em;
+  color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase;
+}
+
+/* 図版 */
+.figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 1.9rem 0; background: var(--white); }
+.figure svg { width: 100%; height: auto; display: block; }
+.figcap {
+  margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); text-align: center;
+}
+body.lang-ja .figcap { font-family: var(--font-jp); font-size: .76rem; }
+
+/* 結語: 種としての一行 */
+.seed-box {
+  border: 1px solid var(--gold); border-left: 4px solid var(--gold);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0 0; border-radius: 2px;
+  font-size: 1.02rem; color: var(--navy); line-height: 1.85; position: relative; text-align: justify;
+}
+.seed-box .pull-label { position: absolute; top: -0.7rem; left: 1rem; background: var(--white); font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase; }
+
+.essay-close { border-top: 2px solid var(--gold); margin-top: 3rem; padding-top: 1.6rem; }
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
+footer a { color: var(--teal-dark); text-decoration: none; }
+@media (max-width: 560px) { nav { padding: 0 1.2rem; } .essay { padding-top: 2.6rem; } }
+</style>
+</head>
+<body class="lang-en">
+
+<nav>
+  <a class="nav-logo" href="../index.html">Shun <span>Yanagisawa</span></a>
+  <div class="nav-right">
+    <a class="nav-back" href="../index.html#essays"><span class="en">← Essays</span><span class="ja">← エッセイ一覧</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="en">日本語</span><span class="ja">English</span></button>
+  </div>
+</nav>
+
+<article class="essay">
+  <div class="essay-kicker">Essay 003 · Structure &amp; AI</div>
+  <h1>
+    <span class="en">The Contents Page Is a Map</span>
+    <span class="ja">目次は、航海図である</span>
+  </h1>
+  <p class="essay-sub">
+    <span class="en">In the age of free knowledge, value lives in structure, not content. On the library of Alexandria, why an LLM predicts language while an expert predicts results, the bitter lesson, and the structure worth preserving.</span>
+    <span class="ja">知識が無料になる時代に、価値は内容ではなく構造に宿る。アレキサンドリア図書館、LLMは言語を・専門家は結果を予測すること、苦い教訓、そして残すに値する構造をめぐって。</span>
+  </p>
+  <div class="essay-meta">
+    <span>June 2026</span>
+    <span class="en">Structure · AI · education-first</span>
+    <span class="ja">構造 · AI · 教科書的解説 × 思想</span>
+    <span class="en">15 min read</span>
+    <span class="ja">日本語 約15分</span>
+  </div>
+
+  <p class="en">"Knowledge is free now," people say. Search, or a generative model, returns an answer to almost anything in an instant. So in a world where knowledge grows endlessly cheap, what becomes scarce, and where does value remain? The answer of this essay can be said in a single word — <span class="em">structure</span>. Not the content, but the order in which content is arranged, and the seams between the parts. The same holds for a technical book, a lecture, an organization. Let us walk there together.</p>
+  <p class="ja">「知識はもう無料だ」とよく言われる。検索でも、生成AIでも、たいていのことは一瞬で答えが返ってくる。では、知識が限りなく安くなる世界で、いったい何が希少になり、何に価値が残るのか。この文章の答えは一語で言える——<span class="em">構造</span>である。内容ではなく、内容を並べる順序と、つなぎ目。専門書でも、講義でも、組織でも、同じことが言える。一緒にそこまで歩く。</p>
+
+  <h2><span class="hnum">1</span><span class="en">What turns scarce when content is infinite</span><span class="ja">内容が無限に作れる時代に、希少になるもの</span></h2>
+  <p class="en">Not long ago, knowledge was scarce as <em>content</em> itself. What was written, who knew it. Information that lived only in books, databases, or an expert's head carried a price.</p>
+  <p class="ja">ひと昔前、知識は「内容そのもの」が希少だった。何が書いてあるか、誰が知っているか。本やデータベース、専門家の頭の中にしかない情報には値段がついた。</p>
+  <p class="en">Then generative AI learned to pour out plausible content endlessly, at almost no cost. Summaries, formatting, first drafts — all fast. The scarcity of content collapses.</p>
+  <p class="ja">ところが、生成AIは「もっともらしい内容」を、いくらでも、ほぼ無料で吐き出せるようになった。要約も、整形も、下書きも速い。すると、内容の希少性は急速に下落する。</p>
+  <p class="en">Put as a metaphor: AI threw open, to everyone, <span class="em">unlimited access to the ancient library of Alexandria</span>. Humanity's vault of knowledge now sits in your palm at a single query. But — being admitted to the library and being able to <em>use</em> it are entirely different. Once, even the ablest mind needed time to search, to memorize, to assemble. Now the cost of searching and remembering approaches zero, and the cycle of search → process → unfold → structure → apply has compressed drastically. As a result, what divides people is no longer "can you access it" but "can you <span class="em">structure</span> it." Before the same library, a gulf opens between the one who can build it up in three dimensions and the one who merely gazes at it.</p>
+  <p class="ja">比喩で言えば、AIは<span class="em">古代アレキサンドリア図書館への無尽蔵のアクセス</span>を、誰にでも開いてしまった。人類の知の蔵が、検索ひとつで手のひらに乗る。だが——図書館に入れることと、図書館を<em>使える</em>ことは、まったく別だ。かつては、どれほど優秀な人でも、探し、覚え、組み立てるのに時間がかかった。いまや検索コストも記憶コストもほぼゼロに近づき、〈探す→処理する→展開する→構造化する→応用する〉のサイクルが極度に短くなった。その結果、差がつくのは「アクセスできるか」ではなく「<span class="em">構造化できるか</span>」になる。同じ図書館を前にして、それを立体的に組み上げられる人と、ただ眺めるだけの人とのあいだに、桁違いの開きが生まれる時代になった。</p>
+  <p class="en">Here a reversal, easily missed, takes place. <span class="em">The more power there is to generate content, the more the value of structure rises in relative terms.</span> What to include and what to leave out. In what order. What is the skeleton and what is a branch. At what depth to treat each thing — these judgments of structure cannot be mass-produced by a machine the way content can. As content cheapens, the scarcity of structure is what remains and stands out. Content and structure are inversely correlated.</p>
+  <p class="ja">ここで、見落とされがちな反転が起きる。〈内容を生成できる力が上がるほど、相対的に構造の価値が上がる〉。何を載せ、何を載せないか。どの順で配置するか。何が骨格で、何が枝葉か。どの深さで扱うか——こうした構造の判断は、内容と違って、機械が量産できない。むしろ内容が安くなるほど、構造の希少性だけが残り、際立っていく。内容と構造は、反相関の関係にある。</p>
+
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 196" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <line x1="56" y1="26" x2="56" y2="164" stroke="#999" stroke-width="1"/>
+      <line x1="56" y1="164" x2="624" y2="164" stroke="#999" stroke-width="1"/><polygon points="628,164 618,159 618,169" fill="#999"/>
+      <text x="340" y="186" font-size="11.5" text-anchor="middle" fill="#666">AI's content-generation power →</text>
+      <text x="44" y="96" font-size="11" text-anchor="middle" fill="#666" transform="rotate(-90 44 96)">scarcity</text>
+      <line x1="64" y1="40" x2="616" y2="150" stroke="#9a9a9a" stroke-width="2" stroke-dasharray="5 3"/>
+      <text x="566" y="142" font-size="11.5" fill="#9a9a9a">content ↓</text>
+      <line x1="64" y1="150" x2="616" y2="40" stroke="#1d5c5c" stroke-width="2.2"/>
+      <text x="556" y="48" font-size="11.5" fill="#1d5c5c">structure ↑</text>
+      <circle cx="340" cy="95" r="3.5" fill="#8a6020"/>
+      <text x="340" y="84" font-size="10.5" text-anchor="middle" fill="#8a6020">the crossover</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 196" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <line x1="56" y1="26" x2="56" y2="164" stroke="#999" stroke-width="1"/>
+      <line x1="56" y1="164" x2="624" y2="164" stroke="#999" stroke-width="1"/><polygon points="628,164 618,159 618,169" fill="#999"/>
+      <text x="340" y="186" font-size="11.5" text-anchor="middle" fill="#666">AIの内容生成力 →</text>
+      <text x="44" y="96" font-size="11" text-anchor="middle" fill="#666" transform="rotate(-90 44 96)">希少性</text>
+      <line x1="64" y1="40" x2="616" y2="150" stroke="#9a9a9a" stroke-width="2" stroke-dasharray="5 3"/>
+      <text x="556" y="142" font-size="11.5" fill="#9a9a9a">内容 ↓</text>
+      <line x1="64" y1="150" x2="616" y2="40" stroke="#1d5c5c" stroke-width="2.2"/>
+      <text x="546" y="48" font-size="11.5" fill="#1d5c5c">構造 ↑</text>
+      <circle cx="340" cy="95" r="3.5" fill="#8a6020"/>
+      <text x="340" y="84" font-size="10.5" text-anchor="middle" fill="#8a6020">反転点</text>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 1 — Content and structure are inversely correlated.</span><span class="ja">図1　内容と構造は反相関 — 内容が安くなるほど構造の希少性が際立つ。</span></div>
+  </div>
+
+  <p class="en">At higher resolution: when content commoditizes, scarcity moves to three places. First, the judgment to deviate deliberately from the average answer — to say "this is wrong; build that instead." Second, <span class="em">a map no one else has — the power to see structure at high resolution</span>. Third, the loop of getting your own hands dirty, catching the friction, and rebuilding fast. This essay chases mainly the second (the map, the contents page), but the three are entangled. Precisely because anyone can produce content, the edge of those who can run all three themselves widens.</p>
+  <p class="ja">もう少し解像度を上げると、内容がコモディティ化したとき、希少性は三つの場所へ移る。第一に、平均的な答えから意図的に外れて「これは間違っている／こちらを作るべきだ」と言える判断。第二に、<span class="em">誰も持っていない地図——構造を高い解像度で見る力</span>。第三に、自分で手を動かして摩擦を拾い、すぐ作り直すループ。この文章が追うのは主に二つ目（地図＝目次）だが、三つは絡み合っている。誰でも内容を作れる時代だからこそ、この三つを自分で回せる者の優位が、むしろ拡大していく。</p>
+
+  <h2><span class="hnum">2</span><span class="en">What separates expert from novice is not how much they know</span><span class="ja">専門家と初心者を分けるのは、知識量ではない</span></h2>
+  <p class="en">Why is structure hard to mechanize? Cognitive science has long shown a fact: <span class="em">the essential difference between expert and novice is not the amount of knowledge, but the depth of its organization.</span></p>
+  <p class="ja">なぜ構造は機械化が難しいのか。認知科学が古くから示してきた事実がある。<span class="em">専門家と初心者の本質的な違いは、知識の量ではなく、知識の組織化の深さにある</span>、というものだ。</p>
+  <p class="en">Given the same facts, the novice bundles them by surface features; the expert bundles them by deep structure. A chess master reads a board not as "where each piece sits" but as meaningful wholes, at a glance. An expert in physics sorts problems not by "how they look" but by "which principle is at work." A skeleton invisible to the novice is visible to the expert.</p>
+  <p class="ja">同じ事実を並べても、初心者は表層の特徴で束ね、専門家は深層の構造で束ねる。たとえばチェスの達人は、盤面を「個々の駒の位置」ではなく「意味のあるまとまり」として一目で捉える。物理の熟達者は、問題を「見た目」ではなく「どの原理が効くか」で分類する。初心者には見えない骨格が、専門家には見えている。</p>
+  <p class="en">To be able to draw a table of contents is exactly this: <span class="em">to be able to organize a subject by its deep structure</span>. And this capacity grows only in someone who has immersed in a field for a long time and, on top of that, has taught it. It takes twenty years of tacit knowledge. By its nature, it is a layer hard to transfer to a machine.</p>
+  <p class="ja">「目次が描ける」とは、まさにこの<span class="em">深層構造で対象を組織化できる</span>ということだ。そしてこの能力は、ある領域に長く没入し、しかも人に教える経験を積んだ者にしか育たない。20年分の暗黙知が要る。原理的に、機械へ移しにくい層である。</p>
+
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 200" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <rect x="8" y="14" width="306" height="148" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.2" stroke-dasharray="5 4"/>
+      <text x="161" y="36" font-size="12.5" text-anchor="middle" fill="#666">Novice — surface features</text>
+      <circle cx="60" cy="70" r="5" fill="#999"/><circle cx="120" cy="100" r="5" fill="#999"/><circle cx="90" cy="130" r="5" fill="#999"/><circle cx="180" cy="64" r="5" fill="#999"/><circle cx="230" cy="110" r="5" fill="#999"/><circle cx="160" cy="138" r="5" fill="#999"/><circle cx="260" cy="76" r="5" fill="#999"/><circle cx="210" cy="150" r="5" fill="#999"/>
+      <text x="161" y="184" font-size="11" text-anchor="middle" fill="#666">scattered points</text>
+      <rect x="346" y="14" width="306" height="148" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/>
+      <text x="499" y="36" font-size="12.5" text-anchor="middle" fill="#1d5c5c">Expert — deep structure</text>
+      <line x1="499" y1="70" x2="430" y2="120" stroke="#1d5c5c" stroke-width="1"/><line x1="499" y1="70" x2="568" y2="120" stroke="#1d5c5c" stroke-width="1"/><line x1="430" y1="120" x2="410" y2="150" stroke="#1d5c5c" stroke-width="1"/><line x1="430" y1="120" x2="460" y2="150" stroke="#1d5c5c" stroke-width="1"/><line x1="568" y1="120" x2="540" y2="150" stroke="#1d5c5c" stroke-width="1"/><line x1="568" y1="120" x2="590" y2="150" stroke="#1d5c5c" stroke-width="1"/>
+      <circle cx="499" cy="70" r="6" fill="#1d5c5c"/><circle cx="430" cy="120" r="5" fill="#2a7a7a"/><circle cx="568" cy="120" r="5" fill="#2a7a7a"/><circle cx="410" cy="150" r="4.5" fill="#7aa"/><circle cx="460" cy="150" r="4.5" fill="#7aa"/><circle cx="540" cy="150" r="4.5" fill="#7aa"/><circle cx="590" cy="150" r="4.5" fill="#7aa"/>
+      <text x="499" y="184" font-size="11" text-anchor="middle" fill="#1a2332">the same points, organized</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 200" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <rect x="8" y="14" width="306" height="148" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.2" stroke-dasharray="5 4"/>
+      <text x="161" y="36" font-size="12.5" text-anchor="middle" fill="#666">初心者 — 表層の特徴で</text>
+      <circle cx="60" cy="70" r="5" fill="#999"/><circle cx="120" cy="100" r="5" fill="#999"/><circle cx="90" cy="130" r="5" fill="#999"/><circle cx="180" cy="64" r="5" fill="#999"/><circle cx="230" cy="110" r="5" fill="#999"/><circle cx="160" cy="138" r="5" fill="#999"/><circle cx="260" cy="76" r="5" fill="#999"/><circle cx="210" cy="150" r="5" fill="#999"/>
+      <text x="161" y="184" font-size="11" text-anchor="middle" fill="#666">点がばらばら</text>
+      <rect x="346" y="14" width="306" height="148" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/>
+      <text x="499" y="36" font-size="12.5" text-anchor="middle" fill="#1d5c5c">専門家 — 深層の構造で</text>
+      <line x1="499" y1="70" x2="430" y2="120" stroke="#1d5c5c" stroke-width="1"/><line x1="499" y1="70" x2="568" y2="120" stroke="#1d5c5c" stroke-width="1"/><line x1="430" y1="120" x2="410" y2="150" stroke="#1d5c5c" stroke-width="1"/><line x1="430" y1="120" x2="460" y2="150" stroke="#1d5c5c" stroke-width="1"/><line x1="568" y1="120" x2="540" y2="150" stroke="#1d5c5c" stroke-width="1"/><line x1="568" y1="120" x2="590" y2="150" stroke="#1d5c5c" stroke-width="1"/>
+      <circle cx="499" cy="70" r="6" fill="#1d5c5c"/><circle cx="430" cy="120" r="5" fill="#2a7a7a"/><circle cx="568" cy="120" r="5" fill="#2a7a7a"/><circle cx="410" cy="150" r="4.5" fill="#7aa"/><circle cx="460" cy="150" r="4.5" fill="#7aa"/><circle cx="540" cy="150" r="4.5" fill="#7aa"/><circle cx="590" cy="150" r="4.5" fill="#7aa"/>
+      <text x="499" y="184" font-size="11" text-anchor="middle" fill="#1a2332">同じ点が、束ねられている</text>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 2 — Same knowledge; what differs is the depth of organization.</span><span class="ja">図2　同じ知識 — 違うのは組織化の深さ。</span></div>
+  </div>
+
+  <h2><span class="hnum">3</span><span class="en">The judgment called a table of contents</span><span class="ja">目次という設計判断</span></h2>
+  <p class="en">Anyone who has written a book knows: the hardest part is not writing the prose. It is <span class="em">deciding what to write and what not to write.</span></p>
+  <p class="ja">本を書いたことのある人なら分かるが、いちばん難しいのは文章を書くことではない。<span class="em">何を書くか／書かないかを決めること</span>だ。</p>
+  <p class="en">When I made a dense technical book, the first thing I did was not writing but designing the contents. On this subject, what must absolutely be included? In what order will the reader's understanding deepen without getting lost? How far should the main body carry the skeleton, and from where should the detail be offloaded into appended columns? The prose is merely what comes after the skeleton is set.</p>
+  <p class="ja">私が一冊の専門書を作ったときも、最初にやったのは執筆ではなく、目次の設計だった。この主題で、何を必ず載せるべきか。読者の理解をどの順で深めれば迷子にならないか。どこまでを本体（骨格）で語り、どこからを付録的なコラム（具体・深掘り）に逃がすか。文章は、その骨格が決まった後の話にすぎない。</p>
+  <p class="en">A table of contents is not an appendage to the book. It is a <span class="em">map</span>, a north star. When the contents are clear, the reader can fine-tune the substance to their own situation. But without it, however much information you gather, you cannot tell where you are supposed to arrive. Academia can raise its resolution by referencing prior work because the field shares a structure — a contents page — across everyone. Where practice lacks that, every time someone retires, the next person rebuilds the memory from zero. The deepest reason knowledge fails to pass on is not a lack of content; it is the <span class="em">absence of structure</span>.</p>
+  <p class="ja">目次は、本の付属物ではない。<span class="em">航海図</span>であり、北極星である。目次がはっきりしていれば、中身は読者が自分の状況に合わせて微調整できる。だが目次がなければ、いくら情報を集めても、どこに辿り着くべきかが分からない。学術の世界が先行研究を参照しながら解像度を上げていけるのは、分野全体に共有された構造（目次）があるからだ。実学にそれが乏しいと、誰かが引退するたびに、次の人がゼロから記憶を組み直すことになる。知識が継承されない最大の理由は、内容の欠如ではなく、<span class="em">構造の不在</span>である。</p>
+
+  <h2><span class="hnum">4</span><span class="en">AI can write content. It cannot judge structure</span><span class="ja">AIは内容を書ける。構造は判断できない</span></h2>
+  <p class="en">This picture tidily sorts the division of labor in the age of AI. AI is fast at generating content. So once the human sets the skeleton (the contents), the draft of each chapter can be left to AI. The writer's job shifts from "writing content" to "judging, against the structure, what AI has drafted." What to keep, what to cut, where to place it. This drastically lightens the heavy load of writing, and creates conditions in which dense practitioners who "never had time to write" can now write.</p>
+  <p class="ja">この見取り図は、AI時代の役割分担をきれいに整理してくれる。AIは内容生成が速い。だから、骨格（目次）さえ人間が決めれば、各章の下書きはAIに任せられる。すると書き手の仕事は「内容を書く」から「AIが下書いた内容を、構造に照らして判定する」へ移る。何を残し、何を削り、どこに置くか。これは負荷の高い執筆を劇的に軽くし、これまで「書く時間がなくて書けなかった」高密度の実務家が、書ける状況をつくる。</p>
+  <p class="en">Why can content be delegated, but not structure? Step one pace into the mechanism and the outline sharpens. A large language model (LLM) is, boiled down, a machine that predicts <span class="em">the next word</span>. From a vast body of past text, it estimates, probabilistically, the most natural word to follow in this context. That is, what an LLM predicts is <span class="em">language</span> — what is "plausible to say."</p>
+  <p class="ja">なぜ、内容は任せられても、構造は任せられないのか。仕組みに一歩踏み込むと、輪郭がはっきりする。大規模言語モデル（LLM）は、煎じ詰めれば〈次に来る言葉〉を予測する機械だ。膨大な過去のテキストから、この文脈の次に<span class="em">もっとも自然に続く語</span>は何かを、確率的に当てていく。つまり LLM が予測しているのは<span class="em">言語</span>——何を言うのが「もっともらしいか」である。</p>
+  <p class="en">An expert, by contrast, predicts not language but <span class="em">the conclusion or result that the structure entails</span>. If you understand the mechanism deeply, what will happen, what answer it arrives at, is half-visible as a necessity. Know the principle, and the conclusion follows of itself. Predicting the surface word and predicting the result from the deep structure — both are "prediction," but the layer they look at is utterly different.</p>
+  <p class="ja">一方、専門家が予測しているのは言語ではない。<span class="em">構造から導かれる結論・結果</span>だ。仕組みを深く理解していれば、その構造から何が起きるか、どんな答えに行き着くかは、半ば必然として見えている。原理が分かっていれば、結論は自ずと予測できる。表層の言葉を当てる予測と、深層の構造から結果を当てる予測——同じ「予測」でも、見ている層がまるで違う。</p>
+  <p class="en">So while AI can spin plausible words, it cannot judge the weighting of structure — <span class="em">what, in this field, is essential and what is surface</span>. The contents page AI produces is the average of existing text: tidy, but without weight. Weight lives only in a master's tacit knowledge. <span class="em">AI fills the content (the language); the human guarantees the structure (the skeleton that yields the conclusion).</span> Reverse this division, and you get something handsome but coreless.</p>
+  <p class="ja">だから、もっともらしい言葉は AI が紡げても、〈この領域では何が本質で何が表層か〉という構造の重みづけは、AI には判断できない。AIが出す目次は、既存の文章の平均——整ってはいるが、重みを欠く。重みは、第一人者の暗黙知にしか宿らない。<span class="em">AIは内容（言語）を埋める、人間は構造（結論を導く骨格）を保証する。</span>この分担を逆にすると、立派だが芯のないものができあがる。</p>
+  <p class="en">There is, however, a formidable objection — the observation known in machine learning as <em>the bitter lesson</em>: an approach where experts describe a problem's structure by hand and bake it in as rules looks elegant in the short run, but a simpler, general method that merely adds compute and data inevitably overtakes it on a long horizon. This puts a blade straight to the thesis of this essay — that structural judgment stays with the human. If scale eventually swallows even structural judgment, the premise that value remains in a master's tacit knowledge collapses.</p>
+  <p class="ja">ただし、ここには手強い反論がある。機械学習の世界に「苦い教訓（<em>the bitter lesson</em>）」として知られる観察だ——専門家が手で問題の構造を記述し、それをルールとして組み込むアプローチは、短期では精巧に見えても、計算資源とデータを増やすだけのより単純な汎用手法に、長い時間軸では必ず追い抜かれる。これは本稿のテーゼ——構造判断は人間に残る——に、正面から刃を突きつける。もしスケールがやがて構造判断すら飲み込むなら、「第一人者の暗黙知に価値が残る」という前提は崩れる。</p>
+  <p class="en">My provisional answer is this. What the bitter lesson has devoured is <em>handcrafted content</em> — feature design, rule-writing, bespoke models — not the choice of <em>what to aim at, what to weight as essential</em>. Scale solves "how to achieve a given objective" frighteningly well, but it does not say "what should the objective even be," or "this question is wrong." Designing a table of contents is the latter kind of work. And yet — honestly, I do not know how far this line will hold. How much of structural judgment stays with the human, and from where it is ceded to scale. That borderline is exactly the question worth watching now.</p>
+  <p class="ja">私の暫定的な答えはこうだ。苦い教訓が食ってきたのは〈内容の手作り〉——特徴量の設計、ルールの書き込み、専用モデルの作り込み——であって、〈何を目的に置くか、何が本質かの重みづけ〉ではない。スケールは「与えられた目的をどう達成するか」を恐ろしく上手に解くが、「そもそも何を目的に置くべきか」「この問いは間違っている」とは言わない。目次の設計とは、後者の仕事だ。とはいえ——正直に言えば、この線引きが将来どこまで保つかは、わからない。構造判断のどこまでが人間に残り、どこからがスケールに明け渡されるのか。その境界線こそ、いま見つめておくべき問いである。</p>
+
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 188" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <rect x="8" y="14" width="306" height="150" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.2"/>
+      <text x="161" y="36" font-size="13" text-anchor="middle" fill="#1a2332">LLM</text>
+      <text x="161" y="56" font-size="11" text-anchor="middle" fill="#666">predicts the next word</text>
+      <rect x="40" y="78" width="48" height="26" rx="2" fill="#f3f3f0" stroke="#999"/><text x="64" y="95" font-size="10.5" text-anchor="middle" fill="#666">word</text>
+      <rect x="96" y="78" width="48" height="26" rx="2" fill="#f3f3f0" stroke="#999"/><text x="120" y="95" font-size="10.5" text-anchor="middle" fill="#666">word</text>
+      <rect x="152" y="78" width="48" height="26" rx="2" fill="#f3f3f0" stroke="#999"/><text x="176" y="95" font-size="10.5" text-anchor="middle" fill="#666">word</text>
+      <rect x="208" y="78" width="40" height="26" rx="2" fill="#fff" stroke="#8a6020" stroke-dasharray="3 2"/><text x="228" y="95" font-size="13" text-anchor="middle" fill="#8a6020">?</text>
+      <text x="161" y="138" font-size="11" text-anchor="middle" fill="#666">surface — what is plausible</text>
+      <rect x="346" y="14" width="306" height="150" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/>
+      <text x="499" y="36" font-size="13" text-anchor="middle" fill="#1d5c5c">Expert</text>
+      <text x="499" y="56" font-size="11" text-anchor="middle" fill="#3d3d3d">predicts the result from structure</text>
+      <polygon points="430,118 470,82 510,118" fill="none" stroke="#1d5c5c" stroke-width="1.3"/><line x1="470" y1="82" x2="470" y2="118" stroke="#1d5c5c" stroke-width="1"/>
+      <text x="470" y="112" font-size="9.5" text-anchor="middle" fill="#1d5c5c">structure</text>
+      <line x1="516" y1="100" x2="560" y2="100" stroke="#1d5c5c" stroke-width="1.3"/><polygon points="564,100 554,95 554,105" fill="#1d5c5c"/>
+      <text x="596" y="96" font-size="11" text-anchor="middle" fill="#1a2332">result</text>
+      <text x="596" y="110" font-size="9.5" text-anchor="middle" fill="#666">(half necessary)</text>
+      <text x="499" y="138" font-size="11" text-anchor="middle" fill="#1a2332">depth — what follows of itself</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 188" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <rect x="8" y="14" width="306" height="150" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.2"/>
+      <text x="161" y="36" font-size="13" text-anchor="middle" fill="#1a2332">LLM</text>
+      <text x="161" y="56" font-size="11" text-anchor="middle" fill="#666">次に来る言葉を予測</text>
+      <rect x="40" y="78" width="48" height="26" rx="2" fill="#f3f3f0" stroke="#999"/><text x="64" y="95" font-size="10.5" text-anchor="middle" fill="#666">語</text>
+      <rect x="96" y="78" width="48" height="26" rx="2" fill="#f3f3f0" stroke="#999"/><text x="120" y="95" font-size="10.5" text-anchor="middle" fill="#666">語</text>
+      <rect x="152" y="78" width="48" height="26" rx="2" fill="#f3f3f0" stroke="#999"/><text x="176" y="95" font-size="10.5" text-anchor="middle" fill="#666">語</text>
+      <rect x="208" y="78" width="40" height="26" rx="2" fill="#fff" stroke="#8a6020" stroke-dasharray="3 2"/><text x="228" y="95" font-size="13" text-anchor="middle" fill="#8a6020">?</text>
+      <text x="161" y="138" font-size="11" text-anchor="middle" fill="#666">表層 — もっともらしさ</text>
+      <rect x="346" y="14" width="306" height="150" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/>
+      <text x="499" y="36" font-size="13" text-anchor="middle" fill="#1d5c5c">専門家</text>
+      <text x="499" y="56" font-size="11" text-anchor="middle" fill="#3d3d3d">構造から結果を予測</text>
+      <polygon points="430,118 470,82 510,118" fill="none" stroke="#1d5c5c" stroke-width="1.3"/><line x1="470" y1="82" x2="470" y2="118" stroke="#1d5c5c" stroke-width="1"/>
+      <text x="470" y="112" font-size="9.5" text-anchor="middle" fill="#1d5c5c">構造</text>
+      <line x1="516" y1="100" x2="560" y2="100" stroke="#1d5c5c" stroke-width="1.3"/><polygon points="564,100 554,95 554,105" fill="#1d5c5c"/>
+      <text x="592" y="96" font-size="11" text-anchor="middle" fill="#1a2332">結論</text>
+      <text x="592" y="110" font-size="9.5" text-anchor="middle" fill="#666">(半ば必然)</text>
+      <text x="499" y="138" font-size="11" text-anchor="middle" fill="#1a2332">深層 — 自ずと導かれる</text>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 3 — Two kinds of prediction: language (surface) vs. result from structure (depth).</span><span class="ja">図3　二つの予測 — 言語（表層）と、構造から導く結果（深層）。</span></div>
+  </div>
+
+  <h2><span class="hnum">5</span><span class="en">Preserving structure — and why those who reach it are interesting</span><span class="ja">構造を残す——そして、構造に到達した人の話は面白い</span></h2>
+  <p class="en">So what is truly worth preserving is not the content that can be generated, but <span class="em">the structure inside the master's head</span>. The structure they finally hand over as a "contents page," after points have become lines, lines become planes, planes become a solid. With it, those who come later can fill in the substance to fit their own ground. Knowledge transmission is not the copying of content; it is the handing over of structure.</p>
+  <p class="ja">だから、本当に残す価値があるのは、生成できる内容ではなく、<span class="em">第一人者の頭の中の構造そのもの</span>だ。点が線になり、線が面になり、面が立体になるところまで到達した人が、最後に「目次」として差し出す構造。これがあれば、後の人は中身を自分の現場に合わせて埋めていける。知識の継承とは、内容のコピーではなく、構造の受け渡しである。</p>
+  <p class="en">But leaving the structure in a book is only half. Only those who can reassemble points into lines, lines into planes, planes into a solid carry value; those who fall short become parts with a larger error than AI's. The frightening part comes next: cut such people away for the sake of efficiency, and <span class="em">in ten years the very path that reproduces "those who grasp the whole in three dimensions" disappears</span>. So the question is not "cut them or keep them," but "decide first whom to raise into three-dimensional thinking." To preserve structure is to place a contents page — and at the same time, to design the path by which someone who can draw that contents page in the future gets raised.</p>
+  <p class="ja">ただし、構造を本にして残すだけでは半分でしかない。点を線に、線を面に、面を立体へと組み替えられる人間だけが価値を持ち、そこに届かない層は、AIより誤差の大きい部品になってしまう。怖いのはその先だ——効率を理由にそういう層を切り捨てると、<span class="em">10年後に「立体まで掴んだ人」を再生産する経路そのものが消える</span>。だから問いは「切るか残すか」ではなく、「誰を立体に育てるかを、先に決める」である。構造を残すとは、目次を一冊置くことであり、同時に、その目次を将来描ける人を育てる経路を設計することでもある。</p>
+  <p class="en">There is one more easily missed benefit. <span class="em">The talk of someone who has reached structure is, more often than not, interesting.</span> Conversely, the merely able and earnest writer is often dull — because they write as if the reader already holds the premises they themselves acquired through struggle (what cognitive science calls "the curse of knowledge"). This is, in principle, invisible to the writer. What can correct it is a third party who understands the structure yet is not yet dyed in "everything is obvious" — the editor. Set the skeleton strictly in the main body; allow the human texture (specifics, anecdote, humor) in the columns. These two layers turn "the book of an able, earnest person" into "the book of an able, earnest, and interesting person."</p>
+  <p class="ja">もう一つ、見落とされがちな効用がある。<span class="em">構造まで到達した人の話は、たいてい面白い</span>。逆に、優秀で真面目なだけの書き手は、しばしばつまらない。自分が苦労して獲得した前提を、読者もすでに持っているかのように書いてしまうからだ（認知科学でいう「知の呪い」）。これは本人には原理的に見えない。補正できるのは、構造を理解しつつ、まだ「全部が自明」には染まっていない第三者——編集者である。本体で骨格を厳格に立て、コラムで人間の肌触り（具体・逸話・ユーモア）を許す。この二層が、「優秀で真面目な人の本」を「優秀で真面目だが面白い人の本」に変える。</p>
+
+  <div class="essay-close">
+    <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">6</span><span class="en">The contents page is a map</span><span class="ja">目次は、航海図である</span></h2>
+    <p class="en">What divides the quality of learning (Essay 001), and what divides the trust in a market or a system (Essay 002), came down, pressed far enough, to the same thing. <span class="em">See the structure, not the surface.</span> Not the price, the fashion, the volume of information — but the skeleton, the order, the seams — those places hard to catch with the eye — is where the real value lives.</p>
+    <p class="ja">学びの質を分けるのも（Essay 001）、市場や仕組みの信頼を分けるのも（Essay 002）、突き詰めれば同じだった。<span class="em">表層ではなく、構造を見る</span>。値段や流行や情報量という表面ではなく、骨格・順序・つなぎ目という、目に映りにくい場所に、本当の価値が宿っている。</p>
+    <p class="en">In an age when content is free, what is scarce is structure. And structure lives only inside the head of someone who has grasped a field to the solid. To bring it out as a contents page, a map that those who come after can sail by — knowledge transmission is another name for that unglamorous work.</p>
+    <p class="ja">内容が無料になる時代に、希少なのは構造だ。そして構造は、ある領域を立体まで掴んだ人の頭の中にしかない。それを目次として外に出し、後の人が辿れる航海図にすること——知識の継承とは、その地味な作業の別名である。</p>
+
+    <div class="figure">
+      <svg class="en" viewBox="0 0 660 184" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+        <text x="90" y="22" font-size="11.5" text-anchor="middle" fill="#666">scattered knowledge</text>
+        <circle cx="40" cy="60" r="4" fill="#999"/><circle cx="95" cy="45" r="4" fill="#999"/><circle cx="70" cy="95" r="4" fill="#999"/><circle cx="130" cy="80" r="4" fill="#999"/><circle cx="50" cy="130" r="4" fill="#999"/><circle cx="120" cy="125" r="4" fill="#999"/><circle cx="100" cy="100" r="4" fill="#999"/>
+        <line x1="170" y1="92" x2="226" y2="92" stroke="#b5832a" stroke-width="1.4"/><polygon points="230,92 220,87 220,97" fill="#b5832a"/>
+        <text x="200" y="80" font-size="9.5" text-anchor="middle" fill="#8a6020">the contents page</text>
+        <text x="200" y="110" font-size="9.5" text-anchor="middle" fill="#8a6020">gives a route</text>
+        <polygon points="600,30 604,42 616,42 606,50 610,62 600,54 590,62 594,50 584,42 596,42" fill="#b5832a"/>
+        <text x="600" y="78" font-size="9.5" text-anchor="middle" fill="#8a6020">north star</text>
+        <path d="M 270 130 L 330 110 L 400 118 L 470 88 L 540 70 L 596 52" fill="none" stroke="#1d5c5c" stroke-width="2"/>
+        <circle cx="270" cy="130" r="4.5" fill="#1d5c5c"/><circle cx="330" cy="110" r="4.5" fill="#1d5c5c"/><circle cx="400" cy="118" r="4.5" fill="#1d5c5c"/><circle cx="470" cy="88" r="4.5" fill="#1d5c5c"/><circle cx="540" cy="70" r="4.5" fill="#1d5c5c"/>
+        <text x="420" y="150" font-size="11" text-anchor="middle" fill="#1a2332">points → lines → planes → a route</text>
+      </svg>
+      <svg class="ja" viewBox="0 0 660 184" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+        <text x="90" y="22" font-size="11.5" text-anchor="middle" fill="#666">散らばった知識</text>
+        <circle cx="40" cy="60" r="4" fill="#999"/><circle cx="95" cy="45" r="4" fill="#999"/><circle cx="70" cy="95" r="4" fill="#999"/><circle cx="130" cy="80" r="4" fill="#999"/><circle cx="50" cy="130" r="4" fill="#999"/><circle cx="120" cy="125" r="4" fill="#999"/><circle cx="100" cy="100" r="4" fill="#999"/>
+        <line x1="170" y1="92" x2="226" y2="92" stroke="#b5832a" stroke-width="1.4"/><polygon points="230,92 220,87 220,97" fill="#b5832a"/>
+        <text x="200" y="80" font-size="9.5" text-anchor="middle" fill="#8a6020">目次が</text>
+        <text x="200" y="110" font-size="9.5" text-anchor="middle" fill="#8a6020">経路を与える</text>
+        <polygon points="600,30 604,42 616,42 606,50 610,62 600,54 590,62 594,50 584,42 596,42" fill="#b5832a"/>
+        <text x="600" y="78" font-size="9.5" text-anchor="middle" fill="#8a6020">北極星</text>
+        <path d="M 270 130 L 330 110 L 400 118 L 470 88 L 540 70 L 596 52" fill="none" stroke="#1d5c5c" stroke-width="2"/>
+        <circle cx="270" cy="130" r="4.5" fill="#1d5c5c"/><circle cx="330" cy="110" r="4.5" fill="#1d5c5c"/><circle cx="400" cy="118" r="4.5" fill="#1d5c5c"/><circle cx="470" cy="88" r="4.5" fill="#1d5c5c"/><circle cx="540" cy="70" r="4.5" fill="#1d5c5c"/>
+        <text x="420" y="150" font-size="11" text-anchor="middle" fill="#1a2332">点 → 線 → 面 → 一本の航路</text>
+      </svg>
+      <div class="figcap"><span class="en">Fig. 4 — The contents page gives scattered knowledge a route toward the north star.</span><span class="ja">図4　目次が、散らばった知識に北極星への航路を与える。</span></div>
+    </div>
+
+    <p class="en">This view — that structure carries the value — is not only about books. In a market, in an organization, between people, the same shape appears: <span class="em">a single structure placed at the center connects scattered things and lets the whole stand.</span> How to design that — is another large question, to which this, in time, continues.</p>
+    <p class="ja">この「構造が価値を運ぶ」という見方は、本だけの話ではない。市場でも、組織でも、人と人のあいだでも、〈中央に置かれた一つの構造が、ばらばらなものを繋いで全体を成立させる〉という同じ形が現れる。それをどう設計するか——という、もう一つの大きな問いに、いずれ続く。</p>
+
+    <div class="seed-box">
+      <span class="pull-label"><span class="en">The Seed</span><span class="ja">種としての一行</span></span>
+      <span class="en">Value lives not in the content but in the seams and the sequence. Leave the master's structure as a map others can sail by — and design who gets raised to draw the next one.</span>
+      <span class="ja">価値は、内容ではなく、つなぎ目と順序に宿る。第一人者の頭の中の構造を、後の人が辿れる航海図にして残せ——そして、次の航海図を描ける人を、誰に育てるか先に決めよ。</span>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div><span class="en">Essay 003 · June 2026 · On structure, and the bitter lesson</span><span class="ja">Essay 003 · 2026年6月 · 構造と、苦い教訓について</span></div>
+  <div><a href="../index.html">shun-yanagisawa.com</a> · <a href="../index.html#essays"><span class="en">All essays</span><span class="ja">エッセイ一覧</span></a></div>
+</footer>
+
+<script>
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+}
+if ((navigator.language || '').startsWith('ja')) toggleLang();
+</script>
+</body>
+</html>
