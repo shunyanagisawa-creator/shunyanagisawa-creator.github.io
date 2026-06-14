@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free to Farm — Shun Yanagisawa</title>
+<meta name="description" content="AI commoditises the surface and concentrates the floor. On why the power structure of AI is read from the bottom of the stack, why it rhymes with the medieval manor, and why freedom is not owning the land but being able to move.">
+<meta property="og:title" content="Free to Farm — Reading the Power Structure of AI from the Floor">
+<meta property="og:description" content="Use is democratised; power is concentrated. The AI stack is shaped like a manor: free to till, but the land belongs to the lord. Freedom is not ownership — it is mobility.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.shun-yanagisawa.com/essays/the-manor-and-the-commons.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
+  --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f5ead8;
+  --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
+  --text: #1a1a1a; --text-mid: #3d3d3d; --text-muted: #666666; --border: #ddd9d0;
+  --font-display: 'Playfair Display', 'Noto Serif JP', Georgia, serif;
+  --font-body: 'Source Sans 3', sans-serif;
+  --font-jp: 'Noto Serif JP', serif;
+  --font-mono: 'DM Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--white); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.85; }
+body.lang-en .ja { display: none; }
+body.lang-ja .en { display: none; }
+body.lang-ja { font-family: var(--font-jp); }
+
+nav {
+  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+.nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1.2rem; }
+.nav-back { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--text-muted); text-decoration: none; }
+.nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .35rem .8rem; cursor: pointer; color: var(--text-mid);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
+
+.essay { max-width: 720px; margin: 0 auto; padding: 4rem 1.6rem 5rem; }
+.essay-kicker { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.2rem; }
+h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 500; line-height: 1.3; color: var(--navy); margin-bottom: .8rem; }
+.essay-sub { font-size: 1.02rem; color: var(--text-muted); margin-bottom: 1.4rem; line-height: 1.7; }
+.essay-meta { display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); padding-bottom: 1.6rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.4rem; }
+.essay-meta a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); }
+
+/* 書籍風: 番号付き節見出し */
+.essay h2 {
+  font-family: var(--font-display); font-size: 1.22rem; font-weight: 500; color: var(--navy);
+  margin: 2.8rem 0 1rem; padding: .35rem 0 .45rem .9rem;
+  border-left: 3px solid var(--navy); border-bottom: 1px solid var(--border);
+}
+body.lang-ja .essay h2 { font-family: var(--font-jp); font-weight: 500; }
+.essay h2 .hnum { font-family: var(--font-mono); font-size: .85rem; color: var(--teal-dark); margin-right: .7rem; letter-spacing: .05em; }
+
+.essay p { margin: 1.1rem 0; color: var(--text-mid); text-align: justify; }
+.essay a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.4); }
+.essay sup { font-size: .62em; color: var(--teal-dark); vertical-align: super; line-height: 0; }
+
+/* 強調: 日本語=傍点(短句のみ) / 英語=イタリック */
+.ja .em { -webkit-text-emphasis: filled dot var(--navy); text-emphasis: filled dot var(--navy); font-style: normal; }
+.en .em { font-style: italic; }
+
+/* 要点ボックス */
+.pull {
+  border: 1px solid var(--gold); background: var(--gold-light);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 1.9rem 0; border-radius: 2px;
+  font-size: 1rem; color: var(--navy); line-height: 1.8; position: relative; text-align: justify;
+}
+.pull .pull-label {
+  position: absolute; top: -0.7rem; left: 1rem; background: var(--white);
+  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em;
+  color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase;
+}
+
+/* 図版 */
+.figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 1.9rem 0; background: var(--white); }
+.figure svg { width: 100%; height: auto; display: block; }
+.figcap {
+  margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); text-align: center;
+}
+body.lang-ja .figcap { font-family: var(--font-jp); font-size: .76rem; }
+
+/* 結語: 種としての一行 */
+.seed-box {
+  border: 1px solid var(--gold); border-left: 4px solid var(--gold);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0 0; border-radius: 2px;
+  font-size: 1.02rem; color: var(--navy); line-height: 1.85; position: relative; text-align: justify;
+}
+.seed-box .pull-label { position: absolute; top: -0.7rem; left: 1rem; background: var(--white); font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase; }
+
+.essay-close { border-top: 2px solid var(--gold); margin-top: 3rem; padding-top: 1.6rem; }
+
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
+footer a { color: var(--teal-dark); text-decoration: none; }
+@media (max-width: 560px) { nav { padding: 0 1.2rem; } .essay { padding-top: 2.6rem; } }
+</style>
+</head>
+<body class="lang-en">
+
+<nav>
+  <a class="nav-logo" href="../index.html">Shun <span>Yanagisawa</span></a>
+  <div class="nav-right">
+    <a class="nav-back" href="../index.html#essays"><span class="en">← Essays</span><span class="ja">← エッセイ一覧</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="en">日本語</span><span class="ja">English</span></button>
+  </div>
+</nav>
+
+<article class="essay">
+  <div class="essay-kicker">Essay 005 · Power &amp; AI</div>
+  <h1>
+    <span class="en">Free to Farm</span>
+    <span class="ja">自由に耕せる、土地は領主のもの</span>
+  </h1>
+  <p class="essay-sub">
+    <span class="en">AI commoditises the surface and concentrates the floor. To read its power, don't look up at the dazzle — look down at the ground you stand on.</span>
+    <span class="ja">AI は表層をコモディティ化し、底に力を集める。その権力を読むには、上層の華やかさではなく、自分が立っている地面を見る。</span>
+  </p>
+  <div class="essay-meta">
+    <span>June 2026</span>
+    <span class="en">Power · AI · structure</span>
+    <span class="ja">権力 · AI · 構造</span>
+    <span class="en">7 min read</span>
+    <span class="ja">日本語 約7分</span>
+  </div>
+
+  <p class="en">Anyone can now bring an app into being from a single sentence. The power to write code, the power to polish prose — both have rapidly come within reach. On the surface, a freedom we have never known before is spreading out.</p>
+  <p class="ja">いま誰でも、ひとつの文からアプリを生み出せる。コードを書く力も、文章を磨く力も、急速に手の届くものになった。表層では、かつてないほどの自由が広がっている。</p>
+  <p class="en">But just as that freedom spreads, where is power moving? This essay does not deny the freedom AI brings. Without denying it, I want to go and look at the ground that freedom stands on. To put the conclusion first — we are free to till, but the land belongs to the lord. And this shape is not new.</p>
+  <p class="ja">だが、自由が広がっているそのとき、力はどこへ動いているのか。本稿は、AI がもたらす自由を否定しない。否定しないまま、その自由が立っている地面を見にいく。結論を先に言えば——私たちは耕すのは自由だが、土地は領主のものだ。そして、この構造は新しくない。</p>
+
+  <h2><span class="hnum">1</span><span class="en">The free surface</span><span class="ja">上層の自由</span></h2>
+  <p class="en">AI's value is stacked in layers. At the very top sit agents and apps; beneath them, the foundation models; beneath those, the chips; and at the very bottom, electricity.</p>
+  <p class="ja">AI の価値は、層になって積み上がっている。いちばん上にエージェントやアプリがあり、その下に基盤モデルがあり、さらに下にチップがあり、いちばん底に電力がある。</p>
+  <p class="en">The higher the layer, the easier it is to enter. The cost of building an app falls toward zero, and anyone can assemble the same parts into something similar. So the upper layers are dazzling, fiercely competitive, and their <em>use</em> is rapidly democratised. Look only here, and the world seems flatter than ever before.</p>
+  <p class="ja">上層ほど、参入は易しくなっていく。アプリを作るコストはゼロへ向かい、誰でも同じ部品を組み合わせて似たものを出せる。だから上層は華やかで、競争が激しく、その<span class="em">利用</span>は急速に民主化される。ここだけを見れば、世界はかつてなく平らに見える。</p>
+
+  <div class="pull">
+    <span class="pull-label"><span class="en">Key point</span><span class="ja">要点</span></span>
+    <span class="en">The freedom of the surface is real. The problem is that the place freedom spreads and the place power gathers are on different layers.</span>
+    <span class="ja">上層の自由は本物だ。問題は、自由が広がる場所と、力が集まる場所が、別の層にあることだ。</span>
+  </div>
+
+  <h2><span class="hnum">2</span><span class="en">Look at the floor</span><span class="ja">底を見る</span></h2>
+  <p class="en">Descend the stack, and the view inverts. The lower the layer, the harder it is to enter, and the more capital and sovereignty concentrate. The actors who can train a foundation model are few; the factories that can make the most advanced chips are skewed to effectively a single point; and below that, electricity and data centres are bound to geography.</p>
+  <p class="ja">スタックを下りていくと、景色が反転する。下層ほど参入は難しくなり、資本と主権が集中していく。基盤モデルを訓練できる主体はわずかで、最先端のチップを作れる工場は事実上ひとつの地点に偏在し、その下の電力とデータセンターは地理に縛られている。</p>
+  <p class="en">This is the crux. AI's capability looks universal — usable from anywhere — yet its physical base, geographically and in capital terms, gathers into a very few points. The phrase <em>single point of failure</em> fits. The freedom of the upper layers rides on the concentration of the floor.</p>
+  <p class="ja">ここが肝だ。AI の能力は普遍的に——どこからでも使えるように——見えるのに、その物理的な土台は、地理的にも資本的にも、ごく少数の点に集まっている。<span class="em">単一障害点</span>という言葉がふさわしい。上層の自由は、底の集中の上に乗っている。</p>
+
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 224" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <rect x="70" y="20" width="520" height="34" rx="2" fill="#f7f6f2" stroke="#bbb" stroke-width="1"/>
+      <text x="330" y="42" font-size="11.5" text-anchor="middle" fill="#777">Agents · Apps — free to enter, marginal cost → 0</text>
+      <rect x="130" y="62" width="400" height="34" rx="2" fill="#e8f2f2" stroke="#2a7a7a" stroke-width="1.1"/>
+      <text x="330" y="84" font-size="11.5" text-anchor="middle" fill="#1d5c5c">Foundation models</text>
+      <rect x="200" y="104" width="260" height="34" rx="2" fill="#cfe0e0" stroke="#1d5c5c" stroke-width="1.2"/>
+      <text x="330" y="126" font-size="11.5" text-anchor="middle" fill="#1d5c5c">Chips</text>
+      <rect x="258" y="146" width="144" height="36" rx="2" fill="#1a2332" stroke="#1a2332"/>
+      <text x="330" y="169" font-size="11.5" text-anchor="middle" fill="#fff">Power · Land</text>
+      <text x="628" y="42" font-size="10" text-anchor="end" fill="#777">use democratised</text>
+      <text x="628" y="169" font-size="10" text-anchor="end" fill="#8a6020">power concentrated</text>
+      <line x1="36" y1="30" x2="36" y2="172" stroke="#8a6020" stroke-width="1.4"/><polygon points="36,178 31,166 41,166" fill="#8a6020"/>
+      <text x="20" y="108" font-size="10" text-anchor="middle" fill="#8a6020" transform="rotate(-90 20 108)">read power here ↓</text>
+      <text x="330" y="208" font-size="10.5" text-anchor="middle" fill="#666">wide &amp; light above, narrow &amp; dense below — freedom and concentration, inverted</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 224" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <rect x="70" y="20" width="520" height="34" rx="2" fill="#f7f6f2" stroke="#bbb" stroke-width="1"/>
+      <text x="330" y="42" font-size="11.5" text-anchor="middle" fill="#777">エージェント・アプリ — 参入自由、限界費用ゼロへ</text>
+      <rect x="130" y="62" width="400" height="34" rx="2" fill="#e8f2f2" stroke="#2a7a7a" stroke-width="1.1"/>
+      <text x="330" y="84" font-size="11.5" text-anchor="middle" fill="#1d5c5c">基盤モデル</text>
+      <rect x="200" y="104" width="260" height="34" rx="2" fill="#cfe0e0" stroke="#1d5c5c" stroke-width="1.2"/>
+      <text x="330" y="126" font-size="11.5" text-anchor="middle" fill="#1d5c5c">チップ</text>
+      <rect x="258" y="146" width="144" height="36" rx="2" fill="#1a2332" stroke="#1a2332"/>
+      <text x="330" y="169" font-size="11.5" text-anchor="middle" fill="#fff">電力・土地</text>
+      <text x="628" y="42" font-size="10" text-anchor="end" fill="#777">利用は民主化</text>
+      <text x="628" y="169" font-size="10" text-anchor="end" fill="#8a6020">力は寡占化</text>
+      <line x1="36" y1="30" x2="36" y2="172" stroke="#8a6020" stroke-width="1.4"/><polygon points="36,178 31,166 41,166" fill="#8a6020"/>
+      <text x="20" y="108" font-size="10" text-anchor="middle" fill="#8a6020" transform="rotate(-90 20 108)">権力は底にある ↓</text>
+      <text x="330" y="208" font-size="10.5" text-anchor="middle" fill="#666">上は広く薄く、下は狭く濃い — 自由と集中の反転</text>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 1 — The stack in cross-section: freedom widens upward, power narrows and darkens downward.</span><span class="ja">図1　スタックの断面。上へ向かうほど自由は広がり、下へ向かうほど力は狭く濃くなる。</span></div>
+  </div>
+
+  <div class="pull">
+    <span class="pull-label"><span class="en">Key point</span><span class="ja">要点</span></span>
+    <span class="en">To read the power structure of AI, look not at the dazzle of the upper layers but at the floor of the stack — sovereignty. Talk of energy, semiconductors, and data centres is, before it is talk of technology, talk of land.</span>
+    <span class="ja">AI の権力構造を読むには、上層の華やかさではなく、スタックの底＝主権を見る。エネルギー・半導体・計算施設の話は、技術の話である前に、土地の話だ。</span>
+  </div>
+
+  <h2><span class="hnum">3</span><span class="en">The shape of a manor</span><span class="ja">荘園という同型</span></h2>
+  <p class="en">This structure carries a distinct sense of having been seen before. It is the medieval manor. The peasants were free to till the land. How they farmed it, what they planted — they could decide much of it themselves. But the land itself belonged to the lord. The freedom of the harvest and the ownership of the land sat on different layers.</p>
+  <p class="ja">この構造には、はっきりした既視感がある。中世の荘園だ。農民は土地を自由に耕すことができた。耕し方も、何を植えるかも、ある程度は自分で決められた。だが土地そのものは領主のものだった。収穫の自由と、土地の所有は、別の層にあった。</p>
+  <p class="en">The AI stack is structurally the same. <em>Use is democratised; power is concentrated.</em> The freedom to till is handed out wide; the ownership of the land gathers narrow.</p>
+  <p class="ja">AI スタックは、これと構造的に同じだ。<span class="em">利用は民主化され、力は寡占化する。</span>耕す自由は広く配られ、土地の所有は狭く集まる。</p>
+  <p class="en">And here another line from my own notebook overlaps. The race over compute drives toward an endless arms spiral, and the instant everyone reaches the optimum, liquidity dies — but short of that, the gap between those who hold and those who do not hardens into rank. The final form of the frontier is not competition but a caste order. A manor is exactly that caste order, drawn as a map.</p>
+  <p class="ja">そして、ここに私のブレインの別の一行が重なる。演算資源をめぐる競争は際限のない軍拡へ進み、全員が最適解に届いた瞬間に流動性は死ぬが、その手前で、持つ者と持たざる者の差は身分として固定する——フロンティアの最終形は、競争ではなく身分制だ、という読みだ。荘園とは、その身分制を地図にしたものにほかならない。</p>
+
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 196" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <rect x="20" y="40" width="420" height="120" rx="2" fill="#eef3ee" stroke="#9ab09a" stroke-width="1.1"/>
+      <text x="230" y="32" font-size="11.5" text-anchor="middle" fill="#5f7a5f">the commons — free to till</text>
+      <line x1="20" y1="70" x2="440" y2="70" stroke="#cbd8cb" stroke-width="1"/><line x1="20" y1="100" x2="440" y2="100" stroke="#cbd8cb" stroke-width="1"/><line x1="20" y1="130" x2="440" y2="130" stroke="#cbd8cb" stroke-width="1"/>
+      <circle cx="90" cy="86" r="4.5" fill="#5f7a5f"/><circle cx="200" cy="116" r="4.5" fill="#5f7a5f"/><circle cx="320" cy="86" r="4.5" fill="#5f7a5f"/><circle cx="150" cy="146" r="4.5" fill="#5f7a5f"/><circle cx="370" cy="146" r="4.5" fill="#5f7a5f"/>
+      <text x="230" y="180" font-size="10.5" text-anchor="middle" fill="#666">peasants farm freely — the use is theirs</text>
+      <rect x="500" y="58" width="120" height="102" rx="2" fill="#1a2332" stroke="#1a2332"/>
+      <rect x="540" y="38" width="40" height="22" fill="#1a2332"/><rect x="548" y="80" width="24" height="80" fill="#33415a"/>
+      <text x="560" y="180" font-size="10.5" text-anchor="middle" fill="#1a2332">the lord owns the land</text>
+      <line x1="448" y1="100" x2="494" y2="100" stroke="#8a6020" stroke-width="1.2" stroke-dasharray="4 3"/>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 196" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <rect x="20" y="40" width="420" height="120" rx="2" fill="#eef3ee" stroke="#9ab09a" stroke-width="1.1"/>
+      <text x="230" y="32" font-size="11.5" text-anchor="middle" fill="#5f7a5f">コモンズ — 耕すのは自由</text>
+      <line x1="20" y1="70" x2="440" y2="70" stroke="#cbd8cb" stroke-width="1"/><line x1="20" y1="100" x2="440" y2="100" stroke="#cbd8cb" stroke-width="1"/><line x1="20" y1="130" x2="440" y2="130" stroke="#cbd8cb" stroke-width="1"/>
+      <circle cx="90" cy="86" r="4.5" fill="#5f7a5f"/><circle cx="200" cy="116" r="4.5" fill="#5f7a5f"/><circle cx="320" cy="86" r="4.5" fill="#5f7a5f"/><circle cx="150" cy="146" r="4.5" fill="#5f7a5f"/><circle cx="370" cy="146" r="4.5" fill="#5f7a5f"/>
+      <text x="230" y="180" font-size="10.5" text-anchor="middle" fill="#666">農民は自由に耕す — 利用は農民のもの</text>
+      <rect x="500" y="58" width="120" height="102" rx="2" fill="#1a2332" stroke="#1a2332"/>
+      <rect x="540" y="38" width="40" height="22" fill="#1a2332"/><rect x="548" y="80" width="24" height="80" fill="#33415a"/>
+      <text x="560" y="180" font-size="10.5" text-anchor="middle" fill="#1a2332">土地は領主のもの</text>
+      <line x1="448" y1="100" x2="494" y2="100" stroke="#8a6020" stroke-width="1.2" stroke-dasharray="4 3"/>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 2 — The manor: the use of the land is the peasants', the ownership is the lord's. Two different layers.</span><span class="ja">図2　荘園。土地の利用は農民のもの、所有は領主のもの。二つの別の層。</span></div>
+  </div>
+
+  <h2><span class="hnum">4</span><span class="en">But what is the land?</span><span class="ja">ただし、土地とは何か</span></h2>
+  <p class="en">Let me, once, throw a counter at my own thesis. Is "look at the floor — at the land, at the hardware" really right?</p>
+  <p class="ja">ここで一度、自分のテーゼに反論をぶつけておきたい。「底＝土地＝ハードウェアを見ろ」は、本当に正しいのか。</p>
+  <p class="en">There is another view. The performance of compute will, in time, be narrowed by those who chase. What is genuinely hard to peel away is the development platform that runs on top of it and the accumulated dependence of developers on its ecosystem. In other words, the lord's power may lie less in the land itself than in the <em>stickiness</em> that makes it impossible to leave once you have been enclosed.</p>
+  <p class="ja">別の見方がある。計算素子の性能は、追う者がいずれ縮める。本当に剥がれにくいのは、その上で動く開発基盤と、開発者たちの生態系への蓄積的な依存のほうだ——つまり領主の力は、土地そのものより、いったん囲い込んだ者から離れられなくなる<span class="em">粘着性</span>にあるのかもしれない。</p>
+  <p class="en">This counter is correct. But it does not overturn my thesis — it deepens it. The land is not hardware alone. The pull that makes you unable to move — the cost of relearning, of porting, of habit — is also, today, land. What the lord encloses is not necessarily fields. Anything that makes it hard to leave becomes an enclosure.</p>
+  <p class="ja">この反論は正しい。だが、それは私のテーゼを覆さずに、深くする。土地はハードウェアだけではない。移れなくさせる引力——学び直しの費用、移植の費用、慣れの費用——もまた、現代の土地だ。領主が囲うのは畑とは限らない。出ていけなくする仕組みのすべてが、囲い込みになる。</p>
+
+  <div class="pull">
+    <span class="pull-label"><span class="en">Key point</span><span class="ja">要点</span></span>
+    <span class="en">The land is not only hardware. Anything that makes you feel "I cannot move from here" is a modern domain.</span>
+    <span class="ja">土地はハードウェアとは限らない。「ここから移れない」と感じさせるものは、すべて現代の領地である。</span>
+  </div>
+
+  <h2><span class="hnum">5</span><span class="en">The farmer's wisdom</span><span class="ja">農民の知恵</span></h2>
+  <p class="en">So how do the great majority who cannot become lords — that is, we — live in this manor? To lament that we cannot own land is not the answer.</p>
+  <p class="ja">では、領主になれない大多数——つまり私たち——は、この荘園でどう生きるのか。土地を持てないことを嘆くのは、答えではない。</p>
+  <p class="en">My own answer is: don't own. Rather than buying the highest intelligence in as capital equipment, rent only as much as you need. Physical assets carry obsolescence and hidden costs; with a variable cost, you can always swap in the latest intelligence. Lodge your thinking in the cloud and keep only a light runtime of your own.</p>
+  <p class="ja">私自身の答えは、所有しないことだ。最上位の知性は、設備として買い込むのではなく、必要なぶんだけ借りる。物理資産は陳腐化と隠れた費用を抱え込むが、変動費なら、いつでも最新の知性に張り替えられる。思考はクラウドへ預け、自分は身軽な実行環境だけを持つ。</p>
+  <p class="en">This is not a compromise but a strategy. The peasant's freedom in the manor was never ownership of land. Freedom is being able to move, at any time, to another field. The only resistance to enclosure is to refuse to give up <em>mobility</em> — to be deeply locked in to nothing. That is the most realistic shape of freedom left to those who cannot become lords.</p>
+  <p class="ja">これは妥協ではなく、戦略だ。荘園における農民の自由とは、土地を所有することではなかった。自由とは、いつでも別の畑へ移れることだ。囲い込みに対する唯一の抵抗は、<span class="em">可動性</span>を手放さないことにある。何にも深くロックインされないこと。それが、領主になれない者に残された、最も現実的な自由のかたちだ。</p>
+
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 192" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <rect x="20" y="30" width="300" height="140" rx="2" fill="#f7f6f2" stroke="#bbb" stroke-width="1"/>
+      <text x="170" y="52" font-size="11.5" text-anchor="middle" fill="#777">own the land</text>
+      <rect x="120" y="120" width="100" height="28" fill="#e3e0d6" stroke="#bbb"/>
+      <circle cx="170" cy="96" r="11" fill="#8a8a8a"/><line x1="170" y1="107" x2="170" y2="120" stroke="#8a8a8a" stroke-width="2.4"/>
+      <line x1="170" y1="120" x2="150" y2="150" stroke="#a3514c" stroke-width="2.6"/><circle cx="148" cy="152" r="5" fill="#a3514c"/>
+      <text x="170" y="166" font-size="10" text-anchor="middle" fill="#a3514c">locked in — cannot move</text>
+      <rect x="340" y="30" width="300" height="140" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.2"/>
+      <text x="490" y="52" font-size="11.5" text-anchor="middle" fill="#1d5c5c">rent the best, stay mobile</text>
+      <circle cx="440" cy="96" r="11" fill="#1d5c5c"/><line x1="440" y1="107" x2="440" y2="132" stroke="#1d5c5c" stroke-width="2.4"/>
+      <rect x="424" y="84" width="14" height="14" fill="#2a7a7a"/>
+      <line x1="470" y1="120" x2="560" y2="120" stroke="#1d5c5c" stroke-width="1.6"/><polygon points="566,120 554,114 554,126" fill="#1d5c5c"/>
+      <text x="540" y="150" font-size="10.5" text-anchor="middle" fill="#1d5c5c">→ next field</text>
+      <text x="490" y="166" font-size="10" text-anchor="middle" fill="#666">freedom = mobility</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 192" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <rect x="20" y="30" width="300" height="140" rx="2" fill="#f7f6f2" stroke="#bbb" stroke-width="1"/>
+      <text x="170" y="52" font-size="11.5" text-anchor="middle" fill="#777">土地を持つ</text>
+      <rect x="120" y="120" width="100" height="28" fill="#e3e0d6" stroke="#bbb"/>
+      <circle cx="170" cy="96" r="11" fill="#8a8a8a"/><line x1="170" y1="107" x2="170" y2="120" stroke="#8a8a8a" stroke-width="2.4"/>
+      <line x1="170" y1="120" x2="150" y2="150" stroke="#a3514c" stroke-width="2.6"/><circle cx="148" cy="152" r="5" fill="#a3514c"/>
+      <text x="170" y="166" font-size="10" text-anchor="middle" fill="#a3514c">ロックイン — 移れない</text>
+      <rect x="340" y="30" width="300" height="140" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.2"/>
+      <text x="490" y="52" font-size="11.5" text-anchor="middle" fill="#1d5c5c">最良を借り、身軽でいる</text>
+      <circle cx="440" cy="96" r="11" fill="#1d5c5c"/><line x1="440" y1="107" x2="440" y2="132" stroke="#1d5c5c" stroke-width="2.4"/>
+      <rect x="424" y="84" width="14" height="14" fill="#2a7a7a"/>
+      <line x1="470" y1="120" x2="560" y2="120" stroke="#1d5c5c" stroke-width="1.6"/><polygon points="566,120 554,114 554,126" fill="#1d5c5c"/>
+      <text x="540" y="150" font-size="10.5" text-anchor="middle" fill="#1d5c5c">→ 次の畑へ</text>
+      <text x="490" y="166" font-size="10" text-anchor="middle" fill="#666">自由＝可動性</text>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 3 — Owning the land locks you in. Renting the best and staying light keeps you free to move.</span><span class="ja">図3　土地を持つと縛られる。最良を借りて身軽でいれば、移る自由が残る。</span></div>
+  </div>
+
+  <div class="essay-close">
+    <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">6</span><span class="en">Keep tilling</span><span class="ja">耕すのをやめない</span></h2>
+    <p class="en">AI has given us a freedom to till we have never had. That freedom is real. Use it gladly. Only — while you are intoxicated by the freedom, do not forget the ground. The flatter the surface looks, the more deeply the floor is concentrated. When you read power, do not look up; look down. And as for how to carry yourself: rather than lament that you cannot own land, keep the lightness that lets you move at any time.</p>
+    <p class="ja">AI は私たちに、かつてない耕す自由を与えた。その自由は本物だ。喜んで使えばいい。ただ、自由に酔っているあいだに、地面を忘れないこと。表層が平らに見えるほど、底は深く集中している。権力を読むときは、上を見上げるのではなく、下を見下ろす。そして自分の身の処し方としては、土地を持てないことを嘆くより、いつでも移れる軽さを保つ。</p>
+    <p class="en">Do not stop tilling. But do not put down roots too deep in any one field.</p>
+    <p class="ja">耕すのをやめてはいけない。だが、どの畑にも根を張りすぎてはいけない。</p>
+
+    <div class="seed-box">
+      <span class="pull-label"><span class="en">The Seed</span><span class="ja">種としての一行</span></span>
+      <span class="en">Freedom is not owning the land. It is being able to move, at any time, to another field.</span>
+      <span class="ja">自由とは、土地を持つことではない。いつでも、別の畑へ移れることだ。</span>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div><span class="en">Essay 005 · June 2026 · Keep tilling</span><span class="ja">Essay 005 · 2026年6月 · 耕すのをやめない</span></div>
+  <div><a href="../index.html">shun-yanagisawa.com</a> · <a href="../index.html#essays"><span class="en">All essays</span><span class="ja">エッセイ一覧</span></a></div>
+</footer>
+
+<script>
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+}
+if ((navigator.language || '').startsWith('ja')) toggleLang();
+</script>
+</body>
+</html>
