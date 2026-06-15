@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cost of Checking — Shun Yanagisawa</title>
+<meta name="description" content="As AI gets better, its mistakes get harder to see. Accuracy does not retire the checker — it raises their price. On the jagged frontier, the safety net of obvious error, and where human judgment remains.">
+<meta property="og:title" content="The Cost of Checking — Why Accuracy Raises the Price of the Checker">
+<meta property="og:description" content="Early AI was safe because its errors were obvious. As accuracy rises, errors slip below the surface of correctness. Higher accuracy does not retire the checker — it raises their price.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.shun-yanagisawa.com/essays/the-cost-of-checking.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
+  --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f5ead8;
+  --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
+  --text: #1a1a1a; --text-mid: #3d3d3d; --text-muted: #666666; --border: #ddd9d0;
+  --font-display: 'Playfair Display', 'Noto Serif JP', Georgia, serif;
+  --font-body: 'Source Sans 3', sans-serif;
+  --font-jp: 'Noto Serif JP', serif;
+  --font-mono: 'DM Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--white); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.85; }
+body.lang-en .ja { display: none; }
+body.lang-ja .en { display: none; }
+body.lang-ja { font-family: var(--font-jp); }
+
+nav {
+  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+.nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1.2rem; }
+.nav-back { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--text-muted); text-decoration: none; }
+.nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .35rem .8rem; cursor: pointer; color: var(--text-mid);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
+
+.essay { max-width: 720px; margin: 0 auto; padding: 4rem 1.6rem 5rem; }
+.essay-kicker { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.2rem; }
+h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 500; line-height: 1.3; color: var(--navy); margin-bottom: .8rem; }
+.essay-sub { font-size: 1.02rem; color: var(--text-muted); margin-bottom: 1.4rem; line-height: 1.7; }
+.essay-meta { display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); padding-bottom: 1.6rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.4rem; }
+.essay-meta a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); }
+
+/* 書籍風: 番号付き節見出し */
+.essay h2 {
+  font-family: var(--font-display); font-size: 1.22rem; font-weight: 500; color: var(--navy);
+  margin: 2.8rem 0 1rem; padding: .35rem 0 .45rem .9rem;
+  border-left: 3px solid var(--navy); border-bottom: 1px solid var(--border);
+}
+body.lang-ja .essay h2 { font-family: var(--font-jp); font-weight: 500; }
+.essay h2 .hnum { font-family: var(--font-mono); font-size: .85rem; color: var(--teal-dark); margin-right: .7rem; letter-spacing: .05em; }
+
+.essay p { margin: 1.1rem 0; color: var(--text-mid); text-align: justify; }
+.essay a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.4); }
+.essay sup { font-size: .62em; color: var(--teal-dark); vertical-align: super; line-height: 0; }
+
+/* 強調: 日本語=傍点(短句のみ) / 英語=イタリック */
+.ja .em { -webkit-text-emphasis: filled dot var(--navy); text-emphasis: filled dot var(--navy); font-style: normal; }
+.en .em { font-style: italic; }
+
+/* 要点ボックス */
+.pull {
+  border: 1px solid var(--gold); background: var(--gold-light);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 1.9rem 0; border-radius: 2px;
+  font-size: 1rem; color: var(--navy); line-height: 1.8; position: relative; text-align: justify;
+}
+.pull .pull-label {
+  position: absolute; top: -0.7rem; left: 1rem; background: var(--white);
+  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em;
+  color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase;
+}
+
+/* 図版 */
+.figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 1.9rem 0; background: var(--white); }
+.figure svg { width: 100%; height: auto; display: block; }
+.figcap {
+  margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); text-align: center;
+}
+body.lang-ja .figcap { font-family: var(--font-jp); font-size: .76rem; }
+
+/* 結語: 種としての一行 */
+.seed-box {
+  border: 1px solid var(--gold); border-left: 4px solid var(--gold);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0 0; border-radius: 2px;
+  font-size: 1.02rem; color: var(--navy); line-height: 1.85; position: relative; text-align: justify;
+}
+.seed-box .pull-label { position: absolute; top: -0.7rem; left: 1rem; background: var(--white); font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase; }
+
+.essay-close { border-top: 2px solid var(--gold); margin-top: 3rem; padding-top: 1.6rem; }
+
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
+footer a { color: var(--teal-dark); text-decoration: none; }
+@media (max-width: 560px) { nav { padding: 0 1.2rem; } .essay { padding-top: 2.6rem; } }
+</style>
+</head>
+<body class="lang-en">
+
+<nav>
+  <a class="nav-logo" href="../index.html">Shun <span>Yanagisawa</span></a>
+  <div class="nav-right">
+    <a class="nav-back" href="../index.html#essays"><span class="en">← Essays</span><span class="ja">← エッセイ一覧</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="en">日本語</span><span class="ja">English</span></button>
+  </div>
+</nav>
+
+<article class="essay">
+  <div class="essay-kicker">Essay 006 · AI &amp; Judgment</div>
+  <h1>
+    <span class="en">The Cost of Checking</span>
+    <span class="ja">確かめる費用</span>
+  </h1>
+  <p class="essay-sub">
+    <span class="en">As AI gets better, its mistakes get harder to see. Accuracy does not retire the checker — it raises their price.</span>
+    <span class="ja">AI が上手くなるほど、その間違いは見えにくくなる。精度は、確かめる人を不要にするのではない。その値段を上げる。</span>
+  </p>
+  <div class="essay-meta">
+    <span>June 2026</span>
+    <span class="en">AI · judgment · epistemics</span>
+    <span class="ja">AI · 判断 · 認識論</span>
+    <span class="en">6 min read</span>
+    <span class="ja">日本語 約6分</span>
+  </div>
+
+  <p class="en">When AI improves, our work gets lighter — that is the natural thought. Fewer mistakes should mean less to check.</p>
+  <p class="ja">AI の性能が上がれば、私たちの仕事は楽になる——そう考えるのが自然だ。間違いが減れば、確かめる手間も減るはずだ、と。</p>
+  <p class="en">This essay argues the opposite. The better it gets, the more the checking costs. And this paradox works quietly across every place AI is used — most of all where a single error cannot be allowed.</p>
+  <p class="ja">本稿は、その自然な推論が逆だと言う。性能が上がるほど、確かめる費用はむしろ上がる。そしてこの逆説は、AI を使うすべての現場で——とりわけ一度の誤りが許されない領域で——静かに効いてくる。</p>
+
+  <h2><span class="hnum">1</span><span class="en">When errors were a safety net</span><span class="ja">間違いが目立つことは、安全装置だった</span></h2>
+  <p class="en">Early AI had one clear virtue: its mistakes were obvious.</p>
+  <p class="ja">初期の AI には、はっきりした取り柄があった。間違いが目立ったことだ。</p>
+  <p class="en">Because it returned plainly wrong answers, people used it on guard. They did not swallow the output whole; they got into the habit of checking for themselves. Ironically, <em>the visibility of error was itself the safety device.</em> Its very crudeness kept us careful.</p>
+  <p class="ja">明らかにおかしな答えを返すから、人は警戒して使えた。出力を鵜呑みにせず、自分で確かめる癖がついた。皮肉なことに、<span class="em">間違いが目立つこと自体が、安全装置だった。</span>未熟さが、私たちを慎重にさせていた。</p>
+
+  <div class="pull">
+    <span class="pull-label"><span class="en">Key point</span><span class="ja">要点</span></span>
+    <span class="en">At low capability, errors are easy to spot, so people check by reflex. Crudeness was, in itself, a wall of protection.</span>
+    <span class="ja">性能が低い段階では、誤りは見つけやすく、人は自然と検証する。未熟さは、それ自体が防護壁だった。</span>
+  </div>
+
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 220" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <polygon points="55,178 605,82 605,196 55,196" fill="#e8f2f2" stroke="none"/>
+      <polyline points="55,178 605,82" fill="none" stroke="#2a7a7a" stroke-width="1.4"/>
+      <text x="320" y="120" font-size="10" text-anchor="middle" fill="#2a7a7a" transform="rotate(-10 320 120)">surface of apparent correctness</text>
+      <circle cx="118" cy="118" r="6" fill="#a3514c"/><circle cx="162" cy="102" r="6" fill="#a3514c"/><circle cx="206" cy="114" r="6" fill="#a3514c"/>
+      <text x="160" y="74" font-size="10.5" text-anchor="middle" fill="#a3514c">errors break the surface — you see them</text>
+      <circle cx="452" cy="128" r="6" fill="#a3514c" opacity="0.38"/><circle cx="500" cy="140" r="6" fill="#a3514c" opacity="0.38"/><circle cx="546" cy="120" r="6" fill="#a3514c" opacity="0.38"/>
+      <text x="500" y="180" font-size="10.5" text-anchor="middle" fill="#9a6b66">errors slip below — you trust them</text>
+      <line x1="55" y1="196" x2="605" y2="196" stroke="#999" stroke-width="1"/>
+      <text x="58" y="213" font-size="10" fill="#666">low accuracy</text>
+      <text x="603" y="213" font-size="10" text-anchor="end" fill="#666">high accuracy →</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 220" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <polygon points="55,178 605,82 605,196 55,196" fill="#e8f2f2" stroke="none"/>
+      <polyline points="55,178 605,82" fill="none" stroke="#2a7a7a" stroke-width="1.4"/>
+      <text x="320" y="120" font-size="10" text-anchor="middle" fill="#2a7a7a" transform="rotate(-10 320 120)">正しさに見える水面</text>
+      <circle cx="118" cy="118" r="6" fill="#a3514c"/><circle cx="162" cy="102" r="6" fill="#a3514c"/><circle cx="206" cy="114" r="6" fill="#a3514c"/>
+      <text x="160" y="74" font-size="10.5" text-anchor="middle" fill="#a3514c">誤りが水面を破る — 見える</text>
+      <circle cx="452" cy="128" r="6" fill="#a3514c" opacity="0.38"/><circle cx="500" cy="140" r="6" fill="#a3514c" opacity="0.38"/><circle cx="546" cy="120" r="6" fill="#a3514c" opacity="0.38"/>
+      <text x="500" y="180" font-size="10.5" text-anchor="middle" fill="#9a6b66">誤りが水面下へ沈む — 信じてしまう</text>
+      <line x1="55" y1="196" x2="605" y2="196" stroke="#999" stroke-width="1"/>
+      <text x="58" y="213" font-size="10" fill="#666">低精度</text>
+      <text x="603" y="213" font-size="10" text-anchor="end" fill="#666">高精度 →</text>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 1 — As accuracy rises, the surface of apparent correctness lifts. The same errors that once broke the surface now slip below it — present, but no longer seen.</span><span class="ja">図1　精度が上がるほど、正しさに見える水面は上がる。かつて水面を破っていた同じ誤りが、いまは水面下に沈む——在るのに、見えなくなる。</span></div>
+  </div>
+
+  <h2><span class="hnum">2</span><span class="en">The jagged frontier</span><span class="ja">ぎざぎざの辺境</span></h2>
+  <p class="en">Why do errors get harder to find as capability rises? The key is that the boundary between what AI is good and bad at is not a smooth line.</p>
+  <p class="ja">なぜ誤りは、性能が上がると見つけにくくなるのか。鍵は、AI の得意と不得意の境界線が、なめらかな線ではないことにある。</p>
+  <p class="en">That boundary is jagged. A task that looks easy can sit outside it (a weakness); a task that looks hard can sit inside it (a strength). A system that beats humans at advanced reasoning trips on something as basic as reading a clock. <em>Strength and weakness are mixed in an unpredictable shape.</em> So the user cannot tell which side a given task falls on until they try.</p>
+  <p class="ja">その境界は、ぎざぎざしている。一見やさしそうな課題が境界の外（苦手）にあり、一見難しそうな課題が境界の内（得意）にあったりする。高度な推論で人を超える系が、時計を読むような初歩でつまずく。<span class="em">強さと弱さが、予測できない形で混ざっている。</span>だから使う側は、どの課題がどちらの側か、使ってみるまで分からない。</p>
+  <p class="en">Because the frontier is jagged, error does not lurk in the "obviously bad" places — it slips into the flow of what looks like it is going well.</p>
+  <p class="ja">境界がぎざぎざだから、誤りは「いかにもダメな場所」ではなく、「上手くいっているように見える流れの中」に紛れ込む。</p>
+
+  <div class="pull">
+    <span class="pull-label"><span class="en">Glossary</span><span class="ja">用語</span></span>
+    <span class="en">Jagged frontier — the boundary of AI capability is not a straight line but a serrated edge. The intuition of "easy / hard" fails, and the location of error becomes unpredictable.</span>
+    <span class="ja">ぎざぎざの辺境（jagged frontier）——AI の能力の境界が直線でなく凹凸であること。簡単/難しいの直感が通用せず、誤りの場所が予測できない。</span>
+  </div>
+
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 224" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <path d="M55,165 Q330,55 605,165" fill="none" stroke="#bbb" stroke-width="1.3" stroke-dasharray="5 4"/>
+      <text x="330" y="64" font-size="10.5" text-anchor="middle" fill="#999">what we expect — a smooth boundary</text>
+      <polyline points="55,160 105,96 150,150 200,78 250,140 300,66 350,128 400,82 450,150 500,92 550,140 605,118" fill="none" stroke="#1d5c5c" stroke-width="1.8"/>
+      <circle cx="250" cy="58" r="5" fill="#2a7a7a"/>
+      <text x="250" y="44" font-size="10" text-anchor="middle" fill="#2a7a7a">looks hard — AI nails it</text>
+      <circle cx="360" cy="178" r="5" fill="#a3514c"/>
+      <text x="360" y="198" font-size="10" text-anchor="middle" fill="#a3514c">looks easy — AI fails</text>
+      <text x="330" y="216" font-size="10.5" text-anchor="middle" fill="#1d5c5c">what is real — a jagged frontier (above the line = strong, below = weak)</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 224" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <path d="M55,165 Q330,55 605,165" fill="none" stroke="#bbb" stroke-width="1.3" stroke-dasharray="5 4"/>
+      <text x="330" y="64" font-size="10.5" text-anchor="middle" fill="#999">期待する境界 — なめらかな線</text>
+      <polyline points="55,160 105,96 150,150 200,78 250,140 300,66 350,128 400,82 450,150 500,92 550,140 605,118" fill="none" stroke="#1d5c5c" stroke-width="1.8"/>
+      <circle cx="250" cy="58" r="5" fill="#2a7a7a"/>
+      <text x="250" y="44" font-size="10" text-anchor="middle" fill="#2a7a7a">難しそう — AI は得意</text>
+      <circle cx="360" cy="178" r="5" fill="#a3514c"/>
+      <text x="360" y="198" font-size="10" text-anchor="middle" fill="#a3514c">やさしそう — AI は苦手</text>
+      <text x="330" y="216" font-size="10.5" text-anchor="middle" fill="#1d5c5c">実際の境界 — ぎざぎざの辺境（線の上＝得意、下＝苦手）</text>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 2 — The boundary we expect is smooth; the real one is serrated. "Looks easy" and "looks hard" no longer predict which side a task is on.</span><span class="ja">図2　期待する境界はなめらか、実際の境界はぎざぎざ。「やさしそう/難しそう」は、もうどちら側かを言い当てない。</span></div>
+  </div>
+
+  <h2><span class="hnum">3</span><span class="en">Accuracy raises the price</span><span class="ja">性能が、検証コストを押し上げる</span></h2>
+  <p class="en">Here the paradox stands up. What happens once the system reaches eighty, ninety percent correct?</p>
+  <p class="ja">ここで逆説が立ち上がる。性能が8割、9割正しい水準に達すると、何が起きるか。</p>
+  <p class="en">The remaining ten or twenty percent of errors vanish into a sea of correct output. Precisely because nine in ten are right, people begin to trust the output and stop checking it critically. <em>Overconfidence surfaces not at low accuracy but at high.</em> And merely arranging for "a human in the loop at the end" does not prevent it — because the human in the loop has already stopped checking.</p>
+  <p class="ja">残りの1割、2割の誤りが、正しい出力の海に紛れて見えなくなる。9割が正しいからこそ、人はその出力を信頼しはじめ、批判的に確かめなくなる。<span class="em">過信は、精度が低い段階より、高い段階でこそ顕在化する。</span>しかも、「人間が最後に介在する」という形を設けるだけでは、これは防げない。介在する人間自身が、もう確かめていないからだ。</p>
+  <p class="en">So the gain in accuracy pushes up the cost of verification. Catching "almost right" is far more expensive than catching "plainly wrong."</p>
+  <p class="ja">結果として、性能の向上が、検証の費用をむしろ押し上げる。「ほぼ正しい」を見破る作業は、「明らかに間違い」を見破る作業より、ずっと高くつく。</p>
+  <p class="en">In domains where one error blows up the whole — medicine, aviation, law, and code shipped to production — this is fatal. For ordinary work, "eighty percent right is fine." But where the tolerance is zero, failing to catch the single case that slipped in collapses trust in the entire system. The caution around adopting AI in such fields is not only about cost not adding up. <em>It is that the question — may we trust "almost right"? — has not yet been answered.</em></p>
+  <p class="ja">一度の誤りが全体を吹き飛ばす領域——医療、航空、法、そして本番に流れるコード——では、これは致命的だ。普通の仕事なら「8割合っていればいい」で済む。だが許容ゼロの現場では、紛れ込んだ1件を捕まえられないことが、システム全体の信頼を崩す。こうした領域で AI の導入が慎重になるのは、費用が見合わないからだけではない。<span class="em">「ほぼ正しい」を信用してよいか、という問いに、まだ答えが出ていないからだ。</span></p>
+
+  <div class="pull">
+    <span class="pull-label"><span class="en">Key point</span><span class="ja">要点</span></span>
+    <span class="en">Catching an obvious error is cheap. Catching an error hidden inside correctness is expensive. A rise in accuracy moves checking from the first to the second.</span>
+    <span class="ja">「明らかな誤り」を捕まえるのは安い。「正しさに紛れた誤り」を捕まえるのは高い。精度の向上は、検証を後者へ移す。</span>
+  </div>
+
+  <h2><span class="hnum">4</span><span class="en">The smoother, the blinder</span><span class="ja">綺麗になるほど、見えなくなる</span></h2>
+  <p class="en">The paradox has another face: the more polished the output, the harder the flaw is to see.</p>
+  <p class="ja">この逆説には、もうひとつ別の顔がある。出力が洗練されるほど、欠陥が見えにくくなる、という現象だ。</p>
+  <p class="en">I have watched this in another setting. When several hands raise something together, the greatest danger is not a flaw in the build. <em>The decay of an idea happens as the prose gets cleaner.</em> The smoother the expression, the less anyone notices the substance thinning out. Fluency papers over the hollow.</p>
+  <p class="ja">私はこれを、別の文脈でも見てきた。複数の作り手で何かを育てるとき、最大の危険は実装のミスではない。<span class="em">思想の劣化は、文章が綺麗になるほど起きる。</span>表現がなめらかに整うほど、中身が薄まっていることに誰も気づかなくなる。流暢さが、空洞を覆い隠す。</p>
+  <p class="en">AI output is the same. A refined surface does not raise the quality of judgment — if anything, the refinement lulls the checking to sleep. Readability is no guarantee of correctness. Yet the human brain feels what is easy to read as true. Smoothness is the cheapest disguise there is.</p>
+  <p class="ja">AI の出力も同じだ。外観が洗練されても、判断の質が上がるわけではない——むしろ、洗練が検証を眠らせる。読みやすさは、正しさの保証ではない。だが人の脳は、読みやすいものを正しいと感じてしまう。綺麗さは、いちばん安い偽装だ。</p>
+
+  <h2><span class="hnum">5</span><span class="en">Where the human remains</span><span class="ja">人間が残る場所</span></h2>
+  <p class="en">So in a world where checking costs more, what is the human for? Reduced to an inspector who glances at the output and nods, you are swallowed by overconfidence. The opposite stance is required.</p>
+  <p class="ja">では、確かめる費用が上がる世界で、人間は何をするのか。出力を眺めて頷く検査員に成り下がるなら、過信に飲まれて終わる。逆の構えがいる。</p>
+  <p class="en">My working answer is clear. Human expertise should function not as the <em>material</em> AI runs on, but as the <em>lens</em> that corrects its output. Do not take the surface number at face value; ask first on what premise, by what standard, it was produced. The same "cost" can differ twofold depending on the assumptions. Without a human who can overturn the premise, even the most accurate output decays into a game with numbers.</p>
+  <p class="ja">私の実務上の答えははっきりしている。人間の専門知識は、AI を動かす<span class="em">素材</span>ではなく、AI の出力を<span class="em">補正する装置</span>として効くべきだ。表面の数字をそのまま受け取らず、それがどの前提・どの基準で出たのかを先に問い直す。同じ「費用」でも、前提しだいで倍ほど食い違う。前提をひっくり返せる人間がいなければ、どんなに精度の高い出力も、ただの数字遊びに堕ちる。</p>
+  <p class="en">Concretely, split the roles asymmetrically. Do not hand real-time number generation to the AI — it is catastrophically bad at it. Put the numbers in yourself, and let the AI carry interpretation, reasoning, and counter-argument. And before and after any destructive operation, insert your own verification step. Work on the assumption that AI skips steps, and supply the safety device from the human side.</p>
+  <p class="ja">具体的には、役割を非対称に切る。リアルタイムの数値生成は AI に任せない——そこは壊滅的に苦手だ。数値は自分で入れ、AI には解釈・考察・反証を担わせる。そして破壊的な操作の前後には、自分で検証のステップを差し込む。AI は工程を飛ばすものだ、という前提に立って、安全装置を人間の側で補う。</p>
+
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 178" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <rect x="26" y="58" width="150" height="56" rx="2" fill="#f7f6f2" stroke="#bbb" stroke-width="1"/>
+      <text x="101" y="82" font-size="11.5" text-anchor="middle" fill="#777">AI output</text>
+      <text x="101" y="100" font-size="9.5" text-anchor="middle" fill="#999">fluent · plausible</text>
+      <line x1="182" y1="86" x2="244" y2="86" stroke="#1d5c5c" stroke-width="1.6"/><polygon points="250,86 238,80 238,92" fill="#1d5c5c"/>
+      <ellipse cx="330" cy="86" rx="48" ry="62" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.5"/>
+      <text x="330" y="80" font-size="11.5" text-anchor="middle" fill="#1d5c5c">human</text>
+      <text x="330" y="98" font-size="9.5" text-anchor="middle" fill="#1d5c5c">questions the premise</text>
+      <line x1="416" y1="86" x2="478" y2="86" stroke="#1d5c5c" stroke-width="1.6"/><polygon points="484,86 472,80 472,92" fill="#1d5c5c"/>
+      <rect x="486" y="58" width="150" height="56" rx="2" fill="#1a2332" stroke="#1a2332"/>
+      <text x="561" y="82" font-size="11.5" text-anchor="middle" fill="#fff">corrected</text>
+      <text x="561" y="100" font-size="9.5" text-anchor="middle" fill="#cdd6e0">judgment</text>
+      <text x="330" y="166" font-size="10" text-anchor="middle" fill="#666">not the material AI runs on — the lens its output passes through</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 178" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <rect x="26" y="58" width="150" height="56" rx="2" fill="#f7f6f2" stroke="#bbb" stroke-width="1"/>
+      <text x="101" y="82" font-size="11.5" text-anchor="middle" fill="#777">AI の出力</text>
+      <text x="101" y="100" font-size="9.5" text-anchor="middle" fill="#999">流暢・もっともらしい</text>
+      <line x1="182" y1="86" x2="244" y2="86" stroke="#1d5c5c" stroke-width="1.6"/><polygon points="250,86 238,80 238,92" fill="#1d5c5c"/>
+      <ellipse cx="330" cy="86" rx="48" ry="62" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.5"/>
+      <text x="330" y="80" font-size="11.5" text-anchor="middle" fill="#1d5c5c">人間</text>
+      <text x="330" y="98" font-size="9.5" text-anchor="middle" fill="#1d5c5c">前提を問い直す</text>
+      <line x1="416" y1="86" x2="478" y2="86" stroke="#1d5c5c" stroke-width="1.6"/><polygon points="484,86 472,80 472,92" fill="#1d5c5c"/>
+      <rect x="486" y="58" width="150" height="56" rx="2" fill="#1a2332" stroke="#1a2332"/>
+      <text x="561" y="82" font-size="11.5" text-anchor="middle" fill="#fff">補正後の</text>
+      <text x="561" y="100" font-size="9.5" text-anchor="middle" fill="#cdd6e0">判断</text>
+      <text x="330" y="166" font-size="10" text-anchor="middle" fill="#666">AI を動かす素材ではなく、出力を通すレンズとして</text>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 3 — Place human expertise as the lens the output passes through, not the material the AI runs on. The premise gets questioned before the number is believed.</span><span class="ja">図3　人間の専門知を、AI を動かす素材ではなく、出力が通るレンズに置く。数字を信じる前に、前提が問い直される。</span></div>
+  </div>
+
+  <div class="pull">
+    <span class="pull-label"><span class="en">Key point</span><span class="ja">要点</span></span>
+    <span class="en">Human expertise is not "material to run the AI" but "a device to correct its output." Where you place that one phrase divides overconfidence from judgment.</span>
+    <span class="ja">人間の専門知は「AI を動かす素材」ではなく「AI 出力を補正する装置」。この一語の置き場所が、過信と判断を分ける。</span>
+  </div>
+
+  <div class="essay-close">
+    <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">6</span><span class="en">Don't discount the checker</span><span class="ja">確かめる人を、安く見ない</span></h2>
+    <p class="en">AI will keep getting smarter. Be glad of that intelligence. Only — drop the one expectation that getting smarter means less to check.</p>
+    <p class="ja">AI は賢くなりつづける。その賢さは喜んでいい。だが、賢くなるほど確かめる仕事が減る、という期待だけは捨てたほうがいい。</p>
+    <p class="en">A rise in accuracy does not retire the checker. It raises their price. The one who can haul up the stray case from the sea of "almost right" — who questions the premise, who is not lulled by fluency — becomes scarce. This is the same person whose <a href="/essays/saved-time-is-not-productivity">ability to keep learning rises in value</a>. In the age of smart AI, what comes dear is not the AI, but the human who can doubt it.</p>
+    <p class="ja">精度の向上は、確かめる人を不要にしない。その人の値段を上げる。「ほぼ正しい」の海から、紛れた一件を引き上げられる人——前提を問い直し、流暢さに眠らされない人——が、これから希少になる。それは、<a href="/essays/saved-time-is-not-productivity">学びつづける力が値を上げていく</a>のと同じ人間だ。賢い AI の時代に高くつくのは、AI ではなく、AI を疑える人間のほうだ。</p>
+
+    <div class="seed-box">
+      <span class="pull-label"><span class="en">The Seed</span><span class="ja">種としての一行</span></span>
+      <span class="en">Higher accuracy does not retire the checker. It raises their price.</span>
+      <span class="ja">精度が上がっても、確かめる仕事は消えない。むしろ、高くなる。</span>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div><span class="en">Essay 006 · June 2026 · Don't discount the checker</span><span class="ja">Essay 006 · 2026年6月 · 確かめる人を、安く見ない</span></div>
+  <div><a href="../index.html">shun-yanagisawa.com</a> · <a href="../index.html#essays"><span class="en">All essays</span><span class="ja">エッセイ一覧</span></a></div>
+</footer>
+
+<script>
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+}
+if ((navigator.language || '').startsWith('ja')) toggleLang();
+</script>
+</body>
+</html>
