@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Stratification Called Choice — Shun Yanagisawa</title>
+<meta name="description" content="When knowledge becomes a commodity, options multiply — but the means to choose well stay unevenly held, and even free cash can't hand them out. A trace from the cost disease to redistribution.">
+<meta property="og:title" content="The Stratification Called Choice">
+<meta property="og:description" content="'Now you can choose' sounds like freedom. But when the resource to choose well is unevenly held, the language of choice can quietly hide a new ladder.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.shun-yanagisawa.com/essays/the-stratification-called-choice.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
+  --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f5ead8;
+  --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
+  --text: #1a1a1a; --text-mid: #3d3d3d; --text-muted: #666666; --border: #ddd9d0;
+  --font-display: 'Playfair Display', 'Noto Serif JP', Georgia, serif;
+  --font-body: 'Source Sans 3', sans-serif;
+  --font-jp: 'Noto Serif JP', serif;
+  --font-mono: 'DM Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--white); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.85; }
+body.lang-en .ja { display: none; }
+body.lang-ja .en { display: none; }
+body.lang-ja { font-family: var(--font-jp); }
+
+nav {
+  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+.nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1.2rem; }
+.nav-back { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--text-muted); text-decoration: none; }
+.nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .35rem .8rem; cursor: pointer; color: var(--text-mid);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
+
+.essay { max-width: 720px; margin: 0 auto; padding: 4rem 1.6rem 5rem; }
+.essay-kicker { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.2rem; }
+h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 500; line-height: 1.3; color: var(--navy); margin-bottom: .8rem; }
+.essay-sub { font-size: 1.02rem; color: var(--text-muted); margin-bottom: 1.4rem; line-height: 1.7; }
+.essay-meta { display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); padding-bottom: 1.6rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.4rem; }
+.essay-meta a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); }
+
+.essay h2 {
+  font-family: var(--font-display); font-size: 1.22rem; font-weight: 500; color: var(--navy);
+  margin: 2.8rem 0 1rem; padding: .35rem 0 .45rem .9rem;
+  border-left: 3px solid var(--navy); border-bottom: 1px solid var(--border);
+}
+body.lang-ja .essay h2 { font-family: var(--font-jp); font-weight: 500; }
+.essay h2 .hnum { font-family: var(--font-mono); font-size: .85rem; color: var(--teal-dark); margin-right: .7rem; letter-spacing: .05em; }
+
+.essay p { margin: 1.1rem 0; color: var(--text-mid); text-align: justify; }
+.essay a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.4); }
+.essay sup { font-family: var(--font-mono); font-size: .62rem; color: var(--teal-dark); vertical-align: super; line-height: 0; padding-left: 1px; }
+
+.ja .em { -webkit-text-emphasis: filled dot var(--navy); text-emphasis: filled dot var(--navy); font-style: normal; }
+.en .em { font-style: italic; }
+
+.pull {
+  border: 1px solid var(--gold); background: var(--gold-light);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 1.9rem 0; border-radius: 2px;
+  font-size: 1rem; color: var(--navy); line-height: 1.8; position: relative; text-align: justify;
+}
+.pull .pull-label {
+  position: absolute; top: -0.7rem; left: 1rem; background: var(--white);
+  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em;
+  color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase;
+}
+
+.figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 1.9rem 0; background: var(--white); }
+.figure svg { width: 100%; height: auto; display: block; }
+.figcap {
+  margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); text-align: center;
+}
+body.lang-ja .figcap { font-family: var(--font-jp); font-size: .76rem; }
+
+.seed-box {
+  border: 1px solid var(--gold); border-left: 4px solid var(--gold);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0 0; border-radius: 2px;
+  font-size: 1.02rem; color: var(--navy); line-height: 1.85; position: relative; text-align: justify;
+}
+.seed-box .pull-label { position: absolute; top: -0.7rem; left: 1rem; background: var(--white); font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase; }
+
+.essay-close { border-top: 2px solid var(--gold); margin-top: 3rem; padding-top: 1.6rem; }
+.essay-note { margin-top: 2.4rem; padding-top: .9rem; border-top: 1px solid var(--border); font-size: .8rem; color: var(--text-muted); line-height: 1.7; text-align: left; }
+.essay-note a { color: var(--teal-dark); word-break: break-all; }
+.essay-note .note-num { font-family: var(--font-mono); color: var(--teal-dark); margin-right: .4rem; }
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
+footer a { color: var(--teal-dark); text-decoration: none; }
+@media (max-width: 560px) { nav { padding: 0 1.2rem; } .essay { padding-top: 2.6rem; } }
+</style>
+</head>
+<body class="lang-en">
+
+<nav>
+  <a class="nav-logo" href="../index.html">Shun <span>Yanagisawa</span></a>
+  <div class="nav-right">
+    <a class="nav-back" href="../index.html#essays"><span class="en">← Essays</span><span class="ja">← エッセイ一覧</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="en">日本語</span><span class="ja">English</span></button>
+  </div>
+</nav>
+
+<article class="essay">
+  <div class="essay-kicker">Essay 008 · AI &amp; Society</div>
+  <h1>
+    <span class="en">The Stratification Called Choice</span>
+    <span class="ja">選択という名の階層化</span>
+  </h1>
+  <p class="essay-sub">
+    <span class="en">When knowledge becomes a commodity, options multiply. But the means to choose well stay unevenly held — and even free cash cannot quite hand them out.</span>
+    <span class="ja">知識がコモディティになると、選択肢は増える。けれど、よく選ぶための資源は偏ったまま握られ、現金を配るだけでは行き渡らない。</span>
+  </p>
+  <div class="essay-meta">
+    <span>June 2026</span>
+    <span class="en">AI &amp; Society</span>
+    <span class="ja">AI と社会</span>
+    <span class="en">8 min read</span>
+    <span class="ja">日本語 約8分</span>
+  </div>
+
+  <p class="en">AI has made many things cheap, fast, and accurate. What once took an expert now comes almost free from ChatGPT, Claude, or Gemini. Knowledge has become a commodity.</p>
+  <p class="ja">AI のおかげで、多くのものが安く、速く、正確に手に入るようになった。少し前なら専門家に頼むしかなかったことが、いまは ChatGPT や Claude、Gemini で、ほとんど無料で済む。知識が、コモディティになった。</p>
+  <p class="en">When knowledge is commoditized, the floor rises. Help only a few could once afford reaches everyone; things too expensive to ask for become askable. Options multiply. That much, I think, is good without reservation.</p>
+  <p class="ja">知識がコモディティになると、底が上がる。これまで一部の人しか買えなかった助けが、誰の手にも届く。対価が高すぎて誰も頼まなかったことまで、頼めるようになる。選択肢は増える。ここまでは、留保なしに良いことだと思う。</p>
+  <p class="en">But more options is not the same as choosing well. And the cheaper knowledge gets, the dearer one thing becomes: a person's unhurried attention. This essay follows what happens between the things that got cheap and the thing that got expensive — from the commoditization of knowledge, through what economists call the cost disease, to how we might redistribute the gains, and whether there is a form of all this that lasts.</p>
+  <p class="ja">ただ、選択肢が増えることと、よく選べるようになることは、同じではない。しかも、知識が安くなるほど、逆に値上がりするものがある——人に、時間をかけて向き合ってもらうことだ。本稿は、この「安くなったもの」と「高くなったもの」のあいだで何が起きるかをたどる。知識のコモディタイズから、経済学が〈コスト病〉と呼ぶ現象を抜け、富をどう配り直すか、そしてそれを長く保てる形があるとすれば何か——というところまで。</p>
+
+  <h2><span class="hnum">1</span><span class="en">Choosing Takes Resources</span><span class="ja">選ぶには資源が要る</span></h2>
+  <p class="en">Choosing actually takes two resources: the eye to tell good from bad, and the slack to act on it.</p>
+  <p class="ja">選ぶという行為には、実は二つの資源が要る。何が良いかを見分ける目と、良いほうを選べるだけの余力だ。</p>
+  <p class="en">Access can be equal while these two are not. Facing the same options, the person with a discerning eye picks well; the person without one drowns in the count. The unhurried choose carefully; the pressed grab whatever is nearest. As options multiply, the gap in eye and slack becomes, directly, the gap in outcomes.</p>
+  <p class="ja">アクセスが平等でも、この二つは平等に配られていない。同じ選択肢を前にしても、見分ける目を持つ人は良いほうを選び、持たない人は数の多さに溺れる。時間に余裕のある人はじっくり選び、追われている人は手近なもので済ませる。選択肢が増えるほど、見分ける目と余力の差が、そのまま結果の差になっていく。</p>
+  <p class="en">"You can choose for yourself" hides this uneven distribution — wearing the face that says any failure to choose was your own doing. But for someone without the means to choose, more options can be not freedom but mere load. Hold on to these two, the eye and the slack; they return near the end, when the question becomes which of them can actually be handed out.</p>
+  <p class="ja">「自分で選べる」という言葉は、この偏在を見えなくする。選べなかったのは本人の責任だ、という顔をして。けれど、選ぶための資源を持っていない人にとって、増えた選択肢は自由ではなく、ただの負荷でしかないこともある。この二つ——目と余力——は、終盤でもう一度戻ってくる。配り直せるのはどちらか、という話になったときに。</p>
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 206" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <line x1="60" y1="168" x2="612" y2="168" stroke="#1a2332" stroke-width="1.2"/>
+      <line x1="60" y1="168" x2="60" y2="30" stroke="#1a2332" stroke-width="1.2"/>
+      <polygon points="60,26 55,36 65,36" fill="#1a2332"/>
+      <polygon points="616,168 606,163 606,173" fill="#1a2332"/>
+      <polyline points="70,156 200,120 350,84 480,58 600,42" fill="none" stroke="#1d5c5c" stroke-width="2"/>
+      <polyline points="70,156 220,140 380,124 480,112 600,100" fill="none" stroke="#b5832a" stroke-width="2"/>
+      <polyline points="70,156 220,157 380,158 480,158 600,156" fill="none" stroke="#999" stroke-width="2" stroke-dasharray="4 3"/>
+      <text x="606" y="38" font-size="11" text-anchor="end" fill="#1d5c5c">number of options</text>
+      <text x="606" y="96" font-size="11" text-anchor="end" fill="#8a6020">choose well · upper tier</text>
+      <text x="606" y="150" font-size="11" text-anchor="end" fill="#777">choose well · lower tier</text>
+      <line x1="624" y1="100" x2="624" y2="156" stroke="#8a6020" stroke-width="1"/>
+      <text x="636" y="132" font-size="10.5" fill="#8a6020" transform="rotate(90 636 132)" text-anchor="middle">stratification</text>
+      <text x="64" y="186" font-size="10.5" fill="#666">time · AI spreads →</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 206" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <line x1="60" y1="168" x2="612" y2="168" stroke="#1a2332" stroke-width="1.2"/>
+      <line x1="60" y1="168" x2="60" y2="30" stroke="#1a2332" stroke-width="1.2"/>
+      <polygon points="60,26 55,36 65,36" fill="#1a2332"/>
+      <polygon points="616,168 606,163 606,173" fill="#1a2332"/>
+      <polyline points="70,156 200,120 350,84 480,58 600,42" fill="none" stroke="#1d5c5c" stroke-width="2"/>
+      <polyline points="70,156 220,140 380,124 480,112 600,100" fill="none" stroke="#b5832a" stroke-width="2"/>
+      <polyline points="70,156 220,157 380,158 480,158 600,156" fill="none" stroke="#999" stroke-width="2" stroke-dasharray="4 3"/>
+      <text x="606" y="38" font-size="11" text-anchor="end" fill="#1d5c5c">選択肢の数</text>
+      <text x="606" y="96" font-size="11" text-anchor="end" fill="#8a6020">よく選べる力 · 上層</text>
+      <text x="606" y="150" font-size="11" text-anchor="end" fill="#777">よく選べる力 · 下層</text>
+      <line x1="624" y1="100" x2="624" y2="156" stroke="#8a6020" stroke-width="1"/>
+      <text x="636" y="132" font-size="10.5" fill="#8a6020" transform="rotate(90 636 132)" text-anchor="middle">階層化</text>
+      <text x="64" y="186" font-size="10.5" fill="#666">時間 · AI の普及 →</text>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 1 — Options shoot up; the ability to choose well splits in two. The widening gap is the stratification.</span><span class="ja">図1　選択肢の数は跳ね上がり、よく選べる力は二つに分かれる。広がる差が、階層化。</span></div>
+  </div>
+
+  <h2><span class="hnum">2</span><span class="en">What Gets Dearer, and Its Old Name</span><span class="ja">値上がりするもの、コスト病という名</span></h2>
+  <p class="en">The cheaper and more accurate AI becomes, the more one thing rises in price: a human being's unhurried attention. As machine help spreads to the many, having a person beside you, taking time, turns scarce and dear. In medicine, in teaching, in care, the shape is the same — the standard part is cheaply automated, and the human touch is split off into an upper tier.</p>
+  <p class="ja">AI が安く正確になるほど、逆に値上がりするものがある。人間に、じっくり向き合ってもらうことだ。機械の助けが多数に行き渡るほど、「人がそばにいて、時間をかけて対応してくれる」こと自体が、希少で高価になっていく。医療でも、教育でも、ケアでも、形は同じだ。標準的な部分は安く自動化され、人の手当ては上の層へと切り離されていく。</p>
+  <p class="en">Economics has long had a name for this: Baumol's cost disease. Half a century ago, the economist William Baumol noted that playing a string quartet still takes the same four people and the same minutes it did in the eighteenth century.<sup>1</sup> Manufacturing raises its productivity and its wages; the labor-intensive services — live performance, teaching, medicine, care — must raise wages too, just to keep their people, with no productivity gain to pay for it. Costs climb while productivity stays flat. So in a world where machine-made goods keep getting cheaper, human-intensive services keep getting relatively dearer. Baumol titled his last book exactly that: <em>The Cost Disease: Why Computers Get Cheaper and Health Care Doesn't.</em><sup>2</sup></p>
+  <p class="ja">これには、経済学が古くから付けた名前がある。ボーモルのコスト病だ。半世紀前、経済学者ウィリアム・ボーモルは、弦楽四重奏を一曲演奏するのに必要な人数と時間は一八世紀から変わっていない、と指摘した。<sup>1</sup> 製造業は機械化で生産性を上げ、賃金が上がる。すると、生産性の上げようがない対人サービス——生演奏、教育、医療、ケア——も、人を引き留めるために賃金を上げざるをえない。生産性は据え置きのまま、費用だけ上がる。だから、機械でつくれる財がどんどん安くなる世界では、人手のかかるサービスは相対的にどんどん高くなる。ボーモル自身が晩年の本に、こう題をつけた——『コスト病：なぜコンピュータは安くなり、医療は安くならないのか』。<sup>2</sup></p>
+  <p class="en">The figures mirror the disease. Over the past half-century the real price of televisions, appliances, and clothing kept falling, while in the United States college tuition, medical care, and personal care kept climbing far faster than prices overall.<sup>3</sup> And here is the part that matters: the services that grow relatively dearer are the very ones people of modest means most depend on — health, education, elder care. Those who stand to gain most from the rising floor lean hardest on the thing whose price rises fastest.</p>
+  <p class="ja">数字が、この病を映している。過去半世紀、テレビや家電や衣料の実質価格は下がり続けた一方で、米国の大学授業料・医療・対人ケアの価格は、全体の物価を大きく上回って上がり続けた。<sup>3</sup> そして、ここが肝心なのだが——こうした「相対的に高くなる」サービスほど、暮らしに余裕のない人が頼っている領域でもある。医療、教育、介護。底上げの恩恵を一番受けるはずの人が、一番値上がりするものに依存している。</p>
+  <p class="en">AI is also an engine that accelerates this old disease. The more its machine layer cheapens, the more the hard-to-replace human presence floats up in relative price. And once "being properly seen by a person," "being taught by a person," becomes an option only for those who can pay, that is less a choice than a stratification.</p>
+  <p class="ja">AI は、この古い病を加速させる装置でもある。機械で代替できる部分が安くなるほど、代替しにくい「人の現前」は、相対的にどんどん高くなる。そうなると、「人にちゃんと診てもらう」「人に教えてもらう」ことが、お金のある人だけの選択肢になる。これは選択というより、階層化に近い。</p>
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 196" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <line x1="60" y1="172" x2="612" y2="172" stroke="#1a2332" stroke-width="1.2"/>
+      <polygon points="616,172 606,167 606,177" fill="#1a2332"/>
+      <polyline points="70,66 360,108 560,150" fill="none" stroke="#1d5c5c" stroke-width="2"/>
+      <polyline points="560,150 600,158" fill="none" stroke="#1d5c5c" stroke-width="2" stroke-dasharray="4 3"/>
+      <polyline points="70,142 360,104 560,46" fill="none" stroke="#b5832a" stroke-width="2"/>
+      <polyline points="560,46 600,38" fill="none" stroke="#b5832a" stroke-width="2" stroke-dasharray="4 3"/>
+      <circle cx="362" cy="106" r="4.5" fill="none" stroke="#1a2332" stroke-width="1.3"/>
+      <text x="362" y="128" font-size="10.5" text-anchor="middle" fill="#1a2332">Baumol</text>
+      <text x="74" y="58" font-size="11" fill="#1d5c5c">machine-made goods ↓</text>
+      <text x="74" y="136" font-size="11" fill="#8a6020">human presence ↑</text>
+      <text x="606" y="160" font-size="10" text-anchor="end" fill="#1d5c5c">AI</text>
+      <text x="606" y="32" font-size="10" text-anchor="end" fill="#8a6020">AI</text>
+      <text x="64" y="190" font-size="10.5" fill="#666">half a century →</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 196" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <line x1="60" y1="172" x2="612" y2="172" stroke="#1a2332" stroke-width="1.2"/>
+      <polygon points="616,172 606,167 606,177" fill="#1a2332"/>
+      <polyline points="70,66 360,108 560,150" fill="none" stroke="#1d5c5c" stroke-width="2"/>
+      <polyline points="560,150 600,158" fill="none" stroke="#1d5c5c" stroke-width="2" stroke-dasharray="4 3"/>
+      <polyline points="70,142 360,104 560,46" fill="none" stroke="#b5832a" stroke-width="2"/>
+      <polyline points="560,46 600,38" fill="none" stroke="#b5832a" stroke-width="2" stroke-dasharray="4 3"/>
+      <circle cx="362" cy="106" r="4.5" fill="none" stroke="#1a2332" stroke-width="1.3"/>
+      <text x="362" y="128" font-size="10.5" text-anchor="middle" fill="#1a2332">ボーモル</text>
+      <text x="74" y="58" font-size="11" fill="#1d5c5c">機械で作る財 ↓</text>
+      <text x="74" y="136" font-size="11" fill="#8a6020">人の現前 ↑</text>
+      <text x="606" y="160" font-size="10" text-anchor="end" fill="#1d5c5c">AI</text>
+      <text x="606" y="32" font-size="10" text-anchor="end" fill="#8a6020">AI</text>
+      <text x="64" y="190" font-size="10.5" fill="#666">半世紀 →</text>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 2 — Goods fall, human presence rises; they cross at Baumol. AI pushes the two lines further apart.</span><span class="ja">図2　財は下がり、人の現前は上がる。交点がボーモル。AI は二本の線をさらに引き離す。</span></div>
+  </div>
+
+  <h2><span class="hnum">3</span><span class="en">But AI Might Cure That Disease</span><span class="ja">ただし、AI はその病を治すかもしれない</span></h2>
+  <p class="en">Here I want to set down the opposite view.</p>
+  <p class="ja">ここで、反対側の見方を置いておきたい。</p>
+  <p class="en">The Oxford economist Carl Frey argues that a technology's worth is decided not by its raw potential but by where it gets applied.<sup>4</sup> Steam changed the world not when the engine improved, but when it was put on rails. Electricity changed the world not when it replaced the lamp, but when it rewired the factory and put a refrigerator and a washing machine in the home. By the same logic, AI moves the economy in earnest not when it drafts text faster, but when it reaches the sectors where productivity never grew — the very nest of the cost disease.</p>
+  <p class="ja">オックスフォード大学の経済学者カール・フレイは、技術の真価は「潜在能力そのもの」ではなく「どこに使われたか」で決まる、と言う。<sup>4</sup> 蒸気機関が世界を変えたのは、より良いエンジンができたからではなく、それが鉄道に載ったときだった。電気が世界を変えたのも、ランプを置き換えたからではなく、工場の配線を引き直し、家庭に冷蔵庫と洗濯機を入れたときだった。同じ理屈で言えば、AI が経済を本当に動かすのは、文章を速く書けるようになったときではなく、これまで生産性の上がらなかった領域——つまりコスト病の巣——に入り込んだときだ。</p>
+  <p class="en">That door is beginning to open. As AI joins sensors and motors and takes on a body as a robot, it starts to reach the service floors that resisted automation — warehouses, stores, hospitals, care, cleaning. If that genuinely advances, the cost disease turns toward a cure: the sectors that never gained productivity finally gain it. This is good news. Not ironically.</p>
+  <p class="ja">その入り口が、いま開きかけている。AI がセンサーやモーターと結びつき、ロボットとして身体を持つと、これまで自動化できなかった対人サービスの現場——倉庫、店舗、病院、介護、清掃——に手が届きはじめる。それが本当に進めば、コスト病は治る側に回る。生産性の上がらなかった領域が、ようやく上がる。これは朗報だ。皮肉ではなく。</p>
+  <p class="en">And yet — look closely at how it heals, and the disease seems less to vanish than to move upward. A service splits into an automatable shell and a hard-to-automate core. The shell — reception, routine processing, standard handling — gets cheap. But the core — being seen by a person, judged by a person, having a person take responsibility — grows all the scarcer and dearer because everything around it fell. "AI cures the cost disease" and "human presence becomes a luxury" sound opposed, yet they are the front and back of a single event. Liberation and division ride, always, back to back.</p>
+  <p class="ja">ただ——治り方をよく見ると、病が消えるというより、上に移っているように見える。サービスは、自動化できる殻と、自動化しにくい芯に割れる。殻（受付、定型処理、標準的な手当て）は安くなる。けれど芯——人に見てもらい、人に判断してもらい、責任を引き受けてもらうこと——は、周りが全部安くなるぶん、いっそう希少で高価になる。「AI がコスト病を治す」と「人の現前が贅沢財になる」は、反対のことを言っているようで、同じ一つの出来事の表と裏なのだと思う。解放と分断は、いつも背中合わせだ。</p>
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 188" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <rect x="56" y="78" width="120" height="44" rx="2" fill="#f7f6f2" stroke="#1a2332" stroke-width="1.3"/>
+      <text x="116" y="104" font-size="12" text-anchor="middle" fill="#1a2332">a service</text>
+      <line x1="186" y1="100" x2="250" y2="100" stroke="#1a2332" stroke-width="1.2"/>
+      <polygon points="254,100 244,95 244,105" fill="#1a2332"/>
+      <rect x="300" y="116" width="296" height="46" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.3"/>
+      <text x="448" y="144" font-size="11.5" text-anchor="middle" fill="#1d5c5c">automatable shell · gets cheap</text>
+      <rect x="356" y="46" width="184" height="46" rx="2" fill="#f5ead8" stroke="#b5832a" stroke-width="1.5"/>
+      <text x="448" y="74" font-size="11.5" text-anchor="middle" fill="#8a6020">human core · gets dear</text>
+      <line x1="448" y1="44" x2="448" y2="22" stroke="#b5832a" stroke-width="1.4"/>
+      <polygon points="448,16 443,26 453,26" fill="#b5832a"/>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 188" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <rect x="56" y="78" width="120" height="44" rx="2" fill="#f7f6f2" stroke="#1a2332" stroke-width="1.3"/>
+      <text x="116" y="104" font-size="12" text-anchor="middle" fill="#1a2332">サービス</text>
+      <line x1="186" y1="100" x2="250" y2="100" stroke="#1a2332" stroke-width="1.2"/>
+      <polygon points="254,100 244,95 244,105" fill="#1a2332"/>
+      <rect x="300" y="116" width="296" height="46" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.3"/>
+      <text x="448" y="144" font-size="11.5" text-anchor="middle" fill="#1d5c5c">自動化される殻 · 安くなる</text>
+      <rect x="356" y="46" width="184" height="46" rx="2" fill="#f5ead8" stroke="#b5832a" stroke-width="1.5"/>
+      <text x="448" y="74" font-size="11.5" text-anchor="middle" fill="#8a6020">人の芯＝現前 · 高くなる</text>
+      <line x1="448" y1="44" x2="448" y2="22" stroke="#b5832a" stroke-width="1.4"/>
+      <polygon points="448,16 443,26 453,26" fill="#b5832a"/>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 3 — The cure does not erase the disease; it moves it up. The shell cheapens, the human core climbs.</span><span class="ja">図3　治癒は病を消さず、上へ移す。殻は安くなり、人の芯はせり上がる。</span></div>
+  </div>
+
+  <h2><span class="hnum">4</span><span class="en">Redistributing the Gains: Basic Income</span><span class="ja">富を配り直せるか — ベーシックインカム</span></h2>
+  <p class="en">If AI generates a large surplus, the question becomes who receives it. Productivity can leap, but if the gains pool in a few hands, the luxury of presence drifts further out of reach. So talk turns to devices for redistributing wealth. The most-discussed candidate is basic income — unconditional cash for everyone. It looks like an attempt to hand out, directly, the second of the two resources I set aside earlier: the slack.</p>
+  <p class="ja">AI が大きな余剰を生むなら、問題は「誰がその余剰を受け取るか」になる。生産性が跳ね上がっても、上がった分が一部に集まれば、現前という贅沢財はますます手の届かないものになる。だから、富を配り直す装置の話が出てくる。いちばん語られている候補が、ベーシックインカム（基礎所得）——全員に無条件で現金を配る、という案だ。これは先に取り分けておいた二つの資源のうち、「余力」を直接配ろうとする試みに見える。</p>
+  <p class="en">Does it work? There is a fitting experiment. In one of the largest U.S. studies of its kind, funded in part by Sam Altman, about three thousand low-income people received $1,000 a month for three years, unconditionally, set against a control group on $50.<sup>5</sup> The result was two-edged. Recipients worked roughly 1.3 to 1.4 fewer hours a week and put the time toward leisure; they spent more on food, rent, and transport, and gave more to people around them. Slack, indeed, was distributed a little.</p>
+  <p class="ja">効くのか。ちょうど良い実証がある。サム・アルトマンらが資金を出した米国最大級の実験で、低所得層の約三千人に月一〇〇〇ドルを三年間、無条件で渡し、対照群（月五〇ドル）と比べた。<sup>5</sup> 結果は、両義的だった。受給者は週に一・三〜一・四時間ほど働く時間を減らし、そのぶん余暇に充てた。食費・家賃・交通費が増え、人に分け与える額も増えた。「余力」は、確かに少し配られた。</p>
+  <p class="en">But what the researchers expected did not happen. There was almost no sign that recipients searched for or moved to better work, and no visible shift of money into education or training. Cash bought time, but it did not hand out the discerning eye. You can buy the slack to choose; you cannot buy the eye to choose well. And if the relative price of presence keeps rising, the very amount of that luxury the cash can buy quietly shrinks. Redistribution is needed — but handing out money delivers only one of the two resources.</p>
+  <p class="ja">けれど、研究者が期待していたことは起きなかった。受給者がより良い仕事を探したり、より良い仕事に移ったりした形跡は、ほぼゼロ。教育や訓練に充てた様子も、見られなかった。現金は、時間の余裕は生んだが、見分ける目までは配れなかった。お金で「選ぶ余力」は買えても、「よく選ぶ目」は買えない。そして、もし現前の相対価格が上がり続けるなら、配られた現金で買える贅沢財の量そのものが、目減りしていく。再分配は要る。けれど、現金を配るだけでは、二つの資源のうち、片方しか届かない。</p>
+  <div class="pull">
+    <span class="pull-label"><span class="en">Key</span><span class="ja">要点</span></span>
+    <span class="en">Cash can buy the <em>slack</em> to choose. It cannot buy the <em>eye</em> to choose well. Redistribution is necessary — and, on its own, only half of what choosing actually takes.</span>
+    <span class="ja">現金は、選ぶための<span class="em">余力</span>は買える。よく選ぶための<span class="em">目</span>は買えない。再分配は必要で、それでいて、それだけでは選択に要るものの半分にしかならない。</span>
+  </div>
+
+  <h2><span class="hnum">5</span><span class="en">Sustainable by What Measure?</span><span class="ja">サステナブルとは、何を測るか</span></h2>
+  <p class="en">Pushed this far, the question "what is a sustainable world?" turns to show another face.</p>
+  <p class="ja">ここまで来ると、「持続可能な世界とは何か」という問いの、別の顔が見えてくる。</p>
+  <p class="en">Frame sustainability as only a matter of environment or public finance, and you miss the fault line underfoot. The floor is surely rising. But at the same time the tier "seen by a person" and the tier "handled by machine" quietly harden into structure. A society where the rising floor and the widening split advance at the same pace keeps getting richer on average. The trouble is that a rising average and a durable order are not the same thing. A society in which who is treated as a person, and who is not, is settled by the tier you are born into will not hold — however rich the whole.</p>
+  <p class="ja">サステナビリティを、環境や財政の話としてだけ考えると、足元の地割れを見落とす。底は確実に上がっている。けれど同時に、「人に見てもらえる層」と「機械で済ませる層」が、静かに、しかし構造として固まっていく。底上げと分断が同じ速さで進む社会は、平均値で見れば豊かになり続ける。問題は、平均が上がることと、その秩序が長く保つこととは、別だということだ。誰が人として扱われ、誰がそうでないか——それが生まれた層で決まる社会は、たとえ全体が豊かでも、もたない。</p>
+  <p class="en">If so, there are probably three things to redistribute: tools (already cheapening), slack (basic income delivers half of it), and the discerning eye (the hardest, the least touched). The third cannot be bought with cash. Education, the time to grow judgment, trustworthy counsel — these are human-intensive, and, with some irony, the very things the cost disease keeps making dearer. If a sustainable world exists, it is measured not by the number of options, nor by the average wealth, but by how widely those three are shared.</p>
+  <p class="ja">だとすれば、配り直すべきものは、たぶん三つある。道具（もう安くなりつつある）、余力（ベーシックインカムが半分は届ける）、そして見分ける目（これが一番難しく、一番手つかずだ）。三つ目は現金では買えない。教育、判断を育てる時間、信頼できる助言——人の手のかかるもので、皮肉にも、それ自体がコスト病で値上がりしていく当のものだ。サステナブルな世界があるとすれば、それは選択肢の数でも、平均の豊かさでもなく、この三つがどれだけ広く行き渡っているかで測られる世界だと思う。</p>
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 178" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <g text-anchor="middle">
+        <circle cx="130" cy="74" r="40" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.6"/>
+        <text x="130" y="70" font-size="12.5" fill="#1d5c5c">tools</text>
+        <text x="130" y="88" font-size="10" fill="#1d5c5c">turning</text>
+        <text x="130" y="138" font-size="10.5" fill="#666">cheap already · ✓</text>
+        <circle cx="330" cy="74" r="40" fill="#f5ead8" stroke="#b5832a" stroke-width="1.6"/>
+        <path d="M330 34 A40 40 0 0 1 330 114 Z" fill="#b5832a" fill-opacity=".18"/>
+        <text x="330" y="70" font-size="12.5" fill="#8a6020">slack</text>
+        <text x="330" y="88" font-size="10" fill="#8a6020">half</text>
+        <text x="330" y="138" font-size="10.5" fill="#666">basic income · ½</text>
+        <circle cx="530" cy="74" r="40" fill="#fff" stroke="#999" stroke-width="1.6" stroke-dasharray="5 4"/>
+        <text x="530" y="70" font-size="12.5" fill="#777">the eye</text>
+        <text x="530" y="88" font-size="10" fill="#777">stuck</text>
+        <text x="530" y="138" font-size="10.5" fill="#666">cash can't · ✕</text>
+      </g>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 178" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <g text-anchor="middle">
+        <circle cx="130" cy="74" r="40" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.6"/>
+        <text x="130" y="72" font-size="12.5" fill="#1d5c5c">道具</text>
+        <text x="130" y="90" font-size="9.5" fill="#1d5c5c">回る</text>
+        <text x="130" y="138" font-size="10.5" fill="#666">もう安い · ✓</text>
+        <circle cx="330" cy="74" r="40" fill="#f5ead8" stroke="#b5832a" stroke-width="1.6"/>
+        <path d="M330 34 A40 40 0 0 1 330 114 Z" fill="#b5832a" fill-opacity=".18"/>
+        <text x="330" y="72" font-size="12.5" fill="#8a6020">余力</text>
+        <text x="330" y="90" font-size="9.5" fill="#8a6020">半分</text>
+        <text x="330" y="138" font-size="10.5" fill="#666">ベーシックインカム · ½</text>
+        <circle cx="530" cy="74" r="40" fill="#fff" stroke="#999" stroke-width="1.6" stroke-dasharray="5 4"/>
+        <text x="530" y="72" font-size="12.5" fill="#777">見分ける目</text>
+        <text x="530" y="90" font-size="9.5" fill="#777">止まる</text>
+        <text x="530" y="138" font-size="10.5" fill="#666">現金では回らない · ✕</text>
+      </g>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 4 — Three things to redistribute. Tools turn, slack half-turns, the eye stays stuck — cash won't move the last gear.</span><span class="ja">図4　配り直す三つ。道具は回り、余力は半分、見分ける目は止まったまま——最後の歯車は現金では動かない。</span></div>
+  </div>
+
+  <div class="essay-close">
+    <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">6</span><span class="en">Doubt the Word, Once</span><span class="ja">言葉を、一度疑う</span></h2>
+    <p class="en">So when you hear "now you can choose," I would like to pause, just once.</p>
+    <p class="ja">だから、「選べるようになった」と聞いたら、一度だけ立ち止まってみたい。</p>
+    <p class="en">Who has gained the power to choose what? In whose hands are the means of choosing — the tools, the slack, and the discerning eye? Is the word "choice" quietly covering a ladder? Set the measure of richness on the number of options, and the question disappears — by that count, options multiply in front of everyone.</p>
+    <p class="ja">誰が、何を選べるようになったのか。選ぶための資源——道具と、余力と、見分ける目——は、いま誰の手にあるのか。「選択」という言葉が、静かに階層化を覆っていないか。豊かさを測る軸を選択肢の数に置くと、この問いは見えなくなる。数だけなら、誰の前にも増えているからだ。</p>
+    <p class="en">The measure lies, I think, elsewhere — in whether a person can go on being treated as a person, whether dignity is being surrendered in the shadow of all that number. If options grow without end while more people are stripped of the slack to choose, that is hard to call richer. Cash alone will not reach the eye. So — beyond the tools, what is it that we need to redistribute?</p>
+    <p class="ja">測る軸は、たぶん別のところにある。人として扱われ続けられるか——その尊厳（<span class="em">dignity</span>）を、数の多さの陰で手放していないか。選択肢が無限に増えても、選ぶ余力を奪われた人が増えるなら、それを豊かさとは呼びにくい。現金を配るだけでは、目までは届かない。では、私たちは、道具のほかに、何を配り直せばいいのだろう。</p>
+
+    <div class="seed-box">
+      <span class="pull-label"><span class="en">The Seed</span><span class="ja">種としての一行</span></span>
+      <span class="en">"You can choose" is not always freedom. When the means to choose well — tools, slack, and a discerning eye — are unevenly held, it becomes a polite word for a ladder. And cash alone never quite reaches the last of the three.</span>
+      <span class="ja">「選べる」は、いつも自由とは限らない。よく選ぶための資源——道具・余力・見分ける目——が偏って握られているとき、それは階層化の、ていねいな言い換えになる。そして現金を配るだけでは、最後の一つには届かない。</span>
+    </div>
+
+    <div class="essay-note">
+      <p><span class="note-num">1.</span><span class="en">William J. Baumol &amp; William G. Bowen, <em>Performing Arts: The Economic Dilemma</em> (Twentieth Century Fund, 1966) — the origin of the "cost disease." The string-quartet illustration (a quartet needs the same labor in any century) is the classic case of work that resists productivity growth.</span><span class="ja">William J. Baumol &amp; William G. Bowen『Performing Arts: The Economic Dilemma』（Twentieth Century Fund, 1966年）——「コスト病」の初出。弦楽四重奏の例（どの世代でも同じ人手と時間がかかる）は、生産性向上に抗う労働の古典的なケース。</span></p>
+      <p><span class="note-num">2.</span><span class="en">William J. Baumol, <em>The Cost Disease: Why Computers Get Cheaper and Health Care Doesn't</em> (Yale University Press, 2012) — Baumol's late synthesis of the mechanism across health care, education, and the arts.</span><span class="ja">William J. Baumol『The Cost Disease: Why Computers Get Cheaper and Health Care Doesn't』（Yale University Press, 2012年）——医療・教育・芸術を横断する機構をまとめた晩年の総説。</span></p>
+      <p><span class="note-num">3.</span><span class="en">The long-run U.S. divergence — televisions, appliances, and clothing falling in real terms while college tuition, medical, and personal care rise far above the overall price level — is a widely reproduced pattern from U.S. Bureau of Labor Statistics consumer-price series (the "chart of prices," tracking the Baumol effect). Caveat: not all of the rise is the cost disease; subsidies, regulation, and demand-side factors also contribute. Helland &amp; Tabarrok, <em>Why Are the Prices So Damn High?</em> (Mercatus Center, 2019) attribute a large share to the Baumol effect, but the debate is unsettled.</span><span class="ja">米国の長期的な価格乖離（テレビ・家電・衣料が実質下落する一方、大学授業料・医療・対人ケアが全体物価を大きく上回って上昇）は、米労働統計局の消費者物価系列で広く図示されるパターン（ボーモル効果を追う "chart of prices"）。留保：この上昇のすべてがコスト病ではなく、補助金・規制・需要側要因も寄与する。Helland &amp; Tabarrok『Why Are the Prices So Damn High?』（Mercatus Center, 2019年）はボーモル効果の寄与を大きく見積もるが、論争は続いている。</span></p>
+      <p><span class="note-num">4.</span><span class="en">Carl Benedikt Frey &amp; Michael A. Osborne, "The Future of Employment" (Oxford Martin School, 2013), whose estimate that ~47% of U.S. jobs are at risk of automation is widely cited; Carl Benedikt Frey, <em>The Technology Trap</em> (Princeton University Press, 2019); and Frey's 2026 restatement that a technology's impact depends on its application — AI joined with robotics may finally penetrate the labor-intensive services where productivity had stalled (<a href="https://www.pictet.co.jp/investment-information/market/global-market-watch/investment_theme/other_theme/GMW-20260304.html">pictet.co.jp, 2026-03-04</a>). Caveat: "AI cures the cost disease" is a forecast; the speed, cost, and acceptance of service robotics carry large uncertainty, and the reading here — cure as upward relocation — is mine, not Frey's own claim.</span><span class="ja">Carl Benedikt Frey &amp; Michael A. Osborne「The Future of Employment」（Oxford Martin School, 2013年）。米国の雇用の約47%が自動化リスクにあるという推計で広く知られる。Carl Benedikt Frey『The Technology Trap』（Princeton University Press, 2019年）。さらに、技術の影響は「応用先」で決まる——AI とロボットの結合が、生産性の停滞していた労働集約的サービスにようやく浸透しうる、というフレイの2026年の論考（<a href="https://www.pictet.co.jp/investment-information/market/global-market-watch/investment_theme/other_theme/GMW-20260304.html">pictet.co.jp, 2026-03-04</a>）。留保：「AI がコスト病を治す」は予測であり、サービスロボットの普及速度・コスト・受容には大きな不確実性がある。本稿の「治癒＝上方移動」という読みは筆者の解釈で、フレイ自身の主張ではない。</span></p>
+      <p><span class="note-num">5.</span><span class="en">OpenResearch Unconditional Cash Study (Eva Vivalt, Elizabeth Rhodes, Sarah Miller, David Broockman, Alexander Bartik, et al., 2024), funded in part by Sam Altman: about 3,000 low-income recipients received $1,000/month for three years against a $50/month control. Recipients reduced work by roughly 1.3–1.4 hours/week and increased leisure and basic spending, but showed no improvement in employment quality and no rise in spending on education or training. Caveat: a single RCT on a young, low-income U.S. sample — not generalizable to UBI as a whole — and the small drop in labor supply is read differently by different observers. <a href="https://www.openresearchlab.org/">openresearchlab.org</a></span><span class="ja">OpenResearch 無条件現金給付研究（Eva Vivalt, Elizabeth Rhodes, Sarah Miller ほか, 2024年）。サム・アルトマンらが一部資金提供。低所得層の約3,000名に月1,000ドルを3年間（対照群は月50ドル）。受給者は労働を週およそ1.3〜1.4時間減らし、余暇と基礎的支出が増えたが、雇用の質の改善も、教育・訓練への支出増も見られなかった。留保：若年・低所得の米国サンプルを対象とする単一の RCT であり、ベーシックインカム全体に一般化はできない。労働供給の小幅な減少は観察者により評価が分かれる。<a href="https://www.openresearchlab.org/">openresearchlab.org</a></span></p>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div><span class="en">Essay 008 · June 2026 · the stratification called choice</span><span class="ja">Essay 008 · 2026年6月 · 選択という名の階層化について</span></div>
+  <div><a href="../index.html">shun-yanagisawa.com</a> · <a href="../index.html#essays"><span class="en">All essays</span><span class="ja">エッセイ一覧</span></a></div>
+</footer>
+
+<script>
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+}
+if ((navigator.language || '').startsWith('ja')) toggleLang();
+</script>
+</body>
+</html>
