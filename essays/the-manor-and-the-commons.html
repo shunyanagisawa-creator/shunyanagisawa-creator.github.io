@@ -100,6 +100,11 @@ body.lang-ja .figcap { font-family: var(--font-jp); font-size: .76rem; }
 
 .essay-close { border-top: 2px solid var(--gold); margin-top: 3rem; padding-top: 1.6rem; }
 
+/* 注・出典 */
+.essay-note { margin-top: 2.4rem; padding-top: .9rem; border-top: 1px solid var(--border); font-size: .8rem; color: var(--text-muted); line-height: 1.7; text-align: left; }
+.essay-note a { color: var(--teal-dark); word-break: break-all; }
+.essay-note .note-num { font-family: var(--font-mono); color: var(--teal-dark); margin-right: .4rem; }
+
 footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
 footer a { color: var(--teal-dark); text-decoration: none; }
 @media (max-width: 560px) { nav { padding: 0 1.2rem; } .essay { padding-top: 2.6rem; } }
@@ -156,8 +161,8 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   <p class="en">This is the crux. AI's capability looks universal — usable from anywhere — yet its physical base, geographically and in capital terms, gathers into a very few points. The phrase <em>single point of failure</em> fits. The freedom of the upper layers rides on the concentration of the floor.</p>
   <p class="ja">ここが肝だ。AI の能力は普遍的に——どこからでも使えるように——見えるのに、その物理的な土台は、地理的にも資本的にも、ごく少数の点に集まっている。<span class="em">単一障害点</span>という言葉がふさわしい。上層の自由は、底の集中の上に乗っている。</p>
 
-  <p class="en">This June, in an executive course at Harvard Business School — <a href="/essays/learning-as-a-luxury-good">the same week I wrote about elsewhere</a> — I worked through a case on the company that sits at this floor, and it makes the logic almost too vivid. The maker of the chips that nearly everyone trains on — a firm past five trillion dollars in value, holding the better part of the market and nearly two decades of accumulated lock-in in its software — has lately been on the side of <em>open-sourcing</em> the layers above it: the agents, the orchestration. Free software, expensive hardware. Why give the upper floors away? Because the more the surface is commoditised and the more everyone builds, the more the work runs down onto the floor it owns. The right to till is handed out for free precisely because it drives demand for the land.</p>
-  <p class="ja">この6月、ハーバード・ビジネス・スクールのエグゼクティブ・コースで——<a href="/essays/learning-as-a-luxury-good">別稿に書いたのと同じ一週間だ</a>——この底に座る企業のケースを扱った。その論理が、鮮やかすぎるほどに見えてくる。ほぼ誰もがその上で訓練するチップの作り手——時価総額で五兆ドルを超え、市場の大半と、ソフトウェアに積み上げた二十年近い囲い込みを握る企業——が、近ごろは自分の上の層、つまりエージェントやその連携を<span class="em">オープンソース化する</span>側に回っている。ソフトは無償、ハードは高額。なぜ上の階をタダで配るのか。上層が汎用品になり、誰もが作れば作るほど、仕事は自分の所有する底へと流れ落ちてくるからだ。耕す権利が無償で配られるのは、まさにそれが土地への需要を生むからだ。</p>
+  <p class="en">This June, in an executive course at Harvard Business School — <a href="/essays/learning-as-a-luxury-good">the same week I wrote about elsewhere</a> — I worked through a case on the company that sits at this floor, and it makes the logic almost too vivid. The maker of the chips that nearly everyone trains on is NVIDIA — past five trillion dollars in value, holding roughly 90% of the data-centre AI-accelerator market and nearly two decades of lock-in in its CUDA software.<sup>1</sup> And it has lately been on the side of <em>open-sourcing</em> the layers above it: the agents, the orchestration. Free software, expensive hardware. Why give the upper floors away? Because the more the surface is commoditised and the more everyone builds, the more the work runs down onto the floor it owns. The right to till is handed out for free precisely because it drives demand for the land.</p>
+  <p class="ja">この6月、ハーバード・ビジネス・スクールのエグゼクティブ・コースで——<a href="/essays/learning-as-a-luxury-good">別稿に書いたのと同じ一週間だ</a>——この底に座る企業のケースを扱った。その論理が、鮮やかすぎるほどに見えてくる。ほぼ誰もがその上で訓練するチップの作り手——NVIDIA だ。時価総額は五兆ドルを超え、データセンター向け AI アクセラレータの約九割を握り、CUDA というソフトウェアに二十年近い囲い込みを積み上げてきた。<sup>1</sup>その企業が、近ごろは自分の上の層、つまりエージェントやその連携を<span class="em">オープンソース化する</span>側に回っている。ソフトは無償、ハードは高額。なぜ上の階をタダで配るのか。上層が汎用品になり、誰もが作れば作るほど、仕事は自分の所有する底へと流れ落ちてくるからだ。耕す権利が無償で配られるのは、まさにそれが土地への需要を生むからだ。</p>
 
   <div class="figure">
     <svg class="en" viewBox="0 0 660 244" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
@@ -312,6 +317,10 @@ footer a { color: var(--teal-dark); text-decoration: none; }
       <span class="pull-label"><span class="en">The Seed</span><span class="ja">種としての一行</span></span>
       <span class="en">Freedom is not owning the land. It is being able to move, at any time, to another field.</span>
       <span class="ja">自由とは、土地を持つことではない。いつでも、別の畑へ移れることだ。</span>
+    </div>
+
+    <div class="essay-note">
+      <p><span class="note-num">1.</span><span class="en">NVIDIA. Market value and market share per public reporting and company earnings: a valuation past USD 5 trillion, roughly 90% of the data-centre AI-accelerator market, and the CUDA software ecosystem (since 2006) forming nearly two decades of developer lock-in. The case discussed here is drawn from a Harvard Business School executive course (June 2026); the figures above are public.</span><span class="ja">NVIDIA。時価総額・市場シェアは公開報道および同社決算による——時価総額は5兆ドル超、データセンター向け AI アクセラレータの約9割、CUDA（2006年〜）が形成する二十年近い開発者の囲い込み。本稿で触れたケースはハーバード・ビジネス・スクールのエグゼクティブ・コース（2026年6月）に基づくが、上記の数字はいずれも公開情報である。</span></p>
     </div>
   </div>
 </article>

@@ -100,6 +100,11 @@ body.lang-ja .figcap { font-family: var(--font-jp); font-size: .76rem; }
 
 .essay-close { border-top: 2px solid var(--gold); margin-top: 3rem; padding-top: 1.6rem; }
 
+/* 注・出典 */
+.essay-note { margin-top: 2.4rem; padding-top: .9rem; border-top: 1px solid var(--border); font-size: .8rem; color: var(--text-muted); line-height: 1.7; text-align: left; }
+.essay-note a { color: var(--teal-dark); word-break: break-all; }
+.essay-note .note-num { font-family: var(--font-mono); color: var(--teal-dark); margin-right: .4rem; }
+
 footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
 footer a { color: var(--teal-dark); text-decoration: none; }
 @media (max-width: 560px) { nav { padding: 0 1.2rem; } .essay { padding-top: 2.6rem; } }
@@ -129,8 +134,8 @@ footer a { color: var(--teal-dark); text-decoration: none; }
     <span>June 2026</span>
     <span class="en">AI · judgment · epistemics</span>
     <span class="ja">AI · 判断 · 認識論</span>
-    <span class="en">6 min read</span>
-    <span class="ja">日本語 約6分</span>
+    <span class="en">8 min read</span>
+    <span class="ja">日本語 約8分</span>
   </div>
 
   <p class="en">When AI improves, our work gets lighter — that is the natural thought. Fewer mistakes should mean less to check.</p>
@@ -181,8 +186,12 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   <h2><span class="hnum">2</span><span class="en">The jagged frontier</span><span class="ja">ぎざぎざの辺境</span></h2>
   <p class="en">Why do errors get harder to find as capability rises? The key is that the boundary between what AI is good and bad at is not a smooth line.</p>
   <p class="ja">なぜ誤りは、性能が上がると見つけにくくなるのか。鍵は、AI の得意と不得意の境界線が、なめらかな線ではないことにある。</p>
-  <p class="en">That boundary is jagged. A task that looks easy can sit outside it (a weakness); a task that looks hard can sit inside it (a strength). A system that beats humans at advanced reasoning trips on something as basic as reading a clock. <em>Strength and weakness are mixed in an unpredictable shape.</em> So the user cannot tell which side a given task falls on until they try.</p>
-  <p class="ja">その境界は、ぎざぎざしている。一見やさしそうな課題が境界の外（苦手）にあり、一見難しそうな課題が境界の内（得意）にあったりする。高度な推論で人を超える系が、時計を読むような初歩でつまずく。<span class="em">強さと弱さが、予測できない形で混ざっている。</span>だから使う側は、どの課題がどちらの側か、使ってみるまで分からない。</p>
+  <p class="en">The phrase is not mine. It comes from a large field experiment run by researchers at Harvard Business School and Boston Consulting Group, who named the boundary "the jagged technological frontier."<sup>1</sup> They took 758 of BCG's own consultants — an elite group, the firm admits only about one percent of applicants — and randomly split them into working with GPT-4 and working without. Then they watched what AI did to real consulting work, on both sides of that frontier.</p>
+  <p class="ja">この「ぎざぎざの辺境」という言葉は、私の造語ではない。ハーバード・ビジネス・スクールとボストン・コンサルティング・グループ（BCG）の研究者たちが行った大規模な実地実験が名づけたものだ。<sup>1</sup>彼らは BCG 自身のコンサルタント 758 名——応募者の約一パーセントしか採らないエリート集団だ——を、GPT-4 を使う群と使わない群に無作為に分けた。そして、その辺境の内と外の両方で、AI が実際のコンサル業務に何をするかを観察した。</p>
+  <p class="en">The boundary turned out to be jagged. A task that looks easy can sit outside it (a weakness); a task that looks hard can sit inside it (a strength). A system that beats humans at advanced reasoning trips on something as basic as arithmetic. <em>Strength and weakness are mixed in an unpredictable shape</em> — even within one and the same workflow. So the user cannot tell which side a given task falls on until they try.</p>
+  <p class="ja">境界は、はたしてぎざぎざだった。一見やさしそうな課題が境界の外（苦手）にあり、一見難しそうな課題が境界の内（得意）にあったりする。高度な推論で人を超える系が、四則計算のような初歩でつまずく。<span class="em">強さと弱さが、予測できない形で混ざっている</span>——しかも、同じ一つの業務フローの中で。だから使う側は、どの課題がどちらの側か、使ってみるまで分からない。</p>
+  <p class="en">Inside the frontier, the lift was real and large: with AI, the consultants completed 12.2% more tasks, finished them 25.1% faster, and produced work of markedly higher quality. But step outside it — onto a managerial problem deliberately built so the obvious AI answer was the wrong one — and the picture inverted. There, the consultants using AI were on average nineteen percentage points <em>less</em> likely to reach the correct answer: about 85% got it right without AI, against roughly two-thirds with it. Same people, same firm, same tool. Only the side of the frontier changed.</p>
+  <p class="ja">境界の内側では、底上げは本物で、大きかった。AI を使うと、コンサルタントはタスクを 12.2 パーセント多くこなし、25.1 パーセント速く仕上げ、しかも成果の質も目に見えて高かった。ところが境界の外——「AI の出す当たり前の答えが、実は誤り」になるよう仕組まれた経営課題——に一歩出ると、絵は反転する。そこでは、AI を使った群のほうが、正解にたどり着く確率が平均で一九ポイントも<span class="em">低かった</span>。AI なしなら約 85 パーセントが正解したのに、AI ありでは三分の二ほどに落ちた。同じ人間、同じ会社、同じ道具。変わったのは、辺境のどちら側か、だけだ。</p>
   <p class="en">Because the frontier is jagged, error does not lurk in the "obviously bad" places — it slips into the flow of what looks like it is going well.</p>
   <p class="ja">境界がぎざぎざだから、誤りは「いかにもダメな場所」ではなく、「上手くいっているように見える流れの中」に紛れ込む。</p>
 
@@ -221,6 +230,10 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   <p class="ja">ここで逆説が立ち上がる。性能が8割、9割正しい水準に達すると、何が起きるか。</p>
   <p class="en">The remaining ten or twenty percent of errors vanish into a sea of correct output. Precisely because nine in ten are right, people begin to trust the output and stop checking it critically. <em>Overconfidence surfaces not at low accuracy but at high.</em> And merely arranging for "a human in the loop at the end" does not prevent it — because the human in the loop has already stopped checking.</p>
   <p class="ja">残りの1割、2割の誤りが、正しい出力の海に紛れて見えなくなる。9割が正しいからこそ、人はその出力を信頼しはじめ、批判的に確かめなくなる。<span class="em">過信は、精度が低い段階より、高い段階でこそ顕在化する。</span>しかも、「人間が最後に介在する」という形を設けるだけでは、これは防げない。介在する人間自身が、もう確かめていないからだ。</p>
+  <p class="en">This is not a thought experiment — it is the outside-the-frontier half of that same study. And here is the detail that snags a careful reader most: the group that had been <em>trained</em> in how to prompt the AI fell the hardest. The plain AI group lost about fourteen points of accuracy; the trained group lost about twenty-five. The authors read this as the consultants coming to overrely on the AI. The better you get at wielding the tool, the more you trust it — and the deeper you fall on the wrong side of the frontier.</p>
+  <p class="ja">これは机上の話ではない。さきの実験の、境界の外側がまさにこれだった。そして——査読していて一番ひっかかるのがこの一点だ——プロンプトの使い方の講習を受けた群のほうが、いちばん深く落ちた。講習なしの AI 群が正答率を約一四ポイント下げたのに対し、講習を受けた群は約二五ポイントも下げている。著者たちはこれを、コンサルタントが AI に<span class="em">過度に依存した</span>結果だと読む。道具を上手に扱えるようになるほど信じ込み、辺境の誤った側で深く転ぶ。</p>
+  <p class="en">Let me add the qualification a reviewer should. This was GPT-4, in 2023, and the models keep changing. The tasks were deliberately sorted onto the two sides of the frontier. Even so — when 758 elite professionals are randomized in a preregistered trial and the gap comes out this consistent, the weight of it does not wash off. If anything, as the model grows smarter, the errors on the far side get harder, not easier, to see.</p>
+  <p class="ja">査読者として、但し書きも付けておく。これは二〇二三年の GPT-4 での結果であり、モデルは変わり続ける。タスクも、境界の内と外にあらかじめ振り分けて設計されている。それでも——七五八名のエリート専門家を無作為化した事前登録の実験で、これだけ一貫した差が出たことの重みは、洗い流せない。むしろモデルが賢くなるほど、外側の誤りは、見えにくくなる側へ動く。</p>
   <p class="en">So the gain in accuracy pushes up the cost of verification. Catching "almost right" is far more expensive than catching "plainly wrong."</p>
   <p class="ja">結果として、性能の向上が、検証の費用をむしろ押し上げる。「ほぼ正しい」を見破る作業は、「明らかに間違い」を見破る作業より、ずっと高くつく。</p>
   <p class="en">In domains where one error blows up the whole — medicine, aviation, law, and code shipped to production — this is fatal. For ordinary work, "eighty percent right is fine." But where the tolerance is zero, failing to catch the single case that slipped in collapses trust in the entire system. The caution around adopting AI in such fields is not only about cost not adding up. <em>It is that the question — may we trust "almost right"? — has not yet been answered.</em></p>
@@ -288,15 +301,19 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 
   <div class="essay-close">
     <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">6</span><span class="en">Don't discount the checker</span><span class="ja">確かめる人を、安く見ない</span></h2>
-    <p class="en">AI will keep getting smarter. Be glad of that intelligence. Only — drop the one expectation that getting smarter means less to check.</p>
-    <p class="ja">AI は賢くなりつづける。その賢さは喜んでいい。だが、賢くなるほど確かめる仕事が減る、という期待だけは捨てたほうがいい。</p>
-    <p class="en">A rise in accuracy does not retire the checker. It raises their price. The one who can haul up the stray case from the sea of "almost right" — who questions the premise, who is not lulled by fluency — becomes scarce. This is the same person whose <a href="/essays/saved-time-is-not-productivity">ability to keep learning rises in value</a>. In the age of smart AI, what comes dear is not the AI, but the human who can doubt it.</p>
-    <p class="ja">精度の向上は、確かめる人を不要にしない。その人の値段を上げる。「ほぼ正しい」の海から、紛れた一件を引き上げられる人——前提を問い直し、流暢さに眠らされない人——が、これから希少になる。それは、<a href="/essays/saved-time-is-not-productivity">学びつづける力が値を上げていく</a>のと同じ人間だ。賢い AI の時代に高くつくのは、AI ではなく、AI を疑える人間のほうだ。</p>
+    <p class="en">AI will keep getting smarter. There is no doubt about that. But the value of those who simply lean on it falls, relatively, just as steadily. It is the opposite people whose worth climbs — those who can verify the output, who feel the wrongness, who hold a doubt and check it. We have to keep pace, on the human side, with the speed at which the machine grows clever.</p>
+    <p class="ja">AI は賢くなりつづける。これは間違いない。だが、AI に寄りかかるだけの人の価値は、相対的に下がりつづける。上がるのは、逆の人だ——AI の出力を検証できる人、違和感を覚えられる人、疑問を持って確かめる人。AI が賢くなる速度に、人間の側もキャッチアップしていかなければならない。</p>
+    <p class="en">For a long time, we spent our hours organizing, ingesting, and classifying information — the taxonomy work. Hand that to the AI now. What grows dearer instead is the speed and precision of intake, the power to analyze at a high level, and — above all — the ability to read and genuinely understand the high-quality, peer-reviewed sources we never used to open. Which is, in the end, only another way of saying that <a href="/essays/saved-time-is-not-productivity">the power to keep learning is what rises in value</a>.</p>
+    <p class="ja">これまで人間は、情報の整理・インプット・分類（タクソノミ）に多くの時間をかけてきた。そこは、これから AI に任せればいい。代わりに重みを増すのは、インプットの速度と精度、高いレベルで分析する力、そして——とりわけ——今までは読まなかった、信頼性の高い査読済みの論文のような一次資料を、自分で読み込んで理解する力だ。それは結局、<a href="/essays/saved-time-is-not-productivity">学びつづける力こそが値を上げる</a>、と言っているのと同じことだ。</p>
 
     <div class="seed-box">
       <span class="pull-label"><span class="en">The Seed</span><span class="ja">種としての一行</span></span>
-      <span class="en">Higher accuracy does not retire the checker. It raises their price.</span>
-      <span class="ja">精度が上がっても、確かめる仕事は消えない。むしろ、高くなる。</span>
+      <span class="en">Higher accuracy does not retire the checker. It sends the price of the one who can check sharply up.</span>
+      <span class="ja">精度が上がっても、確かめる仕事は消えない。むしろ、確かめられる人の価値が、跳ね上がる。</span>
+    </div>
+
+    <div class="essay-note">
+      <p><span class="note-num">1.</span><span class="en">Fabrizio Dell'Acqua, Edward McFowland III, Ethan Mollick, Hila Lifshitz, Katherine C. Kellogg, Saran Rajendran, Lisa Krayer, François Candelon &amp; Karim R. Lakhani, <em>Navigating the Jagged Technological Frontier: Field Experimental Evidence of the Effects of Artificial Intelligence on Knowledge Worker Productivity and Quality</em>, Organization Science (online ahead of print, 11 March 2026). A preregistered randomized controlled trial by Harvard Business School and Boston Consulting Group: 758 BCG consultants were randomly assigned to work with GPT-4, without it, or with added prompting training, across 18 tasks inside the AI capability frontier and one complex managerial task placed outside it. Inside the frontier, AI users completed 12.2% more tasks, 25.1% faster, at markedly higher quality; outside it, they were on average 19 percentage points less likely to reach the correct answer (about 85% → about 65%). <a href="https://doi.org/10.1287/orsc.2025.21838">doi.org/10.1287/orsc.2025.21838</a></span><span class="ja">Fabrizio Dell'Acqua, Edward McFowland III, Ethan Mollick ほか「Navigating the Jagged Technological Frontier: Field Experimental Evidence of the Effects of Artificial Intelligence on Knowledge Worker Productivity and Quality」Organization Science（2026年3月11日オンライン先行公開）。ハーバード・ビジネス・スクールとボストン・コンサルティング・グループによる事前登録の無作為化比較試験。BCG のコンサルタント 758 名を、GPT-4 を使う群／使わない群／プロンプト講習を加えた群に無作為配分し、AI 能力境界の内側 18 タスクと、外側に置いた複雑な経営課題 1 つで比較した。境界の内側では AI 使用群が 12.2% 多くのタスクを 25.1% 速くこなし、質も大きく向上。外側では正答率が平均 19 ポイント低下した（約 85%→約 65%）。<a href="https://doi.org/10.1287/orsc.2025.21838">doi.org/10.1287/orsc.2025.21838</a></span></p>
     </div>
   </div>
 </article>

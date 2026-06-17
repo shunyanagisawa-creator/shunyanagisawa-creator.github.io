@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How You Pair With AI — Shun Yanagisawa</title>
+<meta name="description" content="Will AI take your job? The worry is fair — but the work is quietly dividing along how people pair with AI, and which pairing fits depends on the cost of a mistake.">
+<meta property="og:title" content="How You Pair With AI">
+<meta property="og:description" content="The question is not whether AI takes your job. It is how you pair with it — and that pairing is yours to choose, tuned to the cost of being wrong.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.shun-yanagisawa.com/essays/pairing-with-the-machine.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
+  --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f5ead8;
+  --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
+  --text: #1a1a1a; --text-mid: #3d3d3d; --text-muted: #666666; --border: #ddd9d0;
+  --font-display: 'Playfair Display', 'Noto Serif JP', Georgia, serif;
+  --font-body: 'Source Sans 3', sans-serif;
+  --font-jp: 'Noto Serif JP', serif;
+  --font-mono: 'DM Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--white); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.85; }
+body.lang-en .ja { display: none; }
+body.lang-ja .en { display: none; }
+body.lang-ja { font-family: var(--font-jp); }
+
+nav {
+  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+.nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1.2rem; }
+.nav-back { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--text-muted); text-decoration: none; }
+.nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .35rem .8rem; cursor: pointer; color: var(--text-mid);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
+
+.essay { max-width: 720px; margin: 0 auto; padding: 4rem 1.6rem 5rem; }
+.essay-kicker { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.2rem; }
+h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 500; line-height: 1.3; color: var(--navy); margin-bottom: .8rem; }
+.essay-sub { font-size: 1.02rem; color: var(--text-muted); margin-bottom: 1.4rem; line-height: 1.7; }
+.essay-meta { display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); padding-bottom: 1.6rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.4rem; }
+.essay-meta a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); }
+
+.essay h2 {
+  font-family: var(--font-display); font-size: 1.22rem; font-weight: 500; color: var(--navy);
+  margin: 2.8rem 0 1rem; padding: .35rem 0 .45rem .9rem;
+  border-left: 3px solid var(--navy); border-bottom: 1px solid var(--border);
+}
+body.lang-ja .essay h2 { font-family: var(--font-jp); font-weight: 500; }
+.essay h2 .hnum { font-family: var(--font-mono); font-size: .85rem; color: var(--teal-dark); margin-right: .7rem; letter-spacing: .05em; }
+
+.essay p { margin: 1.1rem 0; color: var(--text-mid); text-align: justify; }
+.essay a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.4); }
+.essay sup { font-family: var(--font-mono); font-size: .62rem; color: var(--teal-dark); vertical-align: super; line-height: 0; padding-left: 1px; }
+
+.ja .em { -webkit-text-emphasis: filled dot var(--navy); text-emphasis: filled dot var(--navy); font-style: normal; }
+.en .em { font-style: italic; }
+
+.pull {
+  border: 1px solid var(--gold); background: var(--gold-light);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 1.9rem 0; border-radius: 2px;
+  font-size: 1rem; color: var(--navy); line-height: 1.8; position: relative; text-align: justify;
+}
+.pull .pull-label {
+  position: absolute; top: -0.7rem; left: 1rem; background: var(--white);
+  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em;
+  color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase;
+}
+
+.figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 1.9rem 0; background: var(--white); }
+.figure svg { width: 100%; height: auto; display: block; }
+.figcap {
+  margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); text-align: center;
+}
+body.lang-ja .figcap { font-family: var(--font-jp); font-size: .76rem; }
+
+.seed-box {
+  border: 1px solid var(--gold); border-left: 4px solid var(--gold);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0 0; border-radius: 2px;
+  font-size: 1.02rem; color: var(--navy); line-height: 1.85; position: relative; text-align: justify;
+}
+.seed-box .pull-label { position: absolute; top: -0.7rem; left: 1rem; background: var(--white); font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase; }
+
+.essay-close { border-top: 2px solid var(--gold); margin-top: 3rem; padding-top: 1.6rem; }
+.essay-note { margin-top: 2.4rem; padding-top: .9rem; border-top: 1px solid var(--border); font-size: .8rem; color: var(--text-muted); line-height: 1.7; text-align: left; }
+.essay-note a { color: var(--teal-dark); word-break: break-all; }
+.essay-note .note-num { font-family: var(--font-mono); color: var(--teal-dark); margin-right: .4rem; }
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
+footer a { color: var(--teal-dark); text-decoration: none; }
+@media (max-width: 560px) { nav { padding: 0 1.2rem; } .essay { padding-top: 2.6rem; } }
+</style>
+</head>
+<body class="lang-en">
+
+<nav>
+  <a class="nav-logo" href="../index.html">Shun <span>Yanagisawa</span></a>
+  <div class="nav-right">
+    <a class="nav-back" href="../index.html#essays"><span class="en">← Essays</span><span class="ja">← エッセイ一覧</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="en">日本語</span><span class="ja">English</span></button>
+  </div>
+</nav>
+
+<article class="essay">
+  <div class="essay-kicker">Essay 007 · AI &amp; Work</div>
+  <h1>
+    <span class="en">How You Pair With AI</span>
+    <span class="ja">AI との組み方</span>
+  </h1>
+  <p class="essay-sub">
+    <span class="en">Will AI take my job? The worry is fair. But what is actually happening looks less like a contest and more like a quiet sorting — work dividing along the lines of how people pair with AI.</span>
+    <span class="ja">AI に仕事を奪われるのか。その不安は当然だ。ただ、現実に起きているのは奪い合いではなく、人と AI の組み方に沿って仕事が静かに分かれていくこと——なのかもしれない。</span>
+  </p>
+  <div class="essay-meta">
+    <span>June 2026</span>
+    <span class="en">AI &amp; Work</span>
+    <span class="ja">AI と仕事</span>
+    <span class="en">6 min read</span>
+    <span class="ja">日本語 約6分</span>
+  </div>
+
+  <p class="en">“Will AI take my job?” Plenty of people worry about exactly that, and the worry is fair — a new technology has always carried that unease. But what is actually happening is quieter than a contest, and more interesting. Work does not vanish whole. It divides from the inside, along the lines of <em>how</em> people pair with AI.</p>
+  <p class="ja">「AI に仕事を奪われるのではないか」。そう心配する人は多い。新しい技術を前にした不安は、いつの時代にもあった。当然のものだと思う。ただ、現実に起きていることは、奪い合いより少し静かで、もっと面白い。仕事が丸ごと消えるのではなく、人と AI の<span class="em">組み方</span>に沿って、内側から分かれていく。</p>
+  <p class="en">So the real question sits a step past “will it take my job.” It is: how do we actually work alongside AI? This essay tries to take that pairing apart. Watch closely, and the ways people pair with AI settle into a surprisingly small set of shapes — and which shape suits you turns out to depend not on temperament, but on a single condition.</p>
+  <p class="ja">だから問いは、「奪われるか」より一歩先にあるのだろう。人は AI と、どう組んで働いていくのか。本稿では、その組み方を分解してみたい。よく見ると、人が AI と組むやり方は、驚くほど少ない型に落ち着く。そして、どの型が向くかは、気質ではなく、たった一つの条件で決まってくる。</p>
+
+  <h2><span class="hnum">1</span><span class="en">Three Ways to Pair</span><span class="ja">三つの組み方</span></h2>
+  <p class="en">When AI first entered serious knowledge work, researchers followed how professionals actually collaborated with it. One study at Harvard Business School watched 244 BCG consultants work a real problem through, AI in hand.<sup>1</sup> The behavior sorted cleanly into three shapes.</p>
+  <p class="ja">AI が本格的に知識労働へ入りはじめた頃、人が実際にどう協働するかを追った研究がある。ハーバード・ビジネス・スクールが、AI を与えられた BCG のコンサルタント 244 名の働き方を観察したものだ。<sup>1</sup> 振る舞いは、きれいに三つの型に分かれた。</p>
+  <p class="en">The first is the <em>Cyborg</em> — fusion. You weave in and out of AI task by task: draft a line, fix it, hand the next fragment back, stay tightly interlaced with it throughout. About six in ten worked this way. These people added a new skill to themselves — the craft of working with AI.</p>
+  <p class="ja">一つめは<span class="em">サイボーグ</span>型、いわば融合だ。タスクごとに AI へ出たり入ったりする。一行書かせては直し、次の断片を渡す。AI と密に絡み合って進める。およそ六割がこの型だった。この人たちは、AI を使いこなす新しい技能を、自分に足していった。</p>
+  <p class="en">The second is the <em>Centaur</em> — division of labor. You cut the work into pieces, keep the high-judgment parts firmly on the human side, and hand the rest to AI. You draw a boundary and split the roles. In the study, this group reached the highest accuracy in its business recommendations of the three — and deepened its own domain expertise in the process. Roughly one in seven.</p>
+  <p class="ja">二つめは<span class="em">ケンタウロス</span>型、分業だ。仕事を切り分け、判断の重いところは人間が握り、残りを AI に渡す。境界を引いて、役割を分ける。研究では、この型が三群のなかで最も精度の高い結論を出し、しかも自分の専門性をいっそう深めていた。七人に一人ほど。</p>
+  <p class="en">The third is the <em>Self-Automator</em> — delegation. You hand a whole process to AI and step up a layer, watching instead of touching. About one in four. But this group, the study found, grew neither its AI skill nor its domain expertise much at all.</p>
+  <p class="ja">三つめは<span class="em">自己自動化</span>型、委譲だ。工程を丸ごと AI に渡し、自分は一段上がって、手を動かす代わりに眺める。およそ四人に一人。ただしこの型は、AI の技能も自分の専門性も、あまり伸びなかったという。</p>
+  <p class="en">None of these is simply “the right one” — though, at the time of that study, the Centaurs came out ahead. Part of the reason is probably a quirk of AI. It mixes in plausible mistakes — hallucinations. The more you fuse with it, Cyborg-style, the more readily those slips flow straight into your own output. The Centaur is asked something harder: can you take judgment back from AI on a value standard surer than its own? With the AI of that moment, that taking-back paid off. Though this is one snapshot, with one generation of the tool; as the models change, the ranking among the shapes may well move.</p>
+  <p class="ja">どれが「正解」というわけではない——と言いたいところだが、この研究の時点では、ケンタウロス型（分業）がいちばん良い成果を出した。理由のひとつは、おそらく AI の癖にある。AI は、もっともらしい誤り——ハルシネーションを混ぜる。サイボーグ型（融合）のように AI と一体化するほど、その誤りはそのまま自分の出力へ流れ込みやすい。ケンタウロス型に問われるのは、もっと難しいことだ。AI より確かな価値基準で、判断を引き取れるか。当時の AI の実力では、その「引き取り」が効いた。もっとも、これは特定の世代の道具を使った、一時点の観察にすぎない。モデルが変われば、型ごとの優劣もまた動きうる。</p>
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 188" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <g fill="#e8f2f2" fill-opacity=".55" stroke="#1d5c5c" stroke-width="1.3">
+        <circle cx="108" cy="78" r="32"/><circle cx="152" cy="78" r="32"/>
+      </g>
+      <rect x="288" y="48" width="84" height="35" fill="#f5ead8" fill-opacity=".7" stroke="#b5832a" stroke-width="1.3"/>
+      <rect x="288" y="83" width="84" height="35" fill="#e8f2f2" fill-opacity=".7" stroke="#1d5c5c" stroke-width="1.3"/>
+      <g text-anchor="middle">
+        <text x="330" y="69" font-size="11" fill="#8a6020">human · judgment</text>
+        <text x="330" y="104" font-size="11" fill="#1d5c5c">AI · the rest</text>
+      </g>
+      <rect x="500" y="46" width="60" height="28" fill="#e8f2f2" fill-opacity=".7" stroke="#1d5c5c" stroke-width="1.3"/>
+      <rect x="495" y="92" width="70" height="30" fill="#e8f2f2" fill-opacity=".7" stroke="#1d5c5c" stroke-width="1.3"/>
+      <text x="530" y="64" font-size="11" text-anchor="middle" fill="#1d5c5c">human</text>
+      <text x="530" y="111" font-size="11" text-anchor="middle" fill="#1d5c5c">AI</text>
+      <line x1="530" y1="92" x2="530" y2="76" stroke="#b5832a" stroke-width="1.2"/>
+      <polygon points="530,72 526,80 534,80" fill="#b5832a"/>
+      <g text-anchor="middle">
+        <text x="130" y="150" font-size="12.5" fill="#1d5c5c">Cyborg</text><text x="130" y="167" font-size="10.5" fill="#666">fusion · ~60%</text>
+        <text x="330" y="150" font-size="12.5" fill="#8a6020">Centaur</text><text x="330" y="167" font-size="10.5" fill="#666">division · ~1 in 7</text>
+        <text x="530" y="150" font-size="12.5" fill="#1d5c5c">Self-Automator</text><text x="530" y="167" font-size="10.5" fill="#666">delegation · ~1 in 4</text>
+      </g>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 188" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <g fill="#e8f2f2" fill-opacity=".55" stroke="#1d5c5c" stroke-width="1.3">
+        <circle cx="108" cy="78" r="32"/><circle cx="152" cy="78" r="32"/>
+      </g>
+      <rect x="288" y="48" width="84" height="35" fill="#f5ead8" fill-opacity=".7" stroke="#b5832a" stroke-width="1.3"/>
+      <rect x="288" y="83" width="84" height="35" fill="#e8f2f2" fill-opacity=".7" stroke="#1d5c5c" stroke-width="1.3"/>
+      <g text-anchor="middle">
+        <text x="330" y="69" font-size="11" fill="#8a6020">人 · 判断</text>
+        <text x="330" y="104" font-size="11" fill="#1d5c5c">AI · 残り</text>
+      </g>
+      <rect x="500" y="46" width="60" height="28" fill="#e8f2f2" fill-opacity=".7" stroke="#1d5c5c" stroke-width="1.3"/>
+      <rect x="495" y="92" width="70" height="30" fill="#e8f2f2" fill-opacity=".7" stroke="#1d5c5c" stroke-width="1.3"/>
+      <text x="530" y="64" font-size="11" text-anchor="middle" fill="#1d5c5c">人</text>
+      <text x="530" y="111" font-size="11" text-anchor="middle" fill="#1d5c5c">AI</text>
+      <line x1="530" y1="92" x2="530" y2="76" stroke="#b5832a" stroke-width="1.2"/>
+      <polygon points="530,72 526,80 534,80" fill="#b5832a"/>
+      <g text-anchor="middle">
+        <text x="130" y="150" font-size="12.5" fill="#1d5c5c">サイボーグ</text><text x="130" y="167" font-size="10.5" fill="#666">融合 · 約6割</text>
+        <text x="330" y="150" font-size="12.5" fill="#8a6020">ケンタウロス</text><text x="330" y="167" font-size="10.5" fill="#666">分業 · 7人に1人</text>
+        <text x="530" y="150" font-size="12.5" fill="#1d5c5c">自己自動化</text><text x="530" y="167" font-size="10.5" fill="#666">委譲 · 4人に1人</text>
+      </g>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 1 — Three ways to pair: fuse with AI, divide the labor with it, or delegate and supervise.</span><span class="ja">図1　三つの組み方 —— AI と融合するか、分業するか、委譲して監督するか。</span></div>
+  </div>
+
+  <h2><span class="hnum">2</span><span class="en">Error-Cost Picks the Pairing</span><span class="ja">誤りの代償が、組み方を決める</span></h2>
+  <p class="en">So what decides the shape? Not temperament, I think. The deciding factor is error-cost: when a single mistake slips through, how much do you end up paying for it?</p>
+  <p class="ja">では、何が型を決めるのか。気質ではない、と思う。決め手は、誤りの代償だ。一度の間違いがすり抜けたとき、その埋め合わせにどれだけ払うことになるか。</p>
+  <p class="en">Where that cost is low — simple, repetitive tasks, short cycles, work shaped like prose, mistakes cheap to spot and cheap to undo — the Cyborg and the Self-Automator are simply faster. A few typos in a set of meeting notes are usually forgiven; the odd slip does not sink the whole. So speed wins.</p>
+  <p class="ja">その代償が小さい仕事——単純で反復の多い作業、短いサイクル、文章のような成果物で、間違いを見つけるのも直すのも容易い仕事——なら、サイボーグ型（融合）と自己自動化型（委譲）がただ速い。打ち合わせの議事録に多少の書き間違いが混ざっても、たいていは許される。たまの誤りで全体が沈むことはない。だから速度が勝つ。</p>
+  <p class="en">But where precision is demanded, where context runs deep, the story changes. A contract. A diagnosis. A foundation others will build upon. Here one mistake can sink everything, and the Centaur — the shape where the human never lets go of the reins of judgment — is the one that fits.</p>
+  <p class="ja">だが、高い精度を求められる仕事、文脈が深く絡む仕事は話が変わる。契約。診断。誰かがその上に積み上げていく土台。ここでは一度の誤りが全体を沈めかねない。判断の手綱を人間が手放さない型——ケンタウロス型（分業）が向くのは、こういう場面だ。</p>
+  <p class="en">The edge between what AI is good at and what it is not is not a clean line. In a separate experiment with 758 BCG consultants, using AI <em>inside</em> the capability frontier let people finish 12.2% more tasks, 25.1% faster, at higher quality — yet on a task placed <em>outside</em> that frontier, those who used AI were on average 19 percentage points less likely to land on the right answer.<sup>2</sup> The boundary runs jagged, cutting across easy and hard in unexpected places. Lose sight of it where the stakes are high, and you trust AI at exactly the spot you should not have.</p>
+  <p class="ja">AI の得意と不得意の境目は、きれいな一本線ではない。BCG のコンサルタント 758 名を対象にした別の実験では、能力の境界の<span class="em">内側</span>で AI を使うと、12.2% 多くの仕事を 25.1% 速くこなし、質も上がった。ところが境界の<span class="em">外側</span>に置かれた課題では、AI を使った人ほど正答率が 19 ポイント低かった。<sup>2</sup> 境界は、易しさと難しさを思いがけず横切って走る。誤りの代償が大きい仕事でこの境界を見失うと、いちばん信じてはいけないところで、AI を信じてしまう。</p>
+  <p class="en">This is the same ground as <a href="the-cost-of-checking.html"><span class="en">an earlier essay, on the cost of checking</span></a>: the higher the stakes, the more the human has to sit in the checking seat. Pairing is just that rule, lowered into the texture of daily work.</p>
+  <p class="ja">これは、以前のエッセイ<a href="the-cost-of-checking.html"><span class="ja">「確かめる費用」</span></a>と地続きの話だ。ステークスが高いほど、人間は確かめる側の席に座らなければならない。組み方とは、その規則を日々の働き方に落とした版にすぎないのだと思う。</p>
+  <div class="pull">
+    <span class="pull-label"><span class="en">Key</span><span class="ja">要点</span></span>
+    <span class="en">You do not pick your pairing by temperament. You pick it by the cost of being wrong. The same person should work as a Cyborg on a low-stakes draft and as a Centaur on a high-stakes call — and the thing that matters is knowing, at each moment, which one you are being.</span>
+    <span class="ja">組み方は、気質で選ぶものではない。<span class="em">誤りの代償</span>で選ぶ。同じ人が、低ステークスの草稿ではサイボーグになり、高ステークスの判断ではケンタウロスになる。大事なのは、いま自分がどちらでいるかを、その都度わかっていることだ。</span>
+  </div>
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 196" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <line x1="50" y1="150" x2="610" y2="150" stroke="#1a2332" stroke-width="1.2"/>
+      <polygon points="614,150 604,145 604,155" fill="#1a2332"/>
+      <text x="50" y="174" font-size="11" fill="#666">low error-cost</text>
+      <text x="610" y="174" font-size="11" text-anchor="end" fill="#8a6020">high error-cost</text>
+      <g text-anchor="middle">
+        <rect x="92" y="92" width="150" height="42" rx="2" fill="#fff" stroke="#1d5c5c" stroke-width="1.2"/>
+        <text x="167" y="118" font-size="12.5" fill="#1d5c5c">Cyborg</text>
+        <line x1="167" y1="134" x2="167" y2="150" stroke="#1d5c5c" stroke-width="1"/>
+        <rect x="250" y="48" width="150" height="42" rx="2" fill="#fff" stroke="#1d5c5c" stroke-width="1.2"/>
+        <text x="325" y="74" font-size="12.5" fill="#1d5c5c">Self-Automator</text>
+        <line x1="325" y1="90" x2="325" y2="150" stroke="#1d5c5c" stroke-width="1"/>
+        <rect x="448" y="92" width="150" height="42" rx="2" fill="#f5ead8" stroke="#b5832a" stroke-width="1.5"/>
+        <text x="523" y="118" font-size="12.5" fill="#8a6020">Centaur</text>
+        <line x1="523" y1="134" x2="523" y2="150" stroke="#b5832a" stroke-width="1.2"/>
+      </g>
+      <circle cx="167" cy="150" r="3" fill="#1d5c5c"/><circle cx="325" cy="150" r="3" fill="#1d5c5c"/><circle cx="523" cy="150" r="3.5" fill="#b5832a"/>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 196" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <line x1="50" y1="150" x2="610" y2="150" stroke="#1a2332" stroke-width="1.2"/>
+      <polygon points="614,150 604,145 604,155" fill="#1a2332"/>
+      <text x="50" y="174" font-size="11" fill="#666">誤りの代償：小</text>
+      <text x="610" y="174" font-size="11" text-anchor="end" fill="#8a6020">誤りの代償：大</text>
+      <g text-anchor="middle">
+        <rect x="92" y="92" width="150" height="42" rx="2" fill="#fff" stroke="#1d5c5c" stroke-width="1.2"/>
+        <text x="167" y="118" font-size="12.5" fill="#1d5c5c">サイボーグ</text>
+        <line x1="167" y1="134" x2="167" y2="150" stroke="#1d5c5c" stroke-width="1"/>
+        <rect x="250" y="48" width="150" height="42" rx="2" fill="#fff" stroke="#1d5c5c" stroke-width="1.2"/>
+        <text x="325" y="74" font-size="12.5" fill="#1d5c5c">自己自動化</text>
+        <line x1="325" y1="90" x2="325" y2="150" stroke="#1d5c5c" stroke-width="1"/>
+        <rect x="448" y="92" width="150" height="42" rx="2" fill="#f5ead8" stroke="#b5832a" stroke-width="1.5"/>
+        <text x="523" y="118" font-size="12.5" fill="#8a6020">ケンタウロス</text>
+        <line x1="523" y1="134" x2="523" y2="150" stroke="#b5832a" stroke-width="1.2"/>
+      </g>
+      <circle cx="167" cy="150" r="3" fill="#1d5c5c"/><circle cx="325" cy="150" r="3" fill="#1d5c5c"/><circle cx="523" cy="150" r="3.5" fill="#b5832a"/>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 2 — The same three pairings, placed by error-cost. The Centaur earns its keep where one mistake is expensive.</span><span class="ja">図2　同じ三つの組み方を、誤りの代償で並べる。一度の誤りが高くつくところで、ケンタウロス型が値打ちを持つ。</span></div>
+  </div>
+
+  <div class="essay-close">
+    <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">3</span><span class="en">Choosing How You Pair</span><span class="ja">隣の組み方を、選ぶ</span></h2>
+    <p class="en">AI is going to stand next to you. That much is settled. What is not — what is yours to settle — is how you pair with it once it is there. The shapes are surprisingly few, and which one fits is decided by the cost of being wrong. Rather than drifting into a single habit, you can choose, moment to moment, which one you ought to be.</p>
+    <p class="ja">AI は、隣に来る。そこはもう動かない。動かせるのは——そして自分で動かせるのは——その隣でどう組むか、だ。型は驚くほど少なく、向き不向きは誤りの代償で決まる。流されて一つに収まるのではなく、いま自分は何型でいるべきかを、その都度選び取れる。</p>
+    <p class="en">The fear of being replaced is fair. But as long as the question stays “will I be replaced,” you stay on the back foot. Swap it for “how do I pair?” and the initiative comes quietly back to your side. So — on the next one, how will we choose to pair?</p>
+    <p class="ja">AI に奪われるのではないか、という不安は当然だ。ただ、奪われるかどうかを問うているあいだは、たぶん受け身のままだ。問いを「どう組むか」に置き換えた瞬間、主導権は静かにこちらへ戻ってくる。さて、我々は、次の一手をどう組むだろうか。</p>
+
+    <div class="seed-box">
+      <span class="pull-label"><span class="en">The Seed</span><span class="ja">種としての一行</span></span>
+      <span class="en">The question is not whether AI takes your job. It is how you pair with it — and that pairing is yours to choose, tuned to the cost of being wrong.</span>
+      <span class="ja">問いは「AI に奪われるか」ではない。「AI とどう組むか」だ。そして、その組み方は、誤りの代償に合わせて、自分で選べる。</span>
+    </div>
+
+    <div class="essay-note">
+      <p><span class="note-num">1.</span><span class="en">Steven Randazzo, Hila Lifshitz-Assaf, Katherine C. Kellogg, Fabrizio Dell'Acqua, Ethan R. Mollick, François Candelon &amp; Karim R. Lakhani, <em>Cyborgs, Centaurs and Self-Automators: The Three Modes of Human-GenAI Knowledge Work and Their Implications for Skilling and the Future of Expertise</em>, Harvard Business School Working Paper 26-036 (2025). A field study of 244 BCG consultants across a seven-stage problem-solving workflow distinguished three modes of working with generative AI: Cyborgs, who fuse with the tool throughout (roughly 60%) and newskill themselves in AI; Centaurs, who direct a division of labor, reaching the highest accuracy in business recommendations of the three groups while deepening their existing domain expertise; and Self-Automators, who delegate most of the work (roughly a quarter) and grow neither skill set. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4921696">papers.ssrn.com/sol3/papers.cfm?abstract_id=4921696</a></span><span class="ja">Steven Randazzo, Hila Lifshitz-Assaf, Katherine C. Kellogg, Fabrizio Dell'Acqua, Ethan R. Mollick, François Candelon &amp; Karim R. Lakhani「Cyborgs, Centaurs and Self-Automators: The Three Modes of Human-GenAI Knowledge Work and Their Implications for Skilling and the Future of Expertise」ハーバード・ビジネス・スクール ワーキングペーパー 26-036（2025年）。BCG のコンサルタント 244 名を、七段階の問題解決ワークフローにわたって観察した実地研究。生成 AI との働き方を三つの型に区別した。全工程で AI と融合するサイボーグ型（約6割、AI の新しい技能を獲得）、分業を指揮するケンタウロス型（三群中で最も精度の高い事業提案を出し、既存の専門性を深めた）、作業の大半を委譲する自己自動化型（約4人に1人、どちらの技能も伸びなかった）。<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4921696">papers.ssrn.com/sol3/papers.cfm?abstract_id=4921696</a></span></p>
+      <p><span class="note-num">2.</span><span class="en">Fabrizio Dell'Acqua, Edward McFowland III, Ethan Mollick, Hila Lifshitz, Katherine C. Kellogg, Saran Rajendran, Lisa Krayer, François Candelon &amp; Karim R. Lakhani, <em>Navigating the Jagged Technological Frontier: Field Experimental Evidence of the Effects of Artificial Intelligence on Knowledge Worker Productivity and Quality</em>, Organization Science (online ahead of print, 11 March 2026). A preregistered randomized controlled trial: 758 BCG consultants were assigned to work with GPT-4, without it, or with added prompting training, across 18 tasks inside the AI capability frontier and one complex task placed outside it. Inside, AI users completed 12.2% more tasks, 25.1% faster, at higher quality; outside, they were on average 19 percentage points less likely to reach the correct answer. <a href="https://doi.org/10.1287/orsc.2025.21838">doi.org/10.1287/orsc.2025.21838</a></span><span class="ja">Fabrizio Dell'Acqua, Edward McFowland III, Ethan Mollick ほか「Navigating the Jagged Technological Frontier: Field Experimental Evidence of the Effects of Artificial Intelligence on Knowledge Worker Productivity and Quality」Organization Science（2026年3月11日オンライン先行公開）。事前登録の無作為化比較試験。BCG のコンサルタント 758 名を、GPT-4 を使う群／使わない群／プロンプト講習を加えた群に無作為配分し、AI 能力境界の内側 18 タスクと、外側に置いた複雑な課題 1 つで比較した。内側では AI 使用群が 12.2% 多くのタスクを 25.1% 速くこなし、質も向上。外側では正答率が平均 19 ポイント低下した。<a href="https://doi.org/10.1287/orsc.2025.21838">doi.org/10.1287/orsc.2025.21838</a></span></p>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div><span class="en">Essay 007 · June 2026 · how you pair with AI</span><span class="ja">Essay 007 · 2026年6月 · AI との組み方について</span></div>
+  <div><a href="../index.html">shun-yanagisawa.com</a> · <a href="../index.html#essays"><span class="en">All essays</span><span class="ja">エッセイ一覧</span></a></div>
+</footer>
+
+<script>
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+}
+if ((navigator.language || '').startsWith('ja')) toggleLang();
+</script>
+</body>
+</html>
