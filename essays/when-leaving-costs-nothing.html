@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When Leaving Costs Nothing — Shun Yanagisawa</title>
+<meta name="description" content="Cancel anytime; swap a person for an AI. As the cost of leaving falls toward zero, the scarce thing becomes the bond you could have fled — and didn't.">
+<meta property="og:title" content="When Leaving Costs Nothing">
+<meta property="og:description" content="When every exit is free, the scarce thing is not the exit. It is the bond you could have fled and didn't — the depth that voice and loyalty grow.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.shun-yanagisawa.com/essays/when-leaving-costs-nothing.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
+  --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f5ead8;
+  --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
+  --text: #1a1a1a; --text-mid: #3d3d3d; --text-muted: #666666; --border: #ddd9d0;
+  --font-display: 'Playfair Display', 'Noto Serif JP', Georgia, serif;
+  --font-body: 'Source Sans 3', sans-serif;
+  --font-jp: 'Noto Serif JP', serif;
+  --font-mono: 'DM Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--white); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.85; }
+body.lang-en .ja { display: none; }
+body.lang-ja .en { display: none; }
+body.lang-ja { font-family: var(--font-jp); }
+
+nav {
+  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+.nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1.2rem; }
+.nav-back { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--text-muted); text-decoration: none; }
+.nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .35rem .8rem; cursor: pointer; color: var(--text-mid);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
+
+.essay { max-width: 720px; margin: 0 auto; padding: 4rem 1.6rem 5rem; }
+.essay-kicker { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.2rem; }
+h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 500; line-height: 1.3; color: var(--navy); margin-bottom: .8rem; }
+.essay-sub { font-size: 1.02rem; color: var(--text-muted); margin-bottom: 1.4rem; line-height: 1.7; }
+.essay-meta { display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); padding-bottom: 1.6rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.4rem; }
+.essay-meta a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); }
+
+.essay h2 {
+  font-family: var(--font-display); font-size: 1.22rem; font-weight: 500; color: var(--navy);
+  margin: 2.8rem 0 1rem; padding: .35rem 0 .45rem .9rem;
+  border-left: 3px solid var(--navy); border-bottom: 1px solid var(--border);
+}
+body.lang-ja .essay h2 { font-family: var(--font-jp); font-weight: 500; }
+.essay h2 .hnum { font-family: var(--font-mono); font-size: .85rem; color: var(--teal-dark); margin-right: .7rem; letter-spacing: .05em; }
+
+.essay p { margin: 1.1rem 0; color: var(--text-mid); text-align: justify; }
+.essay a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.4); }
+.essay sup { font-family: var(--font-mono); font-size: .62rem; color: var(--teal-dark); vertical-align: super; line-height: 0; padding-left: 1px; }
+
+.ja .em { -webkit-text-emphasis: filled dot var(--navy); text-emphasis: filled dot var(--navy); font-style: normal; }
+.en .em { font-style: italic; }
+
+.pull {
+  border: 1px solid var(--gold); background: var(--gold-light);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 1.9rem 0; border-radius: 2px;
+  font-size: 1rem; color: var(--navy); line-height: 1.8; position: relative; text-align: justify;
+}
+.pull .pull-label {
+  position: absolute; top: -0.7rem; left: 1rem; background: var(--white);
+  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em;
+  color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase;
+}
+
+.figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 1.9rem 0; background: var(--white); }
+.figure svg { width: 100%; height: auto; display: block; }
+.figcap {
+  margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); text-align: center;
+}
+body.lang-ja .figcap { font-family: var(--font-jp); font-size: .76rem; }
+
+.seed-box {
+  border: 1px solid var(--gold); border-left: 4px solid var(--gold);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0 0; border-radius: 2px;
+  font-size: 1.02rem; color: var(--navy); line-height: 1.85; position: relative; text-align: justify;
+}
+.seed-box .pull-label { position: absolute; top: -0.7rem; left: 1rem; background: var(--white); font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase; }
+
+.essay-close { border-top: 2px solid var(--gold); margin-top: 3rem; padding-top: 1.6rem; }
+.essay-note { margin-top: 2.4rem; padding-top: .9rem; border-top: 1px solid var(--border); font-size: .8rem; color: var(--text-muted); line-height: 1.7; text-align: left; }
+.essay-note a { color: var(--teal-dark); word-break: break-all; }
+.essay-note .note-num { font-family: var(--font-mono); color: var(--teal-dark); margin-right: .4rem; }
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
+footer a { color: var(--teal-dark); text-decoration: none; }
+@media (max-width: 560px) { nav { padding: 0 1.2rem; } .essay { padding-top: 2.6rem; } }
+</style>
+</head>
+<body class="lang-en">
+
+<nav>
+  <a class="nav-logo" href="../index.html">Shun <span>Yanagisawa</span></a>
+  <div class="nav-right">
+    <a class="nav-back" href="../index.html#essays"><span class="en">← Essays</span><span class="ja">← エッセイ一覧</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="en">日本語</span><span class="ja">English</span></button>
+  </div>
+</nav>
+
+<article class="essay">
+  <div class="essay-kicker">Essay 009 · AI &amp; Society</div>
+  <h1>
+    <span class="en">When Leaving Costs Nothing</span>
+    <span class="ja">立ち去る代償が、消えるとき</span>
+  </h1>
+  <p class="essay-sub">
+    <span class="en">Cancel anytime; swap a person for an AI. As the cost of leaving falls toward zero, the scarce thing becomes the bond you could have fled — and didn't.</span>
+    <span class="ja">キャンセルはいつでも、相手は AI に替えられる。立ち去る代償が限りなくゼロに近づく世界で、希少になるのは——逃げられたのに、逃げなかった関係のほうだ。</span>
+  </p>
+  <div class="essay-meta">
+    <span>June 2026</span>
+    <span class="en">AI &amp; Society</span>
+    <span class="ja">AI と社会</span>
+    <span class="en">8 min read</span>
+    <span class="ja">日本語 約8分</span>
+  </div>
+
+  <p class="en">It is easy, now, to walk away from almost anything. Cancel the subscription anytime; never reopen the shop that disappointed you. Unfollow, switch towns, switch jobs more lightly than before. And at last, walk away from a person, too — swap the one you talk to for an AI.</p>
+  <p class="ja">いまは、たいていのものから、簡単に立ち去れる。サブスクはいつでも解約できるし、合わない店は二度と開かなければいい。フォローは外せるし、住む街も仕事も、昔より気軽に変えられる。そしてとうとう、人そのものまで——話し相手を、AI に替えられるようになった。</p>
+  <p class="en">The cost of leaving has fallen toward nothing, and that is, on the whole, an expansion of freedom; being able to leave what once trapped you is plainly good.</p>
+  <p class="ja">立ち去る代償が、限りなく安くなっている。これはおおむね、自由の拡大だと思う。逃げられなかった場所から逃げられること自体は、間違いなく良いことだ。</p>
+  <p class="en">But once exits are free, something quietly rises in price: the bond you could have fled and didn't. Taking a half-century-old framework — "exit" and "voice" — as our guide, this essay traces what happens when AI lowers the cost of leaving even further, and why "not leaving" is about to become scarce.</p>
+  <p class="ja">ただ、出口のコストが下がると、静かに価値が上がるものがある。逃げられたのに、逃げなかった関係だ。ここでは、半世紀前の経済学者が「退出」と「声」と名づけた仕組みを手がかりに、AI が立ち去る代償をさらに下げたとき何が起きるか、そして、なぜ「逃げない」ことがこれから希少になるのかをたどる。</p>
+
+  <h2><span class="hnum">1</span><span class="en">Exits Went Free</span><span class="ja">出口が、ただになった</span></h2>
+  <p class="en">Start with how cheap leaving has become. In subscription surveys, the top reason people sign up is not the quality of the thing but that they can quit anytime — flexibility itself, the freedom to walk out, has become the selling point. The exit is sold as a feature. As switching costs fall, people swap lightly; the ease of leaving arrives before any reason to stay.</p>
+  <p class="ja">まず、立ち去ることがどれだけ安くなったかを見ておきたい。サブスクの調査では、人々が契約する一番の理由は中身の良さではなく、「いつでも止められること」だという。柔軟さ——つまり、いつでも出ていける自由——そのものが、選ばれる理由になっている。出口が、機能として売られている。スイッチングコストが下がるほど、人は軽やかに乗り換える。とどまる理由より、出ていける手軽さが先に立つ。</p>
+  <p class="en">AI sits at the far end of this trend. Users of one conversational AI already spend more than ninety minutes a day with it — longer than the same people give to TikTok — and AI-companion apps passed 220 million cumulative downloads by mid-2025.<sup>3</sup> A bond with an AI strips away the friction native to a human one — the cost of being hurt, of being refused — to almost nothing. So it is easy to open up: never awkward, always closable. A frictionless companion you can leave at any moment — the ultimate form of a relationship whose exit stands permanently ajar.</p>
+  <p class="ja">AI は、この流れの最果てにいる。すでに、ある対話型 AI のユーザーは一日平均九十分以上をそこで費やしていて——同じ人たちが TikTok に費やす時間より長くなった。コンパニオン系アプリの累計ダウンロードは、二〇二五年半ばで二億二千万を超えた。<sup>3</sup> AI との関係は、生身の人間関係につきものの面倒——傷つくかもしれない、拒まれるかもしれない、という代償——を、ほとんどゼロにする。だから打ち明けやすい。気まずくならないし、いつでも閉じられる。摩擦のない、いつでも立ち去れる相手。出口が常に開いている関係の、究極の形だ。</p>
+
+  <h2><span class="hnum">2</span><span class="en">Exit Warns; Voice Explains</span><span class="ja">退出は警告だけ、声は理由を運ぶ</span></h2>
+  <p class="en">Half a century ago, the economist Albert Hirschman split the responses to a souring organization or relationship into two: exit and voice.<sup>1</sup> You leave, or you stay and try to fix it. His point lands hardest now — the more available the exit, the less voice gets used. Unhappy, you find it quicker to slip out quietly than to say what is wrong and wait for repair.</p>
+  <p class="ja">半世紀前、経済学者アルバート・ハーシュマンが、組織や関係が悪くなったときに人が取れる道を二つに分けた。退出と、声だ。<sup>1</sup> 出ていくか、とどまって直そうとするか。彼の指摘は、いまこそ効く——出口が手に入りやすいほど、声は使われなくなる。不満があっても、言って直してもらうより、黙って出ていくほうが早い。</p>
+  <p class="en">And then the one left behind never learns what failed. Exit emits only the warning sign that "something is off"; it does not carry the reasons. Voice carries the reasons — but if no one voices, the organization, the relationship, hardens in place, unsure where to mend.</p>
+  <p class="ja">すると、出ていかれた側には、何が悪かったのかが伝わらない。退出は「何かがまずい」という警告サインを出すだけで、その理由は運ばない。声は理由を運ぶが、誰も声を上げなければ、組織も関係も、どこを直せばいいか分からないまま固まってしまう。</p>
+  <p class="en">Hirschman used a school: the quality-conscious parents are the first to move a child elsewhere, leaving those who cannot afford to leave. The school loses its sharpest critics and, with them, the very intelligence it would need to improve. What holds people in long enough to voice, he called loyalty — the force that raises the cost of departure and turns a member toward fixing rather than fleeing. The cheaper the exit, the weaker that loyalty pulls.</p>
+  <p class="ja">ハーシュマンは学校の例を挙げた。質に敏感な親ほど、まずいと感じたら子を私立へ移す。残るのは、出ていく余力のない家庭だ。学校は、一番鋭い批判者を最初に失い、改善の手がかりも一緒に失う。とどまって声を上げさせるのは何か。彼は忠誠（<span class="em">loyalty</span>）と呼んだ。とどまる心理的なコストを上げ、「直す側に回ろう」と思わせる力。出口が安くなるほど、この忠誠は効きにくくなる。</p>
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 188" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <rect x="46" y="76" width="150" height="44" rx="2" fill="#f7f6f2" stroke="#1a2332" stroke-width="1.3"/>
+      <text x="121" y="103" font-size="11.5" text-anchor="middle" fill="#1a2332">a souring bond</text>
+      <line x1="196" y1="88" x2="430" y2="50" stroke="#1d5c5c" stroke-width="4"/>
+      <polygon points="436,49 424,46 427,57" fill="#1d5c5c"/>
+      <line x1="196" y1="110" x2="430" y2="150" stroke="#b5832a" stroke-width="1.8"/>
+      <polygon points="436,151 425,145 424,156" fill="#b5832a"/>
+      <rect x="438" y="34" width="186" height="36" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.3"/>
+      <text x="531" y="50" font-size="11" text-anchor="middle" fill="#1d5c5c">EXIT · the warning sign</text>
+      <text x="531" y="64" font-size="9.5" text-anchor="middle" fill="#666">no reasons, just departure</text>
+      <rect x="438" y="132" width="186" height="36" rx="2" fill="#f5ead8" stroke="#b5832a" stroke-width="1.3"/>
+      <text x="531" y="148" font-size="11" text-anchor="middle" fill="#8a6020">VOICE · the reasons</text>
+      <text x="531" y="162" font-size="9.5" text-anchor="middle" fill="#666">stay and say what failed</text>
+      <text x="300" y="108" font-size="9.5" fill="#777" transform="rotate(-9 300 108)">cheaper exit → thicker</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 188" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <rect x="46" y="76" width="150" height="44" rx="2" fill="#f7f6f2" stroke="#1a2332" stroke-width="1.3"/>
+      <text x="121" y="103" font-size="11.5" text-anchor="middle" fill="#1a2332">悪くなった関係</text>
+      <line x1="196" y1="88" x2="430" y2="50" stroke="#1d5c5c" stroke-width="4"/>
+      <polygon points="436,49 424,46 427,57" fill="#1d5c5c"/>
+      <line x1="196" y1="110" x2="430" y2="150" stroke="#b5832a" stroke-width="1.8"/>
+      <polygon points="436,151 425,145 424,156" fill="#b5832a"/>
+      <rect x="438" y="34" width="186" height="36" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.3"/>
+      <text x="531" y="50" font-size="11" text-anchor="middle" fill="#1d5c5c">退出 · 警告サインだけ</text>
+      <text x="531" y="64" font-size="9.5" text-anchor="middle" fill="#666">理由は運ばず、ただ去る</text>
+      <rect x="438" y="132" width="186" height="36" rx="2" fill="#f5ead8" stroke="#b5832a" stroke-width="1.3"/>
+      <text x="531" y="148" font-size="11" text-anchor="middle" fill="#8a6020">声 · 理由を運ぶ</text>
+      <text x="531" y="162" font-size="9.5" text-anchor="middle" fill="#666">とどまって、何がまずいか言う</text>
+      <text x="298" y="108" font-size="9.5" fill="#777" transform="rotate(-9 298 108)">出口が安いほど太る</text>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 1 — Two responses to decline. As the exit cheapens, more leave (and only warn) instead of voicing (and explaining).</span><span class="ja">図1　衰えへの二つの応え。出口が安くなるほど、声（理由）でなく退出（警告だけ）が太る。</span></div>
+  </div>
+
+  <h2><span class="hnum">3</span><span class="en">The Discerning Leave First</span><span class="ja">鋭い人から、先に出ていく</span></h2>
+  <p class="en">There is a quiet, painful pattern here: the people best able to judge quality are the first to leave. Those who can tell good from bad and hold other options sense decline early and go; what remains is those without the eye to judge, or without the means to leave. A place drained of its sharp voices can no longer mend itself.</p>
+  <p class="ja">ここに、静かに進む痛い構図がある。一番質を見分けられる人ほど、先に出ていく。良し悪しが分かり、別の選択肢を持っている人は、衰えの兆しをいち早く察して立ち去る。後に残るのは、見分ける目を持たない人か、出ていく余力のない人だ。鋭い声が抜けたあとの場所は、もう自分で直せない。</p>
+  <p class="en">This is not only schools. In workplaces, towns, communities, the same thing follows as exits cheapen — because fixing from within by voice always looks less rational than leaving to find another. At the scale of a whole society, it shows up as thinning bonds: one sociologist named the late-century collapse of clubs, associations, and ties "bowling alone."<sup>2</sup> Leaving becomes the default; fewer stay to engage. Each single departure is perfectly rational. But rational departures, stacked, shrink the number of places that voice could have fixed at all.</p>
+  <p class="ja">これは学校だけの話ではない。職場でも、街でも、人の集まりでも、出口が安くなるほど、同じことが起きる。「声」を上げて中から直すより、「退出」して別を探すほうが、いつも合理的に見えるからだ。社会全体の規模で見ると、これは人のつながりが薄くなっていく現象として現れる。ある社会学者は、地域や団体やつながりが二十世紀後半に崩れていく様子を「ひとりでボウリングをする」と呼んだ。<sup>2</sup> 出ていくのが当たり前になり、とどまって関わる人が減る。一つひとつの離脱は、まったく合理的だ。けれど合理的な離脱が積み重なると、声で直せる場所そのものが、社会から減っていく。</p>
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 196" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <line x1="60" y1="168" x2="612" y2="168" stroke="#1a2332" stroke-width="1.2"/>
+      <line x1="60" y1="168" x2="60" y2="30" stroke="#1a2332" stroke-width="1.2"/>
+      <polygon points="60,26 55,36 65,36" fill="#1a2332"/>
+      <polygon points="616,168 606,163 606,173" fill="#1a2332"/>
+      <path d="M70,52 C200,66 320,108 430,134 S560,158 600,160" fill="none" stroke="#b5832a" stroke-width="2"/>
+      <g stroke="#1d5c5c" stroke-width="1.4">
+        <line x1="110" y1="48" x2="96" y2="26"/><polygon points="94,22 92,34 102,30" fill="#1d5c5c" stroke="none"/>
+        <line x1="150" y1="54" x2="136" y2="32"/><polygon points="134,28 132,40 142,36" fill="#1d5c5c" stroke="none"/>
+        <line x1="195" y1="62" x2="181" y2="40"/><polygon points="179,36 177,48 187,44" fill="#1d5c5c" stroke="none"/>
+      </g>
+      <text x="118" y="20" font-size="10.5" fill="#1d5c5c">the sharpest exit first</text>
+      <text x="64" y="46" font-size="11" fill="#8a6020">power to fix from within</text>
+      <text x="606" y="150" font-size="10.5" text-anchor="end" fill="#666">left: no eye / no means</text>
+      <text x="64" y="186" font-size="10.5" fill="#666">time →</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 196" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <line x1="60" y1="168" x2="612" y2="168" stroke="#1a2332" stroke-width="1.2"/>
+      <line x1="60" y1="168" x2="60" y2="30" stroke="#1a2332" stroke-width="1.2"/>
+      <polygon points="60,26 55,36 65,36" fill="#1a2332"/>
+      <polygon points="616,168 606,163 606,173" fill="#1a2332"/>
+      <path d="M70,52 C200,66 320,108 430,134 S560,158 600,160" fill="none" stroke="#b5832a" stroke-width="2"/>
+      <g stroke="#1d5c5c" stroke-width="1.4">
+        <line x1="110" y1="48" x2="96" y2="26"/><polygon points="94,22 92,34 102,30" fill="#1d5c5c" stroke="none"/>
+        <line x1="150" y1="54" x2="136" y2="32"/><polygon points="134,28 132,40 142,36" fill="#1d5c5c" stroke="none"/>
+        <line x1="195" y1="62" x2="181" y2="40"/><polygon points="179,36 177,48 187,44" fill="#1d5c5c" stroke="none"/>
+      </g>
+      <text x="118" y="20" font-size="10.5" fill="#1d5c5c">鋭い人から先に去る</text>
+      <text x="64" y="46" font-size="11" fill="#8a6020">中から直す力</text>
+      <text x="606" y="150" font-size="10.5" text-anchor="end" fill="#666">残るのは 目なし／余力なし</text>
+      <text x="64" y="186" font-size="10.5" fill="#666">時間 →</text>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 2 — The discerning leave earliest, so a place's power to fix itself thins over time.</span><span class="ja">図2　鋭い人ほど先に去り、その場の「中から直す力」は時間とともに痩せていく。</span></div>
+  </div>
+
+  <h2><span class="hnum">4</span><span class="en">But the Exit Is Also Freedom</span><span class="ja">ただし、出口は自由でもある</span></h2>
+  <p class="en">There is a temptation here to cast leaving as the villain. That would be wrong. A cheap exit is also a liberation: precisely because leaving is cheap, people can quit a brutal workplace, leave a closed village, escape a broken bond. The force that compels staying — a "loyalty" built on the impossibility of exit — has often sat back to back with oppression.</p>
+  <p class="ja">ここで、立ち去れることを悪者にしてしまう誘惑がある。それは違う、と思う。出口が安いことは、解放でもある。安く出ていけるからこそ、人はひどい職場を抜け、閉じた村を出て、壊れた関係から逃げられる。とどまることを強いる力——出ていけないことを土台にした「忠誠」——は、しばしば抑圧と背中合わせだった。</p>
+  <p class="en">Hirschman himself grants that exit disciplines: customers silently abandoning the shoddy, voting with their feet, keep a market honest, an echo of Adam Smith's invisible hand. I have argued <a href="the-manor-and-the-commons.html">elsewhere</a> that freedom is not owning something but staying mobile, free to move — and I do not take that back. So the answer is not to seal the exits. Locking the door to keep people in only rewinds the liberation; mobility stays freedom. The trouble lies somewhere harder: in a world where you can freely leave anything, no one decides for you what not to leave.</p>
+  <p class="ja">ハーシュマン自身、退出には規律の働きがあると認めている。質の悪いものから客が黙って去ること、その「足による投票」が、市場を健全に保つ。アダム・スミスの見えざる手の、小さなこだまだ。私自身、<a href="the-manor-and-the-commons.html">別のところ</a>で、自由とは何かを所有することではなく、いつでも動ける可動性のことだ、と書いた。その考えは、いまも撤回しない。だから、答えは「出口を塞ぐ」ことではない。人をとどまらせるために扉に鍵をかけるのは、解放を巻き戻すだけだ。可動性は自由であり続ける。問題はもっと厄介なところにある——すべてから自由に立ち去れる世界では、何から立ち去らないかを、誰も決めてくれない、ということだ。</p>
+  <div class="pull">
+    <span class="pull-label"><span class="en">Key</span><span class="ja">要点</span></span>
+    <span class="en">The answer is not to seal the exits — mobility stays freedom. Being able to leave anything and being able to stay with something are different capacities. The age handed us the first; the second, you must choose.</span>
+    <span class="ja">答えは出口を塞ぐことではない——可動性は自由であり続ける。すべてから立ち去れることと、何かに<span class="em">留まれる</span>ことは、別の能力だ。前者は時代がくれた。後者は、自分で選ぶしかない。</span>
+  </div>
+
+  <h2><span class="hnum">5</span><span class="en">The Luxury of Not Leaving</span><span class="ja">逃げないという、贅沢</span></h2>
+  <p class="en">In a world where exits went free, the scarce thing is not the exit. It is the bond you could have fled and didn't. Voice and loyalty — the labor of staying to mend, the nerve to bet on what pays off only slowly — were drilled into people, willing or not, in an age when leaving was costly. With no way out, you had to fix things; depth grew as a by-product of that unfreedom. Once exits cheapen, that depth becomes something you get only if you choose it. The expertise, the trust, the relationship that grow only by staying long in one place become, in a cheap-exit world, a luxury for those who elect it.</p>
+  <p class="ja">出口がただになった世界で、本当に希少になるのは出口ではない。逃げられたのに、逃げなかった関係のほうだ。声と忠誠——とどまって直す手間、すぐに見返りの出ないものに賭ける覚悟——は、立ち去ることが高くついた時代には、否応なく身についた。逃げ場がなかったから、人は直すしかなかった。その不自由の副産物として、深さが育った。出口が安くなると、その深さは、自分で選び取らないかぎり手に入らないものになる。長く一つの場にとどまることでしか育たない専門、信頼、関係——それらは、安価になった世界で、選び取る者だけの贅沢財になっていく。</p>
+  <p class="en">This is a sibling of an <a href="the-stratification-called-choice.html">earlier thought</a>: as machines grow cheap and accurate, a person's unhurried attention turns dear. In the same way, as leaving grows cheap, not-leaving takes on worth. Both are something human that grows scarcer the cheaper the world gets. What is really at stake is close to dignity — whether someone can go on being treated, by others and by oneself, not as an instantly swappable counterpart, but as one worth staying with.</p>
+  <p class="ja">これは、<a href="the-stratification-called-choice.html">以前の考え</a>と姉妹のような話だ。機械が安く正確になるほど、人にじっくり向き合ってもらうことが高くつく。同じように、立ち去ることが安くなるほど、立ち去らないことが値打ちを持つ。どちらも、安くなった世界で逆に希少化する、人にまつわる何かだ。問われているのは、たぶん尊厳（<span class="em">dignity</span>）に近い。すぐ替えのきく相手としてでなく、逃げずに向き合うに値する相手として、誰かに——そして自分自身に——扱われ続けられるか。</p>
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 180" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <rect x="46" y="30" width="250" height="120" rx="3" fill="#fff" stroke="#ddd9d0" stroke-width="1"/>
+      <rect x="364" y="30" width="250" height="120" rx="3" fill="#fff" stroke="#ddd9d0" stroke-width="1"/>
+      <g text-anchor="middle">
+        <text x="171" y="50" font-size="10.5" fill="#666">earlier essay</text>
+        <text x="489" y="50" font-size="10.5" fill="#666">this essay</text>
+        <text x="120" y="92" font-size="11.5" fill="#1d5c5c">machines ↓</text>
+        <text x="232" y="92" font-size="11.5" fill="#8a6020">presence ↑</text>
+        <text x="120" y="122" font-size="9.5" fill="#666">cheap &amp; accurate</text>
+        <text x="232" y="122" font-size="9.5" fill="#666">unhurried, human</text>
+        <text x="438" y="92" font-size="11.5" fill="#1d5c5c">exit ↓</text>
+        <text x="548" y="92" font-size="11.5" fill="#8a6020">staying ↑</text>
+        <text x="438" y="122" font-size="9.5" fill="#666">free to leave</text>
+        <text x="548" y="122" font-size="9.5" fill="#666">chosen, deep</text>
+        <text x="330" y="94" font-size="15" fill="#1a2332">≈</text>
+      </g>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 180" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <rect x="46" y="30" width="250" height="120" rx="3" fill="#fff" stroke="#ddd9d0" stroke-width="1"/>
+      <rect x="364" y="30" width="250" height="120" rx="3" fill="#fff" stroke="#ddd9d0" stroke-width="1"/>
+      <g text-anchor="middle">
+        <text x="171" y="50" font-size="10.5" fill="#666">前のエッセイ</text>
+        <text x="489" y="50" font-size="10.5" fill="#666">本稿</text>
+        <text x="120" y="92" font-size="11.5" fill="#1d5c5c">機械 ↓</text>
+        <text x="232" y="92" font-size="11.5" fill="#8a6020">現前 ↑</text>
+        <text x="120" y="122" font-size="9.5" fill="#666">安く正確に</text>
+        <text x="232" y="122" font-size="9.5" fill="#666">人の手・時間</text>
+        <text x="438" y="92" font-size="11.5" fill="#1d5c5c">出口 ↓</text>
+        <text x="548" y="92" font-size="11.5" fill="#8a6020">留まる ↑</text>
+        <text x="438" y="122" font-size="9.5" fill="#666">自由に去れる</text>
+        <text x="548" y="122" font-size="9.5" fill="#666">選び取る・深い</text>
+        <text x="330" y="94" font-size="15" fill="#1a2332">≈</text>
+      </g>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 3 — Two sibling scarcities: what gets cheap pushes something human up in worth.</span><span class="ja">図3　二つの姉妹希少 —— 安くなるものが、人にまつわる何かの値打ちを押し上げる。</span></div>
+  </div>
+
+  <div class="essay-close">
+    <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">6</span><span class="en">Which Door to Leave Open</span><span class="ja">どの扉を、閉めないでおくか</span></h2>
+    <p class="en">So when you notice how easily you could walk away from something, I would like you to consider, just once, the reverse. Is this a place worth voicing and mending — or one to leave quietly? In a world of free exits, the two are easy to confuse, and we let go lightly of things that were worth keeping.</p>
+    <p class="ja">だから、何かから簡単に立ち去れると気づいたら、一度だけ、逆を考えてみたい。これは、声を上げて直す価値のある場所だろうか。それとも、黙って出ていくべきところか。出口がただになった世界では、この二つを取り違えやすい。直す価値のあるものまで、軽く手放してしまう。</p>
+    <p class="en">I would not surrender the freedom to leave. But being able to leave anything and being able to stay with something are different capacities. The first the age handed us. The second, unless you choose it, is no longer yours by default. So — in a world where you can leave anywhere, anytime, which door, alone, will you keep from closing?</p>
+    <p class="ja">立ち去れる自由は、手放したくない。けれど、すべてから立ち去れることと、何からも立ち去らないでいられることは、別の能力だ。前者は時代がくれた。後者は、自分で選ばないと、もう手に入らない。では、あなたは——いつでもどこからでも出ていける世界で、どの扉だけは、閉めないでおくだろうか。</p>
+
+    <div class="figure">
+      <svg class="en" viewBox="0 0 660 170" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+        <g fill="none" stroke="#bdbdbd" stroke-width="1.4">
+          <rect x="70" y="44" width="54" height="84"/><line x1="124" y1="44" x2="150" y2="34"/><line x1="124" y1="128" x2="150" y2="118"/><line x1="150" y1="34" x2="150" y2="118"/>
+          <rect x="190" y="44" width="54" height="84"/><line x1="244" y1="44" x2="270" y2="34"/><line x1="244" y1="128" x2="270" y2="118"/><line x1="270" y1="34" x2="270" y2="118"/>
+          <rect x="430" y="44" width="54" height="84"/><line x1="484" y1="44" x2="510" y2="34"/><line x1="484" y1="128" x2="510" y2="118"/><line x1="510" y1="34" x2="510" y2="118"/>
+          <rect x="550" y="44" width="54" height="84"/><line x1="604" y1="44" x2="630" y2="34"/><line x1="604" y1="128" x2="630" y2="118"/><line x1="630" y1="34" x2="630" y2="118"/>
+        </g>
+        <rect x="310" y="44" width="58" height="84" fill="#f5ead8" stroke="#b5832a" stroke-width="2"/>
+        <circle cx="356" cy="88" r="2.6" fill="#8a6020"/>
+        <text x="339" y="148" font-size="10.5" text-anchor="middle" fill="#8a6020">the one you keep</text>
+        <text x="160" y="148" font-size="10" text-anchor="middle" fill="#999">open · free to leave</text>
+        <text x="518" y="148" font-size="10" text-anchor="middle" fill="#999">open · free to leave</text>
+      </svg>
+      <svg class="ja" viewBox="0 0 660 170" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+        <g fill="none" stroke="#bdbdbd" stroke-width="1.4">
+          <rect x="70" y="44" width="54" height="84"/><line x1="124" y1="44" x2="150" y2="34"/><line x1="124" y1="128" x2="150" y2="118"/><line x1="150" y1="34" x2="150" y2="118"/>
+          <rect x="190" y="44" width="54" height="84"/><line x1="244" y1="44" x2="270" y2="34"/><line x1="244" y1="128" x2="270" y2="118"/><line x1="270" y1="34" x2="270" y2="118"/>
+          <rect x="430" y="44" width="54" height="84"/><line x1="484" y1="44" x2="510" y2="34"/><line x1="484" y1="128" x2="510" y2="118"/><line x1="510" y1="34" x2="510" y2="118"/>
+          <rect x="550" y="44" width="54" height="84"/><line x1="604" y1="44" x2="630" y2="34"/><line x1="604" y1="128" x2="630" y2="118"/><line x1="630" y1="34" x2="630" y2="118"/>
+        </g>
+        <rect x="310" y="44" width="58" height="84" fill="#f5ead8" stroke="#b5832a" stroke-width="2"/>
+        <circle cx="356" cy="88" r="2.6" fill="#8a6020"/>
+        <text x="339" y="148" font-size="10.5" text-anchor="middle" fill="#8a6020">閉めないでおく一枚</text>
+        <text x="160" y="148" font-size="10" text-anchor="middle" fill="#999">開いている · いつでも去れる</text>
+        <text x="518" y="148" font-size="10" text-anchor="middle" fill="#999">開いている · いつでも去れる</text>
+      </svg>
+      <div class="figcap"><span class="en">Fig. 4 — Every door stays open. Freedom is keeping them so; the choice is which one you stay behind.</span><span class="ja">図4　どの扉も開いたまま。可動性は保つ。選ぶのは、どの一枚に留まるか。</span></div>
+    </div>
+
+    <div class="seed-box">
+      <span class="pull-label"><span class="en">The Seed</span><span class="ja">種としての一行</span></span>
+      <span class="en">When exits go free, the scarce thing is not the exit. It is the bond you could have fled and didn't — the depth that voice and loyalty grow. The freedom to leave, the age gives you; the power to stay, you must choose.</span>
+      <span class="ja">出口がただになった世界で希少なのは、出口ではない。逃げられたのに逃げなかった関係——声と忠誠が育てる深さ——のほうだ。立ち去る自由は時代がくれる。立ち去らない力は、自ら選ばないと手に入らない。</span>
+    </div>
+
+    <div class="essay-note">
+      <p><span class="note-num">1.</span><span class="en">Albert O. Hirschman, <em>Exit, Voice, and Loyalty: Responses to Decline in Firms, Organizations, and States</em> (Harvard University Press, 1970). The exit/voice dichotomy; the more available the exit, the less voice is used; exit warns while voice carries the reasons; loyalty holds members in long enough to voice; the quality-conscious exit first, depriving the organization of its sharpest critics. Hirschman also grants exit its disciplining role (voting with one's feet, an echo of Adam Smith's invisible hand). Caveat: a 1970 framework that predates digital and AI; the extrapolation to falling switching costs and AI companions here is a present-day reading.</span><span class="ja">Albert O. Hirschman『Exit, Voice, and Loyalty: Responses to Decline in Firms, Organizations, and States』（Harvard University Press, 1970年）。退出（exit）と声（voice）の二分法、出口が手に入りやすいほど声は使われない、退出は警告のみ・声は理由を運ぶ、忠誠（loyalty）が声のために人を留める、質に敏感な成員ほど先に退出する、という機構。退出の規律機能（足による投票＝アダム・スミスの見えざる手）も同書が認める。留保：1970 年の枠組みでデジタル/AI を直接論じてはおらず、スイッチングコストの低下や AI コンパニオンへの外挿は本稿の現代的解釈。</span></p>
+      <p><span class="note-num">2.</span><span class="en">Robert D. Putnam, <em>Bowling Alone: The Collapse and Revival of American Community</em> (Simon &amp; Schuster, 2000) — a classic documenting the decline of U.S. social capital (clubs, associations, ties) in the late twentieth century. Cited here as the macro symptom of accumulated rational departures shrinking the places voice could mend. Caveat: the causes (television, suburbanization, generational change) are debated, with later challenges and regional nuance.</span><span class="ja">Robert D. Putnam『Bowling Alone: The Collapse and Revival of American Community』（Simon &amp; Schuster, 2000年）——20 世紀後半の米国における社会関係資本（地域・団体・つながり）の崩壊を実証した古典。本稿では「合理的な離脱の累積が、声で直せる場を減らす」マクロ症状として参照。留保：因果（テレビ・郊外化・世代等）には諸説あり、近年は反論や地域差の議論もある。</span></p>
+      <p><span class="note-num">3.</span><span class="en">Scale and engagement of AI companions: users of leading conversational-AI apps (e.g., Character.AI) average more than ninety minutes a day — exceeding time on TikTok — and AI-companion apps reached roughly 220 million cumulative downloads by mid-2025, up about 88% year-on-year (industry traffic aggregates). Such bonds are characterized as "artificial intimacy" — connection without the cost of vulnerability or rejection. Caveat: engagement and download figures are industry/traffic estimates (not peer-reviewed, and they vary across sources); the effects are mixed (short-term comfort versus drift from human ties), and the essay uses them only as an order-of-magnitude indicator of "the ultimate frictionless, always-leavable companion."</span><span class="ja">AI コンパニオンの規模と滞在時間：主要な対話型 AI（Character.AI 等）のユーザーは一日平均 90 分超（TikTok の利用時間を上回る）を費やし、コンパニオン系アプリの累計ダウンロードは 2025 年半ばで約 2.2 億・前年同期比 +88%（業界トラフィック集計）。こうした結びつきは「人工的親密性（artificial intimacy）」＝傷つき・拒絶のコストを伴わない接続、と特徴づけられる。留保：滞在時間・DL は業界/トラフィックの推計（査読データではなく、ソース間で幅がある）。効果も両義的（短期の慰めと、人間関係からの遠ざかり）で、本稿は「摩擦のない・いつでも立ち去れる関係の究極形」の桁感としてのみ用いる。</span></p>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div><span class="en">Essay 009 · June 2026 · when leaving costs nothing</span><span class="ja">Essay 009 · 2026年6月 · 立ち去る代償が、消えるとき</span></div>
+  <div><a href="../index.html">shun-yanagisawa.com</a> · <a href="../index.html#essays"><span class="en">All essays</span><span class="ja">エッセイ一覧</span></a></div>
+</footer>
+
+<script>
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+}
+if ((navigator.language || '').startsWith('ja')) toggleLang();
+</script>
+</body>
+</html>
