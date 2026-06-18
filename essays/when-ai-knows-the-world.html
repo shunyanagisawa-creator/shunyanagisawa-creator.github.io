@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When AI Comes to Know the World — Shun Yanagisawa</title>
+<meta name="description" content="AI began with words — the easy part. The hard part was always the limbs. The brain does not pilot them; they fit the physics on their own. That is where what Japan still holds may yet matter.">
+<meta property="og:title" content="When AI Comes to Know the World">
+<meta property="og:description" content="The brain does not pilot the limbs — they fit the physics on their own. The thinking limb could be Japan's indispensable moat. The brain owns the land, but it cannot run without the hand.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.shun-yanagisawa.com/essays/when-ai-knows-the-world.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
+  --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f5ead8;
+  --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
+  --text: #1a1a1a; --text-mid: #3d3d3d; --text-muted: #666666; --border: #ddd9d0;
+  --font-display: 'Playfair Display', 'Noto Serif JP', Georgia, serif;
+  --font-body: 'Source Sans 3', sans-serif;
+  --font-jp: 'Noto Serif JP', serif;
+  --font-mono: 'DM Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--white); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.85; }
+body.lang-en .ja { display: none; }
+body.lang-ja .en { display: none; }
+body.lang-ja { font-family: var(--font-jp); }
+
+nav {
+  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+.nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1.2rem; }
+.nav-back { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--text-muted); text-decoration: none; }
+.nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .35rem .8rem; cursor: pointer; color: var(--text-mid);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
+
+.essay { max-width: 720px; margin: 0 auto; padding: 4rem 1.6rem 5rem; }
+.essay-kicker { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.2rem; }
+h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 500; line-height: 1.3; color: var(--navy); margin-bottom: .8rem; }
+.essay-sub { font-size: 1.02rem; color: var(--text-muted); margin-bottom: 1.4rem; line-height: 1.7; }
+.essay-meta { display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); padding-bottom: 1.6rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.4rem; }
+.essay-meta a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); }
+
+.essay h2 {
+  font-family: var(--font-display); font-size: 1.22rem; font-weight: 500; color: var(--navy);
+  margin: 2.8rem 0 1rem; padding: .35rem 0 .45rem .9rem;
+  border-left: 3px solid var(--navy); border-bottom: 1px solid var(--border);
+}
+body.lang-ja .essay h2 { font-family: var(--font-jp); font-weight: 500; }
+.essay h2 .hnum { font-family: var(--font-mono); font-size: .85rem; color: var(--teal-dark); margin-right: .7rem; letter-spacing: .05em; }
+
+.essay p { margin: 1.1rem 0; color: var(--text-mid); text-align: justify; }
+.essay a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.4); }
+.essay sup { font-family: var(--font-mono); font-size: .62rem; color: var(--teal-dark); vertical-align: super; line-height: 0; padding-left: 1px; }
+
+.ja .em { -webkit-text-emphasis: filled dot var(--navy); text-emphasis: filled dot var(--navy); font-style: normal; }
+.en .em { font-style: italic; }
+
+.pull {
+  border: 1px solid var(--gold); background: var(--gold-light);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 1.9rem 0; border-radius: 2px;
+  font-size: 1rem; color: var(--navy); line-height: 1.8; position: relative; text-align: justify;
+}
+.pull .pull-label {
+  position: absolute; top: -0.7rem; left: 1rem; background: var(--white);
+  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em;
+  color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase;
+}
+
+.figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 1.9rem 0; background: var(--white); }
+.figure svg { width: 100%; height: auto; display: block; }
+.figcap {
+  margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); text-align: center;
+}
+body.lang-ja .figcap { font-family: var(--font-jp); font-size: .76rem; }
+
+.seed-box {
+  border: 1px solid var(--gold); border-left: 4px solid var(--gold);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0 0; border-radius: 2px;
+  font-size: 1.02rem; color: var(--navy); line-height: 1.85; position: relative; text-align: justify;
+}
+.seed-box .pull-label { position: absolute; top: -0.7rem; left: 1rem; background: var(--white); font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase; }
+
+.essay-close { border-top: 2px solid var(--gold); margin-top: 3rem; padding-top: 1.6rem; }
+.essay-note { margin-top: 2.4rem; padding-top: .9rem; border-top: 1px solid var(--border); font-size: .8rem; color: var(--text-muted); line-height: 1.7; text-align: left; }
+.essay-note a { color: var(--teal-dark); word-break: break-all; }
+.essay-note .note-num { font-family: var(--font-mono); color: var(--teal-dark); margin-right: .4rem; }
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
+footer a { color: var(--teal-dark); text-decoration: none; }
+@media (max-width: 560px) { nav { padding: 0 1.2rem; } .essay { padding-top: 2.6rem; } }
+</style>
+</head>
+<body class="lang-en">
+
+<nav>
+  <a class="nav-logo" href="../index.html">Shun <span>Yanagisawa</span></a>
+  <div class="nav-right">
+    <a class="nav-back" href="../index.html#essays"><span class="en">← Essays</span><span class="ja">← エッセイ一覧</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="en">日本語</span><span class="ja">English</span></button>
+  </div>
+</nav>
+
+<article class="essay">
+  <div class="essay-kicker">Essay 010 · AI &amp; Society</div>
+  <h1>
+    <span class="en">When AI Comes to Know the World</span>
+    <span class="ja">AI が、世界を識る時</span>
+  </h1>
+  <p class="essay-sub">
+    <span class="en">AI began with words — the easy part. The hard part was always the limbs. And the brain does not pilot the limbs; they fit the physics on their own. That is where what Japan still holds in its hand may yet matter.</span>
+    <span class="ja">AI は言葉から始まった——易しい側だ。難しいのは、いつも手足だった。そして脳は、手足を操縦しない。手足が、自分で物理を擦り合わせる。日本がまだ手に持っているものが効くとすれば、そこだ。</span>
+  </p>
+  <div class="essay-meta">
+    <span>June 2026</span>
+    <span class="en">AI &amp; Society</span>
+    <span class="ja">AI と社会</span>
+    <span class="en">8 min read</span>
+    <span class="ja">日本語 約8分</span>
+  </div>
+
+  <p class="en">AI began with words — the LLM, the Large Language Model. From its past memory, it produces language.</p>
+  <p class="ja">AI は、LLM、Large Language Model（大規模言語モデル）、つまり言葉から始まった。過去の記憶から、言葉を生み出す。</p>
+  <p class="en">And the next AI comes to know the world: how things move, cause and effect, gravity. On that ground, what counts is not codified knowledge but the embodied kind. Japan has hoarded it, as craft, for a very long time.</p>
+  <p class="ja">そして次の AI は、世界を識る。世界の動き、物理の因果関係、重力。その土俵で効くのは、形式知ではなく身体知だ。日本は、それを職人芸として長年ためこんできた。</p>
+  <p class="en">Say that, and the reply comes fast: Japan already lost the finished product. True. But step in one more pace, and another winning path appears. The key is the relationship between the brain and the limbs.</p>
+  <p class="ja">——と言うと、すぐ「日本はもう完成品で負けた」と返ってくる。その通りだ。けれど、もう一歩踏み込むと、別の勝ち筋が見えてくる。鍵は、脳と手足の関係にある。</p>
+
+  <h2><span class="hnum">1</span><span class="en">From Words to the World</span><span class="ja">言葉から、世界へ</span></h2>
+  <p class="en">The LLM is a genius of words. From a vast past of text, it guesses the next one — writing, summarizing, translating. But it holds no model of the world itself. Raised on text, it does not know, from first principles, what lies outside text: things that fall, collide, roll.<sup>1</sup></p>
+  <p class="ja">LLM は、言葉の天才だ。過去の膨大な文章から、次に来る言葉を当てる。書き、要約し、訳す。だが、世界そのものの模型は持っていない。テキストで育ったものは、テキストの外——物が落ち、ぶつかり、転がる——を、原理からは識らない。<sup>1</sup></p>
+  <p class="en">The next AI steps into that. It is called a world model — holding the world's dynamics inside, simulating in real time what comes next.<sup>2</sup> Put that model in a body and you have physical AI: robots, self-driving, the arm on the factory floor. AI walks out from behind the screen.<sup>3</sup></p>
+  <p class="ja">次の AI は、そこへ踏み込む。ワールドモデルと呼ばれる。世界の動き方を内側に持ち、次に何が起きるかを現在進行形でシミュレートする。<sup>2</sup> そのモデルを身体に乗せたものが、フィジカルAI。ロボット、自動運転、工場の腕だ。AI が、画面の外へ出てくる。<sup>3</sup></p>
+
+  <h2><span class="hnum">2</span><span class="en">The Brain Does Not Pilot the Limbs</span><span class="ja">脳は、手足を操縦しない</span></h2>
+  <p class="en">Recall the human body. When you run, the brain does not compute, step by step, "lift the right foot 3.5 centimeters, advance at 12 km/h." It only paints an image: <em>run, to there.</em> The fine control — adapting to the ground's tilt, contracting the muscle, correcting the joint's friction — is handled, on its own, by the spine, the periphery, the physical properties of the muscle itself.</p>
+  <p class="ja">ここで、人の身体を思い出したい。走るとき、脳は一歩ごとに「右足を三・五センチ上げ、時速十二キロで」と計算してはいない。脳は「あそこまで走る」というイメージを描くだけだ。地面の傾きへの適応、筋肉の収縮、関節の摩擦の補正——その細かな制御は、脊髄や、末梢や、筋肉そのものの物理特性が、勝手にやってくれる。</p>
+  <p class="en">Cognitive science calls this <em>morphological computation.</em><sup>4</sup> The body's shape and material themselves take over part of the computation the brain would otherwise do. A good body reduces the control required. The brain cannot pilot everything — the limbs' degrees of freedom are too many — so it delegates.</p>
+  <p class="ja">認知科学は、これを身体による計算（<span class="em">morphological computation</span>）と呼ぶ。<sup>4</sup> 身体の形と材質それ自体が、脳がやるはずの計算の一部を肩代わりする。良い身体は、要る制御を減らす。脳は、全部を操縦できない——手足の自由度は多すぎる。だから委ねる。</p>
+  <p class="en">And here is the bite. For AI, reasoning is easy and perception-and-motion is fearsomely hard. It can solve chess but cannot give itself the poise of a one-year-old: Moravec's paradox.<sup>5</sup> Reasoning is the thin skim on top. Beneath it, the knowing of sense and motion, carved into the body over hundreds of millions of years, is the truly hard part. So — the words AI swallowed first were the easy side. The hard side is the limbs.</p>
+  <p class="ja">そして、ここが効く。AI にとって、推論はやさしく、知覚と運動はおそろしく難しい。チェスは解けても、一歳児の身のこなしは作れない。これをモラベックのパラドックスという。<sup>5</sup> 推論は、薄い上澄みだ。その下の、何億年もかけて身体に刻まれた感覚と運動の知が、本当に難しい。つまり——AI が最初に飲んだ言葉は、実は易しい側だった。難しいのは、手足の側だ。</p>
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 196" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <rect x="250" y="22" width="160" height="44" rx="22" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/>
+      <text x="330" y="42" font-size="12" text-anchor="middle" fill="#1d5c5c">brain</text>
+      <text x="330" y="58" font-size="10.5" text-anchor="middle" fill="#666">"run, to there" — an image</text>
+      <line x1="330" y1="66" x2="330" y2="104" stroke="#8a6020" stroke-width="6"/>
+      <polygon points="330,112 322,98 338,98" fill="#8a6020"/>
+      <text x="348" y="90" font-size="10" fill="#8a6020">macro intent</text>
+      <rect x="90" y="116" width="480" height="62" rx="3" fill="#f7f6f2" stroke="#1a2332" stroke-width="1.2"/>
+      <text x="330" y="136" font-size="12" text-anchor="middle" fill="#1a2332">limbs — muscle · sensor · motor</text>
+      <g text-anchor="middle" font-size="10" fill="#666">
+        <text x="180" y="160">friction</text><text x="330" y="160">contraction</text><text x="480" y="160">balance</text>
+      </g>
+      <text x="330" y="174" font-size="10" text-anchor="middle" fill="#1d5c5c">— fit the micro-physics on their own —</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 196" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <rect x="250" y="22" width="160" height="44" rx="22" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/>
+      <text x="330" y="42" font-size="12" text-anchor="middle" fill="#1d5c5c">脳</text>
+      <text x="330" y="58" font-size="10.5" text-anchor="middle" fill="#666">「あそこまで走る」というイメージ</text>
+      <line x1="330" y1="66" x2="330" y2="104" stroke="#8a6020" stroke-width="6"/>
+      <polygon points="330,112 322,98 338,98" fill="#8a6020"/>
+      <text x="348" y="90" font-size="10" fill="#8a6020">マクロな意図</text>
+      <rect x="90" y="116" width="480" height="62" rx="3" fill="#f7f6f2" stroke="#1a2332" stroke-width="1.2"/>
+      <text x="330" y="136" font-size="12" text-anchor="middle" fill="#1a2332">手足 — 筋肉 · センサー · モーター</text>
+      <g text-anchor="middle" font-size="10" fill="#666">
+        <text x="180" y="160">摩擦</text><text x="330" y="160">収縮</text><text x="480" y="160">バランス</text>
+      </g>
+      <text x="330" y="174" font-size="10" text-anchor="middle" fill="#1d5c5c">— ミクロな物理を、自分で擦り合わせる —</text>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 1 — The brain sends one macro intent. The body computes the micro-physics on its own.</span><span class="ja">図1　脳はマクロな意図を一本送るだけ。ミクロな物理は、身体が自分で計算する。</span></div>
+  </div>
+
+  <h2><span class="hnum">3</span><span class="en">So It Needs Smart Limbs</span><span class="ja">だから、賢い手足が要る</span></h2>
+  <p class="en">Physical AI has no choice but to take the same architecture. The world-model brain paints the macro intent. But if it tries to compute, one by one, the micro-physics of the limb that walks, runs, and grips the real world — friction, heat, aging, the last sliver — its processing chokes. Indeed, the frontier robot "brains" are themselves splitting into a slow upper part that thinks and a fast lower part that acts.<sup>3</sup> The brain <em>needs</em> a smart limb that fits the physics on its own.</p>
+  <p class="ja">フィジカルAI も、同じ構造を採るしかない。世界モデルの脳が、マクロな意図を描く。だが、現実を歩き、走り、ものをつかむ手足のミクロな物理——摩擦、熱、経年、最後の一片——を、脳が一つずつ計算しようとすれば、情報処理がパンクする。実際、最前線のロボットの「脳」も、ゆっくり考える上位と、素早く動く下位に、分かれ始めている。<sup>3</sup> 脳は、自律して物理を擦り合わせる賢い手足を、必要とするのだ。</p>
+  <p class="en">And that smart limb is an actuator and a sensor with a small AI baked in to correct its own physical quirks — materials and key devices: chemicals, micro-motors, ultra-precision sensors. Exactly the place that remains to a Japan that has lost the finished-product throne.</p>
+  <p class="ja">その賢い手足とは——自分の物理的な癖を自分で補正する小さな AI を焼き込んだ、アクチュエータとセンサー。素材とキーデバイスだ。化学、超小型モーター、超高精度センサー。完成品の王の座を失った日本に、いままさに残っている、その場所。</p>
+  <p class="en">You need not be king of the finished product. If the brain cannot run without limbs, the limbs are not replaceable. Japan can be the thinking limb — the one that carries the brain's cognitive load and gets it past the wall of physics.</p>
+  <p class="ja">完成品の王でなくていい。脳が手足なしには走れないなら、手足は不可換だ。日本は、脳の認知負荷を肩代わりし、物理の壁を越えさせる、考える手足になれる。</p>
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 188" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <rect x="120" y="34" width="420" height="34" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.2"/>
+      <text x="330" y="55" font-size="11.5" text-anchor="middle" fill="#1d5c5c">reasoning, language — the thin skim (easy: AI drank it first)</text>
+      <rect x="120" y="74" width="420" height="86" rx="2" fill="#f5ead8" stroke="#b5832a" stroke-width="1.5"/>
+      <text x="330" y="108" font-size="12" text-anchor="middle" fill="#8a6020">sense &amp; motion — the thick base</text>
+      <text x="330" y="128" font-size="10.5" text-anchor="middle" fill="#8a6020">(hard: hundreds of millions of years in the body)</text>
+      <text x="330" y="148" font-size="10.5" text-anchor="middle" fill="#666">— the defensible difficulty: the limbs —</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 188" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <rect x="120" y="34" width="420" height="34" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.2"/>
+      <text x="330" y="55" font-size="11.5" text-anchor="middle" fill="#1d5c5c">推論・言葉 — 薄い上澄み（易しい：AI が先に飲んだ）</text>
+      <rect x="120" y="74" width="420" height="86" rx="2" fill="#f5ead8" stroke="#b5832a" stroke-width="1.5"/>
+      <text x="330" y="108" font-size="12" text-anchor="middle" fill="#8a6020">感覚と運動 — 厚い土台</text>
+      <text x="330" y="128" font-size="10.5" text-anchor="middle" fill="#8a6020">（難しい：何億年も身体に刻まれた）</text>
+      <text x="330" y="148" font-size="10.5" text-anchor="middle" fill="#666">— 守れる難しさは、手足の側にある —</text>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 2 — Moravec's paradox: reasoning is the thin skim; sense and motion are the thick, hard base.</span><span class="ja">図2　モラベックのパラドックス。推論は薄い上澄み、感覚と運動が厚く難しい土台。</span></div>
+  </div>
+
+  <h2><span class="hnum">4</span><span class="en">This Is the Moat</span><span class="ja">これが、モートだ</span></h2>
+  <p class="en">Why is this not copied? The AI's code can be cloned. But what the limb commands — a material's molecular quirks, the micro-distortion of ultra-precision machining — cannot be dead-copied. So the defense stands not on the code but on the side of matter.</p>
+  <p class="ja">なぜ、これが真似されないのか。AI のコードはコピーできる。だが、その手足が御する相手——素材の分子の癖、超精密加工のミクロな歪み——は、デッドコピーできない。だから守りは、コードでなく、物質の側に立つ。</p>
+  <p class="en">There are three. One, data asymmetry: the physical-behavior data that makes a smart limb work can be taken only by those who hold the material and the floor. Two, hardware-software interlock: pull the software out alone and, on a coarse body, it runs wild. Three, onboard learning: a limb that keeps learning its own wear and individual quirks while it runs cannot be caught by someone who merely stole the code — they hold only past data.</p>
+  <p class="ja">三つある。一つ、データの非対称。賢い手足を成り立たせる物理挙動のデータは、素材と現場を持つ者しか採れない。二つ、ハードとソフトの密結合。ソフトだけ引き抜いても、粗い身体の上では暴走する。三つ、オンボード学習。稼働しながら摩耗と個体差をその場で学び続ける手足には、コードを盗んだだけの相手は——過去のデータしか持てず——追いつけない。</p>
+  <p class="en">Here the position turns. In an earlier essay — <a href="the-manor-and-the-commons.html">"free to farm, but the land is the lord's"</a> — I wrote of the lord who holds the base of the AI stack and the tenant who only tills above. This is a little different. The brain — the base model — and the chips that burn it are, yes, the lord's. But that land cannot be farmed without this hand. A tenant whom the lord <em>needs</em> is not merely a tenant.</p>
+  <p class="ja">ここで、立場が変わる。以前<a href="the-manor-and-the-commons.html">「自由に耕せる、土地は領主のもの」</a>で、AI スタックの底を握る領主と、上で耕すだけの小作人を書いた。今度は、少し違う。脳（基盤モデル）も、それを焼く半導体も、たしかに領主のものだ。けれど、その土地は、この手なしには耕せない。領主が、こちらの手を必要とする——そういう小作人は、ただの小作人ではない。</p>
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 178" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <rect x="120" y="30" width="420" height="40" rx="2" fill="#f5ead8" stroke="#b5832a" stroke-width="1.5"/>
+      <text x="330" y="54" font-size="11.5" text-anchor="middle" fill="#8a6020">the thinking limb — smart parts (Japan)</text>
+      <rect x="120" y="108" width="420" height="40" rx="2" fill="#f7f6f2" stroke="#1a2332" stroke-width="1.3"/>
+      <text x="330" y="132" font-size="11.5" text-anchor="middle" fill="#1a2332">base models · chips — the land (the lord)</text>
+      <g stroke="#1d5c5c" stroke-width="1.4">
+        <line x1="300" y1="72" x2="300" y2="106"/><polygon points="300,70 295,82 305,82" fill="#1d5c5c" stroke="none"/>
+        <line x1="360" y1="106" x2="360" y2="72"/><polygon points="360,108 355,96 365,96" fill="#1d5c5c" stroke="none"/>
+      </g>
+      <text x="330" y="92" font-size="10" text-anchor="middle" fill="#1d5c5c">cannot be farmed without the hand</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 178" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <rect x="120" y="30" width="420" height="40" rx="2" fill="#f5ead8" stroke="#b5832a" stroke-width="1.5"/>
+      <text x="330" y="54" font-size="11.5" text-anchor="middle" fill="#8a6020">考える手足 — 賢い部品（日本）</text>
+      <rect x="120" y="108" width="420" height="40" rx="2" fill="#f7f6f2" stroke="#1a2332" stroke-width="1.3"/>
+      <text x="330" y="132" font-size="11.5" text-anchor="middle" fill="#1a2332">基盤モデル · 半導体 — 土地（領主）</text>
+      <g stroke="#1d5c5c" stroke-width="1.4">
+        <line x1="300" y1="72" x2="300" y2="106"/><polygon points="300,70 295,82 305,82" fill="#1d5c5c" stroke="none"/>
+        <line x1="360" y1="106" x2="360" y2="72"/><polygon points="360,108 355,96 365,96" fill="#1d5c5c" stroke="none"/>
+      </g>
+      <text x="330" y="92" font-size="10" text-anchor="middle" fill="#1d5c5c">土地は、この手なしには耕せない</text>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 3 — The lord owns the land; the hand is indispensable. A tenant the lord needs is not merely a tenant.</span><span class="ja">図3　土地は領主のもの。だが手は不可換。領主が必要とする小作人は、ただの小作人ではない。</span></div>
+  </div>
+
+  <div class="essay-close">
+    <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">5</span><span class="en">But the Limb Must Be Made to Think</span><span class="ja">ただし、手足を、考えさせねば</span></h2>
+    <p class="en">Having stepped in, let me set down, honestly, one reservation. The limb does not think on its own. The tacit knowing in the craftsman's hand must be moved into the edge AI, taught from operating data, and caught before that hand vanishes with age — this "digitizing of the fit" is something we must set in motion ourselves. And we must claw, too, into the science of the brain — the side that builds the world model — so as not to be shut out at the entrance. The hand is there. But turning a mere hand into a thinking limb is, before it is a matter of technology, a matter of choice.</p>
+    <p class="ja">踏み込んだぶん、留保を一つだけ、正直に置く。手足は、放っておいても考えない。職人の手の中の暗黙知を、エッジAI へ移し、稼働データで学ばせ、高齢化でその手が消える前に捉える——この「擦り合わせのデジタル化」を、自分で仕掛けねばならない。そして、脳の科学そのもの——世界モデルを作る側——にも食らいついて、入口で締め出されないこと。腕はある。だが、ただの腕を考える手足に変えるのは、技術である前に、選択だ。</p>
+
+    <p class="en">When AI moves from words to the world, the hard side was always the limbs. Just as Moravec said. And the limbs, far more autonomous than the brain imagines, know the physics on their own.</p>
+    <p class="ja">AI が言葉から世界へ移るとき、難しいのは、いつも手足の側だった。モラベックの言うとおりだ。そして手足は、脳が思うよりずっと自律して、自分で物理を識っている。</p>
+    <p class="en">The craft Japan has hoarded in the depths of its hand is, I think, one of the few stores for building that thinking limb. Even if the brain belongs to another, if the limb is irreplaceable, the winning path is not so narrow. The question is not whether the hand is there. It is whether we will be the ones who turn it into a thinking limb.</p>
+    <p class="ja">日本が手の奥にためた職人芸は、その「考える手足」を作るための、数少ない蓄えだと思う。脳が他人のものでも、手足が不可換なら、勝ち筋は細くない。問いは、腕があるかどうかではない。その腕を、考える手足に変える側に、回れるかどうかだ。</p>
+    <p class="en">So — will we become the limb that, though it cannot be the brain, the brain cannot run without?</p>
+    <p class="ja">さて——私たちは、脳になれなくても、それなしには走れない手足に、なるだろうか。</p>
+
+    <div class="seed-box">
+      <span class="pull-label"><span class="en">The Seed</span><span class="ja">種としての一行</span></span>
+      <span class="en">When AI comes to know the world, the brain does not pilot the limbs — they fit the physics on their own. That thinking limb — materials and devices with edge AI baked in — could be Japan's indispensable moat. The brain owns the land, but it cannot run without the hand.</span>
+      <span class="ja">AI が世界を識る時、脳は手足を操縦しない——手足が自律して物理を擦り合わせる。その「考える手足」（素材・デバイス＋エッジAI）こそ、日本の不可換のモートになりうる。脳は土地を持つが、手足なしには走れない。</span>
+    </div>
+
+    <div class="essay-note">
+      <p><span class="note-num">1.</span><span class="en">The point that an LLM predicts the next token from linguistic statistics and holds no intrinsic model of physics is argued by Yann LeCun and others: trained on text alone, it cannot, from first principles, predict the physical world.</span><span class="ja">LLM は言語統計から次トークンを予測し、物理の内部モデルを持たない——テキストのみで訓練されたものは物理世界を原理から予測できない、という指摘は Yann LeCun ら。</span></p>
+      <p><span class="note-num">2.</span><span class="en">A world model holds the dynamics of an environment internally and simulates the next state. The term traces to Jürgen Schmidhuber, "Making the World Differentiable" (1990), and David Ha &amp; Jürgen Schmidhuber, "World Models" (2018). LeCun's JEPA predicts in an abstract representation space rather than reconstructing pixels; V-JEPA models register "surprise" at physically impossible events (arXiv 2502.11831, 2025).</span><span class="ja">ワールドモデル＝環境の力学を内部に持ち次状態をシミュレートする系。用語は J. Schmidhuber「Making the World Differentiable」(1990)、David Ha &amp; J. Schmidhuber「World Models」(2018)。LeCun の JEPA はピクセル再構成でなく抽象表現で予測し、V-JEPA は物理的に不可能な事象に「驚く」（arXiv 2502.11831, 2025）。</span></p>
+      <p><span class="note-num">3.</span><span class="en">Physical AI: Jensen Huang (NVIDIA) has said "every industrial company will become a robotics company"; the industrial-robot market is projected to grow from roughly $27B (2024) to $235B (2033). Robot foundation models (e.g. NVIDIA's GR00T line) are moving toward a two-layer design — a higher, slower vision-language-planning part and a lower, faster control part — which mirrors the brain-and-limb division of labor used here. Japan has made physical AI a national priority (JST CRDS strategic proposal, FY2025).</span><span class="ja">フィジカルAI: Jensen Huang (NVIDIA)「すべての産業企業がロボティクス企業になる」。産業用ロボ市場は約 $27B(2024)→$235B(2033) と予測。ロボット基盤モデル（例: NVIDIA GR00T 系）は、高位の視覚・言語・計画（ゆっくり）と低位の高速制御（素早く）に分かれる二層設計に向かい、本稿の「脳-手足」分業と符合する。日本は JST CRDS 戦略提言(FY2025)でフィジカルAI を国家重点に。</span></p>
+      <p><span class="note-num">4.</span><span class="en">Morphological computation: Rolf Pfeifer &amp; Josh Bongard, <em>How the Body Shapes the Way We Think</em> (2006), and related work with Iida. The body's form and material take over part of the control computation, lowering the load on the brain ("mechanical intelligence"). Compare N. Bernstein's degrees-of-freedom problem: motor control has too many degrees of freedom for the centre to govern alone, so coordination is delegated. Caveat: the definition and quantification of morphological computation are debated; it is used here as a grounded metaphor, not asserted as settled neuroscience.</span><span class="ja">身体による計算（morphological computation）: Rolf Pfeifer &amp; Josh Bongard『How the Body Shapes the Way We Think』(2006)、Iida らの関連研究。身体の形態・材質が制御計算の一部を肩代わりし、脳の負荷を下げる（「mechanical intelligence」）。N. Bernstein の自由度問題（運動制御は自由度が過大で中枢が単独で全制御できず、協調へ委譲される）も参照。留保: morphological computation の定義・定量には議論があり、本稿は確定した脳科学としてでなく、根拠ある比喩として用いる。</span></p>
+      <p><span class="note-num">5.</span><span class="en">Moravec's paradox: Hans Moravec, <em>Mind Children</em> (1988). Reasoning takes little computation, while perception and motion take enormous amounts; sensorimotor skill is the thick base evolution carved into the body, and reasoning the thin veneer on top.</span><span class="ja">モラベックのパラドックス: Hans Moravec『Mind Children』(1988)。推論はわずかな計算で済むが、知覚と運動は膨大な計算を要する——感覚運動の技能こそ進化が身体に刻んだ厚い土台で、推論はその薄い上澄み。</span></p>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div><span class="en">Essay 010 · June 2026 · when AI comes to know the world</span><span class="ja">Essay 010 · 2026年6月 · AI が、世界を識る時</span></div>
+  <div><a href="../index.html">shun-yanagisawa.com</a> · <a href="../index.html#essays"><span class="en">All essays</span><span class="ja">エッセイ一覧</span></a></div>
+</footer>
+
+<script>
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+}
+if ((navigator.language || '').startsWith('ja')) toggleLang();
+</script>
+</body>
+</html>
