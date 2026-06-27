@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You Were Never the Problem — Shun Yanagisawa</title>
+<meta name="description" content="If your note-taking tools never stuck, it wasn't your discipline. What was missing was the very idea of classification — and a different kind of order.">
+<meta property="og:title" content="You Were Never the Problem — The Order You Don't Maintain">
+<meta property="og:description" content="If your note-taking tools never stuck, it wasn't your discipline. What was missing was the very idea of classification — and a different kind of order.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.shun-yanagisawa.com/essays/the-order-you-dont-maintain.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
+  --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f5ead8;
+  --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
+  --text: #1a1a1a; --text-mid: #3d3d3d; --text-muted: #666666; --border: #ddd9d0;
+  --font-display: 'Playfair Display', 'Noto Serif JP', Georgia, serif;
+  --font-body: 'Source Sans 3', sans-serif;
+  --font-jp: 'Noto Serif JP', serif;
+  --font-mono: 'DM Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--white); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.85; }
+body.lang-en .ja { display: none; }
+body.lang-ja .en { display: none; }
+body.lang-ja { font-family: var(--font-jp); }
+
+nav {
+  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+.nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1.2rem; }
+.nav-back { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--text-muted); text-decoration: none; }
+.nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .35rem .8rem; cursor: pointer; color: var(--text-mid);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
+
+.essay { max-width: 720px; margin: 0 auto; padding: 4rem 1.6rem 5rem; }
+.essay-kicker { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.2rem; }
+h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 500; line-height: 1.3; color: var(--navy); margin-bottom: .8rem; }
+.essay-sub { font-size: 1.02rem; color: var(--text-muted); margin-bottom: 1.4rem; line-height: 1.7; }
+.essay-meta { display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); padding-bottom: 1.6rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.4rem; }
+.essay-meta a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); }
+
+/* 書籍風: 番号付き節見出し (罫線で立てる、太字に頼らない) */
+.essay h2 {
+  font-family: var(--font-display); font-size: 1.22rem; font-weight: 500; color: var(--navy);
+  margin: 2.8rem 0 1rem; padding: .35rem 0 .45rem .9rem;
+  border-left: 3px solid var(--navy); border-bottom: 1px solid var(--border);
+}
+body.lang-ja .essay h2 { font-family: var(--font-jp); font-weight: 500; }
+.essay h2 .hnum { font-family: var(--font-mono); font-size: .85rem; color: var(--teal-dark); margin-right: .7rem; letter-spacing: .05em; }
+
+.essay p { margin: 1.1rem 0; color: var(--text-mid); text-align: justify; }
+.essay a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.4); }
+.essay sup { font-size: .62em; color: var(--teal-dark); vertical-align: super; line-height: 0; }
+
+/* 強調: 太字でなく、日本語=傍点 / 英語=イタリック (書籍の作法) */
+.ja .em { -webkit-text-emphasis: filled dot var(--navy); text-emphasis: filled dot var(--navy); font-style: normal; }
+.en .em { font-style: italic; }
+
+/* 要点ボックス */
+.pull {
+  border: 1px solid var(--gold); background: var(--gold-light);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 1.9rem 0; border-radius: 2px;
+  font-size: 1rem; color: var(--navy); line-height: 1.8; position: relative; text-align: justify;
+}
+.pull .pull-label {
+  position: absolute; top: -0.7rem; left: 1rem; background: var(--white);
+  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em;
+  color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase;
+}
+.pull .term { color: var(--gold-dark); }
+.pull .term-line { display: block; margin: .45rem 0; }
+
+/* 図版 */
+.figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 1.9rem 0; background: var(--white); }
+.figure svg { width: 100%; height: auto; display: block; }
+.figcap {
+  margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); text-align: center;
+}
+body.lang-ja .figcap { font-family: var(--font-jp); font-size: .76rem; }
+
+/* 結語: 種としての一行 */
+.seed-box {
+  border: 1px solid var(--gold); border-left: 4px solid var(--gold);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0 0; border-radius: 2px;
+  font-size: 1.02rem; color: var(--navy); line-height: 1.85; position: relative; text-align: justify;
+}
+.seed-box .pull-label { position: absolute; top: -0.7rem; left: 1rem; background: var(--white); font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase; }
+
+.essay-close { border-top: 2px solid var(--gold); margin-top: 3rem; padding-top: 1.6rem; }
+
+/* 注・出典 */
+.essay-note { margin-top: 2.4rem; padding-top: .9rem; border-top: 1px solid var(--border); font-size: .8rem; color: var(--text-muted); line-height: 1.7; text-align: left; }
+.essay-note a { color: var(--teal-dark); word-break: break-all; }
+.essay-note .note-num { font-family: var(--font-mono); color: var(--teal-dark); margin-right: .4rem; }
+
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
+footer a { color: var(--teal-dark); text-decoration: none; }
+@media (max-width: 560px) { nav { padding: 0 1.2rem; } .essay { padding-top: 2.6rem; } }
+</style>
+</head>
+<body class="lang-en">
+
+<nav>
+  <a class="nav-logo" href="../index.html">Shun <span>Yanagisawa</span></a>
+  <div class="nav-right">
+    <a class="nav-back" href="../index.html#essays"><span class="en">← Essays</span><span class="ja">← エッセイ一覧</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="en">日本語</span><span class="ja">English</span></button>
+  </div>
+</nav>
+
+<article class="essay">
+  <div class="essay-kicker">Essay 011 · Knowledge &amp; Systems</div>
+  <h1>
+    <span class="en">You Were Never the Problem</span>
+    <span class="ja">「使いこなせなかった」のは、あなたのせいではない</span>
+  </h1>
+  <p class="essay-sub">
+    <span class="en">If your note-taking tools never stuck, it wasn't your discipline. What was missing was the very idea of classification — and a different kind of order.</span>
+    <span class="ja">ノートツールが続かなかったのは、整理能力のせいではない。欠けていたのは、分類という考え方そのもの——そして、もう一種類の秩序だった。</span>
+  </p>
+  <div class="essay-meta">
+    <span class="en">June 2026</span>
+    <span class="ja">2026年6月</span>
+    <span class="en">Knowledge &amp; Systems</span>
+    <span class="ja">知識と秩序</span>
+    <span class="en">6 min read</span>
+    <span class="ja">日本語 約6分</span>
+  </div>
+
+  <!-- 導入 -->
+  <p class="en">Many people have installed Notion or Obsidian with genuine enthusiasm. Everyone seems to use them; the promise of a "second brain" is hard to resist. So you collect templates, design a tag hierarchy, start drawing links between notes. Then, after a while, you stall. Time dissolves into organising the organisation itself, and the notes end up just as scattered as before. You conclude: tools like this simply aren't for you.</p>
+  <p class="ja">NotionやObsidianを、意気込んで入れてみた人は多いと思う。流行っているし、できる人はみな使っている。「第二の脳（<em>second brain</em>）になる」という謳い文句もよく聞く。自分も使いこなそうと、テンプレートを集め、タグの体系を考え、リンクを張りはじめる。ところが、しばらくすると手が止まる。整理のための整理に時間が溶け、結局メモはまた散らかっていく。そして、こう思う。自分は、こういうツールに向いていないのだろう、と。</p>
+
+  <p class="en">That conclusion is the wrong one. The argument here is simpler: not you, but the tools themselves are missing one decisive thing. This essay traces that gap in three moves. First, naming the missing piece. Second, examining — with the help of a piece of older research — why any hand-built classification eventually breaks down. Third, arriving at the idea of letting classification <em>emerge</em> from what is written, rather than imposing it from above. A final section places an honest qualification on all of this.</p>
+  <p class="ja">そうではない、というのがこの稿の見立てだ。向いていないのはあなたではなく、ツールの方に、たった一つ、決定的なものが欠けている。本稿はそこを、三つの段でたどる。まず、欠けている一つが何かを名指しする。次に、なぜ手で組む分類が必ず破綻するのかを、少し古い研究を借りて確かめる。そして、分類を人が組むのをやめて、書かれたものから立ち上がらせるという発想に行き着く。最後に、それでも手の作業に残る価値について、正直な留保を置く。</p>
+
+  <!-- ===== 番号節 ===== -->
+
+  <h2><span class="hnum">1</span><span class="en">Markdown is almost comically simple — so what went wrong?</span><span class="ja">マークダウンは、こんなに単純なのに</span></h2>
+  <p class="en">A word about the technology — though this needs no prior knowledge. Under the hood, most of these tools are built on Markdown: a writing format so spare that a heading takes a single symbol and a bullet takes another. Light, honest, readable text.</p>
+  <p class="ja">少し技術の話をする。といっても難しくない。これらのツールの中身は、マークダウンという、とても単純な書式だ。見出しに記号を一つ、箇条書きに記号を一つ。それだけの、軽くて素直なテキストである。</p>
+  <p class="en">Given that simplicity, what remains is straightforward: manage the notes comfortably and display them clearly. That seems like enough. Yet tools that do even this well — that genuinely handle how notes connect, which ones carry more weight, and what belongs alongside what — turn out to be surprisingly rare.</p>
+  <p class="ja">これほど単純なら、あとはそれを気持ちよく管理して、見やすく表示してくれれば、それでいい。そう思うのが自然だ。ところが、その「ただ管理して表示する」ことすら、満足にできるツールが、意外なほど見当たらない。文章と文章をどうつなぐか。どれが重くて、どれが軽いか。そして、何がどの仲間に属するのか。この三つを、ツールはほとんど扱ってくれない。</p>
+  <p class="en">That last question — what belongs alongside what — is called <em>taxonomy</em> in the language of information science. What note-taking tools were missing was precisely this concept. Tools that called themselves organisers had never taken on the backbone of organisation itself.</p>
+  <p class="ja">最後の一つ、何がどの仲間に属するのか、を分類学の言葉で <em>taxonomy</em>（タクソノミ）という。ノートツールに欠けていたのは、この<span class="em">タクソノミ</span>という概念そのものだった。整理の道具を名乗りながら、整理の背骨にあたる考え方を、持っていない。</p>
+
+  <h2><span class="hnum">2</span><span class="en">Why hand-built classification always breaks</span><span class="ja">なぜ、手で分類すると破綻するのか</span></h2>
+  <p class="en">"Just use tags," you might say. Most tools do offer tags or folders. But that only delegates the entire burden of classification back to the user. You design a system up front, decide where each new note belongs, rebuild the whole thing when it outgrows itself. The manual labour cannot keep pace with change.</p>
+  <p class="ja">「タグを付ければいいではないか」と思うかもしれない。実際、たいていのツールはタグやフォルダを用意している。だが、それは分類を全部こちらに丸投げしているだけだ。最初に体系を設計し、新しいメモのたびにどこへ入れるか決め、増えてきたら作り直す。この手作業が、変化に追いつけない。</p>
+  <p class="en">This is not a matter of persistence. The problem goes deeper — to language itself. A 1987 study at Bell Laboratories by Furnas and colleagues asked how people spontaneously name the same thing. The finding: the probability that two people independently choose the same word for the same object is less than one in five — below 20%.<sup>1</sup> In eight cases out of ten, each of us reaches for a different name. Your note from yesterday and the one you write today may well get different tags even though they concern the same idea. Tags assigned by hand are losing from the start against this divergence. Even working alone, you are, in effect, trying to pin consistent labels on a one-person crowd.</p>
+  <p class="ja">それは根気の問題ではない。もっと根の深い、言葉そのものの問題だ。古い研究がひとつある。1987年、ベル研究所のFurnasらが、同じものを人はどう呼ぶかを調べた。結果は、二人の人間が同じ対象に自発的に同じ言葉を選ぶ確率は、五回に一回にも満たない。二割を切る。<sup>1</sup>つまり八割方、私たちは互いに違う名前をつける。きのうの自分と、きょうの自分でさえ、同じメモに違うタグをつける。手で付けるタグは、この食い違いに最初から負けている。一人で使っていても、自分という群衆に向けて、統一の取れない名札を貼り続けているようなものだ。</p>
+  <p class="en">Thinking about it, the collapse is natural. The mind does not come pre-sorted into tidy folders. A single thought touches several subjects at once. Today's classification is tomorrow's wrong answer. A hand-built shelf quickly falls out of step with reality — and so organisation becomes a chore, and the habit doesn't last.</p>
+  <p class="ja">考えてみれば当然で、人間の頭の中は、きれいなフォルダになっていない。一つの思いつきは、いくつもの話題にまたがる。今日の分類は、明日には古くなる。手で組んだ棚は、すぐに現実とずれていく。だから整理が苦行になり、続かない。</p>
+  <p class="en">This breakdown is familiar to many. Something occurs to you. You look into it a little. You write it in a note or a chat window. Then it never gets used, never links to anything else, and sinks to the bottom of a long history. A line that deserved to surface again, never does. Instead of a second brain, you have an external storage room that forgets things as fast as you write them.</p>
+  <p class="ja">この破綻には、見覚えのある人も多いはずだ。何かを思いつく。少し調べる。メモやチャットに書き留める。ところが、それを使い切れず、ほかの考えとつなぎきれないまま、過去の履歴の底に沈んでいく。せっかくの一行が、二度と浮かんでこない。第二の脳どころか、書いた先から忘れていく外付けの物置になっている。</p>
+
+  <!-- Fig. 1 — vocabulary problem -->
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 220" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <!-- Centre: one note -->
+      <rect x="270" y="90" width="120" height="44" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.4"/>
+      <text x="330" y="117" font-size="12" text-anchor="middle" fill="#1a2332">one note</text>
+      <!-- Arrows diverging to labels -->
+      <line x1="270" y1="100" x2="148" y2="52" stroke="#b5832a" stroke-width="1.3"/>
+      <polygon points="145,50 155,52 149,60" fill="#b5832a"/>
+      <line x1="265" y1="112" x2="82" y2="118" stroke="#b5832a" stroke-width="1.3"/>
+      <polygon points="78,118 89,113 89,123" fill="#b5832a"/>
+      <line x1="390" y1="100" x2="512" y2="52" stroke="#1d5c5c" stroke-width="1.3"/>
+      <polygon points="515,50 505,52 511,60" fill="#1d5c5c"/>
+      <line x1="395" y1="112" x2="574" y2="118" stroke="#1d5c5c" stroke-width="1.3"/>
+      <polygon points="578,118 567,113 567,123" fill="#1d5c5c"/>
+      <line x1="330" y1="134" x2="330" y2="168" stroke="#8a6020" stroke-width="1.3"/>
+      <polygon points="330,172 325,162 335,162" fill="#8a6020"/>
+      <!-- Labels: person A -->
+      <rect x="96" y="30" width="64" height="28" rx="2" fill="#e8f2f2" stroke="#1d5c5c"/>
+      <text x="128" y="49" font-size="11" text-anchor="middle" fill="#1d5c5c">"plan"</text>
+      <rect x="30" y="104" width="60" height="28" rx="2" fill="#e8f2f2" stroke="#1d5c5c"/>
+      <text x="60" y="123" font-size="11" text-anchor="middle" fill="#1d5c5c">"idea"</text>
+      <!-- Labels: person B -->
+      <rect x="500" y="30" width="60" height="28" rx="2" fill="#f5ead8" stroke="#b5832a"/>
+      <text x="530" y="49" font-size="11" text-anchor="middle" fill="#8a6020">"todo"</text>
+      <rect x="562" y="104" width="60" height="28" rx="2" fill="#f5ead8" stroke="#b5832a"/>
+      <text x="592" y="123" font-size="11" text-anchor="middle" fill="#8a6020">"note"</text>
+      <!-- Label: even the same person -->
+      <rect x="276" y="172" width="108" height="28" rx="2" fill="#f3f3f0" stroke="#999"/>
+      <text x="330" y="191" font-size="11" text-anchor="middle" fill="#666">"misc"</text>
+      <!-- Small labels for context -->
+      <text x="128" y="22" font-size="9.5" text-anchor="middle" fill="#1d5c5c">person A</text>
+      <text x="592" y="22" font-size="9.5" text-anchor="middle" fill="#8a6020">person B</text>
+      <text x="330" y="210" font-size="9.5" text-anchor="middle" fill="#666">same person, different day</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 220" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <rect x="270" y="90" width="120" height="44" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.4"/>
+      <text x="330" y="117" font-size="12" text-anchor="middle" fill="#1a2332">一つのメモ</text>
+      <line x1="270" y1="100" x2="148" y2="52" stroke="#b5832a" stroke-width="1.3"/>
+      <polygon points="145,50 155,52 149,60" fill="#b5832a"/>
+      <line x1="265" y1="112" x2="82" y2="118" stroke="#b5832a" stroke-width="1.3"/>
+      <polygon points="78,118 89,113 89,123" fill="#b5832a"/>
+      <line x1="390" y1="100" x2="512" y2="52" stroke="#1d5c5c" stroke-width="1.3"/>
+      <polygon points="515,50 505,52 511,60" fill="#1d5c5c"/>
+      <line x1="395" y1="112" x2="574" y2="118" stroke="#1d5c5c" stroke-width="1.3"/>
+      <polygon points="578,118 567,113 567,123" fill="#1d5c5c"/>
+      <line x1="330" y1="134" x2="330" y2="168" stroke="#8a6020" stroke-width="1.3"/>
+      <polygon points="330,172 325,162 335,162" fill="#8a6020"/>
+      <rect x="88" y="30" width="80" height="28" rx="2" fill="#e8f2f2" stroke="#1d5c5c"/>
+      <text x="128" y="49" font-size="11" text-anchor="middle" fill="#1d5c5c">「予定」</text>
+      <rect x="26" y="104" width="72" height="28" rx="2" fill="#e8f2f2" stroke="#1d5c5c"/>
+      <text x="62" y="123" font-size="11" text-anchor="middle" fill="#1d5c5c">「思いつき」</text>
+      <rect x="492" y="30" width="76" height="28" rx="2" fill="#f5ead8" stroke="#b5832a"/>
+      <text x="530" y="49" font-size="11" text-anchor="middle" fill="#8a6020">「メモ」</text>
+      <rect x="556" y="104" width="72" height="28" rx="2" fill="#f5ead8" stroke="#b5832a"/>
+      <text x="592" y="123" font-size="11" text-anchor="middle" fill="#8a6020">「雑」</text>
+      <rect x="272" y="172" width="116" height="28" rx="2" fill="#f3f3f0" stroke="#999"/>
+      <text x="330" y="191" font-size="11" text-anchor="middle" fill="#666">「その他」</text>
+      <text x="128" y="22" font-size="9.5" text-anchor="middle" fill="#1d5c5c">Aさん</text>
+      <text x="592" y="22" font-size="9.5" text-anchor="middle" fill="#8a6020">Bさん</text>
+      <text x="330" y="210" font-size="9.5" text-anchor="middle" fill="#666">同じ人、別の日</text>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 1 — Two people name the same thing the same way less than once in five.</span><span class="ja">図1　同じものに、二人が同じ名前をつける確率は五回に一回未満。</span></div>
+  </div>
+
+  <h2><span class="hnum">3</span><span class="en">Classification can emerge from what is written</span><span class="ja">分類は、書かれたものから立ち上がる</span></h2>
+  <p class="en">So invert the assumption. Instead of building classification by hand, let it emerge from the writing itself. Measure the closeness between notes, draw connections, assign weights, re-form groupings dynamically. Stop building the shelf by hand, and let the shelf reshape itself to fit the notes. Information science has names for different regimes: a fixed hierarchy designed in advance is a <em>taxonomy</em>; the open, user-generated tags of the crowd are a <em>folksonomy</em>. What I am pointing to here is neither — it is a classification that rises, after the fact, from the content itself: emergent classification.</p>
+  <p class="ja">ならば、発想を逆にする。分類を人が組むのではなく、書かれたものから<span class="em">ひとりでに</span>立ち上がらせればいい。文章どうしの近さを測り、関連を引き、重みを付け、仲間を動的に編み直していく。手で棚を作るのをやめ、棚のほうがメモに合わせて形を変える。情報科学では、人が事前に決める固定の階層を <em>taxonomy</em>、群衆が自由に貼るタグの混沌を <em>folksonomy</em> と呼び分けるが、ここで言いたいのはそのどちらでもない。書かれた中身から事後的に立ち上がる、創発する分類のことだ。</p>
+  <p class="en">What changes, concretely? A single note can belong to several groups at the same time — no more forcing each thought into one folder. A line written months ago and forgotten may surface beside today's new thought, unbidden. You no longer go searching; the related material comes to you. The cost of reorganising the shelf disappears, and connections you had yourself forgotten emerge on their own.</p>
+  <p class="ja">具体的には、何が変わるのか。一つのメモが、いくつもの仲間に同時に属せるようになる。タグを一つ選んでどこか一箇所にしまう、という窮屈さがなくなる。そして、何ヶ月も前に書いて忘れていた一行が、今日の思いつきの隣に、向こうから現れる。こちらが検索しに行くのではなく、関連のほうが寄ってくる。棚を組み替える手間が消えるだけでなく、自分でも忘れていたつながりが、勝手に立ち上がってくる。</p>
+  <p class="en">It may sound modest. But tools that actually do this are rarer than one might expect. Most still end up handing the work of classification back to the human. Even the best-known method built around the idea of a "second brain" rests at its core on a set of rules for sorting notes by what action they serve.<sup>2</sup> That is a discipline for tidying the container — not a mechanism for generating meaning from the contents. It was only after building something like this for my own use that I grasped the difference.</p>
+  <p class="ja">地味な話に聞こえるかもしれないが、世に出ているツールに、これは意外なほど無い。多くは結局、人間に分類を背負わせる設計のままだ。「第二の脳」を掲げた代表的な手法でさえ、その中核は、何に使うかという行動の軸でメモを仕分けるルールにとどまる。<sup>2</sup>それは器の整頓術であって、中身から意味を立ち上げる仕組みではない。筆者自身、同じ不満から、自分用にこの仕組みを組んでみて、はじめてそのことに気づいた。</p>
+
+  <h2><span class="hnum">4</span><span class="en">That said — hand-built order is not without value</span><span class="ja">ただし——手で組むことに、価値が無いわけではない</span></h2>
+  <p class="en">One line needs to be drawn here. Ending the argument by casting manual work as the villain would be dishonest.</p>
+  <p class="ja">ここで一つ、線を引いておく。手作業を悪者にして話を終えると、嘘になる。</p>
+  <p class="en">There is a pattern in machine learning known informally as the bitter lesson: the approaches in which experts painstakingly encode the structure of a problem into hand-crafted rules look elegant in the short run, but over time they are consistently overtaken by more general methods that simply use more computation and more data.<sup>3</sup> The yielding of hand-built classification to automatic classification fits within this broader current.</p>
+  <p class="ja">機械学習の世界には、苦い教訓として知られる経験則がある。専門家が手で問題の構造を書き下し、ルールとして組み込むやり方は、短期では精巧に見える。だが長い目で見ると、計算とデータを増やすだけのもっと単純な汎用手法が、必ずそれを上回っていく。<sup>3</sup>手作りの分類が自動の分類に道を譲るのも、この大きな流れの一部だろう。</p>
+  <p class="en">And yet — it is worth pausing here. The act of sorting by hand carries a value apart from efficiency. Working out a tag, hesitating over which shelf to use: that friction resembles what psychologists call the <em>generation effect</em>. People remember what they produced themselves more reliably than what they merely read.<sup>4</sup> When the sociologist Luhmann assembled a vast architecture of thought from ninety thousand handwritten cards, what he was refusing was the imposition of ready-made categories onto nascent thinking. The structure was allowed to rise from the connections between cards, from the ground up.<sup>5</sup> He was, in other words, practising dynamic taxonomy while keeping the friction of the hand. The trade-off between the efficiency of releasing classification and the depth of holding on to it does not go away.</p>
+  <p class="ja">それでも――と、ここで踏みとどまりたい。手で分類する行為そのものには、効率とは別の効能がある。自分でタグを考え、どの棚に入れるか迷うその手間は、心理学でいう生成効果に近い。人は、与えられたものを眺めるより、自分で作り出したものをよく覚える。<sup>4</sup>社会学者ルーマンが、九万枚の手書きカードから巨大な知の体系を立ち上げたとき、彼が拒んだのは、芽生えかけた思考に既成のカテゴリを上から押し付けることだった。構造は、カードとカードのつながりから、下から立ち上がってくる。<sup>5</sup>つまり彼は、手の摩擦を残したまま、動的なタクソノミを実践していた。分類を手放す効率と、手放さない深さ。このトレードオフは、消えない。</p>
+  <p class="en">There is also a domain where automatic classification simply does not apply. In industries such as pharmaceuticals or manufacturing — where documents must be controlled with rigour, and every change tracked by who made it and when — a light text layer that can be quietly rewritten is not a foundation but a liability. Immutable, auditable records are required. "Classification can be automatic" is not a prescription for every situation. Where precision is paramount, different tools are called for.</p>
+  <p class="ja">もう一つ、自動分類が向かない世界もある。医薬や製造のように、文書を厳密に管理し、誰がいつ何を変えたかをすべて追える状態が求められる業種では、話が違う。そこでは、後から書き換えられてしまう軽いテキストを土台にすること自体が、そもそもリスクになる。改ざんできない、固い記録が要る。だから「分類は自動でいい」は、あらゆる場面の処方ではない。厳密さが命の現場には、別の道具がある。</p>
+
+  <!-- ===== 最終節 (essay-close) ===== -->
+  <div class="essay-close">
+    <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">5</span><span class="en">There are two kinds of order</span><span class="ja">秩序には、二種類ある</span></h2>
+    <p class="en">What this essay is really about is the broader terrain behind classification — where the stakes are everyday and the demands are modest: a passing thought, a phrase jotted in the margin of a message, a question raised in a meeting that no one recorded. None of this needs rigorous auditing. What it needs is simply not to be lost. In an age when content can be generated at scale, what grows scarce is not content but the structure that holds it — the capacity to decide what goes where, in what order, at what depth.<sup>6</sup></p>
+    <p class="ja">この稿が言いたいのは、その手前の、もっと広い領域のことだ。ふと浮かんで消える着想。メールの隅に書き散らした一行。会議で口にして、もう忘れている問い。これらは厳密な監査など要らない代わりに、いまどこにも整理されずに散らばっている。内容なら、機械がいくらでも生み出せる時代だ。希少なのは内容ではなく、それを置く構造のほうだろう。<sup>6</sup></p>
+    <p class="en">Seen from here, something more general comes into view behind the word "classification." There are two kinds of order. The first is <em>imposed</em> order — order that must be built and then continuously maintained. Folders, tags, org charts: all fall into this category. From the moment of creation they begin to drift from reality, and neglect makes them collapse. It is a fight against entropy that humans must keep up indefinitely. Most eventually run out of energy. The second is order that <em>emerges</em> from the material and holds its own shape. When content grows, the relationships reorganise themselves. The structure stays tidy without anyone tending it. Of the two, only the latter endures.</p>
+    <p class="ja">ここまで来ると、分類という言葉の奥に、もっと一般的なものが見えてくる。秩序には、二種類ある。一つは、人が<span class="em">押し付けて</span>、維持し続けねばならない秩序。フォルダもタグも組織図もこれで、作った瞬間から現実とずれはじめ、手入れを怠れば崩れていく。エントロピーを相手に、人がずっと棚を直し続ける。たいてい、どこかで力尽きる。もう一つは、素材のほうから<span class="em">立ち上がって</span>、自分で形を保つ秩序だ。中身が増えれば、関係のほうが編み直される。人が維持しなくても、勝手に整っていく。長く続くのは、後者だけだ。</p>
+
+    <!-- Fig. 2 — two kinds of order -->
+    <div class="figure">
+      <svg class="en" viewBox="0 0 660 220" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+        <!-- Left: imposed order — cracking grid -->
+        <text x="160" y="24" font-size="12" text-anchor="middle" fill="#1a2332">Imposed order</text>
+        <text x="160" y="40" font-size="9.5" text-anchor="middle" fill="#666">maintained by hand</text>
+        <!-- Grid cells, some with cracks/dashes -->
+        <rect x="50" y="52" width="60" height="44" rx="1" fill="#f3f3f0" stroke="#1a2332" stroke-width="1.2"/>
+        <rect x="116" y="52" width="60" height="44" rx="1" fill="#f3f3f0" stroke="#1a2332" stroke-width="1.2"/>
+        <rect x="182" y="52" width="60" height="44" rx="1" fill="#f3f3f0" stroke="#1a2332" stroke-width="1.2" stroke-dasharray="4 2"/>
+        <rect x="50" y="102" width="60" height="44" rx="1" fill="#f3f3f0" stroke="#1a2332" stroke-width="1.2" stroke-dasharray="4 2"/>
+        <rect x="116" y="102" width="60" height="44" rx="1" fill="#f3f3f0" stroke="#1a2332" stroke-width="1.2"/>
+        <rect x="182" y="102" width="60" height="44" rx="1" fill="#f3f3f0" stroke="#1a2332" stroke-width="1.2" stroke-dasharray="4 2"/>
+        <rect x="50" y="152" width="60" height="44" rx="1" fill="#f3f3f0" stroke="#1a2332" stroke-width="1.2" stroke-dasharray="4 2"/>
+        <rect x="116" y="152" width="60" height="44" rx="1" fill="#f3f3f0" stroke="#1a2332" stroke-width="1.2"/>
+        <rect x="182" y="152" width="60" height="44" rx="1" fill="#f3f3f0" stroke="#1a2332" stroke-width="1.2"/>
+        <!-- Crack lines suggesting breakdown -->
+        <line x1="200" y1="60" x2="220" y2="80" stroke="#a3514c" stroke-width="1.1" stroke-dasharray="3 2"/>
+        <line x1="60" y1="108" x2="86" y2="128" stroke="#a3514c" stroke-width="1.1" stroke-dasharray="3 2"/>
+        <line x1="130" y1="158" x2="160" y2="175" stroke="#a3514c" stroke-width="1.1" stroke-dasharray="3 2"/>
+        <text x="160" y="210" font-size="9.5" text-anchor="middle" fill="#a3514c">decays without tending</text>
+        <!-- Gold arrow in centre -->
+        <line x1="310" y1="110" x2="350" y2="110" stroke="#b5832a" stroke-width="2"/>
+        <polygon points="354,110 344,104 344,116" fill="#b5832a"/>
+        <!-- Right: emergent order — network of nodes -->
+        <text x="500" y="24" font-size="12" text-anchor="middle" fill="#1d5c5c">Emergent order</text>
+        <text x="500" y="40" font-size="9.5" text-anchor="middle" fill="#1d5c5c">keeps its own shape</text>
+        <!-- Nodes and connections -->
+        <circle cx="500" cy="110" r="7" fill="#1d5c5c"/>
+        <circle cx="440" cy="76" r="5.5" fill="#2a7a7a"/>
+        <circle cx="560" cy="76" r="5.5" fill="#2a7a7a"/>
+        <circle cx="420" cy="130" r="5.5" fill="#2a7a7a"/>
+        <circle cx="580" cy="130" r="5.5" fill="#2a7a7a"/>
+        <circle cx="450" cy="168" r="5.5" fill="#2a7a7a"/>
+        <circle cx="550" cy="168" r="5.5" fill="#2a7a7a"/>
+        <circle cx="500" cy="78" r="4" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1"/>
+        <!-- Lines between nodes -->
+        <line x1="500" y1="110" x2="440" y2="76" stroke="#1d5c5c" stroke-width="1.1" opacity="0.7"/>
+        <line x1="500" y1="110" x2="560" y2="76" stroke="#1d5c5c" stroke-width="1.1" opacity="0.7"/>
+        <line x1="500" y1="110" x2="420" y2="130" stroke="#1d5c5c" stroke-width="1.1" opacity="0.7"/>
+        <line x1="500" y1="110" x2="580" y2="130" stroke="#1d5c5c" stroke-width="1.1" opacity="0.7"/>
+        <line x1="500" y1="110" x2="450" y2="168" stroke="#1d5c5c" stroke-width="1.1" opacity="0.7"/>
+        <line x1="500" y1="110" x2="550" y2="168" stroke="#1d5c5c" stroke-width="1.1" opacity="0.7"/>
+        <line x1="440" y1="76" x2="560" y2="76" stroke="#1d5c5c" stroke-width="0.8" opacity="0.4"/>
+        <line x1="420" y1="130" x2="450" y2="168" stroke="#1d5c5c" stroke-width="0.8" opacity="0.4"/>
+        <line x1="580" y1="130" x2="550" y2="168" stroke="#1d5c5c" stroke-width="0.8" opacity="0.4"/>
+        <line x1="440" y1="76" x2="420" y2="130" stroke="#1d5c5c" stroke-width="0.8" opacity="0.4"/>
+        <line x1="500" y1="110" x2="500" y2="78" stroke="#1d5c5c" stroke-width="0.8" opacity="0.4"/>
+        <text x="500" y="210" font-size="9.5" text-anchor="middle" fill="#1d5c5c">self-organising</text>
+      </svg>
+      <svg class="ja" viewBox="0 0 660 220" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+        <text x="160" y="24" font-size="12" text-anchor="middle" fill="#1a2332">押し付ける秩序</text>
+        <text x="160" y="40" font-size="9.5" text-anchor="middle" fill="#666">人が維持し続ける</text>
+        <rect x="50" y="52" width="60" height="44" rx="1" fill="#f3f3f0" stroke="#1a2332" stroke-width="1.2"/>
+        <rect x="116" y="52" width="60" height="44" rx="1" fill="#f3f3f0" stroke="#1a2332" stroke-width="1.2"/>
+        <rect x="182" y="52" width="60" height="44" rx="1" fill="#f3f3f0" stroke="#1a2332" stroke-width="1.2" stroke-dasharray="4 2"/>
+        <rect x="50" y="102" width="60" height="44" rx="1" fill="#f3f3f0" stroke="#1a2332" stroke-width="1.2" stroke-dasharray="4 2"/>
+        <rect x="116" y="102" width="60" height="44" rx="1" fill="#f3f3f0" stroke="#1a2332" stroke-width="1.2"/>
+        <rect x="182" y="102" width="60" height="44" rx="1" fill="#f3f3f0" stroke="#1a2332" stroke-width="1.2" stroke-dasharray="4 2"/>
+        <rect x="50" y="152" width="60" height="44" rx="1" fill="#f3f3f0" stroke="#1a2332" stroke-width="1.2" stroke-dasharray="4 2"/>
+        <rect x="116" y="152" width="60" height="44" rx="1" fill="#f3f3f0" stroke="#1a2332" stroke-width="1.2"/>
+        <rect x="182" y="152" width="60" height="44" rx="1" fill="#f3f3f0" stroke="#1a2332" stroke-width="1.2"/>
+        <line x1="200" y1="60" x2="220" y2="80" stroke="#a3514c" stroke-width="1.1" stroke-dasharray="3 2"/>
+        <line x1="60" y1="108" x2="86" y2="128" stroke="#a3514c" stroke-width="1.1" stroke-dasharray="3 2"/>
+        <line x1="130" y1="158" x2="160" y2="175" stroke="#a3514c" stroke-width="1.1" stroke-dasharray="3 2"/>
+        <text x="160" y="210" font-size="9.5" text-anchor="middle" fill="#a3514c">手入れをやめると崩れる</text>
+        <line x1="310" y1="110" x2="350" y2="110" stroke="#b5832a" stroke-width="2"/>
+        <polygon points="354,110 344,104 344,116" fill="#b5832a"/>
+        <text x="500" y="24" font-size="12" text-anchor="middle" fill="#1d5c5c">立ち上がる秩序</text>
+        <text x="500" y="40" font-size="9.5" text-anchor="middle" fill="#1d5c5c">自分で形を保つ</text>
+        <circle cx="500" cy="110" r="7" fill="#1d5c5c"/>
+        <circle cx="440" cy="76" r="5.5" fill="#2a7a7a"/>
+        <circle cx="560" cy="76" r="5.5" fill="#2a7a7a"/>
+        <circle cx="420" cy="130" r="5.5" fill="#2a7a7a"/>
+        <circle cx="580" cy="130" r="5.5" fill="#2a7a7a"/>
+        <circle cx="450" cy="168" r="5.5" fill="#2a7a7a"/>
+        <circle cx="550" cy="168" r="5.5" fill="#2a7a7a"/>
+        <circle cx="500" cy="78" r="4" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1"/>
+        <line x1="500" y1="110" x2="440" y2="76" stroke="#1d5c5c" stroke-width="1.1" opacity="0.7"/>
+        <line x1="500" y1="110" x2="560" y2="76" stroke="#1d5c5c" stroke-width="1.1" opacity="0.7"/>
+        <line x1="500" y1="110" x2="420" y2="130" stroke="#1d5c5c" stroke-width="1.1" opacity="0.7"/>
+        <line x1="500" y1="110" x2="580" y2="130" stroke="#1d5c5c" stroke-width="1.1" opacity="0.7"/>
+        <line x1="500" y1="110" x2="450" y2="168" stroke="#1d5c5c" stroke-width="1.1" opacity="0.7"/>
+        <line x1="500" y1="110" x2="550" y2="168" stroke="#1d5c5c" stroke-width="1.1" opacity="0.7"/>
+        <line x1="440" y1="76" x2="560" y2="76" stroke="#1d5c5c" stroke-width="0.8" opacity="0.4"/>
+        <line x1="420" y1="130" x2="450" y2="168" stroke="#1d5c5c" stroke-width="0.8" opacity="0.4"/>
+        <line x1="580" y1="130" x2="550" y2="168" stroke="#1d5c5c" stroke-width="0.8" opacity="0.4"/>
+        <line x1="440" y1="76" x2="420" y2="130" stroke="#1d5c5c" stroke-width="0.8" opacity="0.4"/>
+        <line x1="500" y1="110" x2="500" y2="78" stroke="#1d5c5c" stroke-width="0.8" opacity="0.4"/>
+        <text x="500" y="210" font-size="9.5" text-anchor="middle" fill="#1d5c5c">自律的に整う</text>
+      </svg>
+      <div class="figcap"><span class="en">Fig. 2 — Order you must maintain decays; order that emerges keeps itself.</span><span class="ja">図2　維持し続ける秩序は崩れ、立ち上がる秩序は自分を保つ。</span></div>
+    </div>
+
+    <p class="en">The real meaning of "second brain" probably lies here — not in writing a great deal, not in looking tidy. It lies in having something else shoulder the organising, and in having connections you had yourself forgotten offered back to you. Not a repository, but a structure that grows on its own.</p>
+    <p class="ja">「第二の脳」という言葉の、ほんとうの正体は、たぶんそこにある。たくさん書けることでも、きれいに見えることでもない。整理を肩代わりし、自分でも忘れていたつながりを、向こうから差し出してくれること。保管庫ではなく、ひとりでに育つ構造のことだ。</p>
+    <p class="en">And when the work of tending the shelf is no longer yours, the mind clears. What opens up in that space are the tasks that cannot be delegated to a machine: which things to connect to which, what to include and what to leave out, at what depth to think. Being freed from organising is not idleness. It is moving upstream in the work of thought.</p>
+    <p class="ja">そして、棚を直す係をやめられたとき、人の頭は空く。空いたぶんを、機械には肩代わりできない仕事――どれとどれをつなぐか、何を載せ何を捨てるか、どの深さで考えるか――に回せる。整理から解放されることは、暇になることではない。考えることの、もっと上流へ登ることだ。</p>
+    <p class="en">How to impose order on something complex, shifting, and prone to scatter if left alone — this, it turns out, is a question I have long carried in a different context, working on the infrastructure of markets. The thing being sorted there is not a stack of personal notes but something else entirely. The shape of the question, though, is the same. Order is not something you clamp onto things from outside. It is something you allow to rise from the relationships within — and then let hold itself. That habit of mind seems to work equally well in markets and in one's own head.</p>
+    <p class="ja">複雑で、移ろい、放っておけば散らかっていくものに、どうやって秩序を与えるか。実をいうと、これは私が長く市場のインフラで考えてきた問いと、同じ形をしている。違うのは、扱うのが取引の山ではなく、自分の頭の中だということだけだ。秩序は、外から固い箱を被せて与えるものではなく、中身どうしの関係から立ち上がらせ、自分で保たせるもの――そう考える癖は、市場でも、頭の中でも、たぶん同じだけ効く。</p>
+    <p class="en">The note-taking tools you could never make stick were not exposing a failure in how you organise. They were exposing a failure in how they were designed — one that left all the organising to the human side. So: when the order that sustains itself finally arrives, what will we use the freed-up mind to think about?</p>
+    <p class="ja">ノートツールを使いこなせなかったのは、あなたの整理能力の問題ではなかった。整理を、ぜんぶ人間の側に押し付けていた設計の問題だった。では――維持しなくても保たれる秩序を手にしたとき、私たちは浮いた時間を、何を考えることに使うのだろうか。</p>
+
+    <div class="seed-box">
+      <span class="pull-label"><span class="en">The Seed</span><span class="ja">種としての一行</span></span>
+      <span class="en">There are two kinds of order: order imposed and maintained by hand, and order that emerges and holds its own shape. Only the latter endures.</span>
+      <span class="ja">秩序には二種類ある。押し付けて維持し続ける秩序と、立ち上がって自分で保つ秩序。続くのは、後者だけだ。</span>
+    </div>
+
+    <div class="essay-note">
+      <p><span class="note-num">1.</span><span class="en">Furnas, G. W., Landauer, T. K., Gomez, L. M., &amp; Dumais, S. T. (1987). "The vocabulary problem in human-system communication." <em>Communications of the ACM</em>, 30(11), 964–971. Across five domains, the probability that two people independently choose the same word for the same object was below 0.20.</span><span class="ja">Furnas, G. W., Landauer, T. K., Gomez, L. M., &amp; Dumais, S. T.（1987）「The vocabulary problem in human-system communication」<em>Communications of the ACM</em>, 30(11), 964–971. 五つの領域で、二人が同一対象に自発的に同じ語を選ぶ確率は0.20未満。</span></p>
+      <p><span class="note-num">2.</span><span class="en">Forte, T. (2022). <em>Building a Second Brain</em>. Simon &amp; Schuster. The core method, PARA (Projects / Areas / Resources / Archives), organises notes by the action they serve — a sorting rule, not a mechanism for generating meaning from content.</span><span class="ja">Forte, T.（2022）. <em>Building a Second Brain</em>. Simon &amp; Schuster. 中核の PARA 法（Projects / Areas / Resources / Archives）は行動軸での仕分けであり、内容からの分類創発ではない。</span></p>
+      <p><span class="note-num">3.</span><span class="en">Sutton, R. (2019). "The Bitter Lesson." Hand-crafted structure, however refined, is consistently overtaken over time by general methods that simply scale computation and data. Essay-level generalisation; the original argument is framed within AI research.</span><span class="ja">Sutton, R.（2019）「The Bitter Lesson」。手作業で構造を作り込む手法は、計算とデータを増やす汎用手法に長期では及ばないという経験則。原典は AI 研究の文脈。</span></p>
+      <p><span class="note-num">4.</span><span class="en">Slamecka, N. J., &amp; Graf, P. (1978). The generation effect: items that a person actively produces are remembered more reliably than items passively read — later meta-analyses place the effect size at approximately <em>d</em> ≈ 0.40.</span><span class="ja">Slamecka, N. J., &amp; Graf, P.（1978）. 生成効果（generation effect）。自ら生成した項目は受動的に読んだ項目より記憶されやすい（後年のメタ分析で効果量 <em>d</em> ≈ 0.40）。</span></p>
+      <p><span class="note-num">5.</span><span class="en">Luhmann, N. Zettelkasten (card index). Approximately ninety thousand handwritten cards linked by cross-references, allowing structure to emerge from the connections between cards rather than being imposed from above.</span><span class="ja">Luhmann, N. のツェッテルカステン（card index）。約9万枚の手書きカードを相互リンクで運用し、構造を上から与えず下から創発させた方法。</span></p>
+      <p><span class="note-num">6.</span><span class="en">From the author's own seeds. In an age when content can be generated at scale, what grows scarce is not content itself but the structure that holds it — what to include, in what order, and at what depth.</span><span class="ja">自種より。AI が内容を無限に生成できる時代、希少なのは内容ではなく構造（何を載せ、どの順で、どの深さで扱うか）であるという観察。</span></p>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div><span class="en">Essay 011 · June 2026 · Handing the filing back to the machine</span><span class="ja">Essay 011 · 2026年6月 · 整理を、機械の側へ</span></div>
+  <div><a href="../index.html">shun-yanagisawa.com</a> · <a href="../index.html#essays"><span class="en">All essays</span><span class="ja">エッセイ一覧</span></a></div>
+</footer>
+
+<script>
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+}
+if ((navigator.language || '').startsWith('ja')) toggleLang();
+</script>
+</body>
+</html>
