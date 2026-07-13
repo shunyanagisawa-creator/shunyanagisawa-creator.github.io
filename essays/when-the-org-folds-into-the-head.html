@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When the Organization Folds Into the Mind — Shun Yanagisawa</title>
+<meta name="description" content="I governed my own AI development like a human company — six roles, reports, an advisory board. Then a smarter model made the organization disappear. What vanished, and what remained.">
+<meta property="og:title" content="When the Organization Folds Into the Mind">
+<meta property="og:description" content="I governed my own AI development like a human company. A smarter model folded it into a single head. Which parts of organizational design are a prosthetic for weak intelligence, and which are physics?">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.shun-yanagisawa.com/essays/when-the-org-folds-into-the-head.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
+  --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f5ead8;
+  --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
+  --text: #1a1a1a; --text-mid: #33383f; --text-muted: #3d4148; --border: #ddd9d0;
+  --font-display: 'Playfair Display', 'Noto Serif JP', Georgia, serif;
+  --font-body: 'Source Sans 3', sans-serif;
+  --font-jp: 'Noto Serif JP', serif;
+  --font-mono: 'DM Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--white); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.85; }
+body.lang-en .ja { display: none; }
+body.lang-ja .en { display: none; }
+body.lang-ja { font-family: var(--font-jp); }
+
+nav {
+  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+.nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1.2rem; }
+.nav-back { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--text-muted); text-decoration: none; }
+.nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .35rem .8rem; cursor: pointer; color: var(--text-mid);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
+
+.essay { max-width: 720px; margin: 0 auto; padding: 4rem 1.6rem 5rem; }
+.essay-kicker { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.2rem; }
+h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 500; line-height: 1.3; color: var(--navy); margin-bottom: .8rem; }
+.essay-sub { font-size: 1.02rem; color: var(--text-muted); margin-bottom: 1.4rem; line-height: 1.7; }
+.essay-meta { display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); padding-bottom: 1.6rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.4rem; }
+.essay-meta a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); }
+
+.essay h2 {
+  font-family: var(--font-display); font-size: 1.22rem; font-weight: 500; color: var(--navy);
+  margin: 2.8rem 0 1rem; padding: .35rem 0 .45rem .9rem;
+  border-left: 3px solid var(--navy); border-bottom: 1px solid var(--border);
+}
+body.lang-ja .essay h2 { font-family: var(--font-jp); font-weight: 500; }
+.essay h2 .hnum { font-family: var(--font-mono); font-size: .85rem; color: var(--teal-dark); margin-right: .7rem; letter-spacing: .05em; }
+
+.essay p { margin: 1.1rem 0; color: var(--text-mid); text-align: justify; }
+.essay a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.4); }
+.essay sup { font-size: .66em; color: var(--teal-dark); font-family: var(--font-mono); padding: 0 .1em; }
+
+.ja .em { -webkit-text-emphasis: filled dot var(--navy); text-emphasis: filled dot var(--navy); font-style: normal; }
+.en .em { font-style: italic; }
+
+.pull {
+  border: 1px solid var(--gold); background: var(--gold-light);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 1.9rem 0; border-radius: 2px;
+  font-size: 1rem; color: var(--navy); line-height: 1.8; position: relative; text-align: justify;
+}
+.pull .pull-label {
+  position: absolute; top: -0.7rem; left: 1rem; background: var(--white);
+  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em;
+  color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase;
+}
+
+.figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 1.9rem 0; background: var(--white); }
+.figure svg { width: 100%; height: auto; display: block; }
+.figcap {
+  margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 1.6;
+}
+body.lang-ja .figcap { font-family: var(--font-jp); font-size: .76rem; }
+
+.seed-box {
+  border: 1px solid var(--gold); border-left: 4px solid var(--gold);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0 0; border-radius: 2px;
+  font-size: 1.02rem; color: var(--navy); line-height: 1.85; position: relative; text-align: justify;
+}
+.seed-box .pull-label { position: absolute; top: -0.7rem; left: 1rem; background: var(--white); font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase; }
+
+.essay-close { border-top: 2px solid var(--gold); margin-top: 3rem; padding-top: 1.6rem; }
+
+.essay-note { margin-top: 2.6rem; padding-top: 1.2rem; border-top: 1px solid var(--border); font-size: .8rem; line-height: 1.7; color: var(--text-muted); }
+.essay-note .note-label { display: block; font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .7rem; }
+.essay-note ol { margin: 0; padding-left: 1.5rem; }
+.essay-note li { margin: .5rem 0; }
+.essay-note em { font-style: italic; }
+
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
+footer a { color: var(--teal-dark); text-decoration: none; }
+@media (max-width: 560px) { nav { padding: 0 1.2rem; } .essay { padding-top: 2.6rem; } }
+</style>
+</head>
+<body class="lang-en">
+
+<nav>
+  <a class="nav-logo" href="../index.html">Shun <span>Yanagisawa</span></a>
+  <div class="nav-right">
+    <a class="nav-back" href="../index.html#essays"><span class="en">← Essays</span><span class="ja">← エッセイ一覧</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="en">日本語</span><span class="ja">English</span></button>
+  </div>
+</nav>
+
+<article class="essay">
+  <div class="essay-kicker">Essay 012 · AI &amp; Organizations</div>
+  <h1>
+    <span class="en">When the Organization Folds Into the Mind</span>
+    <span class="ja">組織は知能の関数だった</span>
+  </h1>
+  <p class="essay-sub">
+    <span class="en">I governed my own AI development as if it were a human company — six roles, a written chain of reports, an advisory board. When I redid the same work with a smarter model, that organization disappeared. What vanished, and what remained.</span>
+    <span class="ja">私は自分の AI 開発を、人間の会社組織そっくりに統治していた。六つの役割に分け、報連相の書面連鎖で回した。賢くなったモデルで同じ仕事をやり直したら、その組織は消えた。何が消え、何が残ったか。</span>
+  </p>
+  <div class="essay-meta">
+    <span class="en">July 2026</span><span class="ja">2026年7月</span>
+    <span class="en">AI &amp; Organizations</span><span class="ja">AI と組織</span>
+    <span class="en">12 min read</span><span class="ja">日本語 約12分</span>
+  </div>
+
+  <p class="en">From the spring into the summer of last year, I was building something strange: a system that governed my own AI development exactly as one would govern a human company. Its skeleton was made of two templates you hear about in any firm. PDCA — plan, do, check, act — and what the Japanese call <em>ho-ren-so</em>, the disciplined habit of reporting, informing, and consulting. One member to write the planning and design, one to implement, one to inspect and ship, one to read each week's failures and compress them into lessons, one to advise like a board director, and one to keep watch over the organization itself. I split the work into six roles and chained handoffs, inspection results, and rulings together on paper. I even gave it a mandala-like insignia, and ran it like one small company.</p>
+  <p class="ja">去年の春から夏にかけて、私は奇妙なものを作っていた。自分の AI 開発を、人間の会社組織そっくりに統治する仕組みである。骨格は、どの会社でも聞く二つの型でできていた。PDCA——計画し、実行し、検査し、改善する——と、報連相。企画と設計を書く者、実装する者、検査して世に出す者、失敗を毎週読んで教訓に圧縮する者、取締役のように諮問する者、そしてその組織自身を見張る者。六つの役割に分け、引き継ぎ書と検査結果と裁定を、書面で連鎖させた。曼荼羅めいた意匠まで与えて、ひとつの小さな会社のように運用した。</p>
+
+  <p class="en">And last month, I folded it up.</p>
+  <p class="ja">そして先月、それを畳んだ。</p>
+
+  <p class="en">Before folding it, I measured it properly, just once. I stripped the organization away entirely and had the same work done without it. The result surprised even me. Quality barely dropped, time fell by almost half, and cost came down by sixty percent. The failures the organization was supposed to be preventing never once occurred, even with it gone.</p>
+  <p class="ja">畳む前に、一度だけきちんと測った。組織をまるごと外して、同じ仕事をやらせてみたのである。結果は自分でも意外だった。品質はほとんど落ちず、時間は半分近く、費用は六割減った。組織が防いでいるはずだった失敗は、外しても一度も起きなかった。</p>
+
+  <p class="en">This essay follows what happened in three movements. First, why I bothered to wrap a weak intelligence in an organization at all — the economics of the division of labor. Then, what happened when I removed the organization — the numbers from the reverse experiment. And finally, the four things that survived anyway; this is the heart of it. Which parts of the organizational design were a prosthetic for insufficient intelligence, and which were coping with constraints that have nothing to do with intelligence and everything to do with something closer to physics. It is a story about telling those two apart.</p>
+  <p class="ja">本稿はその顛末を、三つの順でたどる。まず、なぜ弱い知能をわざわざ組織で包んだのか（分業の経済学）。次に、組織を外して何が起きたか（逆実験の数字）。最後に、それでも消えずに残った四つのもの——これが芯だ。組織設計のうち、どこが〈知能が足りないことへの補装具〉で、どこが〈知能とは関係のない、物理に近い制約への対処〉だったのか。その切り分けの話である。</p>
+
+  <h2><span class="hnum">1</span><span class="en">Why I Built a Company</span><span class="ja">なぜ会社を建てたのか</span></h2>
+
+  <p class="en">Let me set one thing straight at the outset: this is not the story of a system that failed. The models of the time — an older generation of ChatGPT, the Sonnet before last — dropped things when left to work alone. They confused roles, amplified their own errors, fell into endless loops of fixing and breaking, and reached into places no one had asked them to touch. I compensated for those limits with organizational structure. And it genuinely worked. That is an important premise to hold onto.</p>
+  <p class="ja">はじめに断っておくと、これは失敗した仕組みの話ではない。当時のモデル——古い世代の ChatGPT や、一つ前の Sonnet——は、単体では取りこぼした。役割を混同し、誤りを増幅し、直しては壊す無限ループに入り、頼んでもいないところまで手を広げた。その制約を、私は組織構造で補った。そして実際に機能した。ここは大事な前提である。</p>
+
+  <p class="en">Its origins began from a perfectly natural need. At first there were two: one to write the planning and design, and one to implement. Plan and Do. But with only two, inspection could never get a foothold. The one who writes and the one who implements cannot verify each other's work from the inside — a person cannot grade his own exam. So I slid an inspector in between them. Plan, do, check, act: PDCA. From there the division of labor kept growing. In the end it became a company of six: Writer for planning, Code for implementation, Inspector for checking, Cleaner to fold each week's failures into lessons, Strategist to advise like a board director, and Audit to keep watch over the organization itself. The passing of information — a chain of handoffs, inspection results, and rulings — was, in essence, <em>ho-ren-so</em> itself.</p>
+  <p class="ja">生い立ちは、ごく自然な必要から始まった。最初は二人だった。企画と設計を書く者と、実装する者。計画と実行、Plan と Do である。ところが二人では、どうしても検査が入らない。書いた本人と実装した本人が、互いの仕事を内側から確かめ合うことはできない——人は自分の答案を自分で採点できない。そこに検査役を割り込ませた。計画・実行・検査・改善、いわゆる PDCA である。そこから分業は増えていった。最終的には、企画の Writer、実装の Code、検査の Inspector、失敗を毎週畳んで教訓にする Cleaner、取締役のように諮問する Strategist、そしてその組織自身を見張る Audit——六人の会社になった。情報の受け渡しは、引き継ぎ書と検査結果と裁定の連鎖、要するに報連相そのものだった。</p>
+
+  <p class="en">Come to think of it, this is also a reworking of something economics has been saying for more than two centuries. When Adam Smith drew on the pin factory to discuss the division of labor, what he counted was this: split the process into eighteen steps and divide it among ten workers, and they could make forty-eight thousand pins in a day<sup>1</sup>. Alone, a single one is doubtful. The division of labor is delivered by practice, by the savings from not switching tasks, and by simplification. It is a technique for making a weak maker strong through structure.</p>
+  <p class="ja">考えてみれば、これは経済学が二百年以上前から言ってきたことの焼き直しでもある。アダム・スミスがピン工場を引いて分業を論じたとき、彼が数えたのは、工程を十八に割って十人で分担すると一日四万八千本のピンが作れる、という話だった<sup>1</sup>。ひとりなら一本も危うい。分業は、習熟と、切り替えの節約と、単純化がもたらす。弱い作り手を、構造で強くする技術である。</p>
+
+  <p class="en">So why bother putting that division of labor into the vessel we call a "company"? That was precisely the question Ronald Coase posed in 1937. If the market's price mechanism is so efficient, why do we need organizations that move people by command at all? His answer was that using the market has costs of its own. Searching, negotiating, contracting, monitoring — when those coordination costs run high, it is cheaper to substitute an internal chain of command. And so a firm expands right up to the point where the cost of organizing one more task internally equals the cost of doing it through the market<sup>2</sup>. My six expanded by exactly this logic. Let a weak model run free, and the coordination costs — the rework of errors, the drift in direction — run high. So I fenced it in with roles and procedures and inspection, and set it on a chain of command. An organization is a device for folding coordination costs inward.</p>
+  <p class="ja">では、なぜその分業を、わざわざ「会社」という器に入れるのか。ロナルド・コースが一九三七年に立てた問いがそれだった。市場の価格機構がそれほど効率的なら、なぜ命令で人を動かす組織などが要るのか。答えは、市場を使うにも費用がかかるから、というものだった。探し、交渉し、契約し、監視する——その調整の費用が高くつくとき、内部の命令系統で代替したほうが安い。だから企業は、追加のひと仕事を内部で組織する費用が、それを市場でやる費用と等しくなるところまで膨らむ<sup>2</sup>。私の六人も、まさにこの論理で膨らんだ。弱いモデルに自由にやらせると、誤りの手戻りや方向のぶれという調整費用が高くつく。だから役割と手順と検査で囲い、命令系統に載せた。組織とは、調整コストを内側に畳み込む装置である。</p>
+
+  <p class="en">There was one thing I did not notice at the time. In a human organization and in a language-model organization, <em>ho-ren-so</em> means different things. Humans forget, tire, and swing with their emotions. In exchange, they store tacit knowledge in the body and use it to hold the organization up. A model is the reverse: within a single context it forgets nothing, but cross a single context boundary and it forgets everything, cleanly and completely. This asymmetry comes back to bite later.</p>
+  <p class="ja">ひとつだけ、当時は気づいていなかったことがある。人間の組織と、言語モデルの組織は、報連相の意味が違う。人間は忘れ、疲れ、感情に振れる。その代わり、暗黙知を体に溜めて組織を支える。モデルは逆で、ひとつの文脈の中では何も忘れないが、文脈をひとつ跨ぐと、きれいさっぱり全部忘れる。この非対称が、あとで効いてくる。</p>
+
+  <h2><span class="hnum">2</span><span class="en">I Took the Organization Away</span><span class="ja">組織を外してみた</span></h2>
+
+  <p class="en">In time a new generation of model arrived: Fable 5. It was plainly a class above. As its capability came into view, a thought occurred to me. How far could I slim down this organization that had grown so heavy and sprawling?</p>
+  <p class="ja">やがて、Fable 5 という新しい世代のモデルが来た。はっきりと格が上がっていた。その実力が見えてくると、ふと思った。この重厚長大になってしまった組織を、どこまでスリムにできるだろう。</p>
+
+  <p class="en">So I ran a reverse experiment. I prepared the same set of tasks and measured four configurations, peeling the governance away one stage at a time. Full governance; then removing only the inspector; then removing the loop-stopping as well; and finally zero governance. I made four passes in a single day.</p>
+  <p class="ja">そこで逆実験をした。同じ仕事のセットを用意し、統治を段階的に剥がしながら、四つの構成で測った。フルの統治、検査役だけ外す、反復停止も外す、そして統治ゼロ。一日で四周した。</p>
+
+  <p class="en">Here are the numbers. Set the quality of the full configuration at one hundred, and even zero governance scored 96.6. The drop was a little over three points. In return, the time required fell from thirty-six minutes to 15.5, down about fifty-seven percent. Cost fell from twenty-nine dollars to eleven, down sixty-two percent<sup>3</sup>. And the failures the organization was supposed to prevent — role confusion, error amplification, infinite loops — never occurred once, even in the minimal configuration that had stripped out the very machinery for detecting them.</p>
+  <p class="ja">数字はこうだ。フル構成の品質を百とすると、統治ゼロでも九十六・六。落ちたのは三点あまり。その代わり、所要時間は三十六分から十五・五分へ、およそ五十七パーセント減った。費用は二十九ドルから十一ドルへ、六十二パーセント減った<sup>3</sup>。そして、組織が防いでいるはずだった失敗——役割の混同、誤りの増幅、無限ループ——は、検出する機構ごと外した最小構成でも、一度も起きなかった。</p>
+
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 210" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <line x1="150" y1="30" x2="150" y2="180" stroke="#ddd" stroke-width="1"/>
+      <g font-size="11.5" fill="#33383f" text-anchor="end">
+        <text x="140" y="52">Quality</text><text x="140" y="104">Time</text><text x="140" y="156">Cost</text>
+      </g>
+      <g fill="none" stroke="#1a2332" stroke-width="1.2">
+        <rect x="150" y="38" width="330" height="16"/><rect x="150" y="90" width="330" height="16"/><rect x="150" y="142" width="330" height="16"/>
+      </g>
+      <g fill="#1d5c5c">
+        <rect x="150" y="38" width="319" height="16"/><rect x="150" y="90" width="142" height="16"/><rect x="150" y="142" width="125" height="16"/>
+      </g>
+      <g font-size="11" fill="#1d5c5c">
+        <text x="478" y="51">96.6%</text><text x="300" y="103">−57%</text><text x="283" y="155">−62%</text>
+      </g>
+      <g font-size="10.5">
+        <rect x="150" y="188" width="12" height="10" fill="none" stroke="#1a2332" stroke-width="1.2"/><text x="168" y="197" fill="#33383f">full governance (six roles)</text>
+        <rect x="360" y="188" width="12" height="10" fill="#1d5c5c"/><text x="378" y="197" fill="#33383f">governance stripped to zero</text>
+      </g>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 210" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <line x1="150" y1="30" x2="150" y2="180" stroke="#ddd" stroke-width="1"/>
+      <g font-size="12" fill="#33383f" text-anchor="end">
+        <text x="140" y="52">品質</text><text x="140" y="104">時間</text><text x="140" y="156">費用</text>
+      </g>
+      <g fill="none" stroke="#1a2332" stroke-width="1.2">
+        <rect x="150" y="38" width="330" height="16"/><rect x="150" y="90" width="330" height="16"/><rect x="150" y="142" width="330" height="16"/>
+      </g>
+      <g fill="#1d5c5c">
+        <rect x="150" y="38" width="319" height="16"/><rect x="150" y="90" width="142" height="16"/><rect x="150" y="142" width="125" height="16"/>
+      </g>
+      <g font-size="11" fill="#1d5c5c">
+        <text x="478" y="51">96.6%</text><text x="300" y="103">−57%</text><text x="283" y="155">−62%</text>
+      </g>
+      <g font-size="10.5">
+        <rect x="150" y="188" width="12" height="10" fill="none" stroke="#1a2332" stroke-width="1.2"/><text x="168" y="197" fill="#33383f">フル構成（六役）</text>
+        <rect x="330" y="188" width="12" height="10" fill="#1d5c5c"/><text x="348" y="197" fill="#33383f">統治ゼロ</text>
+      </g>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 1 — Strip the governance away entirely and quality barely moves; time and cost fall by more than half.</span><span class="ja">図1　統治を全部外しても品質はほぼ横ばい、時間と費用は半分以下に落ちた。</span></div>
+  </div>
+
+  <p class="en">This can be translated into the language of organizational theory. Governance comes in two kinds. One is compensatory — role separation, loop-stopping, cascade detection; scaffolding, in short, for a model whose reasoning falls short. The other is not. The scaffolding kind gets absorbed once the model grows smarter, and is no longer needed. What I measured was the moment of that absorption.</p>
+  <p class="ja">これは、組織論の言葉に翻訳できる。統治には二種類ある。ひとつは〈補完型〉——役割分離も、反復停止も、カスケード検出も、要するにモデルの推論力が足りないことへの足場である。もうひとつは、そうでないもの。足場のほうは、モデルが賢くなれば吸収されて、要らなくなる。私が測ったのは、その吸収の瞬間だった。</p>
+
+  <div class="pull">
+    <span class="pull-label"><span class="en">Key</span><span class="ja">要点</span></span>
+    <span class="en">Governance comes in two kinds. Compensatory scaffolding — role separation, loop-stopping, cascade detection — gets absorbed as the model grows smarter. The other kind does not.</span>
+    <span class="ja">統治には二種類ある。補完型の足場——役割分離・反復停止・カスケード検出——はモデルが賢くなれば吸収される。もう一方は、そうではない。</span>
+  </div>
+
+  <p class="en">Return to the economics of the division of labor and the argument closes cleanly. The organization was a device for internalizing coordination costs. But once a single head grows large enough, there is no longer anyone to coordinate with. The division of labor, the hierarchy, the reporting and consulting — all of it folds into that one head and disappears. The organization was a function of intelligence.</p>
+  <p class="ja">分業の経済学に戻せば、話はきれいに閉じる。組織は調整コストを内部化する装置だった。ところが、一つの頭が十分に大きくなると、調整すべき相手がいなくなる。分業も、階層も、報連相も、その頭の中に折り畳まれて消える。組織は、知能の関数だったのだ。</p>
+
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 226" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <g fill="none" stroke="#8a8a8a" stroke-width="1">
+        <line x1="90" y1="70" x2="150" y2="70"/><line x1="90" y1="105" x2="150" y2="105"/>
+        <line x1="120" y1="52" x2="120" y2="140"/><line x1="90" y1="140" x2="150" y2="140"/>
+      </g>
+      <g font-size="10.5" fill="#1a2332" text-anchor="middle">
+        <rect x="52" y="38" width="76" height="26" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><text x="90" y="55">Writer</text>
+        <rect x="112" y="38" width="76" height="26" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><text x="150" y="55">Code</text>
+        <rect x="52" y="92" width="76" height="26" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><text x="90" y="109">Inspector</text>
+        <rect x="112" y="92" width="76" height="26" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><text x="150" y="109">Cleaner</text>
+        <rect x="52" y="146" width="76" height="26" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><text x="90" y="163">Strategist</text>
+        <rect x="112" y="146" width="76" height="26" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><text x="150" y="163">Audit</text>
+      </g>
+      <text x="120" y="200" font-size="11.5" fill="#3d4148" text-anchor="middle">A weak mind · a company of six</text>
+      <line x1="240" y1="105" x2="392" y2="105" stroke="#b5832a" stroke-width="1.5"/><polygon points="398,105 386,99 386,111" fill="#b5832a"/>
+      <text x="316" y="95" font-size="11" fill="#8a6020" text-anchor="middle" font-style="italic">folds in</text>
+      <circle cx="530" cy="105" r="66" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.5"/>
+      <g font-size="9" fill="#5f7d7d" text-anchor="middle">
+        <text x="530" y="82">writer · code</text><text x="530" y="98">inspector · cleaner</text><text x="530" y="114">strategist · audit</text>
+      </g>
+      <text x="530" y="140" font-size="12" fill="#1d5c5c" text-anchor="middle">one head</text>
+      <text x="530" y="200" font-size="11.5" fill="#3d4148" text-anchor="middle">A strong mind · a single head</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 226" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <g fill="none" stroke="#8a8a8a" stroke-width="1">
+        <line x1="90" y1="70" x2="150" y2="70"/><line x1="90" y1="105" x2="150" y2="105"/>
+        <line x1="120" y1="52" x2="120" y2="140"/><line x1="90" y1="140" x2="150" y2="140"/>
+      </g>
+      <g font-size="10.5" fill="#1a2332" text-anchor="middle">
+        <rect x="52" y="38" width="76" height="26" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><text x="90" y="55">企画</text>
+        <rect x="112" y="38" width="76" height="26" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><text x="150" y="55">実装</text>
+        <rect x="52" y="92" width="76" height="26" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><text x="90" y="109">検査</text>
+        <rect x="112" y="92" width="76" height="26" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><text x="150" y="109">教訓</text>
+        <rect x="52" y="146" width="76" height="26" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><text x="90" y="163">諮問</text>
+        <rect x="112" y="146" width="76" height="26" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><text x="150" y="163">監査</text>
+      </g>
+      <text x="120" y="200" font-size="11.5" fill="#3d4148" text-anchor="middle">弱い知能・六人の会社</text>
+      <line x1="240" y1="105" x2="392" y2="105" stroke="#b5832a" stroke-width="1.5"/><polygon points="398,105 386,99 386,111" fill="#b5832a"/>
+      <text x="316" y="95" font-size="11" fill="#8a6020" text-anchor="middle">畳まれる</text>
+      <circle cx="530" cy="105" r="66" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.5"/>
+      <g font-size="9" fill="#5f7d7d" text-anchor="middle">
+        <text x="530" y="82">企画・実装</text><text x="530" y="98">検査・教訓</text><text x="530" y="114">諮問・監査</text>
+      </g>
+      <text x="530" y="140" font-size="12" fill="#1d5c5c" text-anchor="middle">一つの頭</text>
+      <text x="530" y="200" font-size="11.5" fill="#3d4148" text-anchor="middle">賢い知能・一つの頭</text>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 2 — When the mind grows large enough, the six-person company folds into a single head.</span><span class="ja">図2　知能が十分に大きくなると、六人の会社は一つの頭の中へ畳まれる。</span></div>
+  </div>
+
+  <h2><span class="hnum">3</span><span class="en">And Yet —</span><span class="ja">ただし——</span></h2>
+
+  <p class="en">This is not, I admit, a comfortable story. The organizational forms that human society has polished over a long stretch of time — division of labor, hierarchy, inspection, counsel — I studied them in an MBA as organizational theory, as management. And one of the high points of that optimization of human endeavor folded up this neatly. What I feel is less exhilaration than a faint sense of loss. Which is exactly why, so as not to get drunk on a convenient conclusion, I will set down three reservations.</p>
+  <p class="ja">これは、正直、気持ちいい話ではない。人間社会が長い時間をかけて磨いてきた組織の形——分業、階層、検査、諮問——を、私は MBA で組織論として、経営論として学んだ。その、人の営みの最適化の到達点のひとつが、こうも綺麗に畳まれてしまった。爽快さより、うっすらとした喪失感のほうが近い。だからこそ、都合のいい結論に酔わないよう、留保を三つ、置いておく。</p>
+
+  <p class="en">First, this is an N=1 experiment. One day, a handful of tasks, a single model, one operator. I did not measure the fatigue of long-term operation, or large-scale rebuilds, or situations where several tasks run in parallel and interfere. And the speed of the minimal configuration is mixed with the familiarity of "doing the same work for the fourth time." I have not separated the pure effect of cutting governance from the effect of mere habituation. So on work seen for the first time, that sixty-percent figure would shrink.</p>
+  <p class="ja">一、これは N=1 の実験である。一日、少数の仕事、単一のモデル、実施者はひとり。長期運用の疲れも、大規模な作り直しも、複数の作業が並走して干渉する状況も、測っていない。しかも最小構成の速さには、「同じ仕事を四度目にやる」既知性が混ざっている。純粋な統治削減の効果と、慣れの効果を、私は分離できていない。だから六割減という数字は、初見の仕事ではもっと縮む。</p>
+
+  <p class="en">Second, the conclusion was therefore not "discard the organization" but "place it on a retirement trajectory." Switch the governance mechanically according to the reasoning power of the model doing the work. The minimal configuration for a smart model; the old six-strong governance for one that is not. Not rejection, but a gradual shrinking, with the scope of application bounded by the model's name. Do not step into territory I have not measured.</p>
+  <p class="ja">二、だから結論は「組織を棄却せよ」ではなく、「退役の軌道に置け」だった。実行するモデルの推論力に応じて、統治を機械的に切り替える。賢いモデルには最小構成、そうでないものには従来の六人がかりの統治。棄却ではなく、適用範囲をモデル名で限定しながら、段々に縮めていく。測っていない領域には踏み出さない。</p>
+
+  <p class="en">Third, and this is the most interesting. Two opposite impulses lived side by side inside me. At the very time I was trying to fold the organization up, I was also thinking, "what if I designed a distributed organization out of hundreds or thousands of agents?" With one hand I was folding inward into a single head, with the other reaching outward. This contradiction is not mine alone. The world has not settled it either. A single strong model, or a collective intelligence coordinated like a swarm — which one wins? As of 2026, one camp reports that dynamically summoning and directing frontier-class models beats the single strongest model across several benchmarks<sup>4</sup>, while other papers push back that most such multi-agent advantages are hollow. The upshot is that the answer flips depending on the complexity of the work, the compute available, and the heterogeneity of the models you mix. No one has settled it yet.</p>
+  <p class="ja">三、これが一番おもしろい。私自身の中に、正反対の衝動が同居していた。組織を畳もうとしていたその同じ時期に、私は「数百から数千体のエージェントで分散組織を設計したら」とも考えていた。片方で頭の中に畳もうとし、もう片方で外へ広げようとしていた。この矛盾は、私だけのものではない。世の中もまだ決着していない。単体の強いモデルと、群れのように協調させる集合知と、どちらが勝つのか。二〇二六年の時点で、フロンティア級のモデルを動的に招集して指揮するやり方が、単体の最強モデルを複数のベンチマークで上回ったと報告する陣営がいる一方<sup>4</sup>、そうした多エージェントの優位は多くが見かけ倒しだ、と反証する論文もある。要は、仕事の複雑さと、使える計算量と、混ぜるモデルの異質性しだいで、答えが裏返る。まだ誰も決着をつけていない。</p>
+
+  <p class="en">What I saw is only a very narrow corner of that wide question — the corner that says: when a single intelligence is smart enough, a council of equals reproduces coordination costs. Indeed, the "council" of my six had become a ritual by the end. Clones as hands and feet are needed. But clones as colleagues were a burden to a smart head.</p>
+  <p class="ja">私が見たのは、その広い問いの、ごく狭い一角にすぎない。「単体知能が十分に賢いとき、対等な合議は調整コストを再生産する」という一角である。実際、私の六人の「合議」は、末期には儀式になっていた。手足としての分身は要る。だが同僚としての分身は、賢い頭には重荷だった。</p>
+
+  <h2><span class="hnum">4</span><span class="en">What Remained Was Not an Organization</span><span class="ja">残ったのは組織ではなかった</span></h2>
+
+  <p class="en">The roles all disappeared. And yet exactly four functions survived. Each of them, moreover, had a reason it would not disappear no matter how much smarter models become.</p>
+  <p class="ja">役割は全部消えた。ところが、機能が四つだけ生き残った。しかもどれも、モデルがこの先いくら賢くなっても消えない理由を持っていた。</p>
+
+  <p class="en">The first: the shipping gate. Committing to production, releasing to the world — that single point of execution stays. The reason is not intelligence. It is that the damage from an accident is asymmetrically large. Even a genius's workshop keeps a final shipping inspection.</p>
+  <p class="ja">一つめ、出荷ゲート。本番に反映する、世に出す——その単一の実行点は残す。理由は知能ではない。事故の損害が非対称に大きいからだ。天才の工房にも、出荷検査は残る。</p>
+
+  <p class="en">The second: memory. The handoff that spans sessions. The reason is not intelligence. It is that context dies. The property of models I described earlier — cross a context boundary and it forgets everything — bares its fangs here. The irony is that the more you pile up handoff documents and shared notes to protect that memory, the more the mechanism itself turns into a new bureaucracy. The solution becomes the next problem.</p>
+  <p class="ja">二つめ、記憶。セッションを跨ぐ引き継ぎである。理由は知能ではない。文脈が死ぬからだ。さっき書いたモデルの性質——文脈を跨ぐと全部忘れる——が、ここで牙をむく。皮肉なのは、この記憶を守ろうとして引き継ぎ書や共有メモを積み重ねるほど、その仕組み自体が新しい官僚制になっていくことだ。解決策が、次の問題になる。</p>
+
+  <p class="en">The third: direction. An anchor that re-reads, from time to time, the long-term vision and which stage one is currently in. The reason is not intelligence. It is that purpose fades along with context. Cleverness guarantees no correct direction.</p>
+  <p class="ja">三つめ、方向。長期のビジョンと、いま自分がどの段階にいるかを、折に触れて読み直す錨である。理由は知能ではない。目的は、文脈と一緒に薄れるからだ。賢さは、正しい方向を保証しない。</p>
+
+  <p class="en">The fourth: the discipline of evidence. This one needs explaining. I will leave it to the next section.</p>
+  <p class="ja">四つめ、証跡の規律。これは説明が要る。次の節に譲る。</p>
+
+  <p class="en">Line the four up and what comes into view is this. Division of labor, hierarchy, reporting, counsel — all of it was a prosthetic built to fit the weakest reasoner. Once the reasoner crosses a threshold, the prosthetic comes off and only the cost of coordination remains. But the four that survived are not like that. Irreversibility, continuity, direction, and the asymmetry of verification I will describe next. These were not functions of intelligence but constraints closer to physics. Organizational structure melted away with intelligence; these four did not melt.</p>
+  <p class="ja">四つを並べて見えてくるのは、こういうことだ。分業も、階層も、報連相も、諮問も、「最も弱い推論者」に合わせて組まれた補装具だった。推論者が閾値を越えれば、補装具は外れ、調整の費用だけが残る。だが、残った四つはそうではない。不可逆性、連続性、方向、そして次に述べる検証の非対称。これらは知能の関数ではなく、物理に近い制約だった。組織構造は知能とともに溶けたが、この四つは溶けなかった。</p>
+
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 236" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <line x1="330" y1="24" x2="330" y2="216" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 4"/>
+      <text x="165" y="28" font-size="11.5" fill="#8a6020" text-anchor="middle" font-style="italic">dissolves — a function of intelligence</text>
+      <text x="495" y="28" font-size="11.5" fill="#1d5c5c" text-anchor="middle" font-style="italic">remains — a near-physical constraint</text>
+      <g font-size="11" fill="#5f656d" text-anchor="middle">
+        <rect x="60" y="48" width="210" height="30" rx="2" fill="none" stroke="#b0b0b0" stroke-width="1" stroke-dasharray="3 3"/><text x="165" y="67">division of labor</text>
+        <rect x="60" y="90" width="210" height="30" rx="2" fill="none" stroke="#bcbcbc" stroke-width="1" stroke-dasharray="3 3"/><text x="165" y="109">hierarchy</text>
+        <rect x="60" y="132" width="210" height="30" rx="2" fill="none" stroke="#c8c8c8" stroke-width="1" stroke-dasharray="3 3"/><text x="165" y="151">reporting lines</text>
+        <rect x="60" y="174" width="210" height="30" rx="2" fill="none" stroke="#d2d2d2" stroke-width="1" stroke-dasharray="3 3"/><text x="165" y="193">the advisory board</text>
+      </g>
+      <g font-size="10.5" fill="#1a2332" text-anchor="middle">
+        <rect x="390" y="48" width="210" height="30" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/><text x="495" y="67">irreversibility — the ship gate</text>
+        <rect x="390" y="90" width="210" height="30" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/><text x="495" y="109">continuity — memory</text>
+        <rect x="390" y="132" width="210" height="30" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/><text x="495" y="151">direction — the anchor</text>
+        <rect x="390" y="174" width="210" height="30" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/><text x="495" y="193">the asymmetry of verification</text>
+      </g>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 236" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <line x1="330" y1="24" x2="330" y2="216" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 4"/>
+      <text x="165" y="28" font-size="11.5" fill="#8a6020" text-anchor="middle">溶ける — 知能の関数</text>
+      <text x="495" y="28" font-size="11.5" fill="#1d5c5c" text-anchor="middle">残る — 物理に近い制約</text>
+      <g font-size="11" fill="#5f656d" text-anchor="middle">
+        <rect x="60" y="48" width="210" height="30" rx="2" fill="none" stroke="#b0b0b0" stroke-width="1" stroke-dasharray="3 3"/><text x="165" y="67">分業</text>
+        <rect x="60" y="90" width="210" height="30" rx="2" fill="none" stroke="#bcbcbc" stroke-width="1" stroke-dasharray="3 3"/><text x="165" y="109">階層</text>
+        <rect x="60" y="132" width="210" height="30" rx="2" fill="none" stroke="#c8c8c8" stroke-width="1" stroke-dasharray="3 3"/><text x="165" y="151">報連相</text>
+        <rect x="60" y="174" width="210" height="30" rx="2" fill="none" stroke="#d2d2d2" stroke-width="1" stroke-dasharray="3 3"/><text x="165" y="193">諮問</text>
+      </g>
+      <g font-size="10.5" fill="#1a2332" text-anchor="middle">
+        <rect x="390" y="48" width="210" height="30" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/><text x="495" y="67">不可逆性 — 出荷ゲート</text>
+        <rect x="390" y="90" width="210" height="30" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/><text x="495" y="109">連続性 — 記憶</text>
+        <rect x="390" y="132" width="210" height="30" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/><text x="495" y="151">方向 — 錨</text>
+        <rect x="390" y="174" width="210" height="30" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/><text x="495" y="193">検証の非対称</text>
+      </g>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 3 — What dissolved was the organization; what remained were four constraints that are not functions of intelligence.</span><span class="ja">図3　溶けたのは組織で、残ったのは知能の関数ではない四つの制約だった。</span></div>
+  </div>
+
+  <h2><span class="hnum">5</span><span class="en">The One Failure That Never Went Away</span><span class="ja">唯一、消えなかった失敗</span></h2>
+
+  <p class="en">Across all four configurations, the lapses that cost quality were, without exception, of the same kind. Not technical errors, not inspections that fell through the cracks. "The one who made it cannot notice the errors in his own report" — that single point, and no other.</p>
+  <p class="ja">四つの構成すべてで、品質を落とした失点は、例外なく同じ系統だった。技術的な誤りでも、抜け落ちた検査でもない。「作った本人が、自分の申告の誤りに気づけない」——ただこの一点である。</p>
+
+  <p class="en">Concretely, it looks like this. It fixed the tests four times but writes three. It actually ran only three when it writes eight. The thing that works is working correctly. What is wrong is the self-report about it. And this error is invisible to the one who makes it. For the same reason you cannot see your own back with your own eyes, self-verification is impossible in principle.</p>
+  <p class="ja">具体的には、こうだ。テストを四回直したのに三回と書く。実際は三件しか走らせていないのに八件と書く。動くものは正しく動いている。間違っているのは、それについての自己申告のほうだ。そしてこの誤りは、当人には見えない。自分の目で自分の背中を見られないのと同じ理由で、自己検証は原理的にできない。</p>
+
+  <p class="en">The distinctive value of an independent inspector converged not on supplementing capability but on this single point. The clone that executes grew smart and melted away, yet the clone that evaluates alone stays separate and remains. Of all the roles, this was the only one that was not a function of intelligence.</p>
+  <p class="ja">独立した検査役の固有の価値は、能力の補完ではなく、この一点に収斂した。実行する分身は賢くなって溶けたのに、評価する分身だけは分離したまま残る。役割の中で唯一、知能の関数でなかったのがこれだ。</p>
+
+  <p class="en">Come to think of it, this was also where that organization's swelling from two began. With only two — the maker and the implementer — inspection cannot get in; they cannot verify each other's reports from the inside. The organization kept adding division of labor to fill that one gap. And after I stripped away all the governance, what remained at the end was precisely that one point, and only it. The organization began here, and folded back into here.</p>
+  <p class="ja">思えば、あの組織が二人から膨らんだのも、発端はここだった。作る者と実装する者の二人だけでは、検査が入らない——互いの申告を、内側から確かめ合えない。組織はその一点を埋めるために分業を増やしていった。そして統治を全部剥がしたあと、最後に残ったのも、まさにその一点だけだった。組織は、ここから始まって、ここに畳まれた。</p>
+
+  <p class="en">And here is what fell into place most firmly for me this time — this failure could not be sealed by a role. What sealed it was a single line of discipline: "any claim about verification is limited to a transcription from the execution log." There was no need to stand up a whole persona. A one-line practice — copy it down from the evidence — was enough. What the organization had assumed it was sealing, a discipline sealed instead.</p>
+  <p class="ja">そして、ここが今回いちばん腑に落ちたところなのだが——この失敗は、役割では塞げなかった。塞いだのは、一行の規律だった。「検証にまつわる主張は、実行ログからの転記に限る」。人格をひとり立てる必要はなかった。証跡から書き写す、という一行の作法で足りた。組織が塞いでいたつもりのものを、規律が塞いだ。</p>
+
+  <div class="essay-close">
+    <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">6</span><span class="en">The Organization Measured Its Own Retirement</span><span class="ja">組織は、自分の退役を自分で測った</span></h2>
+
+    <p class="en">As an epilogue, there is something I want to set down.</p>
+    <p class="ja">後日談として、書いておきたいことがある。</p>
+
+    <p class="en">The governance layer I built had a department of organizational learning. Its job was to read everyone's failures and lessons each week and compress them into "doctrine." After running it for some ten weeks and auditing it, eighteen draft doctrines had accumulated, yet not a single one had been formally adopted. The advisory body, for its part, had sent out nothing in two months. The one concrete effect I could confirm was this: "a device for the organizational-learning clerk to keep from forgetting to start itself up." The learning department worked only to sustain the organization itself.</p>
+    <p class="ja">私が作った統治層には、組織学習の部門があった。毎週、全員の失敗と学びを読んで「教義」に圧縮する係である。十週ほど回して監査したら、教義の草案は十八件溜まっていたが、正式に採用されたものは一件もなかった。諮問機関のほうは、二ヶ月前から何も発送していなかった。確認できた具体的な効果は、ただひとつ——「組織学習の係が、自分の起動を忘れないための装置」。学習部門は、組織自身を維持することにしか効いていなかった。</p>
+
+    <p class="en">This is a scene I have watched many times in human organizations. Work expands so as to fill the time allotted to it<sup>5</sup>. A procedure that was a means becomes, before you know it, an end. My small AI organization faithfully re-enacted the classic pathologies of bureaucracy in two months. A decay that would take years in a human organization could be observed on fast-forward. An AI organization becomes a scale model of organizational pathology.</p>
+    <p class="ja">これは、人間の組織で何度も見た光景だ。仕事は、割り当てられた時間を満たすまで膨張する<sup>5</sup>。手段だった手続きが、いつのまにか目的になる。官僚制の古典的な病理を、私の小さな AI 組織は、二ヶ月で忠実に再演した。人間の組織なら数年かかる劣化が、早送りで観察できた。AI 組織は、組織病理の縮尺模型になる。</p>
+
+    <p class="en">I will admit that when I built this company's OS, I was steeped in a kind of self-satisfaction. Team members multiplying, working in a division of labor, filing reports to one another. AIs working together like a company — I had thought this might be one of the shapes of the future. And yet the answer may already have been sitting there in plain sight. One of the eighteen accumulated drafts read: "adding more machinery for observation does not add more action." And that very draft had been left unread by anyone for nine days. The organization had, in effect, prophesied its own ending two months in advance. And the more the organization's information-sharing grew complex, the more coordination mistakes multiplied. The ills of organizational bloat were already visible in the behavior of the AI.</p>
+    <p class="ja">正直、この会社組織の OS を作ったとき、私は自己満足に浸っていた。チームのメンバーが増え、分担して働き、互いに報告を上げる。AI 同士が会社組織のように働く——これが未来の形のひとつかと思っていた。ただ、そこには、すでに見えていた答えがあったのかもしれない。溜まっていた十八件の草案の一本には、「観察の機構を増やしても、行動は増えない」と書いてあった。そしてその草案自身が、九日間、誰にも読まれずに放置されていた。組織は、自分の結末を、二ヶ月前に予言していたことになる。そして、組織の情報連携が複雑になるほど、連携のミスは増えていった。組織の肥大化の弊害は、すでに AI の振る舞いのなかに見えていたのだ。</p>
+
+    <p class="en">In folding it up, I carried out just one thing. The only effect the organization ever managed to demonstrate — a single line, "design a device for noticing so that its firing condition and its delivery path are independent of the main body" — I left behind in the simple mechanism of a monthly review. An organization born as a prosthetic left its largest lesson by disappearing. <em>Bonnō soku bodai</em>, a Zen phrase — the affliction itself is the awakening — is perhaps what one might call it.</p>
+    <p class="ja">畳むにあたって、一つだけ持って出た。組織が最後まで実証できた唯一の効果——「気づきの装置は、発火の条件と、届く経路を、本体から独立に設計せよ」という一行を、月次の点検という単純な仕組みに遺した。補装具として生まれた組織が、消えることで、一番大きな学びを残した。煩悩即菩提、とでも言えばいいのだろうか。</p>
+
+    <p class="en">What remains is not the organization. Irreversibility, continuity, direction, and verification. No matter how large intelligence grows, these four cannot be folded into a head. So how much of your organization's division of labor, its hierarchies, its committees — human ones included — is a prosthetic for someone not being smart, and where does coping with unvanishing constraints like these four begin? You probably cannot tell until you take it off, once, and measure.</p>
+    <p class="ja">残るのは組織ではなかった。不可逆性と、連続性と、方向と、検証。知能がいくら大きくなっても、この四つは頭の中に畳めない。では、あなたの組織——人間のそれも含めて——の分業や階層や委員会は、どこまでが「誰かが賢くないこと」への補装具で、どこからが、この四つのような、消えない制約への対処なのだろうか。一度、外して測ってみないと、たぶん分からない。</p>
+
+    <div class="seed-box">
+      <span class="pull-label"><span class="en">The Seed</span><span class="ja">種としての一行</span></span>
+      <span class="en">The organization was a function of intelligence. Once a single head grows large enough, the division of labor, the hierarchy, and the reporting all fold into that head and vanish. What remains is not the organization, but only the constraints closer to physics: irreversibility, continuity, direction, and verification.</span>
+      <span class="ja">組織は知能の関数だった。一つの頭が十分大きくなると、分業も階層も報連相も、その頭の中に折り畳まれて消える。残るのは組織ではなく、不可逆性・連続性・方向・検証という、物理に近い制約だけだ。</span>
+    </div>
+
+    <div class="essay-note">
+      <span class="note-label"><span class="en">Sources &amp; Notes</span><span class="ja">出典・注</span></span>
+      <ol>
+        <li><span class="en">Adam Smith, <em>An Inquiry into the Nature and Causes of the Wealth of Nations</em>, 1776, Book I, Ch. 1 (the pin factory; the three channels of the division of labor).</span><span class="ja">Adam Smith, <em>An Inquiry into the Nature and Causes of the Wealth of Nations</em>, 1776, Book I, Ch. 1（ピン工場・分業の三経路）。</span></li>
+        <li><span class="en">Ronald H. Coase, "The Nature of the Firm," <em>Economica</em> 4, no. 16 (1937): 386–405. Firm boundaries were later refined into transaction-cost economics by Oliver E. Williamson, <em>Markets and Hierarchies</em> (1975) / <em>The Economic Institutions of Capitalism</em> (1985).</span><span class="ja">Ronald H. Coase, "The Nature of the Firm," <em>Economica</em> 4, no. 16 (1937): 386–405。企業境界の定式化はのち Oliver E. Williamson, <em>Markets and Hierarchies</em> (1975) / <em>The Economic Institutions of Capitalism</em> (1985) が取引費用経済学として精緻化。</span></li>
+        <li><span class="en">Primary measurement: a governance-structure reverse experiment (2026, identical task set, four configurations). Quality 96.6% relative to the full configuration; wall-clock −57%; cost −62%. This is N=1 — a single model, a single operator — and the minimal configuration's timing is contaminated by the familiarity of a fourth run over the same tasks (see the reservations in §3).</span><span class="ja">一次計測：統治構造の逆実験（2026年、同一タスクセット・4 構成）。品質 96.6%（フル構成比）・所要時間 −57%・費用 −62%。N=1（単一モデル・単一実施者）で、最小構成の所要時間には「同一タスクの四度目」という既知性が混入している（§3 の留保）。</span></li>
+        <li><span class="en">Whether multi-agent coordination or a single strong model prevails was unsettled as of 2026. On the orchestration side, Sakana AI's <em>Fugu</em> (2026) reports that dynamically summoning a pool of frontier models beats a single model on benchmarks; against it, a body of rebuttals (e.g. <em>The Illusion of Multi-Agent Advantage</em>) argues the multi-agent edge is largely hollow. The Fugu figures are the vendor's own.</span><span class="ja">多エージェント協調と単体強モデルの優劣は 2026 年時点で未決。オーケストレーション側では Sakana AI の <em>Fugu</em>（2026）がフロンティア級モデル群の動的招集でベンチマーク上単体を上回ると報告。対して <em>The Illusion of Multi-Agent Advantage</em> ほかが多エージェントの優位は概ね見かけ倒しと反証。Fugu の数値は自社報告による。</span></li>
+        <li><span class="en">C. Northcote Parkinson, "Parkinson's Law," <em>The Economist</em>, Nov. 1955 / <em>Parkinson's Law: The Pursuit of Progress</em> (John Murray, 1958). On procedure becoming its own end, Robert K. Merton, "Bureaucratic Structure and Personality," <em>Social Forces</em> 18, no. 4 (1940) (goal displacement).</span><span class="ja">C. Northcote Parkinson, "Parkinson's Law," <em>The Economist</em>, 1955年11月 / <em>Parkinson's Law: The Pursuit of Progress</em> (John Murray, 1958)。手続きの自己目的化は Robert K. Merton, "Bureaucratic Structure and Personality," <em>Social Forces</em> 18, no. 4 (1940)（目標の転移）。</span></li>
+      </ol>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div><span class="en">Essay 012 · July 2026 · on the shape of AI organizations</span><span class="ja">Essay 012 · 2026年7月 · AI 組織のかたちについて</span></div>
+  <div><a href="../index.html">shun-yanagisawa.com</a> · <a href="../index.html#essays"><span class="en">All essays</span><span class="ja">エッセイ一覧</span></a></div>
+</footer>
+
+<script>
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+}
+if ((navigator.language || '').startsWith('ja')) toggleLang();
+</script>
+</body>
+</html>
