@@ -132,14 +132,17 @@ footer a { color: var(--teal-dark); text-decoration: none; }
     <span class="en">12 min read</span><span class="ja">日本語 約12分</span>
   </div>
 
-  <p class="en">From the spring into the summer of last year, I was building something strange: a system that governed my own AI development exactly as one would govern a human company. Its skeleton was made of two templates you hear about in any firm. PDCA — plan, do, check, act — and what the Japanese call <em>ho-ren-so</em>, the disciplined habit of reporting, informing, and consulting. One member to write the planning and design, one to implement, one to inspect and ship, one to read each week's failures and compress them into lessons, one to advise like a board director, and one to keep watch over the organization itself. I split the work into six roles and chained handoffs, inspection results, and rulings together on paper. I even gave it a mandala-like insignia, and ran it like one small company.</p>
-  <p class="ja">去年の春から夏にかけて、私は奇妙なものを作っていた。自分の AI 開発を、人間の会社組織そっくりに統治する仕組みである。骨格は、どの会社でも聞く二つの型でできていた。PDCA——計画し、実行し、検査し、改善する——と、報連相。企画と設計を書く者、実装する者、検査して世に出す者、失敗を毎週読んで教訓に圧縮する者、取締役のように諮問する者、そしてその組織自身を見張る者。六つの役割に分け、引き継ぎ書と検査結果と裁定を、書面で連鎖させた。曼荼羅めいた意匠まで与えて、ひとつの小さな会社のように運用した。</p>
+  <p class="en">From late last year until just recently, I was building something strange: a system that governed my own AI development exactly as one would govern a human company. Its skeleton was made of two templates you hear about in any firm. PDCA — plan, do, check, act — and what the Japanese call <em>ho-ren-so</em>, the disciplined habit of reporting, informing, and consulting. One member to write the planning and design, one to implement, one to inspect and ship, one to read each week's failures and compress them into lessons, one to advise like a board director, and one to keep watch over the organization itself. I split the work into six roles and chained handoffs, inspection results, and rulings together on paper. I even gave it a mandala-like insignia, and ran it like one small company.</p>
+  <p class="ja">昨年末からつい最近まで、私は奇妙なものを作っていた。自分の AI 開発を、人間の会社組織そっくりに統治する仕組みである。骨格は、どの会社でも聞く二つの型でできていた。PDCA——計画し、実行し、検査し、改善する——と、報連相。企画と設計を書く者、実装する者、検査して世に出す者、失敗を毎週読んで教訓に圧縮する者、取締役のように諮問する者、そしてその組織自身を見張る者。六つの役割に分け、引き継ぎ書と検査結果と裁定を、書面で連鎖させた。曼荼羅めいた意匠まで与えて、ひとつの小さな会社のように運用した。</p>
 
-  <p class="en">And last month, I folded it up.</p>
-  <p class="ja">そして先月、それを畳んだ。</p>
+  <p class="en">And last month, I dismantled that company.</p>
+  <p class="ja">そして先月、その会社組織を解体した。</p>
 
-  <p class="en">Before folding it, I measured it properly, just once. I stripped the organization away entirely and had the same work done without it. The result surprised even me. Quality barely dropped, time fell by almost half, and cost came down by sixty percent. The failures the organization was supposed to be preventing never once occurred, even with it gone.</p>
-  <p class="ja">畳む前に、一度だけきちんと測った。組織をまるごと外して、同じ仕事をやらせてみたのである。結果は自分でも意外だった。品質はほとんど落ちず、時間は半分近く、費用は六割減った。組織が防いでいるはずだった失敗は、外しても一度も起きなかった。</p>
+  <p class="en">Before dismantling it, I verified it against the data.</p>
+  <p class="ja">解体する前に、データを元に検証した。</p>
+
+  <p class="en">I stripped the organization away entirely and had the same work done without it. The result surprised even me. Quality barely dropped, time fell by almost half, and cost came down by sixty percent. The failures the organization was supposed to be preventing never once occurred, even with it gone. Good God.</p>
+  <p class="ja">組織をまるごと外して、同じ仕事をやらせてみたのである。結果は自分でも意外だった。品質はほとんど落ちず、時間は半分近く、費用は六割減った。組織が防いでいるはずだった失敗は、外しても一度も起きなかった。なんてことだ。</p>
 
   <p class="en">This essay follows what happened in three movements. First, why I bothered to wrap a weak intelligence in an organization at all — the economics of the division of labor. Then, what happened when I removed the organization — the numbers from the reverse experiment. And finally, the four things that survived anyway; this is the heart of it. Which parts of the organizational design were a prosthetic for insufficient intelligence, and which were coping with constraints that have nothing to do with intelligence and everything to do with something closer to physics. It is a story about telling those two apart.</p>
   <p class="ja">本稿はその顛末を、三つの順でたどる。まず、なぜ弱い知能をわざわざ組織で包んだのか（分業の経済学）。次に、組織を外して何が起きたか（逆実験の数字）。最後に、それでも消えずに残った四つのもの——これが芯だ。組織設計のうち、どこが〈知能が足りないことへの補装具〉で、どこが〈知能とは関係のない、物理に近い制約への対処〉だったのか。その切り分けの話である。</p>
@@ -151,6 +154,71 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 
   <p class="en">Its origins began from a perfectly natural need. At first there were two: one to write the planning and design, and one to implement. Plan and Do. But with only two, inspection could never get a foothold. The one who writes and the one who implements cannot verify each other's work from the inside — a person cannot grade his own exam. So I slid an inspector in between them. Plan, do, check, act: PDCA. From there the division of labor kept growing. In the end it became a company of six: Writer for planning, Code for implementation, Inspector for checking, Cleaner to fold each week's failures into lessons, Strategist to advise like a board director, and Audit to keep watch over the organization itself. The passing of information — a chain of handoffs, inspection results, and rulings — was, in essence, <em>ho-ren-so</em> itself.</p>
   <p class="ja">生い立ちは、ごく自然な必要から始まった。最初は二人だった。企画と設計を書く者と、実装する者。計画と実行、Plan と Do である。ところが二人では、どうしても検査が入らない。書いた本人と実装した本人が、互いの仕事を内側から確かめ合うことはできない——人は自分の答案を自分で採点できない。そこに検査役を割り込ませた。計画・実行・検査・改善、いわゆる PDCA である。そこから分業は増えていった。最終的には、企画の Writer、実装の Code、検査の Inspector、失敗を毎週畳んで教訓にする Cleaner、取締役のように諮問する Strategist、そしてその組織自身を見張る Audit——六人の会社になった。情報の受け渡しは、引き継ぎ書と検査結果と裁定の連鎖、要するに報連相そのものだった。</p>
+
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 232" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <text x="146" y="20" font-size="11" fill="#8a6020" text-anchor="middle" font-style="italic">PDCA — the template</text>
+      <text x="476" y="20" font-size="11" fill="#1d5c5c" text-anchor="middle" font-style="italic">the company it grew into · 2 → 6</text>
+      <!-- PDCA cycle -->
+      <g fill="#fff" stroke="#1a2332" stroke-width="1.1">
+        <rect x="44" y="50" width="72" height="30" rx="2"/>
+        <rect x="176" y="50" width="72" height="30" rx="2"/>
+        <rect x="44" y="150" width="72" height="30" rx="2"/>
+        <rect x="176" y="150" width="72" height="30" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/>
+      </g>
+      <g font-size="11" fill="#1a2332" text-anchor="middle">
+        <text x="80" y="69">Plan</text><text x="212" y="69">Do</text>
+        <text x="80" y="169">Act</text><text x="212" y="169" fill="#1d5c5c">Check</text>
+      </g>
+      <g stroke="#1a2332" stroke-width="1.3" fill="#1a2332">
+        <line x1="116" y1="65" x2="172" y2="65"/><polygon points="176,65 168,61 168,69"/>
+        <line x1="212" y1="80" x2="212" y2="146"/><polygon points="212,150 208,142 216,142"/>
+        <line x1="176" y1="165" x2="120" y2="165"/><polygon points="116,165 124,161 124,169"/>
+        <line x1="80" y1="150" x2="80" y2="84"/><polygon points="80,80 76,88 84,88"/>
+      </g>
+      <!-- grows into -->
+      <text x="288" y="103" font-size="10" fill="#8a6020" text-anchor="middle" font-style="italic">grows into</text>
+      <line x1="258" y1="115" x2="316" y2="115" stroke="#b5832a" stroke-width="1.5"/><polygon points="322,115 310,110 310,120" fill="#b5832a"/>
+      <!-- accretion 2 -> 6 -->
+      <g font-size="10.5" fill="#1a2332">
+        <rect x="332" y="52" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="351" y="52" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><text x="374" y="64">Writer · Code</text>
+        <rect x="332" y="88" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="351" y="88" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="370" y="88" width="15" height="15" rx="1.5" fill="#b5832a" stroke="#8a6020" stroke-width="1.1"/><text x="393" y="100">+ Inspector</text>
+        <rect x="332" y="124" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="351" y="124" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="370" y="124" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="389" y="124" width="15" height="15" rx="1.5" fill="#b5832a" stroke="#8a6020" stroke-width="1.1"/><text x="412" y="136">+ Cleaner</text>
+        <rect x="332" y="160" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="351" y="160" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="370" y="160" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="389" y="160" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="408" y="160" width="15" height="15" rx="1.5" fill="#b5832a" stroke="#8a6020" stroke-width="1.1"/><text x="431" y="172">+ Strategist</text>
+        <rect x="332" y="196" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="351" y="196" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="370" y="196" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="389" y="196" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="408" y="196" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="427" y="196" width="15" height="15" rx="1.5" fill="#b5832a" stroke="#8a6020" stroke-width="1.1"/><text x="450" y="208">+ Audit</text>
+      </g>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 232" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <text x="146" y="20" font-size="11" fill="#8a6020" text-anchor="middle">PDCA ── 型</text>
+      <text x="476" y="20" font-size="11" fill="#1d5c5c" text-anchor="middle">育っていった会社・2→6</text>
+      <g fill="#fff" stroke="#1a2332" stroke-width="1.1">
+        <rect x="44" y="50" width="72" height="30" rx="2"/>
+        <rect x="176" y="50" width="72" height="30" rx="2"/>
+        <rect x="44" y="150" width="72" height="30" rx="2"/>
+        <rect x="176" y="150" width="72" height="30" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/>
+      </g>
+      <g font-size="12" fill="#1a2332" text-anchor="middle">
+        <text x="80" y="70">計画</text><text x="212" y="70">実行</text>
+        <text x="80" y="170">改善</text><text x="212" y="170" fill="#1d5c5c">検査</text>
+      </g>
+      <g stroke="#1a2332" stroke-width="1.3" fill="#1a2332">
+        <line x1="116" y1="65" x2="172" y2="65"/><polygon points="176,65 168,61 168,69"/>
+        <line x1="212" y1="80" x2="212" y2="146"/><polygon points="212,150 208,142 216,142"/>
+        <line x1="176" y1="165" x2="120" y2="165"/><polygon points="116,165 124,161 124,169"/>
+        <line x1="80" y1="150" x2="80" y2="84"/><polygon points="80,80 76,88 84,88"/>
+      </g>
+      <text x="288" y="103" font-size="11" fill="#8a6020" text-anchor="middle">育つ</text>
+      <line x1="258" y1="115" x2="316" y2="115" stroke="#b5832a" stroke-width="1.5"/><polygon points="322,115 310,110 310,120" fill="#b5832a"/>
+      <g font-size="11.5" fill="#1a2332">
+        <rect x="332" y="52" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="351" y="52" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><text x="374" y="64">企画・実装</text>
+        <rect x="332" y="88" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="351" y="88" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="370" y="88" width="15" height="15" rx="1.5" fill="#b5832a" stroke="#8a6020" stroke-width="1.1"/><text x="393" y="100">＋検査</text>
+        <rect x="332" y="124" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="351" y="124" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="370" y="124" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="389" y="124" width="15" height="15" rx="1.5" fill="#b5832a" stroke="#8a6020" stroke-width="1.1"/><text x="412" y="136">＋教訓</text>
+        <rect x="332" y="160" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="351" y="160" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="370" y="160" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="389" y="160" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="408" y="160" width="15" height="15" rx="1.5" fill="#b5832a" stroke="#8a6020" stroke-width="1.1"/><text x="431" y="172">＋諮問</text>
+        <rect x="332" y="196" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="351" y="196" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="370" y="196" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="389" y="196" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="408" y="196" width="15" height="15" rx="1.5" fill="#fff" stroke="#1a2332" stroke-width="1.1"/><rect x="427" y="196" width="15" height="15" rx="1.5" fill="#b5832a" stroke="#8a6020" stroke-width="1.1"/><text x="450" y="208">＋監査</text>
+      </g>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 1 — Plan and Do could not check each other, so a check was slid in; the check kept adding roles until the PDCA template had grown into a company of six.</span><span class="ja">図1　計画と実行は互いを検査できない。そこに検査を割り込ませ、検査が役割を増やし続けて、PDCA の型は六人の会社へと育った。</span></div>
+  </div>
 
   <p class="en">Come to think of it, this is also a reworking of something economics has been saying for more than two centuries. When Adam Smith drew on the pin factory to discuss the division of labor, what he counted was this: split the process into eighteen steps and divide it among ten workers, and they could make forty-eight thousand pins in a day<sup>1</sup>. Alone, a single one is doubtful. The division of labor is delivered by practice, by the savings from not switching tasks, and by simplification. It is a technique for making a weak maker strong through structure.</p>
   <p class="ja">考えてみれば、これは経済学が二百年以上前から言ってきたことの焼き直しでもある。アダム・スミスがピン工場を引いて分業を論じたとき、彼が数えたのは、工程を十八に割って十人で分担すると一日四万八千本のピンが作れる、という話だった<sup>1</sup>。ひとりなら一本も危うい。分業は、習熟と、切り替えの節約と、単純化がもたらす。弱い作り手を、構造で強くする技術である。</p>
@@ -211,7 +279,7 @@ footer a { color: var(--teal-dark); text-decoration: none; }
         <rect x="330" y="188" width="12" height="10" fill="#1d5c5c"/><text x="348" y="197" fill="#33383f">統治ゼロ</text>
       </g>
     </svg>
-    <div class="figcap"><span class="en">Fig. 1 — Strip the governance away entirely and quality barely moves; time and cost fall by more than half.</span><span class="ja">図1　統治を全部外しても品質はほぼ横ばい、時間と費用は半分以下に落ちた。</span></div>
+    <div class="figcap"><span class="en">Fig. 2 — Strip the governance away entirely and quality barely moves; time and cost fall by more than half.</span><span class="ja">図2　統治を全部外しても品質はほぼ横ばい、時間と費用は半分以下に落ちた。</span></div>
   </div>
 
   <p class="en">This can be translated into the language of organizational theory. Governance comes in two kinds. One is compensatory — role separation, loop-stopping, cascade detection; scaffolding, in short, for a model whose reasoning falls short. The other is not. The scaffolding kind gets absorbed once the model grows smarter, and is no longer needed. What I measured was the moment of that absorption.</p>
@@ -273,7 +341,7 @@ footer a { color: var(--teal-dark); text-decoration: none; }
       <text x="530" y="140" font-size="12" fill="#1d5c5c" text-anchor="middle">一つの頭</text>
       <text x="530" y="200" font-size="11.5" fill="#3d4148" text-anchor="middle">賢い知能・一つの頭</text>
     </svg>
-    <div class="figcap"><span class="en">Fig. 2 — When the mind grows large enough, the six-person company folds into a single head.</span><span class="ja">図2　知能が十分に大きくなると、六人の会社は一つの頭の中へ畳まれる。</span></div>
+    <div class="figcap"><span class="en">Fig. 3 — When the mind grows large enough, the six-person company folds into a single head.</span><span class="ja">図3　知能が十分に大きくなると、六人の会社は一つの頭の中へ畳まれる。</span></div>
   </div>
 
   <h2><span class="hnum">3</span><span class="en">And Yet —</span><span class="ja">ただし——</span></h2>
@@ -348,7 +416,7 @@ footer a { color: var(--teal-dark); text-decoration: none; }
         <rect x="390" y="174" width="210" height="30" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/><text x="495" y="193">検証の非対称</text>
       </g>
     </svg>
-    <div class="figcap"><span class="en">Fig. 3 — What dissolved was the organization; what remained were four constraints that are not functions of intelligence.</span><span class="ja">図3　溶けたのは組織で、残ったのは知能の関数ではない四つの制約だった。</span></div>
+    <div class="figcap"><span class="en">Fig. 4 — What dissolved was the organization; what remained were four constraints that are not functions of intelligence.</span><span class="ja">図4　溶けたのは組織で、残ったのは知能の関数ではない四つの制約だった。</span></div>
   </div>
 
   <h2><span class="hnum">5</span><span class="en">The One Failure That Never Went Away</span><span class="ja">唯一、消えなかった失敗</span></h2>
