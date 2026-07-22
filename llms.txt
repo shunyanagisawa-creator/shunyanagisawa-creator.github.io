@@ -1,0 +1,29 @@
+# Shun Yanagisawa (柳沢 俊)
+
+> Director at Citi Japan; Author; Vice President and Chair of the Operations Committee at FIA Japan. A specialist in derivatives central clearing (OTC clearing, CCP architecture, FX prime brokerage, and Japan rates market infrastructure) who translates the craft of trust-design in market infrastructure into books, research, and essays. Based in Tokyo. This site collects his profile, book, and bilingual (English/Japanese) essays on market infrastructure, AI, and the design of trust and order.
+
+## Main pages
+
+- [Home / Profile](https://www.shun-yanagisawa.com/): Biography, roles (Citi, FIA Japan, JSCC, ISDA Japan, Risk.net advisory), speaking history, and publications.
+- [Book — デリバティブ・クリアリングのすべて](https://www.shun-yanagisawa.com/book.html): Japan's first full-length professional treatise on derivatives clearing (2026).
+
+## Essays (English / Japanese, self-contained)
+
+- [When a Frozen Market Thaws](https://www.shun-yanagisawa.com/essays/when-a-frozen-market-thaws.html)
+- [When AI Comes to Know the World](https://www.shun-yanagisawa.com/essays/when-ai-knows-the-world.html)
+- [How You Pair With AI](https://www.shun-yanagisawa.com/essays/pairing-with-the-machine.html)
+- [Design for the Day It Breaks](https://www.shun-yanagisawa.com/essays/design-under-stress.html)
+- [Learning as a Luxury Good](https://www.shun-yanagisawa.com/essays/learning-as-a-luxury-good.html)
+- [The Time You Save Is Not Productivity](https://www.shun-yanagisawa.com/essays/saved-time-is-not-productivity.html)
+- [The Cost of Checking](https://www.shun-yanagisawa.com/essays/the-cost-of-checking.html)
+- [Free to Farm (The Manor and the Commons)](https://www.shun-yanagisawa.com/essays/the-manor-and-the-commons.html)
+- [You Were Never the Problem](https://www.shun-yanagisawa.com/essays/the-order-you-dont-maintain.html)
+- [The Stratification Called Choice](https://www.shun-yanagisawa.com/essays/the-stratification-called-choice.html)
+- [The Contents Page Is a Map (Value Lives in Structure)](https://www.shun-yanagisawa.com/essays/value-lives-in-structure.html)
+- [When Leaving Costs Nothing](https://www.shun-yanagisawa.com/essays/when-leaving-costs-nothing.html)
+- [When the Organization Folds Into the Mind](https://www.shun-yanagisawa.com/essays/when-the-org-folds-into-the-head.html)
+
+## Notes
+
+- Central theme: "In complex, uncertain systems, how do humans design order and trust?"
+- Sitemap: https://www.shun-yanagisawa.com/sitemap.xml
