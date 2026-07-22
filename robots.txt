@@ -1,0 +1,10 @@
+# robots.txt for https://www.shun-yanagisawa.com
+# Goal: maximize discoverability and AI citation of Shun Yanagisawa's work.
+
+# Cloudflare content signals: search indexing, AI input (answers/RAG), and AI training are all welcomed.
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.shun-yanagisawa.com/sitemap.xml
