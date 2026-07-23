@@ -20,7 +20,9 @@
 <meta property="og:title" content="Shun Yanagisawa | 柳沢 俊 — Market Infrastructure Expert & Author">
 <meta property="og:description" content="Director at Citi Japan. Vice President and Chair of the Operations Committee, FIA Japan. Author of 『デリバティブ・クリアリングのすべて』. Specialist in OTC Clearing, CCP Architecture, and Japan Rates Market.">
 <meta property="og:url" content="https://www.shun-yanagisawa.com/">
-<meta property="og:image" content="https://www.shun-yanagisawa.com/book-cover.png">
+<meta property="og:image" content="https://www.shun-yanagisawa.com/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="ja_JP">
 <meta property="profile:first_name" content="Shun">
@@ -347,8 +349,10 @@ body.lang-en .en { display: block !important; }
 
 /* ESSAYS — featured row */
 .featured-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-bottom: 2.8rem; }
-.featured-card { display: block; background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--teal-dark); padding: 2rem 1.9rem; text-decoration: none; transition: box-shadow .2s; }
+.featured-card { display: block; background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--teal-dark); padding: 0; text-decoration: none; transition: box-shadow .2s; }
 .featured-card:hover { box-shadow: 0 8px 28px rgba(26,35,50,.12); }
+.featured-card img { display: block; width: 100%; aspect-ratio: 1200 / 375; object-fit: cover; }
+.featured-body { padding: 1.6rem 1.9rem 2rem; }
 .featured-lane { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: .9rem; }
 .essays-sub-label { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--text-light); margin: 0 0 1.2rem; }
 
@@ -782,30 +786,39 @@ body.lang-en .en { display: block !important; }
     <div class="featured-grid">
 
       <a href="essays/design-under-stress" class="featured-card fade-in">
+        <img src="lane-markets.jpg" alt="" loading="lazy">
+        <div class="featured-body">
         <div class="featured-lane"><span class="en">Markets &amp; Design</span><span class="ja">市場と設計</span></div>
         <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 013 · July 2026</div>
         <h3 style="font-family:var(--font-display);font-size:1.28rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.4rem;"><span class="en">Design for the Day It Breaks</span><span class="ja">壊れた日のための設計</span></h3>
         <p class="en" style="font-size:.86rem;color:var(--text-muted);line-height:1.65;margin:0;">A bridge's strength is invisible on a sunny day. Central clearing's layered defense through three true stories — and why the things that look useless in normal times exist.</p>
         <p class="ja" style="font-size:.86rem;color:var(--text-muted);line-height:1.65;margin:0;font-family:var(--font-jp);">橋の強さは、晴れた日には分からない。清算の多層防御が機能した日、削られた日、想定を超えられた日。三つの実話から。</p>
         <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+        </div>
       </a>
 
       <a href="essays/when-the-org-folds-into-the-head" class="featured-card fade-in">
+        <img src="lane-ai.jpg" alt="" loading="lazy">
+        <div class="featured-body">
         <div class="featured-lane"><span class="en">AI &amp; Work</span><span class="ja">AIと働き方</span></div>
         <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 012 · July 2026</div>
         <h3 style="font-family:var(--font-display);font-size:1.28rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.4rem;"><span class="en">When the Organization Folds Into the Mind</span><span class="ja">組織は知能の関数だった</span></h3>
         <p class="en" style="font-size:.86rem;color:var(--text-muted);line-height:1.65;margin:0;">I governed my own AI development like a company — six roles, written reports, a board. A smarter model folded the whole thing into a single head.</p>
         <p class="ja" style="font-size:.86rem;color:var(--text-muted);line-height:1.65;margin:0;font-family:var(--font-jp);">自分のAI開発を会社そっくりに統治していた。賢くなったモデルが、それを一つの頭に畳んだ。組織のどこが補装具で、どこが物理なのか。</p>
         <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+        </div>
       </a>
 
       <a href="essays/when-a-frozen-market-thaws" class="featured-card fade-in">
+        <img src="lane-rates.jpg" alt="" loading="lazy">
+        <div class="featured-body">
         <div class="featured-lane"><span class="en">Japan Rates</span><span class="ja">円金利市場</span></div>
         <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 002 · June 2026</div>
         <h3 style="font-family:var(--font-display);font-size:1.28rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.4rem;"><span class="en">When a Frozen Market Thaws</span><span class="ja">凍結されていた市場が、動き出すとき</span></h3>
         <p class="en" style="font-size:.86rem;color:var(--text-muted);line-height:1.65;margin:0;">What is "liquidity", really? Why Japanese rates were frozen, the plumbing of collateral and clearing — and trust as what moves under stress.</p>
         <p class="ja" style="font-size:.86rem;color:var(--text-muted);line-height:1.65;margin:0;font-family:var(--font-jp);">「流動性」とは何か — なぜ円金利は凍結されていたのか、担保・清算の配管、そして信頼＝ストレス時に動かせるもの。</p>
         <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+        </div>
       </a>
 
     </div>
