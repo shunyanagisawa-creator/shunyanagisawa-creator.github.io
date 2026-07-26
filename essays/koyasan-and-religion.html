@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Koyasan, and Religion — Shun Yanagisawa</title>
+<meta name="description" content="A teaching that began by showing one person the way out of suffering ended up wearing the shape of a state. Walking the snowbound road up Mount Koya, an essay on what a faith keeps and what it changes when it acquires scale.">
+<meta property="og:title" content="Koyasan, and Religion">
+<meta property="og:description" content="From early Buddhism to the Mahayana, esoteric Buddhism, the Kamakura schools and the Edo parishioner registers — a faith that acquires scale is put in the position of governance, whoever began it. What survived the fall of rulers was the layer that needed no scale.">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://www.shun-yanagisawa.com/essays/koyasan-and-religion">
+<meta property="og:url" content="https://www.shun-yanagisawa.com/essays/koyasan-and-religion">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
+  --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f5ead8;
+  --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
+  --text: #1a1a1a; --text-mid: #3d3d3d; --text-muted: #666666; --border: #ddd9d0;
+  --font-display: 'Playfair Display', 'Noto Serif JP', Georgia, serif;
+  --font-body: 'Source Sans 3', sans-serif;
+  --font-jp: 'Noto Serif JP', serif;
+  --font-mono: 'DM Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--white); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.85; }
+body.lang-en .ja { display: none; }
+body.lang-ja .en { display: none; }
+body.lang-ja { font-family: var(--font-jp); }
+
+nav {
+  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+.nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1.2rem; }
+.nav-back { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--text-muted); text-decoration: none; }
+.nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .35rem .8rem; cursor: pointer; color: var(--text-mid);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
+
+.essay { max-width: 720px; margin: 0 auto; padding: 4rem 1.6rem 5rem; }
+.essay-kicker { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.2rem; }
+h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 500; line-height: 1.3; color: var(--navy); margin-bottom: .8rem; }
+.essay-sub { font-size: 1.02rem; color: var(--text-muted); margin-bottom: 1.4rem; line-height: 1.7; }
+.essay-meta { display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); padding-bottom: 1.6rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.4rem; }
+.essay-meta a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); }
+
+.essay h2 {
+  font-family: var(--font-display); font-size: 1.22rem; font-weight: 500; color: var(--navy);
+  margin: 2.8rem 0 1rem; padding: .35rem 0 .45rem .9rem;
+  border-left: 3px solid var(--navy); border-bottom: 1px solid var(--border);
+}
+body.lang-ja .essay h2 { font-family: var(--font-jp); font-weight: 500; }
+.essay h2 .hnum { font-family: var(--font-mono); font-size: .85rem; color: var(--teal-dark); margin-right: .7rem; letter-spacing: .05em; }
+
+.essay p { margin: 1.1rem 0; color: var(--text-mid); text-align: justify; }
+.essay a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.4); }
+.essay sup { font-size: .66em; color: var(--teal-dark); font-family: var(--font-mono); padding: 0 .1em; }
+
+.ja .em { -webkit-text-emphasis: filled dot var(--navy); text-emphasis: filled dot var(--navy); font-style: normal; }
+.en .em { font-style: italic; }
+
+.pull {
+  border: 1px solid var(--gold); background: var(--gold-light);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 1.9rem 0; border-radius: 2px;
+  font-size: 1rem; color: var(--navy); line-height: 1.8; position: relative; text-align: justify;
+}
+.pull .pull-label {
+  position: absolute; top: -0.7rem; left: 1rem; background: var(--white);
+  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em;
+  color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase;
+}
+.pull .term { color: var(--gold-dark); }
+.pull .term-line { display: block; margin: .45rem 0; }
+
+.figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 1.9rem 0; background: var(--white); }
+.figure svg { width: 100%; height: auto; display: block; }
+.figcap {
+  margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); text-align: center;
+}
+body.lang-ja .figcap { font-family: var(--font-jp); font-size: .76rem; }
+
+.seed-box {
+  border: 1px solid var(--gold); border-left: 4px solid var(--gold);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0 0; border-radius: 2px;
+  font-size: 1.02rem; color: var(--navy); line-height: 1.85; position: relative; text-align: justify;
+}
+.seed-box .pull-label { position: absolute; top: -0.7rem; left: 1rem; background: var(--white); font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase; }
+
+.essay-close { border-top: 2px solid var(--gold); margin-top: 3rem; padding-top: 1.6rem; }
+.essay-note { margin-top: 2.6rem; padding-top: 1.2rem; border-top: 1px solid var(--border); font-size: .8rem; line-height: 1.7; color: var(--text-muted); }
+.essay-note .note-label { display: block; font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .7rem; }
+.essay-note ol { margin: 0; padding-left: 1.5rem; }
+.essay-note li { margin: .5rem 0; }
+.essay-note em { font-style: italic; }
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
+footer a { color: var(--teal-dark); text-decoration: none; }
+@media (max-width: 560px) { nav { padding: 0 1.2rem; } .essay { padding-top: 2.6rem; } }
+</style>
+</head>
+<body class="lang-en">
+
+<nav>
+  <a class="nav-logo" href="/">Shun <span>Yanagisawa</span></a>
+  <div class="nav-right">
+    <a class="nav-back" href="/#essays"><span class="en">← Essays</span><span class="ja">← エッセイ一覧</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="en">日本語</span><span class="ja">English</span></button>
+  </div>
+</nav>
+
+<article class="essay">
+  <div class="essay-kicker">Essay 015 · Faith &amp; Order</div>
+  <h1>
+    <span class="en">Koyasan, and Religion</span>
+    <span class="ja">高野山と、宗教。</span>
+  </h1>
+  <p class="essay-sub">
+    <span class="en">A teaching that began by showing one person the way out of suffering ended up wearing the shape of a state. Walking the snowbound road up Mount Koya in December, I followed that change from early Buddhism to the Mahayana, esoteric Buddhism, the Kamakura schools and the Edo parishioner registers — and asked why, unlike the gods who were cast down elsewhere, this one lasted twenty-five centuries.</span>
+    <span class="ja">十二月の高野山。雪の参道を上って辿り着いた山上にあったのは、一つの寺院ではなく、伽藍と学問と組織を備えた宗教都市だった。一人の苦しみに向けられていた教えは、なぜ国家の形になったのか。初期仏教から大乗、密教、鎌倉の諸宗、江戸の寺請制度までを辿り、他の地で堕とされた神々と比べながら、仏教が二千五百年を永らえた理由を考える。</span>
+  </p>
+  <div class="essay-meta">
+    <span class="en">July 2026</span><span class="ja">2026年7月</span>
+    <span class="en">Faith &amp; Order</span>
+    <span class="ja">信仰と秩序</span>
+    <span class="en">9 min read</span>
+    <span class="ja">日本語 約9分</span>
+  </div>
+
+  <h2><span class="hnum">1</span><span class="en">Why Did a Teaching That Saves One Person Become the Shape of a State?</span><span class="ja">一人を救う教えは、なぜ国家の形となったのか</span></h2>
+
+  <p class="en">December, Mount Koya. I climbed the Fudōzaka slope up from Gokurakubashi. Snow lay over a path where cedar roots pushed up through the ground, and I walked the pilgrims' road one step at a time, making sure of each place to put a foot. What stood at the top was not a temple. There were the halls, a scholarship that trains monks, an organization that sustains the rituals. Koyasan looked less like a place of faith than like a religious city — an entire religious world settled into institutional form.</p>
+  <p class="ja">十二月、高野山、極楽橋から不動坂を上った。杉の根が張り出した道には雪が積もり、足を置く場所を確かめながら、一歩ずつ参道を踏みしめて歩いた。山上に着くと、そこにあったのは一つの寺院ではなかった。伽藍があり、僧侶を育てる学問があり、儀礼を支える組織がある。高野山は、信仰の場所というより、一つの宗教世界が制度として定着した宗教都市に見えた。</p>
+
+  <p class="en">Walking the snowy road, I found myself thinking about religion and the state. Early Buddhism, at least, must have begun by showing one human being the way out of suffering and toward awakening. Why did it come to hold an organization and a space of this size, and to bind itself so deeply to the order of the state?</p>
+  <p class="ja">雪道を歩きながら、宗教と国家について考えた。少なくとも初期の仏教は、一人の人間が苦しみから離れ、悟りへ至る道を示すところから始まったはずである。それがなぜ、これほど大きな組織と空間を持ち、国家の秩序と深く結びつくようになったのか。</p>
+
+  <p class="en">To say that religion was used by the state does not seem enough. It was not only that the state needed Buddhism; Buddhism, too, needed land, organization, education, and institutions for handing the teaching to the next generation. When a thought that preached the liberation of the individual spread out into society, both the one to be saved and the role demanded of it changed. A religious city on the scale of Koyasan may be the result of that change.</p>
+  <p class="ja">宗教が国家に利用された、と説明するだけでは足りないだろう。国家が仏教を必要としただけでなく、仏教もまた、土地、組織、教育、そして教えを次代へ渡すための制度を必要としたから、と考えられる。個人の解脱を説く思想が社会へ広がったとき、救う相手も、求められる役割も変わった。その変化の結果として、高野山のような巨大な宗教都市が生まれたのではないか。</p>
+
+  <p class="en">Buddhism, from pure thought to instrument of politics. When a teaching addressed to one person's suffering met a society holding a great many people, what did it keep and what did it change? I want to follow that change — from early Buddhism to the Mahayana, to esoteric Buddhism, and on to the relation between the state and Buddhism in Japan.</p>
+  <p class="ja">仏教が純粋な思想から政治の道具へ。一人の苦しみに向けられていた教えが、多くの人間を抱える社会と出会ったとき、何を残し、何を変えたのか。その変化を、初期仏教から大乗仏教、密教、そして日本の国家と仏教の関係まで思いを巡らせてみたい。</p>
+
+  <p class="en">What the Buddha taught was how suffering comes about, and the way out of it. There is a path in worry, in suffering, and in going beyond them. The one it addressed was not the people at large but the single person in front of him.</p>
+  <p class="ja">仏陀が説いた教えは、苦しみの成り立ちと、そこから抜ける道だった。悩み、苦しみ、そしてそれを超えることに道がある。その教えの相手は遍く民ではなく、目の前の一人であった。</p>
+
+  <p class="en">Early Buddhism pointed the same way. Those who had left home kept the precepts, sat every day, and watched the movements of the mind. The Buddhism of this period is that analysis growing finer and finer. The teaching that leads to awakening was systematized and handed on in a reproducible form; it became a scholarship. This is what is loosely called Hinayana, and in historical description, sectarian Buddhism.</p>
+  <p class="ja">初期の仏教の方向性も同じだった。出家した者が戒を守り、日々坐り、心の動きを観る。その分析が精緻になっていくのが、この時期の仏教の姿。悟りに至る教えを体系化し、再現性のある形として伝えていく、学問となっていく。いわゆる小乗仏教、歴史的記述としては部派仏教と言われるものだ。</p>
+
+  <p class="en">This Hinayana is a teaching about the road by which each individual reaches awakening, and it cannot help running against the road that saves all people. After all, one has to sit, to meditate, to keep up the effort. That is a hard road to fold into daily life, and there is no way to check whether each person is heading in the right direction. And if leaving home is the premise, society does not hold together.</p>
+  <p class="ja">この小乗仏教というのは、個々の人間の悟りに至る路の教えであり、どうしても普く民を救う路とは相反するものである。何しろ、坐禅を組んで、瞑想して、精進を重ねる必要がある。これを日常的に取り入れて行くのはなかなか困難な路だし、一人ひとりが正しい道に向かっているかどうか確かめる手段がない。ましてや出家する事が前提であっては社会が成り立たない。</p>
+
+  <p class="en">As society widened and kingship, lay believers, merchants and farmers came into contact with Buddhism, questions poured out for which sectarian Buddhism had no answer.</p>
+  <p class="ja">社会が広がり、王権や在家の信者、商人や農民などの民が仏教に関わるようになると、部派仏教では答えを持たない問いが噴き出してくる。</p>
+
+  <p class="en">How is one saved who cannot leave home? The one who cannot abandon the fields, who supports a family, who has to open the shop again tomorrow. What is to be done with parents who have died? In the middle of plague and famine and war, can a village, a town, a society be saved?</p>
+  <p class="ja">出家できない者はどう救われるのか。田畑を捨てられない者、家族を養う者、明日も店を開けなければならない者は。死んだ親をどう扱えばいいのか。疫病と飢饉と戦のなかで、村を、町を、そして社会を救うことはできるのか。</p>
+
+  <p class="en">The teaching that saves all appeared as the answer to those questions. The ideal of the bodhisattva, who turns toward the salvation of others instead of aiming at liberation for himself alone.</p>
+  <p class="ja">あまねく救う教えは、この問いへの応答として現れた。自分だけの解脱を目指すのではなく、他者の救済に向かう菩薩という理想。</p>
+
+  <p class="en">The view that every living being holds the possibility of becoming a Buddha; countless Buddhas and their lands. One could call this an evolution that took the salvation at the heart of the Buddha's own teaching and adapted it, widely, to the structure of society.</p>
+  <p class="ja">生きとし生けるものすべてに仏となる可能性があるという見方、無数の仏とその国土。これは元来の仏陀の教えである人々の救済を、社会構造に合わせて広く適応させるための進化とも言える。</p>
+
+  <p class="en">As for who drove the movement from sectarian Buddhism to the Mahayana, accounts differ<sup>1</sup>. Most likely sectarian Buddhism spread by a natural branching, and what began the Mahayana was the work of ordained monks who systematized the teaching in order to guide the people, and made it popular. In the history of religion, it seems more natural to think that a religion is not believed because a god is really there, but that religion is present everywhere in the form of a god because a god was needed there.</p>
+  <p class="ja">さて、その部派仏教から大乗仏教への流れについて、誰が主導してきたかというのは諸説あり<sup>1</sup>。おそらく、自然分化的に部派仏教が拡がり、出家者達が民を導くために教えを体系化し、民衆化したものが大乗仏教の始まりだったと考えられる。宗教の歴史では、そこに神が実在するからその宗教が信じられるのではなく、そこに神が必要とされたから神というかたちをもって宗教が偏在する、と考えた方が自然だろう。</p>
+
+  <p class="en">And seen from the side of those who ruled at the time, religion was chosen because a god was needed there, because the common people had to be guided; as the population grew, as society became larger and its structure more complex, religion was needed as an instrument for running the state. And what suited that purpose was a system that guides and saves all people, like the salvation of the bodhisattva — one with a presence at the center of the cosmos, like Mahāvairocana.</p>
+  <p class="ja">そしてその時の為政者の側から見れば、そこに神が必要とされたから、民草を導くことが必要だったから宗教が選ばれたわけであり、民が増え、社会が大きくなり、社会構造が複雑化したことにより国家運営の手段としての宗教が必要であったと言える。そしてその体系は、菩薩の救いのように普く民を導き救うものが、大日如来のように宇宙の中心となる存在が適していた。</p>
+
+  <h2><span class="hnum">2</span><span class="en">When What Is Asked For Changes, the Form Moves Too</span><span class="ja">求められるものが変われば、形も動く</span></h2>
+
+  <p class="en">Even inside the teaching that saves all, the form kept moving. What moved it was what people asked for, at each moment.</p>
+  <p class="ja">あまねく救う教えの内側でも、形は動き続けた。動かしたのは、人々がその時々に何を求めたかである。</p>
+
+  <p class="en">The teaching that one becomes a Buddha in this very body pulled an unforeseeable, distant future into the reality in front of one's eyes. The goma fire burned where you could see it, and ritual prayer was sought as something that worked directly on illness and misfortune. What was asked for spread, in time, toward worldly benefit as well — quiet in the next life, the survival of the house. The mandala took an order of the cosmos that should have been invisible and gave it a visible form, in color and arrangement.</p>
+  <p class="ja">この身のまま仏になれるという教えは、予想がつかない遠い未来を眼の前の現実に引き寄せた。護摩の火は目の前で燃え、加持祈祷は病や災いに直接効くものとして求められた。求められるものはやがて、来世の安穏や家の存続といった御利益の方へも広がっていく。曼荼羅は、目に見えないはずの宇宙の秩序を、色と配置で見える形にした。</p>
+
+  <p class="en">The rulers of the day drew the legitimacy of their rule from this. Lay the order in which Mahāvairocana sits at the center of the cosmos directly over the order of the earth, and the position of the one at the summit acquires a cosmic ground. One could say that the political order was justified by translating a view of the cosmos into the imperial system. The order, for its part, built the base for running itself as an organization: it held land, kept institutions of learning to train monks, and made a foundation for passing the teaching on. The people gained quiet of mind through religion. Having a stable base, religion came to have power.</p>
+  <p class="ja">時の為政者はここから統治の正統性を得た。宇宙の中心に大日如来が座す秩序を、そのまま地上の秩序に重ねれば、頂点にいる者の位置は宇宙的な根拠を持つ。宇宙観を天皇制に置き換えることで、政治の秩序が正当化された、と言ってもいい。そして教団の側は組織運営としての基盤、土地を保有し、僧侶を育てる学問機関を持ち、次世代に継承する基盤を作った。民は宗教により心の安寧を得た。安定基盤を持つことにより、宗教は力を持った。</p>
+
+  <p class="en">Set against this, the Hossō school, held in high regard in the capital at Nara, transmitted the learning of Consciousness-Only, which articulates the workings of the mind with precision. It starts from the view that what a person takes for the world is produced by the workings of that person's mind, then breaks the mind into layer upon layer and gives it structure. Even today this can be called psychology at the leading edge.</p>
+  <p class="ja">逆に、奈良の都で重んじられた法相宗は、心の働きを精密に分節する唯識の学を伝えていた。人が世界だと思っているものは、人の心の働きが作り出したものだという見方から出発し、心を幾層にも分けて分解し、構造化する。これは現代においても最先端の心理学と言える。</p>
+
+  <p class="en">But this is difficult. Against direct prayer, or a mandala you can see, the articulation of the mind's layers is invisible. The doctrinal system is extremely complex, and had the strong character of a scholarship for ordained monks. In China it lost its force as a school with the rise of Huayan, and in Japan it followed the same road.</p>
+  <p class="ja">だがこれは、難しい。直接的な祈祷や、目に見える曼荼羅と比較して、心の層の分節は、見えない。教義の体系はきわめて複雑で、出家した僧の学問としての性格が強かった。中国では華厳の興隆とともに宗派としての勢いを失い、日本でも同じ道を辿る。</p>
+
+  <p class="en">Still, it did not disappear. While losing its force as a school, Consciousness-Only remained as the basic learning every monk must study, and flowed into the doctrine of other schools from the inside. Even when the form that shows on the surface changes, the truth in it does not necessarily vanish. Beneath the halls on this mountain, too, the work of sitting and watching the mind had been going on all along.</p>
+  <p class="ja">それでも、消えたわけではない。宗派としての力を失いながら、唯識は僧が必ず学ぶ基礎の学として残り、他の宗の教学の内側へ流れ込んだ。表に出る形が変わっても、その真理が消えるとは限らない。この山の上の伽藍の下でも、坐って心を観る作業はずっと続いていた。</p>
+
+  <p class="en">In the other direction, Kamakura saw the rise of faiths of invocation — chanting the name, chanting the title of the sutra, sitting in zazen. Religion in an extremely simplified form. This religion needs neither scholarship nor wealth. And it asserted religious freedom against the political power of the day. Hōnen and Shinran were both sent into exile as a result, and Nichiren was banished twice, to Izu and to Sado. In the sense of guiding all people, these faiths should be no different from the Mahayana or from the Hinayana — but a religion with no structure placed at its center was regarded by rulers as dangerous.</p>
+  <p class="ja">逆に、鎌倉では念仏宗教、ひたすら念仏を唱え、題目を唱え、坐禅する。極度に単純化された宗教が興った。この宗教には学問も財も不要だ。そして時の政治権力に対して宗教の自由を主張した。結果として法然も親鸞も流罪になり、日蓮は伊豆と佐渡へ二度流されている。普く民を導くという意味ではこれらの宗教も、大乗仏教も小乗仏教も何も変わらないはずだが、中心に据える構造体の存在しない宗教は為政者にとっては危険なものとして見做された。</p>
+
+  <p class="en">So where did that religion go? A religion spreads and people gather; people gather and it becomes an order. Once it is an order it holds land and organization, and in time it ties itself to warrior houses and daimyo. And under the temple-certification system of the Edo period, the Buddhist orders came to carry one wing of the shogunal regime. Every year the temple submitted a register of its parishioners to the shogunate or the domain. Unless a person belonged to some temple, he could not prove who he was. A faith that had risen from the side of the people became, in the end, the ledger by which the people were held.</p>
+  <p class="ja">ではその宗教はどこへ行ったか。宗教が広がれば人が集まり、人が集まれば教団になる。教団になれば土地と組織を持ち、やがて武家や大名と関係を結ぶ。そして江戸の寺請制度では、仏教教団は幕藩体制の一翼を担うことになった。寺は毎年、檀家の名簿を幕府や藩へ提出する。人はどこかの寺に属していなければ、自分が何者であるかを証明できない。民衆の側から起こった信仰が、最終的には民衆を把握するための台帳になった。</p>
+
+  <p class="en">The religion handed down from above and the religion risen from below settle, in the end, into the same position. To say that religion is a thing by which rulers guide the people points not to who started it, but to the place where a faith that has acquired scale is finally put.</p>
+  <p class="ja">上から与えられた宗教も、下から起こった宗教も、行き着く先では同じ位置に収まっている。為政者が民を導くためのもの、という言い方は、誰が始めたかではなく、規模を持った信仰が最後に置かれる場所を指している。</p>
+
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 214" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <text x="30" y="22" font-size="11" fill="#666" letter-spacing="1">WHO BEGAN IT</text>
+      <text x="430" y="22" font-size="11" fill="#666" letter-spacing="1">WHERE IT ARRIVES</text>
+      <rect x="30" y="38" width="250" height="52" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.2"/>
+      <text x="155" y="60" font-size="13" text-anchor="middle" fill="#1a2332">Given from above</text>
+      <text x="155" y="78" font-size="11.5" text-anchor="middle" fill="#666">esoteric rites, protection of the realm</text>
+      <rect x="30" y="126" width="250" height="52" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.2"/>
+      <text x="155" y="148" font-size="13" text-anchor="middle" fill="#1a2332">Risen from below</text>
+      <text x="155" y="166" font-size="11.5" text-anchor="middle" fill="#666">the name, the title, zazen</text>
+      <path d="M284 64 L360 96" stroke="#b5832a" stroke-width="1.4" fill="none"/>
+      <path d="M284 152 L360 120" stroke="#b5832a" stroke-width="1.4" fill="none"/>
+      <polygon points="366,99 355,95 358,105" fill="#b5832a"/>
+      <polygon points="366,117 358,111 355,121" fill="#b5832a"/>
+      <rect x="372" y="72" width="258" height="72" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.5"/>
+      <text x="501" y="98" font-size="13.5" text-anchor="middle" fill="#1d5c5c">The position of governance</text>
+      <text x="501" y="118" font-size="11.5" text-anchor="middle" fill="#1d5c5c">land · organization · the register</text>
+      <text x="501" y="134" font-size="11.5" text-anchor="middle" fill="#666">— guiding the people</text>
+      <line x1="30" y1="196" x2="630" y2="196" stroke="#ddd9d0" stroke-width="1"/>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 214" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <text x="30" y="22" font-size="11" fill="#666">誰が始めたか</text>
+      <text x="430" y="22" font-size="11" fill="#666">どこへ行き着くか</text>
+      <rect x="30" y="38" width="250" height="52" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.2"/>
+      <text x="155" y="60" font-size="13" text-anchor="middle" fill="#1a2332">上から与えられた信仰</text>
+      <text x="155" y="78" font-size="11.5" text-anchor="middle" fill="#666">密教・鎮護国家</text>
+      <rect x="30" y="126" width="250" height="52" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.2"/>
+      <text x="155" y="148" font-size="13" text-anchor="middle" fill="#1a2332">下から起こった信仰</text>
+      <text x="155" y="166" font-size="11.5" text-anchor="middle" fill="#666">念仏・題目・坐禅</text>
+      <path d="M284 64 L360 96" stroke="#b5832a" stroke-width="1.4" fill="none"/>
+      <path d="M284 152 L360 120" stroke="#b5832a" stroke-width="1.4" fill="none"/>
+      <polygon points="366,99 355,95 358,105" fill="#b5832a"/>
+      <polygon points="366,117 358,111 355,121" fill="#b5832a"/>
+      <rect x="372" y="72" width="258" height="72" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.5"/>
+      <text x="501" y="98" font-size="13.5" text-anchor="middle" fill="#1d5c5c">統治の位置</text>
+      <text x="501" y="118" font-size="11.5" text-anchor="middle" fill="#1d5c5c">土地・組織・台帳</text>
+      <text x="501" y="134" font-size="11.5" text-anchor="middle" fill="#666">——民を導くためのもの</text>
+      <line x1="30" y1="196" x2="630" y2="196" stroke="#ddd9d0" stroke-width="1"/>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 1 — Whoever begins it, a faith that acquires scale is put in the same position.</span><span class="ja">図1　誰が始めたかにかかわらず、規模を持った信仰は同じ位置に置かれる</span></div>
+  </div>
+
+  <p class="en">And this form went on working into the postwar world. There were funerals, there were memorial rites, there were ties of place, and there was the house as a unit.</p>
+  <p class="ja">そしてこの形は、戦後の世の中まで効いていた。葬儀があり、法事があり、地縁があり、家という単位があった。</p>
+
+  <h2><span class="hnum">3</span><span class="en">Gods Cast Down, and a Teaching That Reaches the Present</span><span class="ja">堕された神々と、現代まで続く教え</span></h2>
+
+  <p class="en">Let me turn, for a moment, to somewhere outside Japan.</p>
+  <p class="ja">ここで一つ、日本の外に思いを巡らせてみたい。</p>
+
+  <p class="en">The asura of India and the ahura of Ahura Mazda, held in Iran to be the highest god, are the same word. In India the asuras became the enemies of the gods; in Iran, conversely, the devas who were gods in India became demons<sup>2</sup>.</p>
+  <p class="ja">インドの阿修羅と、イランで最高神とされたアフラ・マズダーのアフラは、同じだ。インドではアスラが神々の敵となり、イランでは逆にインドでの神デーヴァが悪魔となった<sup>2</sup>。</p>
+
+  <p class="en">Baal, the fertility god of Canaan, is also among those cast down. In the Hebrew tradition he appears under the name Baal-zebub, the god of Ekron — the lord of the flies. There is a reading that this was originally Baal-zebul, a title one might translate as lord of the lofty house, and that a writer altered a single letter to bring it down to lord of the flies. Later the name became the name of the devil itself. To rewrite a name was to cast it down.</p>
+  <p class="ja">カナンの豊穣の神バアルも落とされた側にいる。ヘブライ語の伝承には、エクロンの神バアル・ゼブブ、すなわち蝿の主という名で現れる。もとはバアル・ゼブル、高き館の主とでも訳すべき称号だったものを、書き手が一字を変えて蝿の主に貶めたのだという説がある。のちにこの名は悪魔そのものの名になった。名を書き換えることが、落とすことだった。</p>
+
+  <p class="en">What about Buddhism, then? In India the Buddha is counted among the incarnations of Vishnu. He is the ninth of them, and is sometimes described as a being who deludes the demons<sup>3</sup>. This is a textbook case of what is read as a strategy for absorbing another religion — and yet he did not become a devil. That is the interesting part: he went on living inside Hinduism, and in East Asia he went on living while merging with the gods of the land.</p>
+  <p class="ja">では仏教ではどうだろうか。インドでは、仏陀はヴィシュヌの化身の一つに数えられている。第9番目の化身の一つで、魔族を惑わせる存在として描かれることもある<sup>3</sup>。これは他宗教同化策の一つとして見られる典型例だが、悪魔にはならなかった。これが面白いところで、ヒンドゥーの内側にありながら生き、東アジアでは土地の神々と習合しながら生き続けた。</p>
+
+  <p class="en">What the gods who were cast down have in common, I think, is that each was one body with a particular community or kingship. If the kingship of an age used that religion to assert itself, then when that kingship was defeated, the god fell with it.</p>
+  <p class="ja">これらの落とされた神々に共通するのは、特定の共同体や王権と一体だったことだろう。その時代の王権が王権主張のためにその宗教を利用すれば、その王権が敗れるとともに神は堕ちる。</p>
+
+  <p class="en">What was different about Buddhism, perhaps, is that an individual stood at its origin.</p>
+  <p class="ja">仏教が違ったのは、原点に個人があったからではないだろうか。</p>
+
+  <p class="en">A form that guides the people ends when the one who guides changes. If the dynasty falls, the dynasty's religion falls too. But one person sitting for his own sake, watching his own mind, needs no one's permission and is managed by no one. While wearing the face of a religion of state, beneath it there is the continuing practice of one person and another, unrelated to politics.</p>
+  <p class="ja">民を導く形は、導く者が変われば終わる。王朝が倒れれば、王朝の宗教も倒れる。だが一人が自分のために坐り、己の心を観ることは、誰の許可も要らないし、誰にも管理されない。国家の宗教という顔を持ちながら、その下に、政治とは無関係に一人ひとりの続く実践がある。</p>
+
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 226" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <text x="30" y="22" font-size="11.5" fill="#1a2332">The gods who were cast down</text>
+      <rect x="30" y="38" width="252" height="50" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.2" stroke-dasharray="5 4"/>
+      <text x="156" y="60" font-size="12.5" text-anchor="middle" fill="#1a2332">One body with a kingship</text>
+      <text x="156" y="78" font-size="11" text-anchor="middle" fill="#666">Baal · the devas of Iran</text>
+      <rect x="30" y="104" width="252" height="50" rx="2" fill="none" stroke="#ddd9d0" stroke-width="1" stroke-dasharray="3 5"/>
+      <text x="156" y="134" font-size="11.5" text-anchor="middle" fill="#666">(no layer beneath)</text>
+      <text x="156" y="180" font-size="12" text-anchor="middle" fill="#8a6020">The kingship falls, and the god falls with it</text>
+      <line x1="330" y1="30" x2="330" y2="196" stroke="#ddd9d0" stroke-width="1"/>
+      <text x="378" y="22" font-size="11.5" fill="#1a2332">Buddhism</text>
+      <rect x="378" y="38" width="252" height="50" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.2" stroke-dasharray="5 4"/>
+      <text x="504" y="60" font-size="12.5" text-anchor="middle" fill="#1a2332">The face of a religion of state</text>
+      <text x="504" y="78" font-size="11" text-anchor="middle" fill="#666">halls · land · the register</text>
+      <rect x="378" y="104" width="252" height="50" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.6"/>
+      <text x="504" y="126" font-size="12.5" text-anchor="middle" fill="#1d5c5c">One person sits and watches the mind</text>
+      <text x="504" y="144" font-size="11" text-anchor="middle" fill="#1d5c5c">no permission, no scale required</text>
+      <text x="504" y="180" font-size="12" text-anchor="middle" fill="#8a6020">The upper layer collapses; the lower one remains</text>
+      <line x1="30" y1="208" x2="630" y2="208" stroke="#ddd9d0" stroke-width="1"/>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 226" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <text x="30" y="22" font-size="11.5" fill="#1a2332">堕とされた神々</text>
+      <rect x="30" y="38" width="252" height="50" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.2" stroke-dasharray="5 4"/>
+      <text x="156" y="60" font-size="12.5" text-anchor="middle" fill="#1a2332">王権と一体だった層</text>
+      <text x="156" y="78" font-size="11" text-anchor="middle" fill="#666">バアル・イランのデーヴァ</text>
+      <rect x="30" y="104" width="252" height="50" rx="2" fill="none" stroke="#ddd9d0" stroke-width="1" stroke-dasharray="3 5"/>
+      <text x="156" y="134" font-size="11.5" text-anchor="middle" fill="#666">（その下に層がない）</text>
+      <text x="156" y="180" font-size="12" text-anchor="middle" fill="#8a6020">王権が敗れれば、神も堕ちる</text>
+      <line x1="330" y1="30" x2="330" y2="196" stroke="#ddd9d0" stroke-width="1"/>
+      <text x="378" y="22" font-size="11.5" fill="#1a2332">仏教</text>
+      <rect x="378" y="38" width="252" height="50" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.2" stroke-dasharray="5 4"/>
+      <text x="504" y="60" font-size="12.5" text-anchor="middle" fill="#1a2332">国家の宗教という顔</text>
+      <text x="504" y="78" font-size="11" text-anchor="middle" fill="#666">伽藍・土地・台帳</text>
+      <rect x="378" y="104" width="252" height="50" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.6"/>
+      <text x="504" y="126" font-size="12.5" text-anchor="middle" fill="#1d5c5c">一人が坐り、心を観る</text>
+      <text x="504" y="144" font-size="11" text-anchor="middle" fill="#1d5c5c">誰の許可も要らず、規模も要らない</text>
+      <text x="504" y="180" font-size="12" text-anchor="middle" fill="#8a6020">上の層が崩れても、下の層は残る</text>
+      <line x1="30" y1="208" x2="630" y2="208" stroke="#ddd9d0" stroke-width="1"/>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 2 — What survived the fall of rulers was the system that kept a layer needing no scale.</span><span class="ja">図2　統治の交代を生き延びたのは、規模に依存しない層を下に持っていた体系だった</span></div>
+  </div>
+
+  <p class="en">This, I suspect, is why Buddhism has lasted twenty-five centuries, into the world we live in now.</p>
+  <p class="ja">これが仏教が2500年の時を経て今の世まで永らえた理由ではないだろうか。</p>
+
+  <div class="essay-close">
+    <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">4</span><span class="en">And Now, What Does Buddhism Save?</span><span class="ja">そして今、仏教は何を救うのか</span></h2>
+
+    <p class="en">And now, in our own time, the internet has broken people into fragments. A world in which mass media pushed out uniform information and things moved by propaganda has become a world divided person by person. The screen each of us looks at through a phone draws a different picture.</p>
+    <p class="ja">そして現代、インターネットは人々を細分化した。マスメディアが画一的な情報を流し、プロパガンダで動く世界は一人ひとり細分化された世界となった。人々がスマホ越しに見るスクリーンは、人それぞれ違う絵を描いている。</p>
+
+    <p class="en">Up to the postwar years, the units of place and of the house still existed. The concentration into cities after the high-growth era, and the turn to nuclear families, thinned those units out; in the countryside, the parishioners who support a temple simply dwindled. There must be many by now who do not know the word <em>danka seido</em>, the parishioner system. That is because the workings of society changed — because the structure changed.</p>
+    <p class="ja">戦後までは、地縁と家という単位がまだ存在した。高度成長期以降の都市への人口集中と核家族化がその単位を薄くし、地方では寺を支える檀家そのものが減っていった。檀家制度、という言葉を知らない人も多くなってきただろう。それは社会の仕組みが変わってきたから、構造が変わったから。</p>
+
+    <p class="en">There are some seventy-seven thousand temples in the country, of which about seventeen thousand already have no resident priest, and by 2040, they say, around three in ten will be gone. And among those disappearing, the Kōyasan Shingon school stands highest, at roughly forty-six percent<sup>4</sup>.</p>
+    <p class="ja">全国には約七万七千の寺院があり、そのうち住職のいない寺がすでに一万七千ほど、そして二〇四〇年までに三割ほどが消えるそうだ。そして消えゆく寺院として、高野山真言宗がもっとも高く、およそ四六パーセントとされる<sup>4</sup>。</p>
+
+    <p class="en">The school of those halls I climbed the snowy road to look up at stands at the head of the line of the disappearing.</p>
+    <p class="ja">雪の参道を上って見上げたあの伽藍の宗派が、消えていく列の先頭にいる。</p>
+
+    <p class="en">The Japanese are said to have no religion. And yet Buddhism is rooted in the mind. Where does that come from? Quiet of mind, something to rest on, and looking inward in silence. Could this not be called a teaching rooted in daily life?</p>
+    <p class="ja">日本人は無宗教という。だが、心のなかに仏教は根付いている。それはどこから来ているのか。心の安寧、拠り所、そして静かに内省すること。これは生活に根付いた教えとも言えるのではないだろうか。</p>
+
+    <p class="en">In a world busy day after day, minding the eyes of others and feeling the pressure to conform, to hold a mind that lets things pass and keeps its own quiet — the number of people who want this is rising, little by little.</p>
+    <p class="ja">日々忙しい世の中、他人の目線を気にしながら、同調圧力を感じながらも、受け流す心を持ち、心の安寧を保つこと、これを望む人が少しずつ増えている。</p>
+
+    <p class="en">This, one could say, is early Buddhism — the Buddha's own teaching.</p>
+    <p class="ja">これは原始仏教の、本来の仏陀の教えとも言えるだろう。</p>
+
+    <p class="en">The halls of Koyasan wear the shape of a country because the state needed a religion that could guide the people, and the order, too, needed institutions for handing the teaching to the next generation. And from here on, how will we relate to Buddhism?</p>
+    <p class="ja">高野山の伽藍が国の形をしているのは、国家が民を導ける宗教を必要とし、教団もまた、教えを次代へ渡すための制度を必要とした。そしてこの先、我々は仏教とどう関わっていくのだろう。</p>
+
+    <div class="seed-box">
+      <span class="pull-label"><span class="en">The Seed</span><span class="ja">種としての一行</span></span>
+      <span class="en">A faith that acquires scale is put in the position of governance, whoever began it. What survived the changing of rulers was the system that kept, beneath that position, a layer needing no scale at all.</span>
+      <span class="ja">規模を持った信仰は、誰が始めたかにかかわらず統治の位置に置かれる。統治の交代を生き延びたのは、その下に規模を必要としない層を持っていた体系だけだった。</span>
+    </div>
+  </div>
+
+  <div class="essay-note">
+    <span class="note-label"><span class="en">Notes &amp; Sources</span><span class="ja">出典</span></span>
+    <ol>
+      <li><span class="en">On who drove the movement from sectarian Buddhism to the Mahayana: Akira Hirakawa, <em>Studies in Early Mahayana Buddhism</em> (1968), proposed an origin among lay believers around the stupa cult. Since Gregory Schopen's criticism from the 1970s onward, the prevailing view has shifted toward an origin inside the monastic communities themselves. This is a contested field; the account in this essay follows the current majority reading rather than a settled fact.</span><span class="ja">部派仏教から大乗仏教への流れを誰が主導したかについて。平川彰『初期大乗仏教の研究』(1968) は仏塔信仰をめぐる在家者に起源を求めた。1970年代以降のグレゴリー・ショペンの批判を経て、現在は出家教団の内部に起源を求める見方が優勢である。論争の続く領域であり、本稿の記述は確定した事実ではなく現在の多数説に依っている。</span></li>
+      <li><span class="en">On <em>asura</em>/<em>ahura</em> and <em>deva</em>/<em>daeva</em>. That the evaluation of these terms is reversed between India and Iran is not in dispute. What has been rejected is the older explanation of it: the demonization on each side is now dated late enough that it cannot be treated as a feature of shared Indo-Iranian religion, and the idea of a prehistoric opposition — already largely abandoned in Avestan studies — was closed off in Vedic studies after Wash Edward Hale, <em>Ásura- in Early Vedic Religion</em> (1986).</span><span class="ja">アスラ／アフラ、デーヴァ／ダエーワについて。インドとイランで評価が反転していること自体は争われていない。退けられたのはその説明の方で、両側の悪魔化はいずれも後代の展開と年代づけられ、インド・イラン共通期の宗教の特徴とは扱えないとされる。先史的な対立の痕跡とする説は、アヴェスタ学ではすでに大半が放棄されており、ヴェーダ学では Wash Edward Hale <em>Ásura- in Early Vedic Religion</em> (1986) 以降に退けられた。</span></li>
+      <li><span class="en">On the Buddha as the ninth avatar of Vishnu. Wendy Doniger reads the Puranic accounts as a possible attempt by orthodox Brahminism to slander Buddhists by identifying them with demons; Helmuth von Glasenapp reads the same development as a wish to absorb Buddhism peacefully — to win Buddhists over and to account for the existence of so large a heresy. The two readings are opposed, and both remain in circulation.</span><span class="ja">仏陀をヴィシュヌの第九化身とする位置づけについて。ウェンディ・ドニガーは、プラーナの諸伝を、仏教徒を魔族と同一視して貶めようとした正統バラモン側の試みの可能性として読む。ヘルムート・フォン・グラーゼナップは同じ展開を、仏教を平和的に吸収する意図——仏教徒を引き寄せ、かつこれほど大きな異端の存在を説明するため——と読む。二つの読みは対立したまま、いずれも生きている。</span></li>
+      <li><span class="en">Temple counts are from the Agency for Cultural Affairs' <em>Religious Yearbook</em>; the projection is Kenji Ishii's (Kokugakuin University), built on the 2014 "cities at risk of disappearing" estimate. Ishii's calculation covers all religious corporations — 62,971 of 176,670, or 35.6 percent, sit in municipalities projected to disappear by 2040 — so the "three in ten" in the text is an approximation drawn from a figure whose base is religious corporations as a whole, not temples alone. The sect-by-sect breakdown puts Kōyasan Shingon highest at 46 percent, followed by Sōtō at 42, Shingon Buzan at 39 and Tendai at 36. The roughly seventeen thousand temples without a resident priest are from the same body of work.</span><span class="ja">寺院数は文化庁『宗教年鑑』、消滅予測は石井研士（國學院大學）の推計で、2014年の「消滅可能性都市」試算を土台にしている。石井の計算は宗教法人全体を対象としており、17万6,670法人のうち6万2,971法人（35.6%）が2040年に消滅可能性のある自治体に所在する、というもの。したがって本文の「三割ほど」は、母数を寺院に限らない推計から取った概数である。宗派別では高野山真言宗が46%で最も高く、曹洞宗42%、真言宗豊山派39%、天台宗36%と続く。住職のいない寺およそ一万七千も同じ一連の調査による。</span></li>
+    </ol>
+  </div>
+</article>
+
+<footer>
+  <div><span class="en">Essay 015 · July 2026 · Written after a December walk up the snowbound road to Koyasan</span><span class="ja">Essay 015 · 2026年7月 · 十二月、雪の高野山を歩いた後に</span></div>
+  <div><a href="/">shun-yanagisawa.com</a> · <a href="/#essays"><span class="en">All essays</span><span class="ja">エッセイ一覧</span></a></div>
+</footer>
+
+<script>
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+}
+if ((navigator.language || '').startsWith('ja')) toggleLang();
+</script>
+</body>
+</html>
