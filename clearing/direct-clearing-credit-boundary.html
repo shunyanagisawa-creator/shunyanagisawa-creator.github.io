@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ダイレクト・クリアリングの制度化：与信の有無という境界線 — 柳沢 俊</title>
+<meta name="description" content="二〇二五年十二月、米国の商品先物取引委員会（CFTC）のスタッフが、リテール参加者によるデリバティブのダイレクト・クリアリングについて意見募集をかけました。">
+<meta property="og:title" content="ダイレクト・クリアリングの制度化：与信の有無という境界線">
+<meta property="og:description" content="二〇二五年十二月、米国の商品先物取引委員会（CFTC）のスタッフが、リテール参加者によるデリバティブのダイレクト・クリアリングについて意見募集をかけました。">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="Shun Yanagisawa">
+<link rel="canonical" href="https://www.shun-yanagisawa.com/clearing/direct-clearing-credit-boundary">
+<meta property="og:url" content="https://www.shun-yanagisawa.com/clearing/direct-clearing-credit-boundary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Noto+Serif+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* /clearing — 清算の体系（第2版に向けた断片）
+   essays と同じブランド palette を使うが、以下を変える:
+   - 日本語のみ（言語トグルなし・扉写真なし）
+   - 二次テキストは #3d4148 以深（Shun は薄いグレーが読めない）
+   - 強調は太字を使わない。番号見出し / 罫線囲み / 傍点 / 表で立てる */
+:root {
+  --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
+  --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f7efe0;
+  --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
+  --text: #14161b; --text-mid: #24272e; --text-sub: #3d4148; --border: #d3cec3;
+  --font-display: 'Playfair Display', 'Noto Serif JP', Georgia, serif;
+  --font-jp: 'Noto Serif JP', serif;
+  --font-mono: 'DM Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--white); color: var(--text); font-family: var(--font-jp); font-size: 17px; line-height: 1.95; }
+
+nav {
+  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+.nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo span { color: var(--teal-dark); }
+.nav-back { font-family: var(--font-jp); font-size: .82rem; letter-spacing: .04em; color: var(--text-sub); text-decoration: none; }
+.nav-back:hover { color: var(--teal-dark); }
+
+.column { max-width: 720px; margin: 0 auto; padding: 3.4rem 1.6rem 5rem; }
+
+/* 帰属 — 初版のどこの続きか */
+.column-kicker {
+  font-family: var(--font-jp); font-size: .78rem; letter-spacing: .1em; color: var(--teal-dark);
+  padding-bottom: .5rem; margin-bottom: 1.1rem; border-bottom: 1px solid var(--border);
+}
+.column-kicker .bookmark { color: var(--text-sub); }
+h1 { font-family: var(--font-jp); font-size: clamp(1.5rem, 3.6vw, 2.1rem); font-weight: 600; line-height: 1.5; color: var(--navy); margin-bottom: .9rem; }
+.column-sub { font-size: 1rem; color: var(--text-sub); margin-bottom: 1.4rem; line-height: 1.85; }
+.column-meta {
+  display: flex; flex-wrap: wrap; gap: .35rem 1.5rem;
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .06em; color: var(--text-sub);
+  padding-bottom: 1.5rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.3rem;
+}
+
+.column h2 {
+  font-family: var(--font-jp); font-size: 1.16rem; font-weight: 600; color: var(--navy); line-height: 1.6;
+  margin: 3rem 0 1rem; padding: .35rem 0 .5rem .9rem;
+  border-left: 3px solid var(--navy); border-bottom: 1px solid var(--border);
+}
+.column h2 .hnum { font-family: var(--font-mono); font-size: .82rem; font-weight: 400; color: var(--teal-dark); margin-right: .75rem; letter-spacing: .05em; }
+
+.column p { margin: 1.15rem 0; color: var(--text-mid); text-align: justify; }
+.column a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.45); }
+.column a:hover { border-bottom-color: var(--teal-dark); }
+.column ul, .column ol { margin: 1.15rem 0 1.15rem 1.6rem; color: var(--text-mid); }
+.column li { margin: .45rem 0; }
+
+/* 傍点（短い日本語の語句のみ・目安10字以内。英語フレーズには使わない） */
+.em { -webkit-text-emphasis: filled dot var(--navy); text-emphasis: filled dot var(--navy); font-style: normal; }
+/* 英語の原語・書名 */
+.column em { font-style: italic; }
+.column cite { font-style: normal; }
+
+/* 罫線囲み＋小ラベル（当局原文の引用・要点の囲みに使う） */
+.box {
+  border: 1px solid var(--gold); border-left: 4px solid var(--gold); background: var(--gold-light);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0; border-radius: 2px;
+  font-size: .98rem; color: var(--navy); line-height: 1.9; position: relative; text-align: justify;
+}
+.box .box-label {
+  position: absolute; top: -.72rem; left: 1rem; background: var(--white);
+  font-family: var(--font-mono); font-size: .64rem; letter-spacing: .18em;
+  color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase;
+}
+.box p:first-of-type { margin-top: .2rem; }
+.box p:last-of-type { margin-bottom: 0; }
+.box .src { display: block; margin-top: .7rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .05em; color: var(--gold-dark); }
+
+/* 表（台帳ふう・細罫） */
+.ledger-wrap { overflow-x: auto; margin: 2rem 0; }
+table.ledger { width: 100%; border-collapse: collapse; font-size: .9rem; line-height: 1.7; }
+table.ledger caption {
+  caption-side: top; text-align: left; font-family: var(--font-mono); font-size: .66rem;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--gold-dark); padding-bottom: .55rem;
+}
+table.ledger th, table.ledger td { border: 1px solid var(--border); padding: .6rem .8rem; text-align: left; vertical-align: top; color: var(--text-mid); }
+table.ledger th { background: var(--off-white); color: var(--navy); font-weight: 600; }
+
+/* 線画図版 */
+.figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 2rem 0; background: var(--white); }
+.figure svg { width: 100%; height: auto; display: block; }
+.figcap { margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--border); font-size: .8rem; letter-spacing: .04em; color: var(--text-sub); text-align: center; }
+
+/* 出典 */
+.column-note { margin-top: 3rem; padding-top: 1.3rem; border-top: 1px solid var(--border); font-size: .84rem; line-height: 1.85; color: var(--text-sub); }
+.column-note .note-label { display: block; font-family: var(--font-mono); font-size: .64rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .8rem; }
+.column-note ul { margin: 0; padding-left: 1.4rem; list-style: none; }
+.column-note li { margin: .55rem 0; text-indent: -1.4rem; padding-left: 1.4rem; }
+.column-note li.group { list-style: none; text-indent: 0; padding-left: 0; margin: 1.3rem 0 .45rem; font-size: .8rem; letter-spacing: .1em; color: var(--gold-dark); border-bottom: 1px solid var(--border); padding-bottom: .28rem; }
+.column-note li.group:first-child { margin-top: 0; }
+.column-note a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.35); word-break: break-all; }
+
+/* 奥付 — 初出と権利、書籍と章立てへの導線（D-18） */
+.colophon { margin-top: 2.6rem; padding-top: 1.5rem; border-top: 2px solid var(--gold); font-size: .88rem; line-height: 1.9; color: var(--text-sub); }
+.colophon p { margin: .5rem 0; }
+.colophon .rights { font-family: var(--font-mono); font-size: .74rem; letter-spacing: .06em; color: var(--text-sub); }
+.colophon a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.45); }
+
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .06em; color: var(--text-sub); text-align: center; line-height: 2.1; }
+footer a { color: var(--teal-dark); text-decoration: none; }
+@media (max-width: 560px) {
+  nav { padding: 0 1.1rem; }
+  .column { padding: 2.4rem 1.2rem 4rem; }
+  .column p { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">Shun <span>Yanagisawa</span></a>
+  <a class="nav-back" href="/clearing/">← 清算・章立てへ</a>
+</nav>
+
+<article class="column">
+  <div class="column-kicker">『デリバティブ・クリアリングのすべて』<span class="bookmark">第7章 5「ダイレクト・クリアリングモデル」</span> の続き</div>
+  <h1>ダイレクト・クリアリングの制度化：与信の有無という境界線</h1>
+  <p class="column-sub">二〇二五年十二月、米国の商品先物取引委員会（CFTC）のスタッフが、リテール参加者によるデリバティブのダイレクト・クリアリングについて意見募集をかけました。二〇二二年に暗号資産取引所の FTX が出した申請の当否とは違い、今回は登録の枠組みをどう組むかという一般的な制度設計の問いとして立てられています。拙著『デリバティブ・クリアリングのすべて』第7章 5「ダイレクト・クリアリングモデル：仲介者なき清算への挑戦と限界」では、その FTX の申請を素材に、クリアリング・ブローカーの機能を三つに分けて検証しました。清算機関に対して顧客の履行を保証する信用補完、顧客の適格性を審査し資金洗浄を防ぐ顧客確認、そして市場ストレス時に顧客と清算機関のあいだに立つ緩衝材です（機能そのものの解説は同書 第1章 第3節 2「クリアリングブローカーの役割：CCPへのゲートウェイ、市場の守護者」）。FTX 自身は同じ年の十一月に破綻しました。四年を経て、当局の意見募集とそれに対する業界団体の意見書が、この三つにそれぞれ別の答えを出しています。本稿はその内訳を追います。</p>
+  <div class="column-meta">
+    <span>2026年7月</span>
+    <span>約8分</span>
+    <span>一次資料 6点</span>
+  </div>
+
+  <h2><span class="hnum">1</span>予測市場・イベント契約への関心と、全額担保型清算機関の増加</h2>
+  <p>全額担保・非仲介という構造そのものは、新しいものではありません。CFTC が最初に承認したのは二〇〇四年で、その後は長く停滞していました。動き出したのはここ数年です。二〇二四年だけで三社が登録し、現在までに合計十社。予測市場、つまりイベント契約への関心の高まりが直接の背景です。そして CFTC 自身が、これらをその都度（<em>ad hoc</em>）認めてきたと書いています。体系的な枠組みを作らないまま個別に判断を重ねてきたという自己認識であり、意見募集はその積み重ねを制度として整理し直そうとするものだと読めます。もう一つ、この十社について押さえておくべきことがあります。レバレッジ付きのダイレクト・クリアリングを現に行っている清算機関は一社もありません。十社はすべて全額担保です。この非対称が、以下の議論の全体を規定します。</p>
+
+  <h2><span class="hnum">2</span>相互化構造への損失転嫁という当局の問い</h2>
+  <p>意見募集の中心には、次の問いが置かれています。少し長いですが、そのまま紹介する価値があります。</p>
+
+  <div class="box">
+    <span class="box-label">当局の問い</span>
+    <p>伝統的な仲介清算モデルは、FCM やディーラーといった清算参加者のあいだで損失を相互化することに依拠している。しかしリテールのダイレクト・クリアリングでは、顧客の損失を保証する FCM が存在しない。したがって、ダイレクト・クリアリングを行うリテール参加者の保証されない損失が、清算機関の相互化構造を通じて他の清算参加者に転嫁されうるのではないか。</p>
+  </div>
+
+  <p>これは三機能のうち緩衝材を裏側から見たものです。緩衝材が無くなったとき、吸収されなかった衝撃はどこへ行くのか。当局の問いは、緩衝材が足りないという話ではなく、それが誰か別の参加者の負担として現れるのではないか、というところまで踏み込んでいます。</p>
+
+  <h2><span class="hnum">3</span>信用供与（<em>extension of credit</em>）という境界線</h2>
+  <p>これに対する業界側の回答が、本稿の主題です。分かれ目は「クリアリング・ブローカーがいるかどうか」ではなく、「信用の供与（<em>extension of credit</em>）があるかどうか」でした。先物業界の国際団体である FIA は、二〇二六年二月の意見書でこう整理しています。全額担保であり、かつ事前に資金が入っている（<em>pre-funded</em>）なら、そこにはレバレッジも信用の供与もない。この場合、レバレッジの不在が「清算機関を事実上の決済代行（<em>settlement agent</em>）にする」。逆に、レバレッジがあるなら、FCM が担う顧客保護とリスク管理の機能はシステムの安全性にとって不可欠であり、維持すべきである、と。</p>
+  <p>ここに実務的な注意が付いています。「全額担保」と「事前資金化」は同じではありません。清算機関が全額の担保を保有していても、その担保を清算参加者が顧客への担保請求が未達のあいだ立て替えているなら、そこには与信が発生しています。顧客は資金を入れる前に発注できているわけです。両者を混同すると、与信のない世界の話をしているつもりで与信のある世界の設計をしてしまう。この線を引くと、三つの機能はそれぞれ別の運命をたどります。信用補完は扱いがはっきりしています。顧客が事前に全額を入れているなら保証すべき与信がそもそも存在せず、この機能は消え、清算機関はリスクを引き受ける主体ではなく資金と建玉を突き合わせて決済する主体になります。FIA が「決済代行に化す」と書いたのはこの意味です。十社が現に動いているのはこの一点によります。クリアリング・ブローカーを追放したから動いているのではなく、与信をゼロにしたから動いている。</p>
+
+  <h2><span class="hnum">4</span>デフォルトファンドにおける参加者拠出の比重と、<em>cover-2</em> から <em>cover-n</em> へ</h2>
+  <p>緩衝材の側は、そうはいきません。今回、この機能に数字が付きました。二〇二五年六月時点で、米国で稼働する主要五清算機関のデフォルトファンドに清算参加者が拠出していた資金は三百五十七億ドル、当該ファンドの全資金の九八・五パーセントにあたります。これは、清算の世界で別の名前で議論されてきたものの裏返しです。スキン・イン・ザ・ゲーム——清算機関自身がどれだけ自分の身銭をウォーターフォールに入れているか——の議論はずっと「一・五パーセントでは少なすぎるのではないか」という向きで交わされてきました（この論争の経緯は同書 コラム s「CCPはどれだけ身銭を切るべきか？ Skin in the Game（SIG）の哲学と現実」で扱っています）。同じ数字を出し手の側から読み直すと、デフォルトを吸収する資金の九八・五パーセントはクリアリング・ブローカーが出している、ということになります。FCM を外すことは、その出し手を外すことです。緩衝材という言葉は比喩に聞こえますが、実体は資金の出し手の話でした。この層を外す議論は、スキン・イン・ザ・ゲームの議論と地続きだったわけです。なおこの緩衝が効くのは破綻したときだけではなく、平時にも日中証拠金の立て替えという形で効いています。詳細は別稿「クリアリング・ブローカーは何を立て替えているのか——日中証拠金と与信供与」を参照してください。</p>
+  <p>この数字は、初版が定性的にしか書けなかった箇所にも効きます。FTX が拠出するとした保証基金は二億五千万ドルで、初版はこれを「伝統的な市場の清算機関と比較して極めて小さい」と書きましたが、比較の相手を数字で置けていませんでした。五社合計と一社の比較なのでそのまま優劣を論じる数字ではありませんが、参加者拠出の総額に対して一パーセントにも届かないという桁の話でした。ただし四年で議論の重心は動いています。初版の批判は額が足りないという量の話でしたが、二〇二六年の業界の主張は構造を問題にしており、イベント契約のような新しい商品と参加者層に既存の商品と同じデフォルトファンドを共有させるべきではない、別のファンドを立て損失配分の順序も分けろ、と求めています。相互化の範囲そのものを切り直せという主張で、この論点は稿を改めます。</p>
+  <p>さらに一歩踏み込んだ議論を、国際スワップ・デリバティブ協会（ISDA）が二〇二六年七月の意見書で示しています。清算機関は清算参加者の破綻に備えて財務資源を積み、国際基準では最大のエクスポージャーを持つ参加者とその関係会社の破綻に耐えられること、システミックに重要な清算機関では上位二者の同時破綻に耐えられることが求められます。いわゆる <em>cover-1</em>、<em>cover-2</em> です。ISDA は、証拠金取引で FCM を外すと顧客の履行を清算機関に対して保証する主体がいなくなり、顧客の破綻を FCM が吸収しないのだから、清算機関は「仲介がある世界に比べてはるかに多数の破綻」に耐える資源を持たねばならない、すなわち <em>cover-2</em> ではなく <em>cover-n</em> である、と指摘します。クリアリング・ブローカーは、中抜きできる手数料の層ではなく、デフォルトを吸収する層でした。だから外してもコストは消えず、清算機関の財務資源という別の場所に現れる。FTX の提案が期待した FCM への手数料の排除は、実際には手数料の排除ではなく負担の移転だったことになります。</p>
+
+  <h2><span class="hnum">5</span>消えるもの、移るもの、そして制度の外に落ちるもの</h2>
+  <p>三つ目の機能にも、四年後に答えが出ました。代替するのは清算機関です。ただし FIA は、そのために何が足りていないかを五項目で示しており、そのなかで最も重いのが資金洗浄防止と顧客確認です。FCM は銀行秘密法上の対象金融機関ですが、リテール向け清算機関は対象外である。個人が直接向き合う清算機関が、自主的に手続きを持っていても当局の検査・執行の枠の外にいる。信用補完は与信がなければ不要になりますが、顧客確認と資金洗浄防止は与信の有無と関係なく必要です。全額前払いであっても、その資金がどこから来たのかを確かめる必要は少しも減らない。にもかかわらず、制度はクリアリング・ブローカーと一緒にこの機能まで外してしまいました。この空白と、そこから派生する監督の一重化の問題は、要求項目の中身に踏み込む必要があるので稿を改めます。</p>
+  <p>制度設計の方向も輪郭は出ています。FIA が提案しているのは、取引所・仲介業者・清算機関という三分立を原則として維持しつつ、信用の供与がない領域に限って軽い枠組みを新設する二層構造です。技術がクリアリング・ブローカーの層を薄くしたのではなく、与信の有無という線で市場を二つに割り、片側だけこれを外した。初版が節の終わりに置いた展望——クリアリング・ブローカーがリスク管理と顧客保護を担いながら、顧客がより直接的に清算機関のプロセスに関与できる形——は、技術の側からではなく制度の側から具体化してきたことになります。ここで用語に一つ注意が要ります。当局の意見募集にも "<em>hybrid</em>" という語が出てきますが、指しているのは同一の法人のなかにダイレクト・クリアリングと仲介清算が同居している状態で、懸念は一方の業務ラインで生じた損失がもう一方へ移ること——リスク移転です。初版のハイブリッドとは別の話なので、並べて読むときは区別が要ります。</p>
+  <p>三つの機能を並べると、信用補完は消え、緩衝材は移り、顧客確認と資金洗浄防止は落ちた、ということになります。信用補完を消したのは技術ではなく商品設計でした。緩衝材は、与信がある場所では誰かが担わねばならず、それが FCM でないなら清算機関であり、清算機関が担うなら <em>cover-n</em> の資源が要る。場所が変わるだけで無くなりはしません。この三つを分けずに「仲介コストが消えた」と言うと、後の二つが見えなくなります。与信のない世界ではダイレクト・クリアリングはすでに実現しており、当局はこれを禁じるどころかリスクの低さに見合った軽い枠組みを検討している。与信のある世界には、まだ一歩も入っていない。クリアリング・ブローカーが単なる仲介コストではないという初版の結論は維持でよいと考えますが、変わったのは根拠です。二〇二二年にそう言えた根拠は FTX の破綻という事後の教訓でしたが、いまは当局と業界が制度設計として言語化した構造がある。四年かけて分かったのは、クリアリング・ブローカーが担っていたものの内訳でした。</p>
+
+  <h2><span class="hnum">6</span>二つの留保</h2>
+  <p>第一に、ここで紹介したのは規則ではなく、当局の意見募集と、それに対する業界団体の意見書です。業界の意見書は「業界がそう主張している」ことの一次資料であって事実認定の一次資料ではなく、最終的な規則がこの通りになる保証もありません。第二に、これは米国の制度をめぐる議論です。日本には個人が清算機関と直接向き合う枠組みはありません。ただし与信の有無で制度の重さを変えるという考え方そのものは、商品と参加者層が多様化していく局面で、どの法域でも問われることになるはずです。</p>
+
+  <div class="column-note">
+    <span class="note-label">一次資料</span>
+    <ul>
+      <li>CFTC「リテール参加者によるデリバティブのダイレクト・クリアリングに関する意見募集」（RFC121725・2025-12-18・全5頁）— <a href="https://www.cftc.gov/media/12861/DerivativesRetailInvestors_RFC121725/download">https://www.cftc.gov/media/12861/DerivativesRetailInvestors_RFC121725/download</a></li>
+      <li>FIA「同意見募集への回答」（Retail DCO Letter・2026-02-24・全12頁）— <a href="https://www.fia.org/sites/default/files/2026-02/FIA%20Response%20to%20CFTC%20on%20Direct%20Clearing%20of%20Derivatives%20by%20Retail%20Investors.pdf">https://www.fia.org/sites/default/files/2026-02/FIA%20Response%20to%20CFTC%20on%20Direct%20Clearing%20of%20Derivatives%20by%20Retail%20Investors.pdf</a></li>
+      <li>FIA「予測市場 ANPR への回答」（2026-04-30・全14頁）— <a href="https://www.fia.org/sites/default/files/2026-04/FIA%20response%20to%20CFTC%20ANPR%20on%20Prediction%20Markets.pdf">https://www.fia.org/sites/default/files/2026-04/FIA%20response%20to%20CFTC%20ANPR%20on%20Prediction%20Markets.pdf</a></li>
+      <li>ISDA「予測市場 NPRM への意見書」（2026-07-27・全6頁）— <a href="https://www.isda.org/a/7W0iE/ISDA-Comment-Letter-on-CFTC-Prediction-Mkts-NPR-072726.pdf">https://www.isda.org/a/7W0iE/ISDA-Comment-Letter-on-CFTC-Prediction-Mkts-NPR-072726.pdf</a> ／ <em>cover-n</em> の記述は本書簡の "Direct Clearing, 24/7 Trading, and Auto-Liquidation" 節（原文 pp.4-5）を実読して訳出</li>
+      <li>FIA「予測市場 NPRM への意見書」（2026-07-27・全13頁）— <a href="https://www.fia.org/sites/default/files/2026-07/FIA%20-%20Response%20to%20CFTC%20NPRM%20on%20Prediction%20Markets%207.27.26.pdf">https://www.fia.org/sites/default/files/2026-07/FIA%20-%20Response%20to%20CFTC%20NPRM%20on%20Prediction%20Markets%207.27.26.pdf</a></li>
+      <li>初版『デリバティブ・クリアリングのすべて』第7章第5節（p.378-384 ＝ 節内番号 5.1〜5.6）</li>
+    </ul>
+  </div>
+
+  <div class="colophon">
+    <p class="rights">初出: 2026年7月30日　／　© 2026 柳沢 俊</p>
+    <p>本稿は『デリバティブ・クリアリングのすべて』第7章 5「ダイレクト・クリアリングモデル：仲介者なき清算への挑戦と限界」 の続きにあたります。 → <a href="/book">書籍について</a></p>
+    <p>第2版に向けて検討中の論点 → <a href="/clearing/">清算の章立てへ</a></p>
+  </div>
+</article>
+
+<footer>
+  <div>柳沢 俊 ／ 清算と市場構造</div>
+  <div><a href="/">shun-yanagisawa.com</a> · <a href="/clearing/">章立て</a></div>
+</footer>
+
+</body>
+</html>

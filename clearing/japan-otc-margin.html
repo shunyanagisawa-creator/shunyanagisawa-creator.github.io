@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日本の店頭証拠金取引：業者が組み立ててきた仕組みと、清算機関という置き場 — 柳沢 俊</title>
+<meta name="description" content="米国の商品先物取引委員会（CFTC）が二〇二五年十二月に出した意見募集は、リテール参加者によるデリバティブのダイレクト・クリアリングを扱っています。">
+<meta property="og:title" content="日本の店頭証拠金取引：業者が組み立ててきた仕組みと、清算機関という置き場">
+<meta property="og:description" content="米国の商品先物取引委員会（CFTC）が二〇二五年十二月に出した意見募集は、リテール参加者によるデリバティブのダイレクト・クリアリングを扱っています。">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="Shun Yanagisawa">
+<link rel="canonical" href="https://www.shun-yanagisawa.com/clearing/japan-otc-margin">
+<meta property="og:url" content="https://www.shun-yanagisawa.com/clearing/japan-otc-margin">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Noto+Serif+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* /clearing — 清算の体系（第2版に向けた断片）
+   essays と同じブランド palette を使うが、以下を変える:
+   - 日本語のみ（言語トグルなし・扉写真なし）
+   - 二次テキストは #3d4148 以深（Shun は薄いグレーが読めない）
+   - 強調は太字を使わない。番号見出し / 罫線囲み / 傍点 / 表で立てる */
+:root {
+  --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
+  --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f7efe0;
+  --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
+  --text: #14161b; --text-mid: #24272e; --text-sub: #3d4148; --border: #d3cec3;
+  --font-display: 'Playfair Display', 'Noto Serif JP', Georgia, serif;
+  --font-jp: 'Noto Serif JP', serif;
+  --font-mono: 'DM Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--white); color: var(--text); font-family: var(--font-jp); font-size: 17px; line-height: 1.95; }
+
+nav {
+  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+.nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo span { color: var(--teal-dark); }
+.nav-back { font-family: var(--font-jp); font-size: .82rem; letter-spacing: .04em; color: var(--text-sub); text-decoration: none; }
+.nav-back:hover { color: var(--teal-dark); }
+
+.column { max-width: 720px; margin: 0 auto; padding: 3.4rem 1.6rem 5rem; }
+
+/* 帰属 — 初版のどこの続きか */
+.column-kicker {
+  font-family: var(--font-jp); font-size: .78rem; letter-spacing: .1em; color: var(--teal-dark);
+  padding-bottom: .5rem; margin-bottom: 1.1rem; border-bottom: 1px solid var(--border);
+}
+.column-kicker .bookmark { color: var(--text-sub); }
+h1 { font-family: var(--font-jp); font-size: clamp(1.5rem, 3.6vw, 2.1rem); font-weight: 600; line-height: 1.5; color: var(--navy); margin-bottom: .9rem; }
+.column-sub { font-size: 1rem; color: var(--text-sub); margin-bottom: 1.4rem; line-height: 1.85; }
+.column-meta {
+  display: flex; flex-wrap: wrap; gap: .35rem 1.5rem;
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .06em; color: var(--text-sub);
+  padding-bottom: 1.5rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.3rem;
+}
+
+.column h2 {
+  font-family: var(--font-jp); font-size: 1.16rem; font-weight: 600; color: var(--navy); line-height: 1.6;
+  margin: 3rem 0 1rem; padding: .35rem 0 .5rem .9rem;
+  border-left: 3px solid var(--navy); border-bottom: 1px solid var(--border);
+}
+.column h2 .hnum { font-family: var(--font-mono); font-size: .82rem; font-weight: 400; color: var(--teal-dark); margin-right: .75rem; letter-spacing: .05em; }
+
+.column p { margin: 1.15rem 0; color: var(--text-mid); text-align: justify; }
+.column a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.45); }
+.column a:hover { border-bottom-color: var(--teal-dark); }
+.column ul, .column ol { margin: 1.15rem 0 1.15rem 1.6rem; color: var(--text-mid); }
+.column li { margin: .45rem 0; }
+
+/* 傍点（短い日本語の語句のみ・目安10字以内。英語フレーズには使わない） */
+.em { -webkit-text-emphasis: filled dot var(--navy); text-emphasis: filled dot var(--navy); font-style: normal; }
+/* 英語の原語・書名 */
+.column em { font-style: italic; }
+.column cite { font-style: normal; }
+
+/* 罫線囲み＋小ラベル（当局原文の引用・要点の囲みに使う） */
+.box {
+  border: 1px solid var(--gold); border-left: 4px solid var(--gold); background: var(--gold-light);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0; border-radius: 2px;
+  font-size: .98rem; color: var(--navy); line-height: 1.9; position: relative; text-align: justify;
+}
+.box .box-label {
+  position: absolute; top: -.72rem; left: 1rem; background: var(--white);
+  font-family: var(--font-mono); font-size: .64rem; letter-spacing: .18em;
+  color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase;
+}
+.box p:first-of-type { margin-top: .2rem; }
+.box p:last-of-type { margin-bottom: 0; }
+.box .src { display: block; margin-top: .7rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .05em; color: var(--gold-dark); }
+
+/* 表（台帳ふう・細罫） */
+.ledger-wrap { overflow-x: auto; margin: 2rem 0; }
+table.ledger { width: 100%; border-collapse: collapse; font-size: .9rem; line-height: 1.7; }
+table.ledger caption {
+  caption-side: top; text-align: left; font-family: var(--font-mono); font-size: .66rem;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--gold-dark); padding-bottom: .55rem;
+}
+table.ledger th, table.ledger td { border: 1px solid var(--border); padding: .6rem .8rem; text-align: left; vertical-align: top; color: var(--text-mid); }
+table.ledger th { background: var(--off-white); color: var(--navy); font-weight: 600; }
+
+/* 線画図版 */
+.figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 2rem 0; background: var(--white); }
+.figure svg { width: 100%; height: auto; display: block; }
+.figcap { margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--border); font-size: .8rem; letter-spacing: .04em; color: var(--text-sub); text-align: center; }
+
+/* 出典 */
+.column-note { margin-top: 3rem; padding-top: 1.3rem; border-top: 1px solid var(--border); font-size: .84rem; line-height: 1.85; color: var(--text-sub); }
+.column-note .note-label { display: block; font-family: var(--font-mono); font-size: .64rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .8rem; }
+.column-note ul { margin: 0; padding-left: 1.4rem; list-style: none; }
+.column-note li { margin: .55rem 0; text-indent: -1.4rem; padding-left: 1.4rem; }
+.column-note li.group { list-style: none; text-indent: 0; padding-left: 0; margin: 1.3rem 0 .45rem; font-size: .8rem; letter-spacing: .1em; color: var(--gold-dark); border-bottom: 1px solid var(--border); padding-bottom: .28rem; }
+.column-note li.group:first-child { margin-top: 0; }
+.column-note a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.35); word-break: break-all; }
+
+/* 奥付 — 初出と権利、書籍と章立てへの導線（D-18） */
+.colophon { margin-top: 2.6rem; padding-top: 1.5rem; border-top: 2px solid var(--gold); font-size: .88rem; line-height: 1.9; color: var(--text-sub); }
+.colophon p { margin: .5rem 0; }
+.colophon .rights { font-family: var(--font-mono); font-size: .74rem; letter-spacing: .06em; color: var(--text-sub); }
+.colophon a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.45); }
+
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .06em; color: var(--text-sub); text-align: center; line-height: 2.1; }
+footer a { color: var(--teal-dark); text-decoration: none; }
+@media (max-width: 560px) {
+  nav { padding: 0 1.1rem; }
+  .column { padding: 2.4rem 1.2rem 4rem; }
+  .column p { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">Shun <span>Yanagisawa</span></a>
+  <a class="nav-back" href="/clearing/">← 清算・章立てへ</a>
+</nav>
+
+<article class="column">
+  <div class="column-kicker">『デリバティブ・クリアリングのすべて』<span class="bookmark">第7章 5「ダイレクト・クリアリングモデル」</span> の続き</div>
+  <h1>日本の店頭証拠金取引：業者が組み立ててきた仕組みと、清算機関という置き場</h1>
+  <p class="column-sub">米国の商品先物取引委員会（CFTC）が二〇二五年十二月に出した意見募集は、リテール参加者によるデリバティブのダイレクト・クリアリングを扱っています。そこで論じられている要素——個人を相手方とする証拠金取引、担保が不足した瞬間にポジションを強制決済する自動的な仕組み、二十四時間の稼働——は、日本の業界にとって未知のものではありません。日本の業者は、これを二十年近く実地で運用してきました。違うのは置き場所です。本稿では、日本の店頭市場が何を蓄積しており、どこが未経験の領域なのかを切り分けます。</p>
+  <div class="column-meta">
+    <span>2026年7月</span>
+    <span>約5分</span>
+    <span>一次資料 5点</span>
+  </div>
+
+  <h2><span class="hnum">1</span>店頭 FX の規模と、外部流通量が銀行間スポットを上回る構造</h2>
+  <p>規模から確認します。店頭 FX の顧客取引額は、二〇二五年上半期だけで七千四百三十九兆円。比較可能な二〇〇九年以降で最大だった前年同期を、さらに二割上回りました。</p>
+  <p>金融先物取引業協会が東京外国為替市場委員会と共同で行っている実態調査を見ると、二〇二五年四月度で、店頭 FX 業者が外部に流した取引——顧客から受けた注文をカバーするために銀行間市場などに出す取引——が約四百四十八兆円。同じ月の東京外国為替市場のスポット取引が約四百二兆円ですから、店頭 FX 業者のカバー取引に由来する流れが、東京の銀行間市場のスポット取引を上回っていることになります。協会自身が、外国為替市場に一定の影響を及ぼしていると評価しています。</p>
+  <p>リテール向けの証拠金取引が、卸売市場の側から見ても無視できない量になっている。これが日本の店頭市場の現在地です。</p>
+
+  <h2><span class="hnum">2</span>業者が組み立てた証拠金と自動ロスカットの運用</h2>
+  <p>仕組みの側を確認します。顧客はブローカーに証拠金を預け、評価損が一定水準に達すると自動的に強制決済される。米国が「テクノロジーの進化で可能になった」と論じている担保と建玉の常時突合と自動ロスカットは、日本の業者が長年運用してきた仕組みです。証拠金率の設定、ロスカット水準の設計、カバー取引の出し方、そしてロスカットが間に合わなかった場合の未収金の処理まで、運用の蓄積は業者側にあります。個人はその仕組みの利用者であり、組み立てて回しているのは業者です。</p>
+  <p>差金決済型の証拠金取引という点では、株価指数や個別株を対象とする店頭 CFD も同じ構造で、日本証券業協会の自主規制規則のもと、個人を相手方とする相対取引として提供されています。</p>
+
+  <h2><span class="hnum">3</span>無期限先物と店頭 CFD の経済的等価性、そして規制の箱</h2>
+  <p>いま話題の無期限先物（<em>perpetual futures</em>）も、経済的には同じ賭けです。満期がなく、現物の受渡しをせず、資金調達率のやりとりで価格を現物に鞘寄せする。CFD がオーバーナイトの金利調整でやってきたことと、仕組みとしては変わりません。違うのは、どちらの規則の束に載せるかです。</p>
+  <p>米国でこの商品をどの登録区分に載せるかは、いま動いている論点なので本稿では立ち入りません。ただし、載せる先が決まれば分別管理や仲介業者の登録、報告や建玉の制限といった付随物が一緒に付いてくる——という関係にあることは押さえておく価値があります。同じ経済的中身が、どの箱に入るかで規制の重さを変える。与信の有無で制度の重さを変えるという議論と、根は同じです。</p>
+
+  <h2><span class="hnum">4</span>相対取引と清算機関 — 損失が及ぶ範囲の違い</h2>
+  <p>つまり、米国が新しい取引形態を始めたわけではありません。日本の業者が個人向けに提供してきた仕組みについて、米国は清算機関の仕組みを導入し、制度として組もうとしている。新しいのは、リテールの証拠金取引そのものではなく、その置き場所です。</p>
+  <p>ここが決定的な違いになります。日本の店頭 FX も店頭 CFD も、相対取引です。清算機関を介しません。だから顧客が破綻して証拠金を超える損失が出ても、それはブローカーと顧客のあいだの問題で、他の市場参加者に相互化されることはありません。ブローカーが倒れれば話は別ですが、それは分別管理と自己資本規制で受け止める設計になっています。米国が問うているのは、まさにその一点です。同じ仕組みを、相互化の構造の内側に入れたらどうなるか。CFTC の意見募集が懸念しているのは、保証されない個人の損失が、清算機関の相互化を通じて他の清算参加者に転嫁されることでした。清算機関を介する世界で顧客資産をどう分けて守るかは、拙著『デリバティブ・クリアリングのすべて』第6章 第3節 3「顧客資産の分別管理モデル」と同 4「日本市場における分別管理モデル（JSCCモデル）：高い安全性と効率性の両立への挑戦」で扱っています。</p>
+  <p>同書 第7章 5「ダイレクト・クリアリングモデル：仲介者なき清算への挑戦と限界」では FTX モデルと日本の店頭 FX を比較し、違いとして清算機関を介するかどうかと、市場の流動性と規模の二点を挙げました。ここに与信の主体と損失が及ぶ範囲という軸を足すと、四つの類型として整理できます。</p>
+
+  <div class="ledger-wrap">
+  <table class="ledger">
+    <thead>
+      <tr><th></th><th>清算機関</th><th>与信の主体</th><th>損失が及ぶ範囲</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>日本の店頭 FX・CFD</td><td>介さない（相対）</td><td>ブローカー</td><td>ブローカーと顧客のあいだで閉じる</td></tr>
+      <tr><td>FTX が提案したモデル</td><td>介する</td><td>清算機関に集中</td><td>清算機関とその参加者</td></tr>
+      <tr><td>現在の予測市場（十社）</td><td>介する</td><td><span class="em">なし</span>（全額前払い）</td><td>与信がないので原則生じない</td></tr>
+      <tr><td>証拠金付きのダイレクト・クリアリング</td><td>介する</td><td>清算機関</td><td>相互化を通じて他の参加者へ</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>四行目が、いま誰もやっていない領域です。そして当局と業界が揃って慎重なのが、この行です。</p>
+
+  <h2><span class="hnum">5</span>蓄積のある領域と、経験のない領域</h2>
+  <p>日本の業界が蓄積を持っているのは一行目——リテール向けに大規模な証拠金取引を提供し、業者が与信リスクを引き受けたうえで自動ロスカットで回す運用です。経験がないのは四行目——それを清算機関の内側でやること。そして、いま米国で問われているのは四行目です。</p>
+  <p>この切り分けには実際的な意味があると考えます。個人向け証拠金取引の運用知見という点では、日本の業界は輸入する側ではなく、蓄積を持っている側です。ただしその蓄積は「相対の世界で、業者が与信リスクを引き受けたうえで自動ロスカットを回す」経験であって、「清算機関が与信リスクを引き受ける」世界の経験ではありません。持っているものと持っていないものを取り違えると、この議論のどこに口を出せるかを見誤ります。</p>
+  <p>米国の議論が制度として着地すれば、与信の有無で制度の重さを変えるという考え方は、商品と参加者層が多様化していく局面で、どの法域でも問われることになるはずです。そのとき、相対の世界で積んできた運用の知見のどこまでが清算機関の内側に持ち込めるのかは、日本の側から出せる論点になります。</p>
+
+  <h2><span class="hnum">6</span>留保</h2>
+  <p>日本の店頭 CFD の統計は、有価証券を対象とするものが日本証券業協会、商品を対象とするものが日本商品先物取引協会に分かれており、国際比較の相手データも揃っていません。したがって本稿では、CFD の規模についての国際的な位置づけは主張していません。規模の記述は、裏づけの取れる店頭 FX の数値に限っています。</p>
+  <p>また、米国側について紹介したのは規則ではなく、当局の意見募集とそれに対する業界団体の意見書です。最終的な規則がこの通りになる保証はありません。</p>
+
+  <div class="column-note">
+    <span class="note-label">一次資料</span>
+    <ul>
+      <li class="group">日本</li>
+      <li>金融先物取引業協会「店頭外国為替証拠金取引の実態調査結果について」（2025-10-31 公表・2025年4月度基準・東京外国為替市場委員会との共同調査・調査対象会員46社）— <a href="https://www.ffaj.or.jp/wp-content/uploads/2025/10/Results_for_the_Actual_Conditions_Survey_of_OTC_Retail_FXM2025fin_jp.pdf">https://www.ffaj.or.jp/wp-content/uploads/2025/10/Results_for_the_Actual_Conditions_Survey_of_OTC_Retail_FXM2025fin_jp.pdf</a> ／ 外部流通量 約448兆円・東京外為市場スポット 約402兆円は同調査の記述</li>
+      <li>金融先物取引業協会「店頭FX月次速報」— <a href="https://www.ffaj.or.jp/library/performance/fx_flash/">https://www.ffaj.or.jp/library/performance/fx_flash/</a> ／ 2025年上半期 7,439兆円（前年同期比 +21%・2009年以降で最大）は同速報値にもとづく報道（日本経済新聞 2025-07-15）</li>
+      <li>日本証券業協会「店頭CFD取引状況」— <a href="https://www.jsda.or.jp/shiryoshitsu/toukei/cfd/index.html">https://www.jsda.or.jp/shiryoshitsu/toukei/cfd/index.html</a> ／ 店頭 CFD の定義（個人を相手方とする相対の差金決済取引）は同協会「CFD 取引に関する規則」にもとづく統計解説による</li>
+      <li class="group">米国</li>
+      <li>CFTC「リテール参加者によるデリバティブのダイレクト・クリアリングに関する意見募集」（RFC121725・2025-12-18・全5頁）— <a href="https://www.cftc.gov/media/12861/DerivativesRetailInvestors_RFC121725/download">https://www.cftc.gov/media/12861/DerivativesRetailInvestors_RFC121725/download</a></li>
+      <li class="group">書籍</li>
+      <li>初版『デリバティブ・クリアリングのすべて』第7章第5節（節内番号 5.4）</li>
+    </ul>
+  </div>
+
+  <div class="colophon">
+    <p class="rights">初出: 2026年7月30日　／　© 2026 柳沢 俊</p>
+    <p>本稿は『デリバティブ・クリアリングのすべて』第7章 5「ダイレクト・クリアリングモデル：仲介者なき清算への挑戦と限界」 の続きにあたります。 → <a href="/book">書籍について</a></p>
+    <p>第2版に向けて検討中の論点 → <a href="/clearing/">清算の章立てへ</a></p>
+  </div>
+</article>
+
+<footer>
+  <div>柳沢 俊 ／ 清算と市場構造</div>
+  <div><a href="/">shun-yanagisawa.com</a> · <a href="/clearing/">章立て</a></div>
+</footer>
+
+</body>
+</html>

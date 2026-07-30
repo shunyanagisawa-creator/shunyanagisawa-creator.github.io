@@ -25,6 +25,17 @@
 - [When Leaving Costs Nothing](https://www.shun-yanagisawa.com/essays/when-leaving-costs-nothing)
 - [When the Organization Folds Into the Mind](https://www.shun-yanagisawa.com/essays/when-the-org-folds-into-the-head)
 
+## Clearing (Japanese) — derivatives clearing, written by the author of the standard Japanese text
+
+Short pieces placed on the chapter structure of "デリバティブ・クリアリングのすべて" (All About Derivatives Clearing, Shun Yanagisawa), recording what moved in clearing regulation after the first edition. Each piece is written from primary sources and carries its first-publication date.
+
+- [清算 — 章立て / Clearing index](https://www.shun-yanagisawa.com/clearing/)
+- [クリアリング・ブローカーは何を立て替えているのか：日中証拠金と与信供与](https://www.shun-yanagisawa.com/clearing/intraday-margin-credit)
+- [ダイレクト・クリアリングの制度化：与信の有無という境界線](https://www.shun-yanagisawa.com/clearing/direct-clearing-credit-boundary)
+- [リテール向けダイレクト・クリアリングに残る制度の空白：顧客確認と、一重になる監督](https://www.shun-yanagisawa.com/clearing/direct-clearing-regulatory-gap)
+- [なぜリテールに限られるのか：自動ロスカットが成立する条件](https://www.shun-yanagisawa.com/clearing/auto-liquidation-conditions)
+- [日本の店頭証拠金取引：業者が組み立ててきた仕組みと、清算機関という置き場](https://www.shun-yanagisawa.com/clearing/japan-otc-margin)
+
 ## Notes
 
 - Central theme: "In complex, uncertain systems, how do humans design order and trust?"
