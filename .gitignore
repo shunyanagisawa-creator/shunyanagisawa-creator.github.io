@@ -18,3 +18,8 @@ desktop.ini
 
 # 統治文書はローカル専用 — push=即公開 repo のため
 CHARTER.md
+
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
