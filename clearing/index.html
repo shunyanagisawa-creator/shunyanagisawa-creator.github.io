@@ -140,6 +140,19 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   padding: .9rem 0 1.7rem; margin-bottom: 1.6rem; border-bottom: 2px solid var(--navy);
 }
 
+/* 用語集への導線（稿ではなく参照面なので、章立ての外に置く） */
+.hub-terms {
+  display: block; border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 2px;
+  padding: 1rem 1.2rem; margin: 0 0 1rem; text-decoration: none; color: inherit;
+}
+.hub-terms:hover { border-color: var(--gold-dark); border-left-color: var(--gold-dark); }
+.hub-terms .k {
+  font-family: var(--font-mono); font-size: .64rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--gold-dark); display: block; margin-bottom: .4rem;
+}
+.hub-terms .t { font-family: var(--font-jp); font-size: .98rem; font-weight: 600; color: var(--navy); line-height: 1.7; }
+.hub-terms .g { font-size: .87rem; color: var(--text-sub); line-height: 1.8; margin-top: .45rem; }
+
 .chapter { margin: 3.2rem 0 0; }
 .chapter-title {
   font-family: var(--font-jp); font-size: 1.28rem; font-weight: 600; color: var(--navy); line-height: 1.6;
@@ -173,6 +186,12 @@ footer a { color: var(--teal-dark); text-decoration: none; }
     <p>第2版はこれらの断片をそのまま並べるのではなく、改めて構成し直したものになります。規制は動くので、断片を書いた時点と本にまとめる時点では、内容そのものが変わります。だから各稿には初出の日付を入れてあります。</p>
   </div>
   <div class="hub-note">まだ稿のない章は出していません。埋まった分だけが並びます。</div>
+
+  <a class="hub-terms" href="/clearing/terms">
+    <span class="k">参照</span>
+    <div class="t">クリアリング用語集</div>
+    <div class="g">『デリバティブ・クリアリングのすべて』巻末の用語集を、そのまま公開しています。英語の略語と日本語の対応、そして短い定義です。訳語が割れる語には、実務で使われている別の表記も併記しました。</div>
+  </a>
 
   <div class="chapter">
     <div class="chapter-title">第3章　クリアリング・プロセスの実践</div>
