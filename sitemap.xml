@@ -22,6 +22,6 @@
   <url><loc>https://www.shun-yanagisawa.com/clearing/intraday-margin-credit</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.shun-yanagisawa.com/clearing/direct-clearing-credit-boundary</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.shun-yanagisawa.com/clearing/direct-clearing-regulatory-gap</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://www.shun-yanagisawa.com/clearing/auto-liquidation-conditions</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shun-yanagisawa.com/clearing/auto-liquidation-limits</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.shun-yanagisawa.com/clearing/japan-otc-margin</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>
