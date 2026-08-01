@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Design for the Day It Breaks — Shun Yanagisawa</title>
-<meta name="description" content="A bridge's strength is invisible on a sunny day. Through three true stories from central clearing — 2008, 2018, 2022 — an essay on why the things that look useless in normal times exist.">
-<meta property="og:title" content="Design for the Day It Breaks">
-<meta property="og:description" content="Central clearing's default waterfall as a design philosophy: the day it worked, the day its layers were cut, and the day it was overrun — and what that says about redundancy, friction, and margin in any system.">
+<title>壊れた日のための設計 — 柳沢 俊</title>
+<meta name="description" content="橋の強さは、晴れた日には分からない。清算のデフォルト・ウォーターフォールが設計どおり機能した2008年、共同資源まで使われた2018年、想定を超えられた2022年。三つの事例から、壊れてはならない制度をどう設計するかを考える。">
+<meta property="og:title" content="壊れた日のための設計">
+<meta property="og:description" content="誰が最初に損失を負い、どこから損失を共同化するのか。そして、あらかじめ定められたルールでは処理できない事態に、最後は誰が判断するのか。清算の三つの事例から、制度設計の問いへ。">
 <meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
 <link rel="canonical" href="https://www.shun-yanagisawa.com/essays/design-under-stress">
 <meta property="og:url" content="https://www.shun-yanagisawa.com/essays/design-under-stress">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -107,90 +108,72 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 @media (max-width: 560px) { nav { padding: 0 1.2rem; } .essay { padding-top: 2.6rem; } }
 </style>
 </head>
-<body class="lang-en">
+<body class="lang-ja">
 
 <nav>
   <a class="nav-logo" href="/">Shun <span>Yanagisawa</span></a>
   <div class="nav-right">
-    <a class="nav-back" href="/#essays"><span class="en">← Essays</span><span class="ja">← エッセイ一覧</span></a>
-    <button class="lang-toggle" onclick="toggleLang()"><span class="en">日本語</span><span class="ja">English</span></button>
+    <a class="nav-back" href="/#essays">← エッセイ一覧</a>
   </div>
 </nav>
 
 <article class="essay">
   <div class="essay-kicker">Essay 013 · Systems &amp; Trust</div>
-  <h1>
-    <span class="en">Design for the Day It Breaks</span>
-    <span class="ja">壊れた日のための設計</span>
-  </h1>
-  <p class="essay-sub">
-    <span class="en">A bridge's strength is invisible on a sunny day. Central clearing has a design that exists only for the day something breaks — the default waterfall. Three true stories: the day it worked, the day its layers were cut, and the day it was overrun. Then a more universal question: why do the things that look useless in normal times exist?</span>
-    <span class="ja">橋の強さは、晴れた日には分からない。清算の世界には「壊れた日のためだけに存在する設計」がある——デフォルト・ウォーターフォール。それが機能した日、層が削られた日、想定を超えられた日、という三つの実話を歩き、平時にはコストにしか見えないものがなぜ存在するのか、という問いまで持っていく。</span>
-  </p>
+  <h1>壊れた日のための設計</h1>
+  <p class="essay-sub">清算の世界には、何かが壊れた日にだけ働く仕組みがある。デフォルト・ウォーターフォールと呼ばれる、損失を順番に受け止めるための仕組みである。本稿では、この仕組みが設計どおりに機能した2008年、共同資源まで使われた2018年、そして現実が設計の想定を超えた2022年という三つの事例をたどる。</p>
   <div class="essay-meta">
-    <span class="en">July 2026</span><span class="ja">2026年7月</span>
-    <span class="en">Systems &amp; Trust</span>
-    <span class="ja">構造と信頼</span>
-    <span class="en">13 min read</span>
-    <span class="ja">日本語 約13分</span>
+    <span>2026年7月</span>
+    <span>構造と信頼</span>
+    <span>日本語 約20分</span>
   </div>
 
-  <p class="en">A bridge's strength is invisible on a sunny day. What a design is really worth shows itself only on the day something breaks. In normal times, every system wears roughly the same face — fast, smooth, quiet. The difference appears in the instant an unexpected load lands: where the structure flexes first, and where it holds.</p>
-  <p class="ja">橋の強さは、晴れた日には分からない。設計の善し悪しが本当に現れるのは、何かが壊れた日である。平時のシステムはどれも似たような顔をしている——速く、滑らかで、静かだ。違いが出るのは、想定外の重さが掛かった瞬間に、どこが先にたわみ、どこで止まるかだ。</p>
+  <p>橋の強さは、晴れた日には分からない。</p>
 
-  <p class="en">I have spent some twenty-five years at the seams of financial markets, in the world called clearing. This world contains a design that exists solely for the day something breaks: a stack of layers built to absorb losses, known as the default waterfall. This essay takes that layered defense as its entry point and walks through three true stories — the day the design worked exactly as drawn, the day its layers were actually cut into, and the day the design was overrun by events it had never imagined. From there, I want to carry the argument somewhere more universal: why do the things that look like pure cost in normal times exist at all?</p>
-  <p class="ja">私は金融市場のつなぎ目、清算という世界を25年あまり見てきた。この世界には、「壊れた日のためだけに存在する設計」がある。デフォルト・ウォーターフォールと呼ばれる、損失を受け止める層の重なりである。本稿はこの多層防御を入口に、三つの実話を歩く。設計が図面どおりに機能した日。層が実際に削られた日。そして、設計が想定を超えられてしまった日。その先で、もう少し普遍的な問いまで持っていきたい——平時にはコストにしか見えないものが、なぜ存在するのか、という問いである。</p>
+  <p>清算の世界には、何かが壊れた日にだけ働く仕組みがある。デフォルト・ウォーターフォールと呼ばれる、損失を順番に受け止めるための仕組みである。</p>
 
-  <h2><span class="hnum">1</span><span class="en">The Layers as Insurance — What a Waterfall Is</span><span class="ja">保険としての層——ウォーターフォールとは何か</span></h2>
+  <p>本稿では、この仕組みが設計どおりに機能した2008年、共同資源まで使われた2018年、そして現実が設計の想定を超えた2022年という三つの事例をたどる。</p>
 
-  <p class="en">Let me start with the machinery. This part reads a little like a textbook, but once it is in place, the three stories that follow become three-dimensional.</p>
-  <p class="ja">まず仕組みの話をしたい。少しだけ教科書めくが、ここが分かると後の三つの実話が立体的になる。</p>
+  <p>そこから見えてくるのは、清算制度の技術的な仕組みだけではない。平時にはコストにしか見えない備えが、なぜ必要なのか。誰が最初に損失を負い、どこから損失を共同化するのか。そして、あらかじめ定められたルールでは処理できない事態に、最後は誰が判断するのか。</p>
 
-  <p class="en">A central counterparty — a CCP, or clearing house — is a neutral institution that stands between buyers and sellers in a market. By becoming the counterparty to every trade, it ensures that even if one participant collapses, the trades themselves survive. But then, when someone actually does collapse, who pays for the loss? The answer is the waterfall: a strict sequence of loss absorption that flows downward, layer by layer, like its name<sup>1</sup>.</p>
-  <p class="ja">清算機関(CCP)とは、市場で売り手と買い手の間に立つ中立の機関である。すべての取引の相手方となることで、参加者の誰かが倒れても、取引そのものは生き残るようにする。では、実際に誰かが倒れたとき、その損失は誰が払うのか。この答えが、ウォーターフォール——滝のように上から順に流れ落ちる、損失吸収の序列である<sup>1</sup>。</p>
+  <p>これは清算の話であると同時に、壊れてはならない制度をどのように設計するかという話でもある。</p>
+
+  <h2><span class="hnum">1</span>損失を受け止める順序――デフォルト・ウォーターフォールとは何か</h2>
+
+  <p>まず、仕組みから説明したい。少し教科書的な話になるが、ここを押さえておくと、後に続く三つの事例の違いが見えやすくなる。</p>
+
+  <p>清算機関、すなわち中央清算機関（Central Counterparty：CCP）は、市場の売り手と買い手の間に立ち、双方の取引相手となる機関である。</p>
+
+  <p>売り手に対しては買い手となり、買い手に対しては売り手となる。これによって、ある市場参加者が破綻しても、その参加者が結んでいた取引の履行を継続できるようにする。</p>
+
+  <p>では、実際に参加者が破綻し、そのポジションを処理する過程で損失が生じた場合、その損失は誰が負担するのか。</p>
+
+  <p>その順序を定めたものが、デフォルト・ウォーターフォールである。損失が、あらかじめ定められた資源を上から順に使いながら吸収されていくため、「滝」を意味するウォーターフォールと呼ばれる<sup>1</sup>。</p>
 
   <div class="pull">
-    <span class="pull-label"><span class="en">Terms</span><span class="ja">用語</span></span>
-    <span class="en">
-      <span class="term-line"><span class="term">CCP (central counterparty)</span> — a clearing house that stands between buyers and sellers so that a member's failure does not kill the trades.</span>
-      <span class="term-line"><span class="term">Margin</span> — collateral each member posts in advance against the potential losses of its own positions.</span>
-      <span class="term-line"><span class="term">Default fund</span> — a mutual fund pre-paid by all members, used only when a failed member's own resources are exhausted.</span>
-    </span>
-    <span class="ja">
-      <span class="term-line"><span class="term">清算機関(CCP)</span> — 売り手と買い手の間に立ち、会員の破綻が取引を殺さないようにする機関。</span>
-      <span class="term-line"><span class="term">証拠金</span> — 各会員が自分のポジションの潜在損失に備えて事前に差し入れる担保。</span>
-      <span class="term-line"><span class="term">デフォルトファンド</span> — 全会員が事前に積む共同基金。破綻者自身の資源が尽きたときだけ使われる。</span>
-    </span>
+    <span class="pull-label">用語</span>
+    <span class="term-line"><span class="term">清算機関（CCP）</span> — 売り手と買い手の間に立ち、参加者が破綻しても取引の履行を継続できるようにする機関。</span>
+    <span class="term-line"><span class="term">証拠金</span> — 各参加者が、自らのポジションから将来生じ得る損失に備えて、あらかじめ差し入れる担保。</span>
+    <span class="term-line"><span class="term">デフォルトファンド（清算基金）</span> — 参加者の破綻に備えて、清算参加者が共同で拠出する資金。破綻者自身の証拠金や拠出金だけでは損失を処理できない場合に使われる。</span>
   </div>
 
-  <p class="en">The order of the layers runs like this. First to be used is the margin the failed member itself posted in advance. Next, the failed member's own contribution to the default fund. If that is not enough, a slice of the CCP's own capital. If still not enough, the fund contributions of the surviving members. And at the very bottom waits the right to call for additional contributions from members.</p>
-  <p class="ja">層の順序はこうだ。最初に使われるのは、破綻した本人が事前に差し入れていた証拠金。次に、破綻した本人がデフォルトファンド(会員が破綻に備えて共同で積む基金)に拠出していた分。それでも足りなければ、清算機関自身の資本の一部。さらに足りなければ、生き残った会員たちの基金拠出分。最後の最後には、会員への追加拠出の請求が待つ。</p>
+  <p>一般的なウォーターフォールでは、最初に使われるのは、破綻した参加者自身が差し入れていた証拠金である。</p>
+
+  <p>次に、その参加者自身がデフォルトファンドへ拠出していた資金が使われる。</p>
+
+  <p>それでも損失が残る場合には、CCPが自ら拠出している自己資本、いわゆるSkin in the Gameが投入される。さらに損失が残れば、生き残った他の参加者が拠出していたデフォルトファンドが使われる。</p>
+
+  <p>最後には、参加者に対する追加拠出の請求が控えている。</p>
+
+  <p>CCPによって具体的な順序は異なるが、基本的な考え方は共通している。まず破綻者自身の資源を使い切り、それでも足りない場合に初めて、損失を他の参加者へ共同化する。</p>
+
+  <p>そのさらに先には、利益が出ている参加者への支払いを削減する変動証拠金ゲイン・ヘアカット（VMGH）、契約の一部を強制的に終了させるティアアップ、そして当局による破綻処理がある。</p>
+
+  <p>これらは通常のウォーターフォールというより、CCPが財務的な均衡を回復するためのリカバリーや、制度としての破綻処理の領域に属する。</p>
+
+  <p>ただし、損失処理の仕組みが、デフォルトファンドを使い切ったところで突然終わるわけではないことは、覚えておく必要がある。後に見る2022年の事例では、この境界そのものが問題になる。</p>
 
   <div class="figure">
-    <svg class="en" viewBox="0 0 660 300" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
-      <text x="70" y="30" font-size="11.5" fill="#33383f">loss flows downward</text>
-      <line x1="60" y1="40" x2="60" y2="262" stroke="#b5832a" stroke-width="1.4"/><polygon points="60,270 55,260 65,260" fill="#b5832a"/>
-      <g stroke-width="1.4">
-        <rect x="120" y="42"  width="440" height="38" fill="#e8f2f2" stroke="#1d5c5c"/>
-        <rect x="120" y="86"  width="440" height="38" fill="#e8f2f2" stroke="#1d5c5c"/>
-        <rect x="120" y="130" width="440" height="38" fill="#fff" stroke="#1a2332"/>
-        <rect x="120" y="174" width="440" height="38" fill="#fff" stroke="#1a2332"/>
-        <rect x="120" y="218" width="440" height="38" fill="#fff" stroke="#8a8a8a" stroke-dasharray="5 4"/>
-      </g>
-      <g font-size="12.5" text-anchor="middle" fill="#1d5c5c">
-        <text x="340" y="66">1 · defaulter's margin</text>
-        <text x="340" y="110">2 · defaulter's fund contribution</text>
-      </g>
-      <g font-size="12.5" text-anchor="middle" fill="#1a2332">
-        <text x="340" y="154">3 · CCP's own capital (a slice)</text>
-        <text x="340" y="198">4 · survivors' fund contributions</text>
-      </g>
-      <text x="340" y="242" font-size="12.5" text-anchor="middle" fill="#33383f">5 · further assessments on members</text>
-      <text x="580" y="66" font-size="10.5" fill="#8a6020">the one</text>
-      <text x="580" y="80" font-size="10.5" fill="#8a6020">who broke it</text>
-      <text x="580" y="198" font-size="10.5" fill="#8a6020">everyone else</text>
-    </svg>
-    <svg class="ja" viewBox="0 0 660 300" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+    <svg viewBox="0 0 660 300" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
       <text x="70" y="30" font-size="11.5" fill="#33383f">損失は上から順に流れ落ちる</text>
       <line x1="60" y1="40" x2="60" y2="262" stroke="#b5832a" stroke-width="1.4"/><polygon points="60,270 55,260 65,260" fill="#b5832a"/>
       <g stroke-width="1.4">
@@ -202,115 +185,189 @@ footer a { color: var(--teal-dark); text-decoration: none; }
       </g>
       <g font-size="12.5" text-anchor="middle" fill="#1d5c5c">
         <text x="340" y="66">1 · 破綻者自身の証拠金</text>
-        <text x="340" y="110">2 · 破綻者の基金拠出分</text>
+        <text x="340" y="110">2 · 破綻者自身のデフォルトファンド拠出金</text>
       </g>
       <g font-size="12.5" text-anchor="middle" fill="#1a2332">
-        <text x="340" y="154">3 · 清算機関自身の資本(一部)</text>
-        <text x="340" y="198">4 · 生存会員の基金拠出分</text>
+        <text x="340" y="154">3 · CCP自身の資本</text>
+        <text x="340" y="198">4 · 生存参加者のデフォルトファンド拠出金</text>
       </g>
-      <text x="340" y="242" font-size="12.5" text-anchor="middle" fill="#33383f">5 · 会員への追加拠出請求</text>
-      <text x="578" y="66" font-size="10.5" fill="#8a6020">壊した本人</text>
-      <text x="578" y="198" font-size="10.5" fill="#8a6020">それ以外の皆</text>
+      <text x="340" y="242" font-size="12.5" text-anchor="middle" fill="#33383f">5 · 参加者への追加拠出請求</text>
+      <text x="578" y="66" font-size="10.5" fill="#8a6020">破綻者自身</text>
+      <text x="578" y="198" font-size="10.5" fill="#8a6020">他の参加者</text>
     </svg>
-    <div class="figcap"><span class="en">Fig. 1 — The default waterfall: the one who broke it pays first, and mutualization begins only after his resources are gone.</span><span class="ja">図1　デフォルト・ウォーターフォール。最初に払うのは壊した本人であり、相互化はその資源が尽きた後にしか始まらない。</span></div>
+    <div class="figcap">図1　デフォルト・ウォーターフォールの一般形</div>
   </div>
 
-  <p class="en">Several design philosophies are folded into this sequence.</p>
-  <p class="ja">この序列には、いくつかの設計思想が折り畳まれている。</p>
+  <p>最初に損失を負担するのは破綻者自身であり、他の参加者への損失の共同化は、その資源を使い切った後に始まる。</p>
 
-  <p class="en">First, the order of responsibility. The first to feel pain is the one who broke it. That sounds obvious, but it is not. The Japanese trading world once had a phrase, <em>hōgachō</em> — the subscription ledger. When someone blew up, the survivors passed the ledger around and split the bill. Mutual aid, it was called; in practice, the failed party's burden was diluted across everyone from the start. The modern waterfall inverts that notion of burden. The defaulter's own resources are used first, and used to the last. Mutualization begins only after all of it is gone.</p>
-  <p class="ja">第一に、責任の順序。最初に痛むのは、壊した本人である。当たり前に聞こえるかもしれないが、そうではない。かつての日本の相場の世界には「奉加帳方式」という言葉があった。誰かが飛んだら、生き残った皆で帳面を回して割り勘する——相互扶助と言えば聞こえはいいが、壊した本人の負担は最初から皆に薄く溶かされている。現代のウォーターフォールはこの負担観を逆転させた。破綻者自身の資源を最初に、そして最後まで使い切る。相互化は、その全部が尽きた後にしか始まらない。</p>
+  <p>この順序には、三つの重要な考え方がある。</p>
 
-  <p class="en">Second, pre-funding. Every layer is already there — in cash and government bonds — before any crisis arrives. This matters decisively. Promises made in the middle of a crisis get broken. "We will contribute if it ever comes to that" is the least reliable sentence in finance on precisely the day it comes to that. So the design requires no one's decision, no one's goodwill, no committee's resolution at the moment of crisis. The money is already in the building.</p>
-  <p class="ja">第二に、事前拠出。すべての層は、危機が来る前に、現金や国債で既に積まれている。これが決定的に重要だ。危機のさなかの約束は破られる。「いざとなったら出資します」という言葉は、いざとなった日に一番あてにならない。だから、この設計は危機の瞬間に誰の決断も、誰の善意も、どの会議の決議も必要としない。金は、もうそこにある。</p>
+  <p>第一は、責任の順序である。</p>
 
-  <p class="en">Third, the nature of the contributions. The fund a member posts is not a premium already paid and forgotten. It is living collateral, seized for as long as you remain in the game — a hostage, if you will. The odds of losing it are low, but you <em>can</em> lose it. Which is why members cannot afford to be indifferent to what risks their neighbors are taking. Design the contribution so members can mentally write it off as "already paid," and discipline dies quietly.</p>
-  <p class="ja">第三に、拠出金の性質。会員が積む基金は、払い済みの保険料ではない。ゲームに参加し続ける限り差し押さえられ続ける、生きた担保——言ってみれば<span class="em">人質</span>である。失う確率は低いが、失い得る。だからこそ会員は、自分の隣で誰がどんなリスクを取っているかに無関心でいられなくなる。拠出を「もう払ったもの」として忘れられる設計にすると、規律は静かに死ぬ。</p>
+  <p>かつて日本の金融界には、「奉加帳方式」という言葉があった。金融機関が破綻すると、生き残った金融機関が資金を出し合って救済する。相互扶助ではあるが、破綻した当事者の責任と、他の参加者の負担との境界は曖昧になりやすい。</p>
 
-  <p class="en">And here is the entry point of this essay. In normal times, all of it looks like nothing but cost. Margin is money asleep; the fund is money unused; default-management drills (the clearing world really does run them, on a regular schedule) are rehearsals for an event that has not happened. Measured by efficiency alone, every item is a candidate for cutting. What this stack of layers is for can only be known on the day something breaks.</p>
-  <p class="ja">そして、ここが本稿の入口である。平時には、この全部がコストにしか見えない。証拠金は寝ている金であり、基金は使われない金であり、破綻処理の演習(清算の世界では、実際に定期的にやる)は起きてもいない事態のリハーサルである。効率だけで測るなら、全部が削減候補だ。この層の重なりが何のためにあるのかは、壊れた日にしか分からない。</p>
+  <p>現代のウォーターフォールは、これとは逆の発想に立つ。</p>
 
-  <h2><span class="hnum">2</span><span class="en">The Day the Design Worked — September 2008</span><span class="ja">設計が機能した日——2008年9月</span></h2>
+  <p>破綻者自身の資源を最初に使い、原則として、それを使い切るまで損失を他者へ移さない。共同負担は、破綻者自身の負担が尽きた後に始まる。</p>
 
-  <p class="en">On September 15, 2008, Lehman Brothers fell. It was the start of one of the worst weeks in the history of finance.</p>
-  <p class="ja">2008年9月15日、リーマン・ブラザーズが倒れた。世界の金融史でも最悪の部類に入る一週間の始まりである。</p>
+  <p>第二は、事前拠出である。</p>
 
-  <p class="en">At that moment, the London clearing house LCH held Lehman's interest rate swap portfolio: $9 trillion in notional value, 66,390 trades. A bundle of transactions exceeding a tenth of the world's annual GDP had suddenly lost its owner<sup>2</sup>.</p>
-  <p class="ja">このとき、ロンドンの清算機関 LCH は、リーマンの金利スワップのポートフォリオを預かっていた。想定元本にして9兆ドル、取引件数にして66,390件。当時の世界の年間GDPの1割を超える規模の取引の束が、突然、持ち主を失った<sup>2</sup>。</p>
+  <p>ウォーターフォールを構成する証拠金やデフォルトファンドは、危機が起きてから集めるのではない。現金や国債などの形で、あらかじめ差し入れられている。</p>
 
-  <p class="en">What happened next was almost anticlimactic in how faithfully it followed the drawings. LCH entered its default-management procedure, hedged the portfolio to stop the bleeding of market moves, and auctioned it off, currency by currency, in five competitive auctions to other members. Eight days after the default, 90 percent of the risk had been dealt with. In three weeks, every auction was complete.</p>
-  <p class="ja">起きたことは、拍子抜けするほど図面どおりだった。LCH は破綻管理の手順に入り、ポートフォリオをヘッジして値動きを止め、5通貨ごとに競争入札(オークション)にかけて他の会員に引き取らせた。破綻宣言から8日で、リスクの9割は処理済み。3週間ですべてのオークションが完了した。</p>
+  <p>危機の最中に交わされる約束は、危機が深刻であるほど実行されにくい。「必要になったら資金を出す」という約束が最もあてにならないのは、まさに本当に資金が必要になったときである。</p>
 
-  <p class="en">And the crucial loss? It was fully absorbed by roughly one-third of the margin that the failed party — Lehman itself — had posted. Everything ended inside the first layer of the waterfall, with room to spare. The default fund was never touched, the surviving members paid nothing, and the clearing house itself was unscathed.</p>
-  <p class="ja">そして肝心の損失は、破綻した本人——リーマン自身が積んでいた証拠金の、およそ3分の1で吸収し切った。ウォーターフォールの第一層の、さらに内側で全部が終わったのである。デフォルトファンドには指一本触れず、生き残った会員は1円も払わず、清算機関自身も無傷だった。</p>
+  <p>だからこそ、制度は危機の瞬間に、誰かの善意や、新たな経営判断、会議体の決議だけに依存しないように作られている。必要な資金の少なくとも一部は、危機が来る前から既に用意されている。</p>
 
-  <p class="en">In the very week when banks worldwide, paralyzed by mutual suspicion, refused to lend and bilateral markets froze solid, one corner of the cleared market experienced nothing that was not in the blueprints. The ideal form of layered defense, it turns out, is never to use the second layer. Absorbing a loss in a lower layer means the layer above it was defeated. On that day, the design won at the very top.</p>
-  <p class="ja">世界中の銀行が疑心暗鬼で金を貸し渋り、相対(あいたい)の取引が凍りついていたまさにその週に、清算された市場の一角だけは、設計図どおりのことしか起きなかった。多層防御の理想形とは、実は「二層目から下を使わないこと」である。下の層で受け止める事態は、上の層の敗北を意味する。この日、設計は最上層で勝った。</p>
+  <p>第三は、拠出した資金が参加者の規律を支えるという点である。</p>
 
-  <h2><span class="hnum">3</span><span class="en">The Day the Layers Were Cut — September 2018</span><span class="ja">層が削られた日——2018年9月</span></h2>
+  <p>デフォルトファンドへの拠出金は、支払い済みの保険料とは異なる。参加者であり続ける限り、損失を負担する可能性のある資金として拘束され続ける。</p>
 
-  <p class="en">But the story does not always stop at the top layer.</p>
-  <p class="ja">ただし、いつも最上層で止まるわけではない。</p>
+  <p>失う確率は低くても、実際に失う可能性がある。</p>
 
-  <p class="en">In September 2018, in the Nordic power futures market, a clearing member defaulted — an individual. A private person, that is, who through years of trading success had come to clear directly as a member, at a scale rivaling institutions. He had bet on the spread between Norwegian and German electricity prices, and on the day that spread blew out, he could not meet his margin call.</p>
-  <p class="ja">2018年9月、北欧の電力先物市場で、ある個人の清算会員が破綻した。個人が、である。長年の成功で法人並みの規模を清算会員として直接張っていたそのトレーダーは、ノルウェーとドイツの電力価格の差に賭け、その差が急拡大した日に証拠金を払えなくなった。</p>
+  <p>だからこそ参加者は、自分の隣にいる他の参加者がどのようなリスクを取っているのか、CCPが適切な証拠金を設定しているのかに無関心ではいられない。自分の資金が危険にさらされる可能性が、制度への監視と規律を生む。</p>
 
-  <p class="en">The clearing house — the commodities arm of a Nasdaq subsidiary — moved by the book. The positions were closed out through an auction within 48 hours. But this time, the loss punched through the first layer. The defaulter's own margin and fund contribution were not enough; the hole was €114 million. Seven million euros came from the clearing house's own capital, and €107 million from the fund contributions of the surviving members. Roughly two-thirds of the commodities default fund was cut away to pay for someone else's failure<sup>3</sup>.</p>
-  <p class="ja">清算機関(ナスダック傘下の商品清算部門)は手順どおり動いた。ポジションは48時間以内にオークションで処理された。だが今回は、損失が第一層を突き抜けた。破綻者本人の証拠金と基金拠出では足りず、穴は1億1,400万ユーロ。清算機関自身の資本から700万ユーロ、そして生き残った会員たちが積んでいた基金から1億700万ユーロ。商品部門のデフォルトファンドの約3分の2が、他人の失敗のために削られた<sup>3</sup>。</p>
+  <p>しかし、平時には、これらはすべてコストに見える。</p>
 
-  <p class="en">A week later, the fund was back at its required level. It was restored by the very members whose contributions had just been consumed. The design worked, one can fairly say. No cascade of failures occurred, the market stayed open, and losses were absorbed exactly in the prescribed order. Yet what this episode left the industry was not a sense of achievement but an uncomfortable question. Mutualization means that the bill for someone else's failure arrives at your desk. Members had always understood that line in their heads; now, for the first time, they had felt it with an amount attached.</p>
-  <p class="ja">一週間後、基金は元の水準に戻った。戻したのは、削られた会員たち自身である。設計は機能したと言っていい。誰の連鎖破綻も起きず、市場は開き続け、損失は序列どおりに吸収された。だが、この事例が業界に残したのは達成感ではなく、居心地の悪い問いだった。相互化とは、他人の失敗の請求書が自分に届くことである。頭では分かっていたその一行を、会員たちは初めて金額付きで実感した。</p>
+  <p>証拠金は運用できない資金であり、デフォルトファンドは通常は使われない資金である。清算の世界で定期的に行われる破綻処理演習も、直接収益を生むものではない。</p>
 
-  <p class="en">The question turned toward the clearing house itself, too. In this default, the CCP's own capital contribution was €7 million — one-fifteenth of what the members paid. Industry-wide, there is a measurement that the clearing houses' own stake (skin in the game, as the phrase goes) amounts to only around 2 percent of total default resources. If the party that designs the order of losses carries the thinnest layer within that order, where does the discipline of the design come from? The supervisors were not silent either; this clearing house was later sanctioned for, among other things, inadequacies in its margin levels. The layers worked. But how thickness should be distributed across the layers is a question to which no one yet holds the answer.</p>
-  <p class="ja">問いは清算機関自身にも向かった。この破綻で清算機関が自己資本から出したのは700万ユーロ——会員が出した額の15分の1である。業界全体で見ても、清算機関自身の持ち出し分(スキン・イン・ザ・ゲーム、直訳すれば「自分の身銭」)はデフォルト資源全体の2%程度に過ぎない、という実測がある。損失の序列を設計する者が、その序列のなかで最も薄い層しか担っていないとしたら、設計の規律はどこから来るのか。監督当局も黙っておらず、この清算機関はのちに証拠金水準の不備等で制裁を受けた。層は機能した。だが、層の厚みの配分は、まだ誰も正解を持っていない。</p>
+  <p>効率だけを基準にすれば、いずれも削減の対象になり得る。</p>
 
-  <h2><span class="hnum">4</span><span class="en">The Day the Design Was Overrun — March 2022</span><span class="ja">設計が想定を超えられた日——2022年3月</span></h2>
+  <p>ウォーターフォールが本来何のために存在するのかは、何も起きない日には見えにくい。それが姿を現すのは、参加者が本当に破綻した日である。</p>
 
-  <p class="en">And then there is the day the layers were leapt over entirely.</p>
-  <p class="ja">そして、層がまるごと飛び越えられた日がある。</p>
+  <h2><span class="hnum">2</span>第一層で止まった日――2008年9月</h2>
 
-  <p class="en">In March 2022, the price of nickel on the London Metal Exchange roughly quadrupled in three trading days. From around $27,000 a tonne, it briefly crossed $100,000 in the early hours of March 8. Against the backdrop of Russia's invasion of Ukraine, an enormous short position was being squeezed — forced buying begetting forced buying, a textbook illustration.</p>
-  <p class="ja">2022年3月、ロンドン金属取引所(LME)のニッケル価格が、3営業日で約4倍になった。1トン2万7,000ドル前後だった価格は、3月8日の早朝、一時10万ドルを超えた。ロシアのウクライナ侵攻を背景に、巨大な空売りポジションの買い戻しが買い戻しを呼ぶ、絵に描いたようなスクイーズだった。</p>
+  <p>2008年9月15日、リーマン・ブラザーズが破綻した。</p>
 
-  <p class="en">That morning, the exchange suspended trading. So far, still inside the design — when the market breaks, stop it; an extension of the circuit-breaker idea. But the next move was different. The exchange cancelled every trade executed since the small hours of that day. Transactions that had been legally concluded were made never to have happened.</p>
-  <p class="ja">その朝、取引所は取引を停止した。ここまでは、まだ設計の内側である。市場が壊れたら止める——サーキットブレーカーの延長と言える。しかし次の一手は違った。取引所は、その日の未明からの約定をすべて取り消した。成立していた取引が、なかったことになったのである。</p>
+  <p>世界の金融史でも、最も深刻な一週間の一つが始まった。</p>
 
-  <p class="en">Why go that far? An analysis built on materials later filed in court has reconstructed the hypothetical ledger<sup>4</sup>. Had the trades stood and the rulebook been followed, the clearing house would have had to issue $19.75 billion in intraday margin calls that morning, due within hours. That demand alone would have pushed seven members into default. The losses from processing those defaults: roughly $2.6 billion, overrunning every pre-funded resource by $220 million. The additional calls to rebuild the depleted fund would have toppled five more members — a chain reaching twelve members in all, 27 percent of the entire clearing membership. The clearing house's own contribution does not even register in that arithmetic.</p>
-  <p class="ja">なぜそこまでしたのか。後に法廷に提出された資料の分析が、仮定の帳簿を再構成している<sup>4</sup>。もし取引を有効のまま、ルールブックどおりに進めていたら、清算機関は朝のうちに197億5,000万ドルの日中証拠金を、期限数時間で請求する必要があった。その請求自体で7つの会員が破綻する。破綻処理の損失は約26億ドル、事前に積まれた全資源を2億2,000万ドル超過する。削られた基金を復元するための追加請求がさらに5会員を倒し、連鎖の合計は12会員——全清算会員の27%に達する。清算機関自身の拠出分は、この計算のなかでは跡形もない。</p>
+  <p>このとき、ロンドンの清算機関LCHは、リーマンが保有していた金利スワップのポートフォリオを清算していた。想定元本は約9兆ドル、取引件数は66,390件に達していた<sup>2</sup>。</p>
+
+  <p>当時の世界の年間GDPの1割を超える想定元本を持つ取引群が、突然、清算参加者を失ったことになる。</p>
+
+  <p>しかし、その後に起きたことは、危機の規模とは対照的なほど、あらかじめ定められた手順に沿っていた。</p>
+
+  <p>LCHは破綻管理手続きを開始し、事前に定められていた輪番に従って、会員各社からトレーダーを招集した。</p>
+
+  <p>まず、数日のうちにポートフォリオをヘッジし、市場価格の変動によって損失が拡大することを抑えた。</p>
+
+  <p>顧客のポジションについては、健全な他の清算参加者へ移管された。顧客は、清算を仲介していた金融機関の破綻によって、自らの取引まで失うことを免れた。</p>
+
+  <p>残ったポジションは、2008年9月24日から10月3日にかけて、通貨ごとに五つの競争入札によって処理された。</p>
+
+  <p>リーマンの破綻から約3週間で、ポートフォリオの処理は完了した。</p>
+
+  <p>そして、最終的な損失は、リーマン自身が差し入れていた証拠金のおよそ3分の1で吸収された。</p>
+
+  <p>デフォルト・ウォーターフォールの第一層の中で、すべての処理が終わったことになる。</p>
+
+  <p>リーマン自身のデフォルトファンド拠出金も、他の参加者のデフォルトファンドも使われなかった。生存参加者は損失を負担せず、LCH自身の資本も毀損しなかった。</p>
+
+  <p>同じ週、世界中の銀行は互いを信用できなくなり、短期資金の貸し借りを止め、相対取引の市場は急速に機能を失っていた。</p>
+
+  <p>その一方で、中央清算されていた市場の一角では、極めて大きな破綻が、事前に設計されていた手順の範囲内で処理された。</p>
+
+  <p>多層防御が最もうまく機能した状態とは、すべての層を使い切ることではない。</p>
+
+  <p>上の層だけで損失を止め、下の層を使わずに済ませることである。</p>
+
+  <p>2008年のLCHでは、設計は第一層で機能した。</p>
+
+  <h2><span class="hnum">3</span>共同資源まで使われた日――2018年9月</h2>
+
+  <p>しかし、損失が常に第一層で止まるとは限らない。</p>
+
+  <p>2018年9月、北欧の電力先物市場で、一人の清算参加者が破綻した。</p>
+
+  <p>破綻したのは金融機関ではなく、個人トレーダーだった。長年にわたる取引の成功によって、金融機関に匹敵する規模のポジションを持ち、清算参加者として直接取引を清算していた人物である。</p>
+
+  <p>このトレーダーは、北欧とドイツの電力価格の差が縮小することを前提に、ポジションを構築していた。</p>
+
+  <p>しかし、天候予報の変化やドイツの排出政策の変更により、両市場の価格差は縮小するどころか拡大した。損失が急速に膨らみ、トレーダーは追加証拠金を支払うことができなくなった。</p>
+
+  <p>ナスダック傘下の商品清算部門は、定められた手続きに従って破綻処理を開始した。</p>
+
+  <p>ポジションは48時間以内にオークションを通じて処理された。</p>
+
+  <p>だが、このとき生じた損失は、破綻者自身の証拠金とデフォルトファンド拠出金だけでは吸収できなかった。</p>
+
+  <p>残った損失は1億1,400万ユーロに達した。</p>
+
+  <p>そのうち700万ユーロをCCP自身の資本が負担し、残る1億700万ユーロは、生き残った参加者が拠出していたデフォルトファンドから支払われた。</p>
+
+  <p>商品部門のデフォルトファンドのおよそ3分の2が、一人の参加者の破綻を処理するために使われた<sup>3</sup>。</p>
+
+  <p>一週間後、デフォルトファンドは必要な水準まで再び積み直された。</p>
+
+  <p>追加資金を拠出したのは、直前に自らの拠出金を失った生存参加者たちだった。</p>
+
+  <p>制度は機能したと言ってよい。</p>
+
+  <p>連鎖破綻は起こらず、市場は開き続け、損失はウォーターフォールで定められた順序に従って吸収された。</p>
+
+  <p>しかし、この事例が業界に残したのは、制度が機能したという達成感だけではなかった。</p>
+
+  <p>相互化とは、他の参加者が起こした損失の請求書が、自分のもとへ届くことを意味する。</p>
+
+  <p>清算参加者は、そのことを制度上は理解していた。だが2018年には、その意味を初めて具体的な金額として実感することになった。</p>
+
+  <p>同時に、問いはCCP自身にも向けられた。</p>
+
+  <p>この破綻で、CCP自身が負担した資本は700万ユーロだった。生存参加者が負担した1億700万ユーロの約15分の1である。</p>
+
+  <p>業界全体でも、CCP自身がウォーターフォールに拠出する資本、すなわちSkin in the Gameは、デフォルト資源全体のごく一部にとどまるとされている。</p>
+
+  <p>損失負担の順序を決め、証拠金モデルを設計し、参加者を監視するCCP自身の負担が薄いのであれば、そのリスク管理に十分な規律は働くのか。</p>
+
+  <p>スウェーデンの金融監督当局は、その後、証拠金水準などに不備があったとして、この清算機関に制裁を科した。制裁金は後の控訴で減額されている。</p>
+
+  <p>ウォーターフォールは機能した。</p>
+
+  <p>しかし、それぞれの層をどの程度の厚さにするべきかという問題には、簡単な答えがなかった。</p>
+
+  <h2><span class="hnum">4</span>ルールどおりでは市場が壊れた日――2022年3月</h2>
+
+  <p>そして2022年には、ウォーターフォールの層の厚さだけでは説明できない事態が起きた。</p>
+
+  <p>2022年3月、ロンドン金属取引所（LME）のニッケル価格は、わずか3営業日で約4倍に上昇した。</p>
+
+  <p>1トン当たり2万7,000ドル前後だった価格は、3月8日の早朝、一時10万ドルを超えた。</p>
+
+  <p>ロシアによるウクライナ侵攻を背景に、巨大な空売りポジションの買い戻しが、さらに別の買い戻しを呼ぶショートスクイーズが発生していた。</p>
+
+  <p>その朝、LMEはニッケルの取引を停止した。</p>
+
+  <p>異常な価格変動に対して市場をいったん止めること自体は、サーキットブレーカーと同じく、制度の中に想定された対応と見ることができる。</p>
+
+  <p>しかし、LMEはその次に、さらに踏み込んだ措置を取った。</p>
+
+  <p>同日の未明以降に成立したニッケル取引を、すべて取り消したのである。</p>
+
+  <p>法的に成立していた取引が、さかのぼって存在しなかったことにされた。</p>
+
+  <p>なぜ、そこまでの対応が必要だったのか。</p>
+
+  <p>後にLMEが法廷へ提出した資料を基に、独立研究者が反実仮想の損失を再構成している。これは裁判所が認定した事実ではなく、LME側の提出資料を基礎とした試算であることには注意が必要だが、危機の規模を理解する手掛かりにはなる<sup>4</sup>。</p>
+
+  <p>この試算によれば、3月8日の取引を有効なままとし、ルールブックに従って処理を進めていた場合、清算機関は、その日の朝に197億5,000万ドルの日中証拠金を請求する必要があった。</p>
+
+  <p>支払期限は数時間後だった。</p>
+
+  <p>その証拠金請求だけで、七つの清算参加者が破綻する可能性があった。</p>
+
+  <p>それらの破綻を処理した場合の損失は約26億ドルに達し、あらかじめ積み立てられていたすべての財務資源を約2億2,000万ドル上回ると試算された。</p>
+
+  <p>さらに、失われたデフォルトファンドを再び積み直すための追加拠出請求によって、別の五つの参加者も破綻する可能性があった。</p>
+
+  <p>連鎖は合計12参加者、全清算参加者の27％に及ぶ計算だった。</p>
+
+  <p>これに対して、清算機関自身のSkin in the Gameは2,275万ドル、デフォルトファンドは約11億ドルだった。</p>
+
+  <p>規制上、この種のCCPに求められていたのは、最大規模の二つの参加者が同時に破綻しても耐えられる財務資源、いわゆるCover 2である。</p>
+
+  <p>しかし、その朝に想定された破綻数は二つではなく、12だった。</p>
 
   <div class="figure">
-    <svg class="en" viewBox="0 0 660 250" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
-      <g stroke-width="1.2">
-        <rect x="55"  y="50" width="150" height="30" fill="#e8f2f2" stroke="#1d5c5c"/>
-        <rect x="55"  y="84" width="150" height="30" fill="#fff" stroke="#8a8a8a"/>
-        <rect x="55"  y="118" width="150" height="30" fill="#fff" stroke="#8a8a8a"/>
-        <rect x="55"  y="152" width="150" height="30" fill="#fff" stroke="#8a8a8a"/>
-      </g>
-      <rect x="55" y="50" width="50" height="30" fill="#1d5c5c"/>
-      <text x="130" y="205" font-size="12" text-anchor="middle" fill="#33383f">2008</text>
-      <text x="130" y="222" font-size="10.5" text-anchor="middle" fill="#33383f">stopped inside layer 1</text>
-      <g stroke-width="1.2">
-        <rect x="255" y="50" width="150" height="30" fill="#1d5c5c" stroke="#1d5c5c"/>
-        <rect x="255" y="84" width="150" height="30" fill="#1d5c5c" stroke="#1d5c5c"/>
-        <rect x="255" y="118" width="150" height="30" fill="#1d5c5c" stroke="#1d5c5c"/>
-        <rect x="255" y="152" width="150" height="30" fill="#fff" stroke="#8a8a8a"/>
-        <rect x="255" y="152" width="100" height="30" fill="#1d5c5c"/>
-      </g>
-      <text x="330" y="205" font-size="12" text-anchor="middle" fill="#33383f">2018</text>
-      <text x="330" y="222" font-size="10.5" text-anchor="middle" fill="#33383f">cut into the survivors' layer</text>
-      <g stroke-width="1.2">
-        <rect x="455" y="50" width="150" height="30" fill="#fff" stroke="#8a8a8a" stroke-dasharray="4 3"/>
-        <rect x="455" y="84" width="150" height="30" fill="#fff" stroke="#8a8a8a" stroke-dasharray="4 3"/>
-        <rect x="455" y="118" width="150" height="30" fill="#fff" stroke="#8a8a8a" stroke-dasharray="4 3"/>
-        <rect x="455" y="152" width="150" height="30" fill="#fff" stroke="#8a8a8a" stroke-dasharray="4 3"/>
-      </g>
-      <path d="M 470 165 Q 530 30 600 40" fill="none" stroke="#8a6020" stroke-width="1.6"/>
-      <polygon points="604,38 592,38 598,48" fill="#8a6020"/>
-      <text x="530" y="205" font-size="12" text-anchor="middle" fill="#33383f">2022</text>
-      <text x="530" y="222" font-size="10.5" text-anchor="middle" fill="#33383f">the call itself would break the system —</text>
-      <text x="530" y="237" font-size="10.5" text-anchor="middle" fill="#33383f">resolved outside the rulebook</text>
-    </svg>
-    <svg class="ja" viewBox="0 0 660 250" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+    <svg viewBox="0 0 660 268" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
       <g stroke-width="1.2">
         <rect x="55"  y="50" width="150" height="30" fill="#e8f2f2" stroke="#1d5c5c"/>
         <rect x="55"  y="84" width="150" height="30" fill="#fff" stroke="#8a8a8a"/>
@@ -319,7 +376,7 @@ footer a { color: var(--teal-dark); text-decoration: none; }
       </g>
       <rect x="55" y="50" width="50" height="30" fill="#1d5c5c"/>
       <text x="130" y="205" font-size="12" text-anchor="middle" fill="#33383f">2008年</text>
-      <text x="130" y="222" font-size="10.5" text-anchor="middle" fill="#33383f">第一層の内側で完結</text>
+      <text x="130" y="222" font-size="10.5" text-anchor="middle" fill="#33383f">第一層の中で処理</text>
       <g stroke-width="1.2">
         <rect x="255" y="50" width="150" height="30" fill="#1d5c5c" stroke="#1d5c5c"/>
         <rect x="255" y="84" width="150" height="30" fill="#1d5c5c" stroke="#1d5c5c"/>
@@ -328,7 +385,7 @@ footer a { color: var(--teal-dark); text-decoration: none; }
         <rect x="255" y="152" width="100" height="30" fill="#1d5c5c"/>
       </g>
       <text x="330" y="205" font-size="12" text-anchor="middle" fill="#33383f">2018年</text>
-      <text x="330" y="222" font-size="10.5" text-anchor="middle" fill="#33383f">生存会員の層まで削られた</text>
+      <text x="330" y="222" font-size="10.5" text-anchor="middle" fill="#33383f">生存参加者の共同資源まで使用</text>
       <g stroke-width="1.2">
         <rect x="455" y="50" width="150" height="30" fill="#fff" stroke="#8a8a8a" stroke-dasharray="4 3"/>
         <rect x="455" y="84" width="150" height="30" fill="#fff" stroke="#8a8a8a" stroke-dasharray="4 3"/>
@@ -338,128 +395,235 @@ footer a { color: var(--teal-dark); text-decoration: none; }
       <path d="M 470 165 Q 530 30 600 40" fill="none" stroke="#8a6020" stroke-width="1.6"/>
       <polygon points="604,38 592,38 598,48" fill="#8a6020"/>
       <text x="530" y="205" font-size="12" text-anchor="middle" fill="#33383f">2022年</text>
-      <text x="530" y="222" font-size="10.5" text-anchor="middle" fill="#33383f">請求自体が系を壊す計算に——</text>
-      <text x="530" y="237" font-size="10.5" text-anchor="middle" fill="#33383f">ルールの外側で決着</text>
+      <text x="530" y="222" font-size="10.5" text-anchor="middle" fill="#33383f">ウォーターフォールを発動する</text>
+      <text x="530" y="238" font-size="10.5" text-anchor="middle" fill="#33383f">証拠金請求自体が、</text>
+      <text x="530" y="254" font-size="10.5" text-anchor="middle" fill="#33383f">連鎖破綻を起こす可能性</text>
     </svg>
-    <div class="figcap"><span class="en">Fig. 2 — Three days, three depths: the same layered defense won at the top (2008), was cut deep (2018), and was overrun before it could even engage (2022).</span><span class="ja">図2　三つの日、三つの深さ。同じ多層防御が、最上層で勝ち(2008)、深く削られ(2018)、発動する前に飛び越えられた(2022)。</span></div>
+    <div class="figcap">図2　三つの危機と、損失が到達した深さ</div>
   </div>
 
-  <p class="en">In other words, on that day the layered defense was not "insufficient." The very demand that would activate the defense was, by the arithmetic, on the side of destroying the market. I have long felt, myself, that a clearing system stripped of friction and accelerated can process an individual failure, yet cannot stop a correlated explosion in which everything moves the same way at once. The waterfall is a design for the many to catch the one; it is not a design for the day everyone becomes the one.</p>
-  <p class="ja">つまりこの日、多層防御は「足りなかった」のではない。防御を発動するための請求そのものが、市場を壊す側に回る計算になっていたのだ。私自身、摩擦を抜いて高速化された清算の仕組みは、個別の破綻を捌くことはできても、すべてが同じ方向に動く相関の爆発は止められない、と長く感じてきた。ウォーターフォールは一人の破綻者を皆で受け止める設計であって、皆が同時に破綻者になる日の設計ではない。</p>
+  <p>2022年に問題となったのは、ウォーターフォールの資源が単に不足していたことだけではない。</p>
 
-  <p class="en">The cancellation was strong medicine, and it left a deep wound in the market's trust. Seen from the winning side, legitimate profits had been erased. Lawsuits followed, and the supervisor later imposed the first fine in its history on an exchange. Even so, how to read that day's choice is not simple. When the mechanical execution of the rules would destroy the system itself, what moved, in the end, was human judgment outside the written rules. One can read this as the defeat of design. Or one can read it as a layer no one wants to write into the rulebook: that the final layer is human discretion. I lean toward the latter — but if that is the reading, then that final layer is precisely the one that must be trained in normal times.</p>
-  <p class="ja">約定取消しという劇薬は、市場の信頼に深い傷を残した。勝っていた側から見れば、正当な利益が消されたのである。訴訟が起き、監督当局は後に、取引所として史上初の制裁金を科した。だがそれでも、この日の選択をどう読むかは一筋縄ではいかない。ルールの機械的な執行が系全体を壊すとき、最後に動いたのは、明文化されていない人間の裁量だった。これを設計の敗北と読むか。それとも「最後の層は人間の判断である」という、誰もルールブックに書きたがらない暗黙の設計と読むか。私は後者に傾いているが、そう読むなら、その最後の層こそ平時に鍛えておくべきものになる。</p>
+  <p>防御を作動させるための証拠金請求そのものが、市場を壊す側に回る可能性があった。</p>
 
-  <h2><span class="hnum">5</span><span class="en">And Yet — Doubts About Layered Defense Itself</span><span class="ja">ただし——多層防御そのものへの疑い</span></h2>
+  <p>ウォーターフォールは、原則として、一人の破綻を他の参加者とCCPが受け止めるための設計である。</p>
 
-  <p class="en">So far I have taken the waterfall as my axis. But there are doubts aimed at this design philosophy itself, and leaving them out would make this a one-sided story.</p>
-  <p class="ja">ここまで、ウォーターフォールという設計を軸に話してきた。ただし、この設計思想そのものに向けられている疑いも、並べておかなければ片手落ちだろう。</p>
+  <p>しかし、すべての参加者が同じ方向にポジションを持ち、同時に流動性を必要とする局面では、その防御が別の破綻を引き起こすことがある。</p>
 
-  <p class="en">One is the doubt about concentration. Where the defense is thick, everyone gathers. In fact, well over 90 percent of the world's cleared vanilla interest rate swaps run through a single clearing house. The risk did not disappear; it was collected into one place — and on the day that place's defenses are breached, there is no substitute. The mechanism built to shrink "too big to fail" banks becomes, itself, an institution that absolutely cannot be allowed to fail. The irony writes itself.</p>
-  <p class="ja">一つは、集中への疑いである。防御が厚い場所には、皆が集まる。実際、主要な金利デリバティブの清算は世界で一つの清算機関に9割以上が集中している。リスクは消えたのではなく、一箇所に集められた。集めた場所の防御が破られる日には、代わりがいない。「大きすぎて潰せない」銀行を減らすための仕組みが、それ自体「絶対に潰せない」存在になる、という皮肉である。</p>
+  <p>一人を多数で支える仕組みは、多数が同時に一人の側へ回る事態には弱い。</p>
 
-  <p class="en">The other is the doubt about side effects. In March 2020, when markets convulsed in the Covid crisis, calls on the waterfall's first layer — margin — swelled simultaneously across the world. In the euro area alone, the additional initial margin posted by clearing members over three weeks came to roughly €30 billion, an increase of 32 percent. Over the same period, margin on trades that were <em>not</em> centrally cleared barely moved<sup>5</sup>. This was not a market-wide phenomenon, in other words; it was an amplification specific to the clearing machinery. At the exact moment everyone needs cash most, the defense mechanism vacuums cash out of everyone. What is correct self-protection for each individual clearing house becomes, for the system as a whole, an amplifier of liquidity stress.</p>
-  <p class="ja">もう一つは、防御の副作用への疑いだ。2020年3月、コロナ危機で市場が荒れたとき、ウォーターフォールの第一層、すなわち証拠金への請求が、世界中でいっせいに膨らんだ。ユーロ圏だけで、清算会員が追加で積んだ当初証拠金は3週間で約300億ユーロ、32%の増加である。同じ期間、中央清算されていない取引の証拠金はほぼ動いていない<sup>5</sup>。つまりこれは市場全体の現象ではなく、清算という仕組みに固有の増幅だった。皆が現金を最も必要とする瞬間に、防御の仕組みが皆から現金を吸い上げる。個々の清算機関にとっては自衛として正しい行動が、系全体では流動性ストレスの増幅器になる。</p>
+  <p>取引取消しは、極めて強い措置だった。</p>
+
+  <p>取消しの対象となった市場参加者から見れば、適法に成立し、利益を生んでいた取引が一方的に消されたことになる。市場の公正さと、成立した契約への信頼は大きく傷ついた。</p>
+
+  <p>ElliottやJane StreetなどはLMEを提訴した。</p>
+
+  <p>2023年11月、高等法院は請求を棄却した。2024年10月には控訴院が控訴を退け、2025年1月28日には最高裁が上告を許可しなかった。</p>
+
+  <p>LMEが取引を取り消す権限を有していたことは、司法手続きの中で認められた。</p>
+
+  <p>しかし、そのことは、LMEの危機対応全体が適切だったことを意味しない。</p>
+
+  <p>2025年3月、英国金融行為規制機構（FCA）は、LMEに対して924万5,900ポンドの制裁金を科した。認定投資取引所に対するFCA初の執行措置だった。</p>
+
+  <p>FCAの認定によれば、価格変動を制御する自動的な価格帯は未明の3時間以上にわたって停止されていた。</p>
+
+  <p>当直に就いていたのは主として若手職員であり、上級管理職への報告と対応の引き上げは、ニッケル価格が既に10万ドルを超えるまで行われなかった。</p>
+
+  <p>したがって、取引取消しを「最後に人間の裁量が市場を救った」とだけ評価することはできない。</p>
+
+  <p>危機を最終的に止めたのも人間の判断だったが、危機の進行を早期に止められなかったのも、組織と人間の判断だった。</p>
+
+  <p>あらかじめ定められたルールを機械的に執行すれば、制度そのものを破壊しかねない局面は存在する。</p>
+
+  <p>そのときには、ルールの外側に残された裁量が必要になる。</p>
+
+  <p>しかし、裁量は、ルールが尽きた後に突然生まれる能力ではない。誰が判断し、どの情報を見て、どの時点で上級者へ報告し、どこまで介入できるのかを、平時から準備しておかなければならない。</p>
+
+  <h2><span class="hnum">5</span>防御は、別の場所に負荷を移す</h2>
+
+  <p>ここまで、ウォーターフォールを危機への防御として見てきた。</p>
+
+  <p>しかし、多層的な防御を整えれば、それで制度全体が安全になるわけではない。</p>
+
+  <p>第一の問題は、リスクの集中である。</p>
+
+  <p>防御が厚く、信頼性の高い清算機関には、多くの取引が集まる。</p>
+
+  <p>プレーンバニラの金利スワップでは、中央清算される取引の大部分が、一つの清算機関に集中している。商品や通貨によって差はあるものの、その市場シェアは9割を超えると推計されることもある<sup>5</sup>。</p>
+
+  <p>中央清算によって、個々の金融機関が抱えていた相対取引の信用リスクは削減される。</p>
+
+  <p>しかし、リスクそのものが消えるわけではない。多数の取引とリスクが、一つのCCPへ集約される。</p>
+
+  <p>「大きすぎて潰せない」銀行の問題を軽減するために作られた仕組みが、それ自体として「絶対に潰せない」市場インフラになる。</p>
+
+  <p>中央清算には、そのような逆説がある。</p>
+
+  <p>第二の問題は、防御が生む副作用である。</p>
+
+  <p>2020年3月、新型コロナウイルスの感染拡大によって市場が急変した際、世界中の清算機関が証拠金を引き上げた。</p>
+
+  <p>ユーロ圏では、清算参加者が2020年1月31日から3月20日までの約3週間に追加で差し入れた当初証拠金は、約300億ユーロに達した。32％の増加である<sup>6</sup>。</p>
+
+  <p>一方、同じ期間に、中央清算されていないデリバティブ取引の当初証拠金は、ほぼ横ばいだった。</p>
+
+  <p>ただし、この差のすべてをCCPの証拠金モデルの問題に帰すことはできない。</p>
+
+  <p>非清算取引で広く使われる標準モデルには、短期間のボラティリティ上昇に対して、比較的ゆっくりと反応する性質がある。そのため、非清算側の証拠金が動かなかったこと自体が、必ずしも優れた危機対応を意味するわけではない。</p>
+
+  <p>それでも、問題の構造は残る。</p>
+
+  <p>市場参加者が最も現金を必要とする局面で、清算機関は自らを守るために、参加者から追加の現金や担保を集める。</p>
+
+  <p>個々のCCPにとっては、証拠金を引き上げることは合理的な自己防衛である。</p>
+
+  <p>しかし、すべてのCCPが同時に同じ行動を取れば、市場全体から流動性が急速に吸い上げられる。</p>
+
+  <p>個々の制度にとって正しい防御が、制度全体では流動性危機を増幅することがある。</p>
 
   <div class="figure">
-    <svg class="en" viewBox="0 0 660 190" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
-      <text x="330" y="28" font-size="11.5" text-anchor="middle" fill="#33383f">initial margin, euro area, Jan 31 – Mar 20, 2020</text>
+    <svg viewBox="0 0 660 190" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <text x="330" y="28" font-size="11.5" text-anchor="middle" fill="#33383f">当初証拠金の変化（ユーロ圏・2020年1月31日〜3月20日）</text>
       <line x1="90" y1="150" x2="590" y2="150" stroke="#8a8a8a" stroke-width="1"/>
       <rect x="150" y="60" width="130" height="90" fill="#1d5c5c"/>
-      <text x="215" y="52" font-size="12" text-anchor="middle" fill="#1d5c5c">+32% (≈ €30bn)</text>
-      <text x="215" y="170" font-size="11.5" text-anchor="middle" fill="#33383f">centrally cleared</text>
-      <rect x="390" y="138" width="130" height="12" fill="none" stroke="#1a2332" stroke-width="1.4"/>
-      <text x="455" y="130" font-size="12" text-anchor="middle" fill="#1a2332">"broadly unchanged"</text>
-      <text x="455" y="170" font-size="11.5" text-anchor="middle" fill="#33383f">not centrally cleared</text>
-    </svg>
-    <svg class="ja" viewBox="0 0 660 190" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
-      <text x="330" y="28" font-size="11.5" text-anchor="middle" fill="#33383f">当初証拠金の増加(ユーロ圏・2020年1月31日〜3月20日)</text>
-      <line x1="90" y1="150" x2="590" y2="150" stroke="#8a8a8a" stroke-width="1"/>
-      <rect x="150" y="60" width="130" height="90" fill="#1d5c5c"/>
-      <text x="215" y="52" font-size="12" text-anchor="middle" fill="#1d5c5c">+32%(約300億ユーロ)</text>
-      <text x="215" y="170" font-size="11.5" text-anchor="middle" fill="#33383f">中央清算あり</text>
+      <text x="215" y="52" font-size="12" text-anchor="middle" fill="#1d5c5c">＋32％（約300億ユーロ）</text>
+      <text x="215" y="170" font-size="11.5" text-anchor="middle" fill="#33383f">中央清算取引</text>
       <rect x="390" y="138" width="130" height="12" fill="none" stroke="#1a2332" stroke-width="1.4"/>
       <text x="455" y="130" font-size="12" text-anchor="middle" fill="#1a2332">「ほぼ横ばい」</text>
-      <text x="455" y="170" font-size="11.5" text-anchor="middle" fill="#33383f">中央清算なし</text>
+      <text x="455" y="170" font-size="11.5" text-anchor="middle" fill="#33383f">非中央清算取引</text>
     </svg>
-    <div class="figcap"><span class="en">Fig. 3 — March 2020: the defense's first layer swelled only where the defense existed. Protection for each can become stress for all.</span><span class="ja">図3　2020年3月。防御の第一層は、防御がある側だけで膨らんだ。個の防衛は、全体のストレスになりうる。</span></div>
+    <div class="figcap">図3　2020年3月の当初証拠金の変化</div>
   </div>
 
-  <p class="en">What these two doubts share, I think, is the fact that no design completes itself inside its own boundary. One system's defense can become the neighboring system's stress. To judge a design built for the day things break, it is not enough to ask "can this mechanism protect itself?" — one must also ask "when this mechanism protects itself, what does that motion do to everything outside it?" The waterfall is a superb answer to the first question. The second remains open.</p>
-  <p class="ja">この二つの疑いに共通するのは、設計は境界の内側で完結しない、という事実だと思う。あるシステムの防御は、隣のシステムのストレスになりうる。壊れた日のための設計を評価するには、「この仕組みは自分を守れるか」だけでなく、「この仕組みが自分を守る動きは、外に何を及ぼすか」まで見なければならない。ウォーターフォールは前者への見事な答えであり、後者への問いはまだ開いたままである。</p>
+  <p>個々の防御が、全体のストレスになる場合がある。</p>
 
-  <h2><span class="hnum">6</span><span class="en">Why the Useless Things Exist</span><span class="ja">平時に無駄に見えるものの存在理由</span></h2>
+  <p>集中リスクと流動性リスクに共通しているのは、制度設計は、その制度の境界の内側だけでは評価できないということである。</p>
 
-  <p class="en">Turn away from clearing, and the same design philosophy is found buried in every system that must not break.</p>
-  <p class="ja">視線を清算の外に向けると、同じ設計思想が、壊れてはいけないシステムのあちこちに埋まっていることに気づく。</p>
+  <p>「このCCPは、自らの破綻を防げるか」という問いだけでは不十分だ。</p>
 
-  <p class="en">Aviation safety holds the view that no accident is caused by the failure of a single defense. Organizational decisions, supervision, workplace conditions, the operation itself — each of the many defensive layers has holes, and an accident penetrates only when all the holes happen to line up in a straight line. Safety design, then, is not the crafting of one perfect barrier but the stacking of layers so their holes do not align.</p>
-  <p class="ja">航空安全の世界には、事故は一枚の防御の失敗では起きない、という考え方がある。組織の判断、監督、現場の条件、操作と、何層もの防御にはそれぞれ穴があり、事故はすべての穴が偶然一直線に並んだときにだけ貫通する。だから安全設計とは、完璧な一枚を作ることではなく、穴の位置が揃わないように層を重ねることになる。</p>
+  <p>「このCCPが自らを守るために取る行動は、市場の他の部分に何をもたらすか」まで見なければならない。</p>
 
-  <p class="en">Software has an even more radical school. A certain video streaming company, running systems at vast scale, is famous for deliberately breaking pieces of its own production environment as a matter of routine. The best defense against the large, unexpected failure, the thinking goes, is to experience small failures frequently. The clearing world's regular default drills grow from the same root. The procedure for the day it breaks is far too heavy a thing to be tried for the first time on the day it breaks.</p>
-  <p class="ja">ソフトウェアの世界には、もっと過激な流儀がある。大規模なシステムを運営するある動画配信会社は、平時から本番システムの一部をわざと壊し続けることで知られる。大きな想定外への最良の防御は、小さな失敗を頻繁に経験しておくことだ、という思想である。清算の世界が定期的に破綻処理の演習をやるのと、根は同じだ。壊れた日の手順は、壊れた日に初めて試すには重すぎる。</p>
+  <p>ウォーターフォールは、個々の参加者の破綻を処理する仕組みとしては、極めて優れた設計である。</p>
 
-  <p class="en">Engineering theory gives this intuition a slightly unsettling generalization. The more highly a complex system is optimized against specific, anticipated risks, the more impressively robust it becomes to perturbations within that envelope — and, at the same time, the more acutely fragile to perturbations outside it. Robustness and fragility are twins born of the same optimization process<sup>6</sup>. What we saw in nickel in 2022 looks like exactly this. A design that had been so strong against its anticipated scenario — one member failing — turned its own defenses into the weapon when the unanticipated arrived and everyone tilted at once.</p>
-  <p class="ja">工学の理論は、この直感に少し不気味な一般化を与えている。複雑なシステムを特定のリスクに対して高度に最適化するほど、そのシステムは想定内の摂動には目覚ましく頑健になり、同時に、想定外の摂動には過敏に脆くなる——頑健性と脆弱性は、最適化の同じ工程から生まれる双子だ、という理論である<sup>6</sup>。2022年のニッケルで見たものは、まさにこれだったように思える。一人の破綻者という想定にはあれほど強かった設計が、全員が同時に傾く想定外には、防御自体が凶器になった。</p>
+  <p>一方、防御のための資金調達が市場全体の流動性を奪う問題については、2020年以降、証拠金の透明性や予測可能性を高める国際的な検討が続いている。</p>
 
-  <p class="en">Line these up and a common picture emerges. Redundancy, slack, drills, friction. In the accounting of normal times, every one of them sits in the expense column. Margin is money asleep; the backup system is equipment unused; the drill is time that produces nothing. If you want to raise efficiency, these are the first things you itch to cut. But they are the layers for the day it breaks. Friction is not inefficiency; it is the brake for the day of panic. To measure the layers of crisis with the yardstick of normal-time optimization is, I think, simply to pick up the wrong yardstick.</p>
-  <p class="ja">こうして並べると、共通の絵が見えてくる。冗長性、余白、演習、摩擦。これらは平時の会計では、すべて費用の欄に載る。証拠金は寝ている金で、予備の系統は使われない設備で、演習は生産しない時間だ。効率を上げたければ、真っ先に削りたくなる。だが、これらは壊れた日のための層である。摩擦は非効率ではなく、パニックの日のブレーキだ。平時の最適化で有事の層を測ること自体が、モノサシの取り違えなのだと思う。</p>
+  <p>それでも、守るための仕組みが、守るべき市場を弱らせる可能性をどう抑えるかという問題には、まだ完全な答えはない。</p>
 
-  <div class="pull">
-    <span class="pull-label"><span class="en">Key</span><span class="ja">要点</span></span>
-    <span class="en">Redundancy, slack, drills, friction — in normal times they all sit in the expense column. They are not inefficiency. They are the layers that exist for the day it breaks, and they cannot be priced by the accounting of days when nothing happens.</span>
-    <span class="ja">冗長性・余白・演習・摩擦は、平時の会計ではすべて費用の欄に載る。だがそれらは非効率ではなく、壊れた日のために存在する層であり、何も起きない日の会計では値付けできない。</span>
-  </div>
+  <h2><span class="hnum">6</span>誰が、どこまで身銭を切るのか</h2>
 
-  <p class="en">That said, if the conclusion were "the thicker the layers, the better," life would be easy — and it is not. Double the margin and participants leave the market; add defenses and the cost crushes the real activity they were meant to protect. A design for the day it breaks is also a design that withholds an insurance premium, every day, from the earnings of the days when nothing happens. There is no correct answer to how much to pay; there is only a choice of where to place the trade-off. Which is why this allocation is, in the end, not merely a specialist's calculation but a question of what one intends to protect.</p>
-  <p class="ja">とはいえ、では層は厚いほどいいのかと言えば、そうもいかないのが悩ましい。証拠金を倍にすれば市場から参加者が消え、防御を増やせばコストが実需を圧迫する。壊れた日のための設計は、何も起きない日々の稼ぎから保険料を天引きし続ける設計でもある。どこまで払うかに正解はなく、あるのはトレードオフの置き場所だけだ。だからこそ、この配分は専門家の計算だけでなく、何を守りたいのかという意思の問題になる。</p>
+  <p>ウォーターフォールの層を厚くすれば、それだけ制度が安全になるとは限らない。</p>
+
+  <p>問題は、利用できる資金の総額だけではなく、誰が、どの順序で、どの程度の損失を負担するかにある。</p>
+
+  <p>その象徴が、CCP自身の資本拠出であるSkin in the Game（SIG）だ<sup>7</sup>。</p>
+
+  <p>CCPも自らの資本を損失にさらす仕組みにしておけば、証拠金を過度に低く設定したり、十分な検証をせずにリスクの高い商品を清算対象に加えたりすることへの歯止めになる。</p>
+
+  <p>制度を設計し、清算参加者に証拠金やデフォルトファンドの負担を求める者も、自ら一定の損失を負うべきだという考え方である。</p>
+
+  <p>CCPがリスクを共有する姿勢を示すことは、市場からの信頼を得る上でも重要になる。</p>
+
+  <p>しかし、SIGも大きければ大きいほどよいわけではない。</p>
+
+  <p>CCP自身の負担が小さすぎれば、損失の大部分を清算参加者へ負わせながら、CCPは十分な痛みを負わないという問題が生じる。</p>
+
+  <p>CCPにとって、証拠金を引き下げて取引量を増やしたり、清算対象を拡大したりする利益はある一方、その結果として生じる損失の多くを参加者が負担するのであれば、リスク管理のインセンティブは歪み得る。</p>
+
+  <p>2018年の北欧電力市場で問われたのも、この負担の非対称性だった。</p>
+
+  <p>一方で、CCPの自己資本を過度に厚くすれば、今度は清算参加者側に「最終的にはCCPが負担する」という依存が生まれる可能性がある。</p>
+
+  <p>清算参加者自身がポジションを適切に管理し、他の参加者やCCPのリスク管理を監視するインセンティブが弱まるかもしれない。</p>
+
+  <p>また、多額の自己資本をSIGとして拘束することは、CCPにとって資本コストの増加を意味する。</p>
+
+  <p>それが清算手数料の上昇につながれば、市場参加者の負担を増やし、清算市場の流動性や競争力を低下させる可能性もある。</p>
+
+  <p>つまり、SIGの問題は、単にCCPの自己資本をいくらにするかという問題ではない。</p>
+
+  <p>破綻した参加者、CCP、生き残った清算参加者の間に、責任と損失をどのように配分すれば、それぞれの規律が最もよく働くかという問題である。</p>
+
+  <p>さらに、現在の主要なCCPの多くは、営利企業である取引所グループの傘下にある。</p>
+
+  <p>市場の安定を支える公共的な役割を担う一方で、上場企業として資本効率を高め、株主価値を向上させることも求められる。</p>
+
+  <p>SIGとして自己資本を増やすことは、CCPの資本効率を低下させる。したがって経営上は、SIGを可能な限り抑えたいというインセンティブが働き得る。</p>
+
+  <p>加えて、主要な清算市場は少数のCCPに集中している。</p>
+
+  <p>市場参加者がより大きなSIGを求めても、代替となるCCPが存在しなければ、その要求を受け入れさせる競争上の圧力は弱い。</p>
+
+  <p>したがって、SIGに一律の適正値を設けることは難しい。</p>
+
+  <p>小さすぎればCCPの規律を損ない、大きすぎれば清算参加者の規律や市場の効率を損なう可能性がある。</p>
+
+  <p>その水準は、清算する商品のリスク特性、市場のボラティリティ、参加者の構成、CCPの所有構造と財務力などを踏まえて決めるしかない。</p>
+
+  <p>重要なのは、金額だけではない。</p>
+
+  <p>なぜその水準が選ばれたのか。誰が、どのような条件で損失を負担するのか。その考え方が透明に示され、規制当局と市場参加者によって継続的に検証されることが重要である。</p>
+
+  <p>ウォーターフォールの設計とは、損失を吸収する資金の量を決めることだけではない。</p>
+
+  <p>誰にどの程度の痛みを負わせれば、制度全体の規律が最もよく働くかを決めることでもある。</p>
+
+  <p>※Skin in the Gameの制度的背景、適正規模を巡る国際的議論、CCPと清算参加者のインセンティブ構造については、拙著収録のコラム「CCPはどれだけ身銭を切るべきか？――Skin in the Game（SIG）の哲学と現実」で詳しく論じている。</p>
 
   <div class="essay-close">
-    <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">7</span><span class="en">What Moves on the Day It Breaks</span><span class="ja">壊れた日に、何が動くか</span></h2>
+    <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">7</span>壊れた日に、設計は姿を現す</h2>
 
-    <p class="en">I once wrote, in <a href="when-a-frozen-market-thaws">another essay</a>, that trust is not what you hold in normal times but what you can move in a crisis. This essay is the design edition of that sentence. Order cannot be measured by the beauty of peacetime blueprints. It appears only in which layers actually moved, in what sequence, on the day something broke.</p>
-    <p class="ja">以前、<a href="when-a-frozen-market-thaws">別の文章</a>で「信頼とは、平時に持っているものではなく、危機に動かせるものだ」と書いた。本稿はその設計版である。秩序は、平時の設計図の美しさでは測れない。壊れた日に、実際に、どの層が、どの順序で動いたか——そこにしか現れない。</p>
+    <p>2008年には、破綻者自身が事前に積んでいた資源が、設計どおりに働いた。</p>
 
-    <p class="en">The design of 2008 won at the top layer. The design of 2018 held while its layers were being cut. The design of 2022 revealed that its final layer was human discretion. All three looked identically quiet in normal times.</p>
-    <p class="ja">2008年の設計は最上層で勝ち、2018年の設計は層を削られながら守り、2022年の設計は、最後の層が人間の裁量であることを露呈した。三つとも、平時には同じように静かだった。</p>
+    <p>2018年には、損失の共同負担という制度の意味が、現実の請求として生存参加者に届いた。</p>
 
-    <p class="en">If so, there should be a question here worth carrying out of the clearing world. In the systems you depend on — the mechanisms of your workplace, the institutions of society, or the way your own work is put together — where is the layer that absorbs the first loss on the day it breaks? Is that layer funded in advance, or does it rest on a promise of "if it ever comes to that"? And in your own designs, how many layers remain that look like nothing but cost, all through the days when nothing happens?</p>
-    <p class="ja">ならば、清算の世界の外にいる読者にも、持ち帰れる問いがあるはずだ。自分が頼っているシステム——職場の仕組みでも、社会の制度でも、あるいは自分自身の仕事の組み立てでもいい——その中で、壊れた日に最初に損失を受け止める層はどこにあるのか。その層は事前に積まれているのか、それとも「いざとなったら」の約束で済まされているのか。そして自分の設計には、何も起きない日のあいだコストにしか見えない層が、いくつ残してあるだろうか。</p>
+    <p>2022年には、ルールどおりに防御を発動すること自体が、市場を壊しかねないという限界が現れた。</p>
+
+    <p>三つの事例が示しているのは、危機への備えは、資金を厚く積むだけでは完成しないということだ。</p>
+
+    <p>誰が最初に損失を負うのか。</p>
+
+    <p>どの時点から、損失を他の参加者へ共同化するのか。</p>
+
+    <p>防御を発動したとき、その防御が市場全体にどのような負荷を与えるのか。</p>
+
+    <p>そして、ルールが想定していなかった事態に、誰が判断を下すのか。</p>
+
+    <p>平時には、これらの違いはほとんど見えない。</p>
+
+    <p>証拠金も、デフォルトファンドも、CCPの自己資本も、破綻処理演習も、ただのコストに見える。</p>
+
+    <p>しかし、制度の真価は、平時の効率だけでは測れない。</p>
+
+    <p>何かが壊れたとき、誰が、どの順序で、どの程度の損失を負い、実際に何を動かすことができたのか。</p>
+
+    <p>設計は、その日に初めて姿を現す。</p>
 
     <div class="seed-box">
-      <span class="pull-label"><span class="en">The Seed</span><span class="ja">種としての一行</span></span>
-      <span class="en">The worth of a design is measured not on the day nothing happens, but on the day everything does.</span>
-      <span class="ja">設計の真価は、何も起きない日ではなく、すべてが起きた日に測られる。</span>
+      <span class="pull-label">種としての一行</span>
+      設計の真価は、平時の効率ではなく、壊れた日に現れる。
     </div>
   </div>
 
   <div class="essay-note">
-    <span class="note-label"><span class="en">Notes &amp; Sources</span><span class="ja">出典</span></span>
+    <span class="note-label">出典・注記</span>
+    <p>本稿の見解は筆者個人のものであり、筆者が所属する組織および関与する業界団体の見解を代表するものではない。</p>
     <ol>
-      <li><span class="en">CPMI-IOSCO, <em>Principles for Financial Market Infrastructures</em> (BIS/IOSCO, April 2012), para. 3.4.17 — the canonical description of the default waterfall's sequence of prefunded resources.</span><span class="ja">CPMI-IOSCO『金融市場インフラのための原則』(BIS/IOSCO・2012年4月) 3.4.17項 — 事前積立資源の序列としてのウォーターフォールの標準的定義。</span></li>
-      <li><span class="en">LCH.Clearnet press release (Oct 8, 2008) and BIS Quarterly Review, <em>"Two defaults at CCPs, 10 years apart"</em> (December 2018) — $9tn notional, 66,390 trades, five currency auctions, roughly one-third of margin consumed, no losses to members. The "one-third" figure originates in the CCP's own case study; treat it as the practitioner-consensus account rather than an independently audited number.</span><span class="ja">LCH.Clearnet プレスリリース(2008年10月8日)および BIS Quarterly Review "Two defaults at CCPs, 10 years apart"(2018年12月) — 想定元本9兆ドル・66,390件・5通貨オークション・証拠金の約3分の1で吸収・会員損失ゼロ。「3分の1」は清算機関自身のケーススタディ由来であり、独立監査済みの数字ではなく実務家の共通了解として扱うのが正確。</span></li>
-      <li><span class="en">Nasdaq Clearing's own default updates (2018) and Finansinspektionen's sanction decision (2021; fine reduced on appeal) — €114m loss, €107m of member default-fund contributions consumed, €7m of the CCP's own capital, 48-hour close-out, fund recapitalized within a week. The ~2% skin-in-the-game figure is from Risk.net's Risk Quantum analysis of CCP disclosures (2022).</span><span class="ja">Nasdaq Clearing 自身の破綻対応公表(2018)およびスウェーデン金融監督庁の制裁決定(2021・控訴審で減額) — 損失1億1,400万ユーロ・会員基金拠出1億700万ユーロ毀損・自己資本700万ユーロ・48時間クローズアウト・1週間で基金復元。スキン・イン・ザ・ゲーム約2%は Risk.net Risk Quantum による CCP 開示の実測(2022)。</span></li>
-      <li><span class="en">John Heilbron, <em>"Central Clearing and Trade Cancellation: The Case of LME Nickel Contracts on March 8, 2022"</em>, OFR Working Paper 24-09 (U.S. Treasury Office of Financial Research, 2024) — the counterfactual reconstruction ($19.75bn intraday call, seven then twelve member defaults, 27% of membership, ~$2.6bn losses) based on the LME's own court filings. Note the caveat: these are the exchange's own submissions in litigation, reconstructed by an independent researcher, not an adjudicated finding. The FCA's £9.2m fine (March 2025) is per the FCA's press release.</span><span class="ja">John Heilbron "Central Clearing and Trade Cancellation: The Case of LME Nickel Contracts on March 8, 2022" OFR ワーキングペーパー24-09(米財務省金融調査局・2024) — 反実仮想の再構成(日中請求197.5億ドル・7会員→連鎖12会員=27%・損失約26億ドル)は LME 自身の法廷提出資料に基づく。当事者の主張を独立研究者が再構成したものであり、裁判所の認定事実ではない点に留保。FCA 制裁金920万ポンド(2025年3月)は FCA プレスリリースによる。</span></li>
-      <li><span class="en">ECB Financial Stability Review, November 2021 (Box on margin calls) — euro-area clearing members posted ≈€30bn of additional initial margin between Jan 31 and Mar 20, 2020 (+32%), while initial margin on non-centrally-cleared derivatives "remained broadly unchanged." Euro-area data only; global totals are larger but less precisely attributed.</span><span class="ja">ECB 金融安定報告(2021年11月・証拠金請求に関するボックス) — 2020年1月31日〜3月20日にユーロ圏清算会員の追加当初証拠金は約300億ユーロ(+32%)、非中央清算デリバティブの当初証拠金は「ほぼ横ばい」。ユーロ圏のみのデータであり、グローバル総量はより大きいが帰属の精度は落ちる。</span></li>
-      <li><span class="en">J.M. Carlson &amp; John Doyle, <em>"Highly Optimized Tolerance: Robustness and Power Laws in Complex Systems"</em>, Physical Review E (1999) — systems optimized for designed-for uncertainties exhibit "hypersensitivity to design flaws and unanticipated perturbations." The aviation layers model is James Reason's (1990/2000); the deliberate-failure culture is Netflix's chaos engineering practice (2011–).</span><span class="ja">J.M. Carlson & John Doyle "Highly Optimized Tolerance: Robustness and Power Laws in Complex Systems" Physical Review E (1999) — 想定内の不確実性に最適化された系は「設計上の欠陥と想定外の摂動への過敏性」を併せ持つ。航空の多層モデルは James Reason (1990/2000)、意図的に壊す文化は Netflix のカオスエンジニアリング(2011〜)。</span></li>
+      <li>CPMI-IOSCO, <em>Principles for Financial Market Infrastructures</em>, April 2012, para. 3.4.17. デフォルト時に使用される事前拠出済み財務資源の一般的な順序について参照。</li>
+      <li>LCH.Clearnet, press release, 8 October 2008、およびBIS Quarterly Review, "Two defaults at CCPs, 10 years apart," December 2018. リーマンの金利スワップ・ポートフォリオは想定元本約9兆ドル、66,390件。五つの通貨別オークションを通じて処理され、損失はリーマン自身の証拠金のおよそ3分の1で吸収されたとされる。ただし、「約3分の1」は清算機関自身の説明に基づく数字であり、独立監査された数値ではない。</li>
+      <li>Nasdaq Clearingによる2018年の破綻対応資料、およびスウェーデン金融監督庁の制裁決定。損失1億1,400万ユーロ、生存参加者のデフォルトファンド拠出金1億700万ユーロ、CCP自己資本700万ユーロ、48時間以内のクローズアウト、約一週間での基金再拠出。業界全体のSIG比率については、Risk.net Risk QuantumによるCCP開示資料の分析を参照。</li>
+      <li>John Heilbron, "Central Clearing and Trade Cancellation: The Case of LME Nickel Contracts on March 8, 2022," OFR Working Paper 24-09, U.S. Treasury Office of Financial Research, 2024. 日中証拠金請求197億5,000万ドル、当初七参加者、連鎖で合計12参加者、全会員の27％、損失約26億ドルという試算は、LMEの法廷提出資料を独立研究者が再構成した反実仮想であり、裁判所による認定事実ではない。訴訟については、高等法院判決（2023年11月29日）、控訴院判決（2024年10月）、英国最高裁による上告不許可（2025年1月28日）を参照。FCA Final Notice, 19 March 2025では、924万5,900ポンドの制裁金、価格帯制御の停止、上級管理職への報告の遅れなどが認定されている。</li>
+      <li>ClarusおよびLSEGの清算高統計、ならびにBIS Quarterly Review, December 2018. LCH SwapClearは、プレーンバニラ金利スワップの中央清算市場で長期にわたり大きなシェアを占める。「9割以上」は清算高に基づく市場シェアの推計であり、商品および通貨によって異なる。</li>
+      <li>ECB, Financial Stability Review, November 2021. 2020年1月31日から3月20日までに、ユーロ圏の清算参加者が追加で差し入れた当初証拠金は約300億ユーロ、32％増加した。一方、非中央清算デリバティブの当初証拠金は「ほぼ横ばい」と報告されている。</li>
+      <li>SIGを巡る議論については、FSB, <em>Guidance on Central Counterparty Resolution and Resolution Planning</em>, July 2017、CPMIおよびFSBのCCP関連文書、ISDAの意見書等を参照。学術研究として、Ghamami（2023）およびCapponi &amp; Cheng（2021）などが、SIGとCCPのリスクテイク、所有構造、損失負担のインセンティブを論じている。</li>
     </ol>
   </div>
 </article>
 
 <footer>
-  <div><span class="en">Essay 013 · July 2026 · Written from twenty-five years at the seams of financial markets</span><span class="ja">Essay 013 · 2026年7月 · 金融市場のつなぎ目を25年見てきた場所から</span></div>
-  <div><a href="/">shun-yanagisawa.com</a> · <a href="/#essays"><span class="en">All essays</span><span class="ja">エッセイ一覧</span></a></div>
+  <div>Essay 013 · 2026年7月 · 金融市場のつなぎ目を25年見てきた場所から</div>
+  <div><a href="/">shun-yanagisawa.com</a> · <a href="/#essays">エッセイ一覧</a></div>
 </footer>
 
-<script>
-function toggleLang() {
-  const b = document.body;
-  const ja = b.classList.contains('lang-ja');
-  b.classList.toggle('lang-ja', !ja);
-  b.classList.toggle('lang-en', ja);
-  document.documentElement.lang = ja ? 'en' : 'ja';
-}
-if ((navigator.language || '').startsWith('ja')) toggleLang();
-</script>
 </body>
 </html>
