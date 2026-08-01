@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>壊れた日のための設計 — 柳沢 俊</title>
-<meta name="description" content="橋の強さは、晴れた日には分からない。清算のデフォルト・ウォーターフォールが設計どおり機能した2008年、共同資源まで使われた2018年、想定を超えられた2022年。三つの事例から、壊れてはならない制度をどう設計するかを考える。">
-<meta property="og:title" content="壊れた日のための設計">
-<meta property="og:description" content="誰が最初に損失を負い、どこから損失を共同化するのか。そして、あらかじめ定められたルールでは処理できない事態に、最後は誰が判断するのか。清算の三つの事例から、制度設計の問いへ。">
+<title>Design for the Day It Breaks — Shun Yanagisawa</title>
+<meta name="description" content="A bridge's strength is invisible on a sunny day. Central clearing's default waterfall worked as designed in 2008, reached into mutualized resources in 2018, and was overrun in 2022. Three cases, and what they say about designing institutions that must not break.">
+<meta property="og:title" content="Design for the Day It Breaks">
+<meta property="og:description" content="Who bears the first loss, and from what point is the loss mutualized? And when a situation cannot be handled by the rules laid down in advance, who makes the final call? Three cases from central clearing, and the questions of institutional design behind them.">
 <meta property="og:type" content="article">
-<meta property="og:locale" content="ja_JP">
 <link rel="canonical" href="https://www.shun-yanagisawa.com/essays/design-under-stress">
 <meta property="og:url" content="https://www.shun-yanagisawa.com/essays/design-under-stress">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -108,72 +107,138 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 @media (max-width: 560px) { nav { padding: 0 1.2rem; } .essay { padding-top: 2.6rem; } }
 </style>
 </head>
-<body class="lang-ja">
+<body class="lang-en">
 
 <nav>
   <a class="nav-logo" href="/">Shun <span>Yanagisawa</span></a>
   <div class="nav-right">
-    <a class="nav-back" href="/#essays">← エッセイ一覧</a>
+    <a class="nav-back" href="/#essays"><span class="en">← All essays</span><span class="ja">← エッセイ一覧</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="en">日本語</span><span class="ja">English</span></button>
   </div>
 </nav>
 
 <article class="essay">
   <div class="essay-kicker">Essay 013 · Systems &amp; Trust</div>
-  <h1>壊れた日のための設計</h1>
-  <p class="essay-sub">清算の世界には、何かが壊れた日にだけ働く仕組みがある。デフォルト・ウォーターフォールと呼ばれる、損失を順番に受け止めるための仕組みである。本稿では、この仕組みが設計どおりに機能した2008年、共同資源まで使われた2018年、そして現実が設計の想定を超えた2022年という三つの事例をたどる。</p>
+  <h1><span class="en">Design for the Day It Breaks</span><span class="ja">壊れた日のための設計</span></h1>
+  <p class="essay-sub"><span class="en">Central clearing has a mechanism that works only on the day something breaks. It is called the default waterfall: a structure for absorbing losses in a fixed order. This essay follows three cases — 2008, when the mechanism worked as designed; 2018, when the mutualized resources were used; and 2022, when reality ran past what the design had assumed.</span><span class="ja">清算の世界には、何かが壊れた日にだけ働く仕組みがある。デフォルト・ウォーターフォールと呼ばれる、損失を順番に受け止めるための仕組みである。本稿では、この仕組みが設計どおりに機能した2008年、共同資源まで使われた2018年、そして現実が設計の想定を超えた2022年という三つの事例をたどる。</span></p>
   <div class="essay-meta">
-    <span>2026年7月</span>
-    <span>構造と信頼</span>
-    <span>日本語 約20分</span>
+    <span class="en">July 2026</span><span class="ja">2026年7月</span>
+    <span class="en">Systems &amp; Trust</span><span class="ja">構造と信頼</span>
+    <span class="en">20 min read</span><span class="ja">日本語 約20分</span>
   </div>
 
-  <p>橋の強さは、晴れた日には分からない。</p>
+  <p class="en">A bridge's strength is invisible on a sunny day.</p>
 
-  <p>清算の世界には、何かが壊れた日にだけ働く仕組みがある。デフォルト・ウォーターフォールと呼ばれる、損失を順番に受け止めるための仕組みである。</p>
+  <p class="ja">橋の強さは、晴れた日には分からない。</p>
 
-  <p>本稿では、この仕組みが設計どおりに機能した2008年、共同資源まで使われた2018年、そして現実が設計の想定を超えた2022年という三つの事例をたどる。</p>
+  <p class="en">Central clearing has a mechanism that works only on the day something breaks. It is called the default waterfall: a structure for absorbing losses in a fixed order.</p>
 
-  <p>そこから見えてくるのは、清算制度の技術的な仕組みだけではない。平時にはコストにしか見えない備えが、なぜ必要なのか。誰が最初に損失を負い、どこから損失を共同化するのか。そして、あらかじめ定められたルールでは処理できない事態に、最後は誰が判断するのか。</p>
+  <p class="ja">清算の世界には、何かが壊れた日にだけ働く仕組みがある。デフォルト・ウォーターフォールと呼ばれる、損失を順番に受け止めるための仕組みである。</p>
 
-  <p>これは清算の話であると同時に、壊れてはならない制度をどのように設計するかという話でもある。</p>
+  <p class="en">This essay follows three cases — 2008, when the mechanism worked as designed; 2018, when the mutualized resources were used; and 2022, when reality ran past what the design had assumed.</p>
 
-  <h2><span class="hnum">1</span>損失を受け止める順序――デフォルト・ウォーターフォールとは何か</h2>
+  <p class="ja">本稿では、この仕組みが設計どおりに機能した2008年、共同資源まで使われた2018年、そして現実が設計の想定を超えた2022年という三つの事例をたどる。</p>
 
-  <p>まず、仕組みから説明したい。少し教科書的な話になるが、ここを押さえておくと、後に続く三つの事例の違いが見えやすくなる。</p>
+  <p class="en">What emerges from them is not only the technical machinery of clearing. Why are preparations that look like nothing but cost in normal times necessary at all? Who bears the first loss, and from what point is the loss mutualized? And when a situation cannot be handled by the rules laid down in advance, who makes the final judgment?</p>
 
-  <p>清算機関、すなわち中央清算機関（Central Counterparty：CCP）は、市場の売り手と買い手の間に立ち、双方の取引相手となる機関である。</p>
+  <p class="ja">そこから見えてくるのは、清算制度の技術的な仕組みだけではない。平時にはコストにしか見えない備えが、なぜ必要なのか。誰が最初に損失を負い、どこから損失を共同化するのか。そして、あらかじめ定められたルールでは処理できない事態に、最後は誰が判断するのか。</p>
 
-  <p>売り手に対しては買い手となり、買い手に対しては売り手となる。これによって、ある市場参加者が破綻しても、その参加者が結んでいた取引の履行を継続できるようにする。</p>
+  <p class="en">This is a story about clearing, and at the same time a story about how to design institutions that must not break.</p>
 
-  <p>では、実際に参加者が破綻し、そのポジションを処理する過程で損失が生じた場合、その損失は誰が負担するのか。</p>
+  <p class="ja">これは清算の話であると同時に、壊れてはならない制度をどのように設計するかという話でもある。</p>
 
-  <p>その順序を定めたものが、デフォルト・ウォーターフォールである。損失が、あらかじめ定められた資源を上から順に使いながら吸収されていくため、「滝」を意味するウォーターフォールと呼ばれる<sup>1</sup>。</p>
+  <h2><span class="hnum">1</span><span class="en">The Order in Which Losses Are Absorbed — What a Default Waterfall Is</span><span class="ja">損失を受け止める順序――デフォルト・ウォーターフォールとは何か</span></h2>
+
+  <p class="en">Let me begin with the machinery. It reads a little like a textbook, but with this in place, the differences between the three cases that follow become easier to see.</p>
+
+  <p class="ja">まず、仕組みから説明したい。少し教科書的な話になるが、ここを押さえておくと、後に続く三つの事例の違いが見えやすくなる。</p>
+
+  <p class="en">A clearing house — a central counterparty, or CCP — is an institution that stands between the buyers and sellers in a market and becomes the counterparty to both.</p>
+
+  <p class="ja">清算機関、すなわち中央清算機関（Central Counterparty：CCP）は、市場の売り手と買い手の間に立ち、双方の取引相手となる機関である。</p>
+
+  <p class="en">It is the buyer to every seller and the seller to every buyer. This is what allows the trades a participant has entered into to go on being performed even if that participant fails.</p>
+
+  <p class="ja">売り手に対しては買い手となり、買い手に対しては売り手となる。これによって、ある市場参加者が破綻しても、その参加者が結んでいた取引の履行を継続できるようにする。</p>
+
+  <p class="en">So when a participant actually does default, and a loss arises in the course of closing out its positions, who bears that loss?</p>
+
+  <p class="ja">では、実際に参加者が破綻し、そのポジションを処理する過程で損失が生じた場合、その損失は誰が負担するのか。</p>
+
+  <p class="en">The default waterfall is what sets the order. Losses are absorbed by drawing on predetermined resources from the top down, layer by layer, which is why it is called a waterfall<sup>1</sup>.</p>
+
+  <p class="ja">その順序を定めたものが、デフォルト・ウォーターフォールである。損失が、あらかじめ定められた資源を上から順に使いながら吸収されていくため、「滝」を意味するウォーターフォールと呼ばれる<sup>1</sup>。</p>
 
   <div class="pull">
-    <span class="pull-label">用語</span>
-    <span class="term-line"><span class="term">清算機関（CCP）</span> — 売り手と買い手の間に立ち、参加者が破綻しても取引の履行を継続できるようにする機関。</span>
-    <span class="term-line"><span class="term">証拠金</span> — 各参加者が、自らのポジションから将来生じ得る損失に備えて、あらかじめ差し入れる担保。</span>
-    <span class="term-line"><span class="term">デフォルトファンド（清算基金）</span> — 参加者の破綻に備えて、清算参加者が共同で拠出する資金。破綻者自身の証拠金や拠出金だけでは損失を処理できない場合に使われる。</span>
+    <span class="pull-label"><span class="en">Terms</span><span class="ja">用語</span></span>
+    <span class="en">
+      <span class="term-line"><span class="term">CCP (central counterparty)</span> — an institution that stands between buyers and sellers so that trades go on being performed even if a participant defaults.</span>
+      <span class="term-line"><span class="term">Margin</span> — collateral each participant posts in advance against the losses its own positions may come to generate.</span>
+      <span class="term-line"><span class="term">Default fund (clearing fund)</span> — money contributed jointly by the clearing participants against the default of a participant, used when the defaulter's own margin and fund contribution are not enough to absorb the loss.</span>
+    </span>
+    <span class="ja">
+      <span class="term-line"><span class="term">清算機関（CCP）</span> — 売り手と買い手の間に立ち、参加者が破綻しても取引の履行を継続できるようにする機関。</span>
+      <span class="term-line"><span class="term">証拠金</span> — 各参加者が、自らのポジションから将来生じ得る損失に備えて、あらかじめ差し入れる担保。</span>
+      <span class="term-line"><span class="term">デフォルトファンド（清算基金）</span> — 参加者の破綻に備えて、清算参加者が共同で拠出する資金。破綻者自身の証拠金や拠出金だけでは損失を処理できない場合に使われる。</span>
+    </span>
   </div>
 
-  <p>一般的なウォーターフォールでは、最初に使われるのは、破綻した参加者自身が差し入れていた証拠金である。</p>
+  <p class="en">In a typical waterfall, the first resource used is the margin posted by the defaulting participant itself.</p>
 
-  <p>次に、その参加者自身がデフォルトファンドへ拠出していた資金が使われる。</p>
+  <p class="ja">一般的なウォーターフォールでは、最初に使われるのは、破綻した参加者自身が差し入れていた証拠金である。</p>
 
-  <p>それでも損失が残る場合には、CCPが自ら拠出している自己資本、いわゆるSkin in the Gameが投入される。さらに損失が残れば、生き残った他の参加者が拠出していたデフォルトファンドが使われる。</p>
+  <p class="en">Next comes that participant's own contribution to the default fund.</p>
 
-  <p>最後には、参加者に対する追加拠出の請求が控えている。</p>
+  <p class="ja">次に、その参加者自身がデフォルトファンドへ拠出していた資金が使われる。</p>
 
-  <p>CCPによって具体的な順序は異なるが、基本的な考え方は共通している。まず破綻者自身の資源を使い切り、それでも足りない場合に初めて、損失を他の参加者へ共同化する。</p>
+  <p class="en">If losses remain after that, the CCP's own capital contribution — its Skin in the Game — is applied. If losses still remain, the default fund contributions of the surviving participants are used.</p>
 
-  <p>そのさらに先には、利益が出ている参加者への支払いを削減する変動証拠金ゲイン・ヘアカット（VMGH）、契約の一部を強制的に終了させるティアアップ、そして当局による破綻処理がある。</p>
+  <p class="ja">それでも損失が残る場合には、CCPが自ら拠出している自己資本、いわゆるSkin in the Gameが投入される。さらに損失が残れば、生き残った他の参加者が拠出していたデフォルトファンドが使われる。</p>
 
-  <p>これらは通常のウォーターフォールというより、CCPが財務的な均衡を回復するためのリカバリーや、制度としての破綻処理の領域に属する。</p>
+  <p class="en">Last in line stands the right to call for additional contributions from participants.</p>
 
-  <p>ただし、損失処理の仕組みが、デフォルトファンドを使い切ったところで突然終わるわけではないことは、覚えておく必要がある。後に見る2022年の事例では、この境界そのものが問題になる。</p>
+  <p class="ja">最後には、参加者に対する追加拠出の請求が控えている。</p>
+
+  <p class="en">The precise order differs from CCP to CCP, but the underlying idea is shared: exhaust the defaulter's own resources first, and only if those are not enough begin to mutualize the loss across the other participants.</p>
+
+  <p class="ja">CCPによって具体的な順序は異なるが、基本的な考え方は共通している。まず破綻者自身の資源を使い切り、それでも足りない場合に初めて、損失を他の参加者へ共同化する。</p>
+
+  <p class="en">Beyond that lie variation margin gains haircutting (VMGH), which cuts the payments owed to participants sitting on gains; tear-up, which forcibly terminates part of the contracts; and resolution by the authorities.</p>
+
+  <p class="ja">そのさらに先には、利益が出ている参加者への支払いを削減する変動証拠金ゲイン・ヘアカット（VMGH）、契約の一部を強制的に終了させるティアアップ、そして当局による破綻処理がある。</p>
+
+  <p class="en">These belong less to the ordinary waterfall than to recovery — the CCP restoring its own financial balance — and to resolution as a statutory regime.</p>
+
+  <p class="ja">これらは通常のウォーターフォールというより、CCPが財務的な均衡を回復するためのリカバリーや、制度としての破綻処理の領域に属する。</p>
+
+  <p class="en">Still, it is worth remembering that the loss-absorption machinery does not simply stop once the default fund has been used up. In the 2022 case, discussed later, this very boundary becomes the issue.</p>
+
+  <p class="ja">ただし、損失処理の仕組みが、デフォルトファンドを使い切ったところで突然終わるわけではないことは、覚えておく必要がある。後に見る2022年の事例では、この境界そのものが問題になる。</p>
 
   <div class="figure">
-    <svg viewBox="0 0 660 300" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+    <svg class="en" viewBox="0 0 660 300" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <text x="70" y="30" font-size="11.5" fill="#33383f">loss flows downward</text>
+      <line x1="60" y1="40" x2="60" y2="262" stroke="#b5832a" stroke-width="1.4"/><polygon points="60,270 55,260 65,260" fill="#b5832a"/>
+      <g stroke-width="1.4">
+        <rect x="120" y="42"  width="440" height="38" fill="#e8f2f2" stroke="#1d5c5c"/>
+        <rect x="120" y="86"  width="440" height="38" fill="#e8f2f2" stroke="#1d5c5c"/>
+        <rect x="120" y="130" width="440" height="38" fill="#fff" stroke="#1a2332"/>
+        <rect x="120" y="174" width="440" height="38" fill="#fff" stroke="#1a2332"/>
+        <rect x="120" y="218" width="440" height="38" fill="#fff" stroke="#8a8a8a" stroke-dasharray="5 4"/>
+      </g>
+      <g font-size="12.5" text-anchor="middle" fill="#1d5c5c">
+        <text x="340" y="66">1 · defaulter's own margin</text>
+        <text x="340" y="110">2 · defaulter's own fund contribution</text>
+      </g>
+      <g font-size="12.5" text-anchor="middle" fill="#1a2332">
+        <text x="340" y="154">3 · CCP's own capital</text>
+        <text x="340" y="198">4 · survivors' fund contributions</text>
+      </g>
+      <text x="340" y="242" font-size="12.5" text-anchor="middle" fill="#33383f">5 · further calls on participants</text>
+      <text x="578" y="66" font-size="10.5" fill="#8a6020">the defaulter</text>
+      <text x="578" y="198" font-size="10.5" fill="#8a6020">the other participants</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 300" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
       <text x="70" y="30" font-size="11.5" fill="#33383f">損失は上から順に流れ落ちる</text>
       <line x1="60" y1="40" x2="60" y2="262" stroke="#b5832a" stroke-width="1.4"/><polygon points="60,270 55,260 65,260" fill="#b5832a"/>
       <g stroke-width="1.4">
@@ -195,179 +260,373 @@ footer a { color: var(--teal-dark); text-decoration: none; }
       <text x="578" y="66" font-size="10.5" fill="#8a6020">破綻者自身</text>
       <text x="578" y="198" font-size="10.5" fill="#8a6020">他の参加者</text>
     </svg>
-    <div class="figcap">図1　デフォルト・ウォーターフォールの一般形</div>
+    <div class="figcap"><span class="en">Fig. 1 — The general form of the default waterfall</span><span class="ja">図1　デフォルト・ウォーターフォールの一般形</span></div>
   </div>
 
-  <p>最初に損失を負担するのは破綻者自身であり、他の参加者への損失の共同化は、その資源を使い切った後に始まる。</p>
+  <p class="en">The first to bear the loss is the defaulter itself, and mutualization across the other participants begins only after those resources have been exhausted.</p>
 
-  <p>この順序には、三つの重要な考え方がある。</p>
+  <p class="ja">最初に損失を負担するのは破綻者自身であり、他の参加者への損失の共同化は、その資源を使い切った後に始まる。</p>
 
-  <p>第一は、責任の順序である。</p>
+  <p class="en">There are three important ideas folded into this order.</p>
 
-  <p>かつて日本の金融界には、「奉加帳方式」という言葉があった。金融機関が破綻すると、生き残った金融機関が資金を出し合って救済する。相互扶助ではあるが、破綻した当事者の責任と、他の参加者の負担との境界は曖昧になりやすい。</p>
+  <p class="ja">この順序には、三つの重要な考え方がある。</p>
 
-  <p>現代のウォーターフォールは、これとは逆の発想に立つ。</p>
+  <p class="en">The first is the order of responsibility.</p>
 
-  <p>破綻者自身の資源を最初に使い、原則として、それを使い切るまで損失を他者へ移さない。共同負担は、破綻者自身の負担が尽きた後に始まる。</p>
+  <p class="ja">第一は、責任の順序である。</p>
 
-  <p>第二は、事前拠出である。</p>
+  <p class="en">Japanese finance once had a phrase for the alternative: the <em>hōgachō</em> method, named after the subscription ledger passed from hand to hand. When a financial institution failed, the surviving institutions pooled money to rescue it. It was mutual aid, but the boundary between the failed party's own responsibility and the burden carried by everyone else was easily blurred.</p>
 
-  <p>ウォーターフォールを構成する証拠金やデフォルトファンドは、危機が起きてから集めるのではない。現金や国債などの形で、あらかじめ差し入れられている。</p>
+  <p class="ja">かつて日本の金融界には、「奉加帳方式」という言葉があった。金融機関が破綻すると、生き残った金融機関が資金を出し合って救済する。相互扶助ではあるが、破綻した当事者の責任と、他の参加者の負担との境界は曖昧になりやすい。</p>
 
-  <p>危機の最中に交わされる約束は、危機が深刻であるほど実行されにくい。「必要になったら資金を出す」という約束が最もあてにならないのは、まさに本当に資金が必要になったときである。</p>
+  <p class="en">The modern waterfall starts from the opposite premise.</p>
 
-  <p>だからこそ、制度は危機の瞬間に、誰かの善意や、新たな経営判断、会議体の決議だけに依存しないように作られている。必要な資金の少なくとも一部は、危機が来る前から既に用意されている。</p>
+  <p class="ja">現代のウォーターフォールは、これとは逆の発想に立つ。</p>
 
-  <p>第三は、拠出した資金が参加者の規律を支えるという点である。</p>
+  <p class="en">The defaulter's own resources are used first, and as a matter of principle no loss is passed to others until those resources are exhausted. Shared burden begins only after the defaulter's own burden has run out.</p>
 
-  <p>デフォルトファンドへの拠出金は、支払い済みの保険料とは異なる。参加者であり続ける限り、損失を負担する可能性のある資金として拘束され続ける。</p>
+  <p class="ja">破綻者自身の資源を最初に使い、原則として、それを使い切るまで損失を他者へ移さない。共同負担は、破綻者自身の負担が尽きた後に始まる。</p>
 
-  <p>失う確率は低くても、実際に失う可能性がある。</p>
+  <p class="en">The second is pre-funding.</p>
 
-  <p>だからこそ参加者は、自分の隣にいる他の参加者がどのようなリスクを取っているのか、CCPが適切な証拠金を設定しているのかに無関心ではいられない。自分の資金が危険にさらされる可能性が、制度への監視と規律を生む。</p>
+  <p class="ja">第二は、事前拠出である。</p>
 
-  <p>しかし、平時には、これらはすべてコストに見える。</p>
+  <p class="en">The margin and the default fund that make up the waterfall are not collected once a crisis has begun. They are posted in advance, in the form of cash, government bonds and the like.</p>
 
-  <p>証拠金は運用できない資金であり、デフォルトファンドは通常は使われない資金である。清算の世界で定期的に行われる破綻処理演習も、直接収益を生むものではない。</p>
+  <p class="ja">ウォーターフォールを構成する証拠金やデフォルトファンドは、危機が起きてから集めるのではない。現金や国債などの形で、あらかじめ差し入れられている。</p>
 
-  <p>効率だけを基準にすれば、いずれも削減の対象になり得る。</p>
+  <p class="en">Promises exchanged in the middle of a crisis are the harder to keep the more severe the crisis. The promise "we will put up the money if it becomes necessary" is least reliable at precisely the moment the money is truly necessary.</p>
 
-  <p>ウォーターフォールが本来何のために存在するのかは、何も起きない日には見えにくい。それが姿を現すのは、参加者が本当に破綻した日である。</p>
+  <p class="ja">危機の最中に交わされる約束は、危機が深刻であるほど実行されにくい。「必要になったら資金を出す」という約束が最もあてにならないのは、まさに本当に資金が必要になったときである。</p>
 
-  <h2><span class="hnum">2</span>第一層で止まった日――2008年9月</h2>
+  <p class="en">That is why the system is built not to depend, at the moment of crisis, on anyone's goodwill, on a fresh management decision, or on a committee resolution alone. At least part of the money needed is already in place before the crisis arrives.</p>
 
-  <p>2008年9月15日、リーマン・ブラザーズが破綻した。</p>
+  <p class="ja">だからこそ、制度は危機の瞬間に、誰かの善意や、新たな経営判断、会議体の決議だけに依存しないように作られている。必要な資金の少なくとも一部は、危機が来る前から既に用意されている。</p>
 
-  <p>世界の金融史でも、最も深刻な一週間の一つが始まった。</p>
+  <p class="en">The third is that the contributed funds themselves support the discipline of the participants.</p>
 
-  <p>このとき、ロンドンの清算機関LCHは、リーマンが保有していた金利スワップのポートフォリオを清算していた。想定元本は約9兆ドル、取引件数は66,390件に達していた<sup>2</sup>。</p>
+  <p class="ja">第三は、拠出した資金が参加者の規律を支えるという点である。</p>
 
-  <p>当時の世界の年間GDPの1割を超える想定元本を持つ取引群が、突然、清算参加者を失ったことになる。</p>
+  <p class="en">A contribution to the default fund is not the same as an insurance premium already paid. For as long as one remains a participant, it stays tied up as money that may be called on to absorb losses.</p>
 
-  <p>しかし、その後に起きたことは、危機の規模とは対照的なほど、あらかじめ定められた手順に沿っていた。</p>
+  <p class="ja">デフォルトファンドへの拠出金は、支払い済みの保険料とは異なる。参加者であり続ける限り、損失を負担する可能性のある資金として拘束され続ける。</p>
 
-  <p>LCHは破綻管理手続きを開始し、事前に定められていた輪番に従って、会員各社からトレーダーを招集した。</p>
+  <p class="en">The probability of losing it is low, but it can actually be lost.</p>
 
-  <p>まず、数日のうちにポートフォリオをヘッジし、市場価格の変動によって損失が拡大することを抑えた。</p>
+  <p class="ja">失う確率は低くても、実際に失う可能性がある。</p>
 
-  <p>顧客のポジションについては、健全な他の清算参加者へ移管された。顧客は、清算を仲介していた金融機関の破綻によって、自らの取引まで失うことを免れた。</p>
+  <p class="en">Which is why participants cannot be indifferent to the risks the participants next to them are taking, or to whether the CCP is setting margin at an appropriate level. The possibility that one's own money is exposed is what produces scrutiny of the system, and discipline within it.</p>
 
-  <p>残ったポジションは、2008年9月24日から10月3日にかけて、通貨ごとに五つの競争入札によって処理された。</p>
+  <p class="ja">だからこそ参加者は、自分の隣にいる他の参加者がどのようなリスクを取っているのか、CCPが適切な証拠金を設定しているのかに無関心ではいられない。自分の資金が危険にさらされる可能性が、制度への監視と規律を生む。</p>
 
-  <p>リーマンの破綻から約3週間で、ポートフォリオの処理は完了した。</p>
+  <p class="en">In normal times, however, all of this looks like cost.</p>
 
-  <p>そして、最終的な損失は、リーマン自身が差し入れていた証拠金のおよそ3分の1で吸収された。</p>
+  <p class="ja">しかし、平時には、これらはすべてコストに見える。</p>
 
-  <p>デフォルト・ウォーターフォールの第一層の中で、すべての処理が終わったことになる。</p>
+  <p class="en">Margin is money that cannot be put to work; the default fund is money that ordinarily goes unused. The default management drills that the clearing world runs on a regular schedule generate no revenue either.</p>
 
-  <p>リーマン自身のデフォルトファンド拠出金も、他の参加者のデフォルトファンドも使われなかった。生存参加者は損失を負担せず、LCH自身の資本も毀損しなかった。</p>
+  <p class="ja">証拠金は運用できない資金であり、デフォルトファンドは通常は使われない資金である。清算の世界で定期的に行われる破綻処理演習も、直接収益を生むものではない。</p>
 
-  <p>同じ週、世界中の銀行は互いを信用できなくなり、短期資金の貸し借りを止め、相対取引の市場は急速に機能を失っていた。</p>
+  <p class="en">Measured by efficiency alone, every one of them is a candidate for cutting.</p>
 
-  <p>その一方で、中央清算されていた市場の一角では、極めて大きな破綻が、事前に設計されていた手順の範囲内で処理された。</p>
+  <p class="ja">効率だけを基準にすれば、いずれも削減の対象になり得る。</p>
 
-  <p>多層防御が最もうまく機能した状態とは、すべての層を使い切ることではない。</p>
+  <p class="en">What the waterfall actually exists for is hard to see on a day when nothing happens. It shows itself on the day a participant really does default.</p>
 
-  <p>上の層だけで損失を止め、下の層を使わずに済ませることである。</p>
+  <p class="ja">ウォーターフォールが本来何のために存在するのかは、何も起きない日には見えにくい。それが姿を現すのは、参加者が本当に破綻した日である。</p>
 
-  <p>2008年のLCHでは、設計は第一層で機能した。</p>
+  <h2><span class="hnum">2</span><span class="en">The Day It Stopped at the First Layer — September 2008</span><span class="ja">第一層で止まった日――2008年9月</span></h2>
 
-  <h2><span class="hnum">3</span>共同資源まで使われた日――2018年9月</h2>
+  <p class="en">On September 15, 2008, Lehman Brothers failed.</p>
 
-  <p>しかし、損失が常に第一層で止まるとは限らない。</p>
+  <p class="ja">2008年9月15日、リーマン・ブラザーズが破綻した。</p>
 
-  <p>2018年9月、北欧の電力先物市場で、一人の清算参加者が破綻した。</p>
+  <p class="en">One of the most severe weeks in the history of global finance had begun.</p>
 
-  <p>破綻したのは金融機関ではなく、個人トレーダーだった。長年にわたる取引の成功によって、金融機関に匹敵する規模のポジションを持ち、清算参加者として直接取引を清算していた人物である。</p>
+  <p class="ja">世界の金融史でも、最も深刻な一週間の一つが始まった。</p>
 
-  <p>このトレーダーは、北欧とドイツの電力価格の差が縮小することを前提に、ポジションを構築していた。</p>
+  <p class="en">At that moment, the London clearing house LCH was clearing the interest rate swap portfolio Lehman held. Notional value came to roughly $9 trillion, across 66,390 trades<sup>2</sup>.</p>
 
-  <p>しかし、天候予報の変化やドイツの排出政策の変更により、両市場の価格差は縮小するどころか拡大した。損失が急速に膨らみ、トレーダーは追加証拠金を支払うことができなくなった。</p>
+  <p class="ja">このとき、ロンドンの清算機関LCHは、リーマンが保有していた金利スワップのポートフォリオを清算していた。想定元本は約9兆ドル、取引件数は66,390件に達していた<sup>2</sup>。</p>
 
-  <p>ナスダック傘下の商品清算部門は、定められた手続きに従って破綻処理を開始した。</p>
+  <p class="en">A body of trades whose notional value exceeded a tenth of the world's annual GDP at the time had suddenly lost its clearing member.</p>
 
-  <p>ポジションは48時間以内にオークションを通じて処理された。</p>
+  <p class="ja">当時の世界の年間GDPの1割を超える想定元本を持つ取引群が、突然、清算参加者を失ったことになる。</p>
 
-  <p>だが、このとき生じた損失は、破綻者自身の証拠金とデフォルトファンド拠出金だけでは吸収できなかった。</p>
+  <p class="en">What followed, though, tracked the procedures laid down in advance to a degree that stood in contrast to the scale of the crisis.</p>
 
-  <p>残った損失は1億1,400万ユーロに達した。</p>
+  <p class="ja">しかし、その後に起きたことは、危機の規模とは対照的なほど、あらかじめ定められた手順に沿っていた。</p>
 
-  <p>そのうち700万ユーロをCCP自身の資本が負担し、残る1億700万ユーロは、生き残った参加者が拠出していたデフォルトファンドから支払われた。</p>
+  <p class="en">LCH opened its default management procedure and, following a rota agreed beforehand, called in traders from its member firms.</p>
 
-  <p>商品部門のデフォルトファンドのおよそ3分の2が、一人の参加者の破綻を処理するために使われた<sup>3</sup>。</p>
+  <p class="ja">LCHは破綻管理手続きを開始し、事前に定められていた輪番に従って、会員各社からトレーダーを招集した。</p>
 
-  <p>一週間後、デフォルトファンドは必要な水準まで再び積み直された。</p>
+  <p class="en">Within a few days it hedged the portfolio, containing the growth of losses from movements in market prices.</p>
 
-  <p>追加資金を拠出したのは、直前に自らの拠出金を失った生存参加者たちだった。</p>
+  <p class="ja">まず、数日のうちにポートフォリオをヘッジし、市場価格の変動によって損失が拡大することを抑えた。</p>
 
-  <p>制度は機能したと言ってよい。</p>
+  <p class="en">Client positions were ported to other, sound clearing members. Clients were spared the loss of their own trades on account of the failure of the institution that had been clearing for them.</p>
 
-  <p>連鎖破綻は起こらず、市場は開き続け、損失はウォーターフォールで定められた順序に従って吸収された。</p>
+  <p class="ja">顧客のポジションについては、健全な他の清算参加者へ移管された。顧客は、清算を仲介していた金融機関の破綻によって、自らの取引まで失うことを免れた。</p>
 
-  <p>しかし、この事例が業界に残したのは、制度が機能したという達成感だけではなかった。</p>
+  <p class="en">The remaining positions were worked through between September 24 and October 3, 2008, in five competitive auctions, one for each currency.</p>
 
-  <p>相互化とは、他の参加者が起こした損失の請求書が、自分のもとへ届くことを意味する。</p>
+  <p class="ja">残ったポジションは、2008年9月24日から10月3日にかけて、通貨ごとに五つの競争入札によって処理された。</p>
 
-  <p>清算参加者は、そのことを制度上は理解していた。だが2018年には、その意味を初めて具体的な金額として実感することになった。</p>
+  <p class="en">About three weeks after Lehman's default, the portfolio had been fully dealt with.</p>
 
-  <p>同時に、問いはCCP自身にも向けられた。</p>
+  <p class="ja">リーマンの破綻から約3週間で、ポートフォリオの処理は完了した。</p>
 
-  <p>この破綻で、CCP自身が負担した資本は700万ユーロだった。生存参加者が負担した1億700万ユーロの約15分の1である。</p>
+  <p class="en">And the final loss was absorbed by roughly one-third of the margin Lehman itself had posted.</p>
 
-  <p>業界全体でも、CCP自身がウォーターフォールに拠出する資本、すなわちSkin in the Gameは、デフォルト資源全体のごく一部にとどまるとされている。</p>
+  <p class="ja">そして、最終的な損失は、リーマン自身が差し入れていた証拠金のおよそ3分の1で吸収された。</p>
 
-  <p>損失負担の順序を決め、証拠金モデルを設計し、参加者を監視するCCP自身の負担が薄いのであれば、そのリスク管理に十分な規律は働くのか。</p>
+  <p class="en">Everything, in other words, was finished inside the first layer of the default waterfall.</p>
 
-  <p>スウェーデンの金融監督当局は、その後、証拠金水準などに不備があったとして、この清算機関に制裁を科した。制裁金は後の控訴で減額されている。</p>
+  <p class="ja">デフォルト・ウォーターフォールの第一層の中で、すべての処理が終わったことになる。</p>
 
-  <p>ウォーターフォールは機能した。</p>
+  <p class="en">Neither Lehman's own default fund contribution nor the default fund of the other participants was touched. The surviving participants bore no loss, and LCH's own capital was left intact.</p>
 
-  <p>しかし、それぞれの層をどの程度の厚さにするべきかという問題には、簡単な答えがなかった。</p>
+  <p class="ja">リーマン自身のデフォルトファンド拠出金も、他の参加者のデフォルトファンドも使われなかった。生存参加者は損失を負担せず、LCH自身の資本も毀損しなかった。</p>
 
-  <h2><span class="hnum">4</span>ルールどおりでは市場が壊れた日――2022年3月</h2>
+  <p class="en">That same week, banks around the world stopped trusting one another, short-term lending seized up, and the bilateral markets were rapidly losing their ability to function.</p>
 
-  <p>そして2022年には、ウォーターフォールの層の厚さだけでは説明できない事態が起きた。</p>
+  <p class="ja">同じ週、世界中の銀行は互いを信用できなくなり、短期資金の貸し借りを止め、相対取引の市場は急速に機能を失っていた。</p>
 
-  <p>2022年3月、ロンドン金属取引所（LME）のニッケル価格は、わずか3営業日で約4倍に上昇した。</p>
+  <p class="en">In one corner of the centrally cleared market, meanwhile, an extraordinarily large default was handled entirely within procedures designed ahead of time.</p>
 
-  <p>1トン当たり2万7,000ドル前後だった価格は、3月8日の早朝、一時10万ドルを超えた。</p>
+  <p class="ja">その一方で、中央清算されていた市場の一角では、極めて大きな破綻が、事前に設計されていた手順の範囲内で処理された。</p>
 
-  <p>ロシアによるウクライナ侵攻を背景に、巨大な空売りポジションの買い戻しが、さらに別の買い戻しを呼ぶショートスクイーズが発生していた。</p>
+  <p class="en">A layered defense working at its best does not mean using every layer.</p>
 
-  <p>その朝、LMEはニッケルの取引を停止した。</p>
+  <p class="ja">多層防御が最もうまく機能した状態とは、すべての層を使い切ることではない。</p>
 
-  <p>異常な価格変動に対して市場をいったん止めること自体は、サーキットブレーカーと同じく、制度の中に想定された対応と見ることができる。</p>
+  <p class="en">It means stopping the loss in the upper layer and never having to reach the layers below.</p>
 
-  <p>しかし、LMEはその次に、さらに踏み込んだ措置を取った。</p>
+  <p class="ja">上の層だけで損失を止め、下の層を使わずに済ませることである。</p>
 
-  <p>同日の未明以降に成立したニッケル取引を、すべて取り消したのである。</p>
+  <p class="en">At LCH in 2008, the design worked at the first layer.</p>
 
-  <p>法的に成立していた取引が、さかのぼって存在しなかったことにされた。</p>
+  <p class="ja">2008年のLCHでは、設計は第一層で機能した。</p>
 
-  <p>なぜ、そこまでの対応が必要だったのか。</p>
+  <h2><span class="hnum">3</span><span class="en">The Day the Mutualized Resources Were Used — September 2018</span><span class="ja">共同資源まで使われた日――2018年9月</span></h2>
 
-  <p>後にLMEが法廷へ提出した資料を基に、独立研究者が反実仮想の損失を再構成している。これは裁判所が認定した事実ではなく、LME側の提出資料を基礎とした試算であることには注意が必要だが、危機の規模を理解する手掛かりにはなる<sup>4</sup>。</p>
+  <p class="en">Losses, however, do not always stop at the first layer.</p>
 
-  <p>この試算によれば、3月8日の取引を有効なままとし、ルールブックに従って処理を進めていた場合、清算機関は、その日の朝に197億5,000万ドルの日中証拠金を請求する必要があった。</p>
+  <p class="ja">しかし、損失が常に第一層で止まるとは限らない。</p>
 
-  <p>支払期限は数時間後だった。</p>
+  <p class="en">In September 2018, a single clearing member defaulted in the Nordic power futures market.</p>
 
-  <p>その証拠金請求だけで、七つの清算参加者が破綻する可能性があった。</p>
+  <p class="ja">2018年9月、北欧の電力先物市場で、一人の清算参加者が破綻した。</p>
 
-  <p>それらの破綻を処理した場合の損失は約26億ドルに達し、あらかじめ積み立てられていたすべての財務資源を約2億2,000万ドル上回ると試算された。</p>
+  <p class="en">The defaulter was not a financial institution but an individual trader — a private person who, through years of trading success, held positions on a scale comparable to an institution and cleared his trades directly as a clearing member.</p>
 
-  <p>さらに、失われたデフォルトファンドを再び積み直すための追加拠出請求によって、別の五つの参加者も破綻する可能性があった。</p>
+  <p class="ja">破綻したのは金融機関ではなく、個人トレーダーだった。長年にわたる取引の成功によって、金融機関に匹敵する規模のポジションを持ち、清算参加者として直接取引を清算していた人物である。</p>
 
-  <p>連鎖は合計12参加者、全清算参加者の27％に及ぶ計算だった。</p>
+  <p class="en">This trader had built his positions on the assumption that the spread between Nordic and German power prices would narrow.</p>
 
-  <p>これに対して、清算機関自身のSkin in the Gameは2,275万ドル、デフォルトファンドは約11億ドルだった。</p>
+  <p class="ja">このトレーダーは、北欧とドイツの電力価格の差が縮小することを前提に、ポジションを構築していた。</p>
 
-  <p>規制上、この種のCCPに求められていたのは、最大規模の二つの参加者が同時に破綻しても耐えられる財務資源、いわゆるCover 2である。</p>
+  <p class="en">But a shift in the weather forecasts and a change in German emissions policy sent the spread between the two markets not narrower but wider. Losses swelled quickly, and the trader could no longer meet his margin calls.</p>
 
-  <p>しかし、その朝に想定された破綻数は二つではなく、12だった。</p>
+  <p class="ja">しかし、天候予報の変化やドイツの排出政策の変更により、両市場の価格差は縮小するどころか拡大した。損失が急速に膨らみ、トレーダーは追加証拠金を支払うことができなくなった。</p>
+
+  <p class="en">The commodities clearing arm of Nasdaq began default management in accordance with its established procedures.</p>
+
+  <p class="ja">ナスダック傘下の商品清算部門は、定められた手続きに従って破綻処理を開始した。</p>
+
+  <p class="en">The positions were worked through in an auction within 48 hours.</p>
+
+  <p class="ja">ポジションは48時間以内にオークションを通じて処理された。</p>
+
+  <p class="en">The losses that arose, however, could not be absorbed by the defaulter's own margin and default fund contribution alone.</p>
+
+  <p class="ja">だが、このとき生じた損失は、破綻者自身の証拠金とデフォルトファンド拠出金だけでは吸収できなかった。</p>
+
+  <p class="en">The remaining loss came to €114 million.</p>
+
+  <p class="ja">残った損失は1億1,400万ユーロに達した。</p>
+
+  <p class="en">Of that, €7 million was borne by the CCP's own capital, and the remaining €107 million was paid out of the default fund contributed by the surviving participants.</p>
+
+  <p class="ja">そのうち700万ユーロをCCP自身の資本が負担し、残る1億700万ユーロは、生き残った参加者が拠出していたデフォルトファンドから支払われた。</p>
+
+  <p class="en">Roughly two-thirds of the commodities default fund was used to work through the default of a single participant<sup>3</sup>.</p>
+
+  <p class="ja">商品部門のデフォルトファンドのおよそ3分の2が、一人の参加者の破綻を処理するために使われた<sup>3</sup>。</p>
+
+  <p class="en">A week later, the default fund had been built back up to its required level.</p>
+
+  <p class="ja">一週間後、デフォルトファンドは必要な水準まで再び積み直された。</p>
+
+  <p class="en">The additional money came from the very surviving participants who had just lost their own contributions.</p>
+
+  <p class="ja">追加資金を拠出したのは、直前に自らの拠出金を失った生存参加者たちだった。</p>
+
+  <p class="en">The system worked, one can fairly say.</p>
+
+  <p class="ja">制度は機能したと言ってよい。</p>
+
+  <p class="en">No chain of defaults followed, the market stayed open, and the losses were absorbed in the order the waterfall prescribed.</p>
+
+  <p class="ja">連鎖破綻は起こらず、市場は開き続け、損失はウォーターフォールで定められた順序に従って吸収された。</p>
+
+  <p class="en">Yet what this episode left the industry was not only the satisfaction of a system that had worked.</p>
+
+  <p class="ja">しかし、この事例が業界に残したのは、制度が機能したという達成感だけではなかった。</p>
+
+  <p class="en">Mutualization means that the bill for a loss caused by another participant arrives at your own door.</p>
+
+  <p class="ja">相互化とは、他の参加者が起こした損失の請求書が、自分のもとへ届くことを意味する。</p>
+
+  <p class="en">Clearing members had understood this as a matter of institutional design. In 2018, for the first time, they felt what it meant as a concrete amount of money.</p>
+
+  <p class="ja">清算参加者は、そのことを制度上は理解していた。だが2018年には、その意味を初めて具体的な金額として実感することになった。</p>
+
+  <p class="en">At the same time, the question turned toward the CCP itself.</p>
+
+  <p class="ja">同時に、問いはCCP自身にも向けられた。</p>
+
+  <p class="en">In this default, the capital the CCP itself put up was €7 million — about one-fifteenth of the €107 million borne by the surviving participants.</p>
+
+  <p class="ja">この破綻で、CCP自身が負担した資本は700万ユーロだった。生存参加者が負担した1億700万ユーロの約15分の1である。</p>
+
+  <p class="en">Across the industry as a whole, the capital a CCP contributes to its own waterfall — its Skin in the Game — is generally reckoned to account for only a small fraction of total default resources.</p>
+
+  <p class="ja">業界全体でも、CCP自身がウォーターフォールに拠出する資本、すなわちSkin in the Gameは、デフォルト資源全体のごく一部にとどまるとされている。</p>
+
+  <p class="en">If the party that sets the order of loss absorption, designs the margin models and monitors the participants carries only a thin burden itself, will enough discipline bear on its risk management?</p>
+
+  <p class="ja">損失負担の順序を決め、証拠金モデルを設計し、参加者を監視するCCP自身の負担が薄いのであれば、そのリスク管理に十分な規律は働くのか。</p>
+
+  <p class="en">The Swedish financial supervisor later sanctioned this clearing house for deficiencies including its margin levels. The fine was subsequently reduced on appeal.</p>
+
+  <p class="ja">スウェーデンの金融監督当局は、その後、証拠金水準などに不備があったとして、この清算機関に制裁を科した。制裁金は後の控訴で減額されている。</p>
+
+  <p class="en">The waterfall worked.</p>
+
+  <p class="ja">ウォーターフォールは機能した。</p>
+
+  <p class="en">But the question of how thick each of its layers ought to be had no easy answer.</p>
+
+  <p class="ja">しかし、それぞれの層をどの程度の厚さにするべきかという問題には、簡単な答えがなかった。</p>
+
+  <h2><span class="hnum">4</span><span class="en">The Day Following the Rules Would Have Broken the Market — March 2022</span><span class="ja">ルールどおりでは市場が壊れた日――2022年3月</span></h2>
+
+  <p class="en">And then, in 2022, came a situation that the thickness of the waterfall's layers alone could not explain.</p>
+
+  <p class="ja">そして2022年には、ウォーターフォールの層の厚さだけでは説明できない事態が起きた。</p>
+
+  <p class="en">In March 2022, the price of nickel on the London Metal Exchange (LME) rose roughly fourfold in just three trading days.</p>
+
+  <p class="ja">2022年3月、ロンドン金属取引所（LME）のニッケル価格は、わずか3営業日で約4倍に上昇した。</p>
+
+  <p class="en">From around $27,000 a tonne, it briefly passed $100,000 in the early hours of March 8.</p>
+
+  <p class="ja">1トン当たり2万7,000ドル前後だった価格は、3月8日の早朝、一時10万ドルを超えた。</p>
+
+  <p class="en">Against the backdrop of Russia's invasion of Ukraine, a short squeeze was under way, in which the buying back of an enormous short position called forth still more buying back.</p>
+
+  <p class="ja">ロシアによるウクライナ侵攻を背景に、巨大な空売りポジションの買い戻しが、さらに別の買い戻しを呼ぶショートスクイーズが発生していた。</p>
+
+  <p class="en">That morning, the LME suspended trading in nickel.</p>
+
+  <p class="ja">その朝、LMEはニッケルの取引を停止した。</p>
+
+  <p class="en">Halting a market in the face of abnormal price movement can, like a circuit breaker, be seen as a response the system itself anticipates.</p>
+
+  <p class="ja">異常な価格変動に対して市場をいったん止めること自体は、サーキットブレーカーと同じく、制度の中に想定された対応と見ることができる。</p>
+
+  <p class="en">But the LME then took a further and more drastic step.</p>
+
+  <p class="ja">しかし、LMEはその次に、さらに踏み込んだ措置を取った。</p>
+
+  <p class="en">It cancelled every nickel trade executed from the small hours of that day onward.</p>
+
+  <p class="ja">同日の未明以降に成立したニッケル取引を、すべて取り消したのである。</p>
+
+  <p class="en">Trades that had been legally concluded were retroactively treated as never having existed.</p>
+
+  <p class="ja">法的に成立していた取引が、さかのぼって存在しなかったことにされた。</p>
+
+  <p class="en">Why was a response of that magnitude necessary?</p>
+
+  <p class="ja">なぜ、そこまでの対応が必要だったのか。</p>
+
+  <p class="en">Working from materials the LME later filed in court, an independent researcher has reconstructed the counterfactual losses. It should be borne in mind that this is not a finding of fact by any court but an estimate built on the LME's own submissions; even so, it offers a handle on the scale of the crisis<sup>4</sup>.</p>
+
+  <p class="ja">後にLMEが法廷へ提出した資料を基に、独立研究者が反実仮想の損失を再構成している。これは裁判所が認定した事実ではなく、LME側の提出資料を基礎とした試算であることには注意が必要だが、危機の規模を理解する手掛かりにはなる<sup>4</sup>。</p>
+
+  <p class="en">On that estimate, had the trades of March 8 been left standing and the rulebook followed, the clearing house would have had to call for $19.75 billion of intraday margin that morning.</p>
+
+  <p class="ja">この試算によれば、3月8日の取引を有効なままとし、ルールブックに従って処理を進めていた場合、清算機関は、その日の朝に197億5,000万ドルの日中証拠金を請求する必要があった。</p>
+
+  <p class="en">Payment would have been due within hours.</p>
+
+  <p class="ja">支払期限は数時間後だった。</p>
+
+  <p class="en">That margin call alone could have pushed seven clearing members into default.</p>
+
+  <p class="ja">その証拠金請求だけで、七つの清算参加者が破綻する可能性があった。</p>
+
+  <p class="en">Working through those defaults was estimated to produce losses of about $2.6 billion, exceeding all pre-funded financial resources by roughly $220 million.</p>
+
+  <p class="ja">それらの破綻を処理した場合の損失は約26億ドルに達し、あらかじめ積み立てられていたすべての財務資源を約2億2,000万ドル上回ると試算された。</p>
+
+  <p class="en">Beyond that, the additional calls needed to rebuild the depleted default fund could have pushed five more participants into default.</p>
+
+  <p class="ja">さらに、失われたデフォルトファンドを再び積み直すための追加拠出請求によって、別の五つの参加者も破綻する可能性があった。</p>
+
+  <p class="en">The chain worked out to twelve participants in all — 27 percent of the entire clearing membership.</p>
+
+  <p class="ja">連鎖は合計12参加者、全清算参加者の27％に及ぶ計算だった。</p>
+
+  <p class="en">Against that, the clearing house's own Skin in the Game stood at $22.75 million, and its default fund at about $1.1 billion.</p>
+
+  <p class="ja">これに対して、清算機関自身のSkin in the Gameは2,275万ドル、デフォルトファンドは約11億ドルだった。</p>
+
+  <p class="en">What regulation required of a CCP of this kind was financial resources able to withstand the simultaneous default of its two largest participants — the standard known as Cover 2.</p>
+
+  <p class="ja">規制上、この種のCCPに求められていたのは、最大規模の二つの参加者が同時に破綻しても耐えられる財務資源、いわゆるCover 2である。</p>
+
+  <p class="en">But the number of defaults contemplated that morning was not two; it was twelve.</p>
+
+  <p class="ja">しかし、その朝に想定された破綻数は二つではなく、12だった。</p>
 
   <div class="figure">
-    <svg viewBox="0 0 660 268" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+    <svg class="en" viewBox="0 0 660 268" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <g stroke-width="1.2">
+        <rect x="55"  y="50" width="150" height="30" fill="#e8f2f2" stroke="#1d5c5c"/>
+        <rect x="55"  y="84" width="150" height="30" fill="#fff" stroke="#8a8a8a"/>
+        <rect x="55"  y="118" width="150" height="30" fill="#fff" stroke="#8a8a8a"/>
+        <rect x="55"  y="152" width="150" height="30" fill="#fff" stroke="#8a8a8a"/>
+      </g>
+      <rect x="55" y="50" width="50" height="30" fill="#1d5c5c"/>
+      <text x="130" y="205" font-size="12" text-anchor="middle" fill="#33383f">2008</text>
+      <text x="130" y="222" font-size="10.5" text-anchor="middle" fill="#33383f">handled inside layer 1</text>
+      <g stroke-width="1.2">
+        <rect x="255" y="50" width="150" height="30" fill="#1d5c5c" stroke="#1d5c5c"/>
+        <rect x="255" y="84" width="150" height="30" fill="#1d5c5c" stroke="#1d5c5c"/>
+        <rect x="255" y="118" width="150" height="30" fill="#1d5c5c" stroke="#1d5c5c"/>
+        <rect x="255" y="152" width="150" height="30" fill="#fff" stroke="#8a8a8a"/>
+        <rect x="255" y="152" width="100" height="30" fill="#1d5c5c"/>
+      </g>
+      <text x="330" y="205" font-size="12" text-anchor="middle" fill="#33383f">2018</text>
+      <text x="330" y="222" font-size="10.5" text-anchor="middle" fill="#33383f">into the survivors' mutualized layer</text>
+      <g stroke-width="1.2">
+        <rect x="455" y="50" width="150" height="30" fill="#fff" stroke="#8a8a8a" stroke-dasharray="4 3"/>
+        <rect x="455" y="84" width="150" height="30" fill="#fff" stroke="#8a8a8a" stroke-dasharray="4 3"/>
+        <rect x="455" y="118" width="150" height="30" fill="#fff" stroke="#8a8a8a" stroke-dasharray="4 3"/>
+        <rect x="455" y="152" width="150" height="30" fill="#fff" stroke="#8a8a8a" stroke-dasharray="4 3"/>
+      </g>
+      <path d="M 470 165 Q 530 30 600 40" fill="none" stroke="#8a6020" stroke-width="1.6"/>
+      <polygon points="604,38 592,38 598,48" fill="#8a6020"/>
+      <text x="530" y="205" font-size="12" text-anchor="middle" fill="#33383f">2022</text>
+      <text x="530" y="222" font-size="10.5" text-anchor="middle" fill="#33383f">the margin call that would</text>
+      <text x="530" y="238" font-size="10.5" text-anchor="middle" fill="#33383f">activate the waterfall could</text>
+      <text x="530" y="254" font-size="10.5" text-anchor="middle" fill="#33383f">itself trigger a chain of defaults</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 268" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
       <g stroke-width="1.2">
         <rect x="55"  y="50" width="150" height="30" fill="#e8f2f2" stroke="#1d5c5c"/>
         <rect x="55"  y="84" width="150" height="30" fill="#fff" stroke="#8a8a8a"/>
@@ -399,91 +658,179 @@ footer a { color: var(--teal-dark); text-decoration: none; }
       <text x="530" y="238" font-size="10.5" text-anchor="middle" fill="#33383f">証拠金請求自体が、</text>
       <text x="530" y="254" font-size="10.5" text-anchor="middle" fill="#33383f">連鎖破綻を起こす可能性</text>
     </svg>
-    <div class="figcap">図2　三つの危機と、損失が到達した深さ</div>
+    <div class="figcap"><span class="en">Fig. 2 — Three crises, and how deep the losses reached</span><span class="ja">図2　三つの危機と、損失が到達した深さ</span></div>
   </div>
 
-  <p>2022年に問題となったのは、ウォーターフォールの資源が単に不足していたことだけではない。</p>
+  <p class="en">What was at issue in 2022 was not simply that the waterfall's resources fell short.</p>
 
-  <p>防御を作動させるための証拠金請求そのものが、市場を壊す側に回る可能性があった。</p>
+  <p class="ja">2022年に問題となったのは、ウォーターフォールの資源が単に不足していたことだけではない。</p>
 
-  <p>ウォーターフォールは、原則として、一人の破綻を他の参加者とCCPが受け止めるための設計である。</p>
+  <p class="en">The very margin call needed to activate the defense could itself have turned into the thing that broke the market.</p>
 
-  <p>しかし、すべての参加者が同じ方向にポジションを持ち、同時に流動性を必要とする局面では、その防御が別の破綻を引き起こすことがある。</p>
+  <p class="ja">防御を作動させるための証拠金請求そのものが、市場を壊す側に回る可能性があった。</p>
 
-  <p>一人を多数で支える仕組みは、多数が同時に一人の側へ回る事態には弱い。</p>
+  <p class="en">The waterfall is, in principle, a design by which the other participants and the CCP absorb the failure of one.</p>
 
-  <p>取引取消しは、極めて強い措置だった。</p>
+  <p class="ja">ウォーターフォールは、原則として、一人の破綻を他の参加者とCCPが受け止めるための設計である。</p>
 
-  <p>取消しの対象となった市場参加者から見れば、適法に成立し、利益を生んでいた取引が一方的に消されたことになる。市場の公正さと、成立した契約への信頼は大きく傷ついた。</p>
+  <p class="en">But where every participant holds positions in the same direction and needs liquidity at the same moment, that defense can bring on further defaults.</p>
 
-  <p>ElliottやJane StreetなどはLMEを提訴した。</p>
+  <p class="ja">しかし、すべての参加者が同じ方向にポジションを持ち、同時に流動性を必要とする局面では、その防御が別の破綻を引き起こすことがある。</p>
 
-  <p>2023年11月、高等法院は請求を棄却した。2024年10月には控訴院が控訴を退け、2025年1月28日には最高裁が上告を許可しなかった。</p>
+  <p class="en">A mechanism in which many support one is weak against the case where the many all end up on the side of the one at once.</p>
 
-  <p>LMEが取引を取り消す権限を有していたことは、司法手続きの中で認められた。</p>
+  <p class="ja">一人を多数で支える仕組みは、多数が同時に一人の側へ回る事態には弱い。</p>
 
-  <p>しかし、そのことは、LMEの危機対応全体が適切だったことを意味しない。</p>
+  <p class="en">The trade cancellation was an extremely strong measure.</p>
 
-  <p>2025年3月、英国金融行為規制機構（FCA）は、LMEに対して924万5,900ポンドの制裁金を科した。認定投資取引所に対するFCA初の執行措置だった。</p>
+  <p class="ja">取引取消しは、極めて強い措置だった。</p>
 
-  <p>FCAの認定によれば、価格変動を制御する自動的な価格帯は未明の3時間以上にわたって停止されていた。</p>
+  <p class="en">From the point of view of the market participants it fell on, trades that had been lawfully concluded and were showing a profit were erased unilaterally. Confidence in the fairness of the market, and in the standing of concluded contracts, was badly damaged.</p>
 
-  <p>当直に就いていたのは主として若手職員であり、上級管理職への報告と対応の引き上げは、ニッケル価格が既に10万ドルを超えるまで行われなかった。</p>
+  <p class="ja">取消しの対象となった市場参加者から見れば、適法に成立し、利益を生んでいた取引が一方的に消されたことになる。市場の公正さと、成立した契約への信頼は大きく傷ついた。</p>
 
-  <p>したがって、取引取消しを「最後に人間の裁量が市場を救った」とだけ評価することはできない。</p>
+  <p class="en">Elliott and Jane Street, among others, sued the LME.</p>
 
-  <p>危機を最終的に止めたのも人間の判断だったが、危機の進行を早期に止められなかったのも、組織と人間の判断だった。</p>
+  <p class="ja">ElliottやJane StreetなどはLMEを提訴した。</p>
 
-  <p>あらかじめ定められたルールを機械的に執行すれば、制度そのものを破壊しかねない局面は存在する。</p>
+  <p class="en">In November 2023, the High Court dismissed the claims. In October 2024 the Court of Appeal rejected the appeal, and on January 28, 2025 the Supreme Court refused permission to appeal.</p>
 
-  <p>そのときには、ルールの外側に残された裁量が必要になる。</p>
+  <p class="ja">2023年11月、高等法院は請求を棄却した。2024年10月には控訴院が控訴を退け、2025年1月28日には最高裁が上告を許可しなかった。</p>
 
-  <p>しかし、裁量は、ルールが尽きた後に突然生まれる能力ではない。誰が判断し、どの情報を見て、どの時点で上級者へ報告し、どこまで介入できるのかを、平時から準備しておかなければならない。</p>
+  <p class="en">That the LME had the power to cancel the trades was upheld through the courts.</p>
 
-  <h2><span class="hnum">5</span>防御は、別の場所に負荷を移す</h2>
+  <p class="ja">LMEが取引を取り消す権限を有していたことは、司法手続きの中で認められた。</p>
 
-  <p>ここまで、ウォーターフォールを危機への防御として見てきた。</p>
+  <p class="en">That, however, does not mean the LME's handling of the crisis as a whole was adequate.</p>
 
-  <p>しかし、多層的な防御を整えれば、それで制度全体が安全になるわけではない。</p>
+  <p class="ja">しかし、そのことは、LMEの危機対応全体が適切だったことを意味しない。</p>
 
-  <p>第一の問題は、リスクの集中である。</p>
+  <p class="en">In March 2025, the UK Financial Conduct Authority (FCA) fined the LME £9,245,900. It was the FCA's first enforcement action against a recognized investment exchange.</p>
 
-  <p>防御が厚く、信頼性の高い清算機関には、多くの取引が集まる。</p>
+  <p class="ja">2025年3月、英国金融行為規制機構（FCA）は、LMEに対して924万5,900ポンドの制裁金を科した。認定投資取引所に対するFCA初の執行措置だった。</p>
 
-  <p>プレーンバニラの金利スワップでは、中央清算される取引の大部分が、一つの清算機関に集中している。商品や通貨によって差はあるものの、その市場シェアは9割を超えると推計されることもある<sup>5</sup>。</p>
+  <p class="en">According to the FCA's findings, the automatic price bands that constrain price movement had been switched off for more than three hours during the small hours of the morning.</p>
 
-  <p>中央清算によって、個々の金融機関が抱えていた相対取引の信用リスクは削減される。</p>
+  <p class="ja">FCAの認定によれば、価格変動を制御する自動的な価格帯は未明の3時間以上にわたって停止されていた。</p>
 
-  <p>しかし、リスクそのものが消えるわけではない。多数の取引とリスクが、一つのCCPへ集約される。</p>
+  <p class="en">Those on duty were mainly junior staff, and the matter was not reported or escalated to senior management until the nickel price had already passed $100,000.</p>
 
-  <p>「大きすぎて潰せない」銀行の問題を軽減するために作られた仕組みが、それ自体として「絶対に潰せない」市場インフラになる。</p>
+  <p class="ja">当直に就いていたのは主として若手職員であり、上級管理職への報告と対応の引き上げは、ニッケル価格が既に10万ドルを超えるまで行われなかった。</p>
 
-  <p>中央清算には、そのような逆説がある。</p>
+  <p class="en">The cancellation, therefore, cannot be read simply as human discretion saving the market at the last moment.</p>
 
-  <p>第二の問題は、防御が生む副作用である。</p>
+  <p class="ja">したがって、取引取消しを「最後に人間の裁量が市場を救った」とだけ評価することはできない。</p>
 
-  <p>2020年3月、新型コロナウイルスの感染拡大によって市場が急変した際、世界中の清算機関が証拠金を引き上げた。</p>
+  <p class="en">Human judgment did stop the crisis in the end; but it was also organizational and human judgment that failed to stop it earlier.</p>
 
-  <p>ユーロ圏では、清算参加者が2020年1月31日から3月20日までの約3週間に追加で差し入れた当初証拠金は、約300億ユーロに達した。32％の増加である<sup>6</sup>。</p>
+  <p class="ja">危機を最終的に止めたのも人間の判断だったが、危機の進行を早期に止められなかったのも、組織と人間の判断だった。</p>
 
-  <p>一方、同じ期間に、中央清算されていないデリバティブ取引の当初証拠金は、ほぼ横ばいだった。</p>
+  <p class="en">There are moments when mechanically enforcing the rules laid down in advance would destroy the system itself.</p>
 
-  <p>ただし、この差のすべてをCCPの証拠金モデルの問題に帰すことはできない。</p>
+  <p class="ja">あらかじめ定められたルールを機械的に執行すれば、制度そのものを破壊しかねない局面は存在する。</p>
 
-  <p>非清算取引で広く使われる標準モデルには、短期間のボラティリティ上昇に対して、比較的ゆっくりと反応する性質がある。そのため、非清算側の証拠金が動かなかったこと自体が、必ずしも優れた危機対応を意味するわけではない。</p>
+  <p class="en">At such moments, the discretion left outside the rules becomes necessary.</p>
 
-  <p>それでも、問題の構造は残る。</p>
+  <p class="ja">そのときには、ルールの外側に残された裁量が必要になる。</p>
 
-  <p>市場参加者が最も現金を必要とする局面で、清算機関は自らを守るために、参加者から追加の現金や担保を集める。</p>
+  <p class="en">But discretion is not a faculty that springs into being once the rules run out. Who decides, what information they look at, at what point they escalate to a superior, and how far they may intervene — all of it has to be prepared in normal times.</p>
 
-  <p>個々のCCPにとっては、証拠金を引き上げることは合理的な自己防衛である。</p>
+  <p class="ja">しかし、裁量は、ルールが尽きた後に突然生まれる能力ではない。誰が判断し、どの情報を見て、どの時点で上級者へ報告し、どこまで介入できるのかを、平時から準備しておかなければならない。</p>
 
-  <p>しかし、すべてのCCPが同時に同じ行動を取れば、市場全体から流動性が急速に吸い上げられる。</p>
+  <h2><span class="hnum">5</span><span class="en">A Defense Moves the Load Somewhere Else</span><span class="ja">防御は、別の場所に負荷を移す</span></h2>
 
-  <p>個々の制度にとって正しい防御が、制度全体では流動性危機を増幅することがある。</p>
+  <p class="en">So far I have looked at the waterfall as a defense against crisis.</p>
+
+  <p class="ja">ここまで、ウォーターフォールを危機への防御として見てきた。</p>
+
+  <p class="en">Putting layered defenses in place, however, does not by itself make the system as a whole safe.</p>
+
+  <p class="ja">しかし、多層的な防御を整えれば、それで制度全体が安全になるわけではない。</p>
+
+  <p class="en">The first problem is the concentration of risk.</p>
+
+  <p class="ja">第一の問題は、リスクの集中である。</p>
+
+  <p class="en">Trades gather where the defenses are thick and the clearing house is trusted.</p>
+
+  <p class="ja">防御が厚く、信頼性の高い清算機関には、多くの取引が集まる。</p>
+
+  <p class="en">In plain vanilla interest rate swaps, the great majority of centrally cleared trades are concentrated in a single clearing house. The share varies by product and currency, but has sometimes been estimated at over 90 percent<sup>5</sup>.</p>
+
+  <p class="ja">プレーンバニラの金利スワップでは、中央清算される取引の大部分が、一つの清算機関に集中している。商品や通貨によって差はあるものの、その市場シェアは9割を超えると推計されることもある<sup>5</sup>。</p>
+
+  <p class="en">Central clearing reduces the bilateral credit risk that each financial institution used to carry.</p>
+
+  <p class="ja">中央清算によって、個々の金融機関が抱えていた相対取引の信用リスクは削減される。</p>
+
+  <p class="en">The risk itself does not disappear, though. A great many trades, and the risk they carry, are consolidated into one CCP.</p>
+
+  <p class="ja">しかし、リスクそのものが消えるわけではない。多数の取引とリスクが、一つのCCPへ集約される。</p>
+
+  <p class="en">A mechanism built to ease the problem of banks that are "too big to fail" becomes, in itself, a piece of market infrastructure that absolutely cannot be allowed to fail.</p>
+
+  <p class="ja">「大きすぎて潰せない」銀行の問題を軽減するために作られた仕組みが、それ自体として「絶対に潰せない」市場インフラになる。</p>
+
+  <p class="en">That is the paradox embedded in central clearing.</p>
+
+  <p class="ja">中央清算には、そのような逆説がある。</p>
+
+  <p class="en">The second problem is the side effects the defense produces.</p>
+
+  <p class="ja">第二の問題は、防御が生む副作用である。</p>
+
+  <p class="en">In March 2020, when the spread of Covid-19 convulsed the markets, clearing houses around the world raised margin.</p>
+
+  <p class="ja">2020年3月、新型コロナウイルスの感染拡大によって市場が急変した際、世界中の清算機関が証拠金を引き上げた。</p>
+
+  <p class="en">In the euro area, the additional initial margin posted by clearing members over the roughly three weeks from January 31 to March 20, 2020 came to about €30 billion — an increase of 32 percent<sup>6</sup>.</p>
+
+  <p class="ja">ユーロ圏では、清算参加者が2020年1月31日から3月20日までの約3週間に追加で差し入れた当初証拠金は、約300億ユーロに達した。32％の増加である<sup>6</sup>。</p>
+
+  <p class="en">Over the same period, initial margin on derivatives that were not centrally cleared was broadly unchanged.</p>
+
+  <p class="ja">一方、同じ期間に、中央清算されていないデリバティブ取引の当初証拠金は、ほぼ横ばいだった。</p>
+
+  <p class="en">Not all of that difference, however, can be laid at the door of CCP margin models.</p>
+
+  <p class="ja">ただし、この差のすべてをCCPの証拠金モデルの問題に帰すことはできない。</p>
+
+  <p class="en">The standard model widely used for non-cleared trades responds relatively slowly to a short-lived rise in volatility. The fact that margin on the non-cleared side did not move is therefore not in itself a sign of a better response to the crisis.</p>
+
+  <p class="ja">非清算取引で広く使われる標準モデルには、短期間のボラティリティ上昇に対して、比較的ゆっくりと反応する性質がある。そのため、非清算側の証拠金が動かなかったこと自体が、必ずしも優れた危機対応を意味するわけではない。</p>
+
+  <p class="en">The structure of the problem nonetheless remains.</p>
+
+  <p class="ja">それでも、問題の構造は残る。</p>
+
+  <p class="en">At the very point when market participants most need cash, clearing houses collect additional cash and collateral from them in order to protect themselves.</p>
+
+  <p class="ja">市場参加者が最も現金を必要とする局面で、清算機関は自らを守るために、参加者から追加の現金や担保を集める。</p>
+
+  <p class="en">For any individual CCP, raising margin is rational self-protection.</p>
+
+  <p class="ja">個々のCCPにとっては、証拠金を引き上げることは合理的な自己防衛である。</p>
+
+  <p class="en">But if every CCP takes the same action at the same time, liquidity is drained rapidly out of the market as a whole.</p>
+
+  <p class="ja">しかし、すべてのCCPが同時に同じ行動を取れば、市場全体から流動性が急速に吸い上げられる。</p>
+
+  <p class="en">A defense that is correct for each institution can amplify a liquidity crisis across the system.</p>
+
+  <p class="ja">個々の制度にとって正しい防御が、制度全体では流動性危機を増幅することがある。</p>
 
   <div class="figure">
-    <svg viewBox="0 0 660 190" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+    <svg class="en" viewBox="0 0 660 190" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <text x="330" y="28" font-size="11.5" text-anchor="middle" fill="#33383f">change in initial margin (euro area, Jan 31 – Mar 20, 2020)</text>
+      <line x1="90" y1="150" x2="590" y2="150" stroke="#8a8a8a" stroke-width="1"/>
+      <rect x="150" y="60" width="130" height="90" fill="#1d5c5c"/>
+      <text x="215" y="52" font-size="12" text-anchor="middle" fill="#1d5c5c">+32% (≈ €30bn)</text>
+      <text x="215" y="170" font-size="11.5" text-anchor="middle" fill="#33383f">centrally cleared</text>
+      <rect x="390" y="138" width="130" height="12" fill="none" stroke="#1a2332" stroke-width="1.4"/>
+      <text x="455" y="130" font-size="12" text-anchor="middle" fill="#1a2332">"broadly unchanged"</text>
+      <text x="455" y="170" font-size="11.5" text-anchor="middle" fill="#33383f">not centrally cleared</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 190" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
       <text x="330" y="28" font-size="11.5" text-anchor="middle" fill="#33383f">当初証拠金の変化（ユーロ圏・2020年1月31日〜3月20日）</text>
       <line x1="90" y1="150" x2="590" y2="150" stroke="#8a8a8a" stroke-width="1"/>
       <rect x="150" y="60" width="130" height="90" fill="#1d5c5c"/>
@@ -493,137 +840,248 @@ footer a { color: var(--teal-dark); text-decoration: none; }
       <text x="455" y="130" font-size="12" text-anchor="middle" fill="#1a2332">「ほぼ横ばい」</text>
       <text x="455" y="170" font-size="11.5" text-anchor="middle" fill="#33383f">非中央清算取引</text>
     </svg>
-    <div class="figcap">図3　2020年3月の当初証拠金の変化</div>
+    <div class="figcap"><span class="en">Fig. 3 — The change in initial margin, March 2020</span><span class="ja">図3　2020年3月の当初証拠金の変化</span></div>
   </div>
 
-  <p>個々の防御が、全体のストレスになる場合がある。</p>
+  <p class="en">Protection for each can become stress for all.</p>
 
-  <p>集中リスクと流動性リスクに共通しているのは、制度設計は、その制度の境界の内側だけでは評価できないということである。</p>
+  <p class="ja">個々の防御が、全体のストレスになる場合がある。</p>
 
-  <p>「このCCPは、自らの破綻を防げるか」という問いだけでは不十分だ。</p>
+  <p class="en">What concentration risk and liquidity risk have in common is that institutional design cannot be judged inside the boundary of the institution alone.</p>
 
-  <p>「このCCPが自らを守るために取る行動は、市場の他の部分に何をもたらすか」まで見なければならない。</p>
+  <p class="ja">集中リスクと流動性リスクに共通しているのは、制度設計は、その制度の境界の内側だけでは評価できないということである。</p>
 
-  <p>ウォーターフォールは、個々の参加者の破綻を処理する仕組みとしては、極めて優れた設計である。</p>
+  <p class="en">The question "can this CCP prevent its own failure?" is not enough.</p>
 
-  <p>一方、防御のための資金調達が市場全体の流動性を奪う問題については、2020年以降、証拠金の透明性や予測可能性を高める国際的な検討が続いている。</p>
+  <p class="ja">「このCCPは、自らの破綻を防げるか」という問いだけでは不十分だ。</p>
 
-  <p>それでも、守るための仕組みが、守るべき市場を弱らせる可能性をどう抑えるかという問題には、まだ完全な答えはない。</p>
+  <p class="en">One has to go as far as "what do the actions this CCP takes to protect itself do to the rest of the market?"</p>
 
-  <h2><span class="hnum">6</span>誰が、どこまで身銭を切るのか</h2>
+  <p class="ja">「このCCPが自らを守るために取る行動は、市場の他の部分に何をもたらすか」まで見なければならない。</p>
 
-  <p>ウォーターフォールの層を厚くすれば、それだけ制度が安全になるとは限らない。</p>
+  <p class="en">As a mechanism for working through the default of an individual participant, the waterfall is an outstanding design.</p>
 
-  <p>問題は、利用できる資金の総額だけではなく、誰が、どの順序で、どの程度の損失を負担するかにある。</p>
+  <p class="ja">ウォーターフォールは、個々の参加者の破綻を処理する仕組みとしては、極めて優れた設計である。</p>
 
-  <p>その象徴が、CCP自身の資本拠出であるSkin in the Game（SIG）だ<sup>7</sup>。</p>
+  <p class="en">On the problem of funding that defense draining liquidity from the market as a whole, international work has continued since 2020 on making margin more transparent and more predictable.</p>
 
-  <p>CCPも自らの資本を損失にさらす仕組みにしておけば、証拠金を過度に低く設定したり、十分な検証をせずにリスクの高い商品を清算対象に加えたりすることへの歯止めになる。</p>
+  <p class="ja">一方、防御のための資金調達が市場全体の流動性を奪う問題については、2020年以降、証拠金の透明性や予測可能性を高める国際的な検討が続いている。</p>
 
-  <p>制度を設計し、清算参加者に証拠金やデフォルトファンドの負担を求める者も、自ら一定の損失を負うべきだという考え方である。</p>
+  <p class="en">Even so, there is still no complete answer to how to contain the possibility that the machinery built to protect the market weakens the very market it is meant to protect.</p>
 
-  <p>CCPがリスクを共有する姿勢を示すことは、市場からの信頼を得る上でも重要になる。</p>
+  <p class="ja">それでも、守るための仕組みが、守るべき市場を弱らせる可能性をどう抑えるかという問題には、まだ完全な答えはない。</p>
 
-  <p>しかし、SIGも大きければ大きいほどよいわけではない。</p>
+  <h2><span class="hnum">6</span><span class="en">Who Puts Up Their Own Money, and How Much</span><span class="ja">誰が、どこまで身銭を切るのか</span></h2>
 
-  <p>CCP自身の負担が小さすぎれば、損失の大部分を清算参加者へ負わせながら、CCPは十分な痛みを負わないという問題が生じる。</p>
+  <p class="en">Thickening the layers of the waterfall does not necessarily make the system safer.</p>
 
-  <p>CCPにとって、証拠金を引き下げて取引量を増やしたり、清算対象を拡大したりする利益はある一方、その結果として生じる損失の多くを参加者が負担するのであれば、リスク管理のインセンティブは歪み得る。</p>
+  <p class="ja">ウォーターフォールの層を厚くすれば、それだけ制度が安全になるとは限らない。</p>
 
-  <p>2018年の北欧電力市場で問われたのも、この負担の非対称性だった。</p>
+  <p class="en">The question is not only the total amount of money available, but who bears how much loss, and in what order.</p>
 
-  <p>一方で、CCPの自己資本を過度に厚くすれば、今度は清算参加者側に「最終的にはCCPが負担する」という依存が生まれる可能性がある。</p>
+  <p class="ja">問題は、利用できる資金の総額だけではなく、誰が、どの順序で、どの程度の損失を負担するかにある。</p>
 
-  <p>清算参加者自身がポジションを適切に管理し、他の参加者やCCPのリスク管理を監視するインセンティブが弱まるかもしれない。</p>
+  <p class="en">The emblem of that question is the CCP's own capital contribution, its Skin in the Game (SIG)<sup>7</sup>.</p>
 
-  <p>また、多額の自己資本をSIGとして拘束することは、CCPにとって資本コストの増加を意味する。</p>
+  <p class="ja">その象徴が、CCP自身の資本拠出であるSkin in the Game（SIG）だ<sup>7</sup>。</p>
 
-  <p>それが清算手数料の上昇につながれば、市場参加者の負担を増やし、清算市場の流動性や競争力を低下させる可能性もある。</p>
+  <p class="en">If the CCP's own capital is exposed to losses as well, that acts as a brake on setting margin too low, or on adding risky products to the clearing perimeter without sufficient validation.</p>
 
-  <p>つまり、SIGの問題は、単にCCPの自己資本をいくらにするかという問題ではない。</p>
+  <p class="ja">CCPも自らの資本を損失にさらす仕組みにしておけば、証拠金を過度に低く設定したり、十分な検証をせずにリスクの高い商品を清算対象に加えたりすることへの歯止めになる。</p>
 
-  <p>破綻した参加者、CCP、生き残った清算参加者の間に、責任と損失をどのように配分すれば、それぞれの規律が最もよく働くかという問題である。</p>
+  <p class="en">The idea is that whoever designs the system, and asks clearing members to bear margin and default fund contributions, should also carry a share of the losses.</p>
 
-  <p>さらに、現在の主要なCCPの多くは、営利企業である取引所グループの傘下にある。</p>
+  <p class="ja">制度を設計し、清算参加者に証拠金やデフォルトファンドの負担を求める者も、自ら一定の損失を負うべきだという考え方である。</p>
 
-  <p>市場の安定を支える公共的な役割を担う一方で、上場企業として資本効率を高め、株主価値を向上させることも求められる。</p>
+  <p class="en">A CCP showing that it shares in the risk also matters for earning the trust of the market.</p>
 
-  <p>SIGとして自己資本を増やすことは、CCPの資本効率を低下させる。したがって経営上は、SIGを可能な限り抑えたいというインセンティブが働き得る。</p>
+  <p class="ja">CCPがリスクを共有する姿勢を示すことは、市場からの信頼を得る上でも重要になる。</p>
 
-  <p>加えて、主要な清算市場は少数のCCPに集中している。</p>
+  <p class="en">But with SIG, too, bigger is not simply better.</p>
 
-  <p>市場参加者がより大きなSIGを求めても、代替となるCCPが存在しなければ、その要求を受け入れさせる競争上の圧力は弱い。</p>
+  <p class="ja">しかし、SIGも大きければ大きいほどよいわけではない。</p>
 
-  <p>したがって、SIGに一律の適正値を設けることは難しい。</p>
+  <p class="en">If the CCP's own burden is too small, the problem arises that most of the loss falls on clearing members while the CCP itself feels little pain.</p>
 
-  <p>小さすぎればCCPの規律を損ない、大きすぎれば清算参加者の規律や市場の効率を損なう可能性がある。</p>
+  <p class="ja">CCP自身の負担が小さすぎれば、損失の大部分を清算参加者へ負わせながら、CCPは十分な痛みを負わないという問題が生じる。</p>
 
-  <p>その水準は、清算する商品のリスク特性、市場のボラティリティ、参加者の構成、CCPの所有構造と財務力などを踏まえて決めるしかない。</p>
+  <p class="en">A CCP stands to gain from lowering margin to attract volume, or from widening the range of products it clears; if most of the losses that follow are borne by participants, its incentives around risk management can become distorted.</p>
 
-  <p>重要なのは、金額だけではない。</p>
+  <p class="ja">CCPにとって、証拠金を引き下げて取引量を増やしたり、清算対象を拡大したりする利益はある一方、その結果として生じる損失の多くを参加者が負担するのであれば、リスク管理のインセンティブは歪み得る。</p>
 
-  <p>なぜその水準が選ばれたのか。誰が、どのような条件で損失を負担するのか。その考え方が透明に示され、規制当局と市場参加者によって継続的に検証されることが重要である。</p>
+  <p class="en">It was this asymmetry of burden that was called into question in the Nordic power market in 2018.</p>
 
-  <p>ウォーターフォールの設計とは、損失を吸収する資金の量を決めることだけではない。</p>
+  <p class="ja">2018年の北欧電力市場で問われたのも、この負担の非対称性だった。</p>
 
-  <p>誰にどの程度の痛みを負わせれば、制度全体の規律が最もよく働くかを決めることでもある。</p>
+  <p class="en">Make the CCP's own capital too thick, on the other hand, and a dependence may grow on the members' side — a sense that the CCP will bear it in the end.</p>
 
-  <p>※Skin in the Gameの制度的背景、適正規模を巡る国際的議論、CCPと清算参加者のインセンティブ構造については、拙著収録のコラム「CCPはどれだけ身銭を切るべきか？――Skin in the Game（SIG）の哲学と現実」で詳しく論じている。</p>
+  <p class="ja">一方で、CCPの自己資本を過度に厚くすれば、今度は清算参加者側に「最終的にはCCPが負担する」という依存が生まれる可能性がある。</p>
+
+  <p class="en">The incentive for clearing members to manage their own positions properly, and to monitor the risk management of other participants and of the CCP, may weaken.</p>
+
+  <p class="ja">清算参加者自身がポジションを適切に管理し、他の参加者やCCPのリスク管理を監視するインセンティブが弱まるかもしれない。</p>
+
+  <p class="en">Tying up a large amount of capital as SIG also means a higher cost of capital for the CCP.</p>
+
+  <p class="ja">また、多額の自己資本をSIGとして拘束することは、CCPにとって資本コストの増加を意味する。</p>
+
+  <p class="en">If that feeds through into higher clearing fees, it raises the burden on market participants and can reduce the liquidity and competitiveness of the cleared market.</p>
+
+  <p class="ja">それが清算手数料の上昇につながれば、市場参加者の負担を増やし、清算市場の流動性や競争力を低下させる可能性もある。</p>
+
+  <p class="en">The SIG question, in other words, is not simply how much capital a CCP should hold.</p>
+
+  <p class="ja">つまり、SIGの問題は、単にCCPの自己資本をいくらにするかという問題ではない。</p>
+
+  <p class="en">It is the question of how to allocate responsibility and loss among the defaulting participant, the CCP and the surviving clearing members so that the discipline of each works as well as it can.</p>
+
+  <p class="ja">破綻した参加者、CCP、生き残った清算参加者の間に、責任と損失をどのように配分すれば、それぞれの規律が最もよく働くかという問題である。</p>
+
+  <p class="en">Moreover, most of today's major CCPs sit within exchange groups that are for-profit companies.</p>
+
+  <p class="ja">さらに、現在の主要なCCPの多くは、営利企業である取引所グループの傘下にある。</p>
+
+  <p class="en">They carry a public role in supporting the stability of the market while, as listed companies, being asked to improve capital efficiency and shareholder value.</p>
+
+  <p class="ja">市場の安定を支える公共的な役割を担う一方で、上場企業として資本効率を高め、株主価値を向上させることも求められる。</p>
+
+  <p class="en">Holding more capital as SIG lowers a CCP's capital efficiency. In management terms, therefore, there can be an incentive to keep SIG as small as possible.</p>
+
+  <p class="ja">SIGとして自己資本を増やすことは、CCPの資本効率を低下させる。したがって経営上は、SIGを可能な限り抑えたいというインセンティブが働き得る。</p>
+
+  <p class="en">On top of that, the major cleared markets are concentrated in a small number of CCPs.</p>
+
+  <p class="ja">加えて、主要な清算市場は少数のCCPに集中している。</p>
+
+  <p class="en">Even if market participants ask for a larger SIG, there is little competitive pressure to make that demand stick where no alternative CCP exists.</p>
+
+  <p class="ja">市場参加者がより大きなSIGを求めても、代替となるCCPが存在しなければ、その要求を受け入れさせる競争上の圧力は弱い。</p>
+
+  <p class="en">Setting a single, uniform level for SIG is therefore difficult.</p>
+
+  <p class="ja">したがって、SIGに一律の適正値を設けることは難しい。</p>
+
+  <p class="en">Too small and it undermines the CCP's discipline; too large and it may undermine the discipline of clearing members and the efficiency of the market.</p>
+
+  <p class="ja">小さすぎればCCPの規律を損ない、大きすぎれば清算参加者の規律や市場の効率を損なう可能性がある。</p>
+
+  <p class="en">The level can only be set with regard to the risk characteristics of the products cleared, the volatility of the market, the composition of the membership, and the CCP's ownership structure and financial strength.</p>
+
+  <p class="ja">その水準は、清算する商品のリスク特性、市場のボラティリティ、参加者の構成、CCPの所有構造と財務力などを踏まえて決めるしかない。</p>
+
+  <p class="en">What matters is not the amount alone.</p>
+
+  <p class="ja">重要なのは、金額だけではない。</p>
+
+  <p class="en">Why that level was chosen. Who bears losses, and on what terms. What matters is that the reasoning is set out transparently and tested continuously by regulators and market participants.</p>
+
+  <p class="ja">なぜその水準が選ばれたのか。誰が、どのような条件で損失を負担するのか。その考え方が透明に示され、規制当局と市場参加者によって継続的に検証されることが重要である。</p>
+
+  <p class="en">Designing a waterfall is not only a matter of deciding how much money will absorb losses.</p>
+
+  <p class="ja">ウォーターフォールの設計とは、損失を吸収する資金の量を決めることだけではない。</p>
+
+  <p class="en">It is also a matter of deciding how much pain to place on whom so that the discipline of the system as a whole works best.</p>
+
+  <p class="ja">誰にどの程度の痛みを負わせれば、制度全体の規律が最もよく働くかを決めることでもある。</p>
+
+  <p class="en">Note: the institutional background of Skin in the Game, the international debate over its appropriate size, and the incentive structure between CCPs and clearing members are discussed in more detail in "How Much of Its Own Money Should a CCP Put Up? — The Philosophy and Reality of Skin in the Game (SIG)," a column in my book.</p>
+
+  <p class="ja">※Skin in the Gameの制度的背景、適正規模を巡る国際的議論、CCPと清算参加者のインセンティブ構造については、拙著収録のコラム「CCPはどれだけ身銭を切るべきか？――Skin in the Game（SIG）の哲学と現実」で詳しく論じている。</p>
 
   <div class="essay-close">
-    <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">7</span>壊れた日に、設計は姿を現す</h2>
+    <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">7</span><span class="en">On the Day It Breaks, the Design Shows Itself</span><span class="ja">壊れた日に、設計は姿を現す</span></h2>
 
-    <p>2008年には、破綻者自身が事前に積んでいた資源が、設計どおりに働いた。</p>
+    <p class="en">In 2008, the resources the defaulter itself had posted in advance worked as designed.</p>
 
-    <p>2018年には、損失の共同負担という制度の意味が、現実の請求として生存参加者に届いた。</p>
+  <p class="ja">2008年には、破綻者自身が事前に積んでいた資源が、設計どおりに働いた。</p>
 
-    <p>2022年には、ルールどおりに防御を発動すること自体が、市場を壊しかねないという限界が現れた。</p>
+    <p class="en">In 2018, the meaning of a system of shared loss-bearing reached the surviving participants as an actual bill.</p>
 
-    <p>三つの事例が示しているのは、危機への備えは、資金を厚く積むだけでは完成しないということだ。</p>
+  <p class="ja">2018年には、損失の共同負担という制度の意味が、現実の請求として生存参加者に届いた。</p>
 
-    <p>誰が最初に損失を負うのか。</p>
+    <p class="en">In 2022, a limit came into view: activating the defense as the rules prescribed could itself have broken the market.</p>
 
-    <p>どの時点から、損失を他の参加者へ共同化するのか。</p>
+  <p class="ja">2022年には、ルールどおりに防御を発動すること自体が、市場を壊しかねないという限界が現れた。</p>
 
-    <p>防御を発動したとき、その防御が市場全体にどのような負荷を与えるのか。</p>
+    <p class="en">What the three cases show is that preparing for a crisis is not completed simply by piling up more money.</p>
 
-    <p>そして、ルールが想定していなかった事態に、誰が判断を下すのか。</p>
+  <p class="ja">三つの事例が示しているのは、危機への備えは、資金を厚く積むだけでは完成しないということだ。</p>
 
-    <p>平時には、これらの違いはほとんど見えない。</p>
+    <p class="en">Who bears the first loss?</p>
 
-    <p>証拠金も、デフォルトファンドも、CCPの自己資本も、破綻処理演習も、ただのコストに見える。</p>
+  <p class="ja">誰が最初に損失を負うのか。</p>
 
-    <p>しかし、制度の真価は、平時の効率だけでは測れない。</p>
+    <p class="en">From what point is the loss mutualized across the other participants?</p>
 
-    <p>何かが壊れたとき、誰が、どの順序で、どの程度の損失を負い、実際に何を動かすことができたのか。</p>
+  <p class="ja">どの時点から、損失を他の参加者へ共同化するのか。</p>
 
-    <p>設計は、その日に初めて姿を現す。</p>
+    <p class="en">When the defense is activated, what load does it place on the market as a whole?</p>
+
+  <p class="ja">防御を発動したとき、その防御が市場全体にどのような負荷を与えるのか。</p>
+
+    <p class="en">And who makes the call in a situation the rules never contemplated?</p>
+
+  <p class="ja">そして、ルールが想定していなかった事態に、誰が判断を下すのか。</p>
+
+    <p class="en">In normal times, these differences are almost invisible.</p>
+
+  <p class="ja">平時には、これらの違いはほとんど見えない。</p>
+
+    <p class="en">Margin, the default fund, the CCP's own capital, default management drills — all of it looks like nothing but cost.</p>
+
+  <p class="ja">証拠金も、デフォルトファンドも、CCPの自己資本も、破綻処理演習も、ただのコストに見える。</p>
+
+    <p class="en">But the true worth of a system cannot be measured by the efficiency of normal times alone.</p>
+
+  <p class="ja">しかし、制度の真価は、平時の効率だけでは測れない。</p>
+
+    <p class="en">When something breaks: who bore how much loss, in what order, and what could actually be moved.</p>
+
+  <p class="ja">何かが壊れたとき、誰が、どの順序で、どの程度の損失を負い、実際に何を動かすことができたのか。</p>
+
+    <p class="en">The design shows itself for the first time on that day.</p>
+
+  <p class="ja">設計は、その日に初めて姿を現す。</p>
 
     <div class="seed-box">
-      <span class="pull-label">種としての一行</span>
-      設計の真価は、平時の効率ではなく、壊れた日に現れる。
+      <span class="pull-label"><span class="en">The Seed</span><span class="ja">種としての一行</span></span>
+      <span class="en">The true worth of a design shows itself not in the efficiency of normal times, but on the day it breaks.</span>
+      <span class="ja">設計の真価は、平時の効率ではなく、壊れた日に現れる。</span>
     </div>
   </div>
 
   <div class="essay-note">
-    <span class="note-label">出典・注記</span>
-    <p>本稿の見解は筆者個人のものであり、筆者が所属する組織および関与する業界団体の見解を代表するものではない。</p>
+    <span class="note-label"><span class="en">Notes &amp; Sources</span><span class="ja">出典・注記</span></span>
+    <p class="en">The views expressed in this essay are the author's own and do not represent those of the organization to which the author belongs or of the industry bodies with which the author is involved.</p>
+
+  <p class="ja">本稿の見解は筆者個人のものであり、筆者が所属する組織および関与する業界団体の見解を代表するものではない。</p>
     <ol>
-      <li>CPMI-IOSCO, <em>Principles for Financial Market Infrastructures</em>, April 2012, para. 3.4.17. デフォルト時に使用される事前拠出済み財務資源の一般的な順序について参照。</li>
-      <li>LCH.Clearnet, press release, 8 October 2008、およびBIS Quarterly Review, "Two defaults at CCPs, 10 years apart," December 2018. リーマンの金利スワップ・ポートフォリオは想定元本約9兆ドル、66,390件。五つの通貨別オークションを通じて処理され、損失はリーマン自身の証拠金のおよそ3分の1で吸収されたとされる。ただし、「約3分の1」は清算機関自身の説明に基づく数字であり、独立監査された数値ではない。</li>
-      <li>Nasdaq Clearingによる2018年の破綻対応資料、およびスウェーデン金融監督庁の制裁決定。損失1億1,400万ユーロ、生存参加者のデフォルトファンド拠出金1億700万ユーロ、CCP自己資本700万ユーロ、48時間以内のクローズアウト、約一週間での基金再拠出。業界全体のSIG比率については、Risk.net Risk QuantumによるCCP開示資料の分析を参照。</li>
-      <li>John Heilbron, "Central Clearing and Trade Cancellation: The Case of LME Nickel Contracts on March 8, 2022," OFR Working Paper 24-09, U.S. Treasury Office of Financial Research, 2024. 日中証拠金請求197億5,000万ドル、当初七参加者、連鎖で合計12参加者、全会員の27％、損失約26億ドルという試算は、LMEの法廷提出資料を独立研究者が再構成した反実仮想であり、裁判所による認定事実ではない。訴訟については、高等法院判決（2023年11月29日）、控訴院判決（2024年10月）、英国最高裁による上告不許可（2025年1月28日）を参照。FCA Final Notice, 19 March 2025では、924万5,900ポンドの制裁金、価格帯制御の停止、上級管理職への報告の遅れなどが認定されている。</li>
-      <li>ClarusおよびLSEGの清算高統計、ならびにBIS Quarterly Review, December 2018. LCH SwapClearは、プレーンバニラ金利スワップの中央清算市場で長期にわたり大きなシェアを占める。「9割以上」は清算高に基づく市場シェアの推計であり、商品および通貨によって異なる。</li>
-      <li>ECB, Financial Stability Review, November 2021. 2020年1月31日から3月20日までに、ユーロ圏の清算参加者が追加で差し入れた当初証拠金は約300億ユーロ、32％増加した。一方、非中央清算デリバティブの当初証拠金は「ほぼ横ばい」と報告されている。</li>
-      <li>SIGを巡る議論については、FSB, <em>Guidance on Central Counterparty Resolution and Resolution Planning</em>, July 2017、CPMIおよびFSBのCCP関連文書、ISDAの意見書等を参照。学術研究として、Ghamami（2023）およびCapponi &amp; Cheng（2021）などが、SIGとCCPのリスクテイク、所有構造、損失負担のインセンティブを論じている。</li>
+      <li><span class="en">CPMI-IOSCO, <em>Principles for Financial Market Infrastructures</em>, April 2012, para. 3.4.17. See on the general order in which pre-funded financial resources are used in a default.</span><span class="ja">CPMI-IOSCO, <em>Principles for Financial Market Infrastructures</em>, April 2012, para. 3.4.17. デフォルト時に使用される事前拠出済み財務資源の一般的な順序について参照。</span></li>
+      <li><span class="en">LCH.Clearnet, press release, 8 October 2008, and BIS Quarterly Review, "Two defaults at CCPs, 10 years apart," December 2018. Lehman's interest rate swap portfolio comprised approximately $9 trillion in notional value and 66,390 trades. It was worked through in five currency-by-currency auctions, and the loss is reported to have been absorbed by roughly one-third of Lehman's own margin. Note, however, that the "roughly one-third" figure rests on the clearing house's own account and is not an independently audited number.</span><span class="ja">LCH.Clearnet, press release, 8 October 2008、およびBIS Quarterly Review, "Two defaults at CCPs, 10 years apart," December 2018. リーマンの金利スワップ・ポートフォリオは想定元本約9兆ドル、66,390件。五つの通貨別オークションを通じて処理され、損失はリーマン自身の証拠金のおよそ3分の1で吸収されたとされる。ただし、「約3分の1」は清算機関自身の説明に基づく数字であり、独立監査された数値ではない。</span></li>
+      <li><span class="en">Nasdaq Clearing's own materials on the 2018 default, and the sanction decision of the Swedish financial supervisory authority. Loss of €114 million; €107 million of surviving participants' default fund contributions; €7 million of the CCP's own capital; close-out within 48 hours; the fund replenished in about a week. On the industry-wide SIG ratio, see Risk.net Risk Quantum's analysis of CCP disclosures.</span><span class="ja">Nasdaq Clearingによる2018年の破綻対応資料、およびスウェーデン金融監督庁の制裁決定。損失1億1,400万ユーロ、生存参加者のデフォルトファンド拠出金1億700万ユーロ、CCP自己資本700万ユーロ、48時間以内のクローズアウト、約一週間での基金再拠出。業界全体のSIG比率については、Risk.net Risk QuantumによるCCP開示資料の分析を参照。</span></li>
+      <li><span class="en">John Heilbron, "Central Clearing and Trade Cancellation: The Case of LME Nickel Contracts on March 8, 2022," OFR Working Paper 24-09, U.S. Treasury Office of Financial Research, 2024. The estimates — a $19.75 billion intraday margin call, seven initial participants, twelve participants in the resulting chain, 27 percent of the total membership, and losses of about $2.6 billion — are a counterfactual reconstructed by an independent researcher from the LME's court filings, not findings of fact by a court. On the litigation, see the High Court judgment (November 29, 2023), the Court of Appeal judgment (October 2024), and the UK Supreme Court's refusal of permission to appeal (January 28, 2025). The FCA Final Notice of 19 March 2025 sets out the £9,245,900 fine, the disabling of the price band controls, and the delay in escalation to senior management.</span><span class="ja">John Heilbron, "Central Clearing and Trade Cancellation: The Case of LME Nickel Contracts on March 8, 2022," OFR Working Paper 24-09, U.S. Treasury Office of Financial Research, 2024. 日中証拠金請求197億5,000万ドル、当初七参加者、連鎖で合計12参加者、全会員の27％、損失約26億ドルという試算は、LMEの法廷提出資料を独立研究者が再構成した反実仮想であり、裁判所による認定事実ではない。訴訟については、高等法院判決（2023年11月29日）、控訴院判決（2024年10月）、英国最高裁による上告不許可（2025年1月28日）を参照。FCA Final Notice, 19 March 2025では、924万5,900ポンドの制裁金、価格帯制御の停止、上級管理職への報告の遅れなどが認定されている。</span></li>
+      <li><span class="en">Clarus and LSEG clearing volume statistics, and BIS Quarterly Review, December 2018. LCH SwapClear has long held a large share of the centrally cleared market in plain vanilla interest rate swaps. The "over 90 percent" figure is an estimate of market share based on cleared volumes and varies by product and currency.</span><span class="ja">ClarusおよびLSEGの清算高統計、ならびにBIS Quarterly Review, December 2018. LCH SwapClearは、プレーンバニラ金利スワップの中央清算市場で長期にわたり大きなシェアを占める。「9割以上」は清算高に基づく市場シェアの推計であり、商品および通貨によって異なる。</span></li>
+      <li><span class="en">ECB, Financial Stability Review, November 2021. Between January 31 and March 20, 2020, euro-area clearing members posted approximately €30 billion of additional initial margin, an increase of 32 percent. Over the same period, initial margin on non-centrally-cleared derivatives is reported to have remained "broadly unchanged."</span><span class="ja">ECB, Financial Stability Review, November 2021. 2020年1月31日から3月20日までに、ユーロ圏の清算参加者が追加で差し入れた当初証拠金は約300億ユーロ、32％増加した。一方、非中央清算デリバティブの当初証拠金は「ほぼ横ばい」と報告されている。</span></li>
+      <li><span class="en">On the debate over SIG, see FSB, <em>Guidance on Central Counterparty Resolution and Resolution Planning</em>, July 2017, the CCP-related documents of CPMI and the FSB, and ISDA position papers. In the academic literature, Ghamami (2023) and Capponi &amp; Cheng (2021), among others, discuss SIG in relation to CCP risk-taking, ownership structure, and the incentives created by loss allocation.</span><span class="ja">SIGを巡る議論については、FSB, <em>Guidance on Central Counterparty Resolution and Resolution Planning</em>, July 2017、CPMIおよびFSBのCCP関連文書、ISDAの意見書等を参照。学術研究として、Ghamami（2023）およびCapponi &amp; Cheng（2021）などが、SIGとCCPのリスクテイク、所有構造、損失負担のインセンティブを論じている。</span></li>
     </ol>
   </div>
 </article>
 
 <footer>
-  <div>Essay 013 · 2026年7月 · 金融市場のつなぎ目を25年見てきた場所から</div>
-  <div><a href="/">shun-yanagisawa.com</a> · <a href="/#essays">エッセイ一覧</a></div>
+  <div><span class="en">Essay 013 · July 2026 · Written from twenty-five years at the seams of financial markets</span><span class="ja">Essay 013 · 2026年7月 · 金融市場のつなぎ目を25年見てきた場所から</span></div>
+  <div><span class="en"><a href="/">shun-yanagisawa.com</a> · <a href="/#essays">All essays</a></span><span class="ja"><a href="/">shun-yanagisawa.com</a> · <a href="/#essays">エッセイ一覧</a></span></div>
 </footer>
 
+<script>
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+}
+if ((navigator.language || '').startsWith('ja')) toggleLang();
+</script>
 </body>
 </html>
