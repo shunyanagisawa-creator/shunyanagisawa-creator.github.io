@@ -102,6 +102,11 @@ table.ledger caption {
 table.ledger th, table.ledger td { border: 1px solid var(--border); padding: .6rem .8rem; text-align: left; vertical-align: top; color: var(--text-mid); }
 table.ledger th { background: var(--off-white); color: var(--navy); font-weight: 600; }
 
+/* 線画図版 */
+.figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 2rem 0; background: var(--white); }
+.figure svg { width: 100%; height: auto; display: block; }
+.figcap { margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--border); font-size: .8rem; letter-spacing: .04em; color: var(--text-sub); text-align: center; }
+
 /* 出典 */
 .column-note { margin-top: 3rem; padding-top: 1.3rem; border-top: 1px solid var(--border); font-size: .84rem; line-height: 1.85; color: var(--text-sub); }
 .column-note .note-label { display: block; font-family: var(--font-mono); font-size: .64rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .8rem; }
@@ -192,6 +197,41 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 
   <p>同じ「再現可能性」という言葉の下に、性質の異なる二つの要求が含まれています。本稿が主に追うのは、このうち前者、すなわち流動性準備のための予見可能性です。</p>
 
+  <div class="figure">
+    <svg viewBox="0 0 720 336" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="再現可能性に含まれる二つの要求と、証拠金シミュレーターが担う範囲">
+      <g font-family="'Noto Sans JP', sans-serif" font-size="13" fill="#14161b">
+        <text x="14" y="20" font-size="12" fill="#1d5c5c" letter-spacing="0.08em">2026年の改定案が相対開示の目標に掲げたもの</text>
+        <rect x="190" y="32" width="340" height="42" fill="#ffffff" stroke="#1a2332" stroke-width="1.2"/>
+        <text x="360" y="59" text-anchor="middle" font-size="14">再現可能性（replicability）</text>
+        <line x1="360" y1="74" x2="360" y2="90" stroke="#1a2332" stroke-width="1.2"/>
+        <line x1="184" y1="90" x2="536" y2="90" stroke="#1a2332" stroke-width="1.2"/>
+        <line x1="184" y1="90" x2="184" y2="106" stroke="#1a2332" stroke-width="1.2"/>
+        <polygon points="184,114 179,104 189,104" fill="#1a2332"/>
+        <line x1="536" y1="90" x2="536" y2="106" stroke="#1a2332" stroke-width="1.2"/>
+        <polygon points="536,114 531,104 541,104" fill="#1a2332"/>
+        <rect x="14" y="116" width="340" height="56" fill="#ffffff" stroke="#1a2332" stroke-width="1.2"/>
+        <text x="184" y="140" text-anchor="middle">資金繰りのために、</text>
+        <text x="184" y="160" text-anchor="middle">将来の証拠金を予見できること</text>
+        <rect x="366" y="116" width="340" height="56" fill="#ffffff" stroke="#1a2332" stroke-width="1.2"/>
+        <text x="536" y="140" text-anchor="middle">証拠金モデルそのものを</text>
+        <text x="536" y="160" text-anchor="middle">理解し、検証できること</text>
+        <rect x="14" y="188" width="340" height="116" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.2"/>
+        <text x="30" y="211" font-size="12" fill="#1d5c5c" letter-spacing="0.06em">証拠金シミュレーターが担う</text>
+        <text x="30" y="238">・現在のポートフォリオと仮想のポートフォリオ</text>
+        <text x="30" y="260">・ストレス・シナリオの下の当初証拠金の計算</text>
+        <text x="30" y="282">・主要な証拠金アドオンの体系的な組込み</text>
+        <rect x="366" y="188" width="340" height="116" fill="#ffffff" stroke="#3d4148" stroke-width="1" stroke-dasharray="4 4"/>
+        <text x="382" y="211" font-size="12" fill="#3d4148" letter-spacing="0.06em">シミュレーターは担わない</text>
+        <text x="382" y="238">シミュレーターが返すのは</text>
+        <text x="382" y="260">モデルの出力であり、出力値の再現と</text>
+        <text x="382" y="282">内部構造の理解は別である。</text>
+        <text x="690" y="298" text-anchor="end" font-size="11" fill="#8a6020">FIA・ISDA の指摘</text>
+        <text x="14" y="328" font-size="12">本稿が主に追うのは、左の予見可能性である。</text>
+      </g>
+    </svg>
+    <div class="figcap">「再現可能性」という一語の下に、性質の異なる二つの要求が置かれている</div>
+  </div>
+
   <h2><span class="hnum">3</span>透明性が担う二つの機能</h2>
 
   <p>証拠金にかかわる透明性は、情報の使い方によって求められる機能が異なります。</p>
@@ -220,6 +260,44 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   <p>反対に、公開指標がどれだけ整備されても、個々の参加者が、自分のポートフォリオについて将来の証拠金額を計算できるようになるわけではありません。</p>
 
   <p>「透明性を高める」という一つの要求の下に、機能の異なる二つの制度が並んでいることになります。</p>
+
+  <div class="figure">
+    <svg viewBox="0 0 720 348" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="相対開示と公開開示の、手段・宛先・担う機能の対照">
+      <g font-family="'Noto Sans JP', sans-serif" font-size="13" fill="#14161b">
+        <rect x="90" y="14" width="300" height="40" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.2"/>
+        <text x="240" y="41" text-anchor="middle" font-size="14">相対開示</text>
+        <rect x="406" y="14" width="300" height="40" fill="#f7efe0" stroke="#b5832a" stroke-width="1.2"/>
+        <text x="556" y="41" text-anchor="middle" font-size="14">公開開示（PQD）</text>
+
+        <text x="80" y="118" text-anchor="end" font-size="12" fill="#8a6020" letter-spacing="0.08em">手段</text>
+        <rect x="90" y="66" width="300" height="96" fill="#ffffff" stroke="#3d4148" stroke-width="1"/>
+        <text x="106" y="92" font-size="12">証拠金シミュレーター</text>
+        <text x="106" y="114" font-size="12">証拠金モデルの情報</text>
+        <text x="106" y="136" font-size="12">（秘密保持契約のうえでの提供も可）</text>
+        <rect x="406" y="66" width="300" height="96" fill="#ffffff" stroke="#3d4148" stroke-width="1"/>
+        <text x="422" y="92" font-size="12">1) 当初証拠金をコア証拠金とアドオンに分解</text>
+        <text x="422" y="114" font-size="12">2) 1営業日・20営業日での最大増加率</text>
+        <text x="422" y="136" font-size="12">（清算サービスごと・四半期ごとに開示）</text>
+
+        <text x="80" y="201" text-anchor="end" font-size="12" fill="#8a6020" letter-spacing="0.08em">宛先</text>
+        <rect x="90" y="172" width="300" height="48" fill="#ffffff" stroke="#3d4148" stroke-width="1"/>
+        <text x="106" y="202">清算参加者と顧客（自分のポートフォリオ）</text>
+        <rect x="406" y="172" width="300" height="48" fill="#ffffff" stroke="#3d4148" stroke-width="1"/>
+        <text x="422" y="202">幅広い市場参加者と公衆</text>
+
+        <text x="80" y="270" text-anchor="end" font-size="12" fill="#8a6020" letter-spacing="0.08em">担う機能</text>
+        <rect x="90" y="230" width="300" height="70" fill="#ffffff" stroke="#3d4148" stroke-width="1"/>
+        <text x="106" y="257">流動性準備 — 次のマージン・コールに</text>
+        <text x="106" y="279">備えた資金繰り</text>
+        <rect x="406" y="230" width="300" height="70" fill="#ffffff" stroke="#3d4148" stroke-width="1"/>
+        <text x="422" y="257">CCP間の比較と、</text>
+        <text x="422" y="279">証拠金慣行の外部からの検証</text>
+
+        <text x="360" y="334" text-anchor="middle">この二つは代替関係にない — 一方が他方を満たすことはない（筆者の整理）</text>
+      </g>
+    </svg>
+    <div class="figcap">相対開示と公開開示は、宛先も担う機能も異なる</div>
+  </div>
 
   <h2><span class="hnum">4</span>CCPと清算参加者・顧客の目線の違い</h2>
 
