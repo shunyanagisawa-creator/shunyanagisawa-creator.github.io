@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>清算 — 柳沢 俊</title>
+<meta name="description" content="『デリバティブ・クリアリングのすべて』刊行後に動いた清算の制度を、初版の章立ての上に置き直していく場所。一次資料を読んだうえで書いた短い稿を、埋まった章に並べています。">
+<meta property="og:title" content="清算 — 柳沢 俊">
+<meta property="og:description" content="『デリバティブ・クリアリングのすべて』刊行後に動いた清算の制度を、初版の章立ての上に置き直していく場所。一次資料を読んだうえで書いた短い稿を、埋まった章に並べています。">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="Shun Yanagisawa">
+<link rel="canonical" href="https://www.shun-yanagisawa.com/clearing/">
+<meta property="og:url" content="https://www.shun-yanagisawa.com/clearing/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* /clearing — 清算の体系（第2版に向けた断片）
+   essays と同じブランド palette を使うが、以下を変える:
+   - 日本語のみ（言語トグルなし・扉写真なし）
+   - 二次テキストは #3d4148 以深（薄いグレーは使わない）
+   - 強調は太字を使わない。番号見出し / 罫線囲み / 傍点 / 表で立てる */
+:root {
+  --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
+  --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f7efe0;
+  --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
+  --text: #14161b; --text-mid: #24272e; --text-sub: #3d4148; --border: #d3cec3;
+  --font-display: 'Playfair Display', 'Noto Sans JP', Georgia, sans-serif;
+  --font-jp: 'Noto Sans JP', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--white); color: var(--text); font-family: var(--font-jp); font-size: 17px; line-height: 1.95; }
+
+nav {
+  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+.nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo span { color: var(--teal-dark); }
+.nav-back { font-family: var(--font-jp); font-size: .82rem; letter-spacing: .04em; color: var(--text-sub); text-decoration: none; }
+.nav-back:hover { color: var(--teal-dark); }
+
+.column { max-width: 720px; margin: 0 auto; padding: 3.4rem 1.6rem 5rem; }
+
+/* 帰属 — 初版のどこの続きか */
+.column-kicker {
+  font-family: var(--font-jp); font-size: .78rem; letter-spacing: .1em; color: var(--teal-dark);
+  padding-bottom: .5rem; margin-bottom: 1.1rem; border-bottom: 1px solid var(--border);
+}
+.column-kicker .bookmark { color: var(--text-sub); }
+h1 { font-family: var(--font-jp); font-size: clamp(1.5rem, 3.6vw, 2.1rem); font-weight: 600; line-height: 1.5; color: var(--navy); margin-bottom: .9rem; }
+.column-sub { font-size: 1rem; color: var(--text-sub); margin-bottom: 1.4rem; line-height: 1.85; }
+.column-meta {
+  display: flex; flex-wrap: wrap; gap: .35rem 1.5rem;
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .06em; color: var(--text-sub);
+  padding-bottom: 1.5rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.3rem;
+}
+
+.column h2 {
+  font-family: var(--font-jp); font-size: 1.16rem; font-weight: 600; color: var(--navy); line-height: 1.6;
+  margin: 3rem 0 1rem; padding: .35rem 0 .5rem .9rem;
+  border-left: 3px solid var(--navy); border-bottom: 1px solid var(--border);
+}
+.column h2 .hnum { font-family: var(--font-mono); font-size: .82rem; font-weight: 400; color: var(--teal-dark); margin-right: .75rem; letter-spacing: .05em; }
+
+.column p { margin: 1.15rem 0; color: var(--text-mid); text-align: justify; letter-spacing: .015em; }
+.column a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.45); }
+.column a:hover { border-bottom-color: var(--teal-dark); }
+.column ul, .column ol { margin: 1.15rem 0 1.15rem 1.6rem; color: var(--text-mid); }
+.column li { margin: .45rem 0; }
+
+/* 傍点（短い日本語の語句のみ・目安10字以内。英語フレーズには使わない） */
+.em { -webkit-text-emphasis: filled dot var(--navy); text-emphasis: filled dot var(--navy); font-style: normal; }
+/* 英語の原語・書名 */
+.column em { font-style: italic; }
+.column cite { font-style: normal; }
+
+/* 罫線囲み＋小ラベル（当局原文の引用・要点の囲みに使う） */
+.box {
+  border: 1px solid var(--gold); border-left: 4px solid var(--gold); background: var(--gold-light);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0; border-radius: 2px;
+  font-size: .98rem; color: var(--navy); line-height: 1.9; position: relative; text-align: justify;
+}
+.box .box-label {
+  position: absolute; top: -.72rem; left: 1rem; background: var(--white);
+  font-family: var(--font-mono); font-size: .64rem; letter-spacing: .18em;
+  color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase;
+}
+.box p:first-of-type { margin-top: .2rem; }
+.box p:last-of-type { margin-bottom: 0; }
+.box .src { display: block; margin-top: .7rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .05em; color: var(--gold-dark); }
+
+/* 表（台帳ふう・細罫） */
+.ledger-wrap { overflow-x: auto; margin: 2rem 0; }
+table.ledger { width: 100%; border-collapse: collapse; font-size: .9rem; line-height: 1.7; }
+table.ledger caption {
+  caption-side: top; text-align: left; font-family: var(--font-mono); font-size: .66rem;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--gold-dark); padding-bottom: .55rem;
+}
+table.ledger th, table.ledger td { border: 1px solid var(--border); padding: .6rem .8rem; text-align: left; vertical-align: top; color: var(--text-mid); }
+table.ledger th { background: var(--off-white); color: var(--navy); font-weight: 600; }
+
+/* 線画図版 */
+.figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 2rem 0; background: var(--white); }
+.figure svg { width: 100%; height: auto; display: block; }
+.figcap { margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--border); font-size: .8rem; letter-spacing: .04em; color: var(--text-sub); text-align: center; }
+
+/* 出典 */
+.column-note { margin-top: 3rem; padding-top: 1.3rem; border-top: 1px solid var(--border); font-size: .84rem; line-height: 1.85; color: var(--text-sub); }
+.column-note .note-label { display: block; font-family: var(--font-mono); font-size: .64rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .8rem; }
+.column-note ul { margin: 0; padding-left: 1.4rem; list-style: none; }
+.column-note li { margin: .55rem 0; text-indent: -1.4rem; padding-left: 1.4rem; }
+.column-note li.group { list-style: none; text-indent: 0; padding-left: 0; margin: 1.3rem 0 .45rem; font-size: .8rem; letter-spacing: .1em; color: var(--gold-dark); border-bottom: 1px solid var(--border); padding-bottom: .28rem; }
+.column-note li.group:first-child { margin-top: 0; }
+.column-note a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.35); word-break: break-all; }
+
+/* 奥付 — 初出と権利、書籍と章立てへの導線 */
+.colophon { margin-top: 2.6rem; padding-top: 1.5rem; border-top: 2px solid var(--gold); font-size: .88rem; line-height: 1.9; color: var(--text-sub); }
+.colophon p { margin: .5rem 0; }
+.colophon .rights { font-family: var(--font-mono); font-size: .74rem; letter-spacing: .06em; color: var(--text-sub); }
+.colophon a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.45); }
+
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .06em; color: var(--text-sub); text-align: center; line-height: 2.1; }
+footer a { color: var(--teal-dark); text-decoration: none; }
+@media (max-width: 560px) {
+  nav { padding: 0 1.1rem; }
+  .column { padding: 2.4rem 1.2rem 4rem; }
+  .column p { text-align: left; }
+}
+
+/* --- トップページ専用（clearing/index.html のみ） --- */
+.hub { max-width: 720px; margin: 0 auto; padding: 3.4rem 1.6rem 5rem; }
+.hub h1 { font-family: var(--font-jp); font-size: clamp(1.6rem, 3.8vw, 2.3rem); font-weight: 600; line-height: 1.5; color: var(--navy); margin-bottom: 1.3rem; }
+.hub-lead { margin-bottom: 1.6rem; }
+.hub-lead p { margin: 1.15rem 0; color: var(--text-mid); text-align: justify; }
+.hub-note {
+  font-family: var(--font-mono); font-size: .74rem; letter-spacing: .04em; color: var(--text-sub);
+  padding: .9rem 0 1.7rem; margin-bottom: 1.6rem; border-bottom: 2px solid var(--navy);
+}
+
+/* 用語集への導線（稿ではなく参照面なので、章立ての外に置く） */
+.hub-terms {
+  display: block; border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 2px;
+  padding: 1rem 1.2rem; margin: 0 0 1rem; text-decoration: none; color: inherit;
+}
+.hub-terms:hover { border-color: var(--gold-dark); border-left-color: var(--gold-dark); }
+.hub-terms .k {
+  font-family: var(--font-mono); font-size: .64rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--gold-dark); display: block; margin-bottom: .4rem;
+}
+.hub-terms .t { font-family: var(--font-jp); font-size: .98rem; font-weight: 600; color: var(--navy); line-height: 1.7; }
+.hub-terms .g { font-size: .87rem; color: var(--text-sub); line-height: 1.8; margin-top: .45rem; }
+
+.chapter { margin: 3.2rem 0 0; }
+.chapter-title {
+  font-family: var(--font-jp); font-size: 1.28rem; font-weight: 600; color: var(--navy); line-height: 1.6;
+  padding: .5rem 0 .8rem; margin-bottom: 1.4rem; border-top: 2px solid var(--navy);
+}
+
+.node { margin: 1.8rem 0 0; padding-left: 1.1rem; border-left: 3px solid var(--teal-dark); }
+.node-title { font-family: var(--font-jp); font-size: 1.02rem; font-weight: 600; color: var(--navy); line-height: 1.7; margin-bottom: .9rem; }
+
+.piece {
+  display: block; border: 1px solid var(--border); border-radius: 2px;
+  padding: 1rem 1.2rem; margin: .8rem 0; text-decoration: none; color: inherit;
+}
+.piece:hover { border-color: var(--teal-dark); }
+.piece-title { font-family: var(--font-jp); font-size: .98rem; font-weight: 600; color: var(--navy); line-height: 1.7; margin-bottom: .5rem; }
+.piece-gist { font-size: .87rem; color: var(--text-sub); line-height: 1.8; margin-bottom: .6rem; }
+.piece-date { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; color: var(--text-sub); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">Shun <span>Yanagisawa</span></a>
+  <a class="nav-back" href="/">← ホーム</a>
+</nav>
+
+<div class="hub">
+  <h1>清算</h1>
+  <div class="hub-lead">
+    <p>『デリバティブ・クリアリングのすべて』を書き終えた後も、清算の世界は動き続けています。</p>
+    <p>規制案が公表され、市場の構造が変わり、これまで想定されていなかった清算モデルが現れる。そのたびに、書籍で整理した制度や実務を、新しい事実に照らして見直す必要があります。</p>
+    <p>このページでは、本書の刊行後に起きた変化を、国内外の一次資料に基づいて追っていきます。規制の最新動向だけでなく、それが清算参加者、クリアリング・ブローカー、顧客、市場全体にどのような意味を持つのかを、実務の視点から解説します。</p>
+    <p>各記事は初版の関連する章に沿って整理し、参照資料と初出の日付を記載しています。制度や議論の進展によって、公開後に評価や内容が変わることもあります。</p>
+    <p>なお、本ページに掲載する内容は筆者個人の見解であり、筆者が所属する組織・団体の見解を示すものではありません。</p>
+  </div>
+  <div class="hub-note">章立てには、稿のある章だけを載せています。</div>
+
+  <a class="hub-terms" href="/clearing/terms">
+    <span class="k">参照</span>
+    <div class="t">クリアリング用語集</div>
+    <div class="g">清算実務で使われる主要な用語を、英語の略語、正式名称、日本語訳、短い定義とともに整理しています。実務上、複数の訳語が使われる用語については、代表的な別表記も併記しました。『デリバティブ・クリアリングのすべて』巻末用語集の201語に、刊行後の論点で使う追加語を重ねた全218語を収録しています。</div>
+  </a>
+
+  <div class="chapter">
+    <div class="chapter-title">第3章　クリアリング・プロセスの実践</div>
+    <div class="node">
+      <div class="node-title">第2節 2　証拠金管理のフロー：日々の値洗いと担保授受</div>
+      <a class="piece" href="/clearing/intraday-margin-credit">
+        <div class="piece-title">クリアリング・ブローカーは何をファイナンスしているのか：日中マージン・コールと「時間差の信用」</div>
+        <div class="piece-gist">CCP は日中でも追加証拠金を請求しますが、顧客からの回収が同じ時間内に終わるとは限りません。その時間差を自己資金でつないでいるクリアリング・ブローカーの機能を、米国の residual interest 規制と JSCC の設計から確かめます。</div>
+        <div class="piece-date">2026年8月2日</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-title">第5章　クリアリングのリスク管理</div>
+    <div class="node">
+      <div class="node-title">第6節 2　証拠金慣行（CCP Margin Practices）：リスク管理の最前線と進化</div>
+      <a class="piece" href="/clearing/margin-simulator-transparency">
+        <div class="piece-title">証拠金はどこまで予測できるのか――国際指針が求めるシミュレーターと透明性</div>
+        <div class="piece-gist">2026年の国際指針改定案は、透明性の目標を「再現可能性」に置き、証拠金シミュレーターをその手段に挙げました。公表済みの意見書を読み、CCP と清算参加者・顧客の目線がどこで分かれているのかを整理します。</div>
+        <div class="piece-date">2026年8月2日</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <div class="chapter-title">第7章　クライアント・クリアリングの未来展望</div>
+    <div class="node">
+      <div class="node-title">5　ダイレクト・クリアリングモデル：仲介者なき清算への挑戦と限界</div>
+      <a class="piece" href="/clearing/direct-clearing-credit-boundary">
+        <div class="piece-title">ダイレクト・クリアリングの制度化：与信の有無で何が変わり、何が残るのか</div>
+        <div class="piece-gist">CFTC の意見募集と業界の意見書を読むと、制度の境界線は現物かデリバティブかではなく、与信の有無に引かれていることが分かります。その線が何に答えていないのかまで含めて整理しました。</div>
+        <div class="piece-date">2026年8月2日</div>
+      </a>
+      <a class="piece" href="/clearing/direct-clearing-regulatory-gap">
+        <div class="piece-title">クリアリング・ブローカーを外した後、誰が顧客をチェックするのか</div>
+        <div class="piece-gist">本人確認や資金洗浄防止といった義務は、顧客との直接の関係に紐づいています。クリアリング・ブローカーを外したとき、これらの義務がどこへ移るのかを、制度設計の要求項目として整理します。</div>
+        <div class="piece-date">2026年8月2日</div>
+      </a>
+      <a class="piece" href="/clearing/auto-liquidation-limits">
+        <div class="piece-title">自動ロスカットはFCMを代替できるのか――レバレッジ型ダイレクト・クリアリングの限界</div>
+        <div class="piece-gist">フル担保・プリファンド型の直接清算をレバレッジ型へ広げるとき、自動ロスカットだけでは何が足りないのか。参加者の属性ではなく、資金構造と損失の上限を軸に整理します。</div>
+        <div class="piece-date">2026年8月2日</div>
+      </a>
+      <a class="piece" href="/clearing/japan-otc-margin">
+        <div class="piece-title">日本の店頭FXは、リテール直接清算の先例になるのか――ロスカット運用と損失負担の違い</div>
+        <div class="piece-gist">日本の店頭FXは、CCP を欠いた遅れた制度ではなく、業者自身が顧客の取引相手となる完結した相対取引モデルです。同じロスカット技術を使いながら、法的な取引相手と損失負担の経路が異なる二つのモデルを比べます。</div>
+        <div class="piece-date">2026年8月2日</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="colophon">
+    <p class="rights">© 2026 柳沢 俊</p>
+    <p>初版について → <a href="/book">書籍について</a></p>
+  </div>
+</div>
+
+<footer>
+  <div>柳沢 俊 ／ 清算と市場構造</div>
+  <div><a href="/">shun-yanagisawa.com</a></div>
+</footer>
+
+</body>
+</html>

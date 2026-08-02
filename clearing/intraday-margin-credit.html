@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>クリアリング・ブローカーは何をファイナンスしているのか：日中マージン・コールと「時間差の信用」 — 柳沢 俊</title>
+<meta name="description" content="清算機関は日中でも証拠金を請求しますが、顧客への請求が同じ速さで届くとは限りません。その時間差を自己資金で埋めているのがクリアリング・ブローカーです。LCHの日中マージン・コール、米国のresidual interest規制、JSCCの仕組みから、この「時間差の信用」を見ていきます。">
+<meta property="og:title" content="クリアリング・ブローカーは何をファイナンスしているのか：日中マージン・コールと「時間差の信用」">
+<meta property="og:description" content="清算機関は日中でも証拠金を請求しますが、顧客への請求が同じ速さで届くとは限りません。その時間差を自己資金で埋めているのがクリアリング・ブローカーです。LCHの日中マージン・コール、米国のresidual interest規制、JSCCの仕組みから、この「時間差の信用」を見ていきます。">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="Shun Yanagisawa">
+<link rel="canonical" href="https://www.shun-yanagisawa.com/clearing/intraday-margin-credit">
+<meta property="og:url" content="https://www.shun-yanagisawa.com/clearing/intraday-margin-credit">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* /clearing — 清算の体系（第2版に向けた断片）
+   essays と同じブランド palette を使うが、以下を変える:
+   - 日本語のみ（言語トグルなし・扉写真なし）
+   - 二次テキストは #3d4148 以深（薄いグレーは使わない）
+   - 強調は太字を使わない。番号見出し / 罫線囲み / 傍点 / 表で立てる */
+:root {
+  --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
+  --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f7efe0;
+  --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
+  --text: #14161b; --text-mid: #24272e; --text-sub: #3d4148; --border: #d3cec3;
+  --font-display: 'Playfair Display', 'Noto Sans JP', Georgia, sans-serif;
+  --font-jp: 'Noto Sans JP', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--white); color: var(--text); font-family: var(--font-jp); font-size: 17px; line-height: 1.95; }
+
+nav {
+  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+.nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo span { color: var(--teal-dark); }
+.nav-back { font-family: var(--font-jp); font-size: .82rem; letter-spacing: .04em; color: var(--text-sub); text-decoration: none; }
+.nav-back:hover { color: var(--teal-dark); }
+
+.column { max-width: 720px; margin: 0 auto; padding: 3.4rem 1.6rem 5rem; }
+
+/* 帰属 — 初版のどこの続きか */
+.column-kicker {
+  font-family: var(--font-jp); font-size: .78rem; letter-spacing: .1em; color: var(--teal-dark);
+  padding-bottom: .5rem; margin-bottom: 1.1rem; border-bottom: 1px solid var(--border);
+}
+.column-kicker .bookmark { color: var(--text-sub); }
+h1 { font-family: var(--font-jp); font-size: clamp(1.5rem, 3.6vw, 2.1rem); font-weight: 600; line-height: 1.5; color: var(--navy); margin-bottom: .9rem; }
+.column-sub { font-size: 1rem; color: var(--text-sub); margin-bottom: 1.4rem; line-height: 1.85; }
+.column-meta {
+  display: flex; flex-wrap: wrap; gap: .35rem 1.5rem;
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .06em; color: var(--text-sub);
+  padding-bottom: 1.5rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.3rem;
+}
+
+.column h2 {
+  font-family: var(--font-jp); font-size: 1.16rem; font-weight: 600; color: var(--navy); line-height: 1.6;
+  margin: 3rem 0 1rem; padding: .35rem 0 .5rem .9rem;
+  border-left: 3px solid var(--navy); border-bottom: 1px solid var(--border);
+}
+.column h2 .hnum { font-family: var(--font-mono); font-size: .82rem; font-weight: 400; color: var(--teal-dark); margin-right: .75rem; letter-spacing: .05em; }
+
+.column p { margin: 1.15rem 0; color: var(--text-mid); text-align: justify; letter-spacing: .015em; }
+.column a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.45); }
+.column a:hover { border-bottom-color: var(--teal-dark); }
+.column ul, .column ol { margin: 1.15rem 0 1.15rem 1.6rem; color: var(--text-mid); }
+.column li { margin: .45rem 0; }
+
+/* 傍点（短い日本語の語句のみ・目安10字以内。英語フレーズには使わない） */
+.em { -webkit-text-emphasis: filled dot var(--navy); text-emphasis: filled dot var(--navy); font-style: normal; }
+/* 英語の原語・書名 */
+.column em { font-style: italic; }
+.column cite { font-style: normal; }
+
+/* 罫線囲み＋小ラベル（当局原文の引用・要点の囲みに使う） */
+.box {
+  border: 1px solid var(--gold); border-left: 4px solid var(--gold); background: var(--gold-light);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0; border-radius: 2px;
+  font-size: .98rem; color: var(--navy); line-height: 1.9; position: relative; text-align: justify;
+}
+.box .box-label {
+  position: absolute; top: -.72rem; left: 1rem; background: var(--white);
+  font-family: var(--font-mono); font-size: .64rem; letter-spacing: .18em;
+  color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase;
+}
+.box p:first-of-type { margin-top: .2rem; }
+.box p:last-of-type { margin-bottom: 0; }
+.box .src { display: block; margin-top: .7rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .05em; color: var(--gold-dark); }
+
+/* 表（台帳ふう・細罫） */
+.ledger-wrap { overflow-x: auto; margin: 2rem 0; }
+table.ledger { width: 100%; border-collapse: collapse; font-size: .9rem; line-height: 1.7; }
+table.ledger caption {
+  caption-side: top; text-align: left; font-family: var(--font-mono); font-size: .66rem;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--gold-dark); padding-bottom: .55rem;
+}
+table.ledger th, table.ledger td { border: 1px solid var(--border); padding: .6rem .8rem; text-align: left; vertical-align: top; color: var(--text-mid); }
+table.ledger th { background: var(--off-white); color: var(--navy); font-weight: 600; }
+
+/* 線画図版 */
+.figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 2rem 0; background: var(--white); }
+.figure svg { width: 100%; height: auto; display: block; }
+.figcap { margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--border); font-size: .8rem; letter-spacing: .04em; color: var(--text-sub); text-align: center; }
+
+/* 出典 */
+.column-note { margin-top: 3rem; padding-top: 1.3rem; border-top: 1px solid var(--border); font-size: .84rem; line-height: 1.85; color: var(--text-sub); }
+.column-note .note-label { display: block; font-family: var(--font-mono); font-size: .64rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .8rem; }
+.column-note ul { margin: 0; padding-left: 1.4rem; list-style: none; }
+.column-note li { margin: .55rem 0; text-indent: -1.4rem; padding-left: 1.4rem; }
+.column-note li.group { list-style: none; text-indent: 0; padding-left: 0; margin: 1.3rem 0 .45rem; font-size: .8rem; letter-spacing: .1em; color: var(--gold-dark); border-bottom: 1px solid var(--border); padding-bottom: .28rem; }
+.column-note li.group:first-child { margin-top: 0; }
+.column-note a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.35); word-break: break-all; }
+
+/* 奥付 — 初出と権利、書籍と章立てへの導線 */
+.colophon { margin-top: 2.6rem; padding-top: 1.5rem; border-top: 2px solid var(--gold); font-size: .88rem; line-height: 1.9; color: var(--text-sub); }
+.colophon p { margin: .5rem 0; }
+.colophon .rights { font-family: var(--font-mono); font-size: .74rem; letter-spacing: .06em; color: var(--text-sub); }
+.colophon a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.45); }
+
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .06em; color: var(--text-sub); text-align: center; line-height: 2.1; }
+footer a { color: var(--teal-dark); text-decoration: none; }
+@media (max-width: 560px) {
+  nav { padding: 0 1.1rem; }
+  .column { padding: 2.4rem 1.2rem 4rem; }
+  .column p { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">Shun <span>Yanagisawa</span></a>
+  <a class="nav-back" href="/clearing/">← 清算・章立てへ</a>
+</nav>
+
+<article class="column">
+  <div class="column-kicker">『デリバティブ・クリアリングのすべて』<span class="bookmark">第3章 第2節 2「証拠金管理のフロー」</span> の続き</div>
+  <h1>クリアリング・ブローカーは何をファイナンスしているのか：日中マージン・コールと「時間差の信用」</h1>
+  <p class="column-sub">清算機関は、相場が動くたびに日中でも証拠金を請求します。ところが顧客への請求は、同じ速さで届くとは限りません。CCPへの支払いを先に行い、顧客からは後で回収する、その時間差を自己資金で埋めているのがクリアリング・ブローカーです。本稿では、LCHの日中マージン・コール、米国の<em>residual interest</em>規制、JSCCの金利スワップ清算を手がかりに、この「時間差の信用」がどのように生じているのかを見ていきます。</p>
+  <div class="column-meta">
+    <span>2026年7月</span>
+    <span>約10分</span>
+    <span>一次資料 11点</span>
+  </div>
+
+  <p>相場が大きく動くと、中央清算機関（CCP）は、日中でも清算参加者に追加証拠金を請求します。LCHのSwapClearでは、定時の日中マージン・コールが1日3回設定されており、清算参加者は、原則として請求から1時間以内に資金を手当てしなければなりません。</p>
+  <p>一方、顧客へのマージン・コールが、CCPと同じ頻度、同じタイミングで行われるとは限りません。CCPへの支払いを先に行い、顧客からは後で回収する。その時間差を自己資金で埋めているのが、クリアリング・ブローカーです。</p>
+  <p>クリアリング・ブローカーがファイナンスしているのは、証拠金そのものではありません。CCPへの証拠金差入れと、顧客からの資金回収との間に生じる、日中のファンディング・ギャップです。</p>
+  <p>顧客に明示的なローンを提供していなくても、この時間差を引き受ける限り、クリアリング・ブローカーには信用エクスポージャーが発生します。本稿では、LCHの日中マージン・コール、米国のresidual interest規制、JSCCの金利スワップ清算を手がかりに、この「時間差の信用」がどのように生じているのかを見ていきます。</p>
+
+  <h2><span class="hnum">1</span>LCH――1日3回の定時コールと、1時間の資金手当て</h2>
+  <p>LCHのSwapClearでは、日中の証拠金計算サイクルが、米国東部時間の午前5時45分、午前10時45分、午後1時45分の1日3回、定時で実施されます。</p>
+  <p>ただし、日中のマージン・コールがこの3回に限られるわけではありません。LCHは、定時サイクルの実施時刻を変更し、必要に応じて追加のサイクルを行う権限を留保しています。市場が大きく変動した場合には、営業日の途中で臨時のマージン・コールが行われる可能性があります。</p>
+  <p>請求を受ける清算参加者に、長い支払猶予はありません。</p>
+  <p>LCHの手続書によれば、日中マージン・コールは営業日のいつでも行われ得ます。請求額は、原則として清算参加者の決済口座から直接引き落とされ、清算参加者は、請求から1時間以内に必要な現金を用意しておく責任を負います。</p>
+  <p>期限までに支払えなければ、原則としてデフォルト事由に該当し得ます。</p>
+  <p>ここで重要なのは、CCPの仕組みが、清算参加者への支払猶予や信用供与を前提としていないことです。市場価格の変動によってエクスポージャーが増えれば、CCPは追加証拠金を計算し、速やかに資金を回収します。</p>
+  <p>CCPの側では、価格変動と資金回収が、短い時間で結びついています。</p>
+
+  <h2><span class="hnum">2</span>顧客からの回収は、CCPと同じ速度では動かない</h2>
+  <p>ところが、CCPから受けた日中マージン・コールを、クリアリング・ブローカーがそのまま即時に顧客へ転嫁できるとは限りません。</p>
+  <p>FIAが2020年に公表した白書は、清算参加者が、一般にはCCPからの日中マージン・コールを顧客へ即時転嫁できず、顧客ポジションの損失がEODの証拠金計算に反映されるまで、自己資金で一時的にファイナンスすることがあると説明しています。</p>
+  <p>ISDAとFIAが2023年に米国証券取引委員会へ提出した共同意見書でも、日中に必要な流動性を即時調達できない顧客や、日中のマージン・コールに対応するオペレーションを持たない顧客について、清算参加者が顧客に代わってCCPへの支払いに応じる契約があると述べられています。</p>
+  <p>BIS、CPMI、IOSCOによる2022年の証拠金慣行レビューも、同じ構造を捉えています。</p>
+  <p>顧客契約の中には、日中マージン・コールをクリアリング・ブローカーが吸収するものがある一方、顧客への追加請求を一定の条件で制限するものもあります。また、将来の日中コールに備えて、顧客または清算参加者が、必要額を上回る担保をあらかじめCCPへ差し入れておく慣行も確認されています。</p>
+  <p>ここで区別しなければならないのは、ポジションを評価するタイミングと、実際に顧客から現金を回収するタイミングです。</p>
+  <p>顧客ポジションも日中に再評価され得ます。しかし、評価によって認識された損失が、直ちにキャッシュのマージン・コールとして顧客へ通知され、同じ時間内に回収されるとは限りません。</p>
+  <p>CCPにはすでに支払っているが、顧客からはまだ回収していない。</p>
+  <p>この状態が続く数時間、クリアリング・ブローカーのバランスシートと流動性が、その差額を支えています。</p>
+
+  <h2><span class="hnum">3</span>時間差が信用エクスポージャーになる</h2>
+  <p>信用供与という言葉からは、銀行が顧客を審査し、融資枠を設定して資金を貸し出す場面が想起されます。</p>
+  <p>しかし、クリアリングにおける信用供与は、必ずしも明示的なローンという形では現れません。</p>
+  <p>CCPへの支払いを顧客からの入金より先に行えば、その時点でクリアリング・ブローカーは顧客に対する信用エクスポージャーを負います。顧客が後から資金を入金すれば、このエクスポージャーは解消します。顧客が支払えなければ、立替額の一部または全部が損失になる可能性があります。</p>
+  <p>したがって、この信用の大きさは、立替額だけで決まるものではありません。</p>
+  <p>どれだけの金額を、どれだけの時間、どの顧客のためにファイナンスしているのか。さらに、その顧客から回収できる確率はどの程度か。これらの組合せによって、実質的な信用リスクが決まります。</p>
+  <p>時間差は、単なるオペレーション上のずれではありません。資金を先に出した主体にとっては、信用エクスポージャーそのものです。</p>
+
+  <h2><span class="hnum">4</span>米国の<em>residual interest</em>――不足を誰の資金で埋めるのか</h2>
+  <p>米国では、この構造の一部が、<em>residual interest</em>規制として制度化されています。</p>
+  <p>CFTC規則1.22は、先物顧客口座に証拠金不足がある場合、FCMが一定額以上の自己資金を顧客分別口座に維持することを求めています。必要額は、規則に定められた方法で計算され、<em>residual interest</em>を維持すべき期限は、決済日の米国東部時間午後6時です。</p>
+  <p>この規制が直接求めているのは、顧客から期限までに資金を取り立てることではありません。顧客口座に不足が残っている場合に、その不足をFCM自身の資金で補完することです。</p>
+  <p>ただし、この制度の目的を「顧客に支払猶予を与えること」と理解するのは正確ではありません。</p>
+  <p><em>residual interest</em>規制の主な目的は、証拠金を入金していない顧客の不足を、他の顧客の分別資産で穴埋めさせないことにあります。その結果として、顧客からの資金回収が完了するまで、FCMが自己資金を投入する必要が生じます。</p>
+  <p>したがって、<em>residual interest</em>は、日中マージン・コールの立替えそのものを規制した制度ではありません。しかし、顧客からの入金と、清算・分別管理上必要な資金との間に差がある場合、その差をFCMの自己資金で埋めるという点で、同じ経済構造を持っています。</p>
+  <p>顧客不足額を誰の資金で支えるのか。</p>
+  <p>米国の規則は、その答えをFCMの自己資金としています。</p>
+
+  <h2><span class="hnum">5</span>JSCC――取引を受け入れる段階でもリスクを管理する</h2>
+  <p>日本証券クリアリング機構（JSCC）の金利スワップ清算では、LCHとは異なるリスク管理上の特徴が見られます。</p>
+  <p>JSCCの公表資料によれば、新規取引の債務負担は、9時から12時、13時から16時、17時30分から19時の時間帯に行われます。申し込まれた取引について、清算対象取引であるか、また債務負担によって担保不足が生じないかを確認したうえで、リアルタイムに債務負担が行われます。</p>
+  <p>また、既存ポジションについては、正午時点のポジションを基準に日中証拠金が計算され、必要な担保が預託されます。</p>
+  <p>この仕組みでは、価格変動後に追加証拠金を徴求するだけでなく、新規取引をCCPが受け入れる段階でも、担保の充足状況を確認しています。</p>
+  <p>したがって、担保が不足した状態で新たなポジションが積み上がることを、取引受入れ時点で抑制できます。</p>
+  <p>ただし、これを「LCHは事後管理、JSCCは事前管理」と単純に二分するのは適切ではありません。LCHにも取引受入れ時のリスク管理があり、JSCCにも既存ポジションに対する日中証拠金管理があります。</p>
+  <p>また、取引受入れ時に担保を確認しても、CCPと顧客との間に生じる資金決済のタイミング差が、すべてなくなるわけではありません。</p>
+  <p>JSCCの特徴は、事後的なマージン・コールだけに依存せず、取引を受け入れる段階にも担保チェックを組み込んでいることです。この追加的なゲートによって、無担保の信用エクスポージャーが拡大する余地を抑えています。</p>
+
+  <h2><span class="hnum">6</span>クリアリング・ブローカーが提供する二つのバッファー</h2>
+  <p>クリアリング・ブローカーを「CCPと顧客の間のバッファー」と表現することがあります。</p>
+  <p>ただし、このバッファーには、性質の異なる二つの機能があります。</p>
+  <p>一つは、清算参加者が破綻したときに働く損失吸収バッファーです。デフォルト・ファンドへの拠出が、その代表です。FIAが引用する米国主要5清算機関のデータでは、デフォルト・ファンドの98.5％を清算参加者が拠出しています。</p>
+  <p>もう一つは、破綻が起きていない平時に、毎日働く流動性バッファーです。</p>
+  <p>CCPが日中にマージン・コールを行い、顧客からの資金回収がそれより後になる場合、その間をクリアリング・ブローカーの自己資金がつなぎます。これは損失を最終的に吸収する仕組みではなく、資金需要が顧客へ伝わるタイミングを平準化する仕組みです。</p>
+  <p>前者が損失を吸収するのに対し、後者は流動性需要の時間差を吸収します。</p>
+  <p>ただし、この機能は、単に現金を出せば成立するものではありません。</p>
+  <p>どの顧客に、いくらまで、どの程度の時間、資金を使わせるのか。その判断には、顧客の信用審査、与信限度額の設定、イントラデイのリスク・モニタリング、担保管理、流動性管理、そしてマージン・オペレーションが必要です。</p>
+  <p>クリアリング・ブローカーの価値は、資金を立て替えることだけではありません。信用判断、リスク管理、オペレーション、そして資金供給を一体として提供している点にあります。</p>
+
+  <h2><span class="hnum">7</span>ダイレクト・クリアリングで、流動性需要は消えるのか</h2>
+  <p>この構造は、クリアリング・ブローカーを介さずに顧客がCCPへ直接参加する、ダイレクト・クリアリングの議論にもつながります。</p>
+  <p>顧客がCCPの直接参加者になれば、クリアリング・ブローカーが顧客に代わって日中マージンを支払う構造はなくなります。</p>
+  <p>しかし、クリアリング・ブローカーがいなくなっても、日中マージン・コールそのものがなくなるわけではありません。</p>
+  <p>市場が変動すれば、CCPは引き続き追加証拠金を請求します。直接参加者は、請求に応じるための自己流動性、超過担保、コミットメント・ライン、決済銀行からのイントラデイ・クレジットなどを、自ら用意しなければなりません。</p>
+  <p>全額担保やプリファンディングを採用すれば、顧客に対する無担保信用供与を大幅に減らすことはできます。しかし、価格変動に伴う流動性需要や、担保を現金化して支払いに充てるまでの時間まで、完全になくせるわけではありません。</p>
+  <p>したがって、ダイレクト・クリアリングにおける本質的な問いは、立替えが必要かどうかではありません。</p>
+  <p>誰が日中の流動性を用意するのか。</p>
+  <p>クリアリング・ブローカーを外すのであれば、これまでクリアリング・ブローカーが提供していたファンディング機能を、直接参加者自身または別の流動性プロバイダーが引き受ける必要があります。</p>
+
+  <h2><span class="hnum">8</span>クリアリング・ブローカーが吸収しているのは「時間」である</h2>
+  <p>クリアリング・ブローカーは、単に顧客注文をCCPへ取り次ぐ仲介業者ではありません。</p>
+  <p>CCPは、価格変動を短い時間でマージン・コールへ変換し、清算参加者から資金を回収します。一方、顧客の資金調達や社内承認、決済オペレーションは、必ずしも同じ速度では動きません。</p>
+  <p>クリアリング・ブローカーは、この二つの異なる時間軸の間に立っています。</p>
+  <p>CCPへの支払いを先に行い、顧客から後で回収することで、高頻度で発生するCCPの流動性需要を、顧客が対応できる資金決済のリズムへ変換しています。</p>
+  <p>デフォルト・ファンドが、破綻時の損失を吸収する仕組みだとすれば、日中のファンディングは、平時の時間差を吸収する仕組みです。</p>
+  <p>クリアリング・ブローカーが吸収しているものは、損失だけではありません。</p>
+  <p>価格変動が資金需要へ変わり、その資金需要が顧客へ届くまでの「時間」もまた、クリアリング・ブローカーのバランスシートによって支えられています。</p>
+
+  <h2><span class="hnum">9</span>注記</h2>
+  <p>LCHの定時1日3回という記述は、SwapClearについてのものです。他の清算サービスや商品では、日中マージン・コールの回数や時刻が異なる可能性があります。</p>
+  <p>顧客向けマージン・コールの頻度やタイミングは、顧客契約、商品、業者のリスク管理方針によって異なります。本稿で述べたEODでの回収は、業界全体に一律に適用されるルールではありません。</p>
+  <p>JSCCについては、金利スワップ清算に関する公表資料に基づいており、他の清算業務に同じ仕組みが適用されることを意味しません。</p>
+
+  <div class="column-note">
+    <span class="note-label">一次資料</span>
+    <ul>
+      <li class="group">清算機関から清算参加者への請求</li>
+      <li>LCH Limited の日中証拠金サイクル（SwapClear は定時三回・EST 05:45／10:45／13:45・時刻変更と追加サイクルの権利を留保）— CFTC 公表の DCO margin timelines 資料 <a href="https://www.cftc.gov/sites/default/files/idc/groups/public/@clearingintermediary/documents/file/dcomargintimelines.pdf">https://www.cftc.gov/sites/default/files/idc/groups/public/@clearingintermediary/documents/file/dcomargintimelines.pdf</a></li>
+      <li>LCH Limited「日中の証拠金請求は営業日のいつでも行える」／決済口座からの直接引き落としと<span class="em">請求から一時間以内</span>の現金用意義務 — LCH Procedures（CFTC filing・2021-10 / 2022-04）<a href="https://www.cftc.gov/filings/orgrules/rule100121lchltddco005.pdf">https://www.cftc.gov/filings/orgrules/rule100121lchltddco005.pdf</a> ／ <a href="https://www.cftc.gov/sites/default/files/filings/orgrules/22/04/rule040422lchltddco003.pdf">https://www.cftc.gov/sites/default/files/filings/orgrules/22/04/rule040422lchltddco003.pdf</a></li>
+      <li>「各清算サービスについて日中証拠金請求を行う権限と実行能力を有する」／不払いは一応のデフォルト事由 — LCH Ltd CPMI-IOSCO 自己評価（評価基準日 2024-03-31）<a href="https://www.lseg.com/content/dam/post-trade/en_us/documents/lch/ccp-disclosures/lch-ltd-cpmi-iosco-self-qualitative-assessment-pfm-q1-2025.pdf">https://www.lseg.com/content/dam/post-trade/en_us/documents/lch/ccp-disclosures/lch-ltd-cpmi-iosco-self-qualitative-assessment-pfm-q1-2025.pdf</a></li>
+      <li class="group">清算参加者から顧客への請求（立て替えの構造）</li>
+      <li>「清算参加者は一般に日中コールを顧客に転嫁できず、営業終了時の証拠金計算に組み込まれるまで顧客の取引損失を一時的に自己資金で賄う」— FIA, <em>Revisiting Procyclicality: The Impact of the COVID Crisis on CCP Margin Requirements</em>（2020-10・§3.1.3・p.25）<a href="https://www.fia.org/sites/default/files/2020-10/FIA_WP_Procyclicality_CCP%20Margin%20Requirements_1.pdf">https://www.fia.org/sites/default/files/2020-10/FIA_WP_Procyclicality_CCP%20Margin%20Requirements_1.pdf</a></li>
+      <li>「日中流動性にアクセスできない顧客や時間内に応じる体制のない顧客は、清算参加者が代わりにコールに応じる取り決めを持つ」— ISDA・FIA 共同意見書（SEC・RIN 3235-AN19・2023-07-17・p.7）<a href="https://www.isda.org/a/psogE/ISDA-FIA-2023-SEC-recovery-and-margin-submisssion-071723.pdf">https://www.isda.org/a/psogE/ISDA-FIA-2023-SEC-recovery-and-margin-submisssion-071723.pdf</a></li>
+      <li>「一部の相対契約ではクリアリング・ブローカーが日中コールを吸収する取り決めになっていた」（§5.2・p.32）／超過担保を日中コールのバッファとして置く慣行（§2.3 脚注38・p.17）／VM は通常少なくとも日次、より頻繁に日中も（§1.2.2・p.6）— BIS・CPMI・IOSCO, <em>Review of margining practices</em>（2022-09）<a href="https://www.bis.org/bcbs/publ/d537.pdf">https://www.bis.org/bcbs/publ/d537.pdf</a></li>
+      <li class="group">米国の residual interest</li>
+      <li>17 CFR 1.22 — Residual Interest Deadline は決済日の東部時間 18:00。同条 (c)(2) の計算額以上の <em>residual interest</em> を分別管理口座に維持する義務。[78 FR 68631, Nov. 14, 2013, as amended at 80 FR 15509, Mar. 24, 2015] <a href="https://www.govinfo.gov/content/pkg/CFR-2024-title17-vol1/xml/CFR-2024-title17-vol1-sec1-22.xml">https://www.govinfo.gov/content/pkg/CFR-2024-title17-vol1/xml/CFR-2024-title17-vol1-sec1-22.xml</a></li>
+      <li>「規則 1.22 は FCM に、毎営業日の営業終了時点で先物顧客の証拠金不足額の合計を計算することを求めている」— CFTC Press Release 7137-15（2015-03-17）<a href="https://www.cftc.gov/PressRoom/PressReleases/7137-15">https://www.cftc.gov/PressRoom/PressReleases/7137-15</a></li>
+      <li class="group">JSCC</li>
+      <li>債務負担の時間帯（9-12時／13-16時／17:30-19時）とリアルタイムでの担保不足確認 — JSCC「債務負担申込みフロー及び債務負担タイミング」（2025-07-01 時点）<a href="https://www.jpx.co.jp/jscc/otc/u89at30000007urc-att/clearing_20250701.pdf">https://www.jpx.co.jp/jscc/otc/u89at30000007urc-att/clearing_20250701.pdf</a></li>
+      <li>日中証拠金は正午時点のポジションで算出して預託 — JSCC「証拠金」（2025-03-24 時点）<a href="https://www.jpx.co.jp/jscc/otc/u89at30000007urc-att/margin_20250324.pdf">https://www.jpx.co.jp/jscc/otc/u89at30000007urc-att/margin_20250324.pdf</a></li>
+      <li class="group">書籍</li>
+      <li>拙著『デリバティブ・クリアリングのすべて』第3章 第2節 2「証拠金管理のフロー：日々の値洗いと担保授受」／第5章 第5節 3「クリアリングブローカーのリスク管理体制：顧客とCCPの狭間で」／第6章 第3節 4「日本市場における分別管理モデル（JSCCモデル）：高い安全性と効率性の両立への挑戦」</li>
+    </ul>
+  </div>
+
+  <div class="colophon">
+    <p class="rights">初出: 2026年8月2日　／　© 2026 柳沢 俊</p>
+    <p>本稿は『デリバティブ・クリアリングのすべて』第3章 第2節 2「証拠金管理のフロー：日々の値洗いと担保授受」 の続きにあたります。 → <a href="/book">書籍について</a></p>
+    <p>第2版に向けて検討中の論点 → <a href="/clearing/">清算の章立てへ</a></p>
+    <p>本稿に記載する内容は筆者個人の見解であり、筆者が所属する組織・団体の見解を示すものではありません。</p>
+  </div>
+</article>
+
+<footer>
+  <div>柳沢 俊 ／ 清算と市場構造</div>
+  <div><a href="/">shun-yanagisawa.com</a> · <a href="/clearing/">章立て</a></div>
+</footer>
+
+</body>
+</html>

@@ -25,6 +25,18 @@
 - [When Leaving Costs Nothing](https://www.shun-yanagisawa.com/essays/when-leaving-costs-nothing)
 - [When the Organization Folds Into the Mind](https://www.shun-yanagisawa.com/essays/when-the-org-folds-into-the-head)
 
+## Clearing (Japanese) — derivatives clearing, written by the author of the standard Japanese text
+
+Short pieces placed on the chapter structure of "デリバティブ・クリアリングのすべて" (All About Derivatives Clearing, Shun Yanagisawa), recording what moved in clearing regulation after the first edition. Each piece is written from primary sources and carries its first-publication date.
+
+- [清算 — 章立て / Clearing index](https://www.shun-yanagisawa.com/clearing/)
+- [クリアリング用語集 / Clearing glossary](https://www.shun-yanagisawa.com/clearing/terms): The full glossary from the back matter of "デリバティブ・クリアリングのすべて" — 208 Japanese-language definitions of derivatives clearing terms (CCP, default waterfall, initial and variation margin, cover-n, skin in the game, auto-liquidation), with English abbreviations, formal English names, and alternative Japanese renderings where translations differ in practice.
+- [クリアリング・ブローカーは何をファイナンスしているのか：日中マージン・コールと「時間差の信用」](https://www.shun-yanagisawa.com/clearing/intraday-margin-credit)
+- [ダイレクト・クリアリングの制度化：与信の有無という境界線](https://www.shun-yanagisawa.com/clearing/direct-clearing-credit-boundary)
+- [クリアリング・ブローカーを外した後、誰が顧客をチェックするのか](https://www.shun-yanagisawa.com/clearing/direct-clearing-regulatory-gap)
+- [自動ロスカットはFCMを代替できるのか――レバレッジ型ダイレクト・クリアリングの限界](https://www.shun-yanagisawa.com/clearing/auto-liquidation-limits)
+- [日本の店頭FXは、リテール直接清算の先例になるのか――ロスカット運用と損失負担の違い](https://www.shun-yanagisawa.com/clearing/japan-otc-margin)
+
 ## Notes
 
 - Central theme: "In complex, uncertain systems, how do humans design order and trust?"

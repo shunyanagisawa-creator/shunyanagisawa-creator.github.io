@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>証拠金はどこまで予測できるのか――国際指針が求めるシミュレーターと透明性 — 柳沢 俊</title>
+<meta name="description" content="2026年の国際指針改定案は、証拠金の透明性の目標を「再現可能性」に置き、証拠金シミュレーターをその手段に挙げました。公表済みの意見書から、CCPと清算参加者・顧客の目線がどこで分かれているのかを整理します。">
+<meta property="og:title" content="証拠金はどこまで予測できるのか――国際指針が求めるシミュレーターと透明性">
+<meta property="og:description" content="2026年の国際指針改定案は、証拠金の透明性の目標を「再現可能性」に置き、証拠金シミュレーターをその手段に挙げました。公表済みの意見書から、CCPと清算参加者・顧客の目線がどこで分かれているのかを整理します。">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="Shun Yanagisawa">
+<link rel="canonical" href="https://www.shun-yanagisawa.com/clearing/margin-simulator-transparency">
+<meta property="og:url" content="https://www.shun-yanagisawa.com/clearing/margin-simulator-transparency">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* /clearing — 清算の体系（第2版に向けた断片）
+   essays と同じブランド palette を使うが、以下を変える:
+   - 日本語のみ（言語トグルなし・扉写真なし）
+   - 二次テキストは #3d4148 以深（薄いグレーは使わない）
+   - 強調は太字を使わない。番号見出し / 罫線囲み / 傍点 / 表で立てる */
+:root {
+  --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
+  --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f7efe0;
+  --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
+  --text: #14161b; --text-mid: #24272e; --text-sub: #3d4148; --border: #d3cec3;
+  --font-display: 'Playfair Display', 'Noto Sans JP', Georgia, sans-serif;
+  --font-jp: 'Noto Sans JP', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--white); color: var(--text); font-family: var(--font-jp); font-size: 17px; line-height: 1.95; }
+
+nav {
+  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+.nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo span { color: var(--teal-dark); }
+.nav-back { font-family: var(--font-jp); font-size: .82rem; letter-spacing: .04em; color: var(--text-sub); text-decoration: none; }
+.nav-back:hover { color: var(--teal-dark); }
+
+.column { max-width: 720px; margin: 0 auto; padding: 3.4rem 1.6rem 5rem; }
+
+/* 帰属 — 初版のどこの続きか */
+.column-kicker {
+  font-family: var(--font-jp); font-size: .78rem; letter-spacing: .1em; color: var(--teal-dark);
+  padding-bottom: .5rem; margin-bottom: 1.1rem; border-bottom: 1px solid var(--border);
+}
+.column-kicker .bookmark { color: var(--text-sub); }
+h1 { font-family: var(--font-jp); font-size: clamp(1.5rem, 3.6vw, 2.1rem); font-weight: 600; line-height: 1.5; color: var(--navy); margin-bottom: .9rem; }
+.column-sub { font-size: 1rem; color: var(--text-sub); margin-bottom: 1.4rem; line-height: 1.85; }
+.column-meta {
+  display: flex; flex-wrap: wrap; gap: .35rem 1.5rem;
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .06em; color: var(--text-sub);
+  padding-bottom: 1.5rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.3rem;
+}
+
+.column h2 {
+  font-family: var(--font-jp); font-size: 1.16rem; font-weight: 600; color: var(--navy); line-height: 1.6;
+  margin: 3rem 0 1rem; padding: .35rem 0 .5rem .9rem;
+  border-left: 3px solid var(--navy); border-bottom: 1px solid var(--border);
+}
+.column h2 .hnum { font-family: var(--font-mono); font-size: .82rem; font-weight: 400; color: var(--teal-dark); margin-right: .75rem; letter-spacing: .05em; }
+
+.column p { margin: 1.15rem 0; color: var(--text-mid); text-align: justify; letter-spacing: .015em; }
+.column a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.45); }
+.column a:hover { border-bottom-color: var(--teal-dark); }
+.column ul, .column ol { margin: 1.15rem 0 1.15rem 1.6rem; color: var(--text-mid); }
+.column li { margin: .45rem 0; }
+
+/* 傍点（短い日本語の語句のみ・目安10字以内。英語フレーズには使わない） */
+.em { -webkit-text-emphasis: filled dot var(--navy); text-emphasis: filled dot var(--navy); font-style: normal; }
+/* 英語の原語・書名 */
+.column em { font-style: italic; }
+.column cite { font-style: normal; }
+
+/* 罫線囲み＋小ラベル（当局原文の引用・要点の囲みに使う） */
+.box {
+  border: 1px solid var(--gold); border-left: 4px solid var(--gold); background: var(--gold-light);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0; border-radius: 2px;
+  font-size: .98rem; color: var(--navy); line-height: 1.9; position: relative; text-align: justify;
+}
+.box .box-label {
+  position: absolute; top: -.72rem; left: 1rem; background: var(--white);
+  font-family: var(--font-mono); font-size: .64rem; letter-spacing: .18em;
+  color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase;
+}
+.box p:first-of-type { margin-top: .2rem; }
+.box p:last-of-type { margin-bottom: 0; }
+.box .src { display: block; margin-top: .7rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .05em; color: var(--gold-dark); }
+
+/* 表（台帳ふう・細罫） */
+.ledger-wrap { overflow-x: auto; margin: 2rem 0; }
+table.ledger { width: 100%; border-collapse: collapse; font-size: .9rem; line-height: 1.7; }
+table.ledger caption {
+  caption-side: top; text-align: left; font-family: var(--font-mono); font-size: .66rem;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--gold-dark); padding-bottom: .55rem;
+}
+table.ledger th, table.ledger td { border: 1px solid var(--border); padding: .6rem .8rem; text-align: left; vertical-align: top; color: var(--text-mid); }
+table.ledger th { background: var(--off-white); color: var(--navy); font-weight: 600; }
+
+/* 出典 */
+.column-note { margin-top: 3rem; padding-top: 1.3rem; border-top: 1px solid var(--border); font-size: .84rem; line-height: 1.85; color: var(--text-sub); }
+.column-note .note-label { display: block; font-family: var(--font-mono); font-size: .64rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .8rem; }
+.column-note ul { margin: 0; padding-left: 1.4rem; list-style: none; }
+.column-note li { margin: .55rem 0; text-indent: -1.4rem; padding-left: 1.4rem; }
+.column-note a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.35); word-break: break-all; }
+
+/* 奥付 — 初出と権利、書籍と章立てへの導線 */
+.colophon { margin-top: 2.6rem; padding-top: 1.5rem; border-top: 2px solid var(--gold); font-size: .88rem; line-height: 1.9; color: var(--text-sub); }
+.colophon p { margin: .5rem 0; }
+.colophon .rights { font-family: var(--font-mono); font-size: .74rem; letter-spacing: .06em; color: var(--text-sub); }
+.colophon a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.45); }
+
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .06em; color: var(--text-sub); text-align: center; line-height: 2.1; }
+footer a { color: var(--teal-dark); text-decoration: none; }
+@media (max-width: 560px) {
+  nav { padding: 0 1.1rem; }
+  .column { padding: 2.4rem 1.2rem 4rem; }
+  .column p { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">Shun <span>Yanagisawa</span></a>
+  <a class="nav-back" href="/clearing/">← 清算・章立てへ</a>
+</nav>
+
+<article class="column">
+  <div class="column-kicker">『デリバティブ・クリアリングのすべて』<span class="bookmark">第5章 第6節</span> の続き</div>
+  <h1>証拠金はどこまで予測できるのか</h1>
+  <p class="column-sub">国際指針が求めるシミュレーターと透明性</p>
+  <div class="column-meta">
+    <span>2026年8月2日</span>
+    <span>約9分</span>
+    <span>一次資料 9点</span>
+  </div>
+
+  <h2><span class="hnum">1</span>なぜ証拠金シミュレーターが必要なのか</h2>
+
+  <p>2020年3月の市場急変動で、清算機関（<a href="/clearing/terms#ccp">CCP</a>）の<a href="/clearing/terms#im">当初証拠金</a>は短期間に大きく増加し、清算参加者とその顧客の資金繰りを直撃しました。証拠金が市場の変動に応じて増えること自体は、リスク管理の設計どおりの動きです。しかし、どれだけ増えるかを参加者が事前に見通せなかったことが、その後の国際的な議論の出発点になりました。</p>
+
+  <p>このときの経験を実務の言葉に置き直すと、問いは2つに絞られます。</p>
+
+  <ol>
+    <li>資金をいくら準備しておけばよいのか。</li>
+    <li>市場が大きく動いたとき、自分のポートフォリオの証拠金はどこまで増えるのか。</li>
+  </ol>
+
+  <p>証拠金の透明性という論点は、抽象的な情報開示の議論ではありません。この2つの問いに、清算参加者と顧客が事前に答えられる状態をどう作るかという、実務と制度設計の問題です。</p>
+
+  <p>国際的な作業は、段階を踏んで進んでいます。</p>
+
+  <p>2025年1月、バーゼル銀行監督委員会（<a href="/clearing/terms#bcbs">BCBS</a>）、決済市場インフラ委員会（<a href="/clearing/terms#cpmi">CPMI</a>）、証券監督者国際機構（<a href="/clearing/terms#iosco">IOSCO</a>）は最終報告を公表し、10の政策提案を示しました。</p>
+
+  <p>続いて2026年5月には、CPMIとIOSCOが、このうち両委員会の所管に属する提案1から8の実装として、CCPレジリエンス指針と公開定量開示（<a href="/clearing/terms#pqd">PQD</a>）の改定案を諮問に付しました。意見募集は同年6月末に締め切られ、透明性をめぐる作業は、原則論から具体的な開示項目を設計する段階へ進んでいます。</p>
+
+  <p>本稿では、この実装段階の議論を、<a href="/clearing/terms#margin-simulator">証拠金シミュレーター</a>を軸に追います。</p>
+
+  <p>国際的な政策提案が透明性の到達点をどこに置いたのか。2026年の改定案に盛り込まれたシミュレーターは、そのうち何を担えるのか。そして、CCP側と清算参加者・顧客側の見方は、どこで分かれているのかを整理します。</p>
+
+  <h2><span class="hnum">2</span>改定案が求める「再現可能性」</h2>
+
+  <p>2026年の改定案が相対開示の目標として掲げたのは、証拠金要件の<a href="/clearing/terms#replicability">再現可能性</a>（replicability）です。</p>
+
+  <p>ここでいう再現可能性とは、参加者が、証拠金モデルがどのように動き、自らの証拠金所要額が時間や市場環境によってどのように変化し得るかを理解できる状態を指します。</p>
+
+  <p>単にモデルの説明資料を増やすだけではありません。参加者が、自分のポートフォリオについて、将来必要となり得る証拠金を見積もり、その変化を理解できるだけの情報を提供することが求められています。</p>
+
+  <p>その状態を支える有効な手段の一つとして挙げられたのが、証拠金シミュレーターです。</p>
+
+  <p>改定案は、シミュレーターをすべての清算参加者に提供し、実務上可能な範囲では、その顧客や見込み顧客にも利用可能とすることを提案しています。秘密保持契約を結んだうえで提供することも認められます。</p>
+
+  <p>最低限の機能として求められているのは、現在保有するポートフォリオだけでなく、仮想的なポートフォリオについても、ストレス・シナリオの下で必要となる証拠金（Initial Margin）を計算できることです。また、主要な<a href="/clearing/terms#add-on-margin">証拠金アドオン</a>（Add-on Margin）を、計算へ体系的に組み込むことも求められています。</p>
+
+  <p>ただし、シミュレーターがあれば、再現可能性のすべてが満たされるわけではありません。</p>
+
+  <p>将来の証拠金額を試算できることと、その値がどのようなモデル、パラメータ、判断によって作られているかを理解し、独立して検証できることは別です。</p>
+
+  <p><a href="/clearing/terms#fia">FIA</a>と<a href="/clearing/terms#isda">ISDA</a>は、そろってこの点に異議を唱えました。</p>
+
+  <p>シミュレーターが返すのはモデルの出力であり、出力値を再現できることと、モデルの内部構造を理解できることを混同してはならない、という指摘です。</p>
+
+  <p>FIAは、改定案が二つの異なる透明性の目的を混同しているとして、該当する一文の削除または修正を求めました。</p>
+
+  <p>一つは、資金繰りのために、将来の証拠金を予見できることです。もう一つは、証拠金モデルそのものを理解し、検証できることです。</p>
+
+  <p>同じ「再現可能性」という言葉の下に、性質の異なる二つの要求が含まれています。本稿が主に追うのは、このうち前者、すなわち流動性準備のための予見可能性です。</p>
+
+  <h2><span class="hnum">3</span>透明性が担う二つの機能</h2>
+
+  <p>証拠金にかかわる透明性は、情報の使い方によって求められる機能が異なります。</p>
+
+  <p>自ら証拠金を差し入れる清算参加者と顧客に必要なのは、自分のポートフォリオについて、証拠金がどのように動くかを示す個別の情報です。</p>
+
+  <p>これは、流動性準備、すなわち資金繰りのための透明性です。個別ポジションに即した情報であるため、そのまま公衆に公開することには適しません。シミュレーターとモデル情報の相対開示は、この機能を担う手段として設計されています。そして、公開開示が主に担うのは、個別ポートフォリオの資金準備とは異なる機能です。</p>
+
+  <p>改定案は、PQDに二つの新しい開示項目を設けることを提案しています。</p>
+
+  <ol>
+    <li>清算サービスごとの当初証拠金を、<a href="/clearing/terms#core-margin">コア証拠金</a>とアドオン部分に分解して開示する事。</li>
+    <li>直近3ヶ月および12ヶ月の観察期間について、1営業日と20営業日での当初証拠金の最大増加率を四半期ごとに開示する事。</li>
+  </ol>
+
+  <p>前者は証拠金水準の内訳を、後者は市場変動に対する証拠金の変化の速さを、市場全体が同じベンチマークで確認できるようにする設計です。</p>
+
+  <p>2025年の最終報告は、PQDについて、幅広い市場参加者と公衆がCCPの証拠金慣行を理解する助けになると位置づけています。当局には、これとは別に、より詳細な情報を要請に応じて提供する経路が設けられています。</p>
+
+  <p>したがって、公開開示は、既存の清算参加者や顧客を含む幅広い市場参加者が、CCP間を比較し、証拠金慣行を外部から検証するための共通の情報基盤だと言えます。</p>
+
+  <p>筆者は、相対開示と公開開示は、代替関係にはないと考えています。</p>
+
+  <p>シミュレーターがどれだけ精緻になっても、それが直接助けるのは、個々の参加者や顧客の資金準備です。CCPを横断した比較や、個別の契約関係の外側からの検証には、そのまま利用できません。</p>
+
+  <p>反対に、公開指標がどれだけ整備されても、個々の参加者が、自分のポートフォリオについて将来の証拠金額を計算できるようになるわけではありません。</p>
+
+  <p>「透明性を高める」という一つの要求の下に、機能の異なる二つの制度が並んでいることになります。</p>
+
+  <h2><span class="hnum">4</span>CCPと清算参加者・顧客の目線の違い</h2>
+
+  <p>既に公表されている意見書を読むと、対立は「規制する側と規制される側」という単純な構図ではありません。</p>
+
+  <p>清算チェーンの内側にいるCCPと、証拠金を実際に差し入れる清算参加者・顧客との間で、必要とする透明性の形が異なっています。</p>
+
+  <p>今回確認した清算参加者・顧客側の意見書では、現在の情報とツールだけでは、将来の証拠金を十分に見通せないという問題意識が共通しています。</p>
+
+  <p>FIAとISDAは、改定案の文言が、2025年の最終報告で使われた「提供すべき」から「提供を検討する」へ弱められたことに抗議し、義務の水準を戻すよう求めました。</p>
+
+  <p>FIAはさらに、顧客へのアクセスに付された「実務上可能な範囲で」という条件にも反対しています。</p>
+
+  <p>一般的に公開するプラットフォームでなくても、認証付きのポータルを利用すれば、顧客への提供は可能である。また、シミュレーターは、裁量的でないすべての証拠金構成要素を、先の追加証拠金要素（Add-on Margin）等を組み込んで初めて、予見可能性が実現できるという意見です。</p>
+
+  <p>また、<a href="/clearing/terms#blackrock">BlackRock</a> は、2024年の前身の諮問で、市場条件の変化を仮定し、証拠金額を試算する機能が現在のツールにはないと指摘しています。<a href="/clearing/terms#efama">EFAMA</a>は、シミュレーターを既存顧客だけでなく、見込み顧客にも無償で提供するよう求めています。</p>
+
+  <p>そして、ツールに使用されるデータにも課題があります。</p>
+
+  <p><a href="/clearing/terms#iif">IIF</a>とISDAの共同回答は、比較的高度なシミュレーターを提供するCCPであっても、実時間の市場データを使用できず、前営業日の終値を前提とする計算では、市場が急変したときに十分な予測ができないと指摘しました。</p>
+
+  <p><a href="/clearing/terms#ici">ICI</a>は、清算参加者が顧客に求める追加証拠金について、裁量的な変更やオーバーライドは、その性質上、事前に予測できないと述べています。</p>
+
+  <p>これに加えて、CCPの証拠金モデルだけでなく、清算参加者が顧客へ課す追加証拠金を含め、予見可能性への要求はクリアリング・エコシステム全体に向けて議論が拡がっています。</p>
+
+  <p>これに対して、CCP側は別の問題を見ています。</p>
+
+  <p>清算機関の国際団体である<a href="/clearing/terms#ccp-global">CCP Global</a>は、2026年7月の意見書で、公開側の新指標、とりわけ<a href="/clearing/terms#responsiveness-metrics">応答性指標</a>について、現在の形のままでは進めないよう求めました。なお、意見書の主語は一貫して「一部のメンバー」であり、加盟CCPの全会一致の見解ではありません。</p>
+
+  <p>反対の中心にあるのは、証拠金はポートフォリオ単位のリスク計算によって決まるという、計算構造の問題です。</p>
+
+  <p>標準化された変化率だけを公開しても、ポジションの組み合わせによって決まる実際の証拠金の動きを表せず、利用者が誤った結論を導くおそれがある。</p>
+
+  <p>個別の清算参加者には、証拠金の内訳を含む相対開示を既に提供しており、透明性の目的はそれによって満たされている。</p>
+
+  <p>CCP側から見れば、標準指標は必ずしも透明性を高めるものではなく、モデルの実態から切り離された数字を一人歩きさせる可能性があります。</p>
+
+  <p>同じ応答性指標について、FIAとISDAは、反対に導入を支持しました。</p>
+
+  <p>そのうえで両団体は、直近12ヶ月までの観察期間だけでは、平時の市場環境しか反映しない可能性があり、次の危機への準備には十分でないと指摘しています。</p>
+
+  <p>世界金融危機や2020年3月のような過去のストレス期間をあらかじめ定め、その期間に証拠金がどのように動いたかを開示する、イベントベースの指標を併用するよう提案しました。</p>
+
+  <p>標準指標を支持し、その精緻化を求める清算参加者側と、標準化の前提そのものに疑問を呈するCCP側。</p>
+
+  <p>対立は、単に開示量を増やすか減らすかという問題ではありません。ポートフォリオ単位で計算される証拠金を、CCP間で比較できる共通の物差しに、どのように載せることができるのかという問題です。</p>
+
+  <h2><span class="hnum">5</span>まとめ――何が提案され、何が開いているのか</h2>
+
+  <p>2020年3月に始まった証拠金透明性の議論は、開示資料を増やすかどうかという段階を越えています。</p>
+
+  <p>2025年の最終報告が政策目標として示し、2026年の改定案が具体的な実装文言へ落としたのは、参加者が、自らの証拠金モデルの動きと、証拠金所要額の変化を理解し、事前に見積もれる状態です。</p>
+
+  <p>その手段の一つとして、証拠金シミュレーターが改定案に盛り込まれました。ただし、シミュレーターによって将来の証拠金額を試算できることと、モデルの内部構造を理解し、独立して検証できることは同じではありません。</p>
+
+  <p>清算参加者と顧客側の要求は、次のマージン・コールに備えて資金を準備するというニーズによるもの、そしてCCP側の反対は、証拠金モデルの実態を、誤解を招く単純な数値へ置き換えるべきではないという考えによるものです。</p>
+
+  <p>改定案の最終化は、この二つの要求を、どの水準で両立させるかという作業になるでしょう。</p>
+
+  <p>市場が次に大きく動いたとき、清算参加者と顧客は、自らの証拠金がどれだけ増えるかを事前に見通せていたのか。</p>
+
+  <p>制度の有効性が本当に試されるのは、その後に訪れる次のストレスのときです。</p>
+
+  <h2><span class="hnum">6</span>注記</h2>
+
+  <p>本稿で扱ったCPMI・IOSCOの文書は、意見募集を終えた諮問段階の改定案であり、最終化されていません。内容は今後変わる可能性があります。FIAとISDAの意見書は、それぞれの団体が自ら公表した回答です。諮問へ提出された意見書の全体は、本稿の執筆時点で<a href="/clearing/terms#bis">BIS</a>から公表されていません。</p>
+
+  <p>予見可能性は流動性準備の出発点ですが、それだけで市場急変時の資金確保が保証されるわけではありません。また、<a href="/clearing/terms#esrb">ESRB</a>の2020年6月の報告書は、同年3月の証拠金急増の背景として、モデルのプロシクリカリティ、日中マージン・コールの運用、清算サービス提供者による追加証拠金など、複数の要因を挙げており、これについても考慮する必要があります。</p>
+
+  <p>業界団体の意見書は、各団体がそのように主張していることを示す一次資料であり、その主張自体が客観的な事実として確定したことを意味するものではありません。</p>
+
+  <div class="column-note">
+    <span class="note-label">一次資料</span>
+    <ul>
+      <li>BCBS・CPMI・IOSCO, <em>Transparency and responsiveness of initial margin in centrally cleared markets – review and policy proposals — Final report</em>（2025年1月）— <a href="https://www.bis.org/bcbs/publ/d590.htm">https://www.bis.org/bcbs/publ/d590.htm</a></li>
+      <li>CPMI・IOSCO, <em>Consultation on updated guidance and public disclosures to implement initial margin proposals</em>（2026年5月6日公表、意見締切2026年6月30日）— <a href="https://www.bis.org/cpmi/publ/d232.htm">https://www.bis.org/cpmi/publ/d232.htm</a></li>
+      <li>FIA, <em>Response to CPMI-IOSCO Consultation on Updated Guidance and Public Disclosures to Implement Initial Margin Proposals</em>（2026年6月30日）— <a href="https://www.fia.org/sites/default/files/2026-06/FIA%20Response%20to%20CPMI-IOSCO%20Consultation%20on%20Updated%20CCP%20Resilience%20Guidance%20and%20PQDs.pdf">fia.org 掲載 PDF</a></li>
+      <li>ISDA, <em>Response to the CPMI-IOSCO consultation on updated guidance and public disclosures to implement initial margin proposals</em>（2026年6月）— <a href="https://www.isda.org/a/jjkiE/ISDA-Responds-to-CPMI-IOSCO-Consultation-on-Margin-Proposals.pdf">isda.org 掲載 PDF</a></li>
+      <li>CCP Global, <em>Response — RE: CPMI-IOSCO Consultation on updated guidance and public disclosures to implement initial margin proposals</em>（2026年7月2日）— <a href="https://ccp-global.org/sites/default/files/2026-07/CCPG%20response%20to%20CPMI%20IOSCO%20consultation%20on%20updated%20guidance%20and%20public%20disclosures%20to%20implement%20IM%20proposals%20FINAL.pdf">ccp-global.org 掲載 PDF</a></li>
+      <li>BCBS・CPMI・IOSCO, <em>Feedback on the Phase 2 consultation</em>（2025年1月15日）— <a href="https://www.bis.org/bcbs/publ/d590_feedback.pdf">https://www.bis.org/bcbs/publ/d590_feedback.pdf</a></li>
+      <li>ESRB, <em>Response to the BCBS-CPMI-IOSCO consultation on transparency and responsiveness of initial margin in centrally cleared markets</em>（2024年4月）— <a href="https://www.esrb.europa.eu/pub/pdf/other/esrb.letter240417_response_iosco_consultation~a5c98d897b.en.pdf">esrb.europa.eu 掲載 PDF</a></li>
+      <li>ESRB, <em>Liquidity risks arising from margin calls</em>（2020年6月）— <a href="https://www.esrb.europa.eu/pub/pdf/reports/esrb.report200608_on_Liquidity_risks_arising_from_margin_calls_3~08542993cf.en.pdf">esrb.europa.eu 掲載 PDF</a></li>
+      <li>BlackRock、ICI Global、EFAMA、SIFMA AMG、IIF・ISDAによる2024年のPhase 2諮問への各回答 — <a href="https://www.bis.org/bcbs/publ/comments/d568/BlackRock.pdf">BlackRock</a> ／ <a href="https://www.bis.org/bcbs/publ/comments/d568/ICI%20Global.pdf">ICI Global</a> ／ <a href="https://www.bis.org/bcbs/publ/comments/d568/European%20Fund%20and%20Asset%20Management%20Association.pdf">EFAMA</a> ／ <a href="https://www.sifma.org/wp-content/uploads/2024/04/SIFMA-AMG-Response-BCBS-CPMI-IOSCO-Consultation-on-Cleared-IM-Transparency-and-Responsiveness-04_16_24.pdf">SIFMA AMG</a> ／ <a href="https://www.isda.org/a/ZC6gE/IIF-ISDA_BCBS-CPMI-IOSCO_Margin_Practices.pdf">IIF-ISDA</a></li>
+    </ul>
+  </div>
+
+  <div class="colophon">
+    <p class="rights">初出: 2026年8月2日　／　© 2026 柳沢 俊</p>
+    <p>本稿は『デリバティブ・クリアリングのすべて』第5章 第6節「リスク管理のベストプラクティス：グローバル標準と進化する慣行」（節内 2「証拠金慣行（CCP Margin Practices）：リスク管理の最前線と進化」） の続きにあたります。 → <a href="/book">書籍について</a></p>
+    <p>第2版に向けて検討中の論点 → <a href="/clearing/">清算の章立てへ</a></p>
+    <p>本稿に記載する内容は筆者個人の見解であり、筆者が所属する組織・団体の見解を示すものではありません。</p>
+  </div>
+</article>
+
+<footer>
+  <div>柳沢 俊 ／ 清算と市場構造</div>
+  <div><a href="/">shun-yanagisawa.com</a> · <a href="/clearing/">章立て</a></div>
+</footer>
+
+</body>
+</html>
