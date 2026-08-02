@@ -1,11 +1,15 @@
 # Shun Yanagisawa (柳沢 俊)
 
-> Director at Citi Japan; Author; Vice President and Chair of the Operations Committee at FIA Japan. A specialist in derivatives central clearing (OTC clearing, CCP architecture, FX prime brokerage, and Japan rates market infrastructure) who translates the craft of trust-design in market infrastructure into books, research, and essays. Based in Tokyo. This site collects his profile, book, and bilingual (English/Japanese) essays on market infrastructure, AI, and the design of trust and order.
+> Market infrastructure practitioner and author, based in Tokyo. His work asks one question — how do humans design trust and order within complex, uncertain systems — through two books (a professional treatise on derivatives clearing and an SF novel), bilingual (English/Japanese) essays, and Clearing Notes, ongoing writing that continues where the clearing book ends. A specialist in derivatives central clearing (OTC clearing, CCP architecture, FX prime brokerage, and Japan rates market infrastructure). Full career history and roles are on the CV page.
 
 ## Main pages
 
-- [Home / Profile](https://www.shun-yanagisawa.com/): Biography, roles (Citi, FIA Japan, JSCC, ISDA Japan, Risk.net advisory), speaking history, and publications.
+- [Home / Profile](https://www.shun-yanagisawa.com/): The site's central question — how humans design trust and order within complex, uncertain systems — with the author's two books, bilingual essays, and Clearing Notes.
 - [Book — デリバティブ・クリアリングのすべて](https://www.shun-yanagisawa.com/book): Japan's first full-length professional treatise on derivatives clearing (2026).
+- [Full CV](https://www.shun-yanagisawa.com/cv): Career history, publications, and credentials in full.
+- [Speaking history](https://www.shun-yanagisawa.com/speaking): Panels, moderated sessions, and speaking engagements.
+- [Media appearances](https://www.shun-yanagisawa.com/media): Press coverage and media mentions.
+- [All essays index](https://www.shun-yanagisawa.com/essays/): The full, newest-first list of bilingual essays.
 
 ## Essays (English / Japanese, self-contained)
 

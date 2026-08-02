@@ -204,6 +204,16 @@ body { font-family: var(--font-sans); background: var(--viewer-bg); color: #ccc;
   display: flex; align-items: center; justify-content: center;
   gap: 1.5rem; padding: 0 1.5rem;
 }
+
+.disclaimer-bar {
+  flex-shrink: 0;
+  background: #111; border-top: 1px solid var(--toolbar-border);
+  padding: .4rem 1.5rem; text-align: center;
+}
+.disclaimer-bar p {
+  font-family: var(--font-mono); font-size: .6rem; line-height: 1.6;
+  color: rgba(255,255,255,.72);
+}
 .progress-track {
   flex: 1; max-width: 400px; height: 4px;
   background: rgba(255,255,255,.12); border-radius: 2px;
@@ -336,6 +346,11 @@ body { font-family: var(--font-sans); background: var(--viewer-bg); color: #ccc;
   </div>
   <a class="bottom-cta-link" href="https://amzn.asia/d/00Aawrf8" target="_blank">続きはAmazonで →</a>
 </div>
+
+<footer class="disclaimer-bar">
+  <p class="en">The views expressed are the author's own and do not represent those of any organization he belongs to.</p>
+  <p class="ja">掲載する内容は筆者個人の見解であり、筆者が所属する組織・団体の見解を示すものではありません。</p>
+</footer>
 
 <!-- PDF.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>

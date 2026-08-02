@@ -132,6 +132,7 @@ body.lang-ja .figcap { font-family: var(--font-jp); font-size: .76rem; }
 .essay-close { border-top: 2px solid var(--gold); margin-top: 3rem; padding-top: 1.6rem; }
 footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
 footer a { color: var(--teal-dark); text-decoration: none; }
+.disclaimer { max-width: 1100px; margin: 0 auto 1.2rem; padding: 0 1.6rem; font-size: .68rem; color: var(--text-muted); line-height: 1.8; text-align: center; }
 @media (max-width: 560px) { nav { padding: 0 1.2rem; } .essay { padding-top: 2.6rem; } }
 </style>
 </head>
@@ -140,7 +141,7 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 <nav>
   <a class="nav-logo" href="/">Shun <span>Yanagisawa</span></a>
   <div class="nav-right">
-    <a class="nav-back" href="/#essays"><span class="en">← Essays</span><span class="ja">← エッセイ一覧</span></a>
+    <a class="nav-back" href="/essays/"><span class="en">← Essays</span><span class="ja">← エッセイ一覧</span></a>
     <button class="lang-toggle" onclick="toggleLang()"><span class="en">日本語</span><span class="ja">English</span></button>
   </div>
 </nav>
@@ -362,9 +363,11 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   </div>
 </article>
 
+<p class="disclaimer"><span class="en">The views expressed are the author's own and do not represent those of any organization he belongs to.</span><span class="ja">掲載する内容は筆者個人の見解であり、筆者が所属する組織・団体の見解を示すものではありません。</span></p>
+
 <footer>
   <div><span class="en">Essay 001 · June 2026 · Written on returning from Boston</span><span class="ja">Essay 001 · 2026年6月 · ボストンからの帰国便を降りて</span></div>
-  <div><a href="/">shun-yanagisawa.com</a> · <a href="/#essays"><span class="en">All essays</span><span class="ja">エッセイ一覧</span></a></div>
+  <div><a href="/">shun-yanagisawa.com</a> · <a href="/essays/"><span class="en">All essays</span><span class="ja">エッセイ一覧</span></a></div>
 </footer>
 
 <script>

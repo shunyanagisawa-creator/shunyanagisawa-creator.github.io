@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Essays — Shun Yanagisawa | 柳沢 俊</title>
+<meta name="description" content="Shun Yanagisawa (柳沢 俊) — essays on market infrastructure, AI, and the design of trust. Bilingual, written without an algorithm to please.">
+<meta property="og:title" content="Essays — Shun Yanagisawa | 柳沢 俊">
+<meta property="og:description" content="Occasional essays on market infrastructure, AI, and the design of trust — bilingual, written without an algorithm to please.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://www.shun-yanagisawa.com/essays/">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
+  --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f5ead8;
+  --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
+  --text: #1a1a1a; --text-mid: #3d3d3d; --text-muted: #666666; --border: #ddd9d0;
+  --font-display: 'Playfair Display', 'Noto Serif JP', Georgia, serif;
+  --font-body: 'Source Sans 3', sans-serif;
+  --font-jp: 'Noto Serif JP', serif;
+  --font-mono: 'DM Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--white); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.85; }
+body.lang-en .ja { display: none; }
+body.lang-ja .en { display: none; }
+body.lang-ja { font-family: var(--font-jp); }
+
+nav {
+  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+.nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1.2rem; }
+.nav-back { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--text-muted); text-decoration: none; }
+.nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .35rem .8rem; cursor: pointer; color: var(--text-mid);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
+
+.page { max-width: 1100px; margin: 0 auto; padding: 4rem 1.6rem 5rem; }
+.page-kicker { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.2rem; }
+h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 500; line-height: 1.3; color: var(--navy); margin-bottom: .8rem; }
+.page-sub { font-size: 1.02rem; color: var(--text-muted); margin-bottom: 2.4rem; line-height: 1.7; max-width: 680px; }
+
+/* ESSAYS grid (from index.html) */
+.featured-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-bottom: 2.8rem; }
+.featured-card { display: block; background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--teal-dark); padding: 0; text-decoration: none; transition: box-shadow .2s; }
+.featured-card:hover { box-shadow: 0 8px 28px rgba(26,35,50,.12); }
+.featured-card img { display: block; width: 100%; aspect-ratio: 1200 / 375; object-fit: cover; }
+.featured-body { padding: 1.6rem 1.9rem 2rem; }
+.featured-lane { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: .9rem; }
+.essays-sub-label { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--text-muted); margin: 0 0 1.2rem; }
+
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
+footer a { color: var(--teal-dark); text-decoration: none; }
+.disclaimer { max-width: 1100px; margin: 0 auto 1.2rem; padding: 0 1.6rem; font-size: .68rem; color: var(--text-muted); line-height: 1.8; text-align: center; }
+
+@media (max-width: 900px) {
+  nav { padding: 0 1.2rem; }
+  .page { padding-top: 2.6rem; }
+  .featured-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body class="lang-en">
+
+<nav>
+  <a class="nav-logo" href="/">Shun <span>Yanagisawa</span></a>
+  <div class="nav-right">
+    <a class="nav-back" href="/"><span class="en">← shun-yanagisawa.com</span><span class="ja">← shun-yanagisawa.com へ戻る</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="en">日本語</span><span class="ja">English</span></button>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="page-kicker"><span class="en">Thinking in Public</span><span class="ja">思考の公開</span></div>
+  <h1><span class="en">Essays</span><span class="ja">エッセイ</span></h1>
+  <p class="page-sub"><span class="en">Occasional essays on market infrastructure, AI, and the design of trust — bilingual, written without an algorithm to please.</span><span class="ja">市場インフラ、AI、そして信頼の設計について — 不定期、英日二言語のエッセイ。</span></p>
+
+  <div class="essays-sub-label"><span class="en">Start Here — Three Doors</span><span class="ja">まず読むなら — 三つの入口</span></div>
+  <div class="featured-grid">
+
+    <a href="/essays/design-under-stress" class="featured-card">
+      <img src="/lane-markets.jpg" alt="" loading="lazy">
+      <div class="featured-body">
+      <div class="featured-lane"><span class="en">Markets &amp; Design</span><span class="ja">市場と設計</span></div>
+      <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 013 · July 2026</div>
+      <h3 style="font-family:var(--font-display);font-size:1.28rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.4rem;"><span class="en">Design for the Day It Breaks</span><span class="ja">壊れた日のための設計</span></h3>
+      <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">A bridge's strength is invisible on a sunny day. Clearing's layered defense worked as designed in 2008, reached into mutualized resources in 2018, and was overrun in 2022. Three cases.</p>
+      <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">橋の強さは、晴れた日には分からない。清算の多層防御が設計どおり機能した2008年、共同資源まで使われた2018年、想定を超えられた2022年。三つの事例から。</p>
+      <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+      </div>
+    </a>
+
+    <a href="/essays/when-the-org-folds-into-the-head" class="featured-card">
+      <img src="/lane-ai.jpg" alt="" loading="lazy">
+      <div class="featured-body">
+      <div class="featured-lane"><span class="en">AI &amp; Work</span><span class="ja">AIと働き方</span></div>
+      <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 012 · July 2026</div>
+      <h3 style="font-family:var(--font-display);font-size:1.28rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.4rem;"><span class="en">When the Organization Folds Into the Mind</span><span class="ja">組織は知能の関数だった</span></h3>
+      <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">I governed my own AI development like a company — six roles, written reports, a board. A smarter model folded the whole thing into a single head.</p>
+      <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">自分のAI開発を会社そっくりに統治していた。賢くなったモデルが、それを一つの頭に畳んだ。組織のどこが補装具で、どこが物理なのか。</p>
+      <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+      </div>
+    </a>
+
+    <a href="/essays/when-a-frozen-market-thaws" class="featured-card">
+      <img src="/lane-rates.jpg" alt="" loading="lazy">
+      <div class="featured-body">
+      <div class="featured-lane"><span class="en">Japan Rates</span><span class="ja">円金利市場</span></div>
+      <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 002 · June 2026</div>
+      <h3 style="font-family:var(--font-display);font-size:1.28rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.4rem;"><span class="en">When a Frozen Market Thaws</span><span class="ja">凍結されていた市場が、動き出すとき</span></h3>
+      <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">What is "liquidity", really? Why Japanese rates were frozen, the plumbing of collateral and clearing — and trust as what moves under stress.</p>
+      <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">「流動性」とは何か — なぜ円金利は凍結されていたのか、担保・清算の配管、そして信頼＝ストレス時に動かせるもの。</p>
+      <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="essays-sub-label"><span class="en">All Essays — Newest First</span><span class="ja">全エッセイ — 新しい順</span></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem;">
+
+    <!-- ESSAY_CARD_INSERT -->
+    <a href="/essays/yuishiki-and-the-path" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
+      <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 016 · July 2026</div>
+      <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">Yuishiki, and the Path to Awakening</span><span class="ja">唯識と、悟りへの道</span></h3>
+      <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">What the monk of Journey to the West actually went to the far end of India to fetch was the account of the mind as layered consciousness. Why a system this central never came out where people could see it — and where the thing kept in the back had its place.</p>
+      <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">三蔵法師が命懸けで天竺まで取りに行ったのは、心が層になっているという話だった。なぜこれほど中心にあるものが民の目に触れる場所に出てこなかったのか。奥に在り続けたものの居場所を辿る。</p>
+      <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+    </a>
+
+    <a href="/essays/koyasan-and-religion" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
+      <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 015 · July 2026</div>
+      <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">Koyasan, and Religion</span><span class="ja">高野山と、宗教。</span></h3>
+      <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">A teaching that began by showing one person the way out of suffering ended up wearing the shape of a state. From early Buddhism to the Edo parishioner registers — and why, unlike the gods cast down elsewhere, this one lasted twenty-five centuries.</p>
+      <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">一人の苦しみに向けられていた教えは、なぜ国家の形になったのか。十二月の雪の参道から、初期仏教・大乗・密教・鎌倉の諸宗・江戸の寺請制度までを辿り、堕とされた神々と比べて考える。</p>
+      <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+    </a>
+
+    <a href="/essays/design-under-stress" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
+      <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 013 · July 2026</div>
+      <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">Design for the Day It Breaks</span><span class="ja">壊れた日のための設計</span></h3>
+      <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">A bridge's strength is invisible on a sunny day. Clearing's layered defense worked as designed in 2008, reached into mutualized resources in 2018, and was overrun in 2022. Who bears the first loss, from what point is it mutualized, and who decides when the rules run out?</p>
+      <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">橋の強さは、晴れた日には分からない。清算の多層防御が設計どおり機能した2008年、共同資源まで使われた2018年、想定を超えられた2022年。誰が最初に損失を負い、どこから共同化し、ルールが尽きたとき誰が判断するのか。</p>
+      <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+    </a>
+
+    <a href="/essays/when-the-org-folds-into-the-head" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
+      <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 012 · July 2026</div>
+      <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">When the Organization Folds Into the Mind</span><span class="ja">組織は知能の関数だった</span></h3>
+      <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">I governed my own AI development like a company — six roles, written reports, a board. A smarter model folded the whole thing into a single head. Which parts of an organization are a prosthetic for weak intelligence, and which are closer to physics?</p>
+      <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">自分のAI開発を会社そっくりに統治していた——六つの役割、報連相、諮問。賢くなったモデルが、それを一つの頭に畳んだ。組織のどこが「知能不足の補装具」で、どこが物理に近い制約なのか。一度、外して測ってみた。</p>
+      <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+    </a>
+
+    <a href="/essays/the-order-you-dont-maintain" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
+      <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 011 · June 2026</div>
+      <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">You Were Never the Problem</span><span class="ja">「使いこなせなかった」のは、あなたのせいではない</span></h3>
+      <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">Your note-taking tools never stuck — and it wasn't your discipline. What was missing was classification itself, and a second kind of order: the kind that emerges from what you write and keeps its own shape.</p>
+      <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">ノートツールが続かなかったのは、整理能力のせいではない。欠けていたのは分類そのもの——そして、書いたものから立ち上がって自分で形を保つ、もう一種類の秩序だった。</p>
+      <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+    </a>
+
+    <a href="/essays/when-ai-knows-the-world" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
+      <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 010 · June 2026</div>
+      <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">When AI Comes to Know the World</span><span class="ja">AI が、世界を識る時</span></h3>
+      <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">AI began with words — the easy part. The hard part was always the limbs. The brain does not pilot them; they fit the physics on their own. That is where what Japan still holds may yet matter.</p>
+      <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">AIは言葉から始まった——易しい側だ。難しいのは、いつも手足だった。脳は手足を操縦せず、手足が自分で物理を擦り合わせる。日本がまだ手に持つものが効くとすれば、そこだ。</p>
+      <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+    </a>
+
+    <a href="/essays/when-leaving-costs-nothing" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
+      <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 009 · June 2026</div>
+      <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">When Leaving Costs Nothing</span><span class="ja">立ち去る代償が、消えるとき</span></h3>
+      <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">Cancel anytime; swap a person for an AI. As the cost of leaving falls toward zero, the scarce thing becomes the bond you could have fled — and didn't.</p>
+      <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">キャンセルはいつでも、相手はAIに替えられる。立ち去る代償がゼロに近づく世界で希少になるのは——逃げられたのに、逃げなかった関係のほうだ。</p>
+      <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+    </a>
+
+    <a href="/essays/the-stratification-called-choice" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
+      <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 008 · June 2026</div>
+      <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">The Stratification Called Choice</span><span class="ja">選択という名の階層化</span></h3>
+      <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">When knowledge becomes a commodity, options multiply — but the means to choose well stay unevenly held, and even free cash can't quite hand them out. A trace from the cost disease to redistribution.</p>
+      <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">知識がコモディティになると選択肢は増える。けれど、よく選ぶための資源は偏ったまま握られ、現金を配るだけでは行き渡らない。コスト病から再分配までをたどる。</p>
+      <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+    </a>
+
+    <a href="/essays/pairing-with-the-machine" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
+      <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 007 · June 2026</div>
+      <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">How You Pair With AI</span><span class="ja">AI との組み方</span></h3>
+      <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">Will AI take my job? The worry is fair. But the work is quietly dividing along how you pair with AI — and which pairing fits depends not on temperament, but on the cost of a mistake.</p>
+      <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">AIに仕事を奪われるのか。その不安は当然だ。ただ起きているのは、人とAIの組み方に沿って仕事が静かに分かれていくこと。どの型が向くかは気質ではなく、誤りの代償で決まる。</p>
+      <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+    </a>
+
+    <a href="/essays/the-cost-of-checking" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
+      <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 006 · June 2026</div>
+      <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">The Cost of Checking</span><span class="ja">確かめる費用</span></h3>
+      <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">As AI gets better, its mistakes get harder to see. On the jagged frontier, why obvious error was a safety net, and why accuracy does not retire the checker — it raises their price.</p>
+      <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">AIが上手くなるほど、その間違いは見えにくくなる。ぎざぎざの辺境、目立つ誤りが安全装置だったこと、そして精度は確かめる人を不要にせず、その価値を上げること。</p>
+      <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+    </a>
+
+    <a href="/essays/the-manor-and-the-commons" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
+      <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 005 · June 2026</div>
+      <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">Free to Farm</span><span class="ja">自由に耕せる、土地は領主のもの</span></h3>
+      <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">AI commoditises the surface and concentrates the floor. On reading the power of AI from the bottom of the stack, why it rhymes with the medieval manor, and why freedom is not owning the land but being able to move.</p>
+      <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">AIは表層をコモディティ化し、底に力を集める。スタックの底から権力を読むこと、中世荘園との同型、そして自由とは所有でなく移れることをめぐって。</p>
+      <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+    </a>
+
+    <a href="/essays/saved-time-is-not-productivity" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
+      <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 004 · June 2026</div>
+      <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">The Time You Save Is Not Productivity</span><span class="ja">浮いた時間は、生産性ではない</span></h3>
+      <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">AI gives the hours back. The mistake is to spend them earning more hours. On the productivity trap, the taxi driver and the white-collar road, and why the power to learn is what rises in value.</p>
+      <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">AIは時間を返してくれる。間違いは、それをさらに時間を稼ぐために使うこと。生産性の罠、タクシー運転手とホワイトカラーの道、そして学ぶ力こそが値を上げること。</p>
+      <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+    </a>
+
+    <a href="/essays/value-lives-in-structure" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
+      <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 003 · June 2026</div>
+      <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">The Contents Page Is a Map</span><span class="ja">目次は、航海図である</span></h3>
+      <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">In the age of free knowledge, value lives in structure, not content. On Alexandria, why an LLM predicts language while an expert predicts results, and the bitter lesson.</p>
+      <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">知識が無料になる時代、価値は内容でなく構造に宿る。アレキサンドリア図書館、LLMは言語を・専門家は結果を予測すること、そして苦い教訓。</p>
+      <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+    </a>
+
+    <a href="/essays/when-a-frozen-market-thaws" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
+      <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 002 · June 2026</div>
+      <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">When a Frozen Market Thaws</span><span class="ja">凍結されていた市場が、動き出すとき</span></h3>
+      <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">What is "liquidity", really? Why Japanese rates were frozen, the inflation–rates link, the plumbing of collateral and clearing — and trust as what moves under stress.</p>
+      <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">「流動性」とは何か — なぜ円金利は凍結されていたのか、インフレと金利、担保・清算の配管、そして信頼＝ストレス時に動かせるもの。</p>
+      <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+    </a>
+
+    <a href="/essays/learning-as-a-luxury-good" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
+      <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 001 · June 2026</div>
+      <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">Learning as a Luxury Good</span><span class="ja">学びは贅沢財になった</span></h3>
+      <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">What is quality in learning? On price, bounded time, leisure in its original sense (skholē), and the quality of friction — notes from a week at HBS.</p>
+      <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">学びの質とは何か — 価格・拘束・本来の意味でのレジャー・摩擦の質をめぐる、HBS での一週間の覚書。</p>
+      <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+    </a>
+
+  </div>
+</div>
+
+<p class="disclaimer"><span class="en">The views expressed are the author's own and do not represent those of any organization he belongs to.</span><span class="ja">掲載する内容は筆者個人の見解であり、筆者が所属する組織・団体の見解を示すものではありません。</span></p>
+
+<footer>
+  <div>© 2026 Shun Yanagisawa · 柳沢 俊 · Tokyo, Japan</div>
+  <div><span class="en"><a href="/">shun-yanagisawa.com</a> · <a href="/clearing/">Clearing</a></span><span class="ja"><a href="/">shun-yanagisawa.com</a> · <a href="/clearing/">クリアリング</a></span></div>
+</footer>
+
+<script>
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+}
+</script>
+</body>
+</html>
