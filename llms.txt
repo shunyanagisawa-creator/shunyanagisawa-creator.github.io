@@ -33,7 +33,7 @@ Short pieces placed on the chapter structure of "デリバティブ・クリア�
 - [クリアリング用語集 / Clearing glossary](https://www.shun-yanagisawa.com/clearing/terms): A standalone glossary of derivatives clearing — Japanese-language definitions (CCP, default waterfall, initial and variation margin, cover-n, skin in the game, auto-liquidation), with English abbreviations, formal English names, category filters, official-site source links, and alternative Japanese renderings where translations differ in practice. Seeded from the back matter of "デリバティブ・クリアリングのすべて" and expanded independently as post-publication pieces introduce new terms.
 - [クリアリング・ブローカーは何をファイナンスしているのか：日中マージン・コールと「時間差の信用」](https://www.shun-yanagisawa.com/clearing/intraday-margin-credit)
 - [ダイレクト・クリアリングの制度化：与信の有無で何が変わり、何が残るのか](https://www.shun-yanagisawa.com/clearing/direct-clearing-credit-boundary)
-- [クリアリング・ブローカーを外した後、誰が顧客をチェックするのか](https://www.shun-yanagisawa.com/clearing/direct-clearing-regulatory-gap)
+- [FCMを経由しない清算では、誰が法的義務を担うのか――リテール向けダイレクト・クリアリングに残る制度上の懸念](https://www.shun-yanagisawa.com/clearing/direct-clearing-regulatory-gap)
 - [自動ロスカットはFCMを代替できるのか――レバレッジ型ダイレクト・クリアリングの限界](https://www.shun-yanagisawa.com/clearing/auto-liquidation-limits)
 - [日本の店頭FXは、リテール直接清算の先例になるのか――ロスカット運用と損失負担の違い](https://www.shun-yanagisawa.com/clearing/japan-otc-margin)
 - [証拠金はどこまで予測できるのか――国際指針が求めるシミュレーターと透明性](https://www.shun-yanagisawa.com/clearing/margin-simulator-transparency)
