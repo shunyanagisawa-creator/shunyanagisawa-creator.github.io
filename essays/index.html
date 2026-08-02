@@ -17,7 +17,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Noto+Serif+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
 :root {
   --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
@@ -27,6 +27,8 @@
   --font-display: 'Noto Sans', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
   --font-body: 'Noto Sans', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
   --font-jp: 'Noto Sans JP', 'Noto Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --font-serif: 'Playfair Display', 'Noto Serif JP', Georgia, serif;
+  --font-serif-jp: 'Noto Serif JP', Georgia, serif;
   --font-mono: 'DM Mono', ui-monospace, monospace;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -40,7 +42,7 @@ nav {
   border-bottom: 1px solid var(--border); height: 60px;
   display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
 }
-.nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
 .nav-logo span { color: var(--teal-dark); }
 .nav-right { display: flex; align-items: center; gap: 1.2rem; }
 .nav-back { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--text-muted); text-decoration: none; }
@@ -78,6 +80,20 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 
 /* Japanese has no true italic — never synthesise oblique on JA text */
 .ja, .ja em, .ja i, .ja blockquote { font-style: normal !important; }
+
+/* ── FONT SURFACE: /essays/ は読み物の顔 = serif（ナビ項目・ラベルは gothic のまま） */
+h1 { font-family: var(--font-serif); }
+body.lang-ja h1 { font-family: var(--font-serif-jp); }
+.page-sub { font-family: var(--font-serif); }
+body.lang-ja .page-sub { font-family: var(--font-serif-jp); }
+.featured-card h3 { font-family: var(--font-serif) !important; }
+.featured-card h3 .ja { font-family: var(--font-serif-jp); }
+.featured-card p { font-family: var(--font-serif) !important; }
+.featured-card p.ja { font-family: var(--font-serif-jp) !important; }
+#all-essays-grid h3 { font-family: var(--font-serif) !important; }
+#all-essays-grid h3 .ja { font-family: var(--font-serif-jp); }
+#all-essays-grid p { font-family: var(--font-serif) !important; }
+#all-essays-grid p.ja { font-family: var(--font-serif-jp) !important; }
 </style>
 </head>
 <body class="lang-ja">
