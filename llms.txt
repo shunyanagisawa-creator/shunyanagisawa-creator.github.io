@@ -6,6 +6,7 @@
 
 - [Home / Profile](https://www.shun-yanagisawa.com/): The site's central question — how humans design trust and order within complex, uncertain systems — with the author's two books, bilingual essays, and Clearing Notes.
 - [Book — デリバティブ・クリアリングのすべて](https://www.shun-yanagisawa.com/book): Japan's first full-length professional treatise on derivatives clearing (2026).
+- Book — Derivatives Clearing: A Comprehensive Guide (Risk Management, Regulation, and the Future of the Markets): the English edition of the same work, ISBN 978-4-9914987-0-1, first edition August 2026 (forthcoming; an English preview of the Introduction and Chapter 1 is on SSRN).
 - [Full CV](https://www.shun-yanagisawa.com/cv): Career history, publications, and credentials in full.
 - [Speaking history](https://www.shun-yanagisawa.com/speaking): Panels, moderated sessions, and speaking engagements.
 - [Media appearances](https://www.shun-yanagisawa.com/media): Press coverage and media mentions.

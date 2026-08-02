@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,6 +45,7 @@
   "knowsAbout": ["OTC Derivatives Clearing","CCP Architecture","FX Prime Brokerage","Japan Rates Market","JSCC","TONA Futures","JGB Futures","Cross-Product Margining","CFTC Regulation","Derivatives Regulation"],
   "author": [
     {"@type": "Book", "name": "デリバティブ・クリアリングのすべて", "inLanguage": "ja", "datePublished": "2026-02-22"},
+    {"@type": "Book", "name": "Derivatives Clearing: A Comprehensive Guide", "alternateName": "Risk Management, Regulation, and the Future of the Markets", "inLanguage": "en", "isbn": "9784991498701", "bookEdition": "English edition", "datePublished": "2026-08"},
     {"@type": "Book", "name": "阿頼耶識の海", "alternateName": "The Sea of Ālaya-vijñāna", "inLanguage": "ja", "isbn": "9784991498725", "url": "https://manus-press.com/liber-1", "publisher": {"@type": "Organization", "name": "M∀NUS Press", "url": "https://manus-press.com"}}
   ],
   "memberOf": [
@@ -55,8 +56,12 @@
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-<noscript><style>.fade-in { opacity: 1; transform: none; }</style></noscript>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<noscript><style>.fade-in { opacity: 1; transform: none; }
+/* Japanese has no true italic — never synthesise oblique on JA text */
+.ja, .ja em, .ja i, .ja blockquote { font-style: normal !important; }
+</style></noscript>
 
 <style>
 :root {
@@ -75,10 +80,10 @@
   --text-light: #999999;
   --border: #ddd9d0;
   --border-light: #eeebe4;
-  --font-display: 'Playfair Display', 'Noto Serif JP', Georgia, serif;
-  --font-body: 'Source Sans 3', sans-serif;
-  --font-jp: 'Noto Serif JP', serif;
-  --font-mono: 'DM Mono', monospace;
+  --font-display: 'Noto Sans', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --font-body: 'Noto Sans', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --font-jp: 'Noto Sans JP', 'Noto Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --font-mono: 'DM Mono', ui-monospace, monospace;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -114,15 +119,15 @@ nav {
 .nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
 /* HERO */
-.hero { background: var(--white); color: var(--navy); padding: 5rem 3rem 4.5rem; position: relative; overflow: hidden; border-bottom: 1px solid var(--border); }
+.hero { background: var(--white); color: var(--navy); padding: 3rem 3rem 2.8rem; position: relative; overflow: hidden; border-bottom: 1px solid var(--border); }
 .hero::before { content:''; position:absolute; top:0;left:0;right:0; height:5px; background: linear-gradient(to right, var(--teal-dark), var(--gold)); }
 .hero::after { content:''; position:absolute; bottom:0;left:0;right:0; height:1px; background: var(--border); }
 .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: end; }
 .hero-tag { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.5rem; }
-.hero h1 { font-family: var(--font-display); font-size: clamp(2.8rem,5vw,4.5rem); font-weight: 400; line-height: 1.1; color: var(--navy); margin-bottom: .3rem; }
-.hero-name-jp { font-family: var(--font-jp); font-size: 1.4rem; font-weight: 300; color: var(--text-muted); letter-spacing: .15em; margin-bottom: 1.8rem; }
-.hero-question { font-family: var(--font-display); font-style: italic; font-size: 1.15rem; color: var(--text-mid); max-width: 560px; line-height: 1.65; padding-left: 1.2rem; border-left: 3px solid var(--gold); margin-bottom: 2.5rem; }
-.hero-lede { font-size: 1.02rem; color: var(--text-mid); max-width: 560px; margin-bottom: 2.2rem; }
+.hero h1 { font-family: var(--font-display); font-size: clamp(1.4rem,2.5vw,2.25rem); font-weight: 500; line-height: 1.15; letter-spacing: .01em; color: var(--navy); margin-bottom: .2rem; }
+.hero-name-jp { font-family: var(--font-jp); font-size: .95rem; font-weight: 400; color: var(--text-mid); letter-spacing: .15em; margin-bottom: 1.2rem; }
+.hero-question { font-family: var(--font-display); font-size: 1.15rem; font-weight: 500; color: var(--text-mid); max-width: 560px; line-height: 1.65; padding-left: 1.2rem; border-left: 3px solid var(--gold); margin-bottom: 1.6rem; }
+.hero-lede { font-size: 1.02rem; color: var(--text-mid); max-width: 560px; margin-bottom: 1.6rem; }
 .hero-lede.ja { font-family: var(--font-jp); }
 .hero-cta { display: flex; flex-wrap: wrap; gap: .8rem; }
 .hero-cta a {
@@ -270,7 +275,9 @@ body.lang-en .en { display: block !important; }
 .featured-card img { display: block; width: 100%; aspect-ratio: 1200 / 375; object-fit: cover; }
 .featured-body { padding: 1.6rem 1.9rem 2rem; }
 .featured-lane { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: .9rem; }
-.essays-sub-label { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--text-light); margin: 0 0 1.2rem; }
+.essays-sub-label { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; color: #3d4148; margin: 0 0 1.2rem; }
+.essays-sub-label .ja { font-family: var(--font-jp); letter-spacing: .1em; }
+.essay-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.4rem; }
 
 /* RESPONSIVE */
 @media (max-width:900px) {
@@ -286,7 +293,7 @@ body.lang-en .en { display: block !important; }
   .nav-burger { display: block; }
   .featured-grid { grid-template-columns: 1fr; }
   section { padding: 4rem 1.5rem; }
-  .hero { padding: 4rem 1.5rem 3.5rem; }
+  .hero { padding: 2.6rem 1.5rem 2.4rem; }
   .hero-inner { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; gap: 3rem; }
   .pub-grid { grid-template-columns: 1fr; }
@@ -314,15 +321,43 @@ body.lang-en .en { display: block !important; }
 .sub-header { display: flex; align-items: baseline; gap: 1.2rem; margin: 0 0 1.6rem; padding-bottom: .7rem; border-bottom: 1px solid var(--border); }
 .sub-title { font-family: var(--font-display); font-size: 1.35rem; font-weight: 400; color: var(--navy); }
 .sub-note { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-dark); }
+/* SECTION-END LINK — bordered button (matches hero CTA / nav contact) */
 .more-link {
-  display: inline-block; margin-top: 1.4rem;
-  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .1em;
-  color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark);
+  display: inline-flex; align-items: center; gap: .55rem; margin-top: 1.8rem;
+  font-family: var(--font-mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--teal-dark); background: var(--white); text-decoration: none;
+  border: 1.5px solid var(--teal-dark); padding: .62rem 1.5rem;
+  transition: background .2s, color .2s;
 }
-.more-link:hover { color: var(--navy); border-bottom-color: var(--navy); }
+.more-link:hover { background: var(--teal-dark); color: var(--white); }
+.more-link .ja { font-family: var(--font-jp); letter-spacing: .08em; }
 
 /* BOOKS — 60 / 40 weighting */
 .pub-grid.weighted { grid-template-columns: 3fr 2fr; }
+
+/* BOOKS — two editions of one book, side by side */
+.pub-img-header.pub-img-duo {
+  height: auto; align-items: flex-end; justify-content: center;
+  gap: 1.8rem; padding: 1.8rem 1.4rem 1.4rem;
+}
+.pub-img-header.pub-img-duo figure { display: flex; flex-direction: column; align-items: center; gap: .6rem; margin: 0; }
+.pub-img-header.pub-img-duo img {
+  display: block; width: auto; height: 300px; padding: 0;
+  border: 1px solid var(--border); box-shadow: 0 3px 14px rgba(26,35,50,.16);
+}
+.pub-img-header.pub-img-duo figcaption {
+  font-family: var(--font-mono); font-size: .6rem; letter-spacing: .12em; text-transform: uppercase;
+  color: #3d4148; text-align: center; line-height: 1.5;
+}
+.pub-img-header.pub-img-duo figcaption .ja { font-family: var(--font-jp); letter-spacing: .06em; }
+
+/* BOOKS — English edition bibliography */
+.en-edition { margin-top: 1.5rem; border: 1px solid var(--border); border-left: 3px solid var(--gold-dark); padding: 1.1rem 1.3rem; background: var(--white); }
+.en-edition-label { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .6rem; }
+.en-edition h4 { font-family: var(--font-display); font-size: 1.02rem; font-weight: 500; color: var(--navy); line-height: 1.4; margin-bottom: .2rem; }
+.en-edition .en-edition-sub { font-size: .85rem; color: #3d4148; line-height: 1.6; margin-bottom: .7rem; }
+.en-edition .en-edition-meta { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .06em; color: #3d4148; line-height: 1.9; }
+.en-edition .en-edition-meta .ja { font-family: var(--font-jp); letter-spacing: .02em; }
 
 /* PROJECTS */
 .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
@@ -341,15 +376,20 @@ footer { flex-wrap: wrap; }
   .pub-grid.weighted { grid-template-columns: 1fr; }
   .project-grid { grid-template-columns: 1fr; }
   .nav-contact { padding: .34rem .7rem; font-size: .66rem; }
+  .pub-img-header.pub-img-duo { gap: 1rem; padding: 1.4rem .9rem 1.1rem; }
+  .pub-img-header.pub-img-duo img { height: 210px; }
 }
 @media (max-width:560px) {
   .nav-contact { display: none; }
   .nav-contact-sm { display: block; }
+  .pub-img-header.pub-img-duo { gap: .7rem; padding: 1.2rem .6rem 1rem; }
+  .pub-img-header.pub-img-duo img { height: 175px; }
+  .pub-img-header.pub-img-duo figcaption { font-size: .55rem; letter-spacing: .06em; }
 }
 
 </style>
 </head>
-<body class="lang-en">
+<body class="lang-ja">
 
 <nav>
   <a class="nav-logo" href="#top">Shun <span>Yanagisawa</span></a>
@@ -363,7 +403,7 @@ footer { flex-wrap: wrap; }
   </ul>
   <div class="nav-right">
     <a class="nav-contact" href="#contact">Contact</a>
-    <button class="lang-toggle" onclick="toggleLang()">日本語</button>
+    <button class="lang-toggle" onclick="toggleLang()">English</button>
     <button class="nav-burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu(this)"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -399,9 +439,16 @@ footer { flex-wrap: wrap; }
     <div class="pub-grid weighted">
 
       <div class="pub-card fade-in">
-        <div class="pub-img-header">
+        <div class="pub-img-header pub-img-duo">
           <div class="pub-year-badge">2026</div>
-          <img src="book-cover.png" alt="デリバティブ・クリアリングのすべて 書影">
+          <figure>
+            <img src="book-cover-v2.jpg" alt="『デリバティブ・クリアリングのすべて』書影" loading="lazy">
+            <figcaption><span class="en">Japanese edition · 2026</span><span class="ja">日本語版 · 2026年2月</span></figcaption>
+          </figure>
+          <figure>
+            <img src="book-cover-en.jpg" alt="Derivatives Clearing: A Comprehensive Guide — English edition cover" loading="lazy">
+            <figcaption><span class="en">English edition · Aug 2026</span><span class="ja">英語版 · 2026年8月（予定）</span></figcaption>
+          </figure>
         </div>
         <div class="pub-body">
           <div class="pub-label en" style="color:var(--teal-dark);">Specialist Reference · Japanese</div>
@@ -464,6 +511,18 @@ footer { flex-wrap: wrap; }
               <span class="en">After publication — tracking how clearing keeps moving →</span>
               <span class="ja">刊行後の規制・市場の変化を追う — クリアリングの章立てへ →</span>
             </a>
+          </div>
+
+          <!-- English edition — same book, second edition of record -->
+          <div class="en-edition">
+            <div class="en-edition-label"><span class="en">English edition</span><span class="ja">英語版</span></div>
+            <h4>Derivatives Clearing: A Comprehensive Guide</h4>
+            <div class="en-edition-sub">Risk Management, Regulation, and the Future of the Markets</div>
+            <div class="en-edition-meta">
+              ISBN 978-4-9914987-0-1<br>
+              <span class="en">English edition — First edition: August 2026</span>
+              <span class="ja">英語版 — 2026年8月刊行（予定）</span>
+            </div>
           </div>
 
           <!-- Book excerpt toggle -->
@@ -625,71 +684,61 @@ footer { flex-wrap: wrap; }
     <p class="en" style="max-width:680px;color:var(--text-mid);margin-bottom:2.2rem;">Occasional essays on market infrastructure, AI, and the design of trust — bilingual, written without an algorithm to please.</p>
     <p class="ja" style="max-width:680px;color:var(--text-mid);margin-bottom:2.2rem;font-family:var(--font-jp);">市場インフラ、AI、そして信頼の設計について — 不定期、英日二言語のエッセイ。</p>
 
-    <div class="essays-sub-label"><span class="en">Start Here — Three Doors</span><span class="ja">まず読むなら — 三つの入口</span></div>
-    <div class="featured-grid">
+    <div class="essays-sub-label"><span class="en">Latest</span><span class="ja">最新 — Latest</span></div>
+    <div id="essays-latest" class="essay-card-grid">
+      <!-- static fallback: replaced at runtime by the three newest from /essays/ -->
 
-      <a href="essays/design-under-stress" class="featured-card fade-in">
-        <img src="lane-markets.jpg" alt="" loading="lazy">
-        <div class="featured-body">
-        <div class="featured-lane"><span class="en">Markets &amp; Design</span><span class="ja">市場と設計</span></div>
+      <a href="/essays/yuishiki-and-the-path" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
+        <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 016 · July 2026</div>
+        <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">Yuishiki, and the Path to Awakening</span><span class="ja">唯識と、悟りへの道</span></h3>
+        <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">What the monk of Journey to the West actually went to the far end of India to fetch was the account of the mind as layered consciousness. Why a system this central never came out where people could see it — and where the thing kept in the back had its place.</p>
+        <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">三蔵法師が命懸けで天竺まで取りに行ったのは、心が層になっているという話だった。なぜこれほど中心にあるものが民の目に触れる場所に出てこなかったのか。奥に在り続けたものの居場所を辿る。</p>
+        <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+      </a>
+
+      <a href="/essays/koyasan-and-religion" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
+        <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 015 · July 2026</div>
+        <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">Koyasan, and Religion</span><span class="ja">高野山と、宗教。</span></h3>
+        <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">A teaching that began by showing one person the way out of suffering ended up wearing the shape of a state. From early Buddhism to the Edo parishioner registers — and why, unlike the gods cast down elsewhere, this one lasted twenty-five centuries.</p>
+        <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">一人の苦しみに向けられていた教えは、なぜ国家の形になったのか。十二月の雪の参道から、初期仏教・大乗・密教・鎌倉の諸宗・江戸の寺請制度までを辿り、堕とされた神々と比べて考える。</p>
+        <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+      </a>
+
+      <a href="/essays/design-under-stress" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
         <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 013 · July 2026</div>
-        <h3 style="font-family:var(--font-display);font-size:1.28rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.4rem;"><span class="en">Design for the Day It Breaks</span><span class="ja">壊れた日のための設計</span></h3>
-        <p class="en" style="font-size:.86rem;color:var(--text-muted);line-height:1.65;margin:0;">A bridge's strength is invisible on a sunny day. Clearing's layered defense worked as designed in 2008, reached into mutualized resources in 2018, and was overrun in 2022. Three cases.</p>
-        <p class="ja" style="font-size:.86rem;color:var(--text-muted);line-height:1.65;margin:0;font-family:var(--font-jp);">橋の強さは、晴れた日には分からない。清算の多層防御が設計どおり機能した2008年、共同資源まで使われた2018年、想定を超えられた2022年。三つの事例から。</p>
+        <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">Design for the Day It Breaks</span><span class="ja">壊れた日のための設計</span></h3>
+        <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">A bridge's strength is invisible on a sunny day. Clearing's layered defense worked as designed in 2008, reached into mutualized resources in 2018, and was overrun in 2022. Who bears the first loss, from what point is it mutualized, and who decides when the rules run out?</p>
+        <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">橋の強さは、晴れた日には分からない。清算の多層防御が設計どおり機能した2008年、共同資源まで使われた2018年、想定を超えられた2022年。誰が最初に損失を負い、どこから共同化し、ルールが尽きたとき誰が判断するのか。</p>
         <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
-        </div>
-      </a>
-
-      <a href="essays/when-the-org-folds-into-the-head" class="featured-card fade-in">
-        <img src="lane-ai.jpg" alt="" loading="lazy">
-        <div class="featured-body">
-        <div class="featured-lane"><span class="en">AI &amp; Work</span><span class="ja">AIと働き方</span></div>
-        <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 012 · July 2026</div>
-        <h3 style="font-family:var(--font-display);font-size:1.28rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.4rem;"><span class="en">When the Organization Folds Into the Mind</span><span class="ja">組織は知能の関数だった</span></h3>
-        <p class="en" style="font-size:.86rem;color:var(--text-muted);line-height:1.65;margin:0;">I governed my own AI development like a company — six roles, written reports, a board. A smarter model folded the whole thing into a single head.</p>
-        <p class="ja" style="font-size:.86rem;color:var(--text-muted);line-height:1.65;margin:0;font-family:var(--font-jp);">自分のAI開発を会社そっくりに統治していた。賢くなったモデルが、それを一つの頭に畳んだ。組織のどこが補装具で、どこが物理なのか。</p>
-        <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
-        </div>
-      </a>
-
-      <a href="essays/when-a-frozen-market-thaws" class="featured-card fade-in">
-        <img src="lane-rates.jpg" alt="" loading="lazy">
-        <div class="featured-body">
-        <div class="featured-lane"><span class="en">Japan Rates</span><span class="ja">円金利市場</span></div>
-        <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 002 · June 2026</div>
-        <h3 style="font-family:var(--font-display);font-size:1.28rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.4rem;"><span class="en">When a Frozen Market Thaws</span><span class="ja">凍結されていた市場が、動き出すとき</span></h3>
-        <p class="en" style="font-size:.86rem;color:var(--text-muted);line-height:1.65;margin:0;">What is "liquidity", really? Why Japanese rates were frozen, the plumbing of collateral and clearing — and trust as what moves under stress.</p>
-        <p class="ja" style="font-size:.86rem;color:var(--text-muted);line-height:1.65;margin:0;font-family:var(--font-jp);">「流動性」とは何か — なぜ円金利は凍結されていたのか、担保・清算の配管、そして信頼＝ストレス時に動かせるもの。</p>
-        <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
-        </div>
       </a>
 
     </div>
 
-    <div class="essays-sub-label"><span class="en">Latest</span><span class="ja">最新</span></div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem;">
+    <div class="essays-sub-label" style="margin-top:2.8rem;"><span class="en">From the Archive</span><span class="ja">過去のエッセイから — From the Archive</span></div>
+    <div id="essays-archive" class="essay-card-grid">
+      <!-- static fallback: replaced at runtime by three random earlier essays -->
 
-      <a href="essays/yuishiki-and-the-path" class="fade-in" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
-        <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 016 · July 2026</div>
-        <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">Yuishiki, and the Path to Awakening</span><span class="ja">唯識と、悟りへの道</span></h3>
-        <p class="en" style="font-size:.86rem;color:var(--text-muted);line-height:1.65;margin:0;">What the monk of Journey to the West actually went to the far end of India to fetch was the account of the mind as layered consciousness. Why a system this central never came out where people could see it — and where the thing kept in the back had its place.</p>
-        <p class="ja" style="font-size:.86rem;color:var(--text-muted);line-height:1.65;margin:0;font-family:var(--font-jp);">三蔵法師が命懸けで天竺まで取りに行ったのは、心が層になっているという話だった。なぜこれほど中心にあるものが民の目に触れる場所に出てこなかったのか。奥に在り続けたものの居場所を辿る。</p>
+      <a href="/essays/when-the-org-folds-into-the-head" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
+        <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 012 · July 2026</div>
+        <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">When the Organization Folds Into the Mind</span><span class="ja">組織は知能の関数だった</span></h3>
+        <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">I governed my own AI development like a company — six roles, written reports, a board. A smarter model folded the whole thing into a single head. Which parts of an organization are a prosthetic for weak intelligence, and which are closer to physics?</p>
+        <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">自分のAI開発を会社そっくりに統治していた——六つの役割、報連相、諮問。賢くなったモデルが、それを一つの頭に畳んだ。組織のどこが「知能不足の補装具」で、どこが物理に近い制約なのか。一度、外して測ってみた。</p>
         <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
       </a>
 
-      <a href="essays/koyasan-and-religion" class="fade-in" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
-        <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 015 · July 2026</div>
-        <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">Koyasan, and Religion</span><span class="ja">高野山と、宗教。</span></h3>
-        <p class="en" style="font-size:.86rem;color:var(--text-muted);line-height:1.65;margin:0;">A teaching that began by showing one person the way out of suffering ended up wearing the shape of a state. From early Buddhism to the Edo parishioner registers — and why, unlike the gods cast down elsewhere, this one lasted twenty-five centuries.</p>
-        <p class="ja" style="font-size:.86rem;color:var(--text-muted);line-height:1.65;margin:0;font-family:var(--font-jp);">一人の苦しみに向けられていた教えは、なぜ国家の形になったのか。十二月の雪の参道から、初期仏教・大乗・密教・鎌倉の諸宗・江戸の寺請制度までを辿り、堕とされた神々と比べて考える。</p>
-        <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
-      </a>
-
-      <a href="essays/the-order-you-dont-maintain" class="fade-in" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
+      <a href="/essays/the-order-you-dont-maintain" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
         <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 011 · June 2026</div>
         <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">You Were Never the Problem</span><span class="ja">「使いこなせなかった」のは、あなたのせいではない</span></h3>
-        <p class="en" style="font-size:.86rem;color:var(--text-muted);line-height:1.65;margin:0;">Your note-taking tools never stuck — and it wasn't your discipline. What was missing was classification itself, and a second kind of order: the kind that emerges from what you write and keeps its own shape.</p>
-        <p class="ja" style="font-size:.86rem;color:var(--text-muted);line-height:1.65;margin:0;font-family:var(--font-jp);">ノートツールが続かなかったのは、整理能力のせいではない。欠けていたのは分類そのもの——そして、書いたものから立ち上がって自分で形を保つ、もう一種類の秩序だった。</p>
+        <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">Your note-taking tools never stuck — and it wasn't your discipline. What was missing was classification itself, and a second kind of order: the kind that emerges from what you write and keeps its own shape.</p>
+        <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">ノートツールが続かなかったのは、整理能力のせいではない。欠けていたのは分類そのもの——そして、書いたものから立ち上がって自分で形を保つ、もう一種類の秩序だった。</p>
+        <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+      </a>
+
+      <a href="/essays/when-ai-knows-the-world" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
+        <div style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 010 · June 2026</div>
+        <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">When AI Comes to Know the World</span><span class="ja">AI が、世界を識る時</span></h3>
+        <p class="en" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;">AI began with words — the easy part. The hard part was always the limbs. The brain does not pilot them; they fit the physics on their own. That is where what Japan still holds may yet matter.</p>
+        <p class="ja" style="font-size:.86rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">AIは言葉から始まった——易しい側だ。難しいのは、いつも手足だった。脳は手足を操縦せず、手足が自分で物理を擦り合わせる。日本がまだ手に持つものが効くとすれば、そこだ。</p>
         <div style="margin-top:1rem;font-family:var(--font-mono);font-size:.64rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
       </a>
 
@@ -1032,6 +1081,49 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.08 });
 document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+// ── ESSAYS: newest three + three drawn at random from the rest ──
+// Reads the canonical list at /essays/ so the top page never drifts from it.
+// If anything fails, the statically rendered six cards stay as they are.
+(function renderEssays() {
+  var latest  = document.getElementById('essays-latest');
+  var archive = document.getElementById('essays-archive');
+  if (!latest || !archive || !window.fetch || !window.DOMParser) return;
+
+  fetch('/essays/', { credentials: 'same-origin' })
+    .then(function (res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.text();
+    })
+    .then(function (html) {
+      var doc  = new DOMParser().parseFromString(html, 'text/html');
+      var grid = doc.getElementById('all-essays-grid');
+      if (!grid) throw new Error('all-essays-grid not found');
+
+      var cards = Array.prototype.filter.call(grid.children, function (el) {
+        return el.tagName === 'A';
+      });
+      if (cards.length < 6) throw new Error('only ' + cards.length + ' cards');
+
+      var newest = cards.slice(0, 3);
+      var rest   = cards.slice(3);
+      for (var i = rest.length - 1; i > 0; i--) {          // Fisher–Yates
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = rest[i]; rest[i] = rest[j]; rest[j] = t;
+      }
+      var picks = rest.slice(0, 3);                         // disjoint from newest
+
+      function fill(container, list) {
+        while (container.firstChild) container.removeChild(container.firstChild);
+        list.forEach(function (card) {
+          container.appendChild(document.importNode(card, true));
+        });
+      }
+      fill(latest, newest);
+      fill(archive, picks);
+    })
+    .catch(function () { /* keep the static fallback */ });
+})();
 
 // ── BOOK EXCERPT TOGGLE ──
 function toggleExcerpt(btn) {
