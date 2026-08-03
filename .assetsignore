@@ -1,0 +1,11 @@
+# wrangler.jsonc の assets.directory が "." なので、置いたものは全部公開される。
+# ここは「公開しない」の機械的な最後の砦（.gitignore とは別レイヤー — git を通さず
+# 手元から deploy する迂回路でも効く）。
+
+# wrangler 自身の作業ファイル。deploy のたびに .wrangler/tmp/deploy-*/no-op-worker.js.map が
+# 資産に1つ混ざるので落とす
+.wrangler/
+
+# 統治文書はローカル専用。.gitignore にも入っているが、作業ディレクトリから
+# deploy した事故を想定した二重の歯止め
+CHARTER.md
