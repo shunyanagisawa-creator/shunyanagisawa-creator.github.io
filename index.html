@@ -176,11 +176,16 @@ section.alt { background: var(--off-white); }
 .pub-dark-header h3 { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 400; color: var(--white); margin-bottom: .3rem; }
 .pub-dark-header .pub-jp { font-family: var(--font-serif-jp); font-size: 1rem; color: rgba(255,255,255,.55); letter-spacing: .1em; }
 .pub-body { padding: 1.8rem; }
-.pub-body h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); margin-bottom: .3rem; }
-.pub-body .pub-jp2 { font-family: var(--font-jp); font-size: .9rem; color: var(--text-muted); margin-bottom: 1rem; }
+/* 書名の階層: 主=日本語書名 / 副題 / 従属=英題（EN 表示時は主従が入れ替わる） */
+.pub-body h3.pub-title { font-family: var(--font-jp); font-size: 1.34rem; font-weight: 500; line-height: 1.4; color: var(--navy); margin-bottom: .25rem; }
+.pub-body h3.pub-title .en { font-family: var(--font-display); }
+.pub-body .pub-subtitle { font-family: var(--font-jp); font-size: .95rem; line-height: 1.55; color: #3d4148; margin-bottom: .45rem; }
+.pub-body .pub-subtitle .en { font-family: var(--font-display); }
+.pub-body .pub-alt-title { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; color: #3d4148; margin-bottom: 1rem; }
+.pub-body .pub-alt-title .ja { font-family: var(--font-jp); letter-spacing: .02em; }
 .pub-body p { font-size: .9rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1.2rem; }
 .pub-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
-.pub-tag { display: inline-block; font-family: var(--font-mono); font-size: .6rem; letter-spacing: .12em; text-transform: uppercase; color: var(--teal-dark); border: 1px solid var(--teal-dark); padding: .2rem .65rem; }
+.pub-tag { display: inline-block; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--teal-dark); border: 1.5px solid var(--teal-dark); padding: .28rem .8rem; }
 .pub-tag.solid { background: var(--teal-dark); color: var(--white); border-color: var(--teal-dark); }
 .pub-tag.gold { color: var(--gold-dark); border-color: var(--gold-dark); }
 
@@ -363,13 +368,13 @@ body.lang-en .en { display: block !important; }
 .editions { display: flex; flex-direction: column; gap: .55rem; }
 .edition-row { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
 .edition-lang {
-  font-family: var(--font-mono); font-size: .6rem; letter-spacing: .18em; text-transform: uppercase;
-  color: #3d4148; min-width: 5.6rem;
+  font-family: var(--font-mono); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase;
+  color: #2b2f34; font-weight: 500; min-width: 5.9rem;
 }
 .edition-lang .ja { font-family: var(--font-jp); letter-spacing: .12em; }
 .edition-note {
-  margin-left: 5.6rem; font-size: .78rem; line-height: 1.65; color: #3d4148;
-  padding-left: .7rem; border-left: 2px solid var(--border);
+  margin-left: 5.9rem; font-size: .82rem; line-height: 1.7; color: #3d4148;
+  padding-left: .8rem; border-left: 2px solid rgba(29,92,92,.32);
 }
 
 /* PROJECTS */
@@ -396,7 +401,9 @@ footer { flex-wrap: wrap; }
   .nav-contact { display: none; }
   .nav-contact-sm { display: block; }
   .edition-note { margin-left: 0; }
-  .edition-lang { min-width: 4.4rem; }
+  .edition-lang { min-width: 4.6rem; letter-spacing: .08em; }
+  .pub-tag { letter-spacing: .04em; padding: .26rem .6rem; }
+  .edition-row { gap: .4rem; }
   .pub-img-header.pub-img-duo { gap: .7rem; padding: 1.2rem .6rem 1rem; }
   .pub-img-header.pub-img-duo img { height: 175px; }
   .pub-img-header.pub-img-duo figcaption { font-size: .55rem; letter-spacing: .06em; }
@@ -430,10 +437,36 @@ footer { flex-wrap: wrap; }
 #essays .featured-card h3 { font-family: var(--font-serif) !important; }
 
 /* SF 小説カード（阿頼耶識の海） */
-.pub-card.sf .pub-body h3 { font-family: var(--font-serif); }
-.pub-card.sf .pub-body .pub-jp2 { font-family: var(--font-serif-jp); }
+.pub-card.sf .pub-body h3.pub-title { font-family: var(--font-serif-jp); }
+.pub-card.sf .pub-body h3.pub-title .en { font-family: var(--font-serif); }
+.pub-card.sf .pub-body .pub-subtitle { font-family: var(--font-serif-jp); }
+.pub-card.sf .pub-body .pub-subtitle .en { font-family: var(--font-serif); }
+.pub-card.sf .pub-body .pub-alt-title { font-family: var(--font-serif); font-size: .84rem; letter-spacing: .02em; }
+.pub-card.sf .pub-body .pub-alt-title .ja { font-family: var(--font-serif-jp); }
 .pub-card.sf .pub-body p { font-family: var(--font-serif); }
 .pub-card.sf .pub-body p.ja { font-family: var(--font-serif-jp); }
+
+/* BOOKS — 副次リンクは一枚の枠に畳んで、行ごとにリンクと分かる形にする */
+.book-links { margin-top: 1.2rem; border: 1px solid rgba(29,92,92,.30); border-left: 3px solid var(--teal-dark); background: var(--white); }
+.book-links a {
+  display: block; padding: .66rem 1rem; text-decoration: none;
+  font-size: .78rem; line-height: 1.55; font-weight: 500; color: var(--teal-dark);
+  border-bottom: 1px solid rgba(29,92,92,.18); transition: background .2s, color .2s;
+}
+.book-links a:last-child { border-bottom: none; }
+.book-links a:hover { background: var(--teal-light); color: var(--navy); }
+.book-links .ja { font-family: var(--font-jp); }
+
+/* BOOKS — 抜粋トグルはセクション末リンクと同じ罫線囲みボタン様式に寄せる */
+.excerpt-toggle {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-family: var(--font-mono); font-size: .76rem; letter-spacing: .1em;
+  color: var(--teal-dark); background: var(--white);
+  border: 1.5px solid var(--teal-dark); padding: .55rem 1.3rem; cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.excerpt-toggle:hover { background: var(--teal-dark); color: var(--white); }
+.excerpt-toggle .ja { font-family: var(--font-jp); letter-spacing: .04em; }
 </style>
 </head>
 <body class="lang-ja">
@@ -499,8 +532,9 @@ footer { flex-wrap: wrap; }
         <div class="pub-body">
           <div class="pub-label en" style="color:var(--teal-dark);">Specialist Reference · Japanese</div>
           <div class="pub-label ja" style="color:var(--teal-dark);">専門書 · 日本語</div>
-          <h3>All About Derivatives Clearing</h3>
-          <div class="pub-jp2">デリバティブ・クリアリングのすべて<br><span style="font-size:.82rem;">リスク管理、規制、そして市場の未来</span></div>
+          <h3 class="pub-title"><span class="ja">デリバティブ・クリアリングのすべて</span><span class="en">All About Derivatives Clearing</span></h3>
+          <div class="pub-subtitle"><span class="ja">リスク管理、規制、そして市場の未来</span><span class="en">Risk Management, Regulation, and the Future of the Markets</span></div>
+          <div class="pub-alt-title"><span class="ja">All About Derivatives Clearing</span><span class="en">デリバティブ・クリアリングのすべて</span></div>
           <p class="en">The definitive Japanese-language reference on derivatives clearing. Drawing on twenty years at the frontline, this practitioner's handbook covers CCP architecture, margin mechanics, regulatory frameworks, and the future of Japan's clearing ecosystem.</p>
           <p class="ja">デリバティブ・クリアリングを網羅する日本語初の本格専門書。CCP設計、マージンの力学、規制フレームワーク（バーゼルIII・EMIR・ドッドフランク）から日本市場の将来像まで、20年の実務から書き下ろした実務家向けCCPハンドブック。</p>
           <div class="editions">
@@ -517,8 +551,8 @@ footer { flex-wrap: wrap; }
           </div>
           <a href="https://amzn.asia/d/00Aawrf8" target="_blank"
              style="display:inline-flex;align-items:center;gap:.5rem;margin-top:1.2rem;
-                    font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;
-                    background:#FF9900;color:#fff;padding:.5rem 1.1rem;text-decoration:none;
+                    font-family:var(--font-mono);font-size:.78rem;letter-spacing:.08em;
+                    background:#FF9900;color:#fff;padding:.6rem 1.3rem;text-decoration:none;
                     font-weight:500;transition:opacity .2s;"
              onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13.23 10.56V10c-1.94.02-3.99.37-3.99 2.67 0 1.16.61 1.95 1.63 1.95.76 0 1.43-.47 1.86-1.22.52-.93.5-1.79.5-2.84zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.23 13.24c-.28.2-.57.36-.89.36-1.14 0-1.81-.87-1.81-2.17 0-1.8 1.29-2.17 2.53-2.17.35 0 .7.05 1.04.09v-.38c0-.77-.03-1.45-1.05-1.45-.81 0-1.35.39-1.75.94l-.96-.96c.73-.83 1.7-1.3 2.74-1.3 1.92 0 2.78 1.08 2.78 2.96v2.75c0 .7.28 1.01.85 1.01.07 0 .14-.01.21-.03l.12.94c-.24.07-.54.11-.84.11-.76 0-1.42-.32-1.78-.9z"/></svg>
@@ -529,8 +563,8 @@ footer { flex-wrap: wrap; }
           <!-- Read preview button -->
           <a href="book" target="_blank"
              style="display:inline-flex;align-items:center;gap:.5rem;margin-top:.6rem;
-                    font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;
-                    background:var(--teal-dark);color:#fff;padding:.5rem 1.1rem;text-decoration:none;
+                    font-family:var(--font-mono);font-size:.78rem;letter-spacing:.08em;
+                    background:var(--teal-dark);color:#fff;padding:.6rem 1.3rem;text-decoration:none;
                     font-weight:400;transition:opacity .2s;"
              onmouseover="this.style.opacity='.82'" onmouseout="this.style.opacity='1'">
             📖
@@ -538,30 +572,17 @@ footer { flex-wrap: wrap; }
             <span class="ja">序章・第1章を無料で読む →</span>
           </a>
 
-          <!-- Reader's companion (M∀NUS Press) -->
-          <div style="margin-top:.9rem;">
-            <a href="https://manus-press.com/clearing" target="_blank" rel="noopener"
-               style="font-family:var(--font-mono);font-size:.66rem;letter-spacing:.08em;
-                      color:var(--teal-dark);text-decoration:none;border-bottom:1px solid var(--border);">
+          <!-- Secondary links: reader's companion / SSRN preview / clearing notes -->
+          <div class="book-links">
+            <a href="https://manus-press.com/clearing" target="_blank" rel="noopener">
               <span class="en">Reader's companion — map, chapter guides, errata →</span>
               <span class="ja">読者コンパニオン — 全体地図・章ガイド・正誤表 →</span>
             </a>
-          </div>
-
-          <!-- English preview on SSRN -->
-          <div style="margin-top:.55rem;">
-            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6956518" target="_blank" rel="noopener"
-               style="font-family:var(--font-mono);font-size:.66rem;letter-spacing:.08em;
-                      color:var(--teal-dark);text-decoration:none;border-bottom:1px solid var(--border);">
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6956518" target="_blank" rel="noopener">
               <span class="en">English preview on SSRN — Introduction &amp; Chapter 1, 138 pp. →</span>
               <span class="ja">英語版プレビュー（SSRN）— 序章・第1章、全138頁 →</span>
             </a>
-          </div>
-          <!-- Post-publication tracking (/clearing) -->
-          <div style="margin-top:.55rem;">
-            <a href="/clearing/"
-               style="font-family:var(--font-mono);font-size:.66rem;letter-spacing:.08em;
-                      color:var(--teal-dark);text-decoration:none;border-bottom:1px solid var(--border);">
+            <a href="/clearing/">
               <span class="en">After publication — tracking how clearing keeps moving →</span>
               <span class="ja">刊行後の規制・市場の変化を追う — クリアリングの章立てへ →</span>
             </a>
@@ -569,12 +590,7 @@ footer { flex-wrap: wrap; }
 
           <!-- Book excerpt toggle -->
           <div style="margin-top:1.5rem;border-top:1px solid var(--border-light);padding-top:1.2rem;">
-            <button onclick="toggleExcerpt(this)"
-              style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;
-                     color:var(--teal-dark);background:none;border:1px solid var(--teal-dark);
-                     padding:.35rem .9rem;cursor:pointer;transition:all .2s;"
-              onmouseover="this.style.background='var(--teal-dark)';this.style.color='white'"
-              onmouseout="this.style.background='none';this.style.color='var(--teal-dark)'">
+            <button class="excerpt-toggle" onclick="toggleExcerpt(this)">
               <span class="en">▸ Read Excerpt</span>
               <span class="ja">▸ 本文抜粋を読む</span>
             </button>
@@ -609,8 +625,9 @@ footer { flex-wrap: wrap; }
         <div class="pub-body">
           <div class="pub-label en" style="color:var(--teal-dark);">Speculative Fiction · Japanese</div>
           <div class="pub-label ja" style="color:var(--teal-dark);">長編小説 · 日本語</div>
-          <h3>The Sea of Ālaya-vijñāna</h3>
-          <div class="pub-jp2">阿頼耶識の海<br><span style="font-size:.82rem;">絶望の中も、世界は美しい。</span></div>
+          <h3 class="pub-title"><span class="ja">阿頼耶識の海</span><span class="en">The Sea of Ālaya-vijñāna</span></h3>
+          <div class="pub-subtitle">絶望の中も、世界は美しい。</div>
+          <div class="pub-alt-title"><span class="ja">The Sea of Ālaya-vijñāna</span><span class="en">阿頼耶識の海</span></div>
           <p class="en">A speculative novel weaving together artificial superintelligence, Buddhist consciousness theory (ālaya-vijñāna), and quantum mechanics. Two protagonists navigate the emergence of post-human intelligence and the ethics of designed consciousness. Forthcoming from M∀NUS Press as Liber No. 1.</p>
           <p class="ja">人工超知能、仏教唯識の阿頼耶識、量子力学（遅延選択実験・ホログラフィック宇宙論）を融合したSF長編。超人間的知性の台頭と、設計された意識の倫理をめぐる二人の主人公の物語。M∀NUS Press より Liber No. 1 として刊行予定。</p>
           <div class="pub-tags">
@@ -619,8 +636,8 @@ footer { flex-wrap: wrap; }
           </div>
           <a href="https://manus-press.com/liber-1" target="_blank" rel="noopener"
              style="display:inline-flex;align-items:center;gap:.5rem;margin-top:1.4rem;
-                    font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;
-                    background:var(--navy);color:#fff;padding:.5rem 1.1rem;text-decoration:none;
+                    font-family:var(--font-mono);font-size:.78rem;letter-spacing:.08em;
+                    background:var(--navy);color:#fff;padding:.6rem 1.3rem;text-decoration:none;
                     font-weight:400;transition:opacity .2s;"
              onmouseover="this.style.opacity='.82'" onmouseout="this.style.opacity='1'">
             <span class="en">Read Preview (Vertical Text) →</span>
