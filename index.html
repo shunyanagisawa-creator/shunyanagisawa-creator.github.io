@@ -150,6 +150,43 @@ section.alt { background: var(--off-white); }
 .section-title { font-family: var(--font-serif); font-size: 1.9rem; font-weight: 400; color: var(--navy); }
 .section-sub { font-size: 0.85rem; color: var(--text-light); letter-spacing: .05em; }
 
+/* SECTION HEADER — 見出し右側の淡い透かし (線画・装飾扱い)。
+   独立した画像ブロックにせず見出し領域の中へ敷く = ページを縦へ伸ばさない。 */
+.section-header--art {
+  position: relative;
+  min-height: 145px;
+  overflow: hidden;
+  margin-bottom: 2.2rem;
+  /* 既定の align-items:baseline を保ったまま、行そのものを縦中央へ置く
+     (align-items:center にすると見出しと sub のベースラインが割れる)。 */
+  flex-wrap: wrap;
+  align-content: center;
+}
+.section-header--art .section-title,
+.section-header--art .section-sub { position: relative; z-index: 2; }
+.section-header-art {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: var(--art-opacity, .52);
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 18%, #000 48%, #000 100%);
+  mask-image: linear-gradient(to right, transparent 0%, transparent 18%, #000 48%, #000 100%);
+}
+@media (max-width: 700px) {
+  .section-header--art { min-height: 105px; }
+  .section-header-art {
+    opacity: var(--art-opacity-mobile, .40);
+    object-position: 68% center;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 62%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 62%);
+  }
+}
+
 /* ABOUT */
 .about-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 5rem; align-items: start; }
 .about-body p { font-size: 1.05rem; color: var(--text-mid); margin-bottom: 1.2rem; line-height: 1.85; }
@@ -508,10 +545,11 @@ footer { flex-wrap: wrap; }
 <!-- BOOKS -->
 <section id="books">
   <div class="section-inner">
-    <div class="section-header">
+    <div class="section-header section-header--art" style="--art-opacity:.42;--art-opacity-mobile:.33;">
       <h2 class="section-title en">Books</h2>
       <h2 class="section-title ja">著作</h2>
       <span class="section-sub en">Two forms of inquiry</span>
+      <img class="section-header-art" src="/section-books-light.webp" alt="" aria-hidden="true" decoding="async">
     </div>
     <p class="section-lede en">Thinking through the institutions of the market, and telling a story about the future of intelligence and consciousness. Through two different forms, I am exploring how order and trust come into being in a complex world.</p>
     <p class="section-lede ja">市場の制度を考えることと、知性や意識の未来を物語ること。異なる二つの形式を通して、複雑な世界に秩序と信頼がどのように生まれるのかを探っています。</p>
@@ -735,10 +773,11 @@ footer { flex-wrap: wrap; }
 <!-- ESSAYS -->
 <section id="essays" class="alt">
   <div class="section-inner">
-    <div class="section-header">
+    <div class="section-header section-header--art" style="--art-opacity:.52;--art-opacity-mobile:.40;">
       <h2 class="section-title en">Essays</h2>
       <h2 class="section-title ja">エッセイ</h2>
       <span class="section-sub en">Thinking in Public</span>
+      <img class="section-header-art" src="/section-essays-light.webp" alt="" aria-hidden="true" decoding="async">
     </div>
     <p class="en" style="max-width:680px;color:var(--text-mid);margin-bottom:2.2rem;">Occasional essays on market infrastructure, AI, and the design of trust — bilingual, written without an algorithm to please.</p>
     <p class="ja" style="max-width:680px;color:var(--text-mid);margin-bottom:2.2rem;font-family:var(--font-jp);">市場インフラ、AI、そして信頼の設計について — 不定期、英日二言語のエッセイ。</p>
@@ -810,10 +849,11 @@ footer { flex-wrap: wrap; }
 <!-- SELECTED WORK — speaking & media -->
 <section id="work">
   <div class="section-inner">
-    <div class="section-header">
+    <div class="section-header section-header--art" style="--art-opacity:.55;--art-opacity-mobile:.43;">
       <h2 class="section-title en">In Public</h2>
       <h2 class="section-title ja">講演・対話・メディア</h2>
       <span class="section-sub en">Selected Work</span>
+      <img class="section-header-art" src="/section-work-light.webp" alt="" aria-hidden="true" decoding="async">
     </div>
 
     <div class="sub-header">
