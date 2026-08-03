@@ -106,7 +106,7 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   width: 100%; height: 190px;
   object-fit: cover;
   object-position: center;
-  opacity: .62;
+  /* opacity は掛けない (index.html の .section-header-art と同じ理由・2026-08-04 実測) */
   pointer-events: none;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 23%, #000 52%, #000 100%);
   mask-image: linear-gradient(to right, transparent 0%, transparent 23%, #000 52%, #000 100%);
@@ -119,7 +119,7 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   .media-grid { grid-template-columns: 1fr; }
   .page--art { min-height: 220px; }
   .page-header-art {
-    top: 18px; height: 145px; opacity: .42;
+    top: 18px; height: 145px;
     object-position: 68% center;
     -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 62%);
     mask-image: linear-gradient(to right, transparent 0%, #000 62%);

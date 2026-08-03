@@ -175,7 +175,9 @@ section.alt { background: var(--off-white); }
   height: 100%;
   object-fit: cover;
   object-position: center;
-  opacity: var(--art-opacity, .52);
+  /* opacity は掛けない。元画像自体が白地に細線 (平均輝度 242-253) で、
+     さらに cover 縮小で細線が平均化されるため、CSS で薄めると実効コントラストが
+     2-7 まで落ちて事実上見えなくなる (2026-08-04 実測)。淡さは画像側が持つ。 */
   pointer-events: none;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 18%, #000 48%, #000 100%);
   mask-image: linear-gradient(to right, transparent 0%, transparent 18%, #000 48%, #000 100%);
@@ -184,7 +186,6 @@ section.alt { background: var(--off-white); }
   .section-header--art,
   .section-header--tall { min-height: 105px; }
   .section-header-art {
-    opacity: var(--art-opacity-mobile, .40);
     object-position: 68% center;
     -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 62%);
     mask-image: linear-gradient(to right, transparent 0%, #000 62%);
@@ -549,7 +550,7 @@ footer { flex-wrap: wrap; }
 <!-- BOOKS -->
 <section id="books">
   <div class="section-inner">
-    <div class="section-header section-header--art" style="--art-opacity:.42;--art-opacity-mobile:.33;">
+    <div class="section-header section-header--art">
       <h2 class="section-title en">Books</h2>
       <h2 class="section-title ja">著作</h2>
       <span class="section-sub en">Two forms of inquiry</span>
@@ -777,7 +778,7 @@ footer { flex-wrap: wrap; }
 <!-- ESSAYS -->
 <section id="essays" class="alt">
   <div class="section-inner">
-    <div class="section-header section-header--art" style="--art-opacity:.52;--art-opacity-mobile:.40;">
+    <div class="section-header section-header--art">
       <h2 class="section-title en">Essays</h2>
       <h2 class="section-title ja">エッセイ</h2>
       <span class="section-sub en">Thinking in Public</span>
@@ -853,7 +854,7 @@ footer { flex-wrap: wrap; }
 <!-- SELECTED WORK — speaking & media -->
 <section id="work">
   <div class="section-inner">
-    <div class="section-header section-header--art" style="--art-opacity:.55;--art-opacity-mobile:.43;">
+    <div class="section-header section-header--art">
       <h2 class="section-title en">In Public</h2>
       <h2 class="section-title ja">講演・対話・メディア</h2>
       <span class="section-sub en">Selected Work</span>
