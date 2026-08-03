@@ -151,8 +151,11 @@ section.alt { background: var(--off-white); }
 .section-sub { font-size: 0.85rem; color: var(--text-light); letter-spacing: .05em; }
 
 /* SECTION HEADER — 見出し右側の淡い透かし (線画・装飾扱い)。
-   独立した画像ブロックにせず見出し領域の中へ敷く = ページを縦へ伸ばさない。 */
-.section-header--art {
+   独立した画像ブロックにせず見出し領域の中へ敷く = ページを縦へ伸ばさない。
+   --tall は透かしを持たない節 (背景と歩み) を同じ高さへ揃えるための骨だけの変種。
+   透かしは4節目には足さない (将来の実写ポートレートの場所として空けてある)。 */
+.section-header--art,
+.section-header--tall {
   position: relative;
   min-height: 145px;
   overflow: hidden;
@@ -178,7 +181,8 @@ section.alt { background: var(--off-white); }
   mask-image: linear-gradient(to right, transparent 0%, transparent 18%, #000 48%, #000 100%);
 }
 @media (max-width: 700px) {
-  .section-header--art { min-height: 105px; }
+  .section-header--art,
+  .section-header--tall { min-height: 105px; }
   .section-header-art {
     opacity: var(--art-opacity-mobile, .40);
     object-position: 68% center;
@@ -966,7 +970,7 @@ footer { flex-wrap: wrap; }
 <!-- ABOUT -->
 <section id="about" class="alt">
   <div class="section-inner">
-    <div class="section-header">
+    <div class="section-header section-header--tall">
       <h2 class="section-title en">Background</h2>
       <h2 class="section-title ja">背景と歩み</h2>
       <span class="section-sub en">Practice &amp; Inquiry</span>
