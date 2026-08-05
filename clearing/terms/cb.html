@@ -124,7 +124,6 @@ table.ledger th { background: var(--off-white); color: var(--navy); font-weight:
 
 footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .06em; color: var(--text-sub); text-align: center; line-height: 2.1; }
 footer a { color: var(--teal-dark); text-decoration: none; }
-.disclaimer { max-width: 900px; margin: 0 auto 1.2rem; padding: 0 1.6rem; font-size: .66rem; color: var(--text-sub); line-height: 1.8; text-align: center; }
 @media (max-width: 560px) {
   nav { padding: 0 1.1rem; }
   .column { padding: 2.4rem 1.2rem 4rem; }
@@ -189,6 +188,12 @@ html.has-backbar .term { scroll-margin-top: 236px; }
 .term-ja { font-size: 1rem; color: var(--navy); margin-top: .25rem; }
 .term-alt { color: var(--text-sub); font-size: .88rem; }
 .term-def { margin: .5rem 0 0; font-size: .95rem; color: var(--text-mid); text-align: justify; }
+.term-def-en { position: relative; margin: .7rem 0 0; padding-left: .9rem; font-size: .88rem;
+  line-height: 1.55; color: var(--navy); font-style: italic; text-align: justify;
+  border-left: 2px solid var(--teal-dark); }
+.term-def-en::before { content: "EN"; position: absolute; left: -.05rem; top: -1.05rem;
+  font-family: var(--font-mono); font-style: normal; font-size: .6rem; letter-spacing: .14em;
+  color: var(--teal-dark); padding-left: .95rem; }
 .term-links { margin: .5rem 0 0; font-size: .82rem; color: var(--text-sub); }
 .term-links a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.45); }
 .term-links .sep { color: var(--text-sub); margin: 0 .55rem; }
@@ -202,6 +207,7 @@ html.has-backbar .term { scroll-margin-top: 236px; }
 .term-page .column-meta span { white-space: nowrap; }
 .term-page .term-body { margin-top: .4rem; }
 .term-page .term-body p { margin: 1.1rem 0; }
+.term-page .term-body p.term-def-en { margin-top: .9rem; }
 .term-page .term-fields { margin: 1.6rem 0 0; }
 .term-page .term-fields dt { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .16em;
   color: var(--gold-dark); margin-top: 1.1rem; }
@@ -212,8 +218,11 @@ html.has-backbar .term { scroll-margin-top: 236px; }
 .term-page .term-more .more-label { display: block; font-family: var(--font-mono); font-size: .64rem;
   letter-spacing: .2em; color: var(--gold-dark); margin-bottom: .2rem; }
 .term-page .term-more p { margin: .55rem 0 0; color: var(--text-mid); text-align: justify; }
+
+/* サイト全体のコンプライアンス開示（記事ページと同一。テンプレート側の共有スタイルには無いのでここに持つ） */
+.disclaimer { max-width: 900px; margin: 0 auto 1.2rem; padding: 0 1.6rem; font-size: .66rem; color: var(--text-sub); line-height: 1.8; text-align: center; }
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","termCode":"CB","name":"クリアリングブローカー","description":"顧客に代わってCCPへの清算取次（取引登録・証拠金授受・ポートフォリオ管理等）を行う金融機関。多くの場合、自らがClearing MemberとしてCCPに参加しており、FCMと同義で使われることも多い。本書ではクライアント・クリアリングの中核プレイヤーとして登場する。","url":"https://www.shun-yanagisawa.com/clearing/terms/cb","inDefinedTermSet":{"@type":"DefinedTermSet","name":"クリアリング用語集","url":"https://www.shun-yanagisawa.com/clearing/terms"},"alternateName":["Clearing Broker","クリアリング・ブローカー"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","termCode":"CB","name":"クリアリングブローカー","description":[{"@language":"ja","@value":"顧客に代わってCCPへの清算取次（取引登録・証拠金授受・ポートフォリオ管理等）を行う金融機関。多くの場合、自らがClearing MemberとしてCCPに参加しており、FCMと同義で使われることも多い。本書ではクライアント・クリアリングの中核プレイヤーとして登場する。"},{"@language":"en","@value":"A financial institution that intermediates clearing with a CCP on behalf of clients (trade registration, margin transfers, portfolio management, and so on). In most cases it participates in the CCP as a clearing member itself, and the term is often used interchangeably with FCM. It appears throughout this book as the central player in client clearing."}],"url":"https://www.shun-yanagisawa.com/clearing/terms/cb","inDefinedTermSet":{"@type":"DefinedTermSet","name":"クリアリング用語集","url":"https://www.shun-yanagisawa.com/clearing/terms"},"alternateName":["Clearing Broker","クリアリング・ブローカー"]}</script>
 </head>
 <body>
 
@@ -229,11 +238,12 @@ html.has-backbar .term { scroll-margin-top: 236px; }
   <p class="column-sub">CB — Clearing Broker</p>
   <div class="column-meta">
     <span>出所 初版</span>
-    <span>更新 2026年8月2日</span>
+    <span>更新 2026年8月5日</span>
   </div>
 
   <div class="term-body">
     <p>顧客に代わってCCPへの清算取次（取引登録・証拠金授受・ポートフォリオ管理等）を行う金融機関。多くの場合、自らがClearing MemberとしてCCPに参加しており、FCMと同義で使われることも多い。本書ではクライアント・クリアリングの中核プレイヤーとして登場する。</p>
+    <p class="term-def-en" lang="en">A financial institution that intermediates clearing with a CCP on behalf of clients (trade registration, margin transfers, portfolio management, and so on). In most cases it participates in the CCP as a clearing member itself, and the term is often used interchangeably with FCM. It appears throughout this book as the central player in client clearing.</p>
   </div>
   <div class="term-more">
     <span class="more-label">補説</span>
@@ -248,7 +258,8 @@ html.has-backbar .term { scroll-margin-top: 236px; }
   </dl>
 
   <div class="colophon">
-    <p>初版の巻末用語集にある語です。この語は<a href="/clearing/terms#cb">クリアリング用語集</a>の一項目です。</p>
+    <p>この語は<a href="/clearing/terms#cb">クリアリング用語集</a>の一項目です。柳沢 俊『デリバティブ・クリアリングのすべて』（<a href="https://manus-press.com/codex-1" rel="noopener">M∀NUS PRESS</a>）初版の巻末用語集にある語です。</p>
+    <p>英語の説明は<a href="https://manus-press.com/codex-1-en" rel="noopener">同書の英語版</a>の巻末用語集から採りました。</p>
     <p><a href="/clearing/terms">用語集へ戻る</a>　／　<a href="/clearing/">クリアリング・章立てへ</a></p>
     <p class="rights">© 2026 柳沢 俊</p>
   </div>
