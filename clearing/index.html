@@ -53,6 +53,8 @@
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background: var(--white); color: var(--text); font-family: var(--font-jp); font-size: 17px; line-height: 1.95; }
+body.lang-ja .en { display: none; }
+body.lang-en .ja { display: none; }
 
 nav {
   position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
@@ -61,8 +63,15 @@ nav {
 }
 .nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
 .nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1rem; }
 .nav-back { font-family: var(--font-jp); font-size: .82rem; letter-spacing: .04em; color: var(--text-sub); text-decoration: none; }
 .nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .06em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .3rem .75rem; cursor: pointer; color: var(--text-sub);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
 
 .column { max-width: 720px; margin: 0 auto; padding: 3.4rem 1.6rem 5rem; }
 
@@ -195,76 +204,105 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 .piece-date { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .04em; color: var(--text-sub); }
 </style>
 </head>
-<body>
+<body class="lang-ja">
 
 <nav>
   <a class="nav-logo" href="/">Shun <span>Yanagisawa</span></a>
-  <a class="nav-back" href="/">← ホーム</a>
+  <div class="nav-right">
+    <a class="nav-back" href="/"><span class="ja">← ホーム</span><span class="en">← Home</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="ja">English</span><span class="en">日本語</span></button>
+  </div>
 </nav>
 
 <div class="hub">
-  <h1>クリアリング</h1>
+  <h1><span class="ja">クリアリング</span><span class="en">Clearing</span></h1>
   <div class="hub-lead">
-    <p>『デリバティブ・クリアリングのすべて』を書き終えた後も、クリアリングの世界は動き続けています。</p>
-    <p>規制案が公表され、市場の構造が変わり、これまで想定されていなかったクリアリングモデルが現れる。そのたびに、書籍で整理した制度や実務を、新しい事実に照らして見直す必要があります。</p>
-    <p>このページでは、本書の刊行後に起きた変化を、国内外の一次資料に基づいて追っていきます。規制の最新動向だけでなく、それが清算参加者、クリアリング・ブローカー、顧客、市場全体にどのような意味を持つのかを、実務の視点から解説します。</p>
-    <p>各記事は初版の関連する章に沿って整理し、参照資料と初出の日付を記載しています。制度や議論の進展によって、公開後に評価や内容が変わることもあります。</p>
-    <p>なお、本ページに掲載する内容は筆者個人の見解であり、筆者が所属する組織・団体の見解を示すものではありません。</p>
+    <p class="ja">『デリバティブ・クリアリングのすべて』を書き終えた後も、クリアリングの世界は動き続けています。</p>
+    <p class="en">The world of clearing kept moving after "All About Derivatives Clearing" went to press.</p>
+    <p class="ja">規制案が公表され、市場の構造が変わり、これまで想定されていなかったクリアリングモデルが現れる。そのたびに、書籍で整理した制度や実務を、新しい事実に照らして見直す必要があります。</p>
+    <p class="en">Rule proposals are published, market structure shifts, and clearing models nobody anticipated appear. Each time, the institutions and practices set out in the book need to be checked against the new facts.</p>
+    <p class="ja">このページでは、本書の刊行後に起きた変化を、国内外の一次資料に基づいて追っていきます。規制の最新動向だけでなく、それが清算参加者、クリアリング・ブローカー、顧客、市場全体にどのような意味を持つのかを、実務の視点から解説します。</p>
+    <p class="en">This page tracks what has moved since publication, drawn from primary sources in Japan and abroad — not just the latest regulatory developments, but what they mean in practice for clearing participants, clearing brokers, customers, and the market as a whole.</p>
+    <p class="ja">各記事は初版の関連する章に沿って整理し、参照資料と初出の日付を記載しています。制度や議論の進展によって、公開後に評価や内容が変わることもあります。</p>
+    <p class="en">Each piece is placed against the relevant chapter of the first edition and carries its sources and first-publication date. Assessments may change as the rules and the debate evolve.</p>
+    <p class="ja">なお、本ページに掲載する内容は筆者個人の見解であり、筆者が所属する組織・団体の見解を示すものではありません。</p>
+    <p class="en">The views on this page are the author's own and do not represent those of any organization he belongs to.</p>
   </div>
-  <div class="hub-note">章立てには、稿のある章だけを載せています。</div>
+  <div class="hub-note"><span class="ja">章立てには、稿のある章だけを載せています。</span><span class="en">Only chapters with a published piece are listed below.</span></div>
 
   <a class="hub-terms" href="/clearing/terms">
-    <span class="k">参照</span>
-    <div class="t">クリアリング用語集</div>
-    <div class="g">クリアリングの実務で使われる主要な用語を、英語の略語、正式名称、日本語訳、短い定義とともに整理しています。実務上、複数の訳語が使われる用語については、代表的な別表記も併記しました。『デリバティブ・クリアリングのすべて』巻末の用語集を出発点に、刊行後の論点で使う語を足しながら拡充を続けています。</div>
+    <span class="k"><span class="ja">参照</span><span class="en">Reference</span></span>
+    <div class="t"><span class="ja">クリアリング用語集</span><span class="en">Clearing Glossary</span></div>
+    <div class="g">
+      <span class="ja">クリアリングの実務で使われる主要な用語を、英語の略語、正式名称、日本語訳、短い定義とともに整理しています。実務上、複数の訳語が使われる用語については、代表的な別表記も併記しました。『デリバティブ・クリアリングのすべて』巻末の用語集を出発点に、刊行後の論点で使う語を足しながら拡充を続けています。</span>
+      <span class="en">Key terms used in derivatives clearing practice, with English abbreviations, formal names, Japanese translations, and short definitions — alternative Japanese renderings included where usage varies. Seeded from the glossary at the back of "All About Derivatives Clearing" and expanded as new pieces introduce new terms.</span>
+    </div>
   </a>
 
   <div class="chapter">
-    <div class="chapter-title">第3章　クリアリング・プロセスの実践</div>
+    <div class="chapter-title"><span class="ja">第3章　クリアリング・プロセスの実践</span><span class="en">Chapter 3 — The Clearing Process in Practice</span></div>
     <div class="node">
-      <div class="node-title">第2節 2　証拠金管理のフロー：日々の値洗いと担保授受</div>
+      <div class="node-title"><span class="ja">第2節 2　証拠金管理のフロー：日々の値洗いと担保授受</span><span class="en">Section 2.2 — The Margin Management Flow: Daily Mark-to-Market and Collateral Exchange</span></div>
       <a class="piece" href="/clearing/intraday-margin-credit">
-        <div class="piece-title">クリアリング・ブローカーは何をファイナンスしているのか：日中マージン・コールと「時間差の信用」</div>
-        <div class="piece-gist">CCP は日中でも追加証拠金を請求しますが、顧客からの回収が同じ時間内に終わるとは限りません。その時間差を自己資金でつないでいるクリアリング・ブローカーの機能を、米国の residual interest 規制と JSCC の設計から確かめます。</div>
+        <div class="piece-title"><span class="ja">クリアリング・ブローカーは何をファイナンスしているのか：日中マージン・コールと「時間差の信用」</span><span class="en">What Is a Clearing Broker Actually Financing? Intraday Margin Calls and the Credit of Timing</span></div>
+        <div class="piece-gist">
+          <span class="ja">CCP は日中でも追加証拠金を請求しますが、顧客からの回収が同じ時間内に終わるとは限りません。その時間差を自己資金でつないでいるクリアリング・ブローカーの機能を、米国の residual interest 規制と JSCC の設計から確かめます。</span>
+          <span class="en">CCPs call intraday margin, but collecting from customers rarely finishes on the same clock. This piece confirms, through the US residual interest rule and JSCC's design, how clearing brokers bridge that gap with their own funds.</span>
+        </div>
         <div class="piece-date">2026年8月2日</div>
       </a>
     </div>
   </div>
 
   <div class="chapter">
-    <div class="chapter-title">第5章　クリアリングのリスク管理</div>
+    <div class="chapter-title"><span class="ja">第5章　クリアリングのリスク管理</span><span class="en">Chapter 5 — Risk Management in Clearing</span></div>
     <div class="node">
-      <div class="node-title">第6節 2　証拠金慣行（CCP Margin Practices）：リスク管理の最前線と進化</div>
+      <div class="node-title"><span class="ja">第6節 2　証拠金慣行（CCP Margin Practices）：リスク管理の最前線と進化</span><span class="en">Section 6.2 — CCP Margin Practices: The Frontier of Risk Management and Its Evolution</span></div>
       <a class="piece" href="/clearing/margin-simulator-transparency">
-        <div class="piece-title">証拠金はどこまで予測できるのか――国際指針が求めるシミュレーターと透明性</div>
-        <div class="piece-gist">2026年の国際指針改定案は、透明性の目標を「再現可能性」に置き、証拠金シミュレーターをその手段に挙げました。公表済みの意見書を読み、CCP と清算参加者・顧客の目線がどこで分かれているのかを整理します。</div>
+        <div class="piece-title"><span class="ja">証拠金はどこまで予測できるのか――国際指針が求めるシミュレーターと透明性</span><span class="en">How Far Can Margin Be Predicted? What International Guidance Asks of Margin Simulators and Transparency</span></div>
+        <div class="piece-gist">
+          <span class="ja">2026年の国際指針改定案は、透明性の目標を「再現可能性」に置き、証拠金シミュレーターをその手段に挙げました。公表済みの意見書を読み、CCP と清算参加者・顧客の目線がどこで分かれているのかを整理します。</span>
+          <span class="en">The 2026 international guidance revision sets "replicability" as its transparency goal and names the margin simulator as one of the means. Published comment letters show where CCPs and clearing participants disagree.</span>
+        </div>
         <div class="piece-date">2026年8月2日</div>
       </a>
     </div>
   </div>
 
   <div class="chapter">
-    <div class="chapter-title">第7章　クライアント・クリアリングの未来展望</div>
+    <div class="chapter-title"><span class="ja">第7章　クライアント・クリアリングの未来展望</span><span class="en">Chapter 7 — The Future of Client Clearing</span></div>
     <div class="node">
-      <div class="node-title">5　ダイレクト・クリアリングモデル：仲介者なき清算への挑戦と限界</div>
+      <div class="node-title"><span class="ja">5　ダイレクト・クリアリングモデル：仲介者なき清算への挑戦と限界</span><span class="en">Section 5 — Direct Clearing Models: The Challenge and Limits of Clearing Without an Intermediary</span></div>
       <a class="piece" href="/clearing/direct-clearing-credit-boundary">
-        <div class="piece-title">ダイレクト・クリアリングの制度化：与信の有無で何が変わり、何が残るのか</div>
-        <div class="piece-gist">CFTC の意見募集と業界の意見書を読むと、制度の境界線は、現物かデリバティブかではなく、損失を顧客自身が事前に資金化しているかどうかに引かれていることが分かります。その線が何に答えていないのかまで含めて整理しました。</div>
+        <div class="piece-title"><span class="ja">ダイレクト・クリアリングの制度化：与信の有無で何が変わり、何が残るのか</span><span class="en">Institutionalizing Direct Clearing: What Changes — and What Remains — Once Credit Extension Is Removed</span></div>
+        <div class="piece-gist">
+          <span class="ja">CFTC の意見募集と業界の意見書を読むと、制度の境界線は、現物かデリバティブかではなく、損失を顧客自身が事前に資金化しているかどうかに引かれていることが分かります。その線が何に答えていないのかまで含めて整理しました。</span>
+          <span class="en">The CFTC's request for comment and industry letters show the regulatory line is drawn not by asset type but by whether the customer has already prefunded the loss. This piece also covers what that line leaves unanswered.</span>
+        </div>
         <div class="piece-date">2026年8月2日</div>
       </a>
       <a class="piece" href="/clearing/direct-clearing-regulatory-gap">
-        <div class="piece-title">FCMを経由しない清算では、誰が法的義務を担うのか――リテール向けダイレクト・クリアリングに残る制度上の懸念</div>
-        <div class="piece-gist">本人確認や資金洗浄防止といった義務は、顧客との直接の関係に紐づいています。FCMを外した後、これらの義務を誰が担うのか。純粋な直接清算と、同じグループに関連FCMを置く垂直統合型を分けて、CFTCの意見募集とFIA・ISDAの意見書から考えます。</div>
+        <div class="piece-title"><span class="ja">FCMを経由しない清算では、誰が法的義務を担うのか――リテール向けダイレクト・クリアリングに残る制度上の懸念</span><span class="en">Who Bears the Legal Obligations When Clearing Bypasses the FCM? The Regulatory Gaps Left by Retail Direct Clearing</span></div>
+        <div class="piece-gist">
+          <span class="ja">本人確認や資金洗浄防止といった義務は、顧客との直接の関係に紐づいています。FCMを外した後、これらの義務を誰が担うのか。純粋な直接清算と、同じグループに関連FCMを置く垂直統合型を分けて、CFTCの意見募集とFIA・ISDAの意見書から考えます。</span>
+          <span class="en">Identity verification and anti-money-laundering obligations attach to the direct customer relationship. Once the FCM is removed, who carries them? This piece separates pure direct clearing from the affiliated-FCM model using the CFTC's RFC and the FIA/ISDA comment letters.</span>
+        </div>
         <div class="piece-date">2026年8月2日</div>
       </a>
       <a class="piece" href="/clearing/auto-liquidation-limits">
-        <div class="piece-title">自動ロスカットはFCMを代替できるのか――レバレッジ型ダイレクト・クリアリングの限界</div>
-        <div class="piece-gist">ダイレクト・クリアリングはリテール専用の仕組みではありません。全額担保・事前拠出型をレバレッジ型へ広げるとき、自動ロスカットは何を代替でき、何が外側に残るのか。分かれ目は参加者の属性ではなく、最大損失をいつ資金化するかです。</div>
+        <div class="piece-title"><span class="ja">自動ロスカットはFCMを代替できるのか――レバレッジ型ダイレクト・クリアリングの限界</span><span class="en">Can Auto-Liquidation Replace the FCM? The Limits of Leveraged Direct Clearing</span></div>
+        <div class="piece-gist">
+          <span class="ja">ダイレクト・クリアリングはリテール専用の仕組みではありません。全額担保・事前拠出型をレバレッジ型へ広げるとき、自動ロスカットは何を代替でき、何が外側に残るのか。分かれ目は参加者の属性ではなく、最大損失をいつ資金化するかです。</span>
+          <span class="en">Direct clearing is not a retail-only structure. When a fully-collateralized, prefunded model extends to leverage, what can auto-liquidation replace, and what remains outside it? The dividing line is when the maximum loss is funded, not who the participant is.</span>
+        </div>
         <div class="piece-date">2026年8月2日</div>
       </a>
       <a class="piece" href="/clearing/japan-otc-margin">
-        <div class="piece-title">日本の店頭FXは、リテール直接清算の先例になるのか――ロスカット運用と損失負担の違い</div>
-        <div class="piece-gist">日本の店頭FXは、CCP を欠いた遅れた制度ではなく、業者自身が顧客の取引相手となる完結した相対取引モデルです。同じロスカット技術を使いながら、法的な取引相手と損失負担の経路が異なる二つのモデルを比べます。</div>
+        <div class="piece-title"><span class="ja">日本の店頭FXは、リテール直接清算の先例になるのか――ロスカット運用と損失負担の違い</span><span class="en">Is Japan's Retail FX Market a Precedent for Direct Clearing? Where Loss-Cut Operations Converge — and Loss Allocation Diverges</span></div>
+        <div class="piece-gist">
+          <span class="ja">日本の店頭FXは、CCP を欠いた遅れた制度ではなく、業者自身が顧客の取引相手となる完結した相対取引モデルです。同じロスカット技術を使いながら、法的な取引相手と損失負担の経路が異なる二つのモデルを比べます。</span>
+          <span class="en">Japan's OTC retail FX market is not an unfinished system lacking a CCP — it is a complete bilateral model where the dealer itself is the customer's counterparty. This piece compares two models that share a loss-cut technique but differ in legal counterparty and loss allocation.</span>
+        </div>
         <div class="piece-date">2026年8月2日</div>
       </a>
     </div>
@@ -272,16 +310,28 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 
   <div class="colophon">
     <p class="rights">© 2026 柳沢 俊</p>
-    <p>初版について → <a href="/book">書籍について</a></p>
+    <p><span class="ja">初版について → <a href="/book">書籍について</a></span><span class="en">On the first edition → <a href="/book">About the book</a></span></p>
   </div>
 </div>
 
 <p class="disclaimer">The views expressed are the author's own and do not represent those of any organization he belongs to.<br>掲載する内容は筆者個人の見解であり、筆者が所属する組織・団体の見解を示すものではありません。</p>
 
 <footer>
-  <div>柳沢 俊 ／ クリアリングと市場構造</div>
+  <div><span class="ja">柳沢 俊 ／ クリアリングと市場構造</span><span class="en">Shun Yanagisawa / Clearing and Market Structure</span></div>
   <div><a href="/">shun-yanagisawa.com</a></div>
 </footer>
 
+<script>
+const TITLE_JA = "クリアリング — 柳沢 俊";
+const TITLE_EN = "Clearing — Shun Yanagisawa";
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+  document.title = ja ? TITLE_EN : TITLE_JA;
+}
+</script>
 </body>
 </html>

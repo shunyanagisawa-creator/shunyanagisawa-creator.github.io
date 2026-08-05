@@ -3,16 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>デリバティブ・クリアリングのすべて — 試し読み | 柳沢 俊</title>
-<meta name="description" content="柳沢俊著『デリバティブ・クリアリングのすべて』序章・第1章を無料公開。OTCクリアリング、CCP、証拠金制度を体系的に解説。">
+<title>デリバティブ・クリアリングのすべて / Derivatives Clearing: A Comprehensive Guide — 試し読み | 柳沢 俊</title>
+<meta name="description" content="柳沢俊著『デリバティブ・クリアリングのすべて』序章・第1章を無料公開。OTCクリアリング、CCP、証拠金制度を体系的に解説。 / Free preview of the Introduction and Chapter 1 of Derivatives Clearing: A Comprehensive Guide by Shun Yanagisawa (English edition forthcoming August 2026).">
 <link rel="canonical" href="https://www.shun-yanagisawa.com/book">
+<meta property="og:title" content="デリバティブ・クリアリングのすべて / Derivatives Clearing: A Comprehensive Guide — 試し読み">
+<meta property="og:description" content="序章・第1章を無料公開。日本語版は出版済、英語版 Derivatives Clearing: A Comprehensive Guide は2026年8月刊行予定。 / Free preview of the Introduction and Chapter 1. Japanese edition published; English edition forthcoming August 2026.">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://www.shun-yanagisawa.com/book">
+<meta property="og:image" content="https://www.shun-yanagisawa.com/book-cover-v2.jpg">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "headline": "デリバティブ・クリアリングのすべて — 試し読み | 柳沢 俊",
+  "headline": "デリバティブ・クリアリングのすべて / Derivatives Clearing: A Comprehensive Guide — 試し読み | 柳沢 俊",
   "description": "柳沢俊著『デリバティブ・クリアリングのすべて』序章・第1章を無料公開。OTCクリアリング、CCP、証拠金制度を体系的に解説。",
-  "inLanguage": "ja",
+  "inLanguage": ["ja", "en"],
   "author": {
     "@type": "Person",
     "name": "Shun Yanagisawa",
@@ -30,16 +35,31 @@
   },
   "url": "https://www.shun-yanagisawa.com/book",
   "isAccessibleForFree": true,
-  "about": {
-    "@type": "Book",
-    "name": "デリバティブ・クリアリングのすべて",
-    "author": {
-      "@type": "Person",
-      "name": "柳沢 俊"
+  "about": [
+    {
+      "@type": "Book",
+      "name": "デリバティブ・クリアリングのすべて",
+      "author": {
+        "@type": "Person",
+        "name": "柳沢 俊"
+      },
+      "inLanguage": "ja",
+      "datePublished": "2026-02-22"
     },
-    "inLanguage": "ja",
-    "datePublished": "2026-02-22"
-  }
+    {
+      "@type": "Book",
+      "name": "Derivatives Clearing: A Comprehensive Guide",
+      "alternateName": "Risk Management, Regulation, and the Future of the Markets",
+      "author": {
+        "@type": "Person",
+        "name": "Shun Yanagisawa"
+      },
+      "inLanguage": "en",
+      "isbn": "978-4-9914987-0-1",
+      "datePublished": "2026-08",
+      "url": "https://manus-press.com/codex-1-en"
+    }
+  ]
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,6 +86,10 @@
 html, body { height: 100%; overflow: hidden; }
 body { font-family: var(--font-sans); background: var(--viewer-bg); color: #ccc; display: flex; flex-direction: column; }
 
+/* ── LANGUAGE TOGGLE ── */
+body.lang-en .ja { display: none; }
+body.lang-ja .en { display: none; }
+
 /* ── TOP NAV ── */
 .site-nav {
   height: var(--nav-h); flex-shrink: 0;
@@ -82,13 +106,20 @@ body { font-family: var(--font-sans); background: var(--viewer-bg); color: #ccc;
   text-decoration: none; transition: opacity .2s; white-space: nowrap;
 }
 .btn-amazon:hover { opacity: .85; }
-.btn-back {
+.btn-back, .btn-forthcoming {
   font-family: var(--font-mono); font-size: .62rem; letter-spacing: .08em;
   color: var(--teal-dark); text-decoration: none;
   border: 1px solid var(--teal-dark); padding: .28rem .7rem;
   transition: all .2s; white-space: nowrap;
 }
-.btn-back:hover { background: var(--teal-dark); color: white; }
+.btn-back:hover, .btn-forthcoming:hover { background: var(--teal-dark); color: white; }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .08em;
+  background: none; border: 1px solid #999; border-radius: 3px;
+  padding: .3rem .75rem; cursor: pointer; color: var(--navy);
+  white-space: nowrap;
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
 
 /* ── BOOK INFO BAR ── */
 .book-bar {
@@ -106,7 +137,10 @@ body { font-family: var(--font-sans); background: var(--viewer-bg); color: #ccc;
 .book-bar-cover { height: 40px; width: auto; box-shadow: 0 2px 8px rgba(0,0,0,.4); flex-shrink: 0; }
 .book-bar-info { flex: 1; min-width: 0; }
 .book-bar-title { font-size: .88rem; font-weight: 500; color: white; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.book-bar-sub { font-size: .72rem; color: rgba(255,255,255,.45); }
+.book-bar-sub { font-size: .72rem; color: rgba(255,255,255,.5); }
+.book-bar-forthcoming { font-size: .68rem; color: rgba(255,255,255,.55); margin-top: .1rem; }
+.book-bar-forthcoming a { color: var(--gold); text-decoration: none; margin-left: .4rem; }
+.book-bar-forthcoming a:hover { text-decoration: underline; }
 .book-bar-badge {
   font-family: var(--font-mono); font-size: .58rem; letter-spacing: .15em;
   text-transform: uppercase; color: var(--gold);
@@ -244,63 +278,78 @@ body { font-family: var(--font-sans); background: var(--viewer-bg); color: #ccc;
 .error-state {
   text-align: center; padding: 2rem;
   font-family: var(--font-mono); font-size: .78rem; letter-spacing: .08em;
-  color: rgba(255,255,255,.5); line-height: 2;
+  color: rgba(255,255,255,.6); line-height: 2;
 }
-.error-state strong { color: rgba(255,255,255,.8); }
+.error-state strong { color: rgba(255,255,255,.85); }
 
 /* Mobile adjustments */
 @media (max-width: 640px) {
   .book-bar-badge { display: none; }
+  .book-bar-forthcoming { display: none; }
   .tb-group.hide-mobile { display: none; }
   .click-zone { width: 20%; }
   .bottom-cta-link { display: none; }
 }
 </style>
 </head>
-<body>
+<body class="lang-ja">
 
 <!-- Top Nav -->
 <nav class="site-nav">
   <a class="nav-logo" href="https://shun-yanagisawa.com">Shun <span>Yanagisawa</span></a>
   <div class="nav-right">
-    <a class="btn-amazon" href="https://amzn.asia/d/00Aawrf8" target="_blank">Amazonで購入</a>
-    <a class="btn-back" href="https://shun-yanagisawa.com/clearing/">クリアリングの章立て</a>
-    <a class="btn-back" href="https://shun-yanagisawa.com#publications">← 著者ページ</a>
+    <a class="btn-amazon ja" href="https://amzn.asia/d/00Aawrf8" target="_blank">Amazonで購入</a>
+    <a class="btn-forthcoming en" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6956518" target="_blank">English preview on SSRN →</a>
+    <a class="btn-back ja" href="https://shun-yanagisawa.com/clearing/">クリアリングの章立て</a>
+    <a class="btn-back en" href="https://shun-yanagisawa.com/clearing/">Clearing Notes</a>
+    <a class="btn-back ja" href="https://shun-yanagisawa.com#publications">← 著者ページ</a>
+    <a class="btn-back en" href="https://shun-yanagisawa.com#publications">← Author Page</a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="en">日本語</span><span class="ja">English</span></button>
   </div>
 </nav>
 
 <!-- Book Info Bar -->
 <div class="book-bar">
-  <img class="book-bar-cover" src="book-cover-v2.jpg" alt="書影">
+  <img class="book-bar-cover ja" src="book-cover-v2.jpg" alt="書影">
+  <img class="book-bar-cover en" src="book-cover-en.jpg" alt="English edition cover">
   <div class="book-bar-info">
-    <div class="book-bar-title">デリバティブ・クリアリングのすべて</div>
-    <div class="book-bar-sub">柳沢 俊（Shun Yanagisawa）｜2026年2月出版</div>
+    <div class="book-bar-title ja">デリバティブ・クリアリングのすべて</div>
+    <div class="book-bar-title en">Derivatives Clearing: A Comprehensive Guide</div>
+    <div class="book-bar-sub ja">柳沢 俊（Shun Yanagisawa）｜2026年2月出版</div>
+    <div class="book-bar-sub en">Shun Yanagisawa (柳沢 俊)</div>
+    <div class="book-bar-forthcoming en">
+      First edition August 2026 (forthcoming)
+      <a href="https://manus-press.com/codex-1-en" target="_blank" rel="noopener">Publisher page →</a>
+      <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6956518" target="_blank" rel="noopener">SSRN preview →</a>
+    </div>
   </div>
-  <div class="book-bar-badge">序章 + 第1章 無料公開</div>
+  <div class="book-bar-badge ja">序章 + 第1章 無料公開</div>
+  <div class="book-bar-badge en">Introduction + Chapter 1 — free preview</div>
 </div>
 
 <!-- Toolbar -->
 <div class="toolbar">
   <div class="tb-group">
     <button class="tb-btn" id="btnFirst"  onclick="goPage(1)"            title="最初のページ">⏮</button>
-    <button class="tb-btn" id="btnPrev"   onclick="turnPage(-1)"         title="前のページ">◀ 前へ</button>
+    <button class="tb-btn" id="btnPrev"   onclick="turnPage(-1)"         title="前のページ"><span class="ja">◀ 前へ</span><span class="en">◀ Prev</span></button>
     <div class="tb-page-info">
       <input class="tb-page-input" id="pageInput" type="number" min="1" value="1"
              onchange="goPage(+this.value)" onkeydown="if(event.key==='Enter')goPage(+this.value)">
       <span>/ <span id="totalPagesLabel">—</span></span>
     </div>
-    <button class="tb-btn" id="btnNext"   onclick="turnPage(1)"          title="次のページ">次へ ▶</button>
+    <button class="tb-btn" id="btnNext"   onclick="turnPage(1)"          title="次のページ"><span class="ja">次へ ▶</span><span class="en">Next ▶</span></button>
     <button class="tb-btn" id="btnLast"   onclick="goPage(9999)"         title="最後のページ">⏭</button>
   </div>
 
   <div class="tb-group">
     <div class="tb-sep"></div>
     <button class="tb-btn active" id="btnSpread" onclick="toggleSpread()" title="見開き/単ページ切替">
-      <span id="spreadLabel">見開き 📖</span>
+      <span class="ja" id="spreadLabelJa">見開き 📖</span>
+      <span class="en" id="spreadLabelEn">Spread 📖</span>
     </button>
     <div class="tb-sep hide-mobile"></div>
     <select class="tb-zoom hide-mobile" id="zoomSel" onchange="setZoom(this.value)">
-      <option value="auto" selected>自動フィット</option>
+      <option value="auto" id="zoomAutoOpt" selected>自動フィット</option>
       <option value="0.6">60%</option>
       <option value="0.75">75%</option>
       <option value="0.9">90%</option>
@@ -308,7 +357,7 @@ body { font-family: var(--font-sans); background: var(--viewer-bg); color: #ccc;
       <option value="1.25">125%</option>
     </select>
     <div class="tb-sep hide-mobile"></div>
-    <button class="tb-btn hide-mobile" onclick="downloadPDF()">⬇ DL</button>
+    <button class="tb-btn hide-mobile" onclick="downloadPDF()"><span class="ja">⬇ DL</span><span class="en">⬇ Download</span></button>
   </div>
 </div>
 
@@ -332,7 +381,8 @@ body { font-family: var(--font-sans); background: var(--viewer-bg); color: #ccc;
   <!-- Loading overlay -->
   <div id="loading">
     <div class="spinner"></div>
-    <span>PDFを読み込んでいます...</span>
+    <span class="ja">PDFを読み込んでいます...</span>
+    <span class="en">Loading PDF...</span>
   </div>
 
 </div>
@@ -344,7 +394,8 @@ body { font-family: var(--font-sans); background: var(--viewer-bg); color: #ccc;
     <div class="progress-fill" id="progressFill"></div>
     <div class="progress-thumb" id="progressThumb"></div>
   </div>
-  <a class="bottom-cta-link" href="https://amzn.asia/d/00Aawrf8" target="_blank">続きはAmazonで →</a>
+  <a class="bottom-cta-link ja" href="https://amzn.asia/d/00Aawrf8" target="_blank">続きはAmazonで →</a>
+  <a class="bottom-cta-link en" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6956518" target="_blank">English preview on SSRN →</a>
 </div>
 
 <footer class="disclaimer-bar">
@@ -358,13 +409,18 @@ body { font-family: var(--font-sans); background: var(--viewer-bg); color: #ccc;
 pdfjsLib.GlobalWorkerOptions.workerSrc =
   'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-const PDF_URL   = 'book-preview.pdf';
+const PDF_URLS   = { ja: 'book-preview.pdf', en: 'book-preview-en.pdf' };
+const ZOOM_AUTO_LABEL = { ja: '自動フィット', en: 'Auto fit' };
+const TITLE_JA = "デリバティブ・クリアリングのすべて — 試し読み | 柳沢 俊";
+const TITLE_EN = "Derivatives Clearing: A Comprehensive Guide — Free Preview | Shun Yanagisawa";
+let currentLang = 'ja';
 let pdfDoc      = null;
 let currentPage = 1;       // always the left page (or single page)
 let spreadMode  = true;    // show 2 pages
 let zoomMode    = 'auto';  // 'auto' or a number
 let rendering   = false;
 let pendingPage = null;
+let loadToken   = 0;       // guards against stale PDF loads racing a lang switch
 
 const stage    = document.getElementById('stage');
 const areaEl   = document.getElementById('canvasArea');
@@ -375,24 +431,58 @@ const ctxR     = canvasR.getContext('2d');
 const wrapR    = document.getElementById('wrapR');
 const loadEl   = document.getElementById('loading');
 
+// ── PDF LOAD (per-language) ──────────────────────────
+function loadPDF(lang) {
+  const token = ++loadToken;
+  pdfDoc = null;
+  loadEl.style.display = 'flex';
+  loadEl.innerHTML = `
+    <div class="spinner"></div>
+    <span class="ja">PDFを読み込んでいます...</span>
+    <span class="en">Loading PDF...</span>`;
+
+  pdfjsLib.getDocument(PDF_URLS[lang]).promise
+    .then(doc => {
+      if (token !== loadToken) return; // a newer load superseded this one
+      pdfDoc = doc;
+      currentPage = 1;
+      document.getElementById('totalPagesLabel').textContent = doc.numPages;
+      document.getElementById('pageInput').max = doc.numPages;
+      loadEl.style.display = 'none';
+      render(1);
+    })
+    .catch(() => {
+      if (token !== loadToken) return;
+      loadEl.innerHTML = `
+        <div class="error-state">
+          <div style="font-size:2rem;margin-bottom:.8rem">📄</div>
+          <div class="ja"><strong>${PDF_URLS[lang]}</strong> が見つかりません<br>
+          このHTMLファイルと同じフォルダに<br>
+          <strong>${PDF_URLS[lang]}</strong> をアップロードしてください</div>
+          <div class="en"><strong>${PDF_URLS[lang]}</strong> could not be found.<br>
+          Upload <strong>${PDF_URLS[lang]}</strong><br>
+          to the same folder as this HTML file.</div>
+        </div>`;
+    });
+}
+
+// ── LANGUAGE TOGGLE ───────────────────────────────────
+function toggleLang() {
+  const b = document.body;
+  const wasJa = b.classList.contains('lang-ja');
+  currentLang = wasJa ? 'en' : 'ja';
+  b.classList.toggle('lang-ja', !wasJa);
+  b.classList.toggle('lang-en', wasJa);
+  document.documentElement.lang = currentLang;
+  document.title = wasJa ? TITLE_EN : TITLE_JA;
+  if (zoomMode === 'auto') {
+    document.getElementById('zoomAutoOpt').textContent = ZOOM_AUTO_LABEL[currentLang];
+  }
+  loadPDF(currentLang);
+}
+
 // ── INIT ──────────────────────────────────────────────
-pdfjsLib.getDocument(PDF_URL).promise
-  .then(doc => {
-    pdfDoc = doc;
-    document.getElementById('totalPagesLabel').textContent = doc.numPages;
-    document.getElementById('pageInput').max = doc.numPages;
-    loadEl.style.display = 'none';
-    render(1);
-  })
-  .catch(() => {
-    loadEl.innerHTML = `
-      <div class="error-state">
-        <div style="font-size:2rem;margin-bottom:.8rem">📄</div>
-        <strong>book-preview.pdf</strong> が見つかりません<br>
-        このHTMLファイルと同じフォルダに<br>
-        <strong>book-preview.pdf</strong> をアップロードしてください
-      </div>`;
-  });
+loadPDF(currentLang);
 
 // ── SCALE CALCULATION ─────────────────────────────────
 const DPR = window.devicePixelRatio || 1; // Retina対応
@@ -426,6 +516,10 @@ async function renderCanvas(pdfPage, canvas, ctx, scale) {
 // ── RENDER ────────────────────────────────────────────
 async function render(pageNum) {
   if (!pdfDoc) return;
+  // Snapshot the load generation so we can tell, after each await below,
+  // whether a newer loadPDF() (language switch) has since superseded us.
+  const renderToken = loadToken;
+  const stale = () => renderToken !== loadToken || !pdfDoc;
   pageNum = Math.max(1, Math.min(pageNum, pdfDoc.numPages));
 
   if (rendering) { pendingPage = pageNum; return; }
@@ -434,19 +528,24 @@ async function render(pageNum) {
   // Transition out
   areaEl.classList.add('transitioning');
   await sleep(180);
+  if (stale()) { rendering = false; pendingPage = null; return; } // generation changed mid-transition — discard this render
 
   const pageL = await pdfDoc.getPage(pageNum);
+  if (stale()) { rendering = false; pendingPage = null; return; }
   const vpL   = pageL.getViewport({ scale: 1 });
   const scale = getScale(vpL.width, vpL.height);
 
   // Render left canvas at full DPR resolution
   await renderCanvas(pageL, canvasL, ctxL, scale);
+  if (stale()) { rendering = false; pendingPage = null; return; }
 
   // Right page (spread)
   const hasRight = spreadMode && pageNum + 1 <= pdfDoc.numPages;
   if (hasRight) {
     const pageR = await pdfDoc.getPage(pageNum + 1);
+    if (stale()) { rendering = false; pendingPage = null; return; }
     await renderCanvas(pageR, canvasR, ctxR, scale);
+    if (stale()) { rendering = false; pendingPage = null; return; }
     wrapR.style.display = 'block';
   } else {
     wrapR.style.display = 'none';
@@ -471,9 +570,10 @@ function updateUI() {
   if (!pdfDoc) return;
   const total = pdfDoc.numPages;
   const end   = spreadMode ? Math.min(currentPage + 1, total) : currentPage;
-  const label = currentPage === end ? `${currentPage} / ${total}` : `${currentPage}–${end} / ${total}`;
+  const range = currentPage === end ? `${currentPage} / ${total}` : `${currentPage}–${end} / ${total}`;
+  const label = currentLang === 'ja' ? `${range} ページ` : `Page ${range}`;
   document.getElementById('pageInput').value    = currentPage;
-  document.getElementById('bottomLabel').textContent = `${label} ページ`;
+  document.getElementById('bottomLabel').textContent = label;
   document.getElementById('btnFirst').disabled  = currentPage <= 1;
   document.getElementById('btnPrev').disabled   = currentPage <= 1;
   document.getElementById('btnNext').disabled   = end >= total;
@@ -508,7 +608,8 @@ function seekProgress(e) {
 // ── SPREAD TOGGLE ─────────────────────────────────────
 function toggleSpread() {
   spreadMode = !spreadMode;
-  document.getElementById('spreadLabel').textContent = spreadMode ? '見開き 📖' : '単ページ 📄';
+  document.getElementById('spreadLabelJa').textContent = spreadMode ? '見開き 📖' : '単ページ 📄';
+  document.getElementById('spreadLabelEn').textContent = spreadMode ? 'Spread 📖' : 'Single 📄';
   document.getElementById('btnSpread').classList.toggle('active', spreadMode);
   render(currentPage);
 }
@@ -522,8 +623,10 @@ function setZoom(v) {
 // ── DOWNLOAD ──────────────────────────────────────────
 function downloadPDF() {
   const a = document.createElement('a');
-  a.href = PDF_URL;
-  a.download = 'デリバティブクリアリングのすべて_試し読み.pdf';
+  a.href = PDF_URLS[currentLang];
+  a.download = currentLang === 'ja'
+    ? 'デリバティブクリアリングのすべて_試し読み.pdf'
+    : 'derivatives-clearing-preview-en.pdf';
   a.click();
 }
 

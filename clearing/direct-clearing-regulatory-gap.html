@@ -63,6 +63,8 @@
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background: var(--white); color: var(--text); font-family: var(--font-jp); font-size: 17px; line-height: 1.95; }
+body.lang-ja .en { display: none; }
+body.lang-en .ja { display: none; }
 
 nav {
   position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
@@ -71,8 +73,15 @@ nav {
 }
 .nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
 .nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1rem; }
 .nav-back { font-family: var(--font-jp); font-size: .82rem; letter-spacing: .04em; color: var(--text-sub); text-decoration: none; }
 .nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .06em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .3rem .75rem; cursor: pointer; color: var(--text-sub);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
 
 .column { max-width: 720px; margin: 0 auto; padding: 3.4rem 1.6rem 5rem; }
 
@@ -164,21 +173,35 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 }
 </style>
 </head>
-<body>
+<body class="lang-ja">
 
 <nav>
   <a class="nav-logo" href="/">Shun <span>Yanagisawa</span></a>
-  <a class="nav-back" href="/clearing/">← クリアリング・章立てへ</a>
+  <div class="nav-right">
+    <a class="nav-back" href="/clearing/"><span class="ja">← クリアリング・章立てへ</span><span class="en">← Clearing Index</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="ja">English</span><span class="en">日本語</span></button>
+  </div>
 </nav>
 
 <article class="column">
-  <div class="column-kicker">『デリバティブ・クリアリングのすべて』<span class="bookmark">第7章 第5節「ダイレクト・クリアリングモデル：仲介者なき清算への挑戦と限界」</span> の続き</div>
-  <h1>FCMを経由しない清算では、誰が法的義務を担うのか――リテール向けダイレクト・クリアリングに残る制度上の懸念</h1>
-  <p class="column-sub">リテール参加者が先物取引業者（FCM）を介さず、デリバティブ清算機関（DCO）へ直接参加すれば、仲介に伴うコストを減らせる可能性があります。しかし、FCMが担ってきたのは、信用供与や注文の取次ぎだけではありません。顧客の本人確認、資金洗浄防止、リスク開示、顧客資産の保護など、顧客との直接の関係から生じる法的義務も、従来はFCMを中心に組み立てられてきました。本稿では、CFTCの意見募集と、それに対するFIAおよびISDAの意見書を手がかりに、FCMを外した後の法的義務をどこへ置くべきかを考えます。</p>
+  <div class="column-kicker">
+    <span class="ja">『デリバティブ・クリアリングのすべて』<span class="bookmark">第7章 第5節「ダイレクト・クリアリングモデル：仲介者なき清算への挑戦と限界」</span> の続き</span>
+    <span class="en">Continuation of <span class="bookmark">Chapter 7, Section 5 — Direct Clearing Models: The Challenge and Limits of Clearing Without an Intermediary</span> of "All About Derivatives Clearing"</span>
+  </div>
+  <h1><span class="ja">FCMを経由しない清算では、誰が法的義務を担うのか――リテール向けダイレクト・クリアリングに残る制度上の懸念</span><span class="en">Who Bears the Legal Obligations When Clearing Bypasses the FCM? The Regulatory Gaps Left by Retail Direct Clearing</span></h1>
+  <p class="column-sub">
+    <span class="ja">リテール参加者が先物取引業者（FCM）を介さず、デリバティブ清算機関（DCO）へ直接参加すれば、仲介に伴うコストを減らせる可能性があります。しかし、FCMが担ってきたのは、信用供与や注文の取次ぎだけではありません。顧客の本人確認、資金洗浄防止、リスク開示、顧客資産の保護など、顧客との直接の関係から生じる法的義務も、従来はFCMを中心に組み立てられてきました。本稿では、CFTCの意見募集と、それに対するFIAおよびISDAの意見書を手がかりに、FCMを外した後の法的義務をどこへ置くべきかを考えます。</span>
+    <span class="en">Removing the futures commission merchant from retail clearing can cut intermediation costs, but the FCM never only extended credit — it also carried the legal obligations that attach to a direct customer relationship: identity verification, anti-money-laundering compliance, risk disclosure, and asset protection. Drawing on the CFTC's request for comment and the FIA and ISDA comment letters, this piece asks where those obligations go once the FCM is gone.</span>
+  </p>
   <div class="column-meta">
     <span>2026年8月2日</span>
     <span>約9分</span>
     <span>一次資料 3点</span>
+  </div>
+
+  <div class="box" lang="en">
+    <span class="box-label">Summary (EN)</span>
+    <p>Removing the FCM from retail clearing removes the intermediary, not the legal obligations that attach to a direct customer relationship — customer identification, anti-money-laundering compliance, risk disclosure, protection of customer assets, monitoring after the account is opened — and where each of those should sit is still an open design question. FIA's February 2026 comment letter to the CFTC sets out five areas in which a Retail DCO has no equivalent of the FCM regime: supervision by a self-regulatory organization such as the NFA, daily reconciliation of segregated customer funds, AML and CIP obligations under the Bank Secrecy Act, information collection and risk disclosure at account opening, and the two-step structure in which the FCM screens the customer while the DCO supervises the clearing member. In a purely direct model, the independent intermediary that screened and monitored at the customer level is gone; supervision of the DCO by the CFTC remains, but who bears which legal duty, who examines it, and who enforces a breach has to be assigned deliberately rather than left to a DCO's discretionary practice. Placing an affiliated FCM inside the same corporate group can restore the customer-facing regime, but it substitutes a conflict of interest for the gap, since the DCO decides on investigations, added conditions, sanctions, and ultimately default determinations for a clearing member with which it shares economic interests; FIA proposes that FCM audits be outsourced to an independent body and that commonly-owned entities be restricted from acting as the designated self-regulatory organization. Reading the CFTC's request for comment alongside the industry responses, this piece argues that obligations set by credit extension — capital, margin, financial resources — and obligations set by the customer-facing relationship belong on two separate axes, because collapsing them into one means that lightening the credit regime lightens customer protection at the same moment.</p>
   </div>
 
   <p>リテール参加者が先物取引業者（<a href="/clearing/terms#fcm">FCM</a>）を介さず、デリバティブ清算機関（<a href="/clearing/terms#dco">DCO</a>）へ直接参加すれば、仲介に伴うコストを減らせる可能性があります。全額担保かつ事前拠出型の取引であれば、FCMによる信用供与への依存も小さくできます。</p>
@@ -353,10 +376,22 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 <p class="disclaimer">The views expressed are the author's own and do not represent those of any organization he belongs to.<br>掲載する内容は筆者個人の見解であり、筆者が所属する組織・団体の見解を示すものではありません。</p>
 
 <footer>
-  <div>柳沢 俊 ／ クリアリングと市場構造</div>
-  <div><a href="/">shun-yanagisawa.com</a> · <a href="/clearing/">章立て</a></div>
+  <div><span class="ja">柳沢 俊 ／ クリアリングと市場構造</span><span class="en">Shun Yanagisawa / Clearing and Market Structure</span></div>
+  <div><a href="/">shun-yanagisawa.com</a> · <a href="/clearing/"><span class="ja">章立て</span><span class="en">Clearing Index</span></a></div>
 </footer>
 
 <script defer src="/clearing/terms-popover.js"></script>
+<script>
+const TITLE_JA = "FCMを経由しない清算では、誰が法的義務を担うのか――リテール向けダイレクト・クリアリングに残る制度上の懸念 — 柳沢 俊";
+const TITLE_EN = "Who Bears the Legal Obligations When Clearing Bypasses the FCM? The Regulatory Gaps Left by Retail Direct Clearing — Shun Yanagisawa";
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+  document.title = ja ? TITLE_EN : TITLE_JA;
+}
+</script>
 </body>
 </html>

@@ -63,6 +63,8 @@
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background: var(--white); color: var(--text); font-family: var(--font-jp); font-size: 17px; line-height: 1.95; }
+body.lang-ja .en { display: none; }
+body.lang-en .ja { display: none; }
 
 nav {
   position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
@@ -71,8 +73,15 @@ nav {
 }
 .nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
 .nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1rem; }
 .nav-back { font-family: var(--font-jp); font-size: .82rem; letter-spacing: .04em; color: var(--text-sub); text-decoration: none; }
 .nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .06em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .3rem .75rem; cursor: pointer; color: var(--text-sub);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
 
 .column { max-width: 720px; margin: 0 auto; padding: 3.4rem 1.6rem 5rem; }
 
@@ -162,21 +171,32 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 }
 </style>
 </head>
-<body>
+<body class="lang-ja">
 
 <nav>
   <a class="nav-logo" href="/">Shun <span>Yanagisawa</span></a>
-  <a class="nav-back" href="/clearing/">← クリアリング・章立てへ</a>
+  <div class="nav-right">
+    <a class="nav-back" href="/clearing/"><span class="ja">← クリアリング・章立てへ</span><span class="en">← Clearing Index</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="ja">English</span><span class="en">日本語</span></button>
+  </div>
 </nav>
 
 <article class="column">
-  <div class="column-kicker">『デリバティブ・クリアリングのすべて』<span class="bookmark">第5章 第6節</span> の続き</div>
-  <h1>証拠金はどこまで予測できるのか</h1>
-  <p class="column-sub">国際指針が求めるシミュレーターと透明性</p>
+  <div class="column-kicker">
+    <span class="ja">『デリバティブ・クリアリングのすべて』<span class="bookmark">第5章 第6節</span> の続き</span>
+    <span class="en">Continuation of <span class="bookmark">Chapter 5, Section 6.2 — CCP Margin Practices: The Frontier of Risk Management and Its Evolution</span> of "All About Derivatives Clearing"</span>
+  </div>
+  <h1><span class="ja">証拠金はどこまで予測できるのか</span><span class="en">How Far Can Margin Be Predicted?</span></h1>
+  <p class="column-sub"><span class="ja">国際指針が求めるシミュレーターと透明性</span><span class="en">What international guidance asks of margin simulators and transparency</span></p>
   <div class="column-meta">
     <span>2026年8月2日</span>
     <span>約9分</span>
     <span>一次資料 9点</span>
+  </div>
+
+  <div class="box" lang="en">
+    <span class="box-label">Summary (EN)</span>
+    <p>The 2026 CPMI-IOSCO consultation sets replicability as the goal of bilateral disclosure and offers the margin simulator as one of the means of reaching it, but FIA and ISDA object that a single word is carrying two different requirements: being able to estimate a future margin figure, and being able to understand and independently verify the model, parameters and judgements that produced it. The draft would make simulators available to all clearing members and, so far as practicable, to their customers and prospective customers, including under a non-disclosure agreement, and would require them to compute initial margin for hypothetical as well as current portfolios under stress scenarios, with the main margin add-ons built in systematically. Public disclosure does something else: the draft would add initial margin decomposed into core margin and add-ons for each clearing service, and quarterly disclosure of the largest 1-day and 20-day increases in initial margin over the most recent 3-month and 12-month observation periods, so that the wider market can compare clearing houses from outside any individual contract. This piece argues that the two channels are not substitutes — however refined a simulator becomes, it helps one participant fund one portfolio, and however complete the public metrics become, they do not let a participant calculate its own future margin. The disagreement is not regulator versus regulated: FIA and ISDA protested that the draft weakened the 2025 final report's obligation to provide into a suggestion to consider providing, and support the new responsiveness metrics while asking that event-based measures over past stress periods be added, whereas CCP Global's July 2026 response — written throughout for "some members," not as a unanimous position of its member CCPs — asks that those metrics not proceed in their current form, on the ground that standardized rates of change detached from portfolio-level risk calculation can lead users to the wrong conclusion. Comments closed at the end of June 2026 and the draft is not final; the real test is whether, at the next sharp market move, clearing members and their customers can see in advance how far their margin will rise.</p>
   </div>
 
   <h2><span class="hnum">1</span>なぜ証拠金シミュレーターが必要なのか</h2>
@@ -428,10 +448,22 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 <p class="disclaimer">The views expressed are the author's own and do not represent those of any organization he belongs to.<br>掲載する内容は筆者個人の見解であり、筆者が所属する組織・団体の見解を示すものではありません。</p>
 
 <footer>
-  <div>柳沢 俊 ／ クリアリングと市場構造</div>
-  <div><a href="/">shun-yanagisawa.com</a> · <a href="/clearing/">章立て</a></div>
+  <div><span class="ja">柳沢 俊 ／ クリアリングと市場構造</span><span class="en">Shun Yanagisawa / Clearing and Market Structure</span></div>
+  <div><a href="/">shun-yanagisawa.com</a> · <a href="/clearing/"><span class="ja">章立て</span><span class="en">Clearing Index</span></a></div>
 </footer>
 
 <script defer src="/clearing/terms-popover.js"></script>
+<script>
+const TITLE_JA = "証拠金はどこまで予測できるのか――国際指針が求めるシミュレーターと透明性 — 柳沢 俊";
+const TITLE_EN = "How Far Can Margin Be Predicted? What International Guidance Asks of Margin Simulators and Transparency — Shun Yanagisawa";
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+  document.title = ja ? TITLE_EN : TITLE_JA;
+}
+</script>
 </body>
 </html>

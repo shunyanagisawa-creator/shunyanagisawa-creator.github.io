@@ -63,6 +63,8 @@
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background: var(--white); color: var(--text); font-family: var(--font-jp); font-size: 17px; line-height: 1.95; }
+body.lang-ja .en { display: none; }
+body.lang-en .ja { display: none; }
 
 nav {
   position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
@@ -71,8 +73,15 @@ nav {
 }
 .nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
 .nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1rem; }
 .nav-back { font-family: var(--font-jp); font-size: .82rem; letter-spacing: .04em; color: var(--text-sub); text-decoration: none; }
 .nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .06em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .3rem .75rem; cursor: pointer; color: var(--text-sub);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
 
 .column { max-width: 720px; margin: 0 auto; padding: 3.4rem 1.6rem 5rem; }
 
@@ -164,21 +173,35 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 }
 </style>
 </head>
-<body>
+<body class="lang-ja">
 
 <nav>
   <a class="nav-logo" href="/">Shun <span>Yanagisawa</span></a>
-  <a class="nav-back" href="/clearing/">← クリアリング・章立てへ</a>
+  <div class="nav-right">
+    <a class="nav-back" href="/clearing/"><span class="ja">← クリアリング・章立てへ</span><span class="en">← Clearing Index</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="ja">English</span><span class="en">日本語</span></button>
+  </div>
 </nav>
 
 <article class="column">
-  <div class="column-kicker">『デリバティブ・クリアリングのすべて』<span class="bookmark">第7章 5「ダイレクト・クリアリングモデル」</span> の続き</div>
-  <h1>日本の店頭FXは、リテール直接清算の先例になるのか――ロスカット運用と損失負担の違い</h1>
-  <p class="column-sub">米国では、リテール顧客が先物取引業者（FCM）を介さず清算機関に直接参加する仕組みについて、制度の見直しが進んでいます。証拠金を継続的に監視し、一定水準を下回れば自動的に決済するという技術は、日本の店頭FX業者が長年運用してきたものと重なります。しかし日本の店頭FXは、業者自身が顧客の取引相手となる、完結した相対取引モデルです。本稿では、この二つを優劣ではなく、法的な取引相手と損失負担の構造が異なる二つの完結したモデルとして比較します。</p>
+  <div class="column-kicker">
+    <span class="ja">『デリバティブ・クリアリングのすべて』<span class="bookmark">第7章 5「ダイレクト・クリアリングモデル」</span> の続き</span>
+    <span class="en">Continuation of <span class="bookmark">Chapter 7, Section 5 — Direct Clearing Models: The Challenge and Limits of Clearing Without an Intermediary</span> of "All About Derivatives Clearing"</span>
+  </div>
+  <h1><span class="ja">日本の店頭FXは、リテール直接清算の先例になるのか――ロスカット運用と損失負担の違い</span><span class="en">Is Japan's Retail FX Market a Precedent for Direct Clearing? Where Loss-Cut Operations Converge — and Loss Allocation Diverges</span></h1>
+  <p class="column-sub">
+    <span class="ja">米国では、リテール顧客が先物取引業者（FCM）を介さず清算機関に直接参加する仕組みについて、制度の見直しが進んでいます。証拠金を継続的に監視し、一定水準を下回れば自動的に決済するという技術は、日本の店頭FX業者が長年運用してきたものと重なります。しかし日本の店頭FXは、業者自身が顧客の取引相手となる、完結した相対取引モデルです。本稿では、この二つを優劣ではなく、法的な取引相手と損失負担の構造が異なる二つの完結したモデルとして比較します。</span>
+    <span class="en">Japan's OTC retail FX dealers have run continuous margin monitoring and automated loss-cutting across millions of small accounts for years — a technical overlap with what the CFTC is now weighing for Retail DCOs. But Japan's model is a complete, self-contained bilateral structure, not a CCP with a missing piece, and its comparison to Retail DCOs holds for customer-level risk management, not for how losses are ultimately allocated.</span>
+  </p>
   <div class="column-meta">
     <span>2026年8月2日</span>
     <span>約9分</span>
     <span>一次資料 6点</span>
+  </div>
+
+  <div class="box" lang="en">
+    <span class="box-label">Summary (EN)</span>
+    <p>Japan's OTC retail FX market is not an unfinished Retail DCO: it is a complete bilateral structure in which the dealer itself is the customer's legal counterparty, which makes it a precedent for customer-level risk management and not for how a clearing house allocates loss. The shared technique is real — continuously monitoring each customer's positions, unrealized profit and loss, and margin maintenance ratio, and force-closing positions once the ratio falls below a preset loss-cut level — and Japanese dealers have run it at scale: for April 2025, a survey by the Financial Futures Association of Japan put the volume dealers passed out to cover transactions and the like at about ¥448 trillion. Where the loss lands is what differs: in Japan a shortfall left after a loss cut becomes a claim on the customer that the dealer carries first, because its own obligations to its cover counterparties stand whether or not it collects — the structure visible when overseas retail FX dealers were left with large uncollected receivables in the 2015 Swiss franc shock. Trust-based preservation of customer assets protects what the customer deposited if the dealer fails, but it does not compensate trading losses or push a shortfall onto other customers or dealers, and there is no default fund because this market never adopted a structure in which members share one another's default losses. What transfers to Retail DCO design is the operating layer — margin monitoring, loss-cut calibration, order execution when liquidity disappears, marrying and cover arrangements, customer notification, and collection of uncollected receivables — and what does not transfer is everything specific to a CCP: default determination, the waterfall, default fund design, mutualization among members, ring-fencing, recovery and resolution. Those are not gaps in Japanese experience but functions this market structure never required, so a Retail DCO that takes on leverage has to answer the loss-allocation questions separately.</p>
   </div>
 
   <h2><span class="hnum">1</span>ロスカット運用と損失負担の違い</h2>
@@ -345,10 +368,22 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 <p class="disclaimer">The views expressed are the author's own and do not represent those of any organization he belongs to.<br>掲載する内容は筆者個人の見解であり、筆者が所属する組織・団体の見解を示すものではありません。</p>
 
 <footer>
-  <div>柳沢 俊 ／ クリアリングと市場構造</div>
-  <div><a href="/">shun-yanagisawa.com</a> · <a href="/clearing/">章立て</a></div>
+  <div><span class="ja">柳沢 俊 ／ クリアリングと市場構造</span><span class="en">Shun Yanagisawa / Clearing and Market Structure</span></div>
+  <div><a href="/">shun-yanagisawa.com</a> · <a href="/clearing/"><span class="ja">章立て</span><span class="en">Clearing Index</span></a></div>
 </footer>
 
 <script defer src="/clearing/terms-popover.js"></script>
+<script>
+const TITLE_JA = "日本の店頭FXは、リテール直接清算の先例になるのか――ロスカット運用と損失負担の違い — 柳沢 俊";
+const TITLE_EN = "Is Japan's Retail FX Market a Precedent for Direct Clearing? Where Loss-Cut Operations Converge — and Loss Allocation Diverges — Shun Yanagisawa";
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+  document.title = ja ? TITLE_EN : TITLE_JA;
+}
+</script>
 </body>
 </html>

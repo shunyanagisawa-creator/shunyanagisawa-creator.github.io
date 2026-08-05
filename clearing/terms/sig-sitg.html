@@ -17,7 +17,7 @@
 <style>
 /* /clearing — クリアリングの体系（第2版に向けた断片）
    essays と同じブランド palette を使うが、以下を変える:
-   - 日本語のみ（言語トグルなし・扉写真なし）
+   - 器（章立て・記事の題とリード・用語集の器）は日英併記、本文は日本語のまま（2026-08-05 裁定）
    - 二次テキストは #3d4148 以深（薄いグレーは使わない）
    - 強調は太字を使わない。番号見出し / 罫線囲み / 傍点 / 表で立てる */
 :root {
@@ -31,6 +31,8 @@
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background: var(--white); color: var(--text); font-family: var(--font-jp); font-size: 17px; line-height: 1.95; }
+body.lang-ja .en { display: none; }
+body.lang-en .ja { display: none; }
 
 nav {
   position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
@@ -39,8 +41,15 @@ nav {
 }
 .nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
 .nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1rem; }
 .nav-back { font-family: var(--font-jp); font-size: .82rem; letter-spacing: .04em; color: var(--text-sub); text-decoration: none; }
 .nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .06em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .3rem .75rem; cursor: pointer; color: var(--text-sub);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
 
 .column { max-width: 720px; margin: 0 auto; padding: 3.4rem 1.6rem 5rem; }
 
@@ -224,21 +233,27 @@ html.has-backbar .term { scroll-margin-top: 236px; }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","termCode":"SIG/SITG","name":"CCP自己拠出金","description":[{"@language":"ja","@value":"デフォルト・ウォーターフォールにおいて、清算参加者からのデフォルト基金を使う前に、CCP自身がまず負担する自己資本部分。CCPのリスク管理インセンティブを市場参加者とアラインさせる役割を持ち、「どれだけSkinを入れているか」が規制・参加者から注目される。"},{"@language":"en","@value":"The portion of the CCP’s own capital that is consumed in the default waterfall before the default fund contributions of clearing participants are used. It serves to align the CCP’s risk management incentives with those of market participants, and “how much skin” a CCP puts in attracts close attention from regulators and participants."}],"url":"https://www.shun-yanagisawa.com/clearing/terms/sig-sitg","inDefinedTermSet":{"@type":"DefinedTermSet","name":"クリアリング用語集","url":"https://www.shun-yanagisawa.com/clearing/terms"},"alternateName":["Skin-In-The-Game","スキン・イン・ザ・ゲーム"]}</script>
 </head>
-<body>
+<body class="lang-ja">
 
 <nav>
   <a class="nav-logo" href="/">Shun <span>Yanagisawa</span></a>
-  <a class="nav-back" href="/clearing/terms">← 用語集へ</a>
+  <div class="nav-right">
+    <a class="nav-back" href="/clearing/terms"><span class="ja">← 用語集へ</span><span class="en">← Back to glossary</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="ja">English</span><span class="en">日本語</span></button>
+  </div>
 </nav>
-<div class="backbar" id="backbar"><button type="button">← 記事に戻る</button></div>
+<div class="backbar" id="backbar"><button type="button"><span class="ja">← 記事に戻る</span><span class="en">← Back to article</span></button></div>
 
 <article class="column term-page">
-  <div class="column-kicker">クリアリング用語集 <span class="bookmark">／ SIG/SITG</span></div>
+  <div class="column-kicker">
+    <span class="ja">クリアリング用語集 <span class="bookmark">／ SIG/SITG</span></span>
+    <span class="en">Clearing Glossary <span class="bookmark">／ SIG/SITG</span></span>
+  </div>
   <h1>CCP自己拠出金</h1>
   <p class="column-sub">SIG/SITG — Skin-In-The-Game</p>
   <div class="column-meta">
-    <span>出所 初版</span>
-    <span>更新 2026年8月5日</span>
+    <span><span class="ja">出所 初版</span><span class="en">Origin: First edition</span></span>
+    <span><span class="ja">更新 2026年8月5日</span><span class="en">Updated 2026-08-05</span></span>
   </div>
 
   <div class="term-body">
@@ -258,9 +273,12 @@ html.has-backbar .term { scroll-margin-top: 236px; }
   </dl>
 
   <div class="colophon">
-    <p>この語は<a href="/clearing/terms#sig-sitg">クリアリング用語集</a>の一項目です。柳沢 俊『デリバティブ・クリアリングのすべて』（<a href="https://manus-press.com/codex-1" rel="noopener">M∀NUS PRESS</a>）初版の巻末用語集にある語です。</p>
-    <p>英語の説明は<a href="https://manus-press.com/codex-1-en" rel="noopener">同書の英語版</a>の巻末用語集から採りました。</p>
-    <p><a href="/clearing/terms">用語集へ戻る</a>　／　<a href="/clearing/">クリアリング・章立てへ</a></p>
+    <p>
+      <span class="ja">この語は<a href="/clearing/terms#sig-sitg">クリアリング用語集</a>の一項目です。柳沢 俊『デリバティブ・クリアリングのすべて』（<a href="https://manus-press.com/codex-1" rel="noopener">M∀NUS PRESS</a>）初版の巻末用語集にある語です。</span>
+      <span class="en">This term is an entry in the <a href="/clearing/terms#sig-sitg">Clearing Glossary</a>. It appears in the glossary at the back of Shun Yanagisawa's "All About Derivatives Clearing" (<a href="https://manus-press.com/codex-1" rel="noopener">M∀NUS PRESS</a>).</span>
+    </p>
+    <p><span class="ja">英語の説明は<a href="https://manus-press.com/codex-1-en" rel="noopener">同書の英語版</a>の巻末用語集から採りました。</span><span class="en">The English definition is drawn from the glossary at the back of the <a href="https://manus-press.com/codex-1-en" rel="noopener">English edition</a>.</span></p>
+    <p><span class="ja"><a href="/clearing/terms">用語集へ戻る</a>　／　<a href="/clearing/">クリアリング・章立てへ</a></span><span class="en"><a href="/clearing/terms">Back to glossary</a>　／　<a href="/clearing/">Clearing Index</a></span></p>
     <p class="rights">© 2026 柳沢 俊</p>
   </div>
 </article>
@@ -270,6 +288,10 @@ html.has-backbar .term { scroll-margin-top: 236px; }
 <footer>
   <a href="/">shun-yanagisawa.com</a>
 </footer>
+<script>
+const TITLE_JA = "SIG/SITG（CCP自己拠出金） — クリアリング用語集";
+const TITLE_EN = "SIG/SITG — Clearing Glossary";
+</script>
 <script>
 (function () {
   var bar = document.getElementById('backbar');
@@ -282,6 +304,20 @@ html.has-backbar .term { scroll-margin-top: 236px; }
   document.documentElement.classList.add('has-backbar');
   bar.querySelector('button').addEventListener('click', function () { history.back(); });
 })();
+</script>
+<script>
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+  if (typeof TITLE_JA !== 'undefined') document.title = ja ? TITLE_EN : TITLE_JA;
+  var q = document.getElementById('q');
+  if (q && typeof Q_PLACEHOLDER_JA !== 'undefined') {
+    q.placeholder = ja ? Q_PLACEHOLDER_EN : Q_PLACEHOLDER_JA;
+  }
+}
 </script>
 </body>
 </html>

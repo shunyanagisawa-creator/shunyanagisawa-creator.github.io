@@ -63,6 +63,8 @@
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background: var(--white); color: var(--text); font-family: var(--font-jp); font-size: 17px; line-height: 1.95; }
+body.lang-ja .en { display: none; }
+body.lang-en .ja { display: none; }
 
 nav {
   position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
@@ -71,8 +73,15 @@ nav {
 }
 .nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
 .nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1rem; }
 .nav-back { font-family: var(--font-jp); font-size: .82rem; letter-spacing: .04em; color: var(--text-sub); text-decoration: none; }
 .nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .06em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .3rem .75rem; cursor: pointer; color: var(--text-sub);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
 
 .column { max-width: 720px; margin: 0 auto; padding: 3.4rem 1.6rem 5rem; }
 
@@ -164,21 +173,35 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 }
 </style>
 </head>
-<body>
+<body class="lang-ja">
 
 <nav>
   <a class="nav-logo" href="/">Shun <span>Yanagisawa</span></a>
-  <a class="nav-back" href="/clearing/">← クリアリング・章立てへ</a>
+  <div class="nav-right">
+    <a class="nav-back" href="/clearing/"><span class="ja">← クリアリング・章立てへ</span><span class="en">← Clearing Index</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="ja">English</span><span class="en">日本語</span></button>
+  </div>
 </nav>
 
 <article class="column">
-  <div class="column-kicker">『デリバティブ・クリアリングのすべて』<span class="bookmark">第3章 第2節 2「証拠金管理のフロー」</span> の続き</div>
-  <h1>クリアリング・ブローカーは何をファイナンスしているのか：日中マージン・コールと「時間差の信用」</h1>
-  <p class="column-sub">相場が大きく動くと、中央清算機関は営業日の途中でも追加証拠金を請求します。ところが、クリアリング・ブローカーが顧客から資金を回収するタイミングは、CCPへの支払いと必ずしも一致しません。CCPには先に支払い、顧客からは後で回収する。その間の資金を自己資金でつないでいるのが、クリアリング・ブローカーです。本稿では、LCHの日中マージン・コール、米国の<em>residual interest</em>規制、JSCCの金利スワップ清算を手がかりに、クリアリング・ブローカーが引き受けている「時間差の信用」を考えます。</p>
+  <div class="column-kicker">
+    <span class="ja">『デリバティブ・クリアリングのすべて』<span class="bookmark">第3章 第2節 2「証拠金管理のフロー」</span> の続き</span>
+    <span class="en">Continuation of <span class="bookmark">Chapter 3, Section 2.2 — The Margin Management Flow: Daily Mark-to-Market and Collateral Exchange</span> of "All About Derivatives Clearing"</span>
+  </div>
+  <h1><span class="ja">クリアリング・ブローカーは何をファイナンスしているのか：日中マージン・コールと「時間差の信用」</span><span class="en">What Is a Clearing Broker Actually Financing? Intraday Margin Calls and the Credit of Timing</span></h1>
+  <p class="column-sub">
+    <span class="ja">相場が大きく動くと、中央清算機関は営業日の途中でも追加証拠金を請求します。ところが、クリアリング・ブローカーが顧客から資金を回収するタイミングは、CCPへの支払いと必ずしも一致しません。CCPには先に支払い、顧客からは後で回収する。その間の資金を自己資金でつないでいるのが、クリアリング・ブローカーです。本稿では、LCHの日中マージン・コール、米国の<em>residual interest</em>規制、JSCCの金利スワップ清算を手がかりに、クリアリング・ブローカーが引き受けている「時間差の信用」を考えます。</span>
+    <span class="en">When markets move sharply, central counterparties can call intraday margin mid-session — but a clearing broker's collection from its own customer rarely lands at the same moment. The broker pays the CCP first and collects from the customer later, financing the gap out of its own balance sheet. This piece traces that gap through LCH's intraday calls, the US residual interest rule, and JSCC's interest rate swap clearing.</span>
+  </p>
   <div class="column-meta">
     <span>2026年8月2日</span>
     <span>約11分</span>
     <span>一次資料 11点</span>
+  </div>
+
+  <div class="box" lang="en">
+    <span class="box-label">Summary (EN)</span>
+    <p>What a clearing broker finances is not the margin itself but the interval between paying the CCP and collecting from its own customer, and that interval is a credit exposure rather than an operational lag. LCH's SwapClear calculates scheduled intraday margin three times a business day, and LCH's procedures give a clearing member one hour from the call to have the cash ready, with failure to pay capable of constituting a default event. Collection from customers does not run on that clock: a 2020 FIA white paper describes members temporarily funding customer trading losses out of their own resources until those losses enter the end-of-day margin calculation, a 2023 ISDA-FIA letter to the SEC describes arrangements under which the member meets the call on the customer's behalf, and the 2022 BIS-CPMI-IOSCO review of margining practices records both such arrangements and the practice of posting collateral above the required amount in advance as a buffer against future intraday calls. In the United States, CFTC Rule 1.22 formalizes a related but distinct piece of this: where a futures customer account is undermargined, the FCM must hold its own funds in the segregated account up to the required residual interest, with the deadline at 6:00 p.m. Eastern time on the settlement date — the object being that one customer's shortfall is not covered with assets segregated for other customers. JSCC's interest rate swap clearing places a further check at the entry point, testing whether accepting a new trade would create a collateral shortfall rather than relying on after-the-fact margin calls alone, though this piece cautions against reducing the contrast to "LCH after the fact, JSCC in advance." Separating the two buffers a clearing broker supplies — loss absorption after a member default, and liquidity in normal times — this piece argues that direct clearing does not make the second one disappear: it moves the obligation to supply it to the direct participant, the settlement bank, or a liquidity provider.</p>
   </div>
 
   <p>相場が大きく動くと、中央清算機関（<a href="/clearing/terms#ccp">CCP</a>）は営業日の途中でも、清算参加者に追加証拠金を請求します。<a href="/clearing/terms#lch">LCH</a>の<a href="/clearing/terms#swapclear">SwapClear</a>では、定時の日中マージン・コールが1日3回設定されており、清算参加者は原則として、請求から1時間以内に必要な資金を用意しなければなりません。</p>
@@ -384,10 +407,22 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 <p class="disclaimer">The views expressed are the author's own and do not represent those of any organization he belongs to.<br>掲載する内容は筆者個人の見解であり、筆者が所属する組織・団体の見解を示すものではありません。</p>
 
 <footer>
-  <div>柳沢 俊 ／ クリアリングと市場構造</div>
-  <div><a href="/">shun-yanagisawa.com</a> · <a href="/clearing/">章立て</a></div>
+  <div><span class="ja">柳沢 俊 ／ クリアリングと市場構造</span><span class="en">Shun Yanagisawa / Clearing and Market Structure</span></div>
+  <div><a href="/">shun-yanagisawa.com</a> · <a href="/clearing/"><span class="ja">章立て</span><span class="en">Clearing Index</span></a></div>
 </footer>
 
 <script defer src="/clearing/terms-popover.js"></script>
+<script>
+const TITLE_JA = "クリアリング・ブローカーは何をファイナンスしているのか：日中マージン・コールと「時間差の信用」 — 柳沢 俊";
+const TITLE_EN = "What Is a Clearing Broker Actually Financing? Intraday Margin Calls and the Credit of Timing — Shun Yanagisawa";
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+  document.title = ja ? TITLE_EN : TITLE_JA;
+}
+</script>
 </body>
 </html>

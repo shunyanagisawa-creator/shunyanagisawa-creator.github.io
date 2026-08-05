@@ -63,6 +63,8 @@
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background: var(--white); color: var(--text); font-family: var(--font-jp); font-size: 17px; line-height: 1.95; }
+body.lang-ja .en { display: none; }
+body.lang-en .ja { display: none; }
 
 nav {
   position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
@@ -71,8 +73,15 @@ nav {
 }
 .nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
 .nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1rem; }
 .nav-back { font-family: var(--font-jp); font-size: .82rem; letter-spacing: .04em; color: var(--text-sub); text-decoration: none; }
 .nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .06em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .3rem .75rem; cursor: pointer; color: var(--text-sub);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
 
 .column { max-width: 720px; margin: 0 auto; padding: 3.4rem 1.6rem 5rem; }
 
@@ -164,21 +173,35 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 }
 </style>
 </head>
-<body>
+<body class="lang-ja">
 
 <nav>
   <a class="nav-logo" href="/">Shun <span>Yanagisawa</span></a>
-  <a class="nav-back" href="/clearing/">← クリアリング・章立てへ</a>
+  <div class="nav-right">
+    <a class="nav-back" href="/clearing/"><span class="ja">← クリアリング・章立てへ</span><span class="en">← Clearing Index</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="ja">English</span><span class="en">日本語</span></button>
+  </div>
 </nav>
 
 <article class="column">
-  <div class="column-kicker">『デリバティブ・クリアリングのすべて』<span class="bookmark">第7章 5「ダイレクト・クリアリングモデル」</span> の続き</div>
-  <h1>自動ロスカットはFCMを代替できるのか――レバレッジ型ダイレクト・クリアリングの限界</h1>
-  <p class="column-sub">クリアリング・ブローカーを介さず、取引参加者が清算機関へ直接参加するダイレクト・クリアリングは、リテール顧客だけを対象とした仕組みではありません。近年、米国で議論されているのは、最大損失額をあらかじめ差し入れる全額担保・事前拠出型の仕組みを、レバレッジ型のデリバティブへどこまで広げられるかという問題です。本稿では、全額担保・事前拠出型とレバレッジ型の違いを確認したうえで、自動ロスカットができることと、その外側に残る問題を整理します。</p>
+  <div class="column-kicker">
+    <span class="ja">『デリバティブ・クリアリングのすべて』<span class="bookmark">第7章 5「ダイレクト・クリアリングモデル」</span> の続き</span>
+    <span class="en">Continuation of <span class="bookmark">Chapter 7, Section 5 — Direct Clearing Models: The Challenge and Limits of Clearing Without an Intermediary</span> of "All About Derivatives Clearing"</span>
+  </div>
+  <h1><span class="ja">自動ロスカットはFCMを代替できるのか――レバレッジ型ダイレクト・クリアリングの限界</span><span class="en">Can Auto-Liquidation Replace the FCM? The Limits of Leveraged Direct Clearing</span></h1>
+  <p class="column-sub">
+    <span class="ja">クリアリング・ブローカーを介さず、取引参加者が清算機関へ直接参加するダイレクト・クリアリングは、リテール顧客だけを対象とした仕組みではありません。近年、米国で議論されているのは、最大損失額をあらかじめ差し入れる全額担保・事前拠出型の仕組みを、レバレッジ型のデリバティブへどこまで広げられるかという問題です。本稿では、全額担保・事前拠出型とレバレッジ型の違いを確認したうえで、自動ロスカットができることと、その外側に残る問題を整理します。</span>
+    <span class="en">Direct clearing is not only for retail customers with fully-collateralized positions — US regulators are now weighing how far the same model can extend to leveraged derivatives, where the customer posts only initial margin. This piece separates what auto-liquidation can substitute for from what remains outside it once leverage reintroduces the funding-gap problem that full prefunding had eliminated.</span>
+  </p>
   <div class="column-meta">
     <span>2026年8月2日</span>
     <span>約10分</span>
     <span>一次資料 6点</span>
+  </div>
+
+  <div class="box" lang="en">
+    <span class="box-label">Summary (EN)</span>
+    <p>Auto-liquidation can take over one specific thing the FCM did — intervening early, on a preset collateral threshold, before a shortfall widens — but not the credit assessment, the position limits, the intraday liquidity, or the understanding of what the position is for that the FCM also provided. The line that decides whether direct clearing works is not whether the participant is retail or institutional: it is whether the maximum loss is capped and funded before the position is opened, because leverage brings back the interval between a price move and the movement of cash, and that interval is precisely what auto-liquidation exists to manage. Auto-liquidation assumes the closing order can actually be filled; when prices move discontinuously and the order book thins, or when the market reopens far from the last traded price, the loss can still exceed the customer's collateral. Whatever remains has to be assigned to someone — the direct participant, a dedicated pool of clearing house resources, or another guarantor — and only if that party also fails does the clearing house's default management take over, which is a separate regime auto-liquidation does not replace. Liquidation that is rational for a single account can also synchronize across many similar accounts into simultaneous selling; this piece reads the 2022 UK LDI crisis not as an auto-liquidation failure — no account-level auto-liquidation of the kind discussed here was in place — but as evidence that margin calls and asset sales can amplify each other. Removing the FCM does not remove these functions, it redistributes them, and the feasibility of leveraged direct clearing turns on whether that redistribution is spelled out.</p>
   </div>
 
   <p><a href="/clearing/terms#cb">クリアリング・ブローカー</a>を介さず、取引参加者が清算機関へ直接参加する<a href="/clearing/terms#direct-clearing">ダイレクト・クリアリング</a>は、リテール顧客だけを対象とした仕組みではありません。自己勘定取引会社や事業会社などが、自ら清算参加者となる例は以前から存在します。</p>
@@ -367,10 +390,22 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 <p class="disclaimer">The views expressed are the author's own and do not represent those of any organization he belongs to.<br>掲載する内容は筆者個人の見解であり、筆者が所属する組織・団体の見解を示すものではありません。</p>
 
 <footer>
-  <div>柳沢 俊 ／ クリアリングと市場構造</div>
-  <div><a href="/">shun-yanagisawa.com</a> · <a href="/clearing/">章立て</a></div>
+  <div><span class="ja">柳沢 俊 ／ クリアリングと市場構造</span><span class="en">Shun Yanagisawa / Clearing and Market Structure</span></div>
+  <div><a href="/">shun-yanagisawa.com</a> · <a href="/clearing/"><span class="ja">章立て</span><span class="en">Clearing Index</span></a></div>
 </footer>
 
 <script defer src="/clearing/terms-popover.js"></script>
+<script>
+const TITLE_JA = "自動ロスカットはFCMを代替できるのか――レバレッジ型ダイレクト・クリアリングの限界 — 柳沢 俊";
+const TITLE_EN = "Can Auto-Liquidation Replace the FCM? The Limits of Leveraged Direct Clearing — Shun Yanagisawa";
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+  document.title = ja ? TITLE_EN : TITLE_JA;
+}
+</script>
 </body>
 </html>
