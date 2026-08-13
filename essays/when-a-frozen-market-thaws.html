@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>When a Frozen Market Thaws — Shun Yanagisawa</title>
-<meta name="description" content="What is 'liquidity', really? Why Japanese rates sat frozen for a generation, what inflation has to do with it, and why the deepest test of a market — of any complex system — is what can move under stress.">
-<meta property="og:title" content="When a Frozen Market Thaws — Japanese Rates, Inflation, and What 'Trust' Really Means">
-<meta property="og:description" content="An education-first essay: why Japanese rates were frozen, the inflation–rates link, the plumbing of collateral and clearing, and trust as what moves under stress.">
+<meta name="description" content="Why has Japan's interest-rate market begun moving again — and why are liquidity and trust ultimately tested not in normal times, but under stress?">
+<meta property="og:title" content="When a Frozen Market Thaws — Japanese Rates, Liquidity, and What 'Trust' Really Means">
+<meta property="og:description" content="Frozen, not dead: Japanese rates, the 3 × 3 silos of market infrastructure, and why what you own is not the same as what you can move when it matters.">
 <meta property="og:type" content="article">
 <link rel="canonical" href="https://www.shun-yanagisawa.com/essays/when-a-frozen-market-thaws">
 <script type="application/ld+json">
@@ -15,7 +15,7 @@
   "@type": "BlogPosting",
   "headline": "When a Frozen Market Thaws",
   "alternativeHeadline": "凍結されていた市場が、動き出すとき",
-  "description": "What is 'liquidity', really? Why Japanese rates sat frozen for a generation, what inflation has to do with it, and why the deepest test of a market — of any complex system — is what can move under stress.",
+  "description": "Why has Japan's interest-rate market begun moving again — and why are liquidity and trust ultimately tested not in normal times, but under stress?",
   "inLanguage": [
     "en",
     "ja"
@@ -113,6 +113,14 @@ body.lang-ja .essay h2 { font-family: var(--font-jp); font-weight: 500; }
 }
 .pull .term { color: var(--gold-dark); }
 .pull .term-line { display: block; margin: .45rem 0; }
+.pull.chain { text-align: center; line-height: 2.1; }
+
+/* 対応表: 細罫・見出し列に地色 (書籍の表組み) */
+.table-wrap { overflow-x: auto; margin: 1.6rem 0; }
+.essay table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.essay th, .essay td { border: 1px solid var(--border); padding: .5rem .7rem; text-align: center; color: var(--navy); }
+.essay thead th { background: var(--off-white); font-weight: 500; }
+.essay tbody th { background: var(--off-white); font-weight: 500; text-align: left; white-space: nowrap; }
 
 /* 図版: 細罫ボックス + 図番キャプション (書籍の図組み) */
 .figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 1.9rem 0; background: var(--white); }
@@ -155,280 +163,735 @@ footer a { color: var(--teal-dark); text-decoration: none; }
     <span class="ja">凍結されていた市場が、動き出すとき</span>
   </h1>
   <p class="essay-sub">
-    <span class="en">What is "liquidity", really? Why Japanese rates sat frozen for a generation, what inflation has to do with it, and why the deepest test of a market — of any complex system — is what can move under stress.</span>
-    <span class="ja">「流動性」とは本当は何か。なぜ日本の金利は一世代にわたって凍結されていたのか、インフレはそれとどう関係するのか。そして市場の — いや、あらゆる複雑な仕組みの — 最も深い試金石は、ストレス時に何を動かせるか、である。</span>
+    <span class="en">Why has Japan's interest-rate market begun moving again — and why are liquidity and trust ultimately tested not in normal times, but under stress?</span>
+    <span class="ja">日本の金利市場はなぜ再び動き始めたのか。そして「流動性」と「信頼」は、なぜ平時ではなくストレス時に試されるのか。</span>
   </p>
   <div class="essay-meta">
     <span>June 2026</span>
-    <span class="en">Markets &amp; infrastructure · education-first</span>
+    <span class="en">Markets &amp; Infrastructure · Explanation × Reflection</span>
     <span class="ja">市場とインフラ · 教科書的解説 × 思想</span>
-    <span class="en">15 min read</span>
-    <span class="ja">日本語 約15分</span>
+    <span class="en">12 min read</span>
+    <span class="ja">日本語 約12分</span>
   </div>
 
-  <p class="en">Interest rates, inflation, government bonds, collateral — each looks like jargon that has nothing to do with you. And yet all of them quietly touch the foundations of ordinary life: your mortgage, your savings, your pension, even the solvency of the state. This essay traces the tectonic shift that has run through Japan's interest-rate market over the past few years, in the plainest language I can manage, and walks toward one universal question on the far side of it — in a complex system, what is trust actually measured by? I promise not to leave the non-specialist behind.</p>
-  <p class="ja">金利、インフレ、国債、担保 — どれも「自分には関係のない専門用語」に見える。けれど、これらは私たちの住宅ローン、預金、年金、そして国の財政まで、生活の土台に静かに触れている。この文章は、ここ数年で日本の金利市場に起きた地殻変動を、できるだけやさしい言葉で解き、その先にある一つの普遍的な問い — 複雑な仕組みにおいて、信頼とは何で測られるのか — まで一緒に歩く試みである。専門家でない人も、最後まで置いていかないことを約束する。</p>
+  <p class="en">Interest rates, inflation, government bonds, collateral.</p>
+  <p class="en">To anyone outside finance, these can sound like remote technical terms.</p>
+  <p class="en">But interest rates reach quietly into ordinary life. They affect mortgage payments, deposit income, corporate investment, pension and insurance portfolios, and ultimately the cost at which a government can finance itself.</p>
+  <p class="ja">金利、インフレ、国債、担保。</p>
+  <p class="ja">どれも、金融に関わらない人には遠い専門用語に見えるかもしれない。</p>
+  <p class="ja">けれど金利は、住宅ローンの返済額を変え、預金の利息を変え、企業の投資判断を変える。国債の金利は、年金や保険の運用にも、政府がどれだけのコストで財政を維持できるかにも関わっている。</p>
 
-  <h2><span class="hnum">1</span><span class="en">What a "frozen market" really was</span><span class="ja">「凍結されていた市場」とは何だったのか</span></h2>
-  <p class="en">For a long time, the normal state of Japanese interest rates was: they don't move.</p>
-  <p class="ja">長いあいだ、日本の金利は「動かない」のが当たり前だった。</p>
-  <p class="en">An interest rate is, boiled down, the price of borrowing and lending money. When the economy runs hot and prices look set to rise, rates rise; when the economy is weak and prices fall, rates fall. But Japan spent a quarter of a century sunk in deflation — a world where prices don't rise, and even drift downward. If prices won't rise, there is no reason to raise rates. And so the policy rate pinned itself to zero, at times below it, and long-term rates all but stopped moving.</p>
-  <p class="ja">金利とは、煎じ詰めれば〈お金を貸し借りするときの値段〉である。景気が良くて物価が上がりそうなら金利は上がり、景気が悪くて物価が下がるなら金利は下がる。ところが日本は、四半世紀にわたってデフレ — 物価が上がらない、むしろ下がる状態 — に沈んでいた。物価が上がらないなら、金利も上げる理由がない。こうして政策金利はゼロ、ときにマイナスにまで張りつき、長期金利もほとんど動かなくなった。</p>
-  <p class="en">For the finishing touch, the Bank of Japan adopted a policy rare even by world standards: yield curve control, or YCC. Whenever long-term rates threatened to rise beyond a set band, the BOJ would buy government bonds without limit and hold the rate down by force. The central bank sat as the market's largest buyer, effectively setting the price.</p>
-  <p class="ja">仕上げに、日本銀行が「イールドカーブ・コントロール（YCC）」という、世界でも珍しい政策を敷いた。長期金利が一定の幅を超えて上がりそうになると、日銀が国債を無制限に買い支えて、金利を人為的に抑え込む。日銀が市場の最大の買い手として、価格を実質的に決めていたのである。</p>
-  <p class="en">The result was an eerily quiet market. Where prices don't move, there is little to gain from trading and little need to hedge. Foreign investors called Japan's rate market "dead." But that was not quite right. It was not dead — <span class="em">it was frozen</span>. A single colossal presence had pinned it in place by policy; the market's underlying body heat had never been lost. And precisely because it was frozen rather than dead, a change in policy could let it thaw.</p>
-  <p class="ja">その結果、金利市場は奇妙なほど静かになった。値段が動かない市場では、売り買いで利益を狙う妙味も、リスクを避ける必要も乏しい。海外の投資家は、日本の金利市場を「死んでいる市場」と呼んだ。けれど、正確にはそうではない。死んでいたのではなく、<span class="em">凍結されていた</span>のだ。日銀という巨大な存在が政策で人為的に固定していただけで、市場本来の体温は失われていなかった。— だからこそ、政策が変われば、凍結は溶ける。</p>
+  <p class="en">And Japan's interest-rate market is now undergoing a profound change.</p>
+  <p class="en">For many years, Japanese rates barely moved. Movement itself had become unusual.</p>
+  <p class="en">Now rates can rise and fall again.</p>
+  <p class="en">When prices move, opportunities return.</p>
+  <p class="en">But that is only half the story.</p>
+  <p class="en"><span class="em">The existence of an opportunity and the ability to use that opportunity are not the same thing.</span></p>
+  <p class="ja">その日本の金利市場が、いま大きく変わりつつある。</p>
+  <p class="ja">長いあいだ、ほとんど動かないことが当たり前だった金利が、再び上にも下にも動くようになった。</p>
+  <p class="ja">市場に値動きが戻れば、投資の機会も戻ってくる。</p>
+  <p class="ja">しかし、ここで話を終えると、金融市場の半分しか見たことにならない。</p>
+  <p class="ja"><span class="em">機会が存在することと、その機会を実際に利用できることは、同じではない。</span></p>
+
+  <p class="en">Behind every financial transaction sits an infrastructure of clearing, settlement, collateral, and funding. Only when that infrastructure works can a market opportunity become something investors can actually access.</p>
+  <p class="en">Follow that infrastructure far enough, and the discussion leads to a larger question:</p>
+  <p class="en"><span class="em">How should trust in a complex system be measured?</span></p>
+  <p class="en">I have come to think that part of the answer lies not in what a system possesses, but in <span class="em">what it can move when movement becomes difficult</span>.</p>
+  <p class="ja">取引の背後には、清算、決済、担保、資金調達といったインフラがある。その仕組みが十分に機能して初めて、市場の「機会」は現実のものになる。</p>
+  <p class="ja">そして、この地味なインフラをたどっていくと、最後にはもっと大きな問いに行き着く。</p>
+  <p class="ja"><span class="em">複雑な仕組みにおける信頼とは、何によって測られるのか。</span></p>
+  <p class="ja">私は、その答えの一部は「何を持っているか」ではなく、<span class="em">必要なときに何を動かせるか</span>にあると思っている。</p>
+
+  <h2><span class="hnum">1</span><span class="en">A market that had been frozen</span><span class="ja">凍結されていた市場</span></h2>
+  <p class="en">For a long time, the normal condition of Japanese interest rates was not to move very much.</p>
+  <p class="en">At its simplest, an interest rate is the price of borrowing money.</p>
+  <p class="en">When an economy strengthens and inflationary pressure builds, a central bank may raise rates to restrain demand. When growth is weak and prices are stagnant, it may lower rates to support the economy.</p>
+  <p class="ja">長いあいだ、日本の金利市場では「動かない」ことが日常だった。</p>
+  <p class="ja">金利とは、極端に単純化すれば、お金を貸し借りするときの値段である。</p>
+  <p class="ja">物価や景気が強くなれば、中央銀行は経済の過熱を抑えるために金利を引き上げることがある。反対に、景気が弱く、物価も上がらなければ、金利を下げて経済を支えようとする。</p>
+
+  <p class="en">Japan spent many years struggling with deflation and exceptionally low inflation.</p>
+  <p class="en">Policy rates remained near zero, and for a period Japan even adopted negative interest rates.</p>
+  <p class="en">Long-term rates were constrained as well.</p>
+  <p class="en">The Bank of Japan introduced yield curve control, or YCC, under which it sought to keep longer-term government bond yields within a desired range.</p>
+  <p class="en">When yields came under strong upward pressure, the central bank could buy large amounts of Japanese government bonds.</p>
+  <p class="en">Over time, the Bank of Japan became an extraordinarily large presence in the JGB market, exerting considerable influence over long-term price formation.</p>
+  <p class="ja">日本は長いあいだ、デフレと極端な低インフレに悩まされてきた。</p>
+  <p class="ja">その結果、政策金利はゼロ近辺にとどまり、一時はマイナス金利まで導入された。</p>
+  <p class="ja">長期金利も例外ではなかった。</p>
+  <p class="ja">さらに日本銀行は、長期金利を一定の範囲に抑える「イールドカーブ・コントロール（YCC）」を導入した。</p>
+  <p class="ja">国債の利回りが政策上望ましい水準から大きく上昇しそうになれば、日本銀行自身が大規模に国債を買う。</p>
+  <p class="ja">その結果、日本銀行は市場で圧倒的な存在感を持つ買い手となり、長期金利の価格形成にも強い影響を与えるようになった。</p>
+
+  <p class="en">The market became quiet.</p>
+  <p class="en">When price movements are extremely small, there are fewer opportunities to take views on the direction of rates or relative value. The incentive for market participants to engage actively in price discovery also weakens.</p>
+  <p class="en">Some overseas market participants went so far as to describe Japanese rates as a “dead market.”</p>
+  <p class="en">I have always thought that description was slightly wrong.</p>
+  <p class="en"><span class="em">The market was not dead. It was frozen.</span></p>
+  <p class="en">Policy had sharply constrained the range within which prices could move.</p>
+  <p class="en">That distinction matters.</p>
+  <p class="en">What is dead cannot easily return.</p>
+  <p class="en">What is frozen can thaw.</p>
+  <p class="en">And once the policy environment changed, that is what began to happen.</p>
+  <p class="ja">市場は静かになった。</p>
+  <p class="ja">値動きが小さくなれば、金利の方向性や価格差を利用して収益を得る機会は減る。価格発見に参加するインセンティブも弱くなる。</p>
+  <p class="ja">海外の市場関係者から、日本の金利市場を「死んだ市場」と形容する声さえ聞かれた。</p>
+  <p class="ja">しかし、私は「死んでいた」という表現は少し違うと思う。</p>
+  <p class="ja"><span class="em">死んでいたのではない。凍結されていたのだ。</span></p>
+  <p class="ja">政策によって、市場価格の動く余地が大きく制限されていた。</p>
+  <p class="ja">だから、政策の前提が変われば、凍結は解ける。</p>
+  <p class="ja">そして実際に、その時が来た。</p>
 
   <div class="figure">
-    <svg class="en" viewBox="0 0 660 184" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
-      <rect x="8" y="10" width="300" height="150" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.2"/>
-      <text x="158" y="36" font-size="13.5" text-anchor="middle" fill="#666">Frozen (YCC)</text>
-      <rect x="120" y="52" width="76" height="22" rx="2" fill="#eee" stroke="#666" stroke-width="1"/>
-      <text x="158" y="67" font-size="11.5" text-anchor="middle" fill="#444">BOJ pins it</text>
-      <line x1="158" y1="74" x2="158" y2="102" stroke="#666" stroke-width="1.2"/>
-      <polygon points="158,108 152,98 164,98" fill="#666"/>
-      <line x1="40" y1="118" x2="276" y2="118" stroke="#1a2332" stroke-width="2.2"/>
-      <text x="158" y="146" font-size="12" text-anchor="middle" fill="#1a1a1a">rates don't move</text>
-      <line x1="312" y1="86" x2="348" y2="86" stroke="#b5832a" stroke-width="1.5"/>
-      <polygon points="352,86 342,81 342,91" fill="#b5832a"/>
-      <rect x="352" y="10" width="300" height="150" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/>
-      <text x="502" y="36" font-size="13.5" text-anchor="middle" fill="#1d5c5c">Thawed</text>
-      <polyline points="378,118 408,92 438,124 468,88 498,126 528,94 558,120 588,90 622,114" fill="none" stroke="#1d5c5c" stroke-width="2.2"/>
-      <text x="502" y="150" font-size="12" text-anchor="middle" fill="#1a2332">moves up &amp; down = volatility</text>
+    <svg class="en" viewBox="0 0 660 258" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <rect x="100" y="8" width="460" height="34" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.2"/>
+      <text x="330" y="30" font-size="12.5" text-anchor="middle" fill="#1a2332">YCC and large-scale bond purchases</text>
+      <line x1="330" y1="42" x2="330" y2="54" stroke="#1d5c5c" stroke-width="1.2"/>
+      <polygon points="330,58 325,49 335,49" fill="#1d5c5c"/>
+      <rect x="100" y="58" width="460" height="34" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.2"/>
+      <text x="330" y="80" font-size="12.5" text-anchor="middle" fill="#3d3d3d">Interest-rate movements are constrained</text>
+      <line x1="330" y1="92" x2="330" y2="104" stroke="#1d5c5c" stroke-width="1.2"/>
+      <polygon points="330,108 325,99 335,99" fill="#1d5c5c"/>
+      <rect x="100" y="108" width="460" height="34" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.2"/>
+      <text x="330" y="130" font-size="12.5" text-anchor="middle" fill="#3d3d3d">Less room for market price discovery</text>
+      <line x1="330" y1="142" x2="330" y2="154" stroke="#b5832a" stroke-width="1.2"/>
+      <polygon points="330,158 325,149 335,149" fill="#b5832a"/>
+      <rect x="100" y="158" width="460" height="38" rx="2" fill="#f5ead8" stroke="#b5832a" stroke-width="1.4"/>
+      <text x="330" y="182" font-size="13" text-anchor="middle" fill="#8a6020">Policy normalization</text>
+      <line x1="330" y1="196" x2="330" y2="208" stroke="#1d5c5c" stroke-width="1.2"/>
+      <polygon points="330,212 325,203 335,203" fill="#1d5c5c"/>
+      <rect x="100" y="212" width="460" height="38" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/>
+      <text x="330" y="236" font-size="12.5" text-anchor="middle" fill="#1d5c5c">Supply, demand, and differing expectations begin to matter again</text>
     </svg>
-    <svg class="ja" viewBox="0 0 660 184" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
-      <rect x="8" y="10" width="300" height="150" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.2"/>
-      <text x="158" y="36" font-size="13.5" text-anchor="middle" fill="#666">凍結（YCC）</text>
-      <rect x="118" y="52" width="80" height="22" rx="2" fill="#eee" stroke="#666" stroke-width="1"/>
-      <text x="158" y="67" font-size="11.5" text-anchor="middle" fill="#444">日銀が固定</text>
-      <line x1="158" y1="74" x2="158" y2="102" stroke="#666" stroke-width="1.2"/>
-      <polygon points="158,108 152,98 164,98" fill="#666"/>
-      <line x1="40" y1="118" x2="276" y2="118" stroke="#1a2332" stroke-width="2.2"/>
-      <text x="158" y="146" font-size="12" text-anchor="middle" fill="#1a1a1a">金利は動かない</text>
-      <line x1="312" y1="86" x2="348" y2="86" stroke="#b5832a" stroke-width="1.5"/>
-      <polygon points="352,86 342,81 342,91" fill="#b5832a"/>
-      <rect x="352" y="10" width="300" height="150" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/>
-      <text x="502" y="36" font-size="13.5" text-anchor="middle" fill="#1d5c5c">解凍</text>
-      <polyline points="378,118 408,92 438,124 468,88 498,126 528,94 558,120 588,90 622,114" fill="none" stroke="#1d5c5c" stroke-width="2.2"/>
-      <text x="502" y="150" font-size="12" text-anchor="middle" fill="#1a2332">上下に動く＝ボラティリティ</text>
+    <svg class="ja" viewBox="0 0 660 258" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <rect x="100" y="8" width="460" height="34" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.2"/>
+      <text x="330" y="30" font-size="12.5" text-anchor="middle" fill="#1a2332">YCC・大規模な国債買入れ</text>
+      <line x1="330" y1="42" x2="330" y2="54" stroke="#1d5c5c" stroke-width="1.2"/>
+      <polygon points="330,58 325,49 335,49" fill="#1d5c5c"/>
+      <rect x="100" y="58" width="460" height="34" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.2"/>
+      <text x="330" y="80" font-size="12.5" text-anchor="middle" fill="#3d3d3d">金利の変動幅が抑えられる</text>
+      <line x1="330" y1="92" x2="330" y2="104" stroke="#1d5c5c" stroke-width="1.2"/>
+      <polygon points="330,108 325,99 335,99" fill="#1d5c5c"/>
+      <rect x="100" y="108" width="460" height="34" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.2"/>
+      <text x="330" y="130" font-size="12.5" text-anchor="middle" fill="#3d3d3d">価格発見の余地が縮小する</text>
+      <line x1="330" y1="142" x2="330" y2="154" stroke="#b5832a" stroke-width="1.2"/>
+      <polygon points="330,158 325,149 335,149" fill="#b5832a"/>
+      <rect x="100" y="158" width="460" height="38" rx="2" fill="#f5ead8" stroke="#b5832a" stroke-width="1.4"/>
+      <text x="330" y="182" font-size="13" text-anchor="middle" fill="#8a6020">政策正常化</text>
+      <line x1="330" y1="196" x2="330" y2="208" stroke="#1d5c5c" stroke-width="1.2"/>
+      <polygon points="330,212 325,203 335,203" fill="#1d5c5c"/>
+      <rect x="100" y="212" width="460" height="38" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/>
+      <text x="330" y="236" font-size="12.5" text-anchor="middle" fill="#1d5c5c">市場の需給や見通しが、再び価格に反映される</text>
     </svg>
-    <div class="figcap"><span class="en">Fig. 1 — Frozen by policy, then released. Not dead, but thawing.</span><span class="ja">図1　政策で凍結された金利が、解き放たれる。死ではなく、解凍。</span></div>
+    <div class="figcap"><span class="en">Fig. 1 — Not a dead market, but a frozen one</span><span class="ja">図1　「死んだ市場」ではなく、「凍結された市場」</span></div>
   </div>
 
-  <h2><span class="hnum">2</span><span class="en">Why "a world with rates" came back — inflation and interest</span><span class="ja">なぜ「金利のある世界」に戻ったのか — インフレと金利の関係</span></h2>
-  <p class="en">What broke the sleep was the return of inflation.</p>
-  <p class="ja">その眠りを破ったのが、インフレの再来である。</p>
-  <p class="en">Inflation and interest rates move like twins. Once prices begin to rise persistently, a central bank cannot let it run. It raises the price of money — the interest rate — to cool the overheating. This is the textbook response. In Japan, a global surge in commodity prices coincided with wage increases that finally stuck, and the long-standing premise that "prices don't rise here" gave way.</p>
-  <p class="ja">インフレと金利は、双子のように動く。物価が持続的に上がり始めると、中央銀行はそれを放置できない。お金の値段（金利）を上げて、過熱を冷ます — これが教科書どおりの対応だ。日本でも、世界的な資源高に賃上げの定着が重なり、「物価は上がらない」という長年の前提が崩れた。</p>
-  <p class="en">So the BOJ moved, step by step: ending YCC, lifting negative rates, raising rates intermittently. And then? Like a spring released after being held down, rates began to move of their own accord again. It was not merely that the level rose. They moved — up and down — which is to say, volatility came back.</p>
-  <p class="ja">そこで日銀は順に動いた。YCC をやめ、マイナス金利を解除し、断続的に利上げを進める。すると何が起きるか。これまで人為的に押さえつけられていたバネが解放されるように、金利が再び自分の意思で動き始める。水準が上がっただけではない。〈上にも下にも動く〉、つまりボラティリティ（変動性）が戻ってきた。</p>
-  <p class="en">Here is the crucial point. The volatility in today's Japanese market is not a one-off shock; it is settling in as a structural feature. Structural inflation, the normalization of policy, and the BOJ's stated intent to taper its bond purchases are not single events but a current that will run for some time. When a buyer that large steps back even one pace, a question no one had to ask in earnest comes to the front: can the private sector actually absorb all those bonds?</p>
-  <p class="ja">ここが肝心な点だ。今の日本市場のボラティリティは、一過性のショックではなく、構造として定着しつつある。構造的なインフレ、政策の正常化、そして日銀が国債の買い入れを減らしていく方針 — これらは一度きりの出来事ではなく、当面続く流れだからである。日銀という巨大な買い手が一歩引けば、これまで誰も真剣に問われなかった問いが前面に出てくる。「では、その国債を、民間は本当に消化しきれるのか」。</p>
+  <h2><span class="hnum">2</span><span class="en">Why rates began to move again</span><span class="ja">なぜ金利は再び動き始めたのか</span></h2>
+  <p class="en">One of the major forces behind the change was inflation.</p>
+  <p class="en">Inflation is one of the most important forces influencing interest rates.</p>
+  <p class="en">When prices begin rising on a sustained basis, it becomes increasingly difficult for a central bank to maintain the same monetary policy indefinitely.</p>
+  <p class="en">In Japan, the change was not limited to imported energy and commodity costs.</p>
+  <p class="en">Wages and service prices also began to matter, and the assumption that prices would simply remain flat indefinitely became much harder to sustain.</p>
+  <p class="ja">変化の大きなきっかけは、インフレだった。</p>
+  <p class="ja">インフレは、金利を動かす重要な力の一つである。</p>
+  <p class="ja">物価が持続的に上昇するようになれば、中央銀行はそれまでと同じ金融政策を続けにくくなる。</p>
+  <p class="ja">日本でも、輸入物価の上昇だけではなく、賃金やサービス価格を含めて、「物価はほとんど上がらない」という長年の前提が崩れ始めた。</p>
 
-  <h2><span class="hnum">3</span><span class="en">Opportunity is back — the world is looking at Japan again</span><span class="ja">機会は戻った — 世界が、もう一度日本を見ている</span></h2>
-  <p class="en">When rates move and volatility returns, opportunity is born.</p>
-  <p class="ja">金利が動き、ボラティリティが戻れば、そこに機会が生まれる。</p>
-  <p class="en">To global investors, a market that walks its own monetary-policy cycle and actually moves is attractive. Foreign funds and banks that had bypassed Japan for years came back, bringing a range of strategies to play on Japanese rates. The market is regaining its depth — on the surface, at least.</p>
-  <p class="ja">世界の投資家にとって、独自の金融政策サイクルを歩み、かつ値動きのある市場は魅力的だ。長く日本を素通りしていた海外のファンドや銀行が戻ってきて、日本の金利を舞台にさまざまな戦略を持ち込み始めた。市場は再び厚みを取り戻しつつある — 少なくとも、表面上は。</p>
-  <p class="en"><em>Opportunity is back in JPY rates.</em> So far, the story is a bright one. The problem begins here.</p>
-  <p class="ja">英語で言えば、<em>Opportunity is back in JPY rates.</em> 機会は、円金利に戻ってきた。ここまでは、明るい話である。問題は、ここからだ。</p>
+  <p class="en">Monetary policy changed with it.</p>
+  <p class="en">Yield curve control ended. Negative interest rates were removed. The Bank of Japan began moving gradually toward a different interest-rate environment.</p>
+  <p class="en">What matters is not simply that the level of rates became higher.</p>
+  <p class="en">Something more fundamental changed.</p>
+  <p class="en">Market participants once again had to form views.</p>
+  <p class="en">How persistent would inflation be?</p>
+  <p class="en">What would the Bank of Japan do next?</p>
+  <p class="en">How would fiscal policy and government-bond supply affect the market?</p>
+  <p class="en">Different investors began embedding different answers to those questions into prices.</p>
+  <p class="en">In that sense, <span class="em">the market began to have opinions again</span>.</p>
+  <p class="ja">金融政策も変わった。</p>
+  <p class="ja">YCCは終了し、マイナス金利政策も解除された。日本銀行は、それまでとは異なる金利環境へ少しずつ移行している。</p>
+  <p class="ja">重要なのは、単に「金利の水準が上がった」ということだけではない。</p>
+  <p class="ja">市場参加者が、インフレはどこまで続くのか。日本銀行は次にどう動くのか。財政や国債需給はどうなるのか。といった見通しを、それぞれ異なる形で価格に織り込むようになったことだ。</p>
+  <p class="ja">つまり、<span class="em">市場が再び意見を持ち始めた。</span></p>
 
-  <h2><span class="hnum">4</span><span class="en">"Having" opportunity and "using" it are not the same</span><span class="ja">「機会がある」と「機会を使える」は、別の話</span></h2>
-  <p class="en">Suppose opportunity has returned. Who can actually access it? Here lies an easily overlooked trap.</p>
-  <p class="ja">機会が戻ったとして、その機会に誰がアクセスできるのか。ここに、見落とされがちな落とし穴がある。</p>
-  <p class="en">A financial trade does not end the moment you place an order and the price matches. Behind every promise runs an unglamorous plumbing that makes the promise actually settle. Here, please hold on to just three words.</p>
-  <p class="ja">金融の取引は、注文を出して値段が合えば終わり、ではない。約束を交わした後ろには、それを本当に履行させるための地味な配管（インフラ）が走っている。ここで、三つの言葉だけ覚えてほしい。</p>
+  <p class="en">Rates could move both higher and lower.</p>
+  <p class="en">Volatility returned.</p>
+  <p class="en">And when prices move, investors have reasons both to take risk and to hedge it.</p>
+  <p class="en">For global investors who had spent years giving Japanese rates relatively little attention, JPY rates became a market worth watching again.</p>
+  <p class="en">But a market becoming interesting is not the same thing as a market becoming easy to access.</p>
+  <p class="en">That distinction is where the infrastructure begins to matter.</p>
+  <p class="ja">金利は上にも下にも動く。</p>
+  <p class="ja">ボラティリティが戻る。</p>
+  <p class="ja">価格が動くからこそ、リスクを取る理由も、ヘッジする理由も生まれる。</p>
+  <p class="ja">長く世界の投資家から見れば優先順位の低かった日本の金利市場は、再び「見るべき市場」になった。</p>
+  <p class="ja">だが、ここで一つ注意が要る。</p>
+  <p class="ja">値動きが戻ったことと、市場へのアクセスが十分に整ったことは、まったく別の話である。</p>
+
+  <h2><span class="hnum">3</span><span class="en">An opportunity is not the same as access</span><span class="ja">機会があることと、使えることは違う</span></h2>
+  <p class="en">When opportunity returns to a market, investors want to trade.</p>
+  <p class="en">But a financial transaction does not end when buyer and seller agree on a price.</p>
+  <p class="en">Behind that agreement are systems that make sure the transaction can actually be performed.</p>
+  <p class="en">Three concepts are enough to understand the basic problem.</p>
+  <p class="ja">市場に機会が戻れば、投資家は取引したくなる。</p>
+  <p class="ja">しかし金融市場では、売買の注文が成立したところで仕事が終わるわけではない。</p>
+  <p class="ja">その取引を確実に履行するために、背後では多くの仕組みが動いている。</p>
+  <p class="ja">ここでは三つだけ押さえておきたい。</p>
+
   <div class="pull">
     <span class="pull-label"><span class="en">Terms</span><span class="ja">用語</span></span>
     <span class="en">
-      <span class="term-line"><span class="term">Collateral</span> — assets you hand your counterparty as insurance against failing to keep a promise. In derivatives, you must post and return collateral as profits and losses swing.</span>
-      <span class="term-line"><span class="term">Clearing (CCP)</span> — a public intermediary, a clearing house, steps between the two sides of a trade so that if one collapses, the whole chain does not. In exchange, participants post collateral (margin) to it.</span>
-      <span class="term-line"><span class="term">Repo</span> — a market where you borrow cash short-term against government bonds. Think of it as the tap that turns collateral into cash.</span>
+      <span class="term-line"><span class="term">Collateral</span> — assets pledged to protect against the risk that an obligation cannot be fulfilled. In derivatives markets, movements in the value of a position can require participants to provide additional margin.</span>
+      <span class="term-line"><span class="term">Clearing / CCP</span> — a central counterparty steps between the two original parties to a transaction, becoming the buyer to every seller and the seller to every buyer. It collects margin and other financial resources to reduce the risk that the failure of one participant spreads through the wider market.</span>
+      <span class="term-line"><span class="term">Repo</span> — a means of obtaining short-term funding against securities such as government bonds. It allows a holder of bonds to use those assets to raise cash when cash is needed elsewhere.</span>
     </span>
     <span class="ja">
-      <span class="term-line"><span class="term">担保（コラテラル）</span> — 約束を守れなかったときの保険として、相手に預けておく資産。デリバティブでは、損益の変動に応じて担保を出し入れする義務がある。</span>
-      <span class="term-line"><span class="term">清算（クリアリング／CCP）</span> — 取引当事者の間に「清算機関」という公的な仲立ちが入り、片方が倒れても全体が連鎖崩壊しないよう保証する仕組み。その代わり参加者は清算機関に担保（証拠金）を積む。</span>
-      <span class="term-line"><span class="term">レポ</span> — 国債などを担保に、短期でお金を借りる市場。担保を「現金に変える」蛇口だと思えばいい。</span>
+      <span class="term-line"><span class="term">担保（collateral）</span> — 取引相手が約束を履行できなくなった場合などに備えて差し入れる資産である。デリバティブでは、ポジションの価値が動けば、それに応じて追加の証拠金を求められる。</span>
+      <span class="term-line"><span class="term">清算（clearing / CCP）</span> — 中央清算機関が取引の間に入り、買い手に対しては売り手、売り手に対しては買い手となる仕組みである。参加者から証拠金などを集め、ある参加者の破綻が他の参加者へ波及するリスクを抑える。</span>
+      <span class="term-line"><span class="term">レポ（repo）</span> — 国債などを担保に差し入れ、短期間の資金を調達する取引である。保有する国債を使って、必要な現金を調達する重要な手段になる。</span>
     </span>
   </div>
-  <p class="en">So to actually do a trade you need all of this: to source collateral, to move it, to clear, to fund through repo, and — under stress — to keep operations from seizing up. Japanese rates may be attractive to a foreign investor, but the moment they try to clear at a Japanese clearing house, post Japanese government bonds as collateral, and meet margin in yen, they run into the friction of unfamiliar plumbing.</p>
-  <p class="ja">つまり、ある取引を実際に行うには — 担保を調達でき、動かせ、清算でき、レポで資金を回せ、そしてストレス時に事務（オペレーション）が止まらないこと — この全部が要る。海外投資家にとって日本の金利は魅力的でも、いざ日本の清算機関で清算し、日本国債を担保に使い、円の証拠金に対応しようとした瞬間、慣れない配管の摩擦に直面する。</p>
-  <p class="en">Foreign players don't naturally hold Japanese government bonds in the first place, and the path to them is long. And the question is not whether the bonds exist, but whether they can be moved — by the time required, to the place required, in the form required. Time-zone gaps, settlement cut-offs, a collateral substitution that won't complete within the same day — let these frictions pile up, and investors are forced to leave extra collateral "just in case," which eats into capital efficiency and ultimately shapes the very choice of which market to trade in.</p>
-  <p class="ja">そもそも海外勢は、日本国債を自然には持っていない。経路も長い。そして問題は「国債が在るか」ではなく、必要な時間までに、必要な場所へ、必要な形で動かせるか、である。時差、決済の締め時間、担保の差し替えが同日に終わらない — こうした摩擦が積もると、投資家は「念のため」と余分な担保を置かざるを得なくなり、それが資本効率を蝕み、最後には「どの市場で取引するか」という選択そのものを左右する。</p>
-  <p class="en">Whenever I talk about opportunity, I add one question: who can access it, and at what friction? An opportunity story that omits this tends to tilt toward optimism.</p>
-  <p class="ja">機会の話をするとき、私はいつもこの問いを足す。「その機会に、誰が、どれだけの摩擦でアクセスできるのか」。これを欠いた機会論は、たいてい楽観に傾く。</p>
 
-  <div class="figure">
-    <svg class="en" viewBox="0 0 660 234" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
-      <line x1="34" y1="44" x2="34" y2="194" stroke="#ccc" stroke-width="1"/><polygon points="34,200 30,190 38,190" fill="#ccc"/>
-      <text x="18" y="120" font-size="9" text-anchor="middle" transform="rotate(-90 18 120)" fill="#aaa">upstream → downstream</text>
-      <text x="237" y="24" font-size="12" text-anchor="middle" fill="#1a2332">Futures</text>
-      <text x="407" y="24" font-size="12" text-anchor="middle" fill="#1a2332">Interest-rate swaps</text>
-      <text x="577" y="24" font-size="12" text-anchor="middle" fill="#1a2332">Cash &amp; repo</text>
-      <text x="96" y="65" font-size="11.5" text-anchor="middle" fill="#1d5c5c">Execution</text>
-      <text x="96" y="123" font-size="11.5" text-anchor="middle" fill="#1d5c5c">Clearing</text>
-      <text x="96" y="172" font-size="11.5" text-anchor="middle" fill="#1d5c5c">Settlement &amp;</text>
-      <text x="96" y="187" font-size="11.5" text-anchor="middle" fill="#1d5c5c">collateral</text>
-      <rect x="158" y="36" width="158" height="50" rx="2" fill="#f7f6f2" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
-      <rect x="328" y="36" width="158" height="50" rx="2" fill="#f7f6f2" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
-      <rect x="498" y="36" width="158" height="50" rx="2" fill="#f7f6f2" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
-      <rect x="158" y="94" width="158" height="50" rx="2" fill="#f7f6f2" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
-      <rect x="328" y="94" width="158" height="50" rx="2" fill="#f7f6f2" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
-      <rect x="498" y="94" width="158" height="50" rx="2" fill="#f7f6f2" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
-      <rect x="158" y="152" width="158" height="50" rx="2" fill="#f7f6f2" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
-      <rect x="328" y="152" width="158" height="50" rx="2" fill="#f7f6f2" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
-      <rect x="498" y="152" width="158" height="50" rx="2" fill="#f7f6f2" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
-      <text x="350" y="225" font-size="11.5" text-anchor="middle" fill="#8a6020">3 × 3 = 9 silos — collateral &amp; margin can't be netted across the rooms</text>
-    </svg>
-    <svg class="ja" viewBox="0 0 660 234" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
-      <line x1="34" y1="44" x2="34" y2="194" stroke="#ccc" stroke-width="1"/><polygon points="34,200 30,190 38,190" fill="#ccc"/>
-      <text x="18" y="120" font-size="9.5" text-anchor="middle" transform="rotate(-90 18 120)" fill="#aaa">上流 → 下流</text>
-      <text x="237" y="24" font-size="12.5" text-anchor="middle" fill="#1a2332">先物</text>
-      <text x="407" y="24" font-size="12.5" text-anchor="middle" fill="#1a2332">金利スワップ</text>
-      <text x="577" y="24" font-size="12.5" text-anchor="middle" fill="#1a2332">現物・レポ</text>
-      <text x="96" y="67" font-size="12" text-anchor="middle" fill="#1d5c5c">執行</text>
-      <text x="96" y="125" font-size="12" text-anchor="middle" fill="#1d5c5c">清算</text>
-      <text x="96" y="183" font-size="12" text-anchor="middle" fill="#1d5c5c">決済・担保</text>
-      <rect x="158" y="36" width="158" height="50" rx="2" fill="#f7f6f2" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
-      <rect x="328" y="36" width="158" height="50" rx="2" fill="#f7f6f2" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
-      <rect x="498" y="36" width="158" height="50" rx="2" fill="#f7f6f2" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
-      <rect x="158" y="94" width="158" height="50" rx="2" fill="#f7f6f2" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
-      <rect x="328" y="94" width="158" height="50" rx="2" fill="#f7f6f2" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
-      <rect x="498" y="94" width="158" height="50" rx="2" fill="#f7f6f2" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
-      <rect x="158" y="152" width="158" height="50" rx="2" fill="#f7f6f2" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
-      <rect x="328" y="152" width="158" height="50" rx="2" fill="#f7f6f2" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
-      <rect x="498" y="152" width="158" height="50" rx="2" fill="#f7f6f2" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
-      <text x="350" y="225" font-size="11.5" text-anchor="middle" fill="#8a6020">3×3＝9つのサイロ — 担保もマージンも、部屋を越えて相殺されない</text>
-    </svg>
-    <div class="figcap"><span class="en">Fig. 2 — In Japan, execution × clearing × collateral split by product into 3 × 3 = 9 silos.</span><span class="ja">図2　日本では 執行×清算×担保 が商品ごとに分かれ、3×3＝9つのサイロになる。</span></div>
+  <p class="en">In practice, maintaining a substantial position requires much more than simply owning assets.</p>
+  <p class="en">You must be able to obtain eligible collateral.</p>
+  <p class="en">You must be able to move it.</p>
+  <p class="en">You must meet margin calls on time.</p>
+  <p class="en">You may need to turn securities into cash through the repo market.</p>
+  <p class="en">And settlement and operational processes must continue to function when markets are under stress.</p>
+  <p class="ja">つまり、大きなポジションを実際に維持するためには、担保を持っているだけでは足りない。</p>
+  <p class="ja">必要な担保を調達できること。</p>
+  <p class="ja">必要な場所へ動かせること。</p>
+  <p class="ja">証拠金の要求に時間どおり対応できること。</p>
+  <p class="ja">必要ならレポ市場で資金化できること。</p>
+  <p class="ja">そして、ストレス時にも決済やオペレーションが止まらないこと。</p>
+  <p class="ja">そのすべてが必要になる。</p>
+
+  <p class="en">For an overseas investor, Japanese rates can look attractive from the perspective of price and strategy.</p>
+  <p class="en">But the moment that investor clears through a Japanese CCP, uses JGBs as collateral, or needs to meet a yen margin call, the investor encounters the particular infrastructure of the Japanese market.</p>
+  <p class="en">The important question is therefore not simply: <span class="em">do you own Japanese government bonds?</span></p>
+  <p class="en">It is: <span class="em">can you move the right assets, in the right form, to the right place, by the required time?</span></p>
+  <p class="ja">海外投資家から見れば、日本の金利市場に魅力的な取引機会があったとしても、日本の清算機関を使い、日本国債を担保として差し入れ、円建ての証拠金を管理しようとすれば、日本固有の市場インフラと向き合うことになる。</p>
+  <p class="ja">ここで問題になるのは、<span class="em">「日本国債を持っているか」ではない。</span></p>
+  <p class="ja"><span class="em">必要な時刻までに、必要な場所へ、必要な形で、それを動かせるか。</span>ということだ。</p>
+
+  <p class="en">There are time-zone differences.</p>
+  <p class="en">Settlement cut-offs.</p>
+  <p class="en">Collateral-substitution processes.</p>
+  <p class="en">Different accounts and custodial arrangements.</p>
+  <p class="en">Different clearing venues.</p>
+  <p class="en">Each individual friction may appear small.</p>
+  <p class="en">Together, they matter.</p>
+  <p class="ja">時差がある。</p>
+  <p class="ja">決済には締切時刻がある。</p>
+  <p class="ja">担保の差し替えには時間がかかる。</p>
+  <p class="ja">口座や清算機関をまたげば、資産移動の経路も増える。</p>
+  <p class="ja">一つひとつは小さな摩擦でも、積み重なれば大きな意味を持つ。</p>
+
+  <p class="en">An investor may hold additional collateral “just in case.”</p>
+  <p class="en">More liquidity may have to be kept idle.</p>
+  <p class="en">A trade that looks attractive in economic terms can become much less attractive once the cost of supporting it operationally is included.</p>
+  <p class="en">So whenever we say that a market contains opportunity, I think a second question should follow: <span class="em">who can access that opportunity, and at what level of friction?</span></p>
+  <p class="en">Opportunity and access are different things.</p>
+  <p class="ja">「念のため」に余分な担保を置かなければならなくなる。</p>
+  <p class="ja">余分な流動性を確保しなければならなくなる。</p>
+  <p class="ja">取引そのものは利益が出そうでも、インフラまで含めれば割に合わなくなることもある。</p>
+  <p class="ja">だから、市場に「機会」があるという話をするとき、私はいつももう一つの問いを加えたくなる。</p>
+  <p class="ja"><span class="em">その機会に、誰が、どれほどの摩擦でアクセスできるのか。</span></p>
+  <p class="ja">機会とアクセスは、同じではない。</p>
+
+  <h2><span class="hnum">4</span><span class="en">Japan's market as a 3 × 3 system of silos</span><span class="ja">日本市場を「3×3のサイロ」として見る</span></h2>
+  <p class="en">One way to see where this friction comes from is to simplify the Japanese rates market into a two-dimensional map.</p>
+  <p class="en">The first dimension is <span class="em">product</span>: futures; interest-rate swaps; cash government bonds and repo.</p>
+  <p class="en">The second is <span class="em">process</span>: execution; clearing; settlement and collateral.</p>
+  <p class="en">Put the two dimensions together, and we get a 3 × 3 matrix — nine “rooms.”</p>
+  <p class="ja">この摩擦がどこから生まれるのかを考えるために、日本の金利市場をあえて単純な図にしてみる。</p>
+  <p class="ja">一つの軸は、<span class="em">商品</span>である。先物、金利スワップ、現物国債・レポ。</p>
+  <p class="ja">もう一つの軸は、<span class="em">取引の工程</span>である。執行、清算、決済・担保。</p>
+  <p class="ja">これを掛け合わせると、3×3の九つの「部屋」ができる。</p>
+
+  <div class="table-wrap en">
+    <table>
+      <thead><tr><th></th><th>Futures</th><th>Interest-rate swaps</th><th>Cash bonds / repo</th></tr></thead>
+      <tbody>
+        <tr><th>Execution</th><td>①</td><td>②</td><td>③</td></tr>
+        <tr><th>Clearing</th><td>④</td><td>⑤</td><td>⑥</td></tr>
+        <tr><th>Settlement &amp; collateral</th><td>⑦</td><td>⑧</td><td>⑨</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-wrap ja">
+    <table>
+      <thead><tr><th></th><th>先物</th><th>金利スワップ</th><th>現物・レポ</th></tr></thead>
+      <tbody>
+        <tr><th>執行</th><td>①</td><td>②</td><td>③</td></tr>
+        <tr><th>清算</th><td>④</td><td>⑤</td><td>⑥</td></tr>
+        <tr><th>決済・担保</th><td>⑦</td><td>⑧</td><td>⑨</td></tr>
+      </tbody>
+    </table>
   </div>
 
-  <h2><span class="hnum">5</span><span class="en">Collateral shrinks exactly when you need it most</span><span class="ja">担保が、いちばん必要なときに目減りする</span></h2>
-  <p class="en">The plumbing looks dull, but it bares its teeth in a crisis. Let us follow the mechanism gently.</p>
-  <p class="ja">配管の話は地味に見えるが、危機のときに牙をむく。仕組みをやさしく追ってみよう。</p>
-  <p class="en">In recent years, collateral has shifted from cash to government bonds. With the cost of funding cash now higher, you keep cash on hand and post the bonds you already hold. It is a rational move. But here is the trap.</p>
-  <p class="ja">近年、担保は「現金」から「国債」へ移ってきた。資金の調達コストが上がったので、現金は手元に残し、持っている国債を担保に回す。合理的な動きだ。だが、ここに罠がある。</p>
-  <p class="en">Imagine a sharp rate-rise shock. When rates rise, bond prices fall — so the value of the bonds you posted as collateral shrinks. At the very same moment, the move in rates produces a valuation loss on your derivatives, and a call arrives: post more collateral. At the precise instant your collateral is losing value, you are told to post more of it. If you cannot move enough bonds immediately, you must sell bonds to raise cash. When everyone does the same thing, bonds fall further, and collateral value falls further still.</p>
-  <p class="ja">急激な金利上昇のショックを想像してほしい。金利が上がると、国債の価格は下がる — すると、担保に差し入れていた国債の価値が目減りする。ところが同時に、金利が動いたことでデリバティブの評価損が出て、「追加の担保を積め」という請求が来る。担保の価値が下がっているまさにその瞬間に、もっと担保を出せと迫られる。手元に十分な国債を即座に動かせなければ、国債を売って現金を作るしかない。皆が同じことをすれば、国債はさらに下がり、担保価値はもっと下がる。</p>
-  <p class="en">This is procyclicality — a chain in which crisis amplifies crisis — and, at the same time, Wrong Way Risk: a structure in which your defensive asset moves in the same direction as your offensive loss. The foundation you stacked up believing it safe collapses under your feet at the very moment you need it.</p>
-  <p class="ja">これが「プロシクリカリティ（順循環性）」 — 危機が危機を増幅する連鎖であり、同時に「Wrong Way Risk（ロング・ウェイ・リスク、誤方向リスク）」、つまり〈守りの資産が、攻めの損失と同じ方向に効いてしまう〉構造である。安全だと思って積んでいた土台が、必要な瞬間に自分の足元を崩す。</p>
-  <p class="en">This is not Japan's story alone. In the autumn of 2022, exactly this chain became real in the United Kingdom. When the Truss government announced large tax cuts with no funding behind them, the market tipped at once toward "is Britain's fiscal position safe?", UK government bonds — gilts — were sold off, and yields spiked. Caught in the middle were Britain's pension funds. To prepare for future pension payouts, they used a scheme called LDI (liability-driven investment) to hedge interest-rate moves. When yields spiked, that hedge demanded a flood of additional collateral. To raise it, they sold the gilts they held — which pushed yields higher, which demanded yet more collateral: impairment of collateral value → margin call → forced sale → further yield rise, a vicious circle. In the end the Bank of England stepped in to buy bonds on an emergency basis, and finally broke the chain.</p>
-  <p class="ja">これは日本だけの話ではない。2022年秋、英国でまさにこの連鎖が現実になった。当時のトラス政権が、財源の裏づけのない大型減税を発表すると、市場は「英国の財政は大丈夫か」と一気に不安に傾き、英国債（ギルト）が売られて金利が急騰した。ここで巻き込まれたのが、英国の年金基金である。彼らは将来の年金支払いに備え、金利の変動をヘッジする「LDI（負債連動型運用）」という仕組みを使っていた。金利が急騰すると、このヘッジに対して大量の追加担保を求められる。担保を作るために手持ちのギルトを売る。すると金利はさらに上がり、また担保を求められる — 担保価値の毀損→追加担保→強制売却→さらなる金利上昇、という悪循環に陥った。最後はイングランド銀行が緊急で国債を買い支えて、ようやく連鎖を止めた。</p>
-  <p class="en">Market structures differ from country to country, but the skeleton worth watching — <span class="em">that the same shock strikes twice</span> — is the same. In Japan too, the more bonds are used as collateral, the more quietly the ground for this British-style chain grows. So do not be reassured by "is it strong in calm times?" alone.</p>
-  <p class="ja">市場の構造は国ごとに違っても、<span class="em">同じ衝撃が二度効く</span>という見るべき骨格は同じだ。日本でも、国債を担保に使う度合いが高まるほど、この英国型の連鎖が起こりうる素地は静かに育つ。だから「平時に強いか」だけを見て安心してはいけない。</p>
-  <p class="en">There is only one key to stopping the chain: whether, even under stress, the collateral that backs your margin can be moved quickly, reliably, and without friction — execution capability.</p>
-  <p class="ja">連鎖を止める鍵は、ただ一つ。証拠金に見合う担保を、ストレス時であっても〈どれだけ速く、確実に、摩擦なく動かせるか〉という、実行可能性（execution capability）にある。</p>
+  <p class="en">Of course, the Japanese market is not literally divided into nine completely independent boxes.</p>
+  <p class="en">This is a <span class="em">conceptual model</span>, not a literal description of nine separate institutions or systems.</p>
+  <p class="en">But the simplification reveals something important.</p>
+  <p class="en">An investor may economically regard several positions as part of one portfolio, while the underlying infrastructure does not necessarily treat them as one.</p>
+  <p class="ja">もちろん、現実の日本市場が文字どおり九つの完全に独立した箱に分かれているわけではない。</p>
+  <p class="ja">これは、市場の構造を考えるための<span class="em">概念モデル</span>である。</p>
+  <p class="ja">しかし、この単純化には一つの意味がある。</p>
+  <p class="ja">市場参加者から見れば、経済的には一つのポートフォリオであっても、商品や工程を越えて、リスクや証拠金、担保を完全に一体として扱えるわけではないからだ。</p>
+
+  <p class="en">A futures position may offset the economic risk of a swap position.</p>
+  <p class="en">At the portfolio level, the two exposures may substantially hedge each other.</p>
+  <p class="en">But if they sit in different clearing arrangements, margin may still be required separately.</p>
+  <p class="en">Likewise, an investor may hold JGBs that could economically serve as collateral for a derivatives exposure, while the bonds themselves sit somewhere different from where collateral is needed.</p>
+  <p class="en">The investor owns the asset.</p>
+  <p class="en">But moving it across the relevant infrastructure may require time, funding, accounts, settlement processes, and operational coordination.</p>
+  <p class="en">Economically, there is one portfolio.</p>
+  <p class="en">Operationally, there are several rooms.</p>
+  <p class="en"><span class="em">The distance between those two realities affects both capital efficiency and liquidity.</span></p>
+  <p class="ja">例えば、先物で持っている金利リスクと、スワップで持っている逆方向の金利リスクが、経済的には互いを打ち消していたとする。</p>
+  <p class="ja">ポートフォリオ全体で見れば、リスクは小さい。</p>
+  <p class="ja">しかし、その二つが別々の清算インフラに存在すれば、それぞれで証拠金を求められることがある。</p>
+  <p class="ja">あるいは、デリバティブ取引で必要になった証拠金を用意するために現物国債を使いたくても、担保を保有している場所と、実際に差し入れる必要がある場所の間に複数の工程が存在する。</p>
+  <p class="ja">経済的には一つのポートフォリオ。</p>
+  <p class="ja">インフラの上では、複数の部屋。</p>
+  <p class="ja"><span class="em">この違いが、資本効率と流動性を左右する。</span></p>
 
   <div class="figure">
-    <svg class="en" viewBox="0 0 660 214" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
-      <rect x="250" y="12" width="160" height="40" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.3"/>
-      <text x="330" y="37" font-size="13" text-anchor="middle" fill="#1a2332">Rates rise sharply</text>
-      <line x1="305" y1="52" x2="170" y2="86" stroke="#8a6020" stroke-width="1.3"/><polygon points="165,88 176,86 170,77" fill="#8a6020"/>
-      <line x1="355" y1="52" x2="490" y2="86" stroke="#8a6020" stroke-width="1.3"/><polygon points="495,88 484,77 490,86" fill="#8a6020"/>
-      <rect x="40" y="90" width="250" height="54" rx="2" fill="#fff" stroke="#8a6020" stroke-width="1.2"/>
-      <text x="165" y="112" font-size="12" text-anchor="middle" fill="#1a1a1a">(1) derivative loss</text>
-      <text x="165" y="131" font-size="12" text-anchor="middle" fill="#1a1a1a">→ margin call</text>
-      <rect x="370" y="90" width="250" height="54" rx="2" fill="#fff" stroke="#8a6020" stroke-width="1.2"/>
-      <text x="495" y="112" font-size="12" text-anchor="middle" fill="#1a1a1a">(2) bond collateral</text>
-      <text x="495" y="131" font-size="12" text-anchor="middle" fill="#1a1a1a">value falls</text>
-      <line x1="165" y1="144" x2="270" y2="172" stroke="#1d5c5c" stroke-width="1.3"/><polygon points="274,174 263,172 269,164" fill="#1d5c5c"/>
-      <line x1="495" y1="144" x2="390" y2="172" stroke="#1d5c5c" stroke-width="1.3"/><polygon points="386,174 397,164 391,172" fill="#1d5c5c"/>
-      <rect x="150" y="172" width="360" height="34" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/>
-      <text x="330" y="194" font-size="12.5" text-anchor="middle" fill="#1d5c5c">short collateral → forced sale → further fall (vicious circle)</text>
+    <svg class="en" viewBox="0 0 660 250" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <text x="210" y="42" font-size="12" text-anchor="middle" fill="#1d5c5c">Futures</text>
+      <text x="380" y="42" font-size="12" text-anchor="middle" fill="#1d5c5c">Interest-rate swaps</text>
+      <text x="550" y="42" font-size="12" text-anchor="middle" fill="#1d5c5c">Cash bonds / repo</text>
+      <text x="8" y="87" font-size="12" fill="#1d5c5c">Execution</text>
+      <text x="8" y="137" font-size="12" fill="#1d5c5c">Clearing</text>
+      <text x="8" y="181" font-size="12" fill="#1d5c5c">Settlement</text>
+      <text x="8" y="196" font-size="12" fill="#1d5c5c">&amp; collateral</text>
+      <rect x="130" y="60" width="160" height="44" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <rect x="300" y="60" width="160" height="44" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <rect x="470" y="60" width="160" height="44" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <rect x="130" y="110" width="160" height="44" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <rect x="300" y="110" width="160" height="44" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <rect x="470" y="110" width="160" height="44" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <rect x="130" y="160" width="160" height="44" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <rect x="300" y="160" width="160" height="44" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <rect x="470" y="160" width="160" height="44" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <text x="210" y="88" font-size="13" text-anchor="middle" fill="#1a2332">1</text>
+      <text x="380" y="88" font-size="13" text-anchor="middle" fill="#1a2332">2</text>
+      <text x="550" y="88" font-size="13" text-anchor="middle" fill="#1a2332">3</text>
+      <text x="210" y="138" font-size="13" text-anchor="middle" fill="#1a2332">4</text>
+      <text x="380" y="138" font-size="13" text-anchor="middle" fill="#1a2332">5</text>
+      <text x="550" y="138" font-size="13" text-anchor="middle" fill="#1a2332">6</text>
+      <text x="210" y="188" font-size="13" text-anchor="middle" fill="#1a2332">7</text>
+      <text x="380" y="188" font-size="13" text-anchor="middle" fill="#1a2332">8</text>
+      <text x="550" y="188" font-size="13" text-anchor="middle" fill="#1a2332">9</text>
+      <text x="330" y="234" font-size="11.5" text-anchor="middle" fill="#8a6020">Economically one portfolio — operationally, not always treated as one</text>
     </svg>
-    <svg class="ja" viewBox="0 0 660 214" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
-      <rect x="250" y="12" width="160" height="40" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.3"/>
-      <text x="330" y="37" font-size="13" text-anchor="middle" fill="#1a2332">金利が急騰</text>
-      <line x1="305" y1="52" x2="170" y2="86" stroke="#8a6020" stroke-width="1.3"/><polygon points="165,88 176,86 170,77" fill="#8a6020"/>
-      <line x1="355" y1="52" x2="490" y2="86" stroke="#8a6020" stroke-width="1.3"/><polygon points="495,88 484,77 490,86" fill="#8a6020"/>
-      <rect x="40" y="90" width="250" height="54" rx="2" fill="#fff" stroke="#8a6020" stroke-width="1.2"/>
-      <text x="165" y="112" font-size="12" text-anchor="middle" fill="#1a1a1a">①デリバティブの評価損</text>
-      <text x="165" y="131" font-size="12" text-anchor="middle" fill="#1a1a1a">→ 追加担保請求</text>
-      <rect x="370" y="90" width="250" height="54" rx="2" fill="#fff" stroke="#8a6020" stroke-width="1.2"/>
-      <text x="495" y="112" font-size="12" text-anchor="middle" fill="#1a1a1a">②担保の国債の</text>
-      <text x="495" y="131" font-size="12" text-anchor="middle" fill="#1a1a1a">価値が下がる</text>
-      <line x1="165" y1="144" x2="270" y2="172" stroke="#1d5c5c" stroke-width="1.3"/><polygon points="274,174 263,172 269,164" fill="#1d5c5c"/>
-      <line x1="495" y1="144" x2="390" y2="172" stroke="#1d5c5c" stroke-width="1.3"/><polygon points="386,174 397,164 391,172" fill="#1d5c5c"/>
-      <rect x="150" y="172" width="360" height="34" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/>
-      <text x="330" y="194" font-size="12.5" text-anchor="middle" fill="#1d5c5c">担保不足 → 投げ売り → さらに下落（悪循環）</text>
+    <svg class="ja" viewBox="0 0 660 250" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <text x="210" y="42" font-size="12" text-anchor="middle" fill="#1d5c5c">先物</text>
+      <text x="380" y="42" font-size="12" text-anchor="middle" fill="#1d5c5c">金利スワップ</text>
+      <text x="550" y="42" font-size="12" text-anchor="middle" fill="#1d5c5c">現物・レポ</text>
+      <text x="8" y="87" font-size="12" fill="#1d5c5c">執行</text>
+      <text x="8" y="137" font-size="12" fill="#1d5c5c">清算</text>
+      <text x="8" y="188" font-size="12" fill="#1d5c5c">決済・担保</text>
+      <rect x="130" y="60" width="160" height="44" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <rect x="300" y="60" width="160" height="44" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <rect x="470" y="60" width="160" height="44" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <rect x="130" y="110" width="160" height="44" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <rect x="300" y="110" width="160" height="44" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <rect x="470" y="110" width="160" height="44" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <rect x="130" y="160" width="160" height="44" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <rect x="300" y="160" width="160" height="44" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <rect x="470" y="160" width="160" height="44" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <text x="210" y="88" font-size="13" text-anchor="middle" fill="#1a2332">1</text>
+      <text x="380" y="88" font-size="13" text-anchor="middle" fill="#1a2332">2</text>
+      <text x="550" y="88" font-size="13" text-anchor="middle" fill="#1a2332">3</text>
+      <text x="210" y="138" font-size="13" text-anchor="middle" fill="#1a2332">4</text>
+      <text x="380" y="138" font-size="13" text-anchor="middle" fill="#1a2332">5</text>
+      <text x="550" y="138" font-size="13" text-anchor="middle" fill="#1a2332">6</text>
+      <text x="210" y="188" font-size="13" text-anchor="middle" fill="#1a2332">7</text>
+      <text x="380" y="188" font-size="13" text-anchor="middle" fill="#1a2332">8</text>
+      <text x="550" y="188" font-size="13" text-anchor="middle" fill="#1a2332">9</text>
+      <text x="330" y="234" font-size="11.5" text-anchor="middle" fill="#8a6020">経済的には一つのポートフォリオでも、インフラ上は一つとして扱われない</text>
     </svg>
-    <div class="figcap"><span class="en">Fig. 3 — The same shock strikes twice (Wrong Way Risk).</span><span class="ja">図3　同じ衝撃が二度効く（Wrong Way Risk・誤方向リスク）。</span></div>
+    <div class="figcap"><span class="en">Fig. 2 — 3 × 3: nine market “rooms”</span><span class="ja">図2　3×3＝9つのサイロ</span></div>
   </div>
 
-  <h2><span class="hnum">6</span><span class="en">Value lives in the seams</span><span class="ja">価値は、つなぎ目に宿る</span></h2>
-  <p class="en">So why is collateral "hard to move when it matters"? Because the plumbing is fragmented.</p>
-  <p class="ja">ではなぜ、担保は「いざというとき動かしにくい」のか。答えは、配管が分断されているからだ。</p>
-  <p class="en">A market's workflow runs from upstream to downstream: execution of the trade (upstream), clearing (midstream), settlement and collateral management (downstream). Execution of futures and interest-rate swaps is fairly electronic, close to world standard — but being electronic and having collateral netted across rooms are two different things. The fragmentation runs in two directions at once: down the process (execution, clearing, collateral) and across the products (futures, interest-rate swaps, cash and repo). In Japan each of these is its own separate room, so multiplied out you get a 3 × 3 = 9 grid of silos — and into each room a separate pile of collateral is stacked.</p>
-  <p class="ja">市場の工程は、上流から下流へ流れる。取引の執行（上流）、清算（中流）、決済と担保管理（下流）。先物や金利スワップの執行は電子化が進み、その意味では世界水準に近い — だが「電子化されていること」と「担保が部屋を越えて相殺されること」は、別の話だ。分断は縦と横の両方で起きている。工程の縦（執行・清算・決済担保）と、商品の横（先物・金利スワップ・現物レポ）。日本ではこの一つひとつが独立した部屋になっていて、掛け合わせると 3×3＝9つの別々の部屋（サイロ）ができる。そして、それぞれの部屋に、別々の担保が積まれていく。</p>
-  <p class="en">What is wrong with this siloing? Positions that economically offset each other — that are, in fact, hedged — are nonetheless charged separate, high collateral in each walled room. Collateral that could have been netted is not netted. Capital efficiency falls, and in a crisis the pool of "movable collateral" thins further.</p>
-  <p class="ja">この「サイロ化」の何が問題か。経済的には互いに打ち消し合う（ヘッジされている）はずのポジションでも、部屋が壁で仕切られているために、それぞれの部屋で別々に高い担保を要求されてしまう。本来なら相殺できる担保が、相殺されない。資本効率は落ち、危機のときに「動かせる担保」はさらに細る。</p>
-  <p class="en">What has drawn me, for years, is always this seam. Polishing the inside of a room is glamorous work, and it earns credit. But the joint between rooms — the unowned step that is no one's job — tends to be left alone. And yet a market's true depth is set not by surface turnover but by <span class="em">the smoothness of these seams</span>. If the seams are rough, then however much opportunity there is, the cargo — the collateral — cannot be carried when stress hits.</p>
-  <p class="ja">私が長く惹かれてきたのは、いつもこの〈つなぎ目〉だった。部屋の中を磨く仕事は華やかで、手柄にもなりやすい。だが部屋と部屋の継ぎ目 — 誰の担当でもない段差 — は放置されがちだ。けれど、市場の本当の厚みは、表面の取引高ではなく、<span class="em">この継ぎ目の滑らかさ</span>で決まる。継ぎ目が荒ければ、どれだけ機会があっても、ストレス時に荷物（担保）は運べない。</p>
-  <p class="en">Here a distinction is needed. Japan's market still carries no small amount of old-fashioned manual practice and paper convention. Lately, "Shōwa tours" — trips that savor the retro townscapes and old coffee houses of the Shōwa era (Japan's mid-twentieth century) — have grown popular among visitors. The Shōwa of tourism is worth preserving untouched. But if the plumbing that underpins people's safety and their access to opportunity stays stuck in the Shōwa era, that is not nostalgia — it is danger. <span class="em">The Shōwa to preserve, and the Shōwa to re-plumb.</span> What makes it hard is that the two often wear the same face. Oldness can be an object of affection, or an excuse for neglect.</p>
-  <p class="ja">ここで一つ、区別が要る。日本の市場には、昔ながらの手作業や紙の慣行が、まだ少なからず残っている。最近、訪日客のあいだで「昭和ツアー」 — レトロな街並みや昔ながらの喫茶店を楽しむ旅 — が人気だという。観光としての昭和は、手をつけずに残す価値がある。けれど、〈人々の安全や機会のアクセスを支える配管〉が昭和のままなら、それは懐かしさではなく、危うさになる。<span class="em">残すべき昭和と、繋ぎ直すべき昭和</span>。難しいのは、両者がしばしば同じ顔をしていることだ。古さは、愛着の対象にも、放置の言い訳にもなる。</p>
+  <p class="en">Seen this way, the problem is not necessarily that any individual room works badly.</p>
+  <p class="en">Many of the individual components of the Japanese market are highly sophisticated.</p>
+  <p class="en">The more interesting question is what happens <span class="em">between the rooms</span>.</p>
+  <p class="ja">このモデルで見ると、市場インフラの問題は少し違った姿を見せる。</p>
+  <p class="ja">一つひとつの部屋が機能していないわけではない。</p>
+  <p class="ja">むしろ、それぞれの部屋の中は高度に整備されている場合も多い。</p>
+  <p class="ja">問題は、<span class="em">部屋と部屋の間</span>にある。</p>
+
+  <h2><span class="hnum">5</span><span class="en">Value lives at the interfaces</span><span class="ja">価値は、つなぎ目に宿る</span></h2>
+  <p class="en">I have spent much of my career drawn to these interfaces.</p>
+  <p class="en">Improving something within a single room is relatively easy to define.</p>
+  <p class="en">Make execution faster. Make clearing safer. Make collateral management more efficient.</p>
+  <p class="en">Each problem has specialists, organizations, budgets, and established responsibilities.</p>
+  <p class="en">The difficult part is often what lies between them.</p>
+  <p class="ja">私は長いあいだ、市場の中でも特にこの「つなぎ目」に惹かれてきた。</p>
+  <p class="ja">一つの部屋の中を改善する仕事は分かりやすい。</p>
+  <p class="ja">執行を速くする。清算を安全にする。担保管理を効率化する。</p>
+  <p class="ja">それぞれに専門家がいて、組織があり、予算がある。</p>
+  <p class="ja">難しいのは、その間だ。</p>
+
+  <p class="en">Between clearing and settlement.</p>
+  <p class="en">Between futures and swaps.</p>
+  <p class="en">Between derivatives and repo.</p>
+  <p class="en">Between domestic infrastructure and overseas investors.</p>
+  <p class="en">Between one institution and another.</p>
+  <p class="en">These are the places where a small step or gap may remain because no single participant fully owns it.</p>
+  <p class="en">And in complex systems, those gaps can become weaknesses.</p>
+  <p class="ja">清算と決済の間。</p>
+  <p class="ja">先物とスワップの間。</p>
+  <p class="ja">デリバティブとレポの間。</p>
+  <p class="ja">国内市場と海外投資家の間。</p>
+  <p class="ja">組織と組織の間。</p>
+  <p class="ja">そこには、ときどき「誰の担当でもない段差」が残る。</p>
+  <p class="ja">そして複雑なシステムでは、その段差こそが弱点になる。</p>
+
+  <p class="en">Consider two positions that economically hedge each other but reside in separate clearing arrangements.</p>
+  <p class="en">From the perspective of the portfolio, much of the market risk may cancel.</p>
+  <p class="en">From the perspective of infrastructure, margin may still be required in both places.</p>
+  <p class="en">In normal times, this may look mainly like a capital-efficiency problem.</p>
+  <p class="en">More collateral is posted. More liquidity is kept available. Operational costs are somewhat higher.</p>
+  <p class="en">The system can absorb the inefficiency.</p>
+  <p class="en">Under stress, however, the nature of the problem changes.</p>
+  <p class="en">A capital-efficiency problem becomes a <span class="em">liquidity problem</span>.</p>
+  <p class="ja">例えば、経済的には互いにヘッジされているポジションでも、異なる清算機関や異なる口座に存在すれば、それぞれで証拠金を求められることがある。</p>
+  <p class="ja">市場全体で見ればリスクは相殺されている。</p>
+  <p class="ja">しかし、インフラの上では相殺されていない。</p>
+  <p class="ja">平時には、これは資本効率の問題に見える。</p>
+  <p class="ja">余分に担保を置く。余分に資金を確保する。少し多くの事務コストを払う。</p>
+  <p class="ja">それで済む。</p>
+  <p class="ja">だが、ストレス時には性質が変わる。</p>
+  <p class="ja">資本効率の問題が、<span class="em">流動性の問題</span>になる。</p>
+
+  <p class="en">Collateral exists in one room.</p>
+  <p class="en">But it is needed in another.</p>
+  <p class="en">And it cannot necessarily cross the boundary quickly enough.</p>
+  <p class="en">The firm “has” the asset, but cannot “use” it where and when it is required.</p>
+  <p class="en">That is why the depth of a market cannot be judged by trading volume alone.</p>
+  <p class="en">A market can trade large amounts in normal conditions and still have another kind of shallowness if collateral cannot move effectively when conditions deteriorate.</p>
+  <p class="en"><span class="em">The real depth of a market depends not only on what happens inside each room, but on the quality of the connections between them.</span></p>
+  <p class="ja">必要な担保が、一つの部屋にはある。</p>
+  <p class="ja">しかし、それを必要としている別の部屋へ、時間内に動かせない。</p>
+  <p class="ja">「持っている」のに「使えない」という状態が生まれる。</p>
+  <p class="ja">だから、市場の厚みは取引高だけでは測れない。</p>
+  <p class="ja">大量に取引できても、ストレス時に担保が必要な場所へ移らないなら、その市場には別の意味での薄さがある。</p>
+  <p class="ja"><span class="em">市場の本当の厚みは、部屋の中だけではなく、部屋と部屋のつなぎ目で決まる。</span></p>
+
+  <p class="en">Older markets accumulate institutions and practices created under earlier conditions.</p>
+  <p class="en">That history has value.</p>
+  <p class="en">But a structure that was rational in one environment does not remain rational automatically when participants, technology, regulation, or market conditions change.</p>
+  <p class="en">The objective is not to replace everything that is old.</p>
+  <p class="en">It is to identify which structures remain useful, and which interfaces need to be rebuilt.</p>
+  <p class="ja">歴史の長い市場には、過去の合理性から生まれた制度や慣行が積み重なっている。</p>
+  <p class="ja">それ自体は価値でもある。</p>
+  <p class="ja">しかし、ある時代には合理的だった仕組みが、市場環境や参加者が変わった後も合理的であり続けるとは限らない。</p>
+  <p class="ja">必要なのは、すべてを新しくすることではない。</p>
+  <p class="ja">どの仕組みを残し、どのつなぎ目を作り直すべきかを見極めることである。</p>
+
+  <h2><span class="hnum">6</span><span class="en">Collateral can become scarce precisely when it is needed most</span><span class="ja">担保は、必要なときほど不足する</span></h2>
+  <p class="en">The importance of those interfaces becomes clearest when markets move sharply.</p>
+  <p class="en">Imagine a sudden rise in interest rates.</p>
+  <p class="en">When yields rise, the prices of existing government bonds generally fall.</p>
+  <p class="en">If those bonds are being used as collateral, their collateral value may fall as well.</p>
+  <p class="en">At the same time, the same increase in rates may generate losses on derivatives positions, triggering calls for additional margin.</p>
+  <p class="en">Two things can therefore happen together: <span class="em">the value of the assets available as collateral falls, while the amount of collateral required increases.</span></p>
+  <p class="ja">この「つなぎ目」の問題が最も鮮明になるのは、市場が大きく動いたときである。</p>
+  <p class="ja">金利が急激に上昇する場面を考えてみる。</p>
+  <p class="ja">金利が上がれば、一般に既発国債の価格は下がる。</p>
+  <p class="ja">もし国債を担保として差し入れていれば、その担保価値も低下する。</p>
+  <p class="ja">ところが、同じ金利上昇によってデリバティブのポジションに損失が生じれば、清算機関や取引相手から追加の証拠金を求められることがある。</p>
+  <p class="ja">つまり、<span class="em">担保として持っている資産の価値が落ちるのと同時に、必要な担保の量が増える。</span></p>
+
+  <p class="en">If a participant does not have enough cash or readily movable collateral, it may have to sell assets to raise liquidity.</p>
+  <p class="en">If many market participants do the same thing at the same time, additional bond sales can push bond prices lower.</p>
+  <p class="en">That creates further liquidity pressure.</p>
+  <p class="en">This is one form of <span class="em">procyclicality</span>: deteriorating market conditions increase liquidity demands in ways that can intensify the original stress.</p>
+  <p class="ja">もし手元に十分な現金や、すぐに動かせる担保がなければ、資産を売って現金を作らなければならない。</p>
+  <p class="ja">同じ状況に置かれた参加者が一斉に国債を売れば、国債価格はさらに下がる。</p>
+  <p class="ja">それが新たな流動性需要を生み、さらに売却を誘発する。</p>
+  <p class="ja">これは、金融市場で繰り返し見られる<span class="em">プロシクリカリティ</span>の一つの形である。</p>
+  <p class="ja">悪化した市場環境が、証拠金や流動性需要を通じて、さらに市場を悪化させる。</p>
+
+  <p class="en">The United Kingdom in 2022 provided a striking example.</p>
+  <p class="en">As gilt yields rose sharply, pension funds using interest-rate hedges faced substantial margin calls.</p>
+  <p class="en">To generate cash, some funds sold gilts.</p>
+  <p class="en">Those sales put further downward pressure on gilt prices and upward pressure on yields.</p>
+  <p class="en">Higher yields then generated further collateral needs.</p>
+  <p class="ja">2022年の英国では、この問題が非常に分かりやすい形で現れた。</p>
+  <p class="ja">英国債の金利が急上昇すると、金利リスクをヘッジしていた年金基金に大きな証拠金需要が生じた。</p>
+  <p class="ja">現金を用意するため、一部の基金は保有する英国債を売却した。</p>
+  <p class="ja">売却が増えれば、国債価格はさらに下がり、金利はさらに上昇する。</p>
+  <p class="ja">すると、新たな証拠金需要が生じる。</p>
+
+  <div class="pull chain">
+    <span class="pull-label"><span class="en">Cycle</span><span class="ja">連鎖</span></span>
+    <span class="en">Higher yields → margin calls → gilt sales → lower gilt prices → still higher yields</span>
+    <span class="ja">金利上昇 → 証拠金需要 → 国債売却 → 国債価格下落 → さらなる金利上昇</span>
+  </div>
+
+  <p class="en">Eventually, the Bank of England intervened to stabilize the market.</p>
+  <p class="en">Japan is not the United Kingdom.</p>
+  <p class="en">Its investor base, market structure, institutional arrangements, and sources of risk are different.</p>
+  <p class="en">The lesson is therefore not that the British episode will simply repeat itself in Japan.</p>
+  <p class="en">The deeper lesson is structural.</p>
+  <p class="en"><span class="em">The greater the stress, the more likely it is that liquidity — the resource most urgently needed — becomes harder to obtain.</span></p>
+  <p class="ja">最終的にはイングランド銀行が市場安定化のために介入した。</p>
+  <p class="ja">もちろん、日本と英国では市場構造も投資家構成も違う。</p>
+  <p class="ja">英国で起きたことが、そのまま日本で再現されると考えるべきではない。</p>
+  <p class="ja">しかし、ここで見るべきなのは個別の制度ではなく、もっと一般的な構造である。</p>
+  <p class="ja"><span class="em">ストレスが大きくなるほど、最も必要な資源である流動性まで同時に不足しやすくなる。</span></p>
+
+  <p class="en">And the stronger the boundaries between the 3 × 3 “rooms,” the harder it may be to move collateral from where it happens to be to where it is suddenly required.</p>
+  <p class="en">That is why a large collateral balance in normal times is not, by itself, enough.</p>
+  <p class="en">What matters is whether the collateral remains usable when conditions deteriorate.</p>
+  <p class="ja">そして、3×3の「部屋」が強く分かれていればいるほど、ある部屋に存在する担保を、必要としている別の部屋へ移すことは難しくなる。</p>
+  <p class="ja">だから、平時に十分な担保残高があるというだけでは安心できない。</p>
+  <p class="ja">問われるのは、その担保を、条件が悪化したときにも実際に使えるかどうかである。</p>
+
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 340" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <rect x="230" y="8" width="200" height="32" rx="2" fill="#f5ead8" stroke="#b5832a" stroke-width="1.4"/>
+      <text x="330" y="29" font-size="12.5" text-anchor="middle" fill="#8a6020">Rates rise sharply</text>
+      <line x1="310" y1="40" x2="180" y2="66" stroke="#1d5c5c" stroke-width="1.2"/>
+      <polygon points="160,70 175,60 179,70" fill="#1d5c5c"/>
+      <line x1="350" y1="40" x2="480" y2="66" stroke="#1d5c5c" stroke-width="1.2"/>
+      <polygon points="500,70 481,70 485,60" fill="#1d5c5c"/>
+      <rect x="40" y="70" width="240" height="32" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <text x="160" y="91" font-size="12.5" text-anchor="middle" fill="#3d3d3d">Derivatives losses</text>
+      <rect x="380" y="70" width="240" height="32" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <text x="500" y="91" font-size="12.5" text-anchor="middle" fill="#3d3d3d">Bond prices fall</text>
+      <line x1="160" y1="102" x2="160" y2="120" stroke="#1d5c5c" stroke-width="1.2"/>
+      <polygon points="160,124 155,115 165,115" fill="#1d5c5c"/>
+      <line x1="500" y1="102" x2="500" y2="120" stroke="#1d5c5c" stroke-width="1.2"/>
+      <polygon points="500,124 495,115 505,115" fill="#1d5c5c"/>
+      <rect x="40" y="124" width="240" height="32" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <text x="160" y="145" font-size="12.5" text-anchor="middle" fill="#3d3d3d">Margin calls</text>
+      <rect x="380" y="124" width="240" height="32" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <text x="500" y="145" font-size="12.5" text-anchor="middle" fill="#3d3d3d">Collateral value declines</text>
+      <line x1="180" y1="156" x2="300" y2="182" stroke="#1d5c5c" stroke-width="1.2"/>
+      <polygon points="320,186 301,186 305,176" fill="#1d5c5c"/>
+      <line x1="480" y1="156" x2="360" y2="182" stroke="#1d5c5c" stroke-width="1.2"/>
+      <polygon points="340,186 355,176 359,186" fill="#1d5c5c"/>
+      <rect x="200" y="186" width="260" height="36" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/>
+      <text x="330" y="210" font-size="13" text-anchor="middle" fill="#1d5c5c">Liquidity pressure</text>
+      <line x1="330" y1="222" x2="330" y2="238" stroke="#1d5c5c" stroke-width="1.2"/>
+      <polygon points="330,242 325,233 335,233" fill="#1d5c5c"/>
+      <rect x="230" y="242" width="200" height="32" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <text x="330" y="263" font-size="12.5" text-anchor="middle" fill="#3d3d3d">Asset sales</text>
+      <line x1="330" y1="274" x2="330" y2="290" stroke="#b5832a" stroke-width="1.2"/>
+      <polygon points="330,294 325,285 335,285" fill="#b5832a"/>
+      <rect x="200" y="294" width="260" height="34" rx="2" fill="#f5ead8" stroke="#b5832a" stroke-width="1.4"/>
+      <text x="330" y="316" font-size="12.5" text-anchor="middle" fill="#8a6020">Further market movement</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 340" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <rect x="230" y="8" width="200" height="32" rx="2" fill="#f5ead8" stroke="#b5832a" stroke-width="1.4"/>
+      <text x="330" y="29" font-size="12.5" text-anchor="middle" fill="#8a6020">金利上昇</text>
+      <line x1="310" y1="40" x2="180" y2="66" stroke="#1d5c5c" stroke-width="1.2"/>
+      <polygon points="160,70 175,60 179,70" fill="#1d5c5c"/>
+      <line x1="350" y1="40" x2="480" y2="66" stroke="#1d5c5c" stroke-width="1.2"/>
+      <polygon points="500,70 481,70 485,60" fill="#1d5c5c"/>
+      <rect x="40" y="70" width="240" height="32" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <text x="160" y="91" font-size="12.5" text-anchor="middle" fill="#3d3d3d">デリバティブ損失</text>
+      <rect x="380" y="70" width="240" height="32" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <text x="500" y="91" font-size="12.5" text-anchor="middle" fill="#3d3d3d">国債価格下落</text>
+      <line x1="160" y1="102" x2="160" y2="120" stroke="#1d5c5c" stroke-width="1.2"/>
+      <polygon points="160,124 155,115 165,115" fill="#1d5c5c"/>
+      <line x1="500" y1="102" x2="500" y2="120" stroke="#1d5c5c" stroke-width="1.2"/>
+      <polygon points="500,124 495,115 505,115" fill="#1d5c5c"/>
+      <rect x="40" y="124" width="240" height="32" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <text x="160" y="145" font-size="12.5" text-anchor="middle" fill="#3d3d3d">追加証拠金</text>
+      <rect x="380" y="124" width="240" height="32" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <text x="500" y="145" font-size="12.5" text-anchor="middle" fill="#3d3d3d">担保価値低下</text>
+      <line x1="180" y1="156" x2="300" y2="182" stroke="#1d5c5c" stroke-width="1.2"/>
+      <polygon points="320,186 301,186 305,176" fill="#1d5c5c"/>
+      <line x1="480" y1="156" x2="360" y2="182" stroke="#1d5c5c" stroke-width="1.2"/>
+      <polygon points="340,186 355,176 359,186" fill="#1d5c5c"/>
+      <rect x="200" y="186" width="260" height="36" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.4"/>
+      <text x="330" y="210" font-size="13" text-anchor="middle" fill="#1d5c5c">流動性不足</text>
+      <line x1="330" y1="222" x2="330" y2="238" stroke="#1d5c5c" stroke-width="1.2"/>
+      <polygon points="330,242 325,233 335,233" fill="#1d5c5c"/>
+      <rect x="230" y="242" width="200" height="32" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
+      <text x="330" y="263" font-size="12.5" text-anchor="middle" fill="#3d3d3d">資産売却</text>
+      <line x1="330" y1="274" x2="330" y2="290" stroke="#b5832a" stroke-width="1.2"/>
+      <polygon points="330,294 325,285 335,285" fill="#b5832a"/>
+      <rect x="200" y="294" width="260" height="34" rx="2" fill="#f5ead8" stroke="#b5832a" stroke-width="1.4"/>
+      <text x="330" y="316" font-size="12.5" text-anchor="middle" fill="#8a6020">さらなる市場変動</text>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 3 — How stress can amplify liquidity demand</span><span class="ja">図3　ストレスが流動性需要を増幅する</span></div>
+  </div>
+
+  <h2><span class="hnum">7</span><span class="en">Liquidity is not simply what you own</span><span class="ja">流動性とは「持っていること」ではない</span></h2>
+  <p class="en">At this point, the word <em>liquidity</em> begins to take on a second meaning.</p>
+  <p class="en">In financial markets, liquidity usually refers to the ability to buy or sell substantial amounts without moving the price excessively.</p>
+  <p class="en">That remains essential.</p>
+  <p class="en">But from the perspective of collateral and market infrastructure, there is another form of liquidity: <span class="em">the ability to move the right asset to the right place by the time it is needed.</span></p>
+  <p class="ja">ここまで来ると、「流動性」という言葉の意味も少し違って見えてくる。</p>
+  <p class="ja">金融市場では、流動性というと通常、「大量に売買しても価格が大きく動かないこと」を指す。</p>
+  <p class="ja">これは重要な意味である。</p>
+  <p class="ja">だが、担保や市場インフラの視点に立つと、もう一つの流動性が見えてくる。</p>
+  <p class="ja"><span class="em">必要な資産を、必要な時刻までに、必要な場所へ移せる能力。</span></p>
+
+  <p class="en">Imagine two firms, each holding ¥10 billion of Japanese government bonds.</p>
+  <p class="en">The first can repo those bonds quickly and obtain cash.</p>
+  <p class="en">It can move them to a clearing house as collateral within a short period.</p>
+  <p class="en">It can substitute one asset for another when necessary.</p>
+  <p class="en">The second firm owns the same ¥10 billion of bonds.</p>
+  <p class="en">But because of account structures, settlement chains, time zones, or operational constraints, moving those bonds to the place where they are required takes an entire day.</p>
+  <p class="en">On a balance sheet, both firms own the same amount.</p>
+  <p class="en">Under stress, they do not possess the same degree of liquidity.</p>
+  <p class="en"><span class="em">Owning and being able to use are different things.</span></p>
+  <p class="ja">例えば、100億円分の国債を持っている二つの会社があるとする。</p>
+  <p class="ja">一社は、その国債をすぐにレポに出し、現金化できる。</p>
+  <p class="ja">清算機関へ短時間で担保として差し入れられる。</p>
+  <p class="ja">必要なら別の担保への差し替えもできる。</p>
+  <p class="ja">もう一社は、同じ100億円を持っていても、口座構造や決済経路、時差、オペレーションの制約によって、必要な場所へ動かすのに丸一日かかる。</p>
+  <p class="ja">帳簿の上では、両社とも100億円を持っている。</p>
+  <p class="ja">しかし、ストレスが起きた瞬間には、その二つは同じ価値を持たない。</p>
+  <p class="ja"><span class="em">「持っている」と「使える」は違う。</span></p>
+
+  <p class="en">The distinction is easy to miss in normal conditions.</p>
+  <p class="en">If markets are calm, a delay of several hours may not matter.</p>
+  <p class="en">A firm can tolerate additional collateral.</p>
+  <p class="en">Operational inefficiency can be absorbed as a cost.</p>
+  <p class="en">When markets move sharply, however, time itself changes in value.</p>
+  <p class="en">An hour matters.</p>
+  <p class="en">The location of collateral matters.</p>
+  <p class="en">Whether an asset is eligible at a particular clearing house matters.</p>
+  <p class="en">The route through which cash can be raised matters.</p>
+  <p class="en">Walls that seem thin in normal times suddenly become much thicker.</p>
+  <p class="en">That is why liquidity cannot be measured only as a stock.</p>
+  <p class="en">It must also be understood as <span class="em">mobility</span>.</p>
+  <p class="ja">しかも、その違いは平時には見えにくい。</p>
+  <p class="ja">市場が穏やかなときには、一日遅れても大きな問題にならない。</p>
+  <p class="ja">少し余分に担保を置いても耐えられる。</p>
+  <p class="ja">オペレーションの非効率も、コストとして吸収できる。</p>
+  <p class="ja">ところが市場が動いた瞬間、時間の価値が変わる。</p>
+  <p class="ja">一時間が重要になる。</p>
+  <p class="ja">担保を置く場所が重要になる。</p>
+  <p class="ja">どの資産がどの清算機関で受け入れられるかが重要になる。</p>
+  <p class="ja">平時には薄かった壁が、ストレス時には突然厚くなる。</p>
+  <p class="ja">だから、流動性は残高だけでは測れない。</p>
+  <p class="ja"><span class="em">可動性によって測らなければならない。</span></p>
+
+  <div class="figure">
+    <svg class="en" viewBox="0 0 660 210" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+      <rect x="8" y="10" width="310" height="186" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.2"/>
+      <text x="163" y="36" font-size="13.5" text-anchor="middle" fill="#666">Normal conditions</text>
+      <text x="163" y="72" font-size="12.5" text-anchor="middle" fill="#3d3d3d">Have the asset</text>
+      <text x="163" y="96" font-size="12.5" text-anchor="middle" fill="#8a8a8a">↓</text>
+      <text x="163" y="122" font-size="12.5" text-anchor="middle" fill="#3d3d3d">Time is available</text>
+      <text x="163" y="148" font-size="12.5" text-anchor="middle" fill="#8a8a8a">↓</text>
+      <text x="163" y="176" font-size="13" text-anchor="middle" fill="#1d5c5c">Can use it</text>
+      <rect x="342" y="10" width="310" height="186" rx="2" fill="#f5ead8" stroke="#b5832a" stroke-width="1.4"/>
+      <text x="497" y="36" font-size="13.5" text-anchor="middle" fill="#8a6020">Stress conditions</text>
+      <text x="497" y="72" font-size="12.5" text-anchor="middle" fill="#3d3d3d">Have the asset</text>
+      <text x="497" y="94" font-size="12.5" text-anchor="middle" fill="#8a8a8a">↓</text>
+      <text x="497" y="116" font-size="11.5" text-anchor="middle" fill="#3d3d3d">time zones · settlement · eligibility</text>
+      <text x="497" y="134" font-size="11.5" text-anchor="middle" fill="#3d3d3d">funding · silos</text>
+      <text x="497" y="156" font-size="12.5" text-anchor="middle" fill="#8a8a8a">↓</text>
+      <text x="497" y="180" font-size="13" text-anchor="middle" fill="#8a6020">Can you actually use it?</text>
+    </svg>
+    <svg class="ja" viewBox="0 0 660 210" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+      <rect x="8" y="10" width="310" height="186" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.2"/>
+      <text x="163" y="36" font-size="13.5" text-anchor="middle" fill="#666">平時</text>
+      <text x="163" y="72" font-size="12.5" text-anchor="middle" fill="#3d3d3d">持っている</text>
+      <text x="163" y="96" font-size="12.5" text-anchor="middle" fill="#8a8a8a">↓</text>
+      <text x="163" y="122" font-size="12.5" text-anchor="middle" fill="#3d3d3d">時間に余裕がある</text>
+      <text x="163" y="148" font-size="12.5" text-anchor="middle" fill="#8a8a8a">↓</text>
+      <text x="163" y="176" font-size="13" text-anchor="middle" fill="#1d5c5c">使える</text>
+      <rect x="342" y="10" width="310" height="186" rx="2" fill="#f5ead8" stroke="#b5832a" stroke-width="1.4"/>
+      <text x="497" y="36" font-size="13.5" text-anchor="middle" fill="#8a6020">ストレス時</text>
+      <text x="497" y="72" font-size="12.5" text-anchor="middle" fill="#3d3d3d">持っている</text>
+      <text x="497" y="96" font-size="12.5" text-anchor="middle" fill="#8a8a8a">↓</text>
+      <text x="497" y="124" font-size="11.5" text-anchor="middle" fill="#3d3d3d">時差・決済・担保適格性・資金調達・サイロ</text>
+      <text x="497" y="150" font-size="12.5" text-anchor="middle" fill="#8a8a8a">↓</text>
+      <text x="497" y="178" font-size="13" text-anchor="middle" fill="#8a6020">本当に使えるか？</text>
+    </svg>
+    <div class="figcap"><span class="en">Fig. 4 — “Having” and “being able to use” are different</span><span class="ja">図4　「持っている」と「使える」は違う</span></div>
+  </div>
 
   <div class="essay-close">
-    <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">7</span><span class="en">Trust is not what you hold; it is what moves</span><span class="ja">信頼とは、持っているものでなく、動かせるもの</span></h2>
-    <p class="en">By this point, the dull plumbing we started with connects to a far larger question.</p>
-    <p class="ja">ここまで来ると、最初の地味な配管の話が、もっと大きな問いに繋がる。</p>
-    <p class="en">We are easily captured by the surface — the level of rates, the turnover, the apparent liquidity. But the strength of a complex system lies somewhere deeper. The true liquidity of a resource is determined not by how much of it you hold in calm times, but by whether, under stress, it can be moved — by the time required, to the place required.</p>
-    <p class="ja">私たちは表層に目を奪われやすい — 金利の水準、取引高、見かけの流動性。けれど複雑な仕組みの強さは、もっと深い場所にある。ある資源の本当の流動性は、平時にどれだけ持っているかではなく、ストレス時に、必要な時間までに、必要な場所へ、動かせるかで決まる。</p>
-    <p class="en">Trust is not the balance you stacked up in calm times. It is the quantity of what actually moves at the worst moment. This is not limited to rate markets. The same holds for supply chains, for organizations, for human relationships, for the institutions of a state. However splendid in calm, what cannot move in crisis is merely "held," not "usable." How people design trust and order inside a complex, uncertain system — that is the question I keep watching, through the single window of the rate market.</p>
-    <p class="ja">信頼とは、平時に積み上げた残高のことではない。最悪のときに、実際に動くものの量のことだ。これは金利市場に限らない。サプライチェーンでも、組織でも、人間関係でも、国家の制度でも、同じことが言える。平時にいくら立派でも、危機の瞬間に動かせなければ、それは「持っている」だけで「使えない」。複雑で不確実な仕組みのなかで、人がどうやって信頼と秩序を設計するか — それが、私が金利市場という一つの窓を通して、ずっと見つめている問いである。</p>
+    <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">8</span><span class="en">Trust is measured under stress</span><span class="ja">信頼は、ストレス時に測られる</span></h2>
+    <p class="en">Why do I think of this as a question of trust?</p>
+    <p class="en">Because trust in a complex system does not mean simply that promises exist in normal conditions.</p>
+    <p class="en">It means believing that those promises can still be performed when conditions become difficult.</p>
+    <p class="en">The same is true of markets.</p>
+    <p class="en">High trading volumes matter. Large pools of assets matter. Sophisticated technology matters.</p>
+    <p class="en">But those things are not the final test of market resilience.</p>
+    <p class="ja">なぜ私は、これを「信頼」の話だと考えるのか。</p>
+    <p class="ja">複雑な仕組みに対する信頼とは、単に平時に約束が並んでいることではない。</p>
+    <p class="ja">条件が悪化しても、その約束が履行されると期待できることである。</p>
+    <p class="ja">市場でも同じだ。</p>
+    <p class="ja">取引量が多い。資産残高が大きい。高度なシステムがある。</p>
+    <p class="ja">そうした数字はもちろん重要である。</p>
+    <p class="ja">しかし、本当に市場の信頼性が問われるのは、すべてが順調なときではない。</p>
 
-    <div class="figure">
-      <svg class="en" viewBox="0 0 660 186" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
-        <rect x="8" y="10" width="300" height="150" rx="2" fill="#fff" stroke="#ddd9d0" stroke-width="1.2"/>
-        <text x="158" y="34" font-size="13" text-anchor="middle" fill="#1a2332">In calm</text>
-        <rect x="28" y="74" width="92" height="42" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.1"/>
-        <text x="74" y="99" font-size="11.5" text-anchor="middle" fill="#1a2332">held</text>
-        <rect x="196" y="74" width="92" height="42" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.1"/>
-        <text x="242" y="99" font-size="11.5" text-anchor="middle" fill="#1d5c5c">usable</text>
-        <line x1="158" y1="64" x2="158" y2="126" stroke="#8a8a8a" stroke-width="1"/>
-        <line x1="122" y1="95" x2="192" y2="95" stroke="#1d5c5c" stroke-width="1.4"/><polygon points="196,95 186,90 186,100" fill="#1d5c5c"/>
-        <text x="158" y="148" font-size="11.5" text-anchor="middle" fill="#666">thin wall — crosses easily</text>
-        <rect x="352" y="10" width="300" height="150" rx="2" fill="#f7f6f2" stroke="#1d5c5c" stroke-width="1.3"/>
-        <text x="502" y="34" font-size="13" text-anchor="middle" fill="#1a2332">Under stress</text>
-        <rect x="372" y="74" width="92" height="42" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.1"/>
-        <text x="418" y="99" font-size="11.5" text-anchor="middle" fill="#1a2332">held</text>
-        <rect x="540" y="74" width="92" height="42" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
-        <text x="586" y="99" font-size="11.5" text-anchor="middle" fill="#666">usable?</text>
-        <rect x="496" y="56" width="14" height="78" fill="#8a6020"/>
-        <line x1="466" y1="95" x2="492" y2="95" stroke="#8a6020" stroke-width="1.4"/><polygon points="494,95 484,90 484,100" fill="#8a6020"/>
-        <text x="502" y="148" font-size="11.5" text-anchor="middle" fill="#8a6020">thick wall — cannot move</text>
-      </svg>
-      <svg class="ja" viewBox="0 0 660 186" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
-        <rect x="8" y="10" width="300" height="150" rx="2" fill="#fff" stroke="#ddd9d0" stroke-width="1.2"/>
-        <text x="158" y="34" font-size="13" text-anchor="middle" fill="#1a2332">平時</text>
-        <rect x="28" y="74" width="92" height="42" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.1"/>
-        <text x="74" y="99" font-size="11.5" text-anchor="middle" fill="#1a2332">持っている</text>
-        <rect x="196" y="74" width="92" height="42" rx="2" fill="#e8f2f2" stroke="#1d5c5c" stroke-width="1.1"/>
-        <text x="242" y="99" font-size="11.5" text-anchor="middle" fill="#1d5c5c">使える</text>
-        <line x1="158" y1="64" x2="158" y2="126" stroke="#8a8a8a" stroke-width="1"/>
-        <line x1="122" y1="95" x2="192" y2="95" stroke="#1d5c5c" stroke-width="1.4"/><polygon points="196,95 186,90 186,100" fill="#1d5c5c"/>
-        <text x="158" y="148" font-size="11.5" text-anchor="middle" fill="#666">壁は薄い — すぐ越えられる</text>
-        <rect x="352" y="10" width="300" height="150" rx="2" fill="#f7f6f2" stroke="#1d5c5c" stroke-width="1.3"/>
-        <text x="502" y="34" font-size="13" text-anchor="middle" fill="#1a2332">ストレス時</text>
-        <rect x="372" y="74" width="92" height="42" rx="2" fill="#fff" stroke="#1a2332" stroke-width="1.1"/>
-        <text x="418" y="99" font-size="11.5" text-anchor="middle" fill="#1a2332">持っている</text>
-        <rect x="540" y="74" width="92" height="42" rx="2" fill="#fff" stroke="#8a8a8a" stroke-width="1.1"/>
-        <text x="586" y="99" font-size="11.5" text-anchor="middle" fill="#666">使える？</text>
-        <rect x="496" y="56" width="14" height="78" fill="#8a6020"/>
-        <line x1="466" y1="95" x2="492" y2="95" stroke="#8a6020" stroke-width="1.4"/><polygon points="494,95 484,90 484,100" fill="#8a6020"/>
-        <text x="502" y="148" font-size="11.5" text-anchor="middle" fill="#8a6020">壁は厚い — 動かせない</text>
-      </svg>
-      <div class="figcap"><span class="en">Fig. 4 — "Held" and "usable" are not the same; the wall thickens under stress.</span><span class="ja">図4　「持っている」と「使える」は別 — 壁はストレス時に厚くなる。</span></div>
-    </div>
+    <p class="en">The test comes when rates move violently.</p>
+    <p class="en">When margin demands surge.</p>
+    <p class="en">When a normal funding route becomes less reliable.</p>
+    <p class="en">When counterparties become more cautious.</p>
+    <p class="en">At that moment: can collateral move? Can funding still be raised? Can clearing continue? Can settlement complete? Can operations keep running?</p>
+    <p class="en">Only then do strengths and weaknesses that were largely invisible in normal times become visible.</p>
+    <p class="ja">金利が急変したとき。</p>
+    <p class="ja">証拠金需要が跳ね上がったとき。</p>
+    <p class="ja">いつも使っている資金調達経路が細くなったとき。</p>
+    <p class="ja">取引相手が不安になったとき。</p>
+    <p class="ja">その瞬間にも、担保を動かせるか。資金を調達できるか。清算を継続できるか。決済を完了できるか。オペレーションを止めずにいられるか。</p>
+    <p class="ja">そこではじめて、平時には見えなかったシステムの強さが現れる。</p>
 
-    <p class="en"><em>Opportunity is back in JPY rates. But opportunity without infrastructure is not sustainable access.</em> Opportunity has returned — but opportunity alone does not become lasting access.</p>
-    <p class="ja"><em>Opportunity is back in JPY rates. But opportunity without infrastructure is not sustainable access.</em> 機会は戻ってきた。けれど、機会だけでは、続くアクセスにはならない。</p>
-    <p class="en">The world is looking at Japan's rate market once more. What will be asked next is not whether the price or the rate view is right. Can collateral move under stress? Can it clear? Can it fund? Will operations stay up? Only when you include all of that can you say a market is truly "accessible." Reconnecting the seams, lowering the friction, cutting the path by which the same shock strikes twice — the sum of that unglamorous work quietly decides whether a market, and in the end any complex system, is trusted by the world.</p>
-    <p class="ja">世界は、もう一度、日本の金利市場を見ている。次に問われるのは、価格や金利ビューの当否ではない。ストレス時に、担保を動かせるか。清算できるか。資金を回せるか。事務が止まらないか。そこまで含めて、初めて「市場にアクセスできる」と言える。継ぎ目を繋ぎ直し、摩擦を下げ、同じ衝撃が二度効く経路を断つ — その地味な仕事の総量が、その市場が、ひいてはあらゆる複雑な仕組みが、世界から信頼されるかどうかを、静かに決めている。</p>
+    <p class="en">Return once more to the 3 × 3 map.</p>
+    <p class="en">A trustworthy market is not simply a market with nine individually impressive rooms.</p>
+    <p class="en"><span class="em">It is a market in which participants can cross the boundaries between those rooms when they need to.</span></p>
+    <p class="en">Economic risks can be offset. Collateral can move. Funding can be raised. Operations and information remain connected.</p>
+    <p class="en">Stress does not become trapped at one boundary simply because two parts of the system were designed separately.</p>
+    <p class="en">That is where the real strength of market infrastructure lies.</p>
+    <p class="ja">そして3×3の図をもう一度思い出すと、このことはさらに分かりやすい。</p>
+    <p class="ja">信頼できる市場とは、一つひとつの九つの部屋が立派な市場ではない。</p>
+    <p class="ja"><span class="em">必要なときに、部屋と部屋の間を越えられる市場である。</span></p>
+    <p class="ja">経済的なリスクを相殺できる。担保を移せる。資金を調達できる。情報とオペレーションがつながっている。</p>
+    <p class="ja">一つの場所に起きたストレスが、別の場所で行き止まりにならない。</p>
+    <p class="ja">そこに、市場インフラの本当の強さがある。</p>
+
+    <p class="en">And the principle extends beyond financial markets.</p>
+    <p class="en">A supply chain is not resilient merely because inventory exists in a warehouse. The goods must be deliverable to where they are needed.</p>
+    <p class="en">An organization is not effective merely because it employs talented people. Their knowledge must be connected to decisions when those decisions matter.</p>
+    <p class="en">An institution is not reliable merely because its rules exist on paper. Those rules must continue to function when circumstances become difficult.</p>
+    <p class="en">In complex systems, reliability is not determined only by the size of the stock.</p>
+    <p class="en">It depends on <span class="em">the ability to mobilize the necessary resource at the necessary moment</span>.</p>
+    <p class="ja">これは金融市場だけの話ではない。</p>
+    <p class="ja">サプライチェーンでも、組織でも、公共インフラでも同じことが起きる。</p>
+    <p class="ja">倉庫に在庫があるだけでは足りない。必要な場所へ配送できなければならない。</p>
+    <p class="ja">優秀な人材がいるだけでは足りない。必要なときに、その能力を判断と行動へ結びつけられなければならない。</p>
+    <p class="ja">制度が存在するだけでは足りない。危機のときにも機能しなければならない。</p>
+    <p class="ja">複雑な仕組みの信頼性は、ストックの大きさだけでは決まらない。</p>
+    <p class="ja"><span class="em">必要な資源を、必要な瞬間に動かすことのできる能力によって決まる。</span></p>
+
+    <p class="en">Opportunity has returned to Japan's interest-rate market.</p>
+    <p class="en">But opportunity and sustainable access are not the same thing.</p>
+    <p class="en">The next phase of the market will therefore be about more than whether Japanese rates rise or fall.</p>
+    <p class="en">It will also be about whether the market can accommodate a broader set of participants and continue functioning when conditions become difficult.</p>
+    <p class="ja">日本の金利市場には、再び機会が生まれている。</p>
+    <p class="ja">だが、機会があることと、持続的にアクセスできることは違う。</p>
+    <p class="ja">これから問われるのは、金利が上がるか下がるかという見通しだけではない。</p>
+    <p class="ja">その市場が、より多くの参加者を受け入れ、ストレスが起きても機能し続けられるかどうかである。</p>
+
+    <p class="en">Much of the work required is not glamorous.</p>
+    <p class="en">Make collateral easier to move. Reduce unnecessary boundaries between markets and products. Improve the connections between clearing and settlement. Deepen funding routes. Build operational processes that continue to work under stress.</p>
+    <p class="en">Each improvement may appear modest.</p>
+    <p class="en">Together, they determine whether market access remains real when it matters most.</p>
+    <p class="en">That is what I often find myself thinking about when I look at market infrastructure.</p>
+    <p class="ja">そのために必要なのは、必ずしも華やかな仕事ではない。</p>
+    <p class="ja">担保を動きやすくする。商品や市場をまたぐ不要な段差を減らす。清算と決済をつなぐ。資金調達の経路を厚くする。オペレーションがストレスに耐えられるようにする。</p>
+    <p class="ja">一つひとつは地味である。</p>
+    <p class="ja">けれど、その地味な仕事の積み重ねによって、市場への信頼は作られる。</p>
+    <p class="ja">私は市場インフラを見ているとき、しばしばこのことを考える。</p>
 
     <div class="seed-box">
       <span class="pull-label"><span class="en">The Seed</span><span class="ja">種としての一行</span></span>
-      <span class="en">Trust is not what you hold in calm; it is what moves under stress. Liquidity, in a market or a life, is measured not by the balance you keep but by what you can move when it matters.</span>
-      <span class="ja">信頼とは、平時に持っているものではなく、危機に動かせるものである。流動性とは — 市場でも人生でも — 残高ではなく、いざというときに動かせるものの量で測られる。</span>
+      <span class="en">Trust is not measured by how much a system holds in normal times. It is the confidence that, when the moment comes, the system can move what needs to move.</span>
+      <span class="ja">信頼とは、平時に持っているものの量ではない。必要なときに、それを動かせるという確信なのだ。</span>
     </div>
   </div>
 </article>
