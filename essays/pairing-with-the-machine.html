@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How You Pair With AI — Shun Yanagisawa</title>
-<meta name="description" content="Will AI take your job? The worry is fair — but the work is quietly dividing along how people pair with AI, and which pairing fits depends on the cost of a mistake.">
-<meta property="og:title" content="How You Pair With AI">
-<meta property="og:description" content="The question is not whether AI takes your job. It is how you pair with it — and that pairing is yours to choose, tuned to the cost of being wrong.">
+<title>Pairing with the Machine — Shun Yanagisawa</title>
+<meta name="description" content="Human–AI collaboration falls into three modes: fusion, division of labor and delegation. But these are not three kinds of people — they are modes we move between, and the ability to redraw the boundary may itself become a form of expertise.">
+<meta property="og:title" content="Pairing with the Machine — Cyborg, Centaur, Self-Automator">
+<meta property="og:description" content="Not which mode am I, but where should the boundary sit — decided by the consequence of error, its detectability and its reversibility. And the boundary keeps moving.">
 <meta property="og:type" content="article">
 <link rel="canonical" href="https://www.shun-yanagisawa.com/essays/pairing-with-the-machine">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "How You Pair With AI",
-  "alternativeHeadline": "AI との組み方",
-  "description": "Will AI take your job? The worry is fair — but the work is quietly dividing along how people pair with AI, and which pairing fits depends on the cost of a mistake.",
+  "headline": "Pairing with the Machine",
+  "alternativeHeadline": "AIとの組み方",
+  "description": "Human–AI collaboration falls into three modes: fusion, division of labor and delegation. But these are not three kinds of people — they are modes we move between, and the ability to redraw the boundary may itself become a form of expertise.",
   "inLanguage": [
     "en",
     "ja"
@@ -84,6 +84,7 @@ h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); fo
 .essay-meta { display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); padding-bottom: 1.6rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.4rem; }
 .essay-meta a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); }
 
+/* 書籍風: 番号付き節見出し */
 .essay h2 {
   font-family: var(--font-display); font-size: 1.22rem; font-weight: 500; color: var(--navy);
   margin: 2.8rem 0 1rem; padding: .35rem 0 .45rem .9rem;
@@ -94,11 +95,13 @@ body.lang-ja .essay h2 { font-family: var(--font-jp); font-weight: 500; }
 
 .essay p { margin: 1.1rem 0; color: var(--text-mid); text-align: justify; }
 .essay a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.4); }
-.essay sup { font-family: var(--font-mono); font-size: .62rem; color: var(--teal-dark); vertical-align: super; line-height: 0; padding-left: 1px; }
+.essay sup { font-size: .62em; color: var(--teal-dark); vertical-align: super; line-height: 0; }
 
+/* 強調: 日本語=傍点(短句のみ) / 英語=イタリック */
 .ja .em { -webkit-text-emphasis: filled dot var(--navy); text-emphasis: filled dot var(--navy); font-style: normal; }
 .en .em { font-style: italic; }
 
+/* 要点ボックス */
 .pull {
   border: 1px solid var(--gold); background: var(--gold-light);
   padding: 1.4rem 1.5rem 1.2rem; margin: 1.9rem 0; border-radius: 2px;
@@ -110,6 +113,7 @@ body.lang-ja .essay h2 { font-family: var(--font-jp); font-weight: 500; }
   color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase;
 }
 
+/* 図版 */
 .figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 1.9rem 0; background: var(--white); }
 .figure svg { width: 100%; height: auto; display: block; }
 .figcap {
@@ -118,6 +122,7 @@ body.lang-ja .essay h2 { font-family: var(--font-jp); font-weight: 500; }
 }
 body.lang-ja .figcap { font-family: var(--font-jp); font-size: .76rem; }
 
+/* 結語: 種としての一行 */
 .seed-box {
   border: 1px solid var(--gold); border-left: 4px solid var(--gold);
   padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0 0; border-radius: 2px;
@@ -126,9 +131,13 @@ body.lang-ja .figcap { font-family: var(--font-jp); font-size: .76rem; }
 .seed-box .pull-label { position: absolute; top: -0.7rem; left: 1rem; background: var(--white); font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase; }
 
 .essay-close { border-top: 2px solid var(--gold); margin-top: 3rem; padding-top: 1.6rem; }
+
+/* 注・出典 */
 .essay-note { margin-top: 2.4rem; padding-top: .9rem; border-top: 1px solid var(--border); font-size: .8rem; color: var(--text-muted); line-height: 1.7; text-align: left; }
 .essay-note a { color: var(--teal-dark); word-break: break-all; }
 .essay-note .note-num { font-family: var(--font-mono); color: var(--teal-dark); margin-right: .4rem; }
+.essay-note .note-head { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .5rem; }
+
 footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
 footer a { color: var(--teal-dark); text-decoration: none; }
 .disclaimer { max-width: 1100px; margin: 0 auto 1.2rem; padding: 0 1.6rem; font-size: .68rem; color: var(--text-muted); line-height: 1.8; text-align: center; }
@@ -148,37 +157,36 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 <article class="essay">
   <div class="essay-kicker">Essay 007 · AI &amp; Work</div>
   <h1>
-    <span class="en">How You Pair With AI</span>
-    <span class="ja">AI との組み方</span>
+    <span class="en">Pairing with the Machine</span>
+    <span class="ja">AIとの組み方</span>
   </h1>
   <p class="essay-sub">
-    <span class="en">Will AI take my job? The worry is fair. But what is actually happening looks less like a contest and more like a quiet sorting — work dividing along the lines of how people pair with AI.</span>
-    <span class="ja">AI に仕事を奪われるのか。その不安は当然だ。ただ、現実に起きているのは奪い合いではなく、人と AI の組み方に沿って仕事が静かに分かれていくこと——なのかもしれない。</span>
+    <span class="en">Human–AI collaboration tends to fall into three modes: fusion, division of labor, and delegation. But these are not three kinds of people. They are modes we move between — and the ability to redraw the boundary may itself become a form of expertise.</span>
+    <span class="ja">AIとの協働には、融合、分業、委譲という三つの型がある。しかし、それは三種類の人間を意味しない。仕事ごとに境界を引き、必要なら引き直す。その能力の方が、やがて一つの専門性になる。</span>
   </p>
   <div class="essay-meta">
     <span>June 2026</span>
-    <span class="en">AI &amp; Work</span>
-    <span class="ja">AI と仕事</span>
-    <span class="en">6 min read</span>
-    <span class="ja">日本語 約6分</span>
+    <span class="en">AI · work · the boundary</span>
+    <span class="ja">AI · 仕事 · 境界</span>
+    <span class="en">7 min read</span>
+    <span class="ja">日本語 約7分</span>
   </div>
 
-  <p class="en">“Will AI take my job?” Plenty of people worry about exactly that, and the worry is fair — a new technology has always carried that unease. But what is actually happening is quieter than a contest, and more interesting. Work does not vanish whole. It divides from the inside, along the lines of <em>how</em> people pair with AI.</p>
-  <p class="ja">「AI に仕事を奪われるのではないか」。そう心配する人は多い。新しい技術を前にした不安は、いつの時代にもあった。当然のものだと思う。ただ、現実に起きていることは、奪い合いより少し静かで、もっと面白い。仕事が丸ごと消えるのではなく、人と AI の<span class="em">組み方</span>に沿って、内側から分かれていく。</p>
-  <p class="en">So the real question sits a step past “will it take my job.” It is: how do we actually work alongside AI? This essay tries to take that pairing apart. Watch closely, and the ways people pair with AI settle into a surprisingly small set of shapes — and which shape suits you turns out to depend not on temperament, but on a single condition.</p>
-  <p class="ja">だから問いは、「奪われるか」より一歩先にあるのだろう。人は AI と、どう組んで働いていくのか。本稿では、その組み方を分解してみたい。よく見ると、人が AI と組むやり方は、驚くほど少ない型に落ち着く。そして、どの型が向くかは、気質ではなく、たった一つの条件で決まってくる。</p>
+  <p class="en">“Will AI take my job?” has been one of the recurring questions since generative AI began entering professional work. The anxiety is understandable. Yet the more I watch AI being used in practice, the less it looks as though whole jobs are being transferred cleanly from humans to machines. What is actually happening is more granular: work is being decomposed from within, and the boundary between human and machine is moving task by task.</p>
+  <p class="ja">「AIに仕事を奪われるのではないか」。生成AIが仕事へ入り始めて以来、何度も聞いてきた問いである。不安そのものは理解できる。しかし、実際に起きていることを眺めていると、仕事は人間とAIのあいだで丸ごと奪い合われているというより、一つの仕事の内部で少しずつ分解され、その境界が移動しているように見える。</p>
+  <p class="en">That makes the original question feel increasingly imprecise. The more interesting question is not whether AI will take the work, but <span class="em">where, within a piece of work, human judgment should end and machine contribution should begin.</span></p>
+  <p class="ja">だから、私には「AIに奪われるか」という問いそのものが、少し粗く感じられるようになった。むしろ考えたいのは、人間とAIが一つの仕事をするとき、<span class="em">どこまでを人間が握り、どこからを機械へ渡すのか</span>ということである。</p>
+  <p class="en">A recent Harvard Business School study offers a useful way to think about this. Researchers observed 244 Boston Consulting Group professionals working with generative AI in real problem-solving workflows and identified three distinct modes of collaboration: the Cyborg, the Centaur, and the Self-Automator.</p>
+  <p class="ja">この問いについて、興味深い研究がある。Harvard Business Schoolの研究者らが、Boston Consulting Groupのコンサルタント244名を対象に、実際の問題解決workflowの中で生成AIとの協働を観察したものである。そこから浮かび上がったのが、Cyborg、Centaur、Self-Automatorという三つの働き方だった。</p>
 
-  <h2><span class="hnum">1</span><span class="en">Three Ways to Pair</span><span class="ja">三つの組み方</span></h2>
-  <p class="en">When AI first entered serious knowledge work, researchers followed how professionals actually collaborated with it. One study at Harvard Business School watched 244 BCG consultants work a real problem through, AI in hand.<sup>1</sup> The behavior sorted cleanly into three shapes.</p>
-  <p class="ja">AI が本格的に知識労働へ入りはじめた頃、人が実際にどう協働するかを追った研究がある。ハーバード・ビジネス・スクールが、AI を与えられた BCG のコンサルタント 244 名の働き方を観察したものだ。<sup>1</sup> 振る舞いは、きれいに三つの型に分かれた。</p>
-  <p class="en">The first is the <em>Cyborg</em> — fusion. You weave in and out of AI task by task: draft a line, fix it, hand the next fragment back, stay tightly interlaced with it throughout. About six in ten worked this way. These people added a new skill to themselves — the craft of working with AI.</p>
-  <p class="ja">一つめは<span class="em">サイボーグ</span>型、いわば融合だ。タスクごとに AI へ出たり入ったりする。一行書かせては直し、次の断片を渡す。AI と密に絡み合って進める。およそ六割がこの型だった。この人たちは、AI を使いこなす新しい技能を、自分に足していった。</p>
-  <p class="en">The second is the <em>Centaur</em> — division of labor. You cut the work into pieces, keep the high-judgment parts firmly on the human side, and hand the rest to AI. You draw a boundary and split the roles. In the study, this group reached the highest accuracy in its business recommendations of the three — and deepened its own domain expertise in the process. Roughly one in seven.</p>
-  <p class="ja">二つめは<span class="em">ケンタウロス</span>型、分業だ。仕事を切り分け、判断の重いところは人間が握り、残りを AI に渡す。境界を引いて、役割を分ける。研究では、この型が三群のなかで最も精度の高い結論を出し、しかも自分の専門性をいっそう深めていた。七人に一人ほど。</p>
-  <p class="en">The third is the <em>Self-Automator</em> — delegation. You hand a whole process to AI and step up a layer, watching instead of touching. About one in four. But this group, the study found, grew neither its AI skill nor its domain expertise much at all.</p>
-  <p class="ja">三つめは<span class="em">自己自動化</span>型、委譲だ。工程を丸ごと AI に渡し、自分は一段上がって、手を動かす代わりに眺める。およそ四人に一人。ただしこの型は、AI の技能も自分の専門性も、あまり伸びなかったという。</p>
-  <p class="en">None of these is simply “the right one” — though, at the time of that study, the Centaurs came out ahead. Part of the reason is probably a quirk of AI. It mixes in plausible mistakes — hallucinations. The more you fuse with it, Cyborg-style, the more readily those slips flow straight into your own output. The Centaur is asked something harder: can you take judgment back from AI on a value standard surer than its own? With the AI of that moment, that taking-back paid off. Though this is one snapshot, with one generation of the tool; as the models change, the ranking among the shapes may well move.</p>
-  <p class="ja">どれが「正解」というわけではない——と言いたいところだが、この研究の時点では、ケンタウロス型（分業）がいちばん良い成果を出した。理由のひとつは、おそらく AI の癖にある。AI は、もっともらしい誤り——ハルシネーションを混ぜる。サイボーグ型（融合）のように AI と一体化するほど、その誤りはそのまま自分の出力へ流れ込みやすい。ケンタウロス型に問われるのは、もっと難しいことだ。AI より確かな価値基準で、判断を引き取れるか。当時の AI の実力では、その「引き取り」が効いた。もっとも、これは特定の世代の道具を使った、一時点の観察にすぎない。モデルが変われば、型ごとの優劣もまた動きうる。</p>
+  <h2><span class="hnum">1</span><span class="en">Three ways of working with AI</span><span class="ja">三つの組み方</span></h2>
+  <p class="en">The most common pattern was the Cyborg. Human and machine moved back and forth repeatedly within the same task. The AI proposed something; the human revised it; the revision went back into the model; the result was challenged again. Roughly 60 percent of the participants fell into this pattern, and over time they developed new skills in working with AI itself — what the researchers describe as a form of newskilling.</p>
+  <p class="ja">最も多かったのは<span class="em">Cyborg型</span>である。人間とAIが工程を細かく往復し、一つの作業の中でほとんど融合する。AIに案を出させ、人間が直し、修正したものをもう一度AIへ戻す。研究では約六割がこの型に分類され、AIと協働するための新しい技能、いわばAI側へのnewskillingを獲得していった。</p>
+  <p class="en">The second mode was the Centaur. Here, human and machine did not fuse. The human decomposed the problem and decided in advance which parts to retain and which parts to delegate. About 14 percent of the participants worked this way. Their business recommendations were the most accurate of the three groups, and their development tended to reinforce existing domain expertise rather than primarily expanding AI-specific skills.</p>
+  <p class="ja">二つめは<span class="em">Centaur型</span>である。こちらは融合しない。人間が仕事を分解し、どこを自分で行い、どこをAIへ委ねるかという境界を先に引く。研究では14%ほどがこの型で、三群の中ではbusiness recommendationのaccuracyが最も高く、AI技能そのものより既存のdomain expertiseを深める方向に進んだ。</p>
+  <p class="en">The third mode was the Self-Automator. Larger portions of the workflow were handed over to AI, leaving the human closer to a supervisor than a co-producer. Around 27 percent of participants followed this pattern. It could deliver short-term efficiency, but the study found less development of both domain expertise and AI-related skill. That does not make delegation inherently inferior. For routine work, or when time constraints dominate, full delegation may be entirely rational.</p>
+  <p class="ja">三つめは<span class="em">Self-Automator型</span>である。一連の工程を大きな単位でAIへ渡し、人間は実行者というより監督者になる。約27%がこの型であり、短期的な生産性は得られる一方、研究ではdomain expertiseとAI-related skillのいずれも育ちにくかった。もっとも、研究者自身も、定型的な仕事や時間制約の強い仕事において委譲そのものが悪いわけではない、としている。</p>
+
   <div class="figure">
     <svg class="en" viewBox="0 0 660 188" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
       <g fill="#e8f2f2" fill-opacity=".55" stroke="#1d5c5c" stroke-width="1.3">
@@ -198,8 +206,8 @@ footer a { color: var(--teal-dark); text-decoration: none; }
       <polygon points="530,72 526,80 534,80" fill="#b5832a"/>
       <g text-anchor="middle">
         <text x="130" y="150" font-size="12.5" fill="#1d5c5c">Cyborg</text><text x="130" y="167" font-size="10.5" fill="#666">fusion · ~60%</text>
-        <text x="330" y="150" font-size="12.5" fill="#8a6020">Centaur</text><text x="330" y="167" font-size="10.5" fill="#666">division · ~1 in 7</text>
-        <text x="530" y="150" font-size="12.5" fill="#1d5c5c">Self-Automator</text><text x="530" y="167" font-size="10.5" fill="#666">delegation · ~1 in 4</text>
+        <text x="330" y="150" font-size="12.5" fill="#8a6020">Centaur</text><text x="330" y="167" font-size="10.5" fill="#666">division · ~14%</text>
+        <text x="530" y="150" font-size="12.5" fill="#1d5c5c">Self-Automator</text><text x="530" y="167" font-size="10.5" fill="#666">delegation · ~27%</text>
       </g>
     </svg>
     <svg class="ja" viewBox="0 0 660 188" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
@@ -219,36 +227,70 @@ footer a { color: var(--teal-dark); text-decoration: none; }
       <line x1="530" y1="92" x2="530" y2="76" stroke="#b5832a" stroke-width="1.2"/>
       <polygon points="530,72 526,80 534,80" fill="#b5832a"/>
       <g text-anchor="middle">
-        <text x="130" y="150" font-size="12.5" fill="#1d5c5c">サイボーグ</text><text x="130" y="167" font-size="10.5" fill="#666">融合 · 約6割</text>
-        <text x="330" y="150" font-size="12.5" fill="#8a6020">ケンタウロス</text><text x="330" y="167" font-size="10.5" fill="#666">分業 · 7人に1人</text>
-        <text x="530" y="150" font-size="12.5" fill="#1d5c5c">自己自動化</text><text x="530" y="167" font-size="10.5" fill="#666">委譲 · 4人に1人</text>
+        <text x="130" y="150" font-size="12.5" fill="#1d5c5c">Cyborg</text><text x="130" y="167" font-size="10.5" fill="#666">融合 · 約60%</text>
+        <text x="330" y="150" font-size="12.5" fill="#8a6020">Centaur</text><text x="330" y="167" font-size="10.5" fill="#666">分業 · 約14%</text>
+        <text x="530" y="150" font-size="12.5" fill="#1d5c5c">Self-Automator</text><text x="530" y="167" font-size="10.5" fill="#666">委譲 · 約27%</text>
       </g>
     </svg>
-    <div class="figcap"><span class="en">Fig. 1 — Three ways to pair: fuse with AI, divide the labor with it, or delegate and supervise.</span><span class="ja">図1　三つの組み方 —— AI と融合するか、分業するか、委譲して監督するか。</span></div>
+    <div class="figcap"><span class="en">Fig. 1 — Three modes of collaboration. Cyborg — fusion / Centaur — division of labor / Self-Automator — delegation.</span><span class="ja">図1　三つの組み方。Cyborg — 融合 / Centaur — 分業 / Self-Automator — 委譲。</span></div>
   </div>
 
-  <h2><span class="hnum">2</span><span class="en">Error-Cost Picks the Pairing</span><span class="ja">誤りの代償が、組み方を決める</span></h2>
-  <p class="en">So what decides the shape? Not temperament, I think. The deciding factor is error-cost: when a single mistake slips through, how much do you end up paying for it?</p>
-  <p class="ja">では、何が型を決めるのか。気質ではない、と思う。決め手は、誤りの代償だ。一度の間違いがすり抜けたとき、その埋め合わせにどれだけ払うことになるか。</p>
-  <p class="en">Where that cost is low — simple, repetitive tasks, short cycles, work shaped like prose, mistakes cheap to spot and cheap to undo — the Cyborg and the Self-Automator are simply faster. A few typos in a set of meeting notes are usually forgiven; the odd slip does not sink the whole. So speed wins.</p>
-  <p class="ja">その代償が小さい仕事——単純で反復の多い作業、短いサイクル、文章のような成果物で、間違いを見つけるのも直すのも容易い仕事——なら、サイボーグ型（融合）と自己自動化型（委譲）がただ速い。打ち合わせの議事録に多少の書き間違いが混ざっても、たいていは許される。たまの誤りで全体が沈むことはない。だから速度が勝つ。</p>
-  <p class="en">But where precision is demanded, where context runs deep, the story changes. A contract. A diagnosis. A foundation others will build upon. Here one mistake can sink everything, and the Centaur — the shape where the human never lets go of the reins of judgment — is the one that fits.</p>
-  <p class="ja">だが、高い精度を求められる仕事、文脈が深く絡む仕事は話が変わる。契約。診断。誰かがその上に積み上げていく土台。ここでは一度の誤りが全体を沈めかねない。判断の手綱を人間が手放さない型——ケンタウロス型（分業）が向くのは、こういう場面だ。</p>
-  <p class="en">The edge between what AI is good at and what it is not is not a clean line. In a separate experiment with 758 BCG consultants, using AI <em>inside</em> the capability frontier let people finish 12.2% more tasks, 25.1% faster, at higher quality — yet on a task placed <em>outside</em> that frontier, those who used AI were on average 19 percentage points less likely to land on the right answer.<sup>2</sup> The boundary runs jagged, cutting across easy and hard in unexpected places. Lose sight of it where the stakes are high, and you trust AI at exactly the spot you should not have.</p>
-  <p class="ja">AI の得意と不得意の境目は、きれいな一本線ではない。BCG のコンサルタント 758 名を対象にした別の実験では、能力の境界の<span class="em">内側</span>で AI を使うと、12.2% 多くの仕事を 25.1% 速くこなし、質も上がった。ところが境界の<span class="em">外側</span>に置かれた課題では、AI を使った人ほど正答率が 19 ポイント低かった。<sup>2</sup> 境界は、易しさと難しさを思いがけず横切って走る。誤りの代償が大きい仕事でこの境界を見失うと、いちばん信じてはいけないところで、AI を信じてしまう。</p>
-  <p class="en">This is the same ground as <a href="the-cost-of-checking"><span class="en">an earlier essay, on the cost of checking</span></a>: the higher the stakes, the more the human has to sit in the checking seat. Pairing is just that rule, lowered into the texture of daily work.</p>
-  <p class="ja">これは、以前のエッセイ<a href="the-cost-of-checking"><span class="ja">「確かめる費用」</span></a>と地続きの話だ。ステークスが高いほど、人間は確かめる側の席に座らなければならない。組み方とは、その規則を日々の働き方に落とした版にすぎないのだと思う。</p>
+  <p class="en">Presented this way, the taxonomy invites a familiar question: Which one am I?</p>
+  <p class="en">I think that is the wrong way to read it.</p>
+  <p class="ja">この三分類を初めて見ると、「自分はどの型なのだろう」と考えたくなる。しかし、私はむしろ逆に読んだ方がいいと思う。</p>
+
   <div class="pull">
-    <span class="pull-label"><span class="en">Key</span><span class="ja">要点</span></span>
-    <span class="en">You do not pick your pairing by temperament. You pick it by the cost of being wrong. The same person should work as a Cyborg on a low-stakes draft and as a Centaur on a high-stakes call — and the thing that matters is knowing, at each moment, which one you are being.</span>
-    <span class="ja">組み方は、気質で選ぶものではない。<span class="em">誤りの代償</span>で選ぶ。同じ人が、低ステークスの草稿ではサイボーグになり、高ステークスの判断ではケンタウロスになる。大事なのは、いま自分がどちらでいるかを、その都度わかっていることだ。</span>
+    <span class="pull-label"><span class="en">Key point</span><span class="ja">要点</span></span>
+    <span class="en">These are not three kinds of people. They are three modes of work.</span>
+    <span class="ja">これは三種類の人間ではない。三種類のモードである。</span>
   </div>
+
+  <h2><span class="hnum">2</span><span class="en">The same person can move among all three</span><span class="ja">一人の人間が、三つを往復する</span></h2>
+  <p class="en">The appropriate mode changes with the task.</p>
+  <p class="ja">同じ人間でも、仕事によって組み方は変わる。</p>
+  <p class="en">When developing an early draft, I often work much like a Cyborg: form an idea, test it against AI, break the response apart, revise the argument, and return to the model. When working with numbers, regulations, or institutional facts, I move closer to the Centaur. AI can search, organize, compare, and challenge, but the source of truth remains outside the model, usually in primary material, and the final judgment stays on the human side of the boundary.</p>
+  <p class="en">For something like cleaning up meeting notes or converting files from one format to another, I am perfectly happy to become a Self-Automator. There is little virtue in preserving human labor merely because humans used to perform it.</p>
+  <p class="ja">文章の初稿を考えるとき、私はCyborgに近い。自分で考え、AIにぶつけ、返ってきた案を壊し、また考える。一方、数値や制度的な事実を扱うときにはCentaurに近づく。AIに調査や整理をさせても、source of truthは一次資料に置き、最終的な判断は人間側に残す。議事録の整形やファイル形式の変換なら、Self-Automatorでよい。工程を人間が抱えている理由がないからである。</p>
+  <p class="en">The point, then, is not to discover which collaboration style best matches one's personality. A single person can move through all three within the same day, and sometimes within the same piece of work. What matters is <span class="em">retaining awareness of what has actually been delegated.</span></p>
+  <p class="ja">つまり、AIとの協働を「自分の性格に合う型」で選ぶ必要はない。一日の中でも、同じ仕事の中でも、三つを往復してよい。重要なのは、一つの型へ習慣的に固定されることではなく、<span class="em">いま何をAIへ渡しているのかを自覚していること</span>である。</p>
+  <p class="en">This is where the Self-Automator becomes more interesting than it first appears. Delegation is not dangerous simply because something has been delegated. The danger begins <span class="em">when we forget where the delegation occurred.</span></p>
+  <p class="ja">ここでSelf-Automatorも単純な悪役ではなくなる。委譲の危険は、委譲することそのものではない。<span class="em">何を委譲したかを忘れること</span>にある。</p>
+  <p class="en">A calculation that can be mechanically recomputed is one thing. Delegating the framing of the problem itself is another. Both may look like “automation,” but in the second case the human may believe that the judgment remains theirs even though the machine has already determined the terms on which the judgment will be made.</p>
+  <p class="ja">計算のように結果を機械的に再検証できる仕事と、問題設定そのものをAIへ渡す仕事では、同じ「自動化」でも意味が違う。前者では効率が上がるだけかもしれない。後者では、自分が判断していると思いながら、実際には判断の入口からAIへ渡していることがある。</p>
+
+  <h2><span class="hnum">3</span><span class="en">The consequence of error draws the boundary</span><span class="ja">誤りの代償が、境界を引く</span></h2>
+  <p class="en">How, then, should the mode be chosen?</p>
+  <p class="en">My first instinct is to look at the consequence of error.</p>
+  <p class="ja">では、どのモードを選べばよいのか。私はまず、<span class="em">誤りの代償</span>を見る。</p>
+  <p class="en">If a sentence in meeting notes is slightly wrong, the error is usually easy to detect, easy to correct, and unlikely to propagate far into subsequent decisions. Cyborg or Self-Automator modes make sense because the downside of deeper delegation is limited.</p>
+  <p class="ja">議事録の表現が一箇所違っていても、発見も修正も容易で、その誤りが後工程へ大きく伝播することは少ない。こういう仕事では、CyborgやSelf-Automatorに速度の優位がある。</p>
+  <p class="en">The situation changes with contracts, diagnoses, regulatory submissions, or analysis on which other people will build further decisions. Here, a single error can propagate through the rest of the process. In such work, there is greater reason to keep the decision boundary on the human side and use AI for search, organization, drafting, comparison, and challenge rather than surrendering the core judgment itself.</p>
+  <p class="ja">一方、契約、診断、規制報告、あるいは他者がその上に意思決定を積み上げる分析では、一つの誤りが後工程へ連鎖する。こうした仕事では、意思決定の境界を人間側に残し、AIを探索、整理、表現、反証へ使うCentaur的な組み方に合理性がある。</p>
+  <p class="en">But saying that the consequence of error is the only variable is too neat.</p>
+  <p class="ja">ただし、「誤りの代償だけで決まる」と言い切ると、話は少し単純すぎる。</p>
+  <p class="en">Risk management offers a useful corrective. Severity alone does not define risk. The treatment of an error also depends on how likely it is to occur, whether it can be detected after it occurs, and whether its consequences can be reversed. A failure that is immediately visible and easily repaired is fundamentally different from one that remains hidden for months and becomes irreversible once it leaves the organization.</p>
+  <p class="en">The same distinction applies to AI-enabled work.</p>
+  <p class="ja">金融のリスク管理でも、severityだけを見てriskを測ることはない。誤りがどの程度の確率で発生するのか、発生後に捕捉できるのか、そして生じた結果を巻き戻せるのかによって、同じ損失額でも扱いは変わる。AIとの協働も、おそらく同じである。</p>
+  <p class="en">If an error can be detected quickly and the task can simply be rerun, substantial delegation may be perfectly reasonable. If an error is difficult to observe and the action becomes effectively irreversible once executed or published, the human control boundary should be thicker.</p>
+  <p class="ja">一度誤ってもすぐに検知でき、やり直せる仕事なら、かなり深くAIへ委ねてもよい。反対に、誤りが長く観測されず、しかも一度外へ出れば不可逆になる仕事では、人間側のcontrol boundaryを厚くする必要がある。</p>
+  <p class="en">In practice, three questions matter:</p>
+  <p class="ja">したがって、実際には三つを見ることになる。</p>
+
+  <div class="pull">
+    <span class="pull-label"><span class="en">Key point</span><span class="ja">要点</span></span>
+    <span class="en">What is the consequence if this is wrong? Can the error be detected? Can the decision be reversed?</span>
+    <span class="ja">誤った場合の帰結、誤りの検出可能性、そして可逆性。</span>
+  </div>
+
+  <p class="en">Severity, detectability, and reversibility do not produce a mechanical formula for human–AI collaboration. They do, however, tell us something about where the boundary ought to sit.</p>
+  <p class="ja">この三つによって、人間とAIの境界は変わる。</p>
+
   <div class="figure">
     <svg class="en" viewBox="0 0 660 196" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
       <line x1="50" y1="150" x2="610" y2="150" stroke="#1a2332" stroke-width="1.2"/>
       <polygon points="614,150 604,145 604,155" fill="#1a2332"/>
-      <text x="50" y="174" font-size="11" fill="#666">low error-cost</text>
-      <text x="610" y="174" font-size="11" text-anchor="end" fill="#8a6020">high error-cost</text>
+      <text x="50" y="172" font-size="10.5" fill="#666">limited · detectable · reversible</text>
+      <text x="610" y="172" font-size="10.5" text-anchor="end" fill="#8a6020">material · hard to detect · irreversible</text>
       <g text-anchor="middle">
         <rect x="92" y="92" width="150" height="42" rx="2" fill="#fff" stroke="#1d5c5c" stroke-width="1.2"/>
         <text x="167" y="118" font-size="12.5" fill="#1d5c5c">Cyborg</text>
@@ -265,40 +307,88 @@ footer a { color: var(--teal-dark); text-decoration: none; }
     <svg class="ja" viewBox="0 0 660 196" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
       <line x1="50" y1="150" x2="610" y2="150" stroke="#1a2332" stroke-width="1.2"/>
       <polygon points="614,150 604,145 604,155" fill="#1a2332"/>
-      <text x="50" y="174" font-size="11" fill="#666">誤りの代償：小</text>
-      <text x="610" y="174" font-size="11" text-anchor="end" fill="#8a6020">誤りの代償：大</text>
+      <text x="50" y="172" font-size="10.5" fill="#666">限定的・検出できる・やり直せる</text>
+      <text x="610" y="172" font-size="10.5" text-anchor="end" fill="#8a6020">重大・検出しにくい・不可逆</text>
       <g text-anchor="middle">
         <rect x="92" y="92" width="150" height="42" rx="2" fill="#fff" stroke="#1d5c5c" stroke-width="1.2"/>
-        <text x="167" y="118" font-size="12.5" fill="#1d5c5c">サイボーグ</text>
+        <text x="167" y="118" font-size="12.5" fill="#1d5c5c">Cyborg</text>
         <line x1="167" y1="134" x2="167" y2="150" stroke="#1d5c5c" stroke-width="1"/>
         <rect x="250" y="48" width="150" height="42" rx="2" fill="#fff" stroke="#1d5c5c" stroke-width="1.2"/>
-        <text x="325" y="74" font-size="12.5" fill="#1d5c5c">自己自動化</text>
+        <text x="325" y="74" font-size="12.5" fill="#1d5c5c">Self-Automator</text>
         <line x1="325" y1="90" x2="325" y2="150" stroke="#1d5c5c" stroke-width="1"/>
         <rect x="448" y="92" width="150" height="42" rx="2" fill="#f5ead8" stroke="#b5832a" stroke-width="1.5"/>
-        <text x="523" y="118" font-size="12.5" fill="#8a6020">ケンタウロス</text>
+        <text x="523" y="118" font-size="12.5" fill="#8a6020">Centaur</text>
         <line x1="523" y1="134" x2="523" y2="150" stroke="#b5832a" stroke-width="1.2"/>
       </g>
       <circle cx="167" cy="150" r="3" fill="#1d5c5c"/><circle cx="325" cy="150" r="3" fill="#1d5c5c"/><circle cx="523" cy="150" r="3.5" fill="#b5832a"/>
     </svg>
-    <div class="figcap"><span class="en">Fig. 2 — The same three pairings, placed by error-cost. The Centaur earns its keep where one mistake is expensive.</span><span class="ja">図2　同じ三つの組み方を、誤りの代償で並べる。一度の誤りが高くつくところで、ケンタウロス型が値打ちを持つ。</span></div>
+    <div class="figcap"><span class="en">Fig. 2 — Collaboration mode and the consequence of error. Where consequences are limited and errors are easily detected and repaired, fusion and delegation can extend further. Where consequences are material, detection is difficult, and reversibility is low, the Centaur boundary moves back toward the human.</span><span class="ja">図2　三つのモードと、誤りの代償。誤りの帰結が限定的で、検出と修復が容易な領域では、融合や委譲の範囲を広く取れる。誤りが重大で、検出が難しく、不可逆性の高い領域では、Centaur型の境界を人間側へ引き寄せる。</span></div>
   </div>
 
+  <p class="en">Even then, the boundary is not permanent.</p>
+  <p class="ja">ただし、この境界も固定されない。</p>
+
+  <h2><span class="hnum">4</span><span class="en">The way we pair with AI also shapes what we become</span><span class="ja">組み方は、能力の育ち方まで変える</span></h2>
+  <p class="en">The most interesting part of the study, to me, is not merely that the three modes produced different outcomes today. <span class="em">They also appeared to leave different capabilities behind in the human.</span></p>
+  <p class="ja">この研究で私がもう一つ面白いと思うのは、三つの型が単に今日の成果を変えるだけではなく、<span class="em">人間側に何が残るかを変えていたこと</span>である。</p>
+  <p class="en">Cyborgs developed greater skill in working with AI. Centaurs deepened their domain expertise by retaining more of the analytical core themselves. Self-Automators, having handed over larger parts of the process, developed less of either.</p>
+  <p class="ja">Cyborgは、AIと何度も往復するうちにAIとの協働技能を獲得した。Centaurは、分析の中核を自分で保持することでdomain expertiseを深めた。一方、Self-Automatorは作業の多くを渡すため、どちらの能力も育ちにくかった。</p>
+  <p class="en">This creates a problem that short-term productivity measures do not capture.</p>
+  <p class="ja">ここには、短期のproductivityとは別の問題がある。</p>
+  <p class="en">When AI takes over a task, it gives the human back time. But it may also remove the experience through which that person previously learned. <a href="/essays/value-lives-in-structure">Earlier in this series</a>, I wrote about the possibility that automating junior work could remove part of the apprenticeship ladder through which novices once became experts. The same issue appears here at the level of the individual workflow.</p>
+  <p class="ja">AIへ仕事を渡せば、その仕事に使っていた時間は浮く。しかし同時に、その仕事を通じて自分が獲得していた経験まで失われる可能性がある。<a href="/essays/value-lives-in-structure">以前のEssay</a>で、AIが若手の仕事を代替すると、専門家へ育つための梯子まで外してしまうのではないかと書いた。この研究は、同じ問題を個人のworkflowの中から見せているように思う。</p>
+  <p class="en">Human–AI collaboration is therefore not merely a problem of task allocation.</p>
+  <p class="en">It is also a problem of skill formation.</p>
+  <p class="ja">つまり、AIとの組み方は単なる<span class="em">task allocation</span>ではない。<span class="em">skill formationの設計でもある。</span></p>
+  <p class="en">The fastest way to finish today's work may not be the way that leaves the greatest expertise in the person five years from now.</p>
+  <p class="ja">今日、最も速く仕事を終える方法と、五年後の自分に最も多くの専門性を残す方法は、必ずしも一致しない。</p>
+  <p class="ja">この差は小さく見えて、長期では大きい。</p>
+  <p class="en">There will be days when becoming a Self-Automator and recovering an hour is entirely rational. But if that becomes the default every day, another question emerges: what capability would have been built during those hours, and where will it come from instead?</p>
+  <p class="ja">Self-Automatorとして一時間を節約することが合理的な日もある。ただし、それを毎日繰り返したとき、自分の中から何が失われるのかは別に考えなければならない。</p>
+  <p class="en">Efficiency and expertise are not always produced by the same workflow.</p>
+
   <div class="essay-close">
-    <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">3</span><span class="en">Choosing How You Pair</span><span class="ja">隣の組み方を、選ぶ</span></h2>
-    <p class="en">AI is going to stand next to you. That much is settled. What is not — what is yours to settle — is how you pair with it once it is there. The shapes are surprisingly few, and which one fits is decided by the cost of being wrong. Rather than drifting into a single habit, you can choose, moment to moment, which one you ought to be.</p>
-    <p class="ja">AI は、隣に来る。そこはもう動かない。動かせるのは——そして自分で動かせるのは——その隣でどう組むか、だ。型は驚くほど少なく、向き不向きは誤りの代償で決まる。流されて一つに収まるのではなく、いま自分は何型でいるべきかを、その都度選び取れる。</p>
-    <p class="en">The fear of being replaced is fair. But as long as the question stays “will I be replaced,” you stay on the back foot. Swap it for “how do I pair?” and the initiative comes quietly back to your side. So — on the next one, how will we choose to pair?</p>
-    <p class="ja">AI に奪われるのではないか、という不安は当然だ。ただ、奪われるかどうかを問うているあいだは、たぶん受け身のままだ。問いを「どう組むか」に置き換えた瞬間、主導権は静かにこちらへ戻ってくる。さて、我々は、次の一手をどう組むだろうか。</p>
+  <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">5</span><span class="en">The ability to redraw the boundary</span><span class="ja">境界を引き直せる人</span></h2>
+  <p class="en">This is where the Jagged Technological Frontier returns.</p>
+  <p class="ja">ここで、Jagged Technological Frontierの話へ戻る。</p>
+  <p class="en">As discussed in <a href="/essays/the-cost-of-checking">the previous essay</a>, the frontier of AI capability is neither smooth nor fixed. In the earlier BCG experiment, AI materially improved performance on tasks inside the frontier, while users performed worse on certain tasks deliberately placed beyond it. And as models improve, that frontier moves.</p>
+  <p class="ja"><a href="/essays/the-cost-of-checking">前稿</a>で扱ったように、AIの能力境界は滑らかな線ではない。758名のBCGコンサルタントを対象にした研究では、frontierの内側ではAIが速度、完了数、品質を改善した一方、frontierの外側に置かれた複雑な課題では、AI利用者の正答率がむしろ低下した。しかも、その境界はモデルの進歩とともに移動する。</p>
+  <p class="en">The lesson here is not that Centaur work is permanently safer.</p>
+  <p class="ja">ここから導かれるのは、「Centaurになれば安全だ」という結論ではない。</p>
+  <p class="en">A task that should remain on the human side today may become routine for the next generation of models. Conversely, moving into an unfamiliar domain may place a familiar-looking task outside the frontier again. A collaboration pattern that worked yesterday can therefore become unnecessarily conservative — or dangerously permissive — tomorrow.</p>
+  <p class="ja">昨日まで人間が保持すべきだった工程が、次のモデルでは十分にAIへ委ねられるかもしれない。反対に、新しい仕事に入れば、それまで安全だった委譲が突然frontierの外へ出ることもある。</p>
+  <p class="en">For that reason, I am increasingly skeptical of attempts to define human expertise as a permanent list of things “AI cannot do.”</p>
+  <p class="ja">だから、AI時代の専門性を「人間にしかできない仕事」の一覧として固定することには、あまり意味がない。</p>
+
+  <div class="pull">
+    <span class="pull-label"><span class="en">Key point</span><span class="ja">要点</span></span>
+    <span class="en">The more durable capability is the ability to redraw the boundary.</span>
+    <span class="ja">必要なのは、境界を引き直す能力である。</span>
+  </div>
+
+  <p class="en">How much should be fused? Where should the work be divided? What can be delegated entirely? The answer depends not only on the model's capability, but on the consequence of error, detectability, reversibility, and what the human needs to continue learning from the work.</p>
+  <p class="ja">どこまで融合するか。どこで分業するか。どこから委譲するか。その境界は、AIの性能だけでは決まらない。誤りの帰結、検出可能性、可逆性、そしてその仕事を通じて自分が何を学びたいかによっても変わる。</p>
+
+    <p class="en">Choosing how to pair with AI is therefore not simply a decision about how much work to hand to the machine. <span class="em">It is also a decision about which capabilities we intend to retain — and which ones we still intend to develop — in ourselves.</span></p>
+    <p class="ja">AIとの組み方を選ぶことは、機械へどれだけ仕事を渡すかを決めることではない。<span class="em">自分の中に、どの能力を残し、どの能力を育てるかを決めることでもある。</span></p>
+    <p class="en">Seen this way, asking whether the Cyborg, Centaur, or Self-Automator represents the “future of work” misses the point.</p>
+    <p class="ja">そう考えると、Cyborg、Centaur、Self-Automatorのどれが「将来の働き方」なのか、という問いにはあまり意味がない。</p>
+    <p class="en">We will use all three.</p>
+    <p class="en">And we will keep changing.</p>
+    <p class="ja">三つとも使う。そして、必要なら変える。</p>
+    <p class="en">As models change, the boundary moves. As the task changes, it moves again.</p>
+    <p class="ja">モデルが変われば境界を動かし、仕事が変わればまた引き直す。</p>
 
     <div class="seed-box">
       <span class="pull-label"><span class="en">The Seed</span><span class="ja">種としての一行</span></span>
-      <span class="en">The question is not whether AI takes your job. It is how you pair with it — and that pairing is yours to choose, tuned to the cost of being wrong.</span>
-      <span class="ja">問いは「AI に奪われるか」ではない。「AI とどう組むか」だ。そして、その組み方は、誤りの代償に合わせて、自分で選べる。</span>
+      <span class="en">The role should not be fixed. What must remain ours is the right to redraw the boundary.</span>
+      <span class="ja">固定すべきなのは役割ではない。境界を引き直す権利の方である。</span>
     </div>
 
     <div class="essay-note">
-      <p><span class="note-num">1.</span><span class="en">Steven Randazzo, Hila Lifshitz-Assaf, Katherine C. Kellogg, Fabrizio Dell'Acqua, Ethan R. Mollick, François Candelon &amp; Karim R. Lakhani, <em>Cyborgs, Centaurs and Self-Automators: The Three Modes of Human-GenAI Knowledge Work and Their Implications for Skilling and the Future of Expertise</em>, Harvard Business School Working Paper 26-036 (2025). A field study of 244 BCG consultants across a seven-stage problem-solving workflow distinguished three modes of working with generative AI: Cyborgs, who fuse with the tool throughout (roughly 60%) and newskill themselves in AI; Centaurs, who direct a division of labor, reaching the highest accuracy in business recommendations of the three groups while deepening their existing domain expertise; and Self-Automators, who delegate most of the work (roughly a quarter) and grow neither skill set. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4921696">papers.ssrn.com/sol3/papers.cfm?abstract_id=4921696</a></span><span class="ja">Steven Randazzo, Hila Lifshitz-Assaf, Katherine C. Kellogg, Fabrizio Dell'Acqua, Ethan R. Mollick, François Candelon &amp; Karim R. Lakhani「Cyborgs, Centaurs and Self-Automators: The Three Modes of Human-GenAI Knowledge Work and Their Implications for Skilling and the Future of Expertise」ハーバード・ビジネス・スクール ワーキングペーパー 26-036（2025年）。BCG のコンサルタント 244 名を、七段階の問題解決ワークフローにわたって観察した実地研究。生成 AI との働き方を三つの型に区別した。全工程で AI と融合するサイボーグ型（約6割、AI の新しい技能を獲得）、分業を指揮するケンタウロス型（三群中で最も精度の高い事業提案を出し、既存の専門性を深めた）、作業の大半を委譲する自己自動化型（約4人に1人、どちらの技能も伸びなかった）。<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4921696">papers.ssrn.com/sol3/papers.cfm?abstract_id=4921696</a></span></p>
-      <p><span class="note-num">2.</span><span class="en">Fabrizio Dell'Acqua, Edward McFowland III, Ethan Mollick, Hila Lifshitz, Katherine C. Kellogg, Saran Rajendran, Lisa Krayer, François Candelon &amp; Karim R. Lakhani, <em>Navigating the Jagged Technological Frontier: Field Experimental Evidence of the Effects of Artificial Intelligence on Knowledge Worker Productivity and Quality</em>, Organization Science (online ahead of print, 11 March 2026). A preregistered randomized controlled trial: 758 BCG consultants were assigned to work with GPT-4, without it, or with added prompting training, across 18 tasks inside the AI capability frontier and one complex task placed outside it. Inside, AI users completed 12.2% more tasks, 25.1% faster, at higher quality; outside, they were on average 19 percentage points less likely to reach the correct answer. <a href="https://doi.org/10.1287/orsc.2025.21838">doi.org/10.1287/orsc.2025.21838</a></span><span class="ja">Fabrizio Dell'Acqua, Edward McFowland III, Ethan Mollick ほか「Navigating the Jagged Technological Frontier: Field Experimental Evidence of the Effects of Artificial Intelligence on Knowledge Worker Productivity and Quality」Organization Science（2026年3月11日オンライン先行公開）。事前登録の無作為化比較試験。BCG のコンサルタント 758 名を、GPT-4 を使う群／使わない群／プロンプト講習を加えた群に無作為配分し、AI 能力境界の内側 18 タスクと、外側に置いた複雑な課題 1 つで比較した。内側では AI 使用群が 12.2% 多くのタスクを 25.1% 速くこなし、質も向上。外側では正答率が平均 19 ポイント低下した。<a href="https://doi.org/10.1287/orsc.2025.21838">doi.org/10.1287/orsc.2025.21838</a></span></p>
+      <p class="note-head"><span class="en">References</span><span class="ja">参考文献</span></p>
+      <p><span class="note-num">1.</span><span class="en">Steven Randazzo et al., <em>Cyborgs, Centaurs and Self-Automators: The Three Modes of Human-GenAI Knowledge Work and Their Implications for Skilling and the Future of Expertise</em>, Harvard Business School Working Paper 26-036, 2025. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4921696">papers.ssrn.com/sol3/papers.cfm?abstract_id=4921696</a></span><span class="ja">Steven Randazzo et al., <em>Cyborgs, Centaurs and Self-Automators: The Three Modes of Human-GenAI Knowledge Work and Their Implications for Skilling and the Future of Expertise</em>, Harvard Business School Working Paper 26-036, 2025. 研究概要および三つの協働モードについてはHBS AI Instituteによる解説も参照。<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4921696">papers.ssrn.com/sol3/papers.cfm?abstract_id=4921696</a></span></p>
+      <p><span class="note-num">2.</span><span class="en">Fabrizio Dell'Acqua et al., “Navigating the Jagged Technological Frontier: Field Experimental Evidence of the Effects of Artificial Intelligence on Knowledge Worker Productivity and Quality,” <em>Organization Science</em>, Vol. 37, No. 2, 2026, pp. 403–423. <a href="https://doi.org/10.1287/orsc.2025.21838">doi.org/10.1287/orsc.2025.21838</a></span><span class="ja">Fabrizio Dell'Acqua et al., “Navigating the Jagged Technological Frontier: Field Experimental Evidence of the Effects of Artificial Intelligence on Knowledge Worker Productivity and Quality,” <em>Organization Science</em>, Vol. 37, No. 2, 2026, pp. 403–423. <a href="https://doi.org/10.1287/orsc.2025.21838">doi.org/10.1287/orsc.2025.21838</a></span></p>
     </div>
   </div>
 </article>
@@ -306,7 +396,7 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 <p class="disclaimer"><span class="en">The views expressed are the author's own and do not represent those of any organization he belongs to.</span><span class="ja">掲載する内容は筆者個人の見解であり、筆者が所属する組織・団体の見解を示すものではありません。</span></p>
 
 <footer>
-  <div><span class="en">Essay 007 · June 2026 · how you pair with AI</span><span class="ja">Essay 007 · 2026年6月 · AI との組み方について</span></div>
+  <div><span class="en">Essay 007 · June 2026 · On pairing with AI and redrawing the boundary</span><span class="ja">Essay 007 · 2026年6月 · AIとの組み方について</span></div>
   <div><a href="/">shun-yanagisawa.com</a> · <a href="/essays/"><span class="en">All essays</span><span class="ja">エッセイ一覧</span></a></div>
 </footer>
 
