@@ -129,6 +129,7 @@ body.lang-ja .figcap { font-family: var(--font-jp); font-size: .76rem; }
 .essay-note { margin-top: 2.4rem; padding-top: .9rem; border-top: 1px solid var(--border); font-size: .8rem; color: var(--text-muted); line-height: 1.7; text-align: left; }
 .essay-note a { color: var(--teal-dark); word-break: break-all; }
 .essay-note .note-num { font-family: var(--font-mono); color: var(--teal-dark); margin-right: .4rem; }
+.essay-note .note-head { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .5rem; }
 footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
 footer a { color: var(--teal-dark); text-decoration: none; }
 .disclaimer { max-width: 1100px; margin: 0 auto 1.2rem; padding: 0 1.6rem; font-size: .68rem; color: var(--text-muted); line-height: 1.8; text-align: center; }
@@ -153,36 +154,47 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   </h1>
   <p class="essay-sub">
     <span class="en">Cancel anytime; swap a person for an AI. As the cost of leaving falls toward zero, the scarce thing becomes the bond you could have fled — and didn't.</span>
-    <span class="ja">キャンセルはいつでも、相手は AI に替えられる。立ち去る代償が限りなくゼロに近づく世界で、希少になるのは——逃げられたのに、逃げなかった関係のほうだ。</span>
+    <span class="ja">キャンセルはいつでも、相手はAIに替えられる。立ち去る代償が限りなくゼロに近づく世界で、希少になるのは——逃げられたのに、逃げなかった関係のほうだ。</span>
   </p>
   <div class="essay-meta">
     <span>June 2026</span>
     <span class="en">AI &amp; Society</span>
     <span class="ja">AI と社会</span>
-    <span class="en">8 min read</span>
-    <span class="ja">日本語 約8分</span>
+    <span class="en">6 min read</span>
+    <span class="ja">日本語 約6分</span>
   </div>
 
-  <p class="en">It is easy, now, to walk away from almost anything. Cancel the subscription anytime; never reopen the shop that disappointed you. Unfollow, switch towns, switch jobs more lightly than before. And at last, walk away from a person, too — swap the one you talk to for an AI.</p>
-  <p class="ja">いまは、たいていのものから、簡単に立ち去れる。サブスクはいつでも解約できるし、合わない店は二度と開かなければいい。フォローは外せるし、住む街も仕事も、昔より気軽に変えられる。そしてとうとう、人そのものまで——話し相手を、AI に替えられるようになった。</p>
-  <p class="en">The cost of leaving has fallen toward nothing, and that is, on the whole, an expansion of freedom; being able to leave what once trapped you is plainly good.</p>
-  <p class="ja">立ち去る代償が、限りなく安くなっている。これはおおむね、自由の拡大だと思う。逃げられなかった場所から逃げられること自体は、間違いなく良いことだ。</p>
-  <p class="en">But once exits are free, something quietly rises in price: the bond you could have fled and didn't. Taking a half-century-old framework — "exit" and "voice" — as our guide, this essay traces what happens when AI lowers the cost of leaving even further, and why "not leaving" is about to become scarce.</p>
-  <p class="ja">ただ、出口のコストが下がると、静かに価値が上がるものがある。逃げられたのに、逃げなかった関係だ。ここでは、半世紀前の経済学者が「退出」と「声」と名づけた仕組みを手がかりに、AI が立ち去る代償をさらに下げたとき何が起きるか、そして、なぜ「逃げない」ことがこれから希少になるのかをたどる。</p>
+  <p class="en">It is easy, now, to walk away from almost anything. Cancel the subscription anytime; never reopen the shop that disappointed you. Unfollow, move to another town, change jobs more lightly than before. And at last, a person too. The one you talk to can be swapped for an AI.</p>
+  <p class="ja">いまは、たいていのものから、簡単に立ち去れる。サブスクはいつでも解約できるし、合わない店は二度と開かなければいい。フォローは外せるし、住む街も仕事も、昔より気軽に変えられる。そしてとうとう、人そのものまで。話し相手を、AIに替えられるようになった。</p>
+  <p class="en">The cost of leaving has fallen almost to nothing. On the whole this is an expansion of freedom, I think. Being able to leave a place you once could not leave is plainly good. But when the cost of the exit falls, something quietly rises in price. It is the bond you could have fled and didn't.</p>
+  <p class="ja">立ち去る代償が、限りなく安くなっている。これはおおむね、自由の拡大だと思う。逃げられなかった場所から逃げられること自体は、間違いなく良いことだ。ただ、出口のコストが下がると、静かに価値が上がるものがある。逃げられたのに、逃げなかった関係だ。</p>
+  <p class="en">Taking as a guide what an economist half a century ago named exit and voice, this essay traces what happens when AI lowers the cost of leaving further still, and why not leaving is about to become scarce.</p>
+  <p class="ja">ここでは、半世紀前の経済学者が「退出」と「声」と名づけた仕組みを手がかりに、AIが立ち去る代償をさらに下げたとき何が起きるか、そして、なぜ「逃げない」ことがこれから希少になるのかをたどる。</p>
 
   <h2><span class="hnum">1</span><span class="en">Exits Went Free</span><span class="ja">立ち去る代償が、安くなった</span></h2>
-  <p class="en">Start with how cheap leaving has become. In subscription surveys, the top reason people sign up is not the quality of the thing but that they can quit anytime — flexibility itself, the freedom to walk out, has become the selling point. The exit is sold as a feature. As switching costs fall, people swap lightly; the ease of leaving arrives before any reason to stay.</p>
-  <p class="ja">まず、立ち去ることがどれだけ安くなったかを見ておきたい。サブスクの調査では、人々が契約する一番の理由は中身の良さではなく、「いつでも止められること」だという。柔軟さ——つまり、いつでも出ていける自由——そのものが、選ばれる理由になっている。出口が、機能として売られている。スイッチングコストが下がるほど、人は軽やかに乗り換える。とどまる理由より、出ていける手軽さが先に立つ。</p>
-  <p class="en">AI sits at the far end of this trend. Users of one conversational AI already spend more than ninety minutes a day with it — longer than the same people give to TikTok — and AI-companion apps passed 220 million cumulative downloads by mid-2025.<sup>3</sup> A bond with an AI strips away the friction native to a human one — the cost of being hurt, of being refused — to almost nothing. So it is easy to open up: never awkward, always closable. A frictionless companion you can leave at any moment — the ultimate form of a relationship whose exit stands permanently ajar.</p>
-  <p class="ja">AI は、この流れの最果てにいる。すでに、ある対話型 AI のユーザーは一日平均九十分以上をそこで費やしていて——同じ人たちが TikTok に費やす時間より長くなった。コンパニオン系アプリの累計ダウンロードは、二〇二五年半ばで二億二千万を超えた。<sup>3</sup> AI との関係は、生身の人間関係につきものの面倒——傷つくかもしれない、拒まれるかもしれない、という代償——を、ほとんどゼロにする。だから打ち明けやすい。気まずくならないし、いつでも閉じられる。摩擦のない、いつでも立ち去れる相手。出口が常に開いている関係の、究極の形だ。</p>
+  <p class="en">Being able to cancel anytime has become the selling point of a subscription. Flexibility, which is to say the freedom to walk out whenever you like, has itself become the value of the product. The exit is sold as a feature. As switching costs fall, people swap lightly. The ease of leaving arrives before any reason to stay.</p>
+  <p class="ja">いつでも解約できることが、サブスクの売り文句になる。柔軟さ、つまりいつでも出ていける自由そのものが、商品の価値になっている。出口が、機能として売られているのである。スイッチングコストが下がるほど、人は軽やかに乗り換える。とどまる理由より、出ていける手軽さが先に立つ。</p>
+  <p class="en">AI sits at the far end of this trend. As of September 2024, users of one conversational AI were spending more than ninety minutes a day with it, longer than the average time given to TikTok in the same period. Cumulative downloads of companion apps passed 220 million by mid-2025.<sup>1</sup> The estimates vary, but it is clear that a considerable amount of time is already flowing into conversation with AI.</p>
+  <p class="ja">AIは、この流れの最果てにいる。二〇二四年九月時点で、ある対話型AIのユーザーは一日平均九十分以上をそこで費やしており、同時期のTikTokの平均利用時間より長いとされる。コンパニオン系アプリの累計ダウンロードは、二〇二五年半ばで二億二千万を超えた。<sup>1</sup> 数字には推計の幅があるにせよ、すでに相当な時間がAIとの対話へ流れ込んでいることは分かる。</p>
+  <p class="en">A relationship with an AI removes much of the trouble that comes with a human one. You might be hurt. You might be refused. Say it the wrong way, and the awkwardness lasts until tomorrow. Conversation with an AI carries its own kinds of dependence and discomfort, but the conversation itself can be closed at any moment, started over, or moved to another partner. So it is easy to open up. You set the distance to suit yourself.</p>
+  <p class="ja">AIとの関係は、生身の人間関係につきものの面倒を大幅に減らす。傷つくかもしれない。拒まれるかもしれない。言い方を間違えれば、明日まで気まずさが残る。AIとの対話にも別種の依存や不快さはあり得るが、少なくとも会話そのものはいつでも閉じられ、やり直せるし、相手さえ替えられる。だから打ち明けやすい。こちらの都合で距離を調整できる。</p>
+  <div class="pull">
+    <span class="pull-label"><span class="en">Key</span><span class="ja">要点</span></span>
+    <span class="en">Little friction, and always leavable. One limit case of a relationship whose exit stands permanently open.</span>
+    <span class="ja">摩擦が小さく、いつでも立ち去れる相手。出口が常に開いている関係の、ひとつの極限である。</span>
+  </div>
 
   <h2><span class="hnum">2</span><span class="en">Exit Warns; Voice Explains</span><span class="ja">退出は警告だけ、声は理由を運ぶ</span></h2>
-  <p class="en">Half a century ago, the economist Albert Hirschman split the responses to a souring organization or relationship into two: exit and voice.<sup>1</sup> You leave, or you stay and try to fix it. His point lands hardest now — the more available the exit, the less voice gets used. Unhappy, you find it quicker to slip out quietly than to say what is wrong and wait for repair.</p>
-  <p class="ja">半世紀前、経済学者アルバート・ハーシュマンが、組織や関係が悪くなったときに人が取れる道を二つに分けた。退出と、声だ。<sup>1</sup> 出ていくか、とどまって直そうとするか。彼の指摘は、いまこそ効く——出口が手に入りやすいほど、声は使われなくなる。不満があっても、言って直してもらうより、黙って出ていくほうが早い。</p>
-  <p class="en">And then the one left behind never learns what failed. Exit emits only the warning sign that "something is off"; it does not carry the reasons. Voice carries the reasons — but if no one voices, the organization, the relationship, hardens in place, unsure where to mend.</p>
-  <p class="ja">すると、出ていかれた側には、何が悪かったのかが伝わらない。退出は「何かがまずい」という警告サインを出すだけで、その理由は運ばない。声は理由を運ぶが、誰も声を上げなければ、組織も関係も、どこを直せばいいか分からないまま固まってしまう。</p>
-  <p class="en">Hirschman used a school: the quality-conscious parents are the first to move a child elsewhere, leaving those who cannot afford to leave. The school loses its sharpest critics and, with them, the very intelligence it would need to improve. What holds people in long enough to voice, he called loyalty — the force that raises the cost of departure and turns a member toward fixing rather than fleeing. The cheaper the exit, the weaker that loyalty pulls.</p>
-  <p class="ja">ハーシュマンは学校の例を挙げた。質に敏感な親ほど、まずいと感じたら子を私立へ移す。残るのは、出ていく余力のない家庭だ。学校は、一番鋭い批判者を最初に失い、改善の手がかりも一緒に失う。とどまって声を上げさせるのは何か。彼は忠誠（<span class="em">loyalty</span>）と呼んだ。とどまる心理的なコストを上げ、「直す側に回ろう」と思わせる力。出口が安くなるほど、この忠誠は効きにくくなる。</p>
+  <p class="en">Half a century ago, the economist Albert Hirschman divided what a person can do when an organization or a relationship goes bad into two: exit and voice.<sup>2</sup> You leave, or you stay and try to fix it. What makes his argument interesting again now is that the easier the exit is to reach, the weaker the reason to use voice. Even when you are unhappy, it is quicker to slip out quietly and look elsewhere than to put it into words and wait for the repair.</p>
+  <p class="ja">半世紀前、経済学者アルバート・ハーシュマンが、組織や関係が悪くなったときに人が取れる道を二つに分けた。退出（<span class="em">exit</span>）と、声（<span class="em">voice</span>）である。<sup>2</sup> 出ていくか、とどまって直そうとするか。彼の議論がいま改めて面白く見えるのは、出口が手に入りやすいほど、声を使う理由が弱くなるからだ。不満があっても、それを言葉にして直してもらうより、黙って出て別を探す方が早い。</p>
+  <p class="en">So the side that was left never learns what went wrong. Exit gives off the warning that something is off, but it does not carry the reasons. Voice carries the reasons. Yet if no one speaks, the organization, the relationship, hardens in place without knowing where to mend.</p>
+  <p class="ja">すると、出ていかれた側には、何が悪かったのかが伝わらない。退出は「何かがまずい」という警告サインを出すが、その理由までは運ばない。声は理由を運ぶ。しかし誰も声を上げなければ、組織も関係も、どこを直せばいいのか分からないまま固まっていく。</p>
+  <p class="en">Hirschman used the example of a school. The families most alert to the quality of teaching, and who also hold the option of moving to another one, are the families who can move a child the moment they sense something is wrong. The school loses not only pupils but the very people who would have noticed the decline early and put a demand for improvement into words.</p>
+  <p class="ja">ハーシュマンは学校の例を挙げた。教育の質に敏感で、しかも別の学校へ移る選択肢を持つ家庭ほど、まずいと感じれば子を移すことができる。学校は生徒を失うだけでなく、質の低下に早く気づき、それを言葉にして改善を要求し得た人まで失う。</p>
+  <p class="en">Then what holds a person in place long enough to use voice rather than leave at once? Hirschman called it loyalty. Attachment and past investment raise the cost of departure, so the first grievance does not send you away, and room opens for taking the side of repair. The cheaper the exit, the weaker that force.</p>
+  <p class="ja">では、すぐに出ていかず、声を使うまで人をその場に留めるものは何か。ハーシュマンはそれを忠誠（<span class="em">loyalty</span>）と呼んだ。愛着や過去の投資によって退出のコストが上がるため、最初の不満ですぐに去らず、「直す側に回ろう」とする余地が生まれる。出口が安くなるほど、この力は弱くなる。</p>
+  <p class="en">Exit signals that something is wrong. Voice carries the reasons. And loyalty makes the time in which voice can be used.</p>
+  <p class="ja">退出は異常を知らせる。声は理由を運ぶ。そして忠誠は、声を使うまでの時間をつくる。</p>
   <div class="figure">
     <svg class="en" viewBox="0 0 660 188" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
       <rect x="46" y="76" width="150" height="44" rx="2" fill="#f7f6f2" stroke="#1a2332" stroke-width="1.3"/>
@@ -218,10 +230,14 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   </div>
 
   <h2><span class="hnum">3</span><span class="en">The Discerning Leave First</span><span class="ja">鋭い人から、先に出ていく</span></h2>
-  <p class="en">There is a quiet, painful pattern here: the people best able to judge quality are the first to leave. Those who can tell good from bad and hold other options sense decline early and go; what remains is those without the eye to judge, or without the means to leave. A place drained of its sharp voices can no longer mend itself.</p>
-  <p class="ja">ここに、静かに進む痛い構図がある。一番質を見分けられる人ほど、先に出ていく。良し悪しが分かり、別の選択肢を持っている人は、衰えの兆しをいち早く察して立ち去る。後に残るのは、見分ける目を持たない人か、出ていく余力のない人だ。鋭い声が抜けたあとの場所は、もう自分で直せない。</p>
-  <p class="en">This is not only schools. In workplaces, towns, communities, the same thing follows as exits cheapen — because fixing from within by voice always looks less rational than leaving to find another. At the scale of a whole society, it shows up as thinning bonds: one sociologist named the late-century collapse of clubs, associations, and ties "bowling alone."<sup>2</sup> Leaving becomes the default; fewer stay to engage. Each single departure is perfectly rational. But rational departures, stacked, shrink the number of places that voice could have fixed at all.</p>
-  <p class="ja">これは学校だけの話ではない。職場でも、街でも、人の集まりでも、出口が安くなるほど、同じことが起きる。「声」を上げて中から直すより、「退出」して別を探すほうが、いつも合理的に見えるからだ。社会全体の規模で見ると、これは人のつながりが薄くなっていく現象として現れる。ある社会学者は、地域や団体やつながりが二十世紀後半に崩れていく様子を「ひとりでボウリングをする」と呼んだ。<sup>2</sup> 出ていくのが当たり前になり、とどまって関わる人が減る。一つひとつの離脱は、まったく合理的だ。けれど合理的な離脱が積み重なると、声で直せる場所そのものが、社会から減っていく。</p>
+  <p class="en">There is a quiet, painful pattern here. The people who sense a decline in quality early, and who also have the means to move to another option, are the ones who can leave first. The problem is not that they are the better people and that those who remain lack a discerning eye. It is that the conditions which make exit possible are unevenly distributed: information to compare with, money to move with, the reserves to start again somewhere else.</p>
+  <p class="ja">ここに、静かに進む痛い構図がある。質の低下を早く察知し、なおかつ別の選択肢へ移る余力を持つ人ほど、先に出ていくことができる。問題はその人たちが優れていて、残る人に「見分ける目」がないということではない。比較する情報、移動する資金、別の場所でもやり直せる余力といった、退出を可能にする条件が偏在していることである。</p>
+  <p class="en">If the people holding those conditions leave before they use voice, the place left behind loses even its capacity to mend itself from within. In a workplace, a town, any gathering of people, the same temptation works as exits grow cheap, because speaking up and fixing things from inside always looks less rational than leaving to find another.</p>
+  <p class="ja">その条件を持つ人がVoiceを使う前に出ていけば、残された場所は「中から直す力」まで失っていく。職場でも、街でも、人の集まりでも、出口が安くなるほど同じ誘惑が働く。「声」を上げて中から直すより、「退出」して別を探す方が合理的に見えるからだ。</p>
+  <p class="en">In a different context from Hirschman, the decline of social capital that Putnam later described has something of the same look about it.<sup>3</sup> Neighborhoods, associations, ties thin out, and fewer people stay and engage. Each single departure is entirely rational. But rational departures, accumulated, can reduce the number of places that voice could have mended at all.</p>
+  <p class="ja">Hirschmanとは別の文脈だが、Putnamが後に描いた社会関係資本の衰退にも、どこか似た景色がある。<sup>3</sup> 地域や団体やつながりが痩せ、とどまって関わる人が減っていく。一つひとつの離脱は、まったく合理的である。けれど合理的な離脱が積み重なると、声で直せる場所そのものが社会から減っていくことがある。</p>
+  <p class="en">Exit, rational for the individual, and voice, necessary for the group, do not always point the same way.</p>
+  <p class="ja">個人にとって合理的なExitと、集団にとって必要なVoiceは、必ずしも同じ方向を向かない。</p>
   <div class="figure">
     <svg class="en" viewBox="0 0 660 196" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
       <line x1="60" y1="168" x2="612" y2="168" stroke="#1a2332" stroke-width="1.2"/>
@@ -236,7 +252,7 @@ footer a { color: var(--teal-dark); text-decoration: none; }
       </g>
       <text x="118" y="20" font-size="10.5" fill="#1d5c5c">the sharpest exit first</text>
       <text x="64" y="46" font-size="11" fill="#8a6020">power to fix from within</text>
-      <text x="606" y="150" font-size="10.5" text-anchor="end" fill="#666">left: no eye / no means</text>
+      <text x="606" y="150" font-size="10.5" text-anchor="end" fill="#666">left: without the conditions to exit</text>
       <text x="64" y="186" font-size="10.5" fill="#666">time →</text>
     </svg>
     <svg class="ja" viewBox="0 0 660 196" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
@@ -252,28 +268,37 @@ footer a { color: var(--teal-dark); text-decoration: none; }
       </g>
       <text x="118" y="20" font-size="10.5" fill="#1d5c5c">鋭い人から先に去る</text>
       <text x="64" y="46" font-size="11" fill="#8a6020">中から直す力</text>
-      <text x="606" y="150" font-size="10.5" text-anchor="end" fill="#666">残るのは 目なし／余力なし</text>
+      <text x="606" y="150" font-size="10.5" text-anchor="end" fill="#666">残るのは 退出の条件を持たない人</text>
       <text x="64" y="186" font-size="10.5" fill="#666">時間 →</text>
     </svg>
     <div class="figcap"><span class="en">Fig. 2 — The discerning leave earliest, so a place's power to fix itself thins over time.</span><span class="ja">図2　鋭い人ほど先に去り、その場の「中から直す力」は時間とともに痩せていく。</span></div>
   </div>
 
   <h2><span class="hnum">4</span><span class="en">But the Exit Is Also Freedom</span><span class="ja">ただし、出口は自由でもある</span></h2>
-  <p class="en">There is a temptation here to cast leaving as the villain. That would be wrong. A cheap exit is also a liberation: precisely because leaving is cheap, people can quit a brutal workplace, leave a closed village, escape a broken bond. The force that compels staying — a "loyalty" built on the impossibility of exit — has often sat back to back with oppression.</p>
-  <p class="ja">ここで、立ち去れることを悪者にしてしまう誘惑がある。それは違う、と思う。出口が安いことは、解放でもある。安く出ていけるからこそ、人はひどい職場を抜け、閉じた村を出て、壊れた関係から逃げられる。とどまることを強いる力——出ていけないことを土台にした「忠誠」——は、しばしば抑圧と背中合わせだった。</p>
-  <p class="en">Hirschman himself grants that exit disciplines: customers silently abandoning the shoddy, voting with their feet, keep a market honest, an echo of Adam Smith's invisible hand. I have argued <a href="the-manor-and-the-commons">elsewhere</a> that freedom is not owning something but staying mobile, free to move — and I do not take that back. So the answer is not to seal the exits. Locking the door to keep people in only rewinds the liberation; mobility stays freedom. The trouble lies somewhere harder: in a world where you can freely leave anything, no one decides for you what not to leave.</p>
-  <p class="ja">ハーシュマン自身、退出には規律の働きがあると認めている。質の悪いものから客が黙って去ること、その「足による投票」が、市場を健全に保つ。アダム・スミスの見えざる手の、小さなこだまだ。私自身、<a href="the-manor-and-the-commons">別のところ</a>で、自由とは何かを所有することではなく、いつでも動ける可動性のことだ、と書いた。その考えは、いまも撤回しない。だから、答えは「出口を塞ぐ」ことではない。人をとどまらせるために扉に鍵をかけるのは、解放を巻き戻すだけだ。可動性は自由であり続ける。問題はもっと厄介なところにある——すべてから自由に立ち去れる世界では、何から立ち去らないかを、誰も決めてくれない、ということだ。</p>
-  <div class="pull">
-    <span class="pull-label"><span class="en">Key</span><span class="ja">要点</span></span>
-    <span class="en">The answer is not to seal the exits — mobility stays freedom. Being able to leave anything and being able to stay with something are different capacities. The age handed us the first; the second, you must choose.</span>
-    <span class="ja">答えは出口を塞ぐことではない——可動性は自由であり続ける。すべてから立ち去れることと、何かに<span class="em">留まれる</span>ことは、別の能力だ。前者は時代がくれた。後者は、自分で選ぶしかない。</span>
-  </div>
+  <p class="en">There is a temptation here to make the ability to leave the villain. That is wrong. A cheap exit is also a liberation. It is precisely because leaving is cheap that people can get out of a brutal workplace, leave a closed community, escape a broken relationship. The force that compels staying, a loyalty built on the impossibility of exit, has often sat back to back with oppression.</p>
+  <p class="ja">ここで、立ち去れることを悪者にしてしまう誘惑がある。それは違う。出口が安いことは、解放でもある。安く出ていけるからこそ、人はひどい職場を抜け、閉じた共同体を出て、壊れた関係から逃げられる。とどまることを強いる力、出ていけないことを土台にした「忠誠」は、しばしば抑圧と背中合わせだった。</p>
+  <p class="en">Hirschman himself grants that exit does disciplinary work. Customers walking away quietly from what is shoddy, voting with their feet, as it were, keeps a market honest. I have written <a href="the-manor-and-the-commons">elsewhere</a> that what matters in defending freedom is less owning something than keeping <span class="em">the option to exit</span> when you need it. I do not take that back.</p>
+  <p class="ja">ハーシュマン自身、退出には規律の働きがあると認めている。質の悪いものから客が黙って去ること、いわば足で投票することが、市場を健全に保つ。私自身、<a href="the-manor-and-the-commons">別のところ</a>で、自由を守るためには何かを所有することよりも、必要なときにそこから出られる<span class="em">退出可能性</span>を残すことが重要だと書いた。その考えは、いまも撤回しない。</p>
+  <p class="en">So the answer is not to seal the exits. Locking the door to keep people in only rewinds the liberation. The option to exit remains freedom.</p>
+  <p class="ja">だから、答えは「出口を塞ぐ」ことではない。人をとどまらせるために扉に鍵をかけるのは、解放を巻き戻すだけだ。退出可能性は、自由であり続ける。</p>
+  <p class="en">The trouble lies somewhere more awkward. In a world where you can leave anything freely, no one decides for you what not to leave.</p>
+  <p class="ja">問題はもっと厄介なところにある。すべてから自由に立ち去れる世界では、何から立ち去らないかを、誰も決めてくれないということだ。</p>
+  <p class="en">Being able to leave everything and being able to stay with something are different capacities. The age has handed us a great deal of the first. The second, more and more, we have to choose for ourselves.</p>
+  <p class="ja">すべてから立ち去れることと、何かに留まれることは、別の能力である。前者は時代がかなりのところまで与えてくれた。後者は、これからますます自分で選ばなければならない。</p>
 
   <h2><span class="hnum">5</span><span class="en">The Luxury of Not Leaving</span><span class="ja">逃げないという、贅沢</span></h2>
-  <p class="en">In a world where exits went free, the scarce thing is not the exit. It is the bond you could have fled and didn't. Voice and loyalty — the labor of staying to mend, the nerve to bet on what pays off only slowly — were drilled into people, willing or not, in an age when leaving was costly. With no way out, you had to fix things; depth grew as a by-product of that unfreedom. Once exits cheapen, that depth becomes something you get only if you choose it. The expertise, the trust, the relationship that grow only by staying long in one place become, in a cheap-exit world, a luxury for those who elect it.</p>
-  <p class="ja">立ち去る代償が消えた世界で、本当に希少になるのは出口ではない。逃げられたのに、逃げなかった関係のほうだ。声と忠誠——とどまって直す手間、すぐに見返りの出ないものに賭ける覚悟——は、立ち去ることが高くついた時代には、否応なく身についた。逃げ場がなかったから、人は直すしかなかった。その不自由の副産物として、深さが育った。出口が安くなると、その深さは、自分で選び取らないかぎり手に入らないものになる。長く一つの場にとどまることでしか育たない専門、信頼、関係——それらは、安価になった世界で、選び取る者だけの贅沢財になっていく。</p>
-  <p class="en">This is a sibling of an <a href="the-stratification-called-choice">earlier thought</a>: as machines grow cheap and accurate, a person's unhurried attention turns dear. In the same way, as leaving grows cheap, not-leaving takes on worth. Both are something human that grows scarcer the cheaper the world gets. What is really at stake is close to dignity — whether someone can go on being treated, by others and by oneself, not as an instantly swappable counterpart, but as one worth staying with.</p>
-  <p class="ja">これは、<a href="the-stratification-called-choice">以前の考え</a>と姉妹のような話だ。機械が安く正確になるほど、人にじっくり向き合ってもらうことが高くつく。同じように、立ち去ることが安くなるほど、立ち去らないことが値打ちを持つ。どちらも、安くなった世界で逆に希少化する、人にまつわる何かだ。問われているのは、たぶん尊厳（<span class="em">dignity</span>）に近い。すぐ替えのきく相手としてでなく、逃げずに向き合うに値する相手として、誰かに——そして自分自身に——扱われ続けられるか。</p>
+  <p class="en">In a world where the cost of leaving has vanished, the scarce thing is not the exit. It is the bond you could have fled and didn't.</p>
+  <p class="ja">立ち去る代償が消えた世界で、本当に希少になるのは出口ではない。逃げられたのに、逃げなかった関係のほうだ。</p>
+  <p class="en">Voice and loyalty — the labor of staying to mend, the willingness to put time into what pays back only slowly — came to people readily enough, wanted or not, in an age when leaving was expensive. Stay long in one company, one place, one relationship, and knowledge that works only there accumulates, you learn the other person's habits, a history of failures is shared, and a context that needs no explaining builds up.</p>
+  <p class="ja">声と忠誠——とどまって直す手間、すぐに見返りの出ないものへ時間を投じること——は、立ち去ることが高くついた時代には、望むと望まざるとにかかわらず身につきやすかった。一つの会社、一つの地域、一つの関係に長く留まれば、その場所にしか通用しない知識が増え、相手の癖を覚え、失敗の履歴が共有され、説明しなくても通じる文脈が蓄積する。</p>
+  <p class="en">This is not to romanticize the depth as a product of having had no way out. There was no value in the constraint itself. But the arrangements that made exit difficult were also half compelling an investment in what forms only over a long time. Expertise, trust, the history of a relationship. None of that automatically survives the disappearance of the constraint.</p>
+  <p class="ja">もちろん、出られなかったから関係が深かった、と美化したいわけではない。不自由そのものに価値があったのではない。ただ、退出を難しくしていた仕組みが、長い時間をかけなければ形成されないものへの投資まで、半ば強制していたのである。専門性、信頼、関係の履歴。そうしたものまで、不自由の消滅と一緒に自動的には残らない。</p>
+  <p class="en">Once the exit is cheap, that depth becomes something you cannot have unless you choose it. Expertise, trust, relationships that grow only by staying long in one place. In a world where leaving has become cheap, they turn into a luxury for those who elect them.</p>
+  <p class="ja">出口が安くなると、その深さは、自分で選び取らないかぎり手に入らないものになる。長く一つの場に留まることでしか育たない専門、信頼、関係。それらは、立ち去ることが安価になった世界では、選び取る者だけが持てる贅沢財になっていく。</p>
+  <p class="en">This is a sibling of something written earlier, <a href="the-stratification-called-choice">"The Stratification Called Choice."</a> The cheaper and more accurate machines become, the dearer it is to have a person sit with you unhurried. In the same way, the cheaper leaving becomes, the more not leaving is worth. In both, one side of the world grows cheap, and the scarcity of something human on the other side comes into view.</p>
+  <p class="ja">これは、以前書いた<a href="the-stratification-called-choice">「選択という名の階層化」</a>と姉妹のような話でもある。機械が安く正確になるほど、人にじっくり向き合ってもらうことが高くつく。同じように、立ち去ることが安くなるほど、立ち去らないことが値打ちを持つ。どちらも、世界の一方が安くなることで、反対側にある人間的なものの希少性が露わになる。</p>
+  <p class="en">What is in question is probably close to dignity. Whether you can go on being treated, by someone else and by yourself, not as an instantly replaceable counterpart but as a particular one with a history.</p>
+  <p class="ja">問われているのは、たぶん尊厳（<span class="em">dignity</span>）に近い。すぐ替えのきく相手としてではなく、関係の履歴を持つ固有の相手として、誰かに、そして自分自身に、扱われ続けられるか。</p>
   <div class="figure">
     <svg class="en" viewBox="0 0 660 180" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
       <rect x="46" y="30" width="250" height="120" rx="3" fill="#fff" stroke="#ddd9d0" stroke-width="1"/>
@@ -313,11 +338,22 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   </div>
 
   <div class="essay-close">
-    <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">6</span><span class="en">Which Door to Shut and Keep</span><span class="ja">どの一枚を、締めておくか</span></h2>
-    <p class="en">So when you notice how easily you could walk away from something, I would like you to consider, just once, the reverse. Is this a place worth voicing and mending — or one to leave quietly? In a world of free exits, the two are easy to confuse, and we let go lightly of things that were worth keeping.</p>
-    <p class="ja">だから、何かから簡単に立ち去れると気づいたら、一度だけ、逆を考えてみたい。これは、声を上げて直す価値のある場所だろうか。それとも、黙って出ていくべきところか。立ち去る代償が消えた世界では、この二つを取り違えやすい。直す価値のあるものまで、軽く手放してしまう。</p>
-    <p class="en">I would not surrender the freedom to leave. But being able to leave anything and being able to stay with something are different capacities. The first the age handed us; the second, unless you choose it, is no longer yours by default. Not the lock that keeps others in, but the one you turn yourself — so, in a world where you can leave anywhere, anytime, which doors will you leave open, and which one, alone, will you shut, and stay behind?</p>
-    <p class="ja">立ち去れる自由は、手放したくない。けれど、すべてから立ち去れることと、何かに留まれることは、別の能力だ。前者は時代がくれた。後者は、自分で選ばないと、もう手に入らない。人を閉じ込める鍵ではなく、自分から締める一枚だ。では、あなたは——いつでもどこからでも出ていける世界で、どの扉を開けたままにし、どの一枚だけを、締めておくだろうか。</p>
+    <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">6</span><span class="en">Which Place to Stay In</span><span class="ja">どの場所に、留まるか</span></h2>
+    <p class="en">So when you notice how easily you could walk away from something, consider the reverse, just once. Is this a place worth speaking up in and mending? Or a place to leave quietly? In a world where the cost of leaving has vanished, the two are easy to confuse, and things worth mending get let go lightly.</p>
+    <p class="ja">だから、何かから簡単に立ち去れると気づいたとき、一度だけ逆を考えてみたい。これは、声を上げて直す価値のある場所だろうか。それとも、黙って出ていくべきところか。立ち去る代償が消えた世界では、この二つを取り違えやすい。直す価値のあるものまで、軽く手放してしまう。</p>
+    <p class="en">I would not give up the freedom to leave. The door can stay open. But a door being open and walking through it are not the same.</p>
+    <p class="ja">立ち去れる自由は、手放したくない。扉は開いたままでいい。しかし、扉が開いていることと、そこを通ることは同じではない。</p>
+    <p class="en">In the past, what you stayed with was decided in large part by institutions and communities. Now even that choice is being handed back to the individual. That freedom has increased also means that the reasons for staying are yours to carry.</p>
+    <p class="ja">以前なら、何に留まるかは制度や共同体がかなりの部分を決めていた。今はその選択まで個人へ返されつつある。自由が増えたということは、残る理由まで自分で引き受けなければならなくなったということでもある。</p>
+    <p class="en">Keep the option to exit, and use voice anyway. Know you can go if it breaks, and try mending it a little. Know the other can be swapped, and do not swap. That choice is not the loyalty of an age with no way out.</p>
+    <p class="ja">退出可能性を持ったまま、それでもVoiceを使う。壊れたら去れると知りながら、少し直してみる。替えられる相手だと知りながら、替えない。その選択は、逃げられなかった時代の忠誠とは違う。</p>
+    <div class="pull">
+      <span class="pull-label"><span class="en">Key</span><span class="ja">要点</span></span>
+      <span class="en">Not staying because you cannot leave. Staying although you can.</span>
+      <span class="ja">逃げられないから留まるのではない。逃げられるのに、留まる。</span>
+    </div>
+    <p class="en">The age has widened the freedom to leave. What to remain with is yours alone to choose. The door can stay open.</p>
+    <p class="ja">立ち去る自由は、時代が広げてくれた。何に留まり続けるかは、自分で選ぶしかない。扉は、開いたままでいい。</p>
 
     <div class="figure">
       <svg class="en" viewBox="0 0 660 170" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
@@ -327,9 +363,9 @@ footer a { color: var(--teal-dark); text-decoration: none; }
           <rect x="430" y="44" width="54" height="84"/><line x1="484" y1="44" x2="510" y2="34"/><line x1="484" y1="128" x2="510" y2="118"/><line x1="510" y1="34" x2="510" y2="118"/>
           <rect x="550" y="44" width="54" height="84"/><line x1="604" y1="44" x2="630" y2="34"/><line x1="604" y1="128" x2="630" y2="118"/><line x1="630" y1="34" x2="630" y2="118"/>
         </g>
-        <rect x="310" y="44" width="58" height="84" fill="#f5ead8" stroke="#b5832a" stroke-width="2"/>
+        <rect x="310" y="44" width="58" height="84" fill="#f5ead8" stroke="#b5832a" stroke-width="2"/><line x1="368" y1="44" x2="394" y2="34" stroke="#b5832a" stroke-width="2"/><line x1="368" y1="128" x2="394" y2="118" stroke="#b5832a" stroke-width="2"/><line x1="394" y1="34" x2="394" y2="118" stroke="#b5832a" stroke-width="2"/>
         <circle cx="356" cy="88" r="2.6" fill="#8a6020"/>
-        <text x="339" y="148" font-size="10.5" text-anchor="middle" fill="#8a6020">the one you shut</text>
+        <text x="339" y="148" font-size="10.5" text-anchor="middle" fill="#8a6020">the one you stay with</text>
         <text x="160" y="148" font-size="10" text-anchor="middle" fill="#999">open · free to leave</text>
         <text x="518" y="148" font-size="10" text-anchor="middle" fill="#999">open · free to leave</text>
       </svg>
@@ -340,13 +376,13 @@ footer a { color: var(--teal-dark); text-decoration: none; }
           <rect x="430" y="44" width="54" height="84"/><line x1="484" y1="44" x2="510" y2="34"/><line x1="484" y1="128" x2="510" y2="118"/><line x1="510" y1="34" x2="510" y2="118"/>
           <rect x="550" y="44" width="54" height="84"/><line x1="604" y1="44" x2="630" y2="34"/><line x1="604" y1="128" x2="630" y2="118"/><line x1="630" y1="34" x2="630" y2="118"/>
         </g>
-        <rect x="310" y="44" width="58" height="84" fill="#f5ead8" stroke="#b5832a" stroke-width="2"/>
+        <rect x="310" y="44" width="58" height="84" fill="#f5ead8" stroke="#b5832a" stroke-width="2"/><line x1="368" y1="44" x2="394" y2="34" stroke="#b5832a" stroke-width="2"/><line x1="368" y1="128" x2="394" y2="118" stroke="#b5832a" stroke-width="2"/><line x1="394" y1="34" x2="394" y2="118" stroke="#b5832a" stroke-width="2"/>
         <circle cx="356" cy="88" r="2.6" fill="#8a6020"/>
-        <text x="339" y="148" font-size="10.5" text-anchor="middle" fill="#8a6020">締めておく一枚</text>
+        <text x="339" y="148" font-size="10.5" text-anchor="middle" fill="#8a6020">留まると選んだ場所</text>
         <text x="160" y="148" font-size="10" text-anchor="middle" fill="#999">開いている · いつでも去れる</text>
         <text x="518" y="148" font-size="10" text-anchor="middle" fill="#999">開いている · いつでも去れる</text>
       </svg>
-      <div class="figcap"><span class="en">Fig. 4 — The exits stay open; mobility is keeping them so. The choice is which one you shut, and stay behind.</span><span class="ja">図4　出口はどれも開けたまま——可動性は保つ。選ぶのは、どの一枚を締めて、その奥に留まるか。</span></div>
+      <div class="figcap"><span class="en">Fig. 4 — Every door stays open; the option to exit is kept. The choice is which place you stay in.</span><span class="ja">図4　扉はどれも開いたまま——退出可能性は保つ。選ぶのは、どの場所に留まるか。</span></div>
     </div>
 
     <div class="seed-box">
@@ -356,9 +392,10 @@ footer a { color: var(--teal-dark); text-decoration: none; }
     </div>
 
     <div class="essay-note">
-      <p><span class="note-num">1.</span><span class="en">Albert O. Hirschman, <em>Exit, Voice, and Loyalty: Responses to Decline in Firms, Organizations, and States</em> (Harvard University Press, 1970). The exit/voice dichotomy; the more available the exit, the less voice is used; exit warns while voice carries the reasons; loyalty holds members in long enough to voice; the quality-conscious exit first, depriving the organization of its sharpest critics. Hirschman also grants exit its disciplining role (voting with one's feet, an echo of Adam Smith's invisible hand). Caveat: a 1970 framework that predates digital and AI; the extrapolation to falling switching costs and AI companions here is a present-day reading.</span><span class="ja">Albert O. Hirschman『Exit, Voice, and Loyalty: Responses to Decline in Firms, Organizations, and States』（Harvard University Press, 1970年）。退出（exit）と声（voice）の二分法、出口が手に入りやすいほど声は使われない、退出は警告のみ・声は理由を運ぶ、忠誠（loyalty）が声のために人を留める、質に敏感な成員ほど先に退出する、という機構。退出の規律機能（足による投票＝アダム・スミスの見えざる手）も同書が認める。留保：1970 年の枠組みでデジタル/AI を直接論じてはおらず、スイッチングコストの低下や AI コンパニオンへの外挿は本稿の現代的解釈。</span></p>
-      <p><span class="note-num">2.</span><span class="en">Robert D. Putnam, <em>Bowling Alone: The Collapse and Revival of American Community</em> (Simon &amp; Schuster, 2000) — a classic documenting the decline of U.S. social capital (clubs, associations, ties) in the late twentieth century. Cited here as the macro symptom of accumulated rational departures shrinking the places voice could mend. Caveat: the causes (television, suburbanization, generational change) are debated, with later challenges and regional nuance.</span><span class="ja">Robert D. Putnam『Bowling Alone: The Collapse and Revival of American Community』（Simon &amp; Schuster, 2000年）——20 世紀後半の米国における社会関係資本（地域・団体・つながり）の崩壊を実証した古典。本稿では「合理的な離脱の累積が、声で直せる場を減らす」マクロ症状として参照。留保：因果（テレビ・郊外化・世代等）には諸説あり、近年は反論や地域差の議論もある。</span></p>
-      <p><span class="note-num">3.</span><span class="en">Scale and engagement of AI companions: users of leading conversational-AI apps (e.g., Character.AI) average more than ninety minutes a day — exceeding time on TikTok — and AI-companion apps reached roughly 220 million cumulative downloads by mid-2025, up about 88% year-on-year (industry traffic aggregates). Such bonds are characterized as "artificial intimacy" — connection without the cost of vulnerability or rejection. Caveat: engagement and download figures are industry/traffic estimates (not peer-reviewed, and they vary across sources); the effects are mixed (short-term comfort versus drift from human ties), and the essay uses them only as an order-of-magnitude indicator of "the ultimate frictionless, always-leavable companion."</span><span class="ja">AI コンパニオンの規模と滞在時間：主要な対話型 AI（Character.AI 等）のユーザーは一日平均 90 分超（TikTok の利用時間を上回る）を費やし、コンパニオン系アプリの累計ダウンロードは 2025 年半ばで約 2.2 億・前年同期比 +88%（業界トラフィック集計）。こうした結びつきは「人工的親密性（artificial intimacy）」＝傷つき・拒絶のコストを伴わない接続、と特徴づけられる。留保：滞在時間・DL は業界/トラフィックの推計（査読データではなく、ソース間で幅がある）。効果も両義的（短期の慰めと、人間関係からの遠ざかり）で、本稿は「摩擦のない・いつでも立ち去れる関係の究極形」の桁感としてのみ用いる。</span></p>
+      <p class="note-head"><span class="en">References</span><span class="ja">参考文献</span></p>
+      <p><span class="note-num">1.</span><span class="en">Time spent with AI companions and download counts rest on industry and traffic estimates, and they vary across sources. Users of leading conversational AI (Character.AI and others) were reported, as of September 2024, to average more than ninety minutes a day, and AI companion apps are estimated to have reached roughly 220 million cumulative downloads by mid-2025, up about 88% year-on-year. The essay uses these not as a precise causal estimate but as an order-of-magnitude indication that low-friction, easily left relationships have already reached considerable scale.</span><span class="ja">AI companionの利用時間・download数は業界・traffic推計に基づき、sourceによって幅がある。主要な対話型AI（Character.AI 等）では二〇二四年九月時点で一日90分を超える平均利用時間が報告され、AI companion appsは2025年半ばまでに累計約2.2億download・前年同期比 +88% に達したとの推計がある。本稿では精密な因果推定ではなく、「低摩擦で、退出が容易な関係」がすでに相当な規模へ達していることを示す桁感として用いる。</span></p>
+      <p><span class="note-num">2.</span><span class="en">Albert O. Hirschman, <em>Exit, Voice, and Loyalty: Responses to Decline in Firms, Organizations, and States</em> (Harvard University Press, 1970). The exit/voice dichotomy; loyalty as the mechanism that delays departure and makes room for voice; the exit of quality-conscious members depriving an organization of pressure to improve. The application here to digital services and AI is a present-day extrapolation.</span><span class="ja">Albert O. Hirschman, <em>Exit, Voice, and Loyalty: Responses to Decline in Firms, Organizations, and States</em> (Harvard University Press, 1970). Exit / voiceの二分法、loyaltyが退出を遅らせvoiceの余地を作る機構、quality-consciousな成員の退出が組織から改善圧力を奪い得ることなど。本稿におけるdigital serviceやAIへの適用は現代的な外挿である。</span></p>
+      <p><span class="note-num">3.</span><span class="en">Robert D. Putnam, <em>Bowling Alone: The Collapse and Revival of American Community</em> (Simon &amp; Schuster, 2000). Cited here not as direct empirical support for Hirschman but as a similar landscape visible in another lineage, the decline of social capital. Note that Putnam himself considered and rejected an explanation by mobility — in his 1995 paper he reports that residential stability and homeownership had in fact risen since 1965 — so the mechanism of accumulated departures described in this essay is not attributed to him.</span><span class="ja">Robert D. Putnam, <em>Bowling Alone: The Collapse and Revival of American Community</em> (Simon &amp; Schuster, 2000). 本稿ではHirschmanの直接的な実証としてではなく、社会関係資本の衰退という別の系譜に見られる「似た景色」として参照する。なおPutnam自身は、移動（居住の流動化）による説明を検討したうえで退けており（1995年論文では居住の安定と持家率がむしろ1965年より上昇したと述べている）、本稿が述べる離脱の累積という機構をPutnamに帰してはいない。</span></p>
     </div>
   </div>
 </article>
