@@ -190,7 +190,7 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   <p class="ja">ここで一度、価格を分解してみたい。フレームワーク、ケース、リーディング、理論。その多くは本で読める。論文も探せる。そして今では、AIに聞けば、かなりの水準まで整理してもらえる。知識そのものへのアクセスがこれほど安くなった以上、数百万円という価格を支えているのは、知識以外の何かであるはずだ。今回、私はそれを大きく三つに分けて考えるようになった。第一は、逃げられない時間。第二は、選別された他者。そして第三は、その場に参加したことが持つ制度的な信用である。</p>
 
   <div class="pull">
-    <span class="ja">要点</span></span>
+    <span class="pull-label"><span class="en">Key point</span><span class="ja">要点</span></span>
     <span class="en">The core product, in other words, is not simply knowledge. It is <span class="em">an environment in which you are required to think seriously, for a sustained period of time, in the company of people worth thinking with</span>. The fee pays for a system that reliably produces high-quality friction.</span>
     <span class="ja">つまり、高額な授業料で買っているものの中心は、情報ではない。<span class="em">質の高い相手と、集中せざるを得ない状況の中で考えるための環境</span>である。別の言い方をすれば、授業料とは「良質な摩擦を強制的に生み出す仕組み」への対価なのだと思う。</span>
   </div>
@@ -278,11 +278,11 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   <p class="ja">ケースメソッドは、そのための仕組みとして非常によくできている。講師が一方的に知識を伝えるのではない。参加者同士の発言が授業の大きな部分を占める。準備してきた者同士が、それぞれ異なる経験や前提を持ち寄り、互いの考えに圧力をかける。業界の常識が違う。会社の規模が違う。国が違う。自分にとって当然の前提を、相手は当然だと思っていない。そこで初めて、「なぜそう考えるのか」を説明しなければならなくなる。そして時には、説明しているうちに、自分自身がその前提の弱さに気づく。これは、知識を受け取るというより、自分の考えを磨き直す作業に近い。</p>
 
   <div class="pull ja">
-    </span>
+    <span class="pull-label"><span class="ja">要点</span></span>
     <span class="ja">ただし、摩擦なら何でもよいわけではない。質の低い摩擦もある。匿名の言い争い、準備のない会議、相手を負かすことだけを目的にした議論。そこでは熱は生まれても、学びは生まれない。むしろ人を消耗させる。一方、質の高い摩擦には、いくつかの条件がある。相手が十分に準備をしていること。自分自身も時間と知性を投じていること。こちらを驚かせるほど異なる視点を持っていること。そして、意見が本気で割れたとしても、対話をやめないこと。結局のところ、決定的な変数は<span class="em">「誰と考えるか」</span>である。</span>
   </div>
   <div class="pull en">
-    </span>
+    <span class="pull-label"><span class="en">Key point</span></span>
     <span class="en">Still, friction by itself is not enough. There is plenty of bad friction in the world: anonymous arguments, meetings in which nobody has prepared, status contests disguised as intellectual disagreement. These generate heat, but very little learning — they exhaust rather than sharpen. High-quality friction has different characteristics. The other person has prepared. You have both invested something in the conversation. They see the world differently enough to surprise you. And when disagreement becomes real, neither side treats disagreement itself as a reason to leave the conversation. The decisive variable, then, is often very simple: <span class="em">who are you thinking with?</span></span>
   </div>
   <p class="en">AI already complicates this argument. A good system can challenge an argument, identify inconsistencies, generate counterarguments, and expose weaknesses in reasoning; the claim cannot simply be that machines agree while humans disagree. The difference is subtler. An AI remains a counterpart you can pause, redirect, regenerate, or dismiss at will. A human being has a position of their own — experience, status, interests, emotions, reputation, and time invested in the exchange. You cannot alter their assumptions by changing a prompt. That weight changes how carefully we think.</p>
@@ -420,8 +420,9 @@ function toggleLang() {
   b.classList.toggle('lang-ja', !ja);
   b.classList.toggle('lang-en', ja);
   document.documentElement.lang = ja ? 'en' : 'ja';
+  try { localStorage.setItem('sy-lang', document.body.classList.contains('lang-ja') ? 'ja' : 'en'); } catch (e) {}
 }
-if ((navigator.language || '').startsWith('ja')) toggleLang();
+try { if (localStorage.getItem('sy-lang') === 'en' && document.body.classList.contains('lang-ja')) toggleLang(); } catch (e) {}
 </script>
 </body>
 </html>

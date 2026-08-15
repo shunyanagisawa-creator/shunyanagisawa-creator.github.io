@@ -407,8 +407,9 @@ function toggleLang() {
   b.classList.toggle('lang-ja', !ja);
   b.classList.toggle('lang-en', ja);
   document.documentElement.lang = ja ? 'en' : 'ja';
+  try { localStorage.setItem('sy-lang', document.body.classList.contains('lang-ja') ? 'ja' : 'en'); } catch (e) {}
 }
-if ((navigator.language || '').startsWith('ja')) toggleLang();
+try { if (localStorage.getItem('sy-lang') === 'en' && document.body.classList.contains('lang-ja')) toggleLang(); } catch (e) {}
 </script>
 </body>
 </html>

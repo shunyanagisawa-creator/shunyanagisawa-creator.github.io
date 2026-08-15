@@ -331,7 +331,9 @@ function toggleLang() {
   b.classList.toggle('lang-en', ja);
   document.documentElement.lang = ja ? 'en' : 'ja';
   document.title = ja ? TITLE_EN : TITLE_JA;
+  try { localStorage.setItem('sy-lang', document.body.classList.contains('lang-ja') ? 'ja' : 'en'); } catch (e) {}
 }
+try { if (localStorage.getItem('sy-lang') === 'en' && document.body.classList.contains('lang-ja')) toggleLang(); } catch (e) {}
 </script>
 </body>
 </html>

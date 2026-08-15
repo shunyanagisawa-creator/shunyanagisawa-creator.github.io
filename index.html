@@ -1170,6 +1170,7 @@ function toggleLang() {
     document.documentElement.lang = 'en';
     btn.textContent = '日本語';
   }
+  try { localStorage.setItem('sy-lang', document.body.classList.contains('lang-ja') ? 'ja' : 'en'); } catch (e) {}
 }
 
 // ── MOBILE MENU ──
@@ -1244,6 +1245,7 @@ function toggleExcerpt(btn) {
   if (enSpan) enSpan.textContent = isOpen ? '▸ Read Excerpt' : '▾ Close Excerpt';
   if (jaSpan) jaSpan.textContent = isOpen ? '▸ 本文抜粋を読む' : '▾ 閉じる';
 }
+try { if (localStorage.getItem('sy-lang') === 'en' && document.body.classList.contains('lang-ja')) toggleLang(); } catch (e) {}
 </script>
 </body>
 </html>

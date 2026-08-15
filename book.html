@@ -480,6 +480,7 @@ function toggleLang() {
     document.getElementById('zoomAutoOpt').textContent = ZOOM_AUTO_LABEL[currentLang];
   }
   loadPDF(currentLang);
+  try { localStorage.setItem('sy-lang', document.body.classList.contains('lang-ja') ? 'ja' : 'en'); } catch (e) {}
 }
 
 // ── INIT ──────────────────────────────────────────────
@@ -659,6 +660,7 @@ stage.addEventListener('touchend', e => {
 
 // ── HELPERS ───────────────────────────────────────────
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+try { if (localStorage.getItem('sy-lang') === 'en' && document.body.classList.contains('lang-ja')) toggleLang(); } catch (e) {}
 </script>
 </body>
 </html>
