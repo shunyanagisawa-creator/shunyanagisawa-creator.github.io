@@ -253,7 +253,7 @@ html.has-backbar .term { scroll-margin-top: 236px; }
   <p class="column-sub">CB — Clearing Broker</p>
   <div class="column-meta">
     <span><span class="ja">出所 初版</span><span class="en">Origin: First edition</span></span>
-    <span><span class="ja">更新 2026年8月6日</span><span class="en">Updated 2026-08-06</span></span>
+    <span><span class="ja">更新 2026年8月18日</span><span class="en">Updated 2026-08-18</span></span>
   </div>
 
   <div class="term-body">
@@ -262,7 +262,7 @@ html.has-backbar .term { scroll-margin-top: 236px; }
   </div>
   <div class="term-more">
     <span class="more-label">補説</span>
-      <p>顧客と清算機関のあいだに立ち、顧客の取引を清算機関に持ち込む金融機関です。日中の値動きで顧客に証拠金の追加が必要になったとき、清算機関への払い込みは待ってくれません。ブローカーはいったん自己資金で立て替え、あとから顧客に回収します。この立て替えが与信であり、ダイレクト・クリアリングが取り除こうとしているのはこの部分です。書籍では中黒なしの「クリアリングブローカー」と表記していますが、小ネタの本文では中黒ありに統一しています。</p>
+      <p>顧客と清算機関のあいだに立ち、顧客の取引を清算機関に持ち込む金融機関です。日中の値動きで顧客に証拠金の追加が必要になったとき、清算機関への払い込みは待ってくれません。ブローカーはいったん自己資金で立て替え、あとから顧客に回収します。この立て替えが与信であり、ダイレクト・クリアリングが取り除こうとしているのはこの部分です。同じ一つの取引でも、顧客には相場の変動に見えるものが、このブローカーには顧客が払えるかどうかという信用の問題として現れます。担うものはそこで一つに収まらず、清算機関への接続や証拠金の預託、参加者が共同で備える資金への拠出にまで及びます。つなぐことよりも、商品をまたぐ持ち高をまとめて資金効率を上げることへ、重心は移ってきています。書籍では中黒なしの「クリアリングブローカー」と表記していますが、小ネタの本文では中黒ありに統一しています。</p>
   </div>
   <dl class="term-fields">
     <dt>正式名称</dt><dd>Clearing Broker</dd>
@@ -317,9 +317,7 @@ function toggleLang() {
   if (q && typeof Q_PLACEHOLDER_JA !== 'undefined') {
     q.placeholder = ja ? Q_PLACEHOLDER_EN : Q_PLACEHOLDER_JA;
   }
-  try { localStorage.setItem('sy-lang', document.body.classList.contains('lang-ja') ? 'ja' : 'en'); } catch (e) {}
 }
-try { if (localStorage.getItem('sy-lang') === 'en' && document.body.classList.contains('lang-ja')) toggleLang(); } catch (e) {}
 </script>
 </body>
 </html>

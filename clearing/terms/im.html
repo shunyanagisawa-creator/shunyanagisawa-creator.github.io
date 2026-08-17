@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Default Waterfall（デフォルト・ウォーターフォール） — クリアリング用語集</title>
-<meta name="description" content="Default Waterfall（デフォルト・ウォーターフォール）— CCPが清算参加者のデフォルトに直面した際に、どの資本・リソースから順に損失を吸収していくかを定めた階層構造。典型的には「デフォルト会員のIM → デフォルト会員負担DF → CCP自己資本（SIG） → その他会員負担">
-<meta property="og:title" content="Default Waterfall（デフォルト・ウォーターフォール） — クリアリング用語集">
-<meta property="og:description" content="Default Waterfall（デフォルト・ウォーターフォール）— CCPが清算参加者のデフォルトに直面した際に、どの資本・リソースから順に損失を吸収していくかを定めた階層構造。典型的には「デフォルト会員のIM → デフォルト会員負担DF → CCP自己資本（SIG） → その他会員負担">
+<title>IM（当初証拠金） — クリアリング用語集</title>
+<meta name="description" content="IM（当初証拠金）— 新規ポジションの建てや維持に際して差し入れる「将来の潜在的損失」に備える証拠金。MPOR（リスク期間）内に想定される最大損失を、統計モデル（SPAN®、VaR、ES、SIMMなど）に基づき一定の信頼水準でカバーするよう算">
+<meta property="og:title" content="IM（当初証拠金） — クリアリング用語集">
+<meta property="og:description" content="IM（当初証拠金）— 新規ポジションの建てや維持に際して差し入れる「将来の潜在的損失」に備える証拠金。MPOR（リスク期間）内に想定される最大損失を、統計モデル（SPAN®、VaR、ES、SIMMなど）に基づき一定の信頼水準でカバーするよう算">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:site_name" content="Shun Yanagisawa">
-<link rel="canonical" href="https://www.shun-yanagisawa.com/clearing/terms/default-waterfall">
-<meta property="og:url" content="https://www.shun-yanagisawa.com/clearing/terms/default-waterfall">
+<link rel="canonical" href="https://www.shun-yanagisawa.com/clearing/terms/im">
+<meta property="og:url" content="https://www.shun-yanagisawa.com/clearing/terms/im">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
@@ -231,7 +231,7 @@ html.has-backbar .term { scroll-margin-top: 236px; }
 /* サイト全体のコンプライアンス開示（記事ページと同一。テンプレート側の共有スタイルには無いのでここに持つ） */
 .disclaimer { max-width: 900px; margin: 0 auto 1.2rem; padding: 0 1.6rem; font-size: .66rem; color: var(--text-sub); line-height: 1.8; text-align: center; }
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","termCode":"Default Waterfall","name":"デフォルト・ウォーターフォール","description":[{"@language":"ja","@value":"CCPが清算参加者のデフォルトに直面した際に、どの資本・リソースから順に損失を吸収していくかを定めた階層構造。典型的には「デフォルト会員のIM → デフォルト会員負担DF → CCP自己資本（SIG） → その他会員負担DF → 追加コール（アセスメント） → 回復・解消措置」の順で構成される。"},{"@language":"en","@value":"The layered structure that determines the order in which capital and resources absorb losses when a CCP faces a clearing participant’s default. It typically runs: the defaulter’s IM → the defaulter’s DF contribution → the CCP’s own capital (SIG) → other members’ DF contributions → additional calls (assessments) → recovery and wind-down measures."}],"url":"https://www.shun-yanagisawa.com/clearing/terms/default-waterfall","inDefinedTermSet":{"@type":"DefinedTermSet","name":"クリアリング用語集","url":"https://www.shun-yanagisawa.com/clearing/terms"},"alternateName":["Default Waterfall","ウォーターフォール"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","termCode":"IM","name":"当初証拠金","description":[{"@language":"ja","@value":"新規ポジションの建てや維持に際して差し入れる「将来の潜在的損失」に備える証拠金。MPOR（リスク期間）内に想定される最大損失を、統計モデル（SPAN®、VaR、ES、SIMMなど）に基づき一定の信頼水準でカバーするよう算出される。通常、デリバティブ取引では取引の両サイドがIMを差し入れる。"},{"@language":"en","@value":"Margin posted when opening or maintaining a new position to cover potential future losses. It is calculated, using statistical models (SPAN®, VaR, ES, SIMM, and others), to cover the maximum loss expected over the MPOR (margin period of risk) at a given confidence level. In derivatives transactions, both sides of a trade typically post IM."}],"url":"https://www.shun-yanagisawa.com/clearing/terms/im","inDefinedTermSet":{"@type":"DefinedTermSet","name":"クリアリング用語集","url":"https://www.shun-yanagisawa.com/clearing/terms"},"alternateName":["Initial Margin","イニシャル・マージン"]}</script>
 </head>
 <body class="lang-ja">
 
@@ -246,36 +246,36 @@ html.has-backbar .term { scroll-margin-top: 236px; }
 
 <article class="column term-page">
   <div class="column-kicker">
-    <span class="ja">クリアリング用語集 <span class="bookmark">／ Default Waterfall</span></span>
-    <span class="en">Clearing Glossary <span class="bookmark">／ Default Waterfall</span></span>
+    <span class="ja">クリアリング用語集 <span class="bookmark">／ IM</span></span>
+    <span class="en">Clearing Glossary <span class="bookmark">／ IM</span></span>
   </div>
-  <h1>デフォルト・ウォーターフォール</h1>
-  <p class="column-sub">Default Waterfall — Default Waterfall</p>
+  <h1>当初証拠金</h1>
+  <p class="column-sub">IM — Initial Margin</p>
   <div class="column-meta">
     <span><span class="ja">出所 初版</span><span class="en">Origin: First edition</span></span>
     <span><span class="ja">更新 2026年8月18日</span><span class="en">Updated 2026-08-18</span></span>
   </div>
 
   <div class="term-body">
-    <p>CCPが清算参加者のデフォルトに直面した際に、どの資本・リソースから順に損失を吸収していくかを定めた階層構造。典型的には「デフォルト会員のIM → デフォルト会員負担DF → CCP自己資本（SIG） → その他会員負担DF → 追加コール（アセスメント） → 回復・解消措置」の順で構成される。</p>
-    <p class="term-def-en" lang="en">The layered structure that determines the order in which capital and resources absorb losses when a CCP faces a clearing participant’s default. It typically runs: the defaulter’s IM → the defaulter’s DF contribution → the CCP’s own capital (SIG) → other members’ DF contributions → additional calls (assessments) → recovery and wind-down measures.</p>
+    <p>新規ポジションの建てや維持に際して差し入れる「将来の潜在的損失」に備える証拠金。MPOR（リスク期間）内に想定される最大損失を、統計モデル（SPAN®、VaR、ES、SIMMなど）に基づき一定の信頼水準でカバーするよう算出される。通常、デリバティブ取引では取引の両サイドがIMを差し入れる。</p>
+    <p class="term-def-en" lang="en">Margin posted when opening or maintaining a new position to cover potential future losses. It is calculated, using statistical models (SPAN®, VaR, ES, SIMM, and others), to cover the maximum loss expected over the MPOR (margin period of risk) at a given confidence level. In derivatives transactions, both sides of a trade typically post IM.</p>
   </div>
   <div class="term-more">
     <span class="more-label">補説</span>
-      <p>参加者がデフォルトしたとき、どの資金から順に損失を埋めるかを定めた階層です。デフォルトした参加者自身の当初証拠金と拠出金がまず使われ、次に清算機関の自己拠出金、その次に他の参加者が拠出した清算基金へと及びます。相互化とは、この「他の参加者の拠出に及ぶ」部分を指します。なお、他の参加者に及ぶ層とその後の追加コールには上限が置かれます。負担額が読めないままでは、損失を被った参加者がさらに破綻する連鎖を招きかねないためです。規則に書けるのは資金の順番までで、有事にポジションをヘッジし、入札を束ね、市場へ戻す作業は、清算機関と参加者が取り交わす実務手順とデータ連携に委ねられます。全額担保型の清算機関では最初の層だけで完結する設計になり、後段の層はほとんど働きません。</p>
+      <p>当初証拠金は、所定の掛け目や係数を当てはめれば機械的に出てくる数字と受け止められがちです。しかしその背後には、「このポジションを市場で処分するのに何日かかるか」という見立てが置かれています。標準化され流動性のある先物は取引所での反対売買で比較的速やかに解消できる一方、想定元本や固定金利、利払日が取引ごとに異なる店頭デリバティブは、値付けにも引き受け手を探すのにも時間を要します。上場か店頭か、中央清算の内か外かによって、想定期間には最大10倍の開きが生じます。モデルは、こうして決められた期間のリスクを数値化する道具です。日数はモデル計算に先立つ前提として設定されるため、IMの水準は単なる客観的な測定値ではなく、清算機関の見立ての「宣言」でもあります。前提やパラメータが変われば所要額も動き、参加者の担保需要を直接左右します。</p>
   </div>
   <dl class="term-fields">
-    <dt>正式名称</dt><dd>Default Waterfall</dd>
-    <dt>別表記</dt><dd>ウォーターフォール</dd>
-    <dt>分類</dt><dd>リスク管理・破綻処理</dd>
-    <dt>関連語</dt><dd><a href="/clearing/terms#df">DF</a>、<a href="/clearing/terms#sig-sitg">SIG/SITG</a>、<a href="/clearing/terms#assessment">Assessment</a>、<a href="/clearing/terms#cover-n">Cover-n</a>、<a href="/clearing/terms#cover-1">Cover-1</a></dd>
-    <dt>この語を扱った稿</dt><dd><a href="/clearing/direct-clearing-credit-boundary">ダイレクト・クリアリングの制度化：与信の有無で何が変わり、何が残るのか</a></dd>
+    <dt>正式名称</dt><dd>Initial Margin</dd>
+    <dt>別表記</dt><dd>イニシャル・マージン</dd>
+    <dt>分類</dt><dd>証拠金</dd>
+    <dt>関連語</dt><dd><a href="/clearing/terms#vm">VM</a>、<a href="/clearing/terms#mpor">MPOR</a>、<a href="/clearing/terms#span">SPAN®</a>、<a href="/clearing/terms#simm">SIMM</a>、<a href="/clearing/terms#position">Position</a>、<a href="/clearing/terms#margin-maintenance-ratio">Margin Maintenance Ratio</a>、<a href="/clearing/terms#procyclicality">Procyclicality</a></dd>
+    <dt>この語を扱った稿</dt><dd><a href="/clearing/intraday-margin-credit">クリアリング・ブローカーは何をファイナンスしているのか：日中マージン・コールと「時間差の信用」</a>、<a href="/clearing/japan-otc-margin">日本の店頭FXは、リテール直接清算の先例になるのか――ロスカット運用と損失負担の違い</a>、<a href="/clearing/margin-simulator-transparency">証拠金はどこまで予測できるのか――国際指針が求めるシミュレーターと透明性</a></dd>
   </dl>
 
   <div class="colophon">
     <p>
-      <span class="ja">この語は<a href="/clearing/terms#default-waterfall">クリアリング用語集</a>の一項目です。柳沢 俊『デリバティブ・クリアリングのすべて』（<a href="https://manus-press.com/codex-1" rel="noopener">M∀NUS PRESS</a>）初版の巻末用語集にある語です。</span>
-      <span class="en">This term is an entry in the <a href="/clearing/terms#default-waterfall">Clearing Glossary</a>. It appears in the glossary at the back of the first edition of Shun Yanagisawa's book (<a href="https://manus-press.com/codex-1" rel="noopener">M∀NUS PRESS</a>).</span>
+      <span class="ja">この語は<a href="/clearing/terms#im">クリアリング用語集</a>の一項目です。柳沢 俊『デリバティブ・クリアリングのすべて』（<a href="https://manus-press.com/codex-1" rel="noopener">M∀NUS PRESS</a>）初版の巻末用語集にある語です。</span>
+      <span class="en">This term is an entry in the <a href="/clearing/terms#im">Clearing Glossary</a>. It appears in the glossary at the back of the first edition of Shun Yanagisawa's book (<a href="https://manus-press.com/codex-1" rel="noopener">M∀NUS PRESS</a>).</span>
     </p>
     <p><span class="ja">英語の説明は<a href="https://manus-press.com/codex-1-en" rel="noopener">同書の英語版</a>の巻末用語集から採りました。</span><span class="en">The English definition is drawn from the glossary at the back of the <a href="https://manus-press.com/codex-1-en" rel="noopener">English edition</a>.</span></p>
     <p><span class="ja"><a href="/clearing/terms">用語集へ戻る</a>　／　<a href="/clearing/">クリアリング・章立てへ</a></span><span class="en"><a href="/clearing/terms">Back to glossary</a>　／　<a href="/clearing/">Clearing Index</a></span></p>
@@ -289,8 +289,8 @@ html.has-backbar .term { scroll-margin-top: 236px; }
   <a href="/">shun-yanagisawa.com</a>
 </footer>
 <script>
-const TITLE_JA = "Default Waterfall（デフォルト・ウォーターフォール） — クリアリング用語集";
-const TITLE_EN = "Default Waterfall — Clearing Glossary";
+const TITLE_JA = "IM（当初証拠金） — クリアリング用語集";
+const TITLE_EN = "IM — Clearing Glossary";
 </script>
 <script>
 (function () {

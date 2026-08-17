@@ -253,7 +253,7 @@ html.has-backbar .term { scroll-margin-top: 236px; }
   <p class="column-sub">SIG/SITG — Skin-In-The-Game</p>
   <div class="column-meta">
     <span><span class="ja">出所 初版</span><span class="en">Origin: First edition</span></span>
-    <span><span class="ja">更新 2026年8月6日</span><span class="en">Updated 2026-08-06</span></span>
+    <span><span class="ja">更新 2026年8月18日</span><span class="en">Updated 2026-08-18</span></span>
   </div>
 
   <div class="term-body">
@@ -262,7 +262,7 @@ html.has-backbar .term { scroll-margin-top: 236px; }
   </div>
   <div class="term-more">
     <span class="more-label">補説</span>
-      <p>清算機関が自らの資金をデフォルト・ウォーターフォールに差し出す部分です。参加者の拠出より先に、あるいは参加者拠出の途中に置かれ、清算機関が自分の損失としてリスクを負うことでリスク管理の誘因を揃える仕組みとされます。全額担保型の清算機関では、そもそも参加者の相互化された拠出が薄いため、この層の意味も変わってきます。</p>
+      <p>清算機関が自らの資金をデフォルト・ウォーターフォールに差し出す部分です。参加者の拠出より先に、あるいは参加者拠出の途中に置かれ、清算機関が自分の損失としてリスクを負うことでリスク管理の誘因を揃える仕組みとされます。この層の効き目は、金額の大きさよりも置かれる順番にあります。総額に比べれば小さく見える額であっても、他の参加者の拠出より前に置かれている限り、平時の証拠金水準とリスク管理を緩めさせないガバナンス上の歯止めとして働きます。相互化の層まで達した実際の破綻処理でも、この自己資本が先に費消されたうえで、残る損失を非破綻参加者の清算基金が吸収しました。全額担保型の清算機関では、そもそも参加者の相互化された拠出が薄いため、この層の意味も変わってきます。</p>
   </div>
   <dl class="term-fields">
     <dt>正式名称</dt><dd>Skin-In-The-Game</dd>
@@ -317,9 +317,7 @@ function toggleLang() {
   if (q && typeof Q_PLACEHOLDER_JA !== 'undefined') {
     q.placeholder = ja ? Q_PLACEHOLDER_EN : Q_PLACEHOLDER_JA;
   }
-  try { localStorage.setItem('sy-lang', document.body.classList.contains('lang-ja') ? 'ja' : 'en'); } catch (e) {}
 }
-try { if (localStorage.getItem('sy-lang') === 'en' && document.body.classList.contains('lang-ja')) toggleLang(); } catch (e) {}
 </script>
 </body>
 </html>
