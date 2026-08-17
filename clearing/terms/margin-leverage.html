@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Margin Leverage（マージン・レバレッジ） — クリアリング用語集</title>
+<meta name="description" content="Margin Leverage（マージン・レバレッジ）— 想定元本額を当初証拠金で除した比率で、証拠金の水準が実質的にどれだけの倍率のポジションを許容しているかを表す。証拠金として差し入れた分を除いた残りは実質的な借り入れとみなせるため、証拠金の水準が上がれば許容される倍率は下">
+<meta property="og:title" content="Margin Leverage（マージン・レバレッジ） — クリアリング用語集">
+<meta property="og:description" content="Margin Leverage（マージン・レバレッジ）— 想定元本額を当初証拠金で除した比率で、証拠金の水準が実質的にどれだけの倍率のポジションを許容しているかを表す。証拠金として差し入れた分を除いた残りは実質的な借り入れとみなせるため、証拠金の水準が上がれば許容される倍率は下">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="Shun Yanagisawa">
+<link rel="canonical" href="https://www.shun-yanagisawa.com/clearing/terms/margin-leverage">
+<meta property="og:url" content="https://www.shun-yanagisawa.com/clearing/terms/margin-leverage">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* /clearing — クリアリングの体系（第2版に向けた断片）
+   essays と同じブランド palette を使うが、以下を変える:
+   - 器（章立て・記事の題とリード・用語集の器）は日英併記、本文は日本語のまま（2026-08-05 裁定）
+   - 二次テキストは #3d4148 以深（薄いグレーは使わない）
+   - 強調は太字を使わない。番号見出し / 罫線囲み / 傍点 / 表で立てる */
+:root {
+  --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
+  --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f7efe0;
+  --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
+  --text: #14161b; --text-mid: #24272e; --text-sub: #3d4148; --border: #d3cec3;
+  --font-display: 'Playfair Display', 'Noto Sans JP', Georgia, sans-serif;
+  --font-jp: 'Noto Sans JP', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--white); color: var(--text); font-family: var(--font-jp); font-size: 17px; line-height: 1.95; }
+body.lang-ja .en { display: none; }
+body.lang-en .ja { display: none; }
+
+nav {
+  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+.nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1rem; }
+.nav-back { font-family: var(--font-jp); font-size: .82rem; letter-spacing: .04em; color: var(--text-sub); text-decoration: none; }
+.nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .06em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .3rem .75rem; cursor: pointer; color: var(--text-sub);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
+
+.column { max-width: 720px; margin: 0 auto; padding: 3.4rem 1.6rem 5rem; }
+
+/* 帰属 — 初版のどこの続きか */
+.column-kicker {
+  font-family: var(--font-jp); font-size: .78rem; letter-spacing: .1em; color: var(--teal-dark);
+  padding-bottom: .5rem; margin-bottom: 1.1rem; border-bottom: 1px solid var(--border);
+}
+.column-kicker .bookmark { color: var(--text-sub); }
+h1 { font-family: var(--font-jp); font-size: clamp(1.5rem, 3.6vw, 2.1rem); font-weight: 600; line-height: 1.5; color: var(--navy); margin-bottom: .9rem; }
+.column-sub { font-size: 1rem; color: var(--text-sub); margin-bottom: 1.4rem; line-height: 1.85; }
+.column-meta {
+  display: flex; flex-wrap: wrap; gap: .35rem 1.5rem;
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .06em; color: var(--text-sub);
+  padding-bottom: 1.5rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.3rem;
+}
+
+.column h2 {
+  font-family: var(--font-jp); font-size: 1.16rem; font-weight: 600; color: var(--navy); line-height: 1.6;
+  margin: 3rem 0 1rem; padding: .35rem 0 .5rem .9rem;
+  border-left: 3px solid var(--navy); border-bottom: 1px solid var(--border);
+}
+.column h2 .hnum { font-family: var(--font-mono); font-size: .82rem; font-weight: 400; color: var(--teal-dark); margin-right: .75rem; letter-spacing: .05em; }
+
+.column p { margin: 1.15rem 0; color: var(--text-mid); text-align: justify; letter-spacing: .015em; }
+.column a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.45); }
+.column a:hover { border-bottom-color: var(--teal-dark); }
+.column ul, .column ol { margin: 1.15rem 0 1.15rem 1.6rem; color: var(--text-mid); }
+.column li { margin: .45rem 0; }
+
+/* 傍点（短い日本語の語句のみ・目安10字以内。英語フレーズには使わない） */
+.em { -webkit-text-emphasis: filled dot var(--navy); text-emphasis: filled dot var(--navy); font-style: normal; }
+/* 英語の原語・書名 */
+.column em { font-style: italic; }
+.column cite { font-style: normal; }
+
+/* 罫線囲み＋小ラベル（当局原文の引用・要点の囲みに使う） */
+.box {
+  border: 1px solid var(--gold); border-left: 4px solid var(--gold); background: var(--gold-light);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0; border-radius: 2px;
+  font-size: .98rem; color: var(--navy); line-height: 1.9; position: relative; text-align: justify;
+}
+.box .box-label {
+  position: absolute; top: -.72rem; left: 1rem; background: var(--white);
+  font-family: var(--font-mono); font-size: .64rem; letter-spacing: .18em;
+  color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase;
+}
+.box p:first-of-type { margin-top: .2rem; }
+.box p:last-of-type { margin-bottom: 0; }
+.box .src { display: block; margin-top: .7rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .05em; color: var(--gold-dark); }
+
+/* 表（台帳ふう・細罫） */
+.ledger-wrap { overflow-x: auto; margin: 2rem 0; }
+table.ledger { width: 100%; border-collapse: collapse; font-size: .9rem; line-height: 1.7; }
+table.ledger caption {
+  caption-side: top; text-align: left; font-family: var(--font-mono); font-size: .66rem;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--gold-dark); padding-bottom: .55rem;
+}
+table.ledger th, table.ledger td { border: 1px solid var(--border); padding: .6rem .8rem; text-align: left; vertical-align: top; color: var(--text-mid); }
+table.ledger th { background: var(--off-white); color: var(--navy); font-weight: 600; }
+
+/* 線画図版 */
+.figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 2rem 0; background: var(--white); }
+.figure svg { width: 100%; height: auto; display: block; }
+.figcap { margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--border); font-size: .8rem; letter-spacing: .04em; color: var(--text-sub); text-align: center; }
+
+/* 出典 */
+.column-note { margin-top: 3rem; padding-top: 1.3rem; border-top: 1px solid var(--border); font-size: .84rem; line-height: 1.85; color: var(--text-sub); }
+.column-note .note-label { display: block; font-family: var(--font-mono); font-size: .64rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .8rem; }
+.column-note ul { margin: 0; padding-left: 1.4rem; list-style: none; }
+.column-note li { margin: .55rem 0; text-indent: -1.4rem; padding-left: 1.4rem; }
+.column-note li.group { list-style: none; text-indent: 0; padding-left: 0; margin: 1.3rem 0 .45rem; font-size: .8rem; letter-spacing: .1em; color: var(--gold-dark); border-bottom: 1px solid var(--border); padding-bottom: .28rem; }
+.column-note li.group:first-child { margin-top: 0; }
+.column-note a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.35); word-break: break-all; }
+
+/* 奥付 — 初出と権利、書籍と章立てへの導線 */
+.colophon { margin-top: 2.6rem; padding-top: 1.5rem; border-top: 2px solid var(--gold); font-size: .88rem; line-height: 1.9; color: var(--text-sub); }
+.colophon p { margin: .5rem 0; }
+.colophon .rights { font-family: var(--font-mono); font-size: .74rem; letter-spacing: .06em; color: var(--text-sub); }
+.colophon a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.45); }
+
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .06em; color: var(--text-sub); text-align: center; line-height: 2.1; }
+footer a { color: var(--teal-dark); text-decoration: none; }
+@media (max-width: 560px) {
+  nav { padding: 0 1.1rem; }
+  .column { padding: 2.4rem 1.2rem 4rem; }
+  .column p { text-align: left; }
+}
+</style>
+<style>
+/* 用語集ページ専用。記事テンプレートには入れない */
+.terms-wide { max-width: 860px; }
+.terms-howto { font-size: .92rem; }
+
+/* 戻り動線 — 記事から来たときだけ JS が html.has-backbar を立てる */
+.backbar { display: none; }
+html.has-backbar .backbar {
+  display: block; position: sticky; top: 60px; z-index: 70; height: 40px;
+  background: var(--teal-light); border-bottom: 1px solid var(--teal-dark);
+}
+.backbar button {
+  display: block; height: 40px; margin: 0 auto; padding: 0 1rem; max-width: 860px; width: 100%;
+  background: none; border: 0; cursor: pointer; text-align: left;
+  font-family: var(--font-jp); font-size: .82rem; letter-spacing: .04em; color: var(--teal-dark);
+}
+.backbar button:hover { color: var(--navy); }
+
+.terms-tools { position: sticky; top: 60px; z-index: 50; background: rgba(255,255,255,.97);
+  border-bottom: 1px solid var(--border); padding: .9rem 0 .8rem; margin-bottom: 1.6rem; }
+html.has-backbar .terms-tools { top: 100px; }
+.terms-filter { width: 100%; font-family: var(--font-jp); font-size: .95rem; color: var(--text);
+  border: 1px solid var(--border); border-radius: 2px; padding: .6rem .8rem; background: var(--white); }
+.terms-filter:focus { outline: none; border-color: var(--teal-dark); }
+.terms-cats { display: flex; flex-wrap: wrap; gap: .35rem .4rem; margin-top: .7rem; }
+.terms-cats button {
+  font-family: var(--font-jp); font-size: .78rem; letter-spacing: .03em; cursor: pointer;
+  color: var(--text-sub); background: var(--white); border: 1px solid var(--border);
+  border-radius: 2px; padding: .18rem .6rem; }
+.terms-cats button:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
+.terms-cats button[aria-pressed="true"] {
+  color: var(--white); background: var(--teal-dark); border-color: var(--teal-dark); }
+.terms-nav { display: flex; flex-wrap: wrap; gap: .3rem .5rem; margin-top: .7rem;
+  font-family: var(--font-mono); font-size: .72rem; letter-spacing: .04em; }
+.terms-nav a { color: var(--teal-dark); text-decoration: none; border: 1px solid var(--border);
+  border-radius: 2px; padding: .1rem .4rem; }
+.terms-nav a:hover { border-color: var(--teal-dark); background: var(--teal-light); }
+.terms-count { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .06em;
+  color: var(--text-sub); margin-top: .55rem; }
+.terms-empty { display: none; color: var(--text-sub); font-size: .92rem; margin: 2rem 0; }
+.terms-empty.is-on { display: block; }
+
+.letter { font-family: var(--font-mono); font-size: .8rem; letter-spacing: .18em; color: var(--gold-dark);
+  border-bottom: 1px solid var(--border); padding-bottom: .3rem; margin: 2.6rem 0 1.1rem; }
+/* scroll-margin は nav 60px ＋ sticky な絞り込み帯の実測高 */
+.term { padding: 1.05rem 0; border-bottom: 1px solid var(--border); scroll-margin-top: 196px; }
+html.has-backbar .term { scroll-margin-top: 236px; }
+.letter { scroll-margin-top: 150px; }
+.term-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem .8rem; }
+.term-key { font-family: var(--font-mono); font-size: 1rem; font-weight: 400; color: var(--navy); letter-spacing: .03em; }
+.term-en { font-size: .82rem; color: var(--text-sub); font-style: italic; }
+.term-mark { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .14em; color: var(--gold-dark);
+  border: 1px solid var(--gold); border-radius: 2px; padding: .02rem .32rem; }
+.term-cat { font-family: var(--font-jp); font-size: .68rem; letter-spacing: .08em; color: var(--teal-dark);
+  border: 1px solid var(--teal-dark); border-radius: 2px; padding: .02rem .4rem; }
+.term-ja { font-size: 1rem; color: var(--navy); margin-top: .25rem; }
+.term-alt { color: var(--text-sub); font-size: .88rem; }
+.term-def { margin: .5rem 0 0; font-size: .95rem; color: var(--text-mid); text-align: justify; }
+.term-def-en { position: relative; margin: .7rem 0 0; padding-left: .9rem; font-size: .88rem;
+  line-height: 1.55; color: var(--navy); font-style: italic; text-align: justify;
+  border-left: 2px solid var(--teal-dark); }
+.term-def-en::before { content: "EN"; position: absolute; left: -.05rem; top: -1.05rem;
+  font-family: var(--font-mono); font-style: normal; font-size: .6rem; letter-spacing: .14em;
+  color: var(--teal-dark); padding-left: .95rem; }
+.term-links { margin: .5rem 0 0; font-size: .82rem; color: var(--text-sub); }
+.term-links a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.45); }
+.term-links .sep { color: var(--text-sub); margin: 0 .55rem; }
+.term.is-hidden, .letter.is-hidden { display: none; }
+@media (max-width: 560px) {
+  .terms-tools, html.has-backbar .terms-tools { position: static; }
+  .term-def { text-align: left; }
+}
+
+/* 個別ページ */
+.term-page .column-meta span { white-space: nowrap; }
+.term-page .term-body { margin-top: .4rem; }
+.term-page .term-body p { margin: 1.1rem 0; }
+.term-page .term-body p.term-def-en { margin-top: .9rem; }
+.term-page .term-fields { margin: 1.6rem 0 0; }
+.term-page .term-fields dt { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .16em;
+  color: var(--gold-dark); margin-top: 1.1rem; }
+.term-page .term-fields dd { margin: .2rem 0 0; color: var(--text-mid); font-size: .93rem; }
+.term-page .term-fields a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.45); }
+.term-page .term-more { margin: 1.9rem 0 0; padding: 1.1rem 0 .2rem 1.1rem;
+  border-top: 1px solid var(--border); border-left: 3px solid var(--teal); }
+.term-page .term-more .more-label { display: block; font-family: var(--font-mono); font-size: .64rem;
+  letter-spacing: .2em; color: var(--gold-dark); margin-bottom: .2rem; }
+.term-page .term-more p { margin: .55rem 0 0; color: var(--text-mid); text-align: justify; }
+
+/* サイト全体のコンプライアンス開示（記事ページと同一。テンプレート側の共有スタイルには無いのでここに持つ） */
+.disclaimer { max-width: 900px; margin: 0 auto 1.2rem; padding: 0 1.6rem; font-size: .66rem; color: var(--text-sub); line-height: 1.8; text-align: center; }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTerm","termCode":"Margin Leverage","name":"マージン・レバレッジ","description":[{"@language":"ja","@value":"想定元本額を当初証拠金で除した比率で、証拠金の水準が実質的にどれだけの倍率のポジションを許容しているかを表す。証拠金として差し入れた分を除いた残りは実質的な借り入れとみなせるため、証拠金の水準が上がれば許容される倍率は下がり、下がれば上がる。同じ証拠金の数字を、必要な担保の大きさではなく許容される倍率として読み替える見方である。"},{"@language":"en","@value":"The ratio of a position's notional value to the initial margin backing it, indicating the leverage that the margin level implicitly permits. A higher margin requirement relative to notional value corresponds to lower permitted leverage, and vice versa."}],"url":"https://www.shun-yanagisawa.com/clearing/terms/margin-leverage","inDefinedTermSet":{"@type":"DefinedTermSet","name":"クリアリング用語集","url":"https://www.shun-yanagisawa.com/clearing/terms"},"alternateName":["Margin Leverage"]}</script>
+</head>
+<body class="lang-ja">
+
+<nav>
+  <a class="nav-logo" href="/">Shun <span>Yanagisawa</span></a>
+  <div class="nav-right">
+    <a class="nav-back" href="/clearing/terms"><span class="ja">← 用語集へ</span><span class="en">← Back to glossary</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="ja">English</span><span class="en">日本語</span></button>
+  </div>
+</nav>
+<div class="backbar" id="backbar"><button type="button"><span class="ja">← 記事に戻る</span><span class="en">← Back to article</span></button></div>
+
+<article class="column term-page">
+  <div class="column-kicker">
+    <span class="ja">クリアリング用語集 <span class="bookmark">／ Margin Leverage</span></span>
+    <span class="en">Clearing Glossary <span class="bookmark">／ Margin Leverage</span></span>
+  </div>
+  <h1>マージン・レバレッジ</h1>
+  <p class="column-sub">Margin Leverage — Margin Leverage</p>
+  <div class="column-meta">
+    <span><span class="ja">出所 単体追加</span><span class="en">Origin: Added post-publication</span></span>
+    <span><span class="ja">更新 2026年8月18日</span><span class="en">Updated 2026-08-18</span></span>
+  </div>
+
+  <div class="term-body">
+    <p>想定元本額を当初証拠金で除した比率で、証拠金の水準が実質的にどれだけの倍率のポジションを許容しているかを表す。証拠金として差し入れた分を除いた残りは実質的な借り入れとみなせるため、証拠金の水準が上がれば許容される倍率は下がり、下がれば上がる。同じ証拠金の数字を、必要な担保の大きさではなく許容される倍率として読み替える見方である。</p>
+    <p class="term-def-en" lang="en">The ratio of a position&#x27;s notional value to the initial margin backing it, indicating the leverage that the margin level implicitly permits. A higher margin requirement relative to notional value corresponds to lower permitted leverage, and vice versa.</p>
+  </div>
+  <div class="term-more">
+    <span class="more-label">補説</span>
+      <p>証拠金の所要額は、通常「損失に備えてどれだけ差し入れる必要があるか」という向きで語られます。同じ数字を反対側から見ると、想定元本に対して証拠金がどれだけの比率になっているかが浮かび上がり、そこから実質的に許容されている倍率を読み取ることができます。証拠金として差し入れた額を除いた残りは、実質的に借り入れているのと同じ構造だからです。証拠金の水準が引き上げられれば、この比率は自動的に縮み、同じ想定元本を維持するには追加の担保を積むか、持ち高そのものを縮めるかの選択を迫られます。証拠金の水準を決めることは、参加者がどれだけの倍率でポジションを持てるかを、同時に決めているということです。</p>
+  </div>
+  <dl class="term-fields">
+    <dt>正式名称</dt><dd>Margin Leverage</dd>
+    <dt>分類</dt><dd>証拠金</dd>
+    <dt>関連語</dt><dd><a href="/clearing/terms#im">IM</a>、<a href="/clearing/terms#procyclicality">Procyclicality</a>、<a href="/clearing/terms#bis">BIS</a></dd>
+    <dt>出典</dt><dd><a href="https://www.bis.org/" rel="noopener">公式サイト ↗</a></dd>
+  </dl>
+
+  <div class="colophon">
+    <p>
+      <span class="ja">この語は<a href="/clearing/terms#margin-leverage">クリアリング用語集</a>の一項目です。柳沢 俊『デリバティブ・クリアリングのすべて』（<a href="https://manus-press.com/codex-1" rel="noopener">M∀NUS PRESS</a>）には無く、公開している稿のために足した語です。</span>
+      <span class="en">This term is an entry in the <a href="/clearing/terms#margin-leverage">Clearing Glossary</a>. It is not in the first edition of Shun Yanagisawa's book (<a href="https://manus-press.com/codex-1" rel="noopener">M∀NUS PRESS</a>) and was added for a published piece.</span>
+    </p>
+    <p><span class="ja">英語の説明は<a href="https://manus-press.com/codex-1-en" rel="noopener">同書の英語版</a>の巻末用語集から採りました。</span><span class="en">The English definition is drawn from the glossary at the back of the <a href="https://manus-press.com/codex-1-en" rel="noopener">English edition</a>.</span></p>
+    <p><span class="ja"><a href="/clearing/terms">用語集へ戻る</a>　／　<a href="/clearing/">クリアリング・章立てへ</a></span><span class="en"><a href="/clearing/terms">Back to glossary</a>　／　<a href="/clearing/">Clearing Index</a></span></p>
+    <p class="rights">© 2026 柳沢 俊</p>
+  </div>
+</article>
+
+<p class="disclaimer">The views expressed are the author's own and do not represent those of any organization he belongs to.<br>掲載する内容は筆者個人の見解であり、筆者が所属する組織・団体の見解を示すものではありません。</p>
+
+<footer>
+  <a href="/">shun-yanagisawa.com</a>
+</footer>
+<script>
+const TITLE_JA = "Margin Leverage（マージン・レバレッジ） — クリアリング用語集";
+const TITLE_EN = "Margin Leverage — Clearing Glossary";
+</script>
+<script>
+(function () {
+  var bar = document.getElementById('backbar');
+  if (!bar) return;
+  var r = document.referrer;
+  if (!r || r.indexOf(location.origin + '/clearing/') !== 0) return;
+  var p = r.slice(location.origin.length).split(/[?#]/)[0];
+  if (/^\/clearing\/terms(\.html)?(\/.*)?$/.test(p)) return;
+  if (p === '/clearing/' || p === '/clearing/index.html') return;
+  document.documentElement.classList.add('has-backbar');
+  bar.querySelector('button').addEventListener('click', function () { history.back(); });
+})();
+</script>
+<script>
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+  if (typeof TITLE_JA !== 'undefined') document.title = ja ? TITLE_EN : TITLE_JA;
+  var q = document.getElementById('q');
+  if (q && typeof Q_PLACEHOLDER_JA !== 'undefined') {
+    q.placeholder = ja ? Q_PLACEHOLDER_EN : Q_PLACEHOLDER_JA;
+  }
+}
+</script>
+</body>
+</html>
