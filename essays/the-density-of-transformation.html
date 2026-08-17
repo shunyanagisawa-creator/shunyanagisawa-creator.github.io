@@ -92,6 +92,9 @@ body.lang-ja .essay h2 { font-family: var(--font-jp); font-weight: 500; }
   font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); text-align: center;
 }
 body.lang-ja .figcap { font-family: var(--font-jp); font-size: .76rem; }
+.figlink { display: block; margin-top: .5rem; text-align: center;
+  font-family: var(--font-mono); font-size: .66rem; letter-spacing: .07em; }
+body.lang-ja .figlink { font-family: var(--font-jp); font-size: .72rem; letter-spacing: .03em; }
 
 /* 結語: 種としての一行 */
 .seed-box {
@@ -196,7 +199,6 @@ footer a { color: var(--teal-dark); text-decoration: none; }
     <!-- サブテキスト -->
     <text x="550" y="142" font-size="8" fill="#8a6020" text-anchor="middle" font-family="'DM Mono',monospace">VOICE SEPARATION</text>
   </svg>
-
   <svg class="ja" viewBox="0 0 660 190" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
     <!-- 背景・枠線グリッド (3分割) -->
     <rect x="10" y="10" width="200" height="145" fill="none" stroke="#ddd9d0" stroke-width="1" rx="2"/>
@@ -250,7 +252,6 @@ footer a { color: var(--teal-dark); text-decoration: none; }
     <!-- サブテキスト -->
     <text x="550" y="142" font-size="8.5" fill="#8a6020" text-anchor="middle" font-family="'DM Mono',monospace">声部分離と骨格和声</text>
   </svg>
-
     <div class="figcap">
       <span class="en">Fig. 1 — Existing approaches to music visualization: (1) piano-roll style depicting sounding pitch and duration; (2) string/arc style visualizing melodic leaping motion; (3) analytical diagrams separating polyphonic layers. All depict <em>what is sounding now</em>.</span>
       <span class="ja">図1　既存の音楽可視化のアプローチ ─ (1) 音高と音価をそのまま並べるピアノロール型、(2) 音の跳躍運動を弦に見立てる円弧型、(3) 多声部を層として分離する学術図。いずれも「いま鳴っている現象」を描く設計。</span>
@@ -614,6 +615,21 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   </div>
 <!-- /FIG:fig-03-density -->
 
+  <p class="en">In a still figure, the point where all five converge is only a point. I built a world to see what it looks like while it is actually sounding.</p>
+  <p class="ja">静止した図では、五つが揃う一点は点でしかない。実際に鳴らしながら見るとどうなるかを、一つの世界にしてみた。</p>
+
+<!-- FIG:fig-04-fugue-world -->
+  <div class="figure">
+    <iframe src="fugue-world.html" loading="lazy" title="FUGUE WORLD"
+            style="width:100%;aspect-ratio:16/10;border:0;display:block"></iframe>
+    <div class="figcap">
+      <span class="en">Fig. 5 — FUGUE WORLD — the detection system and the synthesized sound mentioned at the top, turned into a single world. Every note is extracted from the score of <em>The Art of Fugue</em>, and each appearance and transformation of the subject is detected automatically. The glowing runner <em>is</em> the subject: it leaps to whichever voice the subject appears in and rides it through the piece. Touch the frame and it sounds; Contrapunctus I and VII, harpsichord and piano, can each be swapped. The score carries no instrumentation, so neither sound is the correct one.</span>
+      <span class="ja">図5　FUGUE WORLD ─ 冒頭で触れた検出の仕組みと自作の音を、そのまま一つの世界にしたもの。『フーガの技法』の譜面から全音符を抽出し、主題の出現と変換を自動で検出している。光る走者が主題そのもので、主題が現れる声部へ飛び移りながら曲を駆け抜ける。画面に触れると鳴り、第一曲と第七曲、ハープシコードとピアノを切り替えられる。楽器の指定がない総譜なので、どちらの音が正しいということはない。</span>
+      <a class="figlink" href="fugue-world.html" target="_blank" rel="noopener"><span class="en">Open in a new tab ↗</span><span class="ja">別画面で開く ↗</span></a>
+    </div>
+  </div>
+<!-- /FIG:fig-04-fugue-world -->
+
   <p class="en">The difference between music that bears repetition and music that wears out is not polish. It is whether the design is one where only the variables move inside a fixed constraint. The more closed the rule, the more the minute variations stand out, and something new falls out of it on every listen. That the second movement of the <em>Pastoral</em> goes on sounding like a mystery that never quite resolves, over the unchanging murmur of its brook, comes from this same design of constraint and variable.</p>
   <p class="ja">繰り返して飽きない音楽と飽きる音楽の差は、完成度ではない。固定された制約の中で変数だけが動いている設計かどうかだ。規則が閉じているほど微細な変化が際立ち、聴くたびに別の発見が降ってくる。『田園』の第二楽章が、小川の不変のせせらぎという厳格な枠組みの上で、何度聴いても解けないミステリのように響き続けるのも、この制約と変数の設計による。</p>
 
@@ -623,14 +639,6 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   <p class="en">So what happens if the same rule is turned on the score Bach actually wrote?</p>
   <p class="ja">では、同じ規則を、バッハの実際の譜面へ向けたらどうなるか。</p>
 
-  <div class="figure">
-    <iframe src="fugue-world.html" loading="lazy" title="FUGUE WORLD"
-            style="width:100%;aspect-ratio:16/10;border:0;display:block"></iframe>
-    <div class="figcap">
-      <span class="en">Fig. 5 — FUGUE WORLD: the fugue rendered as terrain. Sound requires a tap.</span>
-      <span class="ja">図5　FUGUE WORLD ─ フーガを地形として描いたもの。音は画面に触れると鳴る。</span>
-    </div>
-  </div>
 
   <div class="essay-note">
     <span class="note-label"><span class="en">Notes &amp; Sources</span><span class="ja">出典</span></span>
