@@ -141,8 +141,125 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   <p class="en">In trying to visualize <em>The Art of Fugue</em>, I looked through the existing attempts one by one — the piano-roll style typified by Malinowski's Music Animation Machine, Alexander Chen's string-like renderings, and various scholarly analytical diagrams. All of them were impressive, but none depicted what I wanted to see. What they draw is the notes themselves, or the separation of voices — a design meant to show which note is sounding right now.</p>
   <p class="ja">『フーガの技法』を可視化しようとして、既存の試みを一通り見た。マリノフスキーの Music Animation Machine に代表されるピアノロール型、アレクサンダー・チェンの弦を模した表現、それに学術的な分析図。どれも見事なのだが、描いているものが自分の見たいものと違った。それらが描画の対象にしているのは音符そのものか、あるいは声部の分離である。つまり「いま、どの音が鳴っているか」を見せる設計だ。</p>
 
+<!-- FIG:fig-00-approaches -->
+  <div class="figure">
+  <svg class="en" viewBox="0 0 660 190" xmlns="http://www.w3.org/2000/svg" font-family="'Source Sans 3',sans-serif">
+    <!-- 背景・枠線グリッド (3分割) -->
+    <rect x="10" y="10" width="200" height="145" fill="none" stroke="#ddd9d0" stroke-width="1" rx="2"/>
+    <rect x="230" y="10" width="200" height="145" fill="none" stroke="#ddd9d0" stroke-width="1" rx="2"/>
+    <rect x="450" y="10" width="200" height="145" fill="none" stroke="#ddd9d0" stroke-width="1" rx="2"/>
+
+    <!-- 1. Piano Roll (Malinowski) -->
+    <text x="110" y="32" font-size="10.5" fill="#1a2332" font-weight="600" text-anchor="middle">Piano Roll</text>
+    <text x="110" y="45" font-size="8.5" fill="#666666" text-anchor="middle">Malinowski: notes sounding now</text>
+    <!-- ピアノロールの抽象バー -->
+    <line x1="30" y1="58" x2="30" y2="135" stroke="#1d5c5c" stroke-width="1.5" opacity="0.7"/>
+    <rect x="30" y="105" width="24" height="6" fill="#1a2332" rx="1"/>
+    <rect x="58" y="70" width="24" height="6" fill="#1a2332" rx="1"/>
+    <rect x="86" y="88" width="24" height="6" fill="#1a2332" rx="1"/>
+    <rect x="114" y="105" width="24" height="6" fill="#1a2332" rx="1"/>
+    <rect x="142" y="112" width="12" height="6" fill="#1a2332" rx="1"/>
+    <rect x="158" y="105" width="12" height="6" fill="#1a2332" rx="1"/>
+    <rect x="174" y="96" width="20" height="6" fill="#1a2332" rx="1"/>
+    <!-- サブテキスト -->
+    <text x="110" y="142" font-size="8" fill="#8a6020" text-anchor="middle" font-family="'DM Mono',monospace">PITCH × TIME</text>
+
+    <!-- 2. Arcs / Strings (Chen) -->
+    <text x="330" y="32" font-size="10.5" fill="#1a2332" font-weight="600" text-anchor="middle">String / Arcs</text>
+    <text x="330" y="45" font-size="8.5" fill="#666666" text-anchor="middle">Chen: interval &amp; motion</text>
+    <!-- 弦・円弧の抽象線 -->
+    <line x1="250" y1="120" x2="410" y2="120" stroke="#ddd9d0" stroke-width="1"/>
+    <circle cx="260" cy="120" r="2.5" fill="#1a2332"/>
+    <circle cx="295" cy="120" r="2.5" fill="#1a2332"/>
+    <circle cx="330" cy="120" r="2.5" fill="#1a2332"/>
+    <circle cx="365" cy="120" r="2.5" fill="#1a2332"/>
+    <circle cx="400" cy="120" r="2.5" fill="#1a2332"/>
+    <!-- 弧 -->
+    <path d="M 260 120 A 35 35 0 0 1 330 120" fill="none" stroke="#1a2332" stroke-width="1.3" opacity="0.85"/>
+    <path d="M 295 120 A 17.5 17.5 0 0 1 330 120" fill="none" stroke="#1a2332" stroke-width="1.3" opacity="0.85"/>
+    <path d="M 330 120 A 35 35 0 0 1 400 120" fill="none" stroke="#1a2332" stroke-width="1.3" opacity="0.85"/>
+    <path d="M 260 120 A 70 70 0 0 1 400 120" fill="none" stroke="#1d5c5c" stroke-width="1.4"/>
+    <!-- サブテキスト -->
+    <text x="330" y="142" font-size="8" fill="#8a6020" text-anchor="middle" font-family="'DM Mono',monospace">MOTION &amp; TRAJECTORY</text>
+
+    <!-- 3. Scholarly / Voice Separation -->
+    <text x="550" y="32" font-size="10.5" fill="#1a2332" font-weight="600" text-anchor="middle">Scholarly Diagram</text>
+    <text x="550" y="45" font-size="8.5" fill="#666666" text-anchor="middle">Separation of polyphonic voices</text>
+    <!-- 声部レイヤーの抽象線 -->
+    <path d="M 470 65 Q 520 55, 570 70 T 630 60" fill="none" stroke="#1a2332" stroke-width="1.3"/>
+    <path d="M 470 85 Q 530 95, 580 80 T 630 90" fill="none" stroke="#1d5c5c" stroke-width="1.3"/>
+    <path d="M 470 105 Q 510 115, 560 100 T 630 110" fill="none" stroke="#8a6020" stroke-width="1.3"/>
+    <path d="M 470 125 Q 540 120, 590 130 T 630 122" fill="none" stroke="#666666" stroke-width="1.3" stroke-dasharray="3 2"/>
+    <!-- 縦の和声接続点 -->
+    <line x1="520" y1="58" x2="520" y2="122" stroke="#ddd9d0" stroke-width="0.8" stroke-dasharray="2 2"/>
+    <line x1="580" y1="72" x2="580" y2="128" stroke="#ddd9d0" stroke-width="0.8" stroke-dasharray="2 2"/>
+    <!-- サブテキスト -->
+    <text x="550" y="142" font-size="8" fill="#8a6020" text-anchor="middle" font-family="'DM Mono',monospace">VOICE SEPARATION</text>
+  </svg>
+
+  <svg class="ja" viewBox="0 0 660 190" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Serif JP',serif">
+    <!-- 背景・枠線グリッド (3分割) -->
+    <rect x="10" y="10" width="200" height="145" fill="none" stroke="#ddd9d0" stroke-width="1" rx="2"/>
+    <rect x="230" y="10" width="200" height="145" fill="none" stroke="#ddd9d0" stroke-width="1" rx="2"/>
+    <rect x="450" y="10" width="200" height="145" fill="none" stroke="#ddd9d0" stroke-width="1" rx="2"/>
+
+    <!-- 1. ピアノロール型 -->
+    <text x="110" y="32" font-size="11" fill="#1a2332" font-weight="600" text-anchor="middle">ピアノロール型</text>
+    <text x="110" y="46" font-size="8.5" fill="#666666" text-anchor="middle">いま鳴っている音符の提示</text>
+    <!-- ピアノロールの抽象バー -->
+    <line x1="30" y1="58" x2="30" y2="135" stroke="#1d5c5c" stroke-width="1.5" opacity="0.7"/>
+    <rect x="30" y="105" width="24" height="6" fill="#1a2332" rx="1"/>
+    <rect x="58" y="70" width="24" height="6" fill="#1a2332" rx="1"/>
+    <rect x="86" y="88" width="24" height="6" fill="#1a2332" rx="1"/>
+    <rect x="114" y="105" width="24" height="6" fill="#1a2332" rx="1"/>
+    <rect x="142" y="112" width="12" height="6" fill="#1a2332" rx="1"/>
+    <rect x="158" y="105" width="12" height="6" fill="#1a2332" rx="1"/>
+    <rect x="174" y="96" width="20" height="6" fill="#1a2332" rx="1"/>
+    <!-- サブテキスト -->
+    <text x="110" y="142" font-size="8.5" fill="#8a6020" text-anchor="middle" font-family="'DM Mono',monospace">音高 × 時間の現在地</text>
+
+    <!-- 2. 弦・円弧型 -->
+    <text x="330" y="32" font-size="11" fill="#1a2332" font-weight="600" text-anchor="middle">弦・円弧型</text>
+    <text x="330" y="46" font-size="8.5" fill="#666666" text-anchor="middle">音程の跳躍と運動の軌跡</text>
+    <!-- 弦・円弧の抽象線 -->
+    <line x1="250" y1="120" x2="410" y2="120" stroke="#ddd9d0" stroke-width="1"/>
+    <circle cx="260" cy="120" r="2.5" fill="#1a2332"/>
+    <circle cx="295" cy="120" r="2.5" fill="#1a2332"/>
+    <circle cx="330" cy="120" r="2.5" fill="#1a2332"/>
+    <circle cx="365" cy="120" r="2.5" fill="#1a2332"/>
+    <circle cx="400" cy="120" r="2.5" fill="#1a2332"/>
+    <!-- 弧 -->
+    <path d="M 260 120 A 35 35 0 0 1 330 120" fill="none" stroke="#1a2332" stroke-width="1.3" opacity="0.85"/>
+    <path d="M 295 120 A 17.5 17.5 0 0 1 330 120" fill="none" stroke="#1a2332" stroke-width="1.3" opacity="0.85"/>
+    <path d="M 330 120 A 35 35 0 0 1 400 120" fill="none" stroke="#1a2332" stroke-width="1.3" opacity="0.85"/>
+    <path d="M 260 120 A 70 70 0 0 1 400 120" fill="none" stroke="#1d5c5c" stroke-width="1.4"/>
+    <!-- サブテキスト -->
+    <text x="330" y="142" font-size="8.5" fill="#8a6020" text-anchor="middle" font-family="'DM Mono',monospace">音と音の物理的跳躍</text>
+
+    <!-- 3. 学術的分析図 -->
+    <text x="550" y="32" font-size="11" fill="#1a2332" font-weight="600" text-anchor="middle">学術的分析図</text>
+    <text x="550" y="46" font-size="8.5" fill="#666666" text-anchor="middle">多声音楽の声部分離と構造</text>
+    <!-- 声部レイヤーの抽象線 -->
+    <path d="M 470 65 Q 520 55, 570 70 T 630 60" fill="none" stroke="#1a2332" stroke-width="1.3"/>
+    <path d="M 470 85 Q 530 95, 580 80 T 630 90" fill="none" stroke="#1d5c5c" stroke-width="1.3"/>
+    <path d="M 470 105 Q 510 115, 560 100 T 630 110" fill="none" stroke="#8a6020" stroke-width="1.3"/>
+    <path d="M 470 125 Q 540 120, 590 130 T 630 122" fill="none" stroke="#666666" stroke-width="1.3" stroke-dasharray="3 2"/>
+    <!-- 縦の和声接続点 -->
+    <line x1="520" y1="58" x2="520" y2="122" stroke="#ddd9d0" stroke-width="0.8" stroke-dasharray="2 2"/>
+    <line x1="580" y1="72" x2="580" y2="128" stroke="#ddd9d0" stroke-width="0.8" stroke-dasharray="2 2"/>
+    <!-- サブテキスト -->
+    <text x="550" y="142" font-size="8.5" fill="#8a6020" text-anchor="middle" font-family="'DM Mono',monospace">声部分離と骨格和声</text>
+  </svg>
+
+    <div class="figcap">
+      <span class="en">Fig. 1 — Existing approaches to music visualization: (1) piano-roll style depicting sounding pitch and duration; (2) string/arc style visualizing melodic leaping motion; (3) analytical diagrams separating polyphonic layers. All depict <em>what is sounding now</em>.</span>
+      <span class="ja">図1　既存の音楽可視化のアプローチ ─ (1) 音高と音価をそのまま並べるピアノロール型、(2) 音の跳躍運動を弦に見立てる円弧型、(3) 多声部を層として分離する学術図。いずれも「いま鳴っている現象」を描く設計。</span>
+    </div>
+  </div>
+<!-- /FIG:fig-00-approaches -->
+
   <p class="en">What I wanted to see was one level above that. There is a single subject, a seed, and it undergoes transformations — transposition, inversion, retrograde, augmentation, diminution, stretto — and the transformed versions layer on top of each other, and the density rises. I wanted to see the generative rule itself. Not "what is sounding now" but "why this sequence of notes came to exist."</p>
-  <p class="ja">私が見たかったのは、その一段上だ。一つの主題という種があって、それに移調・反行・逆行・拡大・縮小・ストレッタという変換がかかり、変換されたもの同士が重なって密度が上がっていく。その生成の規則のほうを見たかった。「いま何が鳴っているか」ではなく「なぜこの音の並びが生まれたか」である。</p>
+  <p class="ja">私が見たかったのは、その一段上だ。一つの主題という種があって、それに移調・反行・逆行・拡大・縮小・ストレットという変換がかかり、変換されたもの同士が重なって密度が上がっていく。その生成の規則のほうを見たかった。「いま何が鳴っているか」ではなく「なぜこの音の並びが生まれたか」である。</p>
 
   <p class="en">Since I couldn't find a diagram like that, I wrote a system that detects the subject from score data, and built the sound myself using additive synthesis. That's why this page makes sound. What follows is placed here exactly as it appeared to me — not as a listener, but as someone who entered this collection from the side of the maker.</p>
   <p class="ja">そういう図が見つからなかったので、譜面データから主題を検出する仕組みを書き、鳴らす音も加算合成で自分で組んだ。だからこのページは音が鳴る。以下の図は、聴く側としてではなく作る側としてこの曲集に入っていったときに見えたものを、そのまま置いてある。</p>
@@ -237,8 +354,8 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 <text x="330.0" y="230.0" font-size="10" fill="#33383f" text-anchor="middle" opacity="0.75">十二音、五小節。転調も装飾もない。</text>
 </svg>
     <div class="figcap">
-      <span class="en">Fig. 1 — The seed: the subject of <em>The Art of Fugue</em>. Four notes leap a perfect fifth; the remaining eight walk it back. Twelve notes, five bars.</span>
-      <span class="ja">図1　種 ─ 『フーガの技法』の主題。四音で完全五度を跳び、残る八音がその五度を歩いて埋め戻す。十二音、五小節。</span>
+      <span class="en">Fig. 2 — The seed: the subject of <em>The Art of Fugue</em>. Four notes leap a perfect fifth; the remaining eight walk it back. Twelve notes, five bars.</span>
+      <span class="ja">図2　種 ─ 『フーガの技法』の主題。四音で完全五度を跳び、残る八音がその五度を歩いて埋め戻す。十二音、五小節。</span>
     </div>
   </div>
 <!-- /FIG:fig-01-subject -->
@@ -369,8 +486,8 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 <circle cx="116.0" cy="474.0" r="1.5" fill="#1a2332"/><circle cx="129.3" cy="432.0" r="1.5" fill="#1a2332"/><circle cx="142.6" cy="456.0" r="1.5" fill="#1a2332"/><circle cx="155.9" cy="474.0" r="1.5" fill="#1a2332"/><circle cx="169.2" cy="480.0" r="1.5" fill="#1a2332"/><circle cx="175.8" cy="474.0" r="1.5" fill="#1a2332"/><circle cx="182.5" cy="462.0" r="1.5" fill="#1a2332"/><circle cx="195.8" cy="456.0" r="1.5" fill="#1a2332"/><circle cx="202.4" cy="444.0" r="1.5" fill="#1a2332"/><circle cx="209.1" cy="456.0" r="1.5" fill="#1a2332"/><circle cx="215.8" cy="462.0" r="1.5" fill="#1a2332"/><circle cx="222.4" cy="474.0" r="1.5" fill="#1a2332"/>
 </svg>
     <div class="figcap">
-      <span class="en">Fig. 2 — Five operations. The dashed line is the same original in every row; the solid line is the contour after the operation. Horizontal is time in beats, vertical is semitones. All five rows share one scale, so transposition reads as translation, inversion as a vertical flip, retrograde as a horizontal flip, and augmentation and diminution as stretching along time.</span>
-      <span class="ja">図2　五つの操作 ─ 破線はどの段も同じ原型で、実線が変換後の輪郭。横は拍、縦は半音。五段が同じ縮尺なので、移調は平行移動、反行は上下の反転、逆行は左右の反転、拡大と縮小は時間方向の伸縮として目に映る。</span>
+      <span class="en">Fig. 3 — Five operations. The dashed line is the same original in every row; the solid line is the contour after the operation. Horizontal is time in beats, vertical is semitones. All five rows share one scale, so transposition reads as translation, inversion as a vertical flip, retrograde as a horizontal flip, and augmentation and diminution as stretching along time.</span>
+      <span class="ja">図3　五つの操作 ─ 破線はどの段も同じ原型で、実線が変換後の輪郭。横は拍、縦は半音。五段が同じ縮尺なので、移調は平行移動、反行は上下の反転、逆行は左右の反転、拡大と縮小は時間方向の伸縮として目に映る。</span>
     </div>
   </div>
 <!-- /FIG:fig-02-five-operations -->
@@ -381,7 +498,7 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   <h2><span class="hnum">3</span><span class="en">When Voices Chase Each Other, Density Rises</span><span class="ja">声部が追いかけ合うと、密度が立ち上がる</span></h2>
 
   <p class="en">Bringing in the next voice before the subject has finished is called stretto. In <em>The Art of Fugue</em>, the fifth through seventh pieces are built around this technique and are called the counter-fugues. The seventh in particular carries the heading "by augmentation and diminution" (per Augmentationem et Diminutionem) — under a slowly unfolding, stretched subject, the original and the diminished form overtake it.<sup>2</sup></p>
-  <p class="ja">主題がまだ終わらないうちに次の声部を入らせる書き方をストレッタという。『フーガの技法』では第五曲から第七曲がこの手法を軸にしていて、対フーガとも呼ばれる。とくに第七曲は表題に「拡大と縮小による」（per Augmentationem et Diminutionem）と掲げていて、引き延ばされた主題がゆっくり進む下を、原型と縮小が追い越していく<sup>2</sup>。</p>
+  <p class="ja">主題がまだ終わらないうちに次の声部を入らせる書き方をストレットという。『フーガの技法』では第五曲から第七曲がこの手法を軸にしていて、対フーガとも呼ばれる。とくに第七曲は表題に「拡大と縮小による」（per Augmentationem et Diminutionem）と掲げていて、引き延ばされた主題がゆっくり進む下を、原型と縮小が追い越していく<sup>2</sup>。</p>
 
   <p class="en">The figure below lays the augmented subject as a foundation, brings in the original two measures later, and from there enters the answer, the inversion, and the diminution, each shifted by a measure. Every time a note sounds, a trace remains, and the frame fills in. At the same time, the number of voices sounding at once — the density of transformation — rises on a meter, and pins at the point where all five converge.</p>
   <p class="ja">下の図は、拡大した主題を土台に敷き、二小節後に原型、以降は一小節ずつずらして応答・反行・縮小を入れたものだ。音が鳴るたびに痕跡が残り、画面が埋まっていく。同時に鳴っている声部の数、すなわち変換の密度がメーターに立ち上がり、五つが揃う一点で振り切れる。</p>
@@ -491,24 +608,27 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 <text x="435.2" y="370.0" font-size="10" fill="#1d5c5c" text-anchor="middle" font-weight="600">五つが揃う（20〜28拍）</text>
 </svg>
     <div class="figcap">
-      <span class="en">Fig. 3 — The five entering in sequence: the augmented subject as a floor, then the original, the answer, the inversion and the diminution, one bar apart each. Same time axis as Fig. 2. Below, the number of voices sounding at once; all five are in between beats 20 and 28. Vertical is pitch within each voice; the voices are not aligned to a common register.</span>
-      <span class="ja">図3　五つが時間差で入る ─ 拡大を土台に、原型・応答・反行・縮小が一小節ずつずれて入る。横軸は図2 と同じ拍。下は同時に鳴っている声部の数で、二十から二十八拍のあいだ五つが揃う。縦は各声部の中での音高で、声部間の高さは揃えていない。</span>
+      <span class="en">Fig. 4 — The five entering in sequence: the augmented subject as a floor, then the original, the answer, the inversion and the diminution, one bar apart each. Same time axis as Fig. 3. Below, the number of voices sounding at once; all five are in between beats 20 and 28. Vertical is pitch within each voice; the voices are not aligned to a common register.</span>
+      <span class="ja">図4　五つが時間差で入る ─ 拡大を土台に、原型・応答・反行・縮小が一小節ずつずれて入る。横軸は図3 と同じ拍。下は同時に鳴っている声部の数で、二十から二十八拍のあいだ五つが揃う。縦は各声部の中での音高で、声部間の高さは揃えていない。</span>
     </div>
   </div>
 <!-- /FIG:fig-03-density -->
 
-  <p class="en">The difference between music that bears repetition and music that wears out is not polish. It is whether the design is one where only the variables move inside a fixed constraint. The more closed the rule, the more the minute variations stand out, and something new falls out of it on every listen. That the second movement of the Pastoral can be played over and over and still feel like working through a mystery is, I suspect, for this reason.</p>
-  <p class="ja">繰り返して飽きない音楽と飽きる音楽の差は、完成度ではない。固定された制約の中で変数だけが動いている設計かどうかだ。規則が閉じているほど微細な変化が際立ち、聴くたびに別の発見が降ってくる。田園の第二楽章を何度かけてもミステリを読み進めるように感じるのは、たぶんこの理由による。</p>
+  <p class="en">The difference between music that bears repetition and music that wears out is not polish. It is whether the design is one where only the variables move inside a fixed constraint. The more closed the rule, the more the minute variations stand out, and something new falls out of it on every listen. That the second movement of the <em>Pastoral</em> goes on sounding like a mystery that never quite resolves, over the unchanging murmur of its brook, comes from this same design of constraint and variable.</p>
+  <p class="ja">繰り返して飽きない音楽と飽きる音楽の差は、完成度ではない。固定された制約の中で変数だけが動いている設計かどうかだ。規則が閉じているほど微細な変化が際立ち、聴くたびに別の発見が降ってくる。『田園』の第二楽章が、小川の不変のせせらぎという厳格な枠組みの上で、何度聴いても解けないミステリのように響き続けるのも、この制約と変数の設計による。</p>
 
-  <p class="en">This is as far as eye and ear can follow.</p>
-  <p class="ja">ここまでが、目と耳で追えることのすべてである。</p>
+  <p class="en">Everything drawn so far was a world I built to the rule. Of course not a single note falls outside it. The notes are there because I am the one who wrote the rule that put them there.</p>
+  <p class="ja">ここまでの図は、私が規則どおりに作った世界だった。規則から外れる音が一つもないのは当然である。そこにある音を作ったのは、規則を書いた私自身なのだから。</p>
+
+  <p class="en">So what happens if the same rule is turned on the score Bach actually wrote?</p>
+  <p class="ja">では、同じ規則を、バッハの実際の譜面へ向けたらどうなるか。</p>
 
   <div class="figure">
     <iframe src="fugue-world.html" loading="lazy" title="FUGUE WORLD"
             style="width:100%;aspect-ratio:16/10;border:0;display:block"></iframe>
     <div class="figcap">
-      <span class="en">Fig. 4 — FUGUE WORLD: the fugue rendered as terrain. Sound requires a tap.</span>
-      <span class="ja">図4　FUGUE WORLD ─ フーガを地形として描いたもの。音は画面に触れると鳴る。</span>
+      <span class="en">Fig. 5 — FUGUE WORLD: the fugue rendered as terrain. Sound requires a tap.</span>
+      <span class="ja">図5　FUGUE WORLD ─ フーガを地形として描いたもの。音は画面に触れると鳴る。</span>
     </div>
   </div>
 
@@ -516,7 +636,7 @@ footer a { color: var(--teal-dark); text-decoration: none; }
     <span class="note-label"><span class="en">Notes &amp; Sources</span><span class="ja">出典</span></span>
     <ol>
       <li><span class="en"><em>The Art of Fugue</em> (Wikipedia) — on the single-subject construction (fourteen fugues and four canons in D minor), Wolff's summary, and the autograph score (Berlin State Library, Mus. ms. autogr. P 200, ca. 1740–46). A secondary source. en.wikipedia.org/wiki/The_Art_of_Fugue</span><span class="ja"><em>The Art of Fugue</em>（Wikipedia）— 単一主題の構成（二短調による十四のフーガと四つのカノン）、ヴォルフによる要約、自筆譜（ベルリン国立図書館 Mus. ms. autogr. P 200、1740〜46年頃）について。二次資料である。 en.wikipedia.org/wiki/The_Art_of_Fugue</span></li>
-      <li><span class="en">The techniques of each piece (the counter-fugues — pieces five through seven — the augmentation and diminution named in the heading of the seventh, and the mirror fugues that invert the whole piece by harmony — pieces twelve and thirteen) follow the analysis at teoria.com, "Die Kunst der Fuge." teoria.com/en/articles/kdf/</span><span class="ja">各曲の技法（ストレッタ・フーガ＝第五〜七曲、第七曲の表題に掲げられた拡大と縮小、曲全体を和声ごと反転できる鏡像フーガ＝第十二・十三曲）は teoria.com「Die Kunst der Fuge」の分析による。teoria.com/en/articles/kdf/</span></li>
+      <li><span class="en">The techniques of each piece (the counter-fugues — pieces five through seven — the augmentation and diminution named in the heading of the seventh, and the mirror fugues that invert the whole piece by harmony — pieces twelve and thirteen) follow the analysis at teoria.com, "Die Kunst der Fuge." teoria.com/en/articles/kdf/</span><span class="ja">各曲の技法（ストレット・フーガ＝第五〜七曲、第七曲の表題に掲げられた拡大と縮小、曲全体を和声ごと反転できる鏡像フーガ＝第十二・十三曲）は teoria.com「Die Kunst der Fuge」の分析による。teoria.com/en/articles/kdf/</span></li>
       <li><span class="en">The crab canon is the <em>canon cancrizans</em> from <em>The Musical Offering</em> (BWV 1079, 1747), on a theme given by Frederick the Great. en.wikipedia.org/wiki/The_Musical_Offering</span><span class="ja">蟹行カノンは『音楽の捧げもの』（BWV 1079、1747年）の canon cancrizans。フリードリヒ大王から与えられた主題によるもの。en.wikipedia.org/wiki/The_Musical_Offering</span></li>
       <li><span class="en">On the period of composition (ca. 1736–1750) and the deterioration of the handwriting in his final years, per the Nederlandse Bachvereniging's notes on BWV 1080 — an account by a performing ensemble, not a critical edition report. bachvereniging.nl/en/bwv/bwv-1080</span><span class="ja">作曲時期（ca. 1736–1750）および晩年の筆跡の悪化については Nederlandse Bachvereniging の BWV 1080 解説による。演奏団体による解説であって校訂報告ではない。bachvereniging.nl/en/bwv/bwv-1080</span></li>
     </ol>
