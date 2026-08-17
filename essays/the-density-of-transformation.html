@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!-- EN: draft translation 2026-08-17 — needs a proper editorial pass -->
+<!-- 加筆待ち: §2「破線で残した原型の上に…」と §3「密度メーターに立ち上がり…」は、実在する図(FUGUE WORLD)の描写ではない。本文を図に合わせて直す工程が残っている -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Density of Transformation — Shun Yanagisawa</title>
+<meta name="description" content="Bach's Art of Fugue derives eighteen pieces from a single twelve-note subject and five operations. A look at what makes that generative rule set, built and heard from the maker's side.">
+<meta property="og:title" content="The Density of Transformation">
+<meta property="og:description" content="One subject, twelve notes, five operations — and eighteen pieces that don't wear out. Built from the maker's side, not the listener's.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.shun-yanagisawa.com/essays/the-density-of-transformation.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
+  --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f5ead8;
+  --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
+  --text: #1a1a1a; --text-mid: #3d3d3d; --text-muted: #666666; --border: #ddd9d0;
+  --font-display: 'Playfair Display', 'Noto Serif JP', Georgia, serif;
+  --font-body: 'Source Sans 3', sans-serif;
+  --font-jp: 'Noto Serif JP', serif;
+  --font-mono: 'DM Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--white); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.85; }
+body.lang-en .ja { display: none; }
+body.lang-ja .en { display: none; }
+body.lang-ja { font-family: var(--font-jp); }
+
+nav {
+  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+.nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1.2rem; }
+.nav-back { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--text-muted); text-decoration: none; }
+.nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .35rem .8rem; cursor: pointer; color: var(--text-mid);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
+
+.essay { max-width: 720px; margin: 0 auto; padding: 4rem 1.6rem 5rem; }
+.essay-kicker { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.2rem; }
+h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 500; line-height: 1.3; color: var(--navy); margin-bottom: .8rem; }
+.essay-sub { font-size: 1.02rem; color: var(--text-muted); margin-bottom: 1.4rem; line-height: 1.7; }
+.essay-meta { display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); padding-bottom: 1.6rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.4rem; }
+.essay-meta a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); }
+
+/* 書籍風: 番号付き節見出し (罫線で立てる、太字に頼らない) */
+.essay h2 {
+  font-family: var(--font-display); font-size: 1.22rem; font-weight: 500; color: var(--navy);
+  margin: 2.8rem 0 1rem; padding: .35rem 0 .45rem .9rem;
+  border-left: 3px solid var(--navy); border-bottom: 1px solid var(--border);
+}
+body.lang-ja .essay h2 { font-family: var(--font-jp); font-weight: 500; }
+.essay h2 .hnum { font-family: var(--font-mono); font-size: .85rem; color: var(--teal-dark); margin-right: .7rem; letter-spacing: .05em; }
+
+.essay p { margin: 1.1rem 0; color: var(--text-mid); text-align: justify; }
+.essay a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.4); }
+
+/* 強調: 太字でなく、日本語=傍点 / 英語=イタリック (書籍の作法) */
+.ja .em { -webkit-text-emphasis: filled dot var(--navy); text-emphasis: filled dot var(--navy); font-style: normal; }
+.en .em { font-style: italic; }
+
+/* 要点・用語ボックス: 細罫の囲み + 小ラベル (Word 専門書の囲み欄スタイル) */
+.pull {
+  border: 1px solid var(--gold); background: var(--gold-light);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 1.9rem 0; border-radius: 2px;
+  font-size: 1rem; color: var(--navy); line-height: 1.8; position: relative; text-align: justify;
+}
+.pull .pull-label {
+  position: absolute; top: -0.7rem; left: 1rem; background: var(--white);
+  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em;
+  color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase;
+}
+.pull .term { color: var(--gold-dark); }
+.pull .term-line { display: block; margin: .45rem 0; }
+
+/* 図版: 細罫ボックス + 図番キャプション (書籍の図組み) */
+.figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 1.9rem 0; background: var(--white); }
+.figure svg { width: 100%; height: auto; display: block; }
+.figcap {
+  margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); text-align: center;
+}
+body.lang-ja .figcap { font-family: var(--font-jp); font-size: .76rem; }
+
+/* 結語: 種としての一行 */
+.seed-box {
+  border: 1px solid var(--gold); border-left: 4px solid var(--gold);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0 0; border-radius: 2px;
+  font-size: 1.02rem; color: var(--navy); line-height: 1.85; position: relative; text-align: justify;
+}
+.seed-box .pull-label { position: absolute; top: -0.7rem; left: 1rem; background: var(--white); font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase; }
+
+.essay-close { border-top: 2px solid var(--gold); margin-top: 3rem; padding-top: 1.6rem; }
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
+footer a { color: var(--teal-dark); text-decoration: none; }
+@media (max-width: 560px) { nav { padding: 0 1.2rem; } .essay { padding-top: 2.6rem; } }
+
+/* 出典 (design-under-stress.html 準拠。テンプレに無いので追加) */
+.essay-note { margin-top: 2.6rem; padding-top: 1.2rem; border-top: 1px solid var(--border); font-size: .8rem; line-height: 1.7; color: var(--text-muted); }
+.essay-note .note-label { display: block; font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .7rem; }
+.essay-note ol { margin: 0; padding-left: 1.5rem; }
+.essay-note li { margin: .5rem 0; }
+.essay-note em { font-style: italic; }
+</style>
+</head>
+<body class="lang-en">
+
+<nav>
+  <a class="nav-logo" href="../index.html">Shun <span>Yanagisawa</span></a>
+  <div class="nav-right">
+    <a class="nav-back" href="../index.html#essays"><span class="en">← Essays</span><span class="ja">← エッセイ一覧</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="en">日本語</span><span class="ja">English</span></button>
+  </div>
+</nav>
+
+<article class="essay">
+  <div class="essay-kicker">Essay 014 · Music 01</div>
+  <h1>
+    <span class="en">The Density of Transformation</span>
+    <span class="ja">変換の密度</span>
+  </h1>
+  <div class="essay-meta">
+    <span>August 2026</span>
+    <span class="en">Music</span>
+    <span class="ja">音楽</span>
+    <span class="en">3 min read</span>
+    <span class="ja">日本語 約3分</span>
+  </div>
+
+  <p class="en">In trying to visualize <em>The Art of Fugue</em>, I looked through the existing attempts one by one — the piano-roll style typified by Malinowski's Music Animation Machine, Alexander Chen's string-like renderings, and various scholarly analytical diagrams. All of them were impressive, but none depicted what I wanted to see. What they draw is the notes themselves, or the separation of voices — a design meant to show which note is sounding right now.</p>
+  <p class="ja">『フーガの技法』を可視化しようとして、既存の試みを一通り見た。マリノフスキーの Music Animation Machine に代表されるピアノロール型、アレクサンダー・チェンの弦を模した表現、それに学術的な分析図。どれも見事なのだが、描いているものが自分の見たいものと違った。それらが描画の対象にしているのは音符そのものか、あるいは声部の分離である。つまり「いま、どの音が鳴っているか」を見せる設計だ。</p>
+
+  <p class="en">What I wanted to see was one level above that. There is a single subject, a seed, and it undergoes transformations — transposition, inversion, retrograde, augmentation, diminution, stretto — and the transformed versions layer on top of each other, and the density rises. I wanted to see the generative rule itself. Not "what is sounding now" but "why this sequence of notes came to exist."</p>
+  <p class="ja">私が見たかったのは、その一段上だ。一つの主題という種があって、それに移調・反行・逆行・拡大・縮小・ストレッタという変換がかかり、変換されたもの同士が重なって密度が上がっていく。その生成の規則のほうを見たかった。「いま何が鳴っているか」ではなく「なぜこの音の並びが生まれたか」である。</p>
+
+  <p class="en">Since I couldn't find a diagram like that, I wrote a system that detects the subject from score data, and built the sound myself using additive synthesis. That's why this page makes sound. What follows is placed here exactly as it appeared to me — not as a listener, but as someone who entered this collection from the side of the maker.</p>
+  <p class="ja">そういう図が見つからなかったので、譜面データから主題を検出する仕組みを書き、鳴らす音も加算合成で自分で組んだ。だからこのページは音が鳴る。以下の図は、聴く側としてではなく作る側としてこの曲集に入っていったときに見えたものを、そのまま置いてある。</p>
+
+  <h2><span class="hnum">1</span><span class="en">One Subject, Eighteen Pieces</span><span class="ja">一つの主題から、十八曲</span></h2>
+
+  <p class="en">Bach worked, in his final years, on <em>The Art of Fugue</em> (<em>Die Kunst der Fuge</em>, BWV 1080). He began around 1736, continuing intermittently into his last years.<sup>4</sup> It was published in 1751, the year after his death. The whole work is in D minor, comprising fourteen fugues and four canons, all of which derive from a single subject. The Bach scholar Christoph Wolff summarized the idea running through the collection as an exploration, to its depths, of the contrapuntal possibilities inherent in a single subject.<sup>1</sup></p>
+  <p class="ja">バッハは晩年に『フーガの技法』（Die Kunst der Fuge, BWV 1080）を書き続けた。着手はおよそ1736年、断続的に晩年まで及ぶ<sup>4</sup>。出版は1751年、本人の死の翌年である。全曲が二短調で、十四のフーガと四つのカノンからなり、その全部が同じ一つの主題から派生している。バッハ研究のクリストフ・ヴォルフは、この曲集を貫く発想を、単一の主題に内在する対位法的可能性を深部まで探査すること、と要約した<sup>1</sup>。</p>
+
+  <p class="en">So how intricate is that subject? Disappointingly simple.</p>
+  <p class="ja">ではその主題がどれほど込み入ったものかというと、拍子抜けするほど簡素だ。</p>
+
+  <p class="en">The first four notes merely trace the D minor triad — a leap of a perfect fifth from D to A, passing through F, back to D. The remaining eight notes walk back, stepwise, through the very fifth just leapt. Twelve notes, five measures. No modulation, no ornament.</p>
+  <p class="ja">最初の四音は二短調の主和音をなぞるだけ。D から A へ完全五度を跳び、F を経て D に戻る。残りの八音は、いま跳んだばかりのその五度を、今度は順に歩いて埋め戻していく。十二音、五小節。転調も装飾もない。</p>
+
+  <p class="en">This is the seed. All eighteen pieces that follow are written by applying operations to these twelve notes, nothing more.</p>
+  <p class="ja">これが種だ。以降の十八曲は、この十二音に操作を加えることだけで書かれている。</p>
+
+  <h2><span class="hnum">2</span><span class="en">A Few Operations on the Same Seed</span><span class="ja">同じ種に、少数の操作をかける</span></h2>
+
+  <p class="en">The operations available are not many: transposition (sounding the same shape at a different pitch), inversion (flipping rising intervals into falling ones by the same amount — a vertical mirror), retrograde (reading it backward — a horizontal mirror), augmentation (doubling note values), diminution (halving them). That's all.</p>
+  <p class="ja">かけられる操作は多くない。移調（同じ形を別の高さで鳴らす）、反行（上がっていた音程を同じ幅だけ下げる、つまり垂直方向の反転）、逆行（後ろから読む、水平方向の反転）、拡大（音価を倍に伸ばす）、縮小（半分に縮める）。それだけである。</p>
+
+  <p class="en">In the figure, the outline after transformation is overlaid on the original, kept as a dashed line. Inversion, retrograde, augmentation — all of them should register as geometry, plain to the eye. If this sounds like talk of music turning into talk of geometry, that's not a metaphor; it actually is geometry.</p>
+  <p class="ja">図では、破線で残した原型の上に変換後の輪郭を重ねてある。反行も逆行も拡大も、幾何としてそのまま目に映るはずだ。音楽の話をしているのに幾何の話に見えるとしたら、それは比喩ではなく、実際に幾何だからである。</p>
+
+  <p class="en">That the number of operations is small is the whole point of the collection. Because the operations are few enough to be legible, the ear can follow what has happened. Retrograde, at its most extreme, goes as far as a single written melodic line performed simultaneously by one player forward and another backward — the crab canon in <em>The Musical Offering</em> is exactly that.<sup>3</sup> Even taken that far, the listener can tell: this is the same thing, turned inside out. It is built to be recognizable.</p>
+  <p class="ja">操作の数が少ないことは、この曲集の要点である。操作が読み取れる程度に少ないからこそ、何が起きたのかを耳が追える。逆行は、一段だけ書かれた旋律を一人が順方向、もう一人が逆方向から同時に演奏するという極端な形まで行くことがあり、『音楽の捧げもの』の蟹行カノンがそれにあたる<sup>3</sup>。そこまで行っても、聴く側は「同じものが裏返っている」と分かる。分かるように作ってある。</p>
+
+  <h2><span class="hnum">3</span><span class="en">When Voices Chase Each Other, Density Rises</span><span class="ja">声部が追いかけ合うと、密度が立ち上がる</span></h2>
+
+  <p class="en">Bringing in the next voice before the subject has finished is called stretto. In <em>The Art of Fugue</em>, the fifth through seventh pieces are built around this technique and are called the counter-fugues. The seventh in particular carries the heading "by augmentation and diminution" (per Augmentationem et Diminutionem) — under a slowly unfolding, stretched subject, the original and the diminished form overtake it.<sup>2</sup></p>
+  <p class="ja">主題がまだ終わらないうちに次の声部を入らせる書き方をストレッタという。『フーガの技法』では第五曲から第七曲がこの手法を軸にしていて、対フーガとも呼ばれる。とくに第七曲は表題に「拡大と縮小による」（per Augmentationem et Diminutionem）と掲げていて、引き延ばされた主題がゆっくり進む下を、原型と縮小が追い越していく<sup>2</sup>。</p>
+
+  <p class="en">The figure below lays the augmented subject as a foundation, brings in the original two measures later, and from there enters the answer, the inversion, and the diminution, each shifted by a measure. Every time a note sounds, a trace remains, and the frame fills in. At the same time, the number of voices sounding at once — the density of transformation — rises on a meter, and pins at the point where all five converge.</p>
+  <p class="ja">下の図は、拡大した主題を土台に敷き、二小節後に原型、以降は一小節ずつずらして応答・反行・縮小を入れたものだ。音が鳴るたびに痕跡が残り、画面が埋まっていく。同時に鳴っている声部の数、すなわち変換の密度がメーターに立ち上がり、五つが揃う一点で振り切れる。</p>
+
+  <p class="en">The difference between music that bears repetition and music that wears out is not polish. It is whether the design is one where only the variables move inside a fixed constraint. The more closed the rule, the more the minute variations stand out, and something new falls out of it on every listen. That the second movement of the Pastoral can be played over and over and still feel like working through a mystery is, I suspect, for this reason.</p>
+  <p class="ja">繰り返して飽きない音楽と飽きる音楽の差は、完成度ではない。固定された制約の中で変数だけが動いている設計かどうかだ。規則が閉じているほど微細な変化が際立ち、聴くたびに別の発見が降ってくる。田園の第二楽章を何度かけてもミステリを読み進めるように感じるのは、たぶんこの理由による。</p>
+
+  <p class="en">This is as far as eye and ear can follow.</p>
+  <p class="ja">ここまでが、目と耳で追えることのすべてである。</p>
+
+  <div class="figure">
+    <iframe src="/essays/fugue-world.html" loading="lazy" title="FUGUE WORLD"
+            style="width:100%;aspect-ratio:16/10;border:0;display:block"></iframe>
+    <div class="figcap">
+      <span class="en">Fig. 1 — FUGUE WORLD: the fugue rendered as terrain. Sound requires a tap.</span>
+      <span class="ja">図1　FUGUE WORLD ─ フーガを地形として描いたもの。音は画面に触れると鳴る。</span>
+    </div>
+  </div>
+
+  <div class="essay-note">
+    <span class="note-label"><span class="en">Notes &amp; Sources</span><span class="ja">出典</span></span>
+    <ol>
+      <li><span class="en"><em>The Art of Fugue</em> (Wikipedia) — on the single-subject construction (fourteen fugues and four canons in D minor), Wolff's summary, and the autograph score (Berlin State Library, Mus. ms. autogr. P 200, ca. 1740–46). A secondary source. en.wikipedia.org/wiki/The_Art_of_Fugue</span><span class="ja"><em>The Art of Fugue</em>（Wikipedia）— 単一主題の構成（二短調による十四のフーガと四つのカノン）、ヴォルフによる要約、自筆譜（ベルリン国立図書館 Mus. ms. autogr. P 200、1740〜46年頃）について。二次資料である。 en.wikipedia.org/wiki/The_Art_of_Fugue</span></li>
+      <li><span class="en">The techniques of each piece (the counter-fugues — pieces five through seven — the augmentation and diminution named in the heading of the seventh, and the mirror fugues that invert the whole piece by harmony — pieces twelve and thirteen) follow the analysis at teoria.com, "Die Kunst der Fuge." teoria.com/en/articles/kdf/</span><span class="ja">各曲の技法（ストレッタ・フーガ＝第五〜七曲、第七曲の表題に掲げられた拡大と縮小、曲全体を和声ごと反転できる鏡像フーガ＝第十二・十三曲）は teoria.com「Die Kunst der Fuge」の分析による。teoria.com/en/articles/kdf/</span></li>
+      <li><span class="en">The crab canon is the <em>canon cancrizans</em> from <em>The Musical Offering</em> (BWV 1079, 1747), on a theme given by Frederick the Great. en.wikipedia.org/wiki/The_Musical_Offering</span><span class="ja">蟹行カノンは『音楽の捧げもの』（BWV 1079、1747年）の canon cancrizans。フリードリヒ大王から与えられた主題によるもの。en.wikipedia.org/wiki/The_Musical_Offering</span></li>
+      <li><span class="en">On the period of composition (ca. 1736–1750) and the deterioration of the handwriting in his final years, per the Nederlandse Bachvereniging's notes on BWV 1080 — an account by a performing ensemble, not a critical edition report. bachvereniging.nl/en/bwv/bwv-1080</span><span class="ja">作曲時期（ca. 1736–1750）および晩年の筆跡の悪化については Nederlandse Bachvereniging の BWV 1080 解説による。演奏団体による解説であって校訂報告ではない。bachvereniging.nl/en/bwv/bwv-1080</span></li>
+    </ol>
+  </div>
+</article>
+
+<footer>
+  <div><span class="en">Essay 014 · August 2026 · Music 01</span><span class="ja">Essay 014 · 2026年8月 · 音楽シリーズ 第1回</span></div>
+  <div><a href="../index.html">shun-yanagisawa.com</a> · <a href="../index.html#essays"><span class="en">All essays</span><span class="ja">エッセイ一覧</span></a></div>
+</footer>
+
+<script>
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+}
+if ((navigator.language || '').startsWith('ja')) toggleLang();
+</script>
+</body>
+</html>

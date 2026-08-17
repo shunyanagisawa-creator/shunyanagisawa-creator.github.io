@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!-- EN: draft translation 2026-08-17 — needs a proper editorial pass -->
+<!-- 通し番号は暫定。016 は唯識エッセイが候補で確保中 -->
+<!-- 加筆待ち: 図が0点。候補=エントリーの時間軸図／機械が引いた区分の線／半音のずれの図。ゲート②は線画SVG 2点以上 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Counts as the Same — Shun Yanagisawa</title>
+<meta name="description" content="Writing a detector for Bach's Art of Fugue by hand, most of what a listener recognizes could be transcribed to rule. What couldn't be transcribed turned out to be a question about how far something counts as the same.">
+<meta property="og:title" content="What Counts as the Same">
+<meta property="og:description" content="A machine can be taught to find a fugue's subject. What it can't be taught, without being told, is where the same thing stops being the same.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.shun-yanagisawa.com/essays/what-counts-as-the-same.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
+  --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f5ead8;
+  --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
+  --text: #1a1a1a; --text-mid: #3d3d3d; --text-muted: #666666; --border: #ddd9d0;
+  --font-display: 'Playfair Display', 'Noto Serif JP', Georgia, serif;
+  --font-body: 'Source Sans 3', sans-serif;
+  --font-jp: 'Noto Serif JP', serif;
+  --font-mono: 'DM Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--white); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.85; }
+body.lang-en .ja { display: none; }
+body.lang-ja .en { display: none; }
+body.lang-ja { font-family: var(--font-jp); }
+
+nav {
+  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+.nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1.2rem; }
+.nav-back { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--text-muted); text-decoration: none; }
+.nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .35rem .8rem; cursor: pointer; color: var(--text-mid);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
+
+.essay { max-width: 720px; margin: 0 auto; padding: 4rem 1.6rem 5rem; }
+.essay-kicker { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.2rem; }
+h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 500; line-height: 1.3; color: var(--navy); margin-bottom: .8rem; }
+.essay-sub { font-size: 1.02rem; color: var(--text-muted); margin-bottom: 1.4rem; line-height: 1.7; }
+.essay-meta { display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); padding-bottom: 1.6rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.4rem; }
+.essay-meta a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); }
+
+/* 書籍風: 番号付き節見出し (罫線で立てる、太字に頼らない) */
+.essay h2 {
+  font-family: var(--font-display); font-size: 1.22rem; font-weight: 500; color: var(--navy);
+  margin: 2.8rem 0 1rem; padding: .35rem 0 .45rem .9rem;
+  border-left: 3px solid var(--navy); border-bottom: 1px solid var(--border);
+}
+body.lang-ja .essay h2 { font-family: var(--font-jp); font-weight: 500; }
+.essay h2 .hnum { font-family: var(--font-mono); font-size: .85rem; color: var(--teal-dark); margin-right: .7rem; letter-spacing: .05em; }
+
+.essay p { margin: 1.1rem 0; color: var(--text-mid); text-align: justify; }
+.essay a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.4); }
+
+/* 強調: 太字でなく、日本語=傍点 / 英語=イタリック (書籍の作法) */
+.ja .em { -webkit-text-emphasis: filled dot var(--navy); text-emphasis: filled dot var(--navy); font-style: normal; }
+.en .em { font-style: italic; }
+
+/* 要点・用語ボックス: 細罫の囲み + 小ラベル (Word 専門書の囲み欄スタイル) */
+.pull {
+  border: 1px solid var(--gold); background: var(--gold-light);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 1.9rem 0; border-radius: 2px;
+  font-size: 1rem; color: var(--navy); line-height: 1.8; position: relative; text-align: justify;
+}
+.pull .pull-label {
+  position: absolute; top: -0.7rem; left: 1rem; background: var(--white);
+  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em;
+  color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase;
+}
+.pull .term { color: var(--gold-dark); }
+.pull .term-line { display: block; margin: .45rem 0; }
+
+/* 図版: 細罫ボックス + 図番キャプション (書籍の図組み) */
+.figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 1.9rem 0; background: var(--white); }
+.figure svg { width: 100%; height: auto; display: block; }
+.figcap {
+  margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); text-align: center;
+}
+body.lang-ja .figcap { font-family: var(--font-jp); font-size: .76rem; }
+
+/* 結語: 種としての一行 */
+.seed-box {
+  border: 1px solid var(--gold); border-left: 4px solid var(--gold);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0 0; border-radius: 2px;
+  font-size: 1.02rem; color: var(--navy); line-height: 1.85; position: relative; text-align: justify;
+}
+.seed-box .pull-label { position: absolute; top: -0.7rem; left: 1rem; background: var(--white); font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase; }
+
+.essay-close { border-top: 2px solid var(--gold); margin-top: 3rem; padding-top: 1.6rem; }
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
+footer a { color: var(--teal-dark); text-decoration: none; }
+@media (max-width: 560px) { nav { padding: 0 1.2rem; } .essay { padding-top: 2.6rem; } }
+
+/* 出典 (design-under-stress.html 準拠。テンプレに無いので追加) */
+.essay-note { margin-top: 2.6rem; padding-top: 1.2rem; border-top: 1px solid var(--border); font-size: .8rem; line-height: 1.7; color: var(--text-muted); }
+.essay-note .note-label { display: block; font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .7rem; }
+.essay-note ol { margin: 0; padding-left: 1.5rem; }
+.essay-note li { margin: .5rem 0; }
+.essay-note em { font-style: italic; }
+</style>
+</head>
+<body class="lang-en">
+
+<nav>
+  <a class="nav-logo" href="../index.html">Shun <span>Yanagisawa</span></a>
+  <div class="nav-right">
+    <a class="nav-back" href="../index.html#essays"><span class="en">← Essays</span><span class="ja">← エッセイ一覧</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="en">日本語</span><span class="ja">English</span></button>
+  </div>
+</nav>
+
+<article class="essay">
+  <div class="essay-kicker">Essay 017 · Music 02</div>
+  <h1>
+    <span class="en">What Counts as the Same</span>
+    <span class="ja">どこまでを同じものと認めるか</span>
+  </h1>
+  <div class="essay-meta">
+    <span>August 2026</span>
+    <span class="en">Music</span>
+    <span class="ja">音楽</span>
+    <span class="en">4 min read</span>
+    <span class="ja">日本語 約4分</span>
+  </div>
+
+  <h2><span class="hnum">1</span><span class="en">Letting a Machine Look</span><span class="ja">機械に探させてみる</span></h2>
+
+  <p class="en">While I was building the figure this far, I was picking out by eye where the subject appears — following the score, checking by ear, placing it in the figure. That was enough to make the figure work, but as I built it, something else started to bother me. This task should be handable to a machine. The subject can be defined as a sequence of twelve pitch intervals. Inversion is a sign flip; augmentation is a constant multiple of note values. All of it can be written as computation.</p>
+  <p class="ja">図をここまで作る間、主題がどこに現れるかは自分の目で拾っていた。楽譜を追い、耳で確かめ、図に置く。それで図は成立するのだが、作っているうちに別のことが気になってきた。この作業は機械に渡せるはずだ、と。主題は十二音の音程の並びで定義できる。反行は符号の反転であり、拡大は音価の定数倍である。どれも計算で書ける。</p>
+
+  <p class="en">I took the score from Stanford's KernScores, the score database maintained by Craig Sapp, where the full <em>Art of Fugue</em> is available.<sup>2</sup> I pulled out the first and seventh pieces. Not a single note was entered by hand — all of it comes from the score data. Two thousand four hundred twenty-five notes, every one of them.</p>
+  <p class="ja">譜面はスタンフォードの KernScores から取った。クレイグ・サップが整備している楽譜データベースで、『フーガの技法』は全曲が揃っている<sup>2</sup>。第一曲と第七曲を抜き出した。音符は一つも手で打っていない。二千四百二十五音、すべて譜面由来である。</p>
+
+  <p class="en">I wrote detection as matching sequences of intervals. But an exact match alone isn't enough. In a real fugue, the answer is adjusted in pitch to fit the scaffolding of the key — a subject that begins with a perfect fifth becomes a perfect fourth in the answer. So I built matching that allows for variant forms. For augmentation and diminution, I estimated the ratio from the median of the note-value ratios.</p>
+  <p class="ja">検出は音程の列の照合として書いた。ただし単純な一致では足りない。実際のフーガでは、応答は調の骨格に合わせて音程が微調整される。完全五度で始まった主題が、応答では完全四度になる。そこで変異形を許す照合にした。拡大と縮小のほうは、音価の比の中央値から倍率を推定させる。</p>
+
+  <p class="en">The result: eleven entries in the first piece, sixteen in the seventh. The breakdown in the seventh piece is five inversions, three augmentations, one diminution. The multiples that show up, besides the original, are two, four, and one-third. And near the end there's a stretch where the subject, drawn out four times its length, moves slowly across roughly twenty-four beats while the original passes underneath it twice. The same twelve notes, sounding at two different time scales at once.</p>
+  <p class="ja">結果として、第一曲で十一のエントリー、第七曲で十六のエントリーが出た。第七曲の内訳は反行が五、拡大が三、縮小が一である。倍率は原型のほかに二倍、四倍、三分の一が現れる。そして終盤に、四倍へ引き伸ばされた主題が二十四拍あまりかけてゆっくり進み、その下を原型が二度通り過ぎていく区間がある。同じ十二音が、二つの時間の尺度で同時に鳴っている。</p>
+
+  <h2><span class="hnum">2</span><span class="en">A Division I Never Taught, Emerging</span><span class="ja">教えていない区分が、出てきた</span></h2>
+
+  <p class="en">What was interesting came next.</p>
+  <p class="ja">面白かったのはその次だった。</p>
+
+  <p class="en">In talking about the structure of a fugue, the terms exposition, episode, and stretto get used. Of these, only the exposition I defined myself — as the span until all four voices have stated the subject once. I gave no definition to the other two. What I wrote was only a density calculation: where on the timeline entries occur, and how many. Where two or more voices overlap, I let the threshold call it stretto; where not a single entry is sounding, episode.</p>
+  <p class="ja">フーガの構造を語るとき、提示部、間奏、ストレッタという区分が使われる。このうち提示部だけは、四つの声部が主題を出し終えるまで、と私が定義した。残る二つには定義を与えていない。書いたのは、エントリーが時間軸のどこにいくつあるか、という密度の計算だけである。二つ以上の声部が重なっていればストレッタ、エントリーが一つも鳴っていなければ間奏、という閾値で線を引かせた。</p>
+
+  <p class="en">The seventh piece runs 244 beats in total. Of these, 58 beats were flagged as exposition, 92 as episode, 27 as stretto. The rest is where exactly one subject is sounding.</p>
+  <p class="ja">第七曲は全二百四十四拍で、そのうち提示部が五十八拍、間奏が九十二拍、ストレッタが二十七拍に分かれた。残りは主題が一つだけ鳴っている区間である。そして線が引かれた場所は、分析で名付けられている区分とおおむね重なっていた。</p>
+
+  <p class="en">Thinking about it, this is circular. The division was, from the start, defined by how the subject is stated, so it's no surprise that the division falls out of how the subject is stated. Even so, a fact remains: a machine that doesn't know the names drew its lines exactly where the names already are. The division isn't an interpretation someone laid over the music after the fact — it was sitting there in the score, in a measurable form.</p>
+  <p class="ja">考えてみればこれは循環している。区分はもともと「主題がどう出ているか」で定義されているのだから、主題の出方から区分が出るのは当然だ。それでも、名前を知らない機械が、名前のついている場所に線を引いたという事実は残る。区分は誰かが後から音楽に被せた解釈ではなく、譜面の側に測れる形で置かれていた。</p>
+
+  <p class="en">One more thing appears when the first and seventh pieces are set side by side. The first proceeds almost entirely in the original form; no inversion, no augmentation appears. The seventh has five inversions, three augmentations, and they run simultaneously. Across the collection, the number of operations used and how they overlap increases by stages. That is difficulty by design — and that design, too, comes out when you count.</p>
+  <p class="ja">もう一つ、第一曲と第七曲を並べると見えるものがある。第一曲はほとんど原型だけで進む。反行も拡大も出てこない。第七曲は反行が五つ、拡大が三つ、しかも同時に走る。曲集を通して、使われる操作の数と重なり方が段階的に増えていく。これは難易度が設計されているということで、その設計もまた、数えれば出てくる。</p>
+
+  <h2><span class="hnum">3</span><span class="en">Something Wasn't Captured</span><span class="ja">取れなかったものがある</span></h2>
+
+  <p class="en">But something wasn't captured.</p>
+  <p class="ja">だが、取れなかったものがある。</p>
+
+  <p class="en">The recall of detection topped out somewhere between eighty and ninety percent. One entry in five to ten that a human would immediately recognize as the subject slipped past the rules I had written.</p>
+  <p class="ja">検出の再現率は八割から九割のあたりで止まった。人間が見れば主題だと分かるのに、私の書いた規則には引っかからないエントリーが、一割から二割残る。</p>
+
+  <p class="en">One example. At beat sixteen of the seventh piece, the subject appears in the bass voice — inverted, and stretched to four times its length.</p>
+  <p class="ja">例をひとつ。第七曲の十六拍目、バス声部に主題が出る。これが反行であり、かつ四倍に引き伸ばされている。</p>
+
+  <p class="en">Going back and cross-checking the score data by hand, I was surprised. The note values were exactly right — all twelve at a clean fourfold ratio, not a single one off. What was off was only the sequence of intervals. And the way it was off had a reason. The inversion I had written flips pitch by counting semitones. What Bach writes here is an inversion that folds over the scale degree instead. Flip the degree on the D-minor scale, and the semitone count shifts by one depending on where you are. Six of the eleven intervals showed that shift — every shift a single semitone except the opening leap, which was two, matching the same key-based adjustment used in the answer.</p>
+  <p class="ja">あとから譜面データを手で突き合わせてみて、意外だった。音価のほうは十二音がすべてきれいに四倍で、比としては一つも外れていない。外れていたのは音程の列だけである。しかもその外れ方には理由があった。私が書いた反行は、音程を半音の数で反転させる。バッハがここで書いているのは、音階の度数を折り返す反行である。二短調の音階の上で度数を反転させると、半音の数は場所によって一つずれる。十一の音程のうち六つがそのずれを起こしていて、私の許容幅を超えた。ずれ幅はどれも半音一つ、冒頭の跳躍だけが二つ分で、これは応答のときと同じ調の骨格による調整である。</p>
+
+  <p class="en">In other words: I had allowed key-based adjustment on the side of the answer, while disallowing it on the side of inversion. The ear catches it. The eye, following the score, catches it. The machine did not.</p>
+  <p class="ja">つまり私は、応答の側では調に合わせたずれを許しておきながら、反行の側では許していなかった。耳で聴けば分かる。目で追っても分かる。機械には見えなかった。</p>
+
+  <p class="en">One more. In the episodes, fragments of the subject chain together, changing shape as they go — what's called a sequence. I hadn't even made this a target for detection. Where a fragment of the subject ends and a mere figure begins was a line I couldn't draw, because I had no grounds to draw one. I didn't skip drawing the line — I didn't have the basis to draw it.</p>
+  <p class="ja">もうひとつ。間奏部では主題の断片が形を変えながら連鎖していく。ゼクエンツと呼ばれる書き方だ。これは検出の対象にすらしていない。どこまでが主題の断片で、どこからが単なる音型なのか、その線が引けなかったからである。線を引かなかったのではなく、引く根拠を自分が持っていなかった。</p>
+
+  <p class="en">The rules I wrote are coarser than the rules Bach was following. We're calling both of them "rules," but they aren't the same thing.</p>
+  <p class="ja">私が書いた規則は、バッハが従っていた規則より粗い。同じ「規則」という言葉で呼んでいるが、別のものだ。</p>
+
+  <!-- 加筆待ち: 図が0点。候補=エントリーの時間軸図／機械が引いた区分の線／半音のずれの図。ゲート②は線画SVG 2点以上 -->
+
+  <h2><span class="hnum">4</span><span class="en">Rules, and How Far to Loosen Them</span><span class="ja">規則と、規則の緩め方</span></h2>
+
+  <p class="en">Let me line up what I've found.</p>
+  <p class="ja">分かったことを並べてみる。</p>
+
+  <p class="en">The seed is twelve notes. There are five operations, each of them writable as geometry. The divisions come out of the density without being told their names. This much could be transcribed to the machine. What couldn't was: the variant shaped by the scaffolding of the key, and the boundary between a subject and a fragment.</p>
+  <p class="ja">種は十二音である。操作は五つで、どれも幾何として書ける。区分は名前を教えなくても密度から出てくる。ここまでは機械の側に写せた。写せなかったのは、調の骨格に合わせて音程がずれた変形と、主題と断片の境目だった。</p>
+
+  <p class="en">The two things that couldn't be transcribed share a nature. Both are a judgment about how far something can be counted as the same. Do you still call it the same subject when six of twelve semitone counts differ? Do you count a three-note fragment as part of the subject? On Bach's side, that line was drawn — or at least, written as though it were drawn. On mine, it wasn't.</p>
+  <p class="ja">写せなかった二つは、同じ性質を持っている。どこまでを同じものと認めるか、という判断である。半音の数が六箇所ちがう十二音を、まだ同じ主題と呼ぶのか。三音だけの断片を、主題の一部として数えるのか。バッハの側にはその線が引かれていた。少なくとも、引かれているものとして書かれていた。私の側には無かった。</p>
+
+  <p class="en">If that's so, then what makes this collection work isn't the set of the seed and the operations by itself. Twelve notes and five operations are too simple, as rules, to account for what comes out of them. If this much comes from such a simple rule set, then the rules alone aren't what's producing it. It's likely both the rules and an understanding of how far those rules may be bent.</p>
+  <p class="ja">だとすると、この曲集を成り立たせているのは、種と操作の集合そのものではないことになる。十二音と五つの操作は、規則としては単純すぎる。単純な規則からこれだけのものが出てくるなら、出しているのは規則だけではない。規則と、その規則をどこまで緩めてよいかという了解と、その両方だろう。</p>
+
+  <p class="en">Where that understanding is written down, I still don't know. At least, it isn't in the score. If it were, my detector would have caught it.</p>
+  <p class="ja">その了解がどこに書かれているのかは、まだ分からない。少なくとも譜面には書かれていない。書かれていたら、私の検出器が拾えていたはずである。</p>
+
+  <div class="seed-box">
+    <span class="pull-label"><span class="en">The Seed</span><span class="ja">種としての一行</span></span>
+    <span class="en">The rule can be written down. The understanding of how far to loosen it is not.</span>
+    <span class="ja">規則は書ける。その規則をどこまで緩めてよいかという了解は、書かれていない。</span>
+  </div>
+
+  <div class="essay-note">
+    <span class="note-label"><span class="en">Notes &amp; Sources</span><span class="ja">出典</span></span>
+    <ol>
+      <li><span class="en">The techniques of each piece (the counter-fugues — pieces five through seven — and the augmentation and diminution named in the heading of the seventh) and the division into exposition, episode, and stretto follow the analysis at teoria.com, "Die Kunst der Fuge." teoria.com/en/articles/kdf/</span><span class="ja">各曲の技法（ストレッタ・フーガ＝第五〜七曲、第七曲の表題に掲げられた拡大と縮小）および提示部・間奏・ストレッタの区分は teoria.com「Die Kunst der Fuge」の分析による。teoria.com/en/articles/kdf/</span></li>
+      <li><span class="en">The score data is from KernScores (Stanford University CCARH, maintained by Craig Sapp), the full BWV 1080 in **kern format. All detection results in this piece are outputs run against this data; I have not checked them against the autograph or the facsimile of the 1751 first edition. kern.humdrum.org</span><span class="ja">譜面データは KernScores（スタンフォード大学 CCARH、Craig Sapp 整備）の `**kern` 形式による BWV 1080 全曲。本稿の検出結果はすべてこのデータに対する実行結果であり、自筆譜および1751年初版のファクシミリには当たっていない。kern.humdrum.org</span></li>
+    </ol>
+  </div>
+</article>
+
+<footer>
+  <div><span class="en">Essay 017 · August 2026 · Music 02</span><span class="ja">Essay 017 · 2026年8月 · 音楽シリーズ 第2回</span></div>
+  <div><a href="../index.html">shun-yanagisawa.com</a> · <a href="../index.html#essays"><span class="en">All essays</span><span class="ja">エッセイ一覧</span></a></div>
+</footer>
+
+<script>
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+}
+if ((navigator.language || '').startsWith('ja')) toggleLang();
+</script>
+</body>
+</html>
