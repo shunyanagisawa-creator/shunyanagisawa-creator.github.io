@@ -135,9 +135,15 @@ footer a { color: var(--teal-dark); text-decoration: none; }
     <span>August 2026</span>
     <span class="en">Music</span>
     <span class="ja">音楽</span>
-    <span class="en">4 min read</span>
-    <span class="ja">日本語 約4分</span>
+    <span class="en">6 min read</span>
+    <span class="ja">日本語 約6分</span>
   </div>
+
+  <p class="en">Bach's Art of Fugue derives eighteen pieces from a single twelve-note subject. Five operations are applied to it — transposition, inversion, retrograde, augmentation, diminution — and every one of them can be written as a calculation. So when I set out to visualize the work, I wrote the subject detector myself and ran it straight against the score data.</p>
+  <p class="ja">バッハの『フーガの技法』は、十二音の主題ひとつから十八曲が書かれている。かけられる操作は移調・反行・逆行・拡大・縮小の五つで、どれも計算で書ける形をしている。だから可視化しようとしたときに、譜面データへ直接かける主題の検出器を自分で書いた。</p>
+
+  <p class="en">What came out wasn't what I had expected. The pattern I was setting out to find was already there, before I had decided how to look for it. And the moment I decided how to look, something turned up that I couldn't catch at all. This is about that.</p>
+  <p class="ja">作ってみたら、思っていたのと違うことが起きた。探そうとしていたパターンは、探し方を決めるより先にそこにあった。そして探し方を決めた途端に、どうしても取れないものが出てきた。ここではその話をする。</p>
 
   <h2><span class="hnum">1</span><span class="en">Letting a Machine Look</span><span class="ja">機械に探させてみる</span></h2>
 
@@ -221,7 +227,10 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   <p class="ja">フーガの構造を語るとき、提示部、間奏、ストレットという区分が使われる。このうち提示部だけは、四つの声部が主題を出し終えるまで、と私が定義した。残る二つには定義を与えていない。書いたのは、エントリーが時間軸のどこにいくつあるか、という密度の計算だけである。二つ以上の声部が重なっていればストレット、エントリーが一つも鳴っていなければ間奏、という閾値で線を引かせた。</p>
 
   <p class="en">The seventh piece runs 244 beats in total. Of these, 58 beats were flagged as exposition, 92 as episode, 27 as stretto. The rest is where exactly one subject is sounding.</p>
-  <p class="ja">第七曲は全二百四十四拍で、そのうち提示部が五十八拍、間奏が九十二拍、ストレットが二十七拍に分かれた。残りは主題が一つだけ鳴っている区間である。そして線が引かれた場所は、分析で名付けられている区分とおおむね重なっていた。</p>
+  <p class="ja">第七曲は全二百四十四拍で、そのうち提示部が五十八拍、間奏が九十二拍、ストレットが二十七拍に分かれた。残りは主題が一つだけ鳴っている区間である。</p>
+
+  <p class="en">The published analysis names only three places in this fugue where the subject is not sounding: part of measure 18, measures 32 through 34, and the closing four measures. Every one of the three fell inside a stretch the machine had called an episode. But the machine had called three times that much. Why it overreached is the next section's business.</p>
+  <p class="ja">公表されている分析は、この曲で主題が鳴っていない場所を三箇所しか挙げていない。小節十八の一部、三十二から三十四、そして最後の四小節である。機械が間奏と判定した区間は、その三箇所をすべて含んでいた。ただし含んだうえで、三倍の広さを取っていた。広く取りすぎた理由は次の節で扱う。</p>
 
   <p class="en">Thinking about it, this is circular. The division was, from the start, defined by how the subject is stated, so it's no surprise that the division falls out of how the subject is stated. Even so, a fact remains: a machine that doesn't know the names drew its lines exactly where the names already are. The division isn't an interpretation someone laid over the music after the fact — it was sitting there in the score, in a measurable form.</p>
   <p class="ja">考えてみればこれは循環している。区分はもともと「主題がどう出ているか」で定義されているのだから、主題の出方から区分が出るのは当然だ。それでも、名前を知らない機械が、名前のついている場所に線を引いたという事実は残る。区分は誰かが後から音楽に被せた解釈ではなく、譜面の側に測れる形で置かれていた。</p>
@@ -234,8 +243,8 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   <p class="en">But something wasn't captured.</p>
   <p class="ja">だが、取れなかったものがある。</p>
 
-  <p class="en">The recall of detection topped out somewhere between eighty and ninety percent. One entry in five to ten that a human would immediately recognize as the subject slipped past the rules I had written.</p>
-  <p class="ja">検出の再現率は八割から九割のあたりで止まった。人間が見れば主題だと分かるのに、私の書いた規則には引っかからないエントリーが、一割から二割残る。</p>
+  <p class="en">The misses are already there in the last section's numbers. The episode total swelled to three times its size because the machine counted stretches where the subject was sounding but went undetected as stretches where nothing was. There are entries a human recognizes as the subject at once, and my rules don't catch them.</p>
+  <p class="ja">取りこぼしは、前の節の数字にもう出ている。間奏が三倍に膨らんだのは、主題が鳴っているのに検出できなかった区間を、機械が「鳴っていない」と数えたからである。人間が見れば主題だと分かるのに、私の書いた規則には引っかからないエントリーがある。</p>
 
   <p class="en">One example. At beat sixteen of the seventh piece, the subject appears in the bass voice — inverted, and stretched to four times its length.</p>
   <p class="ja">例をひとつ。第七曲の十六拍目、バス声部に主題が出る。これが反行であり、かつ四倍に引き伸ばされている。</p>
@@ -328,6 +337,9 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   <p class="en">One more. In the episodes, fragments of the subject chain together, changing shape as they go — what's called a sequence. I hadn't even made this a target for detection. Where a fragment of the subject ends and a mere figure begins was a line I couldn't draw, because I had no grounds to draw one. I didn't skip drawing the line — I didn't have the basis to draw it.</p>
   <p class="ja">もうひとつ。間奏部では主題の断片が形を変えながら連鎖していく。ゼクエンツと呼ばれる書き方だ。これは検出の対象にすらしていない。どこまでが主題の断片で、どこからが単なる音型なのか、その線が引けなかったからである。線を引かなかったのではなく、引く根拠を自分が持っていなかった。</p>
 
+  <p class="en">The misses all ran the same way. The detector overlooked subjects that were sounding, but it never once counted a subject where none was. A rule too coarse errs in one direction only — toward admitting too little.</p>
+  <p class="ja">取りこぼしの向きは、いつも同じだった。鳴っている主題を見落とすことはあっても、鳴っていない場所を主題ありと数えたことは一度もない。粗い規則は、認める範囲を狭くする方向にしか間違えない。</p>
+
   <p class="en">The rules I wrote are coarser than the rules Bach was following. We're calling both of them "rules," but they aren't the same thing.</p>
   <p class="ja">私が書いた規則は、バッハが従っていた規則より粗い。同じ「規則」という言葉で呼んでいるが、別のものだ。</p>
 
@@ -341,8 +353,23 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   <p class="en">The seed is twelve notes. There are five operations, each of them writable as geometry. The divisions come out of the density without being told their names. This much could be transcribed to the machine. What couldn't was: the variant shaped by the scaffolding of the key, and the boundary between a subject and a fragment.</p>
   <p class="ja">種は十二音である。操作は五つで、どれも幾何として書ける。区分は名前を教えなくても密度から出てくる。ここまでは機械の側に写せた。写せなかったのは、調の骨格に合わせて音程がずれた変形と、主題と断片の境目だった。</p>
 
-  <p class="en">The two things that couldn't be transcribed share a nature. Both are a judgment about how far something can be counted as the same. Do you still call it the same subject when six of twelve semitone counts differ? Do you count a three-note fragment as part of the subject? On Bach's side, that line was drawn — or at least, written as though it were drawn. On mine, it wasn't.</p>
-  <p class="ja">写せなかった二つは、同じ性質を持っている。どこまでを同じものと認めるか、という判断である。半音の数が六箇所ちがう十二音を、まだ同じ主題と呼ぶのか。三音だけの断片を、主題の一部として数えるのか。バッハの側にはその線が引かれていた。少なくとも、引かれているものとして書かれていた。私の側には無かった。</p>
+  <p class="en">The two things that couldn't be transcribed looked alike, but their natures differ.</p>
+  <p class="ja">写せなかった二つは、同じように見えて、性質が違った。</p>
+
+  <p class="en">The inversion adjusted to the key is a shortfall on my side. That the answer shifts its intervals to fit the key is written down precisely in the treatises. Prout spends chapter after chapter on nothing but the case-by-case correspondence between subject and answer. I had read that rule and implemented it. What I didn't do was generalize it — carry it across to the inversion, where the same adjustment happens. The rule was sitting right next door, and I simply didn't take it any further.</p>
+  <p class="ja">調に合わせた反行のほうは、私の側の不足である。応答が調に合わせて音程を変えることは、教則書に精密に書かれている。プラウトは主唱と応答の音程対応の場合分けだけで章をいくつも費やしている。私はその規則を読んで実装していた。だが同じ調整が反行にも起きることへ、一般化しなかった。隣に規則があったのに、そこから先へ運ばなかっただけである。</p>
+
+  <p class="en">The boundary of the sequence is not like that. Here there is no line on the theory's side either. Temperley opens his paper on the perception of motivic fragments by saying that parallelism is not an easy word to define, shows that the same figure can be heard as the subject or not depending on where it falls in the metre, and calls the difference difficult to describe. I couldn't draw the line because nobody has the grounds to draw it.</p>
+  <p class="ja">ゼクエンツの境界のほうは、そうではない。ここには理論の側にも線が無い。テンパリーは主題断片の知覚を扱った論文の冒頭に、反復は定義しやすい語ではないと置き、同じ音型が拍節上のどこに落ちるかで主題に聞こえたり聞こえなかったりすることを示して、その違いを記述しがたいと書いている。私が線を引けなかったのは、引く根拠を誰も持っていないからだった。</p>
+
+  <p class="en">Split apart, then, what couldn't be transcribed was two different things. One was a rule I failed to carry over. Only the other is an understanding that genuinely isn't written down.</p>
+  <p class="ja">分けてみると、機械に写せなかったものは二種類あったことになる。片方は自分が運ばなかった規則で、もう片方だけが、本当に書かれていない了解である。</p>
+
+  <p class="en">The question still stands in the same form, though. Do you still call it the same subject when six of twelve semitone counts differ? Do you count a three-note fragment as part of the subject? It is a judgment about how far something counts as the same. On Bach's side, that line was drawn — or at least, written as though it were drawn. On mine, it wasn't.</p>
+  <p class="ja">それでも問いは同じ形で残る。半音の数が六箇所ちがう十二音を、まだ同じ主題と呼ぶのか。三音だけの断片を、主題の一部として数えるのか。どこまでを同じものと認めるか、という判断である。バッハの側にはその線が引かれていた。少なくとも、引かれているものとして書かれていた。私の側には無かった。</p>
+
+  <p class="en">What's striking is that on the side where the rules are written most precisely, the people who wrote them say the same thing. Grove's first edition, immediately after listing the rules of tonal fugue, puts it this way: "Simple as are the foregoing Rules, great judgment is necessary in applying them." It goes on to say that there are subjects only the insight of genius can handle. The side that wrote the rules is saying the rules alone are not enough.</p>
+  <p class="ja">面白いのは、規則が最も精密に書かれている側で、書いた本人たちが同じことを言っていることだ。グローヴ音楽事典の初版は、調的フーガの規則を列挙した直後にこう置いている。以上の規則は単純だが、それを適用するには大きな判断力が必要である、と。続けて、天才の洞察でなければ扱えない主題もある、とまで書く。規則を書いた側が、規則だけでは足りないと書いている。</p>
 
   <p class="en">If that's so, then what makes this collection work isn't the set of the seed and the operations by itself. Twelve notes and five operations are too simple, as rules, to account for what comes out of them. If this much comes from such a simple rule set, then the rules alone aren't what's producing it. It's likely both the rules and an understanding of how far those rules may be bent.</p>
   <p class="ja">だとすると、この曲集を成り立たせているのは、種と操作の集合そのものではないことになる。十二音と五つの操作は、規則としては単純すぎる。単純な規則からこれだけのものが出てくるなら、出しているのは規則だけではない。規則と、その規則をどこまで緩めてよいかという了解と、その両方だろう。</p>
@@ -359,8 +386,11 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   <div class="essay-note">
     <span class="note-label"><span class="en">Notes &amp; Sources</span><span class="ja">出典</span></span>
     <ol>
-      <li><span class="en">The techniques of each piece (the counter-fugues — pieces five through seven — and the augmentation and diminution named in the heading of the seventh) and the division into exposition, episode, and stretto follow the analysis at teoria.com, "Die Kunst der Fuge." teoria.com/en/articles/kdf/</span><span class="ja">各曲の技法（ストレット・フーガ＝第五〜七曲、第七曲の表題に掲げられた拡大と縮小）および提示部・間奏・ストレットの区分は teoria.com「Die Kunst der Fuge」の分析による。teoria.com/en/articles/kdf/</span></li>
+      <li><span class="en">The techniques of each piece (the counter-fugues — pieces five through seven — and the augmentation and diminution named in the heading of the seventh) and the names of the divisions exposition, episode and stretto follow the analysis at teoria.com, "Die Kunst der Fuge." That analysis does not, however, give measure ranges for the divisions in the seventh piece. What this piece compares against is the three places where it states the subject is absent: part of measure 18, measures 32 through 34, and the closing four measures. teoria.com/en/articles/kdf/</span><span class="ja">各曲の技法（ストレット・フーガ＝第五〜七曲、第七曲の表題に掲げられた拡大と縮小）および提示部・間奏・ストレットという区分の名称は teoria.com「Die Kunst der Fuge」の分析による。ただし同分析は第七曲について各区分の小節範囲を与えていない。本稿が突き合わせたのは、同分析が主題の不在を明示している三箇所（小節十八の一部、三十二から三十四、末尾四小節）である。teoria.com/en/articles/kdf/</span></li>
       <li><span class="en">The score data is from KernScores (Stanford University CCARH, maintained by Craig Sapp), the full BWV 1080 in **kern format. All detection results in this piece are outputs run against this data; I have not checked them against the autograph or the facsimile of the 1751 first edition. kern.humdrum.org</span><span class="ja">譜面データは KernScores（スタンフォード大学 CCARH、Craig Sapp 整備）の `**kern` 形式による BWV 1080 全曲。本稿の検出結果はすべてこのデータに対する実行結果であり、自筆譜および1751年初版のファクシミリには当たっていない。kern.humdrum.org</span></li>
+      <li><span class="en">The quotation on the rules of tonal fugue and the judgment needed to apply them is from A Dictionary of Music and Musicians (Grove's first edition), the article "Tonal Fugue." en.wikisource.org/wiki/A_Dictionary_of_Music_and_Musicians/Tonal_Fugue</span><span class="ja">調的フーガの規則と、その適用に必要な判断についての引用は『音楽・音楽家事典』（グローヴ音楽事典 初版）「Tonal Fugue」項による。en.wikisource.org/wiki/A_Dictionary_of_Music_and_Musicians/Tonal_Fugue</span></li>
+      <li><span class="en">On how finely the correspondence between subject and answer is specified, see Ebenezer Prout, Fugue (1891). en.wikisource.org/wiki/Fugue_(Prout)</span><span class="ja">主唱と応答の音程対応がどれほど細かく定められているかについては Ebenezer Prout, <em>Fugue</em>（1891）による。en.wikisource.org/wiki/Fugue_(Prout)</span></li>
+      <li><span class="en">On the boundary of a motivic fragment being difficult to define, see David Temperley, "Motivic Perception and Modularity," Music Perception 13(2), 1995. Where this piece says the construction rule for inversion is not written down, that claim holds for the three sources I read in the original — Prout, Grove's first edition, and Temperley. I have not consulted Marpurg or Cherubini directly. davidtemperley.com</span><span class="ja">主題断片の境界が定義しがたいことは David Temperley, "Motivic Perception and Modularity," <em>Music Perception</em> 13(2), 1995 による。なお本稿が「反行の構成規則は書かれていない」と述べるのは、プラウト、グローヴ音楽事典初版、テンパリーの三点を原文で確認した範囲での主張である。マルプルクおよびケルビーニの原典には当たっていない。davidtemperley.com</span></li>
     </ol>
   </div>
 </article>
