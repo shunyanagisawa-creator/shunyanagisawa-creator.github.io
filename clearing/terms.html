@@ -2159,7 +2159,9 @@ function toggleLang() {
   if (q && typeof Q_PLACEHOLDER_JA !== 'undefined') {
     q.placeholder = ja ? Q_PLACEHOLDER_EN : Q_PLACEHOLDER_JA;
   }
+  try { localStorage.setItem('sy-lang', document.body.classList.contains('lang-ja') ? 'ja' : 'en'); } catch (e) {}
 }
+try { if (localStorage.getItem('sy-lang') === 'en' && document.body.classList.contains('lang-ja')) toggleLang(); } catch (e) {}
 </script>
 </body>
 </html>
