@@ -253,7 +253,7 @@ html.has-backbar .term { scroll-margin-top: 236px; }
   <p class="column-sub">Default Waterfall — Default Waterfall</p>
   <div class="column-meta">
     <span><span class="ja">出所 初版</span><span class="en">Origin: First edition</span></span>
-    <span><span class="ja">更新 2026年8月6日</span><span class="en">Updated 2026-08-06</span></span>
+    <span><span class="ja">更新 2026年8月18日</span><span class="en">Updated 2026-08-18</span></span>
   </div>
 
   <div class="term-body">
@@ -262,7 +262,7 @@ html.has-backbar .term { scroll-margin-top: 236px; }
   </div>
   <div class="term-more">
     <span class="more-label">補説</span>
-      <p>参加者がデフォルトしたとき、どの資金から順に損失を埋めるかを定めた階層です。デフォルトした参加者自身の当初証拠金と拠出金がまず使われ、次に清算機関の自己拠出金、その次に他の参加者が拠出した清算基金へと及びます。相互化とは、この「他の参加者の拠出に及ぶ」部分を指します。全額担保型の清算機関では最初の層だけで完結する設計になり、後段の層はほとんど働きません。</p>
+      <p>参加者がデフォルトしたとき、どの資金から順に損失を埋めるかを定めた階層です。デフォルトした参加者自身の当初証拠金と拠出金がまず使われ、次に清算機関の自己拠出金、その次に他の参加者が拠出した清算基金へと及びます。相互化とは、この「他の参加者の拠出に及ぶ」部分を指します。なお、他の参加者に及ぶ層とその後の追加コールには上限が置かれます。負担額が読めないままでは、損失を被った参加者がさらに破綻する連鎖を招きかねないためです。規則に書けるのは資金の順番までで、有事にポジションをヘッジし、入札を束ね、市場へ戻す作業は、清算機関と参加者が取り交わす実務手順とデータ連携に委ねられます。全額担保型の清算機関では最初の層だけで完結する設計になり、後段の層はほとんど働きません。</p>
   </div>
   <dl class="term-fields">
     <dt>正式名称</dt><dd>Default Waterfall</dd>
@@ -317,9 +317,7 @@ function toggleLang() {
   if (q && typeof Q_PLACEHOLDER_JA !== 'undefined') {
     q.placeholder = ja ? Q_PLACEHOLDER_EN : Q_PLACEHOLDER_JA;
   }
-  try { localStorage.setItem('sy-lang', document.body.classList.contains('lang-ja') ? 'ja' : 'en'); } catch (e) {}
 }
-try { if (localStorage.getItem('sy-lang') === 'en' && document.body.classList.contains('lang-ja')) toggleLang(); } catch (e) {}
 </script>
 </body>
 </html>
