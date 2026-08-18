@@ -32,7 +32,25 @@
   <url><loc>https://www.shun-yanagisawa.com/clearing/auto-liquidation-limits</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.shun-yanagisawa.com/clearing/japan-otc-margin</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.shun-yanagisawa.com/clearing/margin-simulator-transparency</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.shun-yanagisawa.com/clearing/terms/balance-sheet-cost</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://www.shun-yanagisawa.com/clearing/terms/cb</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.shun-yanagisawa.com/clearing/terms/close-out-netting</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.shun-yanagisawa.com/clearing/terms/counterparty-risk</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.shun-yanagisawa.com/clearing/terms/cpm</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://www.shun-yanagisawa.com/clearing/terms/default-waterfall</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.shun-yanagisawa.com/clearing/terms/defaulter-pays</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.shun-yanagisawa.com/clearing/terms/direct-clearing</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.shun-yanagisawa.com/clearing/terms/exposure</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.shun-yanagisawa.com/clearing/terms/fully-collateralized-prefunded</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.shun-yanagisawa.com/clearing/terms/give-up</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.shun-yanagisawa.com/clearing/terms/im</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.shun-yanagisawa.com/clearing/terms/intraday-margin</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.shun-yanagisawa.com/clearing/terms/leverage-ratio</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.shun-yanagisawa.com/clearing/terms/margin-leverage</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.shun-yanagisawa.com/clearing/terms/multilateral-netting</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.shun-yanagisawa.com/clearing/terms/netting-opinion</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.shun-yanagisawa.com/clearing/terms/procyclicality</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.shun-yanagisawa.com/clearing/terms/qccp</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://www.shun-yanagisawa.com/clearing/terms/sig-sitg</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.shun-yanagisawa.com/clearing/terms/survivors-pay</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>
