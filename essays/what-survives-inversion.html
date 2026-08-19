@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<!-- EN: not yet drafted — this page is Japanese-only for now; needs a full EN pass before publish -->
+<!-- 系F（音楽シリーズ）第3回 = Music 03。正本は C:\pg\Ananda\docs\essays\drafts\what-survives-inversion.md -->
+<!-- 音の装置A/Bは C:\pg\Ananda\docs\essays\drafts\_process\_shared\fugue-audio\build-essay-embed.mjs の生成物（手で書き起こしていない）。装置A=build-mirror.mjs の buildMirror()、装置B=fugue-audio.js の SUBJECT/invert()。 -->
+<!-- 作業ブランチ auto/music-03-0819。main 未合流・未公開（この状態でのpushは想定していない）。 -->
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Survives Inversion — Shun Yanagisawa</title>
+<meta name="description" content="Measuring Bach's mirror fugue by ear and by number: distance breaks under inversion at 58.8%, but scale position survives at 99.8% — and one voice, measured every way, still refuses to fit.">
+<meta property="og:title" content="What Survives Inversion">
+<meta property="og:description" content="What looks 58.8% broken by semitone distance turns out to be 99.8% intact — once you measure position on the scale instead.">
+<meta property="og:type" content="article">
+<link rel="canonical" href="https://www.shun-yanagisawa.com/essays/what-survives-inversion">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "What Survives Inversion",
+  "alternativeHeadline": "裏返しても壊れないもの",
+  "description": "Measuring Bach's mirror fugue by ear and by number: distance breaks under inversion at 58.8%, but scale position survives at 99.8% — and one voice, measured every way, still refuses to fit.",
+  "inLanguage": [
+    "en",
+    "ja"
+  ],
+  "datePublished": "2026-08",
+  "author": {
+    "@type": "Person",
+    "name": "Shun Yanagisawa",
+    "alternateName": "柳沢 俊",
+    "url": "https://www.shun-yanagisawa.com/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Shun Yanagisawa",
+    "url": "https://www.shun-yanagisawa.com/"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.shun-yanagisawa.com/essays/what-survives-inversion"
+  },
+  "url": "https://www.shun-yanagisawa.com/essays/what-survives-inversion",
+  "isAccessibleForFree": true
+}
+</script>
+<meta property="og:url" content="https://www.shun-yanagisawa.com/essays/what-survives-inversion">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
+  --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f5ead8;
+  --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
+  --text: #1a1a1a; --text-mid: #3d3d3d; --text-muted: #666666; --border: #ddd9d0;
+  --font-display: 'Playfair Display', 'Noto Serif JP', Georgia, serif;
+  --font-body: 'Source Sans 3', sans-serif;
+  --font-jp: 'Noto Serif JP', serif;
+  --font-mono: 'DM Mono', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--white); color: var(--text); font-family: var(--font-body); font-size: 17px; line-height: 1.85; }
+body.lang-en .ja { display: none; }
+body.lang-ja .en { display: none; }
+body.lang-ja { font-family: var(--font-jp); }
+
+nav {
+  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border); height: 60px;
+  display: flex; align-items: center; justify-content: space-between; padding: 0 2rem;
+}
+.nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
+.nav-logo span { color: var(--teal-dark); }
+.nav-right { display: flex; align-items: center; gap: 1.2rem; }
+.nav-back { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--text-muted); text-decoration: none; }
+.nav-back:hover { color: var(--teal-dark); }
+.lang-toggle {
+  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em;
+  background: none; border: 1px solid var(--border); border-radius: 3px;
+  padding: .35rem .8rem; cursor: pointer; color: var(--text-mid);
+}
+.lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
+
+.essay { max-width: 720px; margin: 0 auto; padding: 4rem 1.6rem 5rem; }
+.essay-kicker { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.2rem; }
+h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 500; line-height: 1.3; color: var(--navy); margin-bottom: .8rem; }
+.essay-sub { font-size: 1.02rem; color: var(--text-muted); margin-bottom: 1.4rem; line-height: 1.7; }
+.essay-meta { display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); padding-bottom: 1.6rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.4rem; }
+.essay-meta a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); }
+
+/* 書籍風: 番号付き節見出し (罫線で立てる、太字に頼らない) */
+.essay h2 {
+  font-family: var(--font-display); font-size: 1.22rem; font-weight: 500; color: var(--navy);
+  margin: 2.8rem 0 1rem; padding: .35rem 0 .45rem .9rem;
+  border-left: 3px solid var(--navy); border-bottom: 1px solid var(--border);
+}
+body.lang-ja .essay h2 { font-family: var(--font-jp); font-weight: 500; }
+.essay h2 .hnum { font-family: var(--font-mono); font-size: .85rem; color: var(--teal-dark); margin-right: .7rem; letter-spacing: .05em; }
+
+.essay p { margin: 1.1rem 0; color: var(--text-mid); text-align: justify; }
+.essay a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.4); }
+
+/* 強調: 太字でなく、日本語=傍点 / 英語=イタリック (書籍の作法) */
+.ja .em { -webkit-text-emphasis: filled dot var(--navy); text-emphasis: filled dot var(--navy); font-style: normal; }
+.en .em { font-style: italic; }
+
+/* 要点・用語ボックス: 細罫の囲み + 小ラベル (Word 専門書の囲み欄スタイル) */
+.pull {
+  border: 1px solid var(--gold); background: var(--gold-light);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 1.9rem 0; border-radius: 2px;
+  font-size: 1rem; color: var(--navy); line-height: 1.8; position: relative; text-align: justify;
+}
+.pull .pull-label {
+  position: absolute; top: -0.7rem; left: 1rem; background: var(--white);
+  font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em;
+  color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase;
+}
+.pull .term { color: var(--gold-dark); }
+.pull .term-line { display: block; margin: .45rem 0; }
+
+/* 図版: 細罫ボックス + 図番キャプション (書籍の図組み) */
+.figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 1.9rem 0; background: var(--white); }
+.figure svg { width: 100%; height: auto; display: block; }
+.figcap {
+  margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); text-align: center;
+}
+body.lang-ja .figcap { font-family: var(--font-jp); font-size: .76rem; }
+
+/* 結語: 種としての一行 */
+.seed-box {
+  border: 1px solid var(--gold); border-left: 4px solid var(--gold);
+  padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0 0; border-radius: 2px;
+  font-size: 1.02rem; color: var(--navy); line-height: 1.85; position: relative; text-align: justify;
+}
+.seed-box .pull-label { position: absolute; top: -0.7rem; left: 1rem; background: var(--white); font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase; }
+
+.essay-close { border-top: 2px solid var(--gold); margin-top: 3rem; padding-top: 1.6rem; }
+.essay-note { margin-top: 2.6rem; padding-top: 1.2rem; border-top: 1px solid var(--border); font-size: .8rem; line-height: 1.7; color: var(--text-muted); }
+.essay-note .note-label { display: block; font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .7rem; }
+.essay-note ol { margin: 0; padding-left: 1.5rem; }
+.essay-note li { margin: .5rem 0; }
+.essay-note em { font-style: italic; }
+
+/* 表 (§4 の物差し比較表) */
+.essay table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.essay th, .essay td { border: 1px solid var(--border); padding: .5rem .7rem; text-align: center; color: var(--navy); }
+.essay thead th { background: var(--off-white); font-weight: 500; }
+.essay tbody th { background: var(--off-white); font-weight: 500; text-align: left; white-space: nowrap; }
+
+.essay-close { border-top: 2px solid var(--gold); margin-top: 3rem; padding-top: 1.6rem; }
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
+footer a { color: var(--teal-dark); text-decoration: none; }
+@media (max-width: 560px) { nav { padding: 0 1.2rem; } .essay { padding-top: 2.6rem; } }
+
+/* ===== mus3-* : Music 03 本文埋め込み音の装置（build-essay-embed.mjs 生成・上の CSS 変数に相乗り）===== */
+.mus3-device { margin: 1.6rem 0; }
+.mus3-label { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .1em; color: var(--teal-dark); text-transform: uppercase; margin-bottom: .8rem; }
+body.lang-ja .mus3-label { font-family: var(--font-jp); font-size: .78rem; letter-spacing: .04em; text-transform: none; }
+.mus3-buttons { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: .7rem; }
+.mus3-btn {
+  appearance: none; cursor: pointer; display: inline-flex; align-items: center; gap: .5em;
+  font-family: var(--font-body); font-size: .82rem; color: var(--navy);
+  background: var(--white); border: 1px solid var(--border); border-radius: 3px;
+  padding: .5em 1em .5em .7em;
+}
+body.lang-ja .mus3-btn { font-family: var(--font-jp); }
+.mus3-btn:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
+.mus3-btn[aria-pressed="true"] { background: var(--teal-dark); border-color: var(--teal-dark); color: var(--white); }
+.mus3-tag {
+  font-family: var(--font-mono); font-size: .64rem; font-weight: 600; color: var(--gold-dark);
+  border: 1px solid var(--gold); border-radius: 2px; padding: .05em .4em; line-height: 1.5;
+}
+.mus3-btn[aria-pressed="true"] .mus3-tag { color: var(--gold-light); border-color: var(--gold-light); }
+.mus3-note { font-size: .82rem; color: var(--text-muted); margin-top: .3rem; }
+#mus3-err { color: #a33; font-size: .78rem; white-space: pre-wrap; }
+</style>
+</head>
+<body class="lang-ja">
+
+<nav>
+  <a class="nav-logo" href="/">Shun <span>Yanagisawa</span></a>
+  <div class="nav-right">
+    <a class="nav-back" href="/essays/"><span class="en">← Essays</span><span class="ja">← エッセイ一覧</span></a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="en">日本語</span><span class="ja">English</span></button>
+  </div>
+</nav>
+
+<article class="essay">
+  <div class="essay-kicker">Essay 018 · Music 03</div>
+  <h1>
+    <span class="en">What Survives Inversion</span>
+    <span class="ja">裏返しても壊れないもの</span>
+  </h1>
+  <p class="essay-sub">
+    <span class="en">Bach wrote two fugues that mirror each other — flip one and you get the other. Measured by the interval in semitones, only 58.8% of the notes line up. Measured by position on the scale, 99.8% do. What breaks under inversion isn't what I expected, and what survives isn't either.</span>
+    <span class="ja">バッハは、片方を上下ひっくり返すともう片方になる曲を二つ書いた。半音の数で測ると一致率は五十八・八パーセントしかない。音階の度数で測り直すと九十九・八パーセントになる。壊れると思っていたものは壊れず、保存されていると思っていたものは保存されていなかった。</span>
+  </p>
+  <div class="essay-meta">
+    <span>August 2026</span>
+    <span class="en">Music</span>
+    <span class="ja">音楽</span>
+    <span class="en">8 min read</span>
+    <span class="ja">日本語 約8分</span>
+  </div>
+
+  <p class="en"><em>An English version of this essay has not been drafted yet — this page is Japanese-only for now.</em></p>
+
+  <p class="ja">前に一度、バッハの『フーガの技法』に機械を向けたことがある。譜面のデータから主題を探させて、どこまで拾えるかを見るためだった。結果は半々で、拾えたものもあったし、拾えなかったものもあった。拾えなかった方について、そのときはこう書いて終えた。規則は書ける。その規則をどこまで緩めてよいかという了解は、書かれていない。譜面にも書かれていない。書かれていたら、検出器が拾えていたはずである。</p>
+  <p class="ja">その後で気がついた。この曲集には、答えが書いてある箇所がある。</p>
+  <p class="ja">鏡像フーガと呼ばれる曲が二つあって、どちらも正置と反行が別々の曲として並べて置かれている。片方を上下ひっくり返すともう片方になる、という関係を、作曲者自身が二曲並べることで宣言している。四声のものと三声のものがあり、四声の方は初版の番号で第十二曲、三声の方が第十三曲にあたる<sup>1</sup>。</p>
+  <p class="ja">答えが書いてあるなら、外から測れる。合っているかどうかを、こちらが判定する必要がない。</p>
+  <p class="ja">以下は測ってみた記録である。結果を先に言うと、壊れると思っていたものは壊れず、保存されていると思っていたものは保存されていなかった。</p>
+
+  <!-- ===== 生成物: build-essay-embed.mjs（装置B・主題とその反行）手で書き起こさない ===== -->
+  <div class="figure mus3-device" id="mus3-device-b">
+    <div class="mus3-label"><span class="en">Hear the subject, then its inversion</span><span class="ja">主題と、その反行を聴く</span></div>
+    <div class="mus3-buttons">
+      <button class="mus3-btn" data-mus3-pair="subject" aria-pressed="false"><span class="mus3-tag">S</span><span class="en">Subject</span><span class="ja">主題</span></button>
+      <button class="mus3-btn" data-mus3-pair="invert" aria-pressed="false"><span class="mus3-tag">I</span><span class="en">Its inversion</span><span class="ja">その反行</span></button>
+    </div>
+    <div class="figcap"><span class="en">The same twelve notes, folded over the first pitch.</span><span class="ja">同じ十二音を、最初の音を軸に折り返したもの。</span></div>
+  </div>
+  <!-- ===== /生成物: 装置B ===== -->
+
+  <h2><span class="hnum">1</span><span class="ja">半音で測ると、六割しか合わない</span></h2>
+
+  <p class="ja">やり方は単純である。正置の各声部について、隣り合う音の間隔を並べた列を作る。反行の側でも同じことをする。裏返しなら、間隔の符号が全部ひっくり返っているはずだ。上がっていた所は同じだけ下がる。列を一つずつ突き合わせて、符号が反転しているかを数えればいい。</p>
+  <p class="ja">四声の方でこれをやると、千十六箇所のうち五百九十七箇所が合った。<span class="em">五十八・八パーセント</span>である。</p>
+  <p class="ja">六割に届かない。裏返しと呼ぶには低すぎる。</p>
+  <p class="ja">しかし外れ方を見ると、様子がおかしかった。<span class="em">ずれはほとんど全部が半音ひとつ分</span>で、しかも大きい方へのずれと小さい方へのずれがほぼ同数ある。でたらめに外れているのではない。何かが規則的に一段だけ動いている。</p>
+  <p class="ja">でたらめでない外れ方をするときは、測っている側を疑ったほうがいい。</p>
+
+  <h2><span class="hnum">2</span><span class="ja">物差しを替えると、ほぼ完全に一致する</span></h2>
+
+  <p class="ja">疑うべきは「半音の数で測る」という決め方だった。</p>
+  <p class="ja">半音の数は、音と音の距離である。ピアノの鍵盤を数えた数と言ってもいい。だが調のある音楽で音の位置を言うとき、普通は距離では言わない。<span class="em">度数</span>で言う。二短調ならレを一番目として、ミが二番目、ファが三番目、と音階の上で何番目かを数える。この数え方だと、ミからファまでは半音一つぶん、ファからソまでは二つぶんと、物理的な間隔がばらばらのまま、どちらも「隣」になる。</p>
+  <p class="ja">音階そのものが、等間隔でできていない。</p>
+  <p class="ja">そこで度数で測り直した。音階の上で何番目かを取り、その番号の列で符号の反転を見る。同じ曲、同じ声部、同じ突き合わせ方で、変えたのは物差しだけである。</p>
+  <p class="ja">四声の方の一致率は、<span class="em">九十九・八パーセント</span>になった。千十六箇所のうち千十四箇所。四つの声部すべてが九十九・二パーセントを超えている。</p>
+  <p class="ja">六割は、測り方のせいだった。<span class="em">曲全体が、本当に裏返しである。</span></p>
+  <p class="ja">もっとも、この数字が鏡像フーガに固有のものかどうかは、それだけでは分からない。音階は七つしか音が無いから、度数に写した時点でどんな旋律同士でも当たりやすくなっているだけかもしれない。確かめるために、鏡像の関係にない声部同士を同じ手順で突き合わせてみた。同じ曲の中の別の声部、別の曲の声部、六通りの組み合わせを総当たりして一番高く出たもの、どれを取っても度数で十五から四十二パーセントの範囲に留まった。同じ曲集の中で、主題に反行形を使いながら曲全体は鏡像になっていないフーガを測ると、二十四パーセントだった。</p>
+  <p class="ja"><span class="em">九十九・八パーセントは、曲をまるごと裏返した曲にだけ出る数字である。</span></p>
+
+  <h2><span class="hnum">3</span><span class="ja">二短調のままである</span></h2>
+
+  <p class="ja">では、裏返した曲はどこに居るのか。</p>
+  <p class="ja">音階の外へ出た音を数えてみた。二短調の音階に無い音がどれだけ混ざっているかである。正置では七・六パーセント、反行では<span class="em">二・六パーセント</span>だった。裏返した方が、<span class="em">むしろ音階に素直になっている</span>。</p>
+  <p class="ja">一箇所、はっきりした対応が出た。二短調で主音の半音下にあるド♯は、上へ向かう力を持つ音である。この曲集の中でこの音が現れる箇所を全部拾って、反行の側で対応する位置に何の音が来ているかを数えた。<span class="em">四十七箇所のうち四十七箇所、つまり例外なく、シ♭になっていた。</span></p>
+  <p class="ja">シ♭は音階の六番目で、そこからラへ下る動きは短調に固有のものだ。上へ向かう音が、下へ向かう音に写っている。どちらも二短調の中で役割を持つ音である。役割を持つ音が、役割を持つ別の音へ、例外なく対応している。</p>
+  <p class="ja">そして、裏返しても響きそのものはほとんど動かない。</p>
+  <p class="ja">各時点で同時に鳴っている音を全部取り出し、声部の間の音程を協和と不協和に分けて比率を出した。正置が七十・六パーセント、反行が七十・五パーセントである。<span class="em">差は〇・一ポイント</span>しかない。個々の音程は全部ひっくり返っているのに、響きの構成比は動かない。</p>
+  <p class="ja">距離を保存しなかったから、調が保存された。</p>
+
+  <h2><span class="hnum">4</span><span class="ja">距離ではなく、位置だった</span></h2>
+
+  <p class="ja">ここで一度、三つの物差しを並べてみる。</p>
+
+  <div class="figure">
+    <div class="ja">
+      <table>
+        <thead><tr><th>何で測るか</th><th>見ているもの</th><th>四声の一致率</th></tr></thead>
+        <tbody>
+          <tr><td>半音の数</td><td>距離</td><td>58.8%</td></tr>
+          <tr><td>音階の上の位置</td><td>調の中での位置</td><td><span class="em">99.8%</span></td></tr>
+          <tr><td>上がったか下がったかだけ</td><td>向き</td><td>99.7%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="figcap"><span class="en">Table — three rulers, one score.</span><span class="ja">三つの物差しで、同じ譜面を測る。</span></div>
+  </div>
+
+  <p class="ja">三つ目を足したのは、こう考えたからである。距離を捨てたら一致率が跳ね上がった。なら、もっと捨てたらもっと上がるのではないか。音の高低の情報を全部落として、上がったか下がったかの二値にしてしまえば、一番粗い比較になる。</p>
+  <p class="ja">上がらなかった。九十九・七パーセントで、度数のときをわずかに下回る。<span class="em">捨てても増えない。</span></p>
+  <p class="ja">つまり、度数の段階でもう全部取れている。保存されていたのは「上がるか下がるか」という粗い形ではなく、<span class="em">音階という座標の上での、その音の正確な居場所</span>だった。</p>
+  <p class="ja">以前この曲集について書いたとき、変換が図形として目に映ることを指して、比喩ではなく実際に幾何だと書いた。訂正はしない。ただ、一つ付け加わる。<span class="em">その幾何は、距離を測ると壊れる。</span> 距離が保たれていないのに形が保たれているものを、幾何とは呼びにくい。保たれているのは、伸び縮みしても変わらない側の性質である。</p>
+
+  <h2><span class="hnum">5</span><span class="ja">聴き比べる</span></h2>
+
+  <p class="ja">ここまでは譜面の話で、耳の話ではない。だから鳴らせるようにした。</p>
+  <p class="ja">四声の鏡像フーガの冒頭を三つ並べてある。一つ目は正置。二つ目はバッハの書いた反行。三つ目は、正置の音高を<span class="em">半音の数で機械的に反転させた</span>ものである。三つ目は私が作った。各声部の最初の音を軸にして、上下をそのまま折り返しただけの、何の判断も入っていない反転である。</p>
+
+  <!-- ===== 生成物: build-essay-embed.mjs（装置A・鏡像フーガ聴き比べ）手で書き起こさない ===== -->
+  <div class="figure mus3-device" id="mus3-device-a">
+    <div class="mus3-label"><span class="en">Listen — the mirror fugue, three ways</span><span class="ja">聴き比べる — 鏡像フーガの冒頭を三つ</span></div>
+    <div class="mus3-buttons">
+      <button class="mus3-btn" data-mus3-version="A" aria-pressed="false"><span class="mus3-tag">A</span><span class="en">Original</span><span class="ja">正置</span></button>
+      <button class="mus3-btn" data-mus3-version="B" aria-pressed="false"><span class="mus3-tag">B</span><span class="en">Bach's inversion</span><span class="ja">バッハの反行</span></button>
+      <button class="mus3-btn" data-mus3-version="C" aria-pressed="false"><span class="mus3-tag">C</span><span class="en">Semitone flip (mechanical)</span><span class="ja">半音での機械的反転</span></button>
+    </div>
+    <div class="mus3-note"><span class="en">Contrapunctus XII, opening 14 measures — until all four voices have entered.</span><span class="ja">Contrapunctus XII、四声が出そろうまでの冒頭14小節。</span></div>
+    <div id="mus3-err"></div>
+    <div class="figcap"><span class="en">Tap to compare by ear.</span><span class="ja">耳で聴き比べる。</span></div>
+  </div>
+  <!-- ===== /生成物: 装置A ===== -->
+
+  <p class="ja">数字で言うとこうなる。音階の外へ出た音の割合が、正置一・七パーセント、バッハの反行二・六パーセント、機械の反転<span class="em">十一・二パーセント</span>。協和の比率が七十・〇、六十九・三に対して、機械の反転は<span class="em">五十七・一</span>。</p>
+  <p class="ja">距離を保存する反転は、調の外へ出る。バッハの反転は調の中に留まる。数字が言っているのはそこまでで、それがどう聞こえるかは書かない。聴いて判断してもらう方がいい。</p>
+
+  <h2><span class="hnum">6</span><span class="ja">三声の方は、そうきれいにいかない</span></h2>
+
+  <p class="ja">同じことを三声の鏡像フーガでやると、話が込み入る。</p>
+  <p class="ja">まず、素直な上下の入れ替えでは合わない。四声の方では、一番上の声部が反行では一番下に、一番下が一番上に、と対称に入れ替わっており、これが明確に最良だった。三声では、その素直な対応の一致率が五十パーセント台に留まる。声部の対応を総当たりで探すと、<span class="em">別の並び方</span>の方が高く出る。</p>
+  <p class="ja">そして、その最良の並びで測っても、三声のうち<span class="em">一声だけ</span>が低い。他の二声が九十八・五パーセントを超えているのに、その一声は六十八・一パーセントである。半音で測っても、度数で測っても、向きだけで測っても、<span class="em">どの物差しでも同じ声部が最も低い</span>。物差しを替えても同じ声部が残るなら、測定の揺らぎではない。その声部が実際に他と違うことをしている。</p>
+  <p class="ja">ここで、この曲についての解説を読んだ。三声の方は声部の配置が単純な入れ替えにならない、と書いてある。厳密な鏡像にはなっていない、そしてそれは<span class="em">不可能である</span>、とも。</p>
+  <p class="ja">こちらが総当たりで見つけたことと、定性的には合っている。だが具体的にどう入れ替わるのかまで突き合わせようとして、止まった。しかし、それではデータに合わせて答えを選んだことになる。だから決めるのをやめた。</p>
+  <p class="ja">一声だけ低いことについても、同じ慎重さが要る。そこで規則から降りている、と読みたくなる。だが三声の厳密な鏡像がそもそも不可能なら、降りたのではなく、その形では原理的にそうなるだけかもしれない。手元のデータからは、この二つを切り分けられない。</p>
+
+  <h2><span class="hnum">7</span><span class="ja">測ったものと、聴いているもの</span></h2>
+
+  <p class="ja">度数で測った九十九・八パーセントと、向きだけで測った九十九・七パーセントの差は、〇・一ポイントである。この差を、機械は区別する。人間の耳が区別するかどうかは、別の問題だ。</p>
+  <p class="ja">旋律の記憶を扱った研究に、初めて聴く旋律を数秒だけ覚えている状況では、人は「正確に移した旋律」と「輪郭と調は同じだが音程が違う旋律」をほとんど区別できない、という報告がある。正答率は偶然と変わらなかった<sup>2</sup>。同じ研究者は後に、覚えておく時間が延びると輪郭の優位が消えて音程の情報の方が効いてくることを示していて、輪郭で足りるかどうかは条件によると自ら整理している<sup>3</sup>。</p>
+  <p class="ja">だとすると、こちらが測ったものと、聴いている人が受け取っているものは、同じではないかもしれない。譜面の上で保存されているのが度数だとしても、耳がそこまで細かく追っていない可能性がある。</p>
+  <p class="ja">ただし条件が違う。その研究が扱っているのは初めて聴く旋律で、しかも数秒である。鏡像フーガは、そういう聴かれ方をする曲ではない。何度も聴き、譜面を見て、二つを並べて比べる対象として作られている。作曲者が正置と反行を別々の曲として置いたこと自体が、<span class="em">比べられることを前提にしている</span>。</p>
+  <p class="ja">それでも線は引いておく。ここで測ったのは譜面であって、聴取ではない。</p>
+
+  <h2><span class="hnum">8</span><span class="ja">結び</span></h2>
+
+  <p class="ja">壊れなかったのは、二短調という秩序だった。</p>
+  <p class="ja">それ以外は、かなりの程度まで崩されている。音と音の距離は崩されている。三声の方では声部の配置も崩されていて、その中の一つはさらに崩されている。崩しても壊れないものと、崩したら壊れるものが、この曲集の中で分かれている。</p>
+  <p class="ja">では、どこまで崩してよいのか。その線がどこに引かれているのかは、譜面には書かれていない。上下を裏返せという指示は、二つの曲を並べて置くという形で明示されている。だが半音ではなく音階の度数で折り返すことも、三声では声部の配置を素直に入れ替えないことも、どこにも書かれていない。</p>
+  <p class="ja">書かれていないが、<span class="em">崩した場所は残っている</span>。四声の方では四つの声部すべてが九十九パーセントを超えて規則どおりに動いていて、三声の方では一つの声部だけが六十八パーセントで動いている。守られている所からは何も分からない。分かるのは、外れている所からである。外れた場所の分布が、書かれなかった了解の輪郭になっている。</p>
+  <p class="ja">何を根拠に、そこでなら外してよいと判断したのか。それは分からないままである。</p>
+  <p class="ja">そしてもう一つ、この測定が答えていない問いが残った。ここで測ったのは譜面である。同じ曲を聴いているとき、耳は何を聞いているのか。</p>
+
+  <div class="essay-note">
+    <span class="note-label"><span class="en">Notes &amp; Sources</span><span class="ja">出典</span></span>
+    <ol>
+      <li><span class="ja">譜面データは Bach-Gesellschaft Ausgabe（Band 25.1, 1878／Band 47, 1926, Breitkopf und Härtel）を Craig Stuart Sapp が符号化したもの。曲番号は<span class="em">版によって異なる</span>（符号化データの註記によれば、1878年版の第十三曲が1926年版では第十六曲にあたる）。<span class="em">⚠ 版差の対応表は原典で確認できていない</span></span></li>
+      <li><span class="ja">W. J. Dowling, "Scale and contour: Two components of a theory of memory for melodies," <em>Psychological Review</em> 85(4), 1978, pp. 341–354。<span class="em">VERIFIED</span>（原文 PDF を取得して確認・2026-08-19）。該当箇所は p. 349–350: "Distinguishing between targets and tonal answer lures was very difficult, <span class="em">with chance performance in both groups</span>." 条件は5音の旋律・提示2秒・保持間隔2秒・被験者21名で、当該セルの正答率は .48（偶然＝.50）</span></li>
+      <li><span class="ja">W. J. Dowling &amp; J. C. Bartlett, "The importance of interval information in long-term memory for melodies," <em>Psychomusicology</em> 1(1), 1981。<span class="em">VERIFIED</span>（原文 PDF を取得して確認）。要旨 p.30: "Contour information dominated performance with the short delay, but not with the long delay." <span class="em">⚠ この論文の「長期」は実験内の保持間隔</span>（5秒 vs 31秒、数分）であって「聴き慣れた曲」ではない。聴き慣れた曲での音程優位は Bartlett &amp; Dowling (1980) が一次資料で、<span class="em">本稿はそこまで踏み込まない</span>。条件依存という整理は著者自身が同論文で行っている（p.45）</span></li>
+    </ol>
+  </div>
+</article>
+
+<p class="disclaimer"><span class="en">The views expressed are the author's own and do not represent those of any organization he belongs to.</span><span class="ja">掲載する内容は筆者個人の見解であり、筆者が所属する組織・団体の見解を示すものではありません。</span></p>
+
+<footer>
+  <div><span class="en">Essay 018 · August 2026 · Music 03</span><span class="ja">Essay 018 · 2026年8月 · 音楽シリーズ 第3回</span></div>
+  <div><a href="/">shun-yanagisawa.com</a> · <a href="/essays/"><span class="en">All essays</span><span class="ja">エッセイ一覧</span></a></div>
+</footer>
+
+<!-- ===== 生成物: build-essay-embed.mjs（共有スクリプト・装置A/B）手で書き起こさない ===== -->
+<script>
+/* ---- 生成物: fugue-audio.js を inline (build-essay-embed.mjs が export を剥がしただけ。値/ロジック無改変) ---- */
+// fugue-audio.js
+// 系F（音楽エッセイ）共通の Web Audio + Canvas モジュール。
+//
+// 出所: docs/_archive/the-density-of-transformation-STALE-DRAFT-20260815.html
+//       行296-668 (<script> 本体) から抽出。
+// 抽出時の規律: 主題データ・変換関数・ADSR/フィルタ定数は一字も変えていない
+//       (変えたら別の音になり、旧ドラフトとの同一性検証が無効になるため)。
+//
+// 元コードとの違い（依存の切断）:
+//   - 色は CSS カスタムプロパティ (getComputedStyle) を直接読んでいたが、
+//     ここでは options.colors で外から渡せるようにした。渡さなければ
+//     旧ドラフトの :root 定義と同じ既定値を使う（DEFAULT_COLORS）。
+//   - 声部数の文言 ("n voices" / "n 声部") は body.lang-ja の有無で
+//     分岐していたが、options.formatVoiceCount(n) を外から渡せる形にした。
+//     既定値は英語表記。
+//   - prefers-reduced-motion の判定はブラウザ標準 API のままなので
+//     切り離していない（ホスト固有の依存ではないため）。
+//
+// ES module。何も渡さずに createFugueAudio() を呼べば既定値で動く。
+
+"use strict";
+
+// ---- 主題 = 『フーガの技法』BWV 1080 の主題（D minor）----
+// p = D からの半音オフセット / d = 四分音符を 1 とした音価。全 20 拍 = 2/2 で5小節。
+const TONIC_HZ = 293.66; // D4
+const SUBJECT = [
+  { p: 0, d: 2 }, // D
+  { p: 7, d: 2 }, // A
+  { p: 3, d: 2 }, // F
+  { p: 0, d: 2 }, // D
+  { p: -1, d: 1 }, // C#
+  { p: 0, d: 1 }, // D
+  { p: 2, d: 2 }, // E
+  { p: 3, d: 1 }, // F
+  { p: 5, d: 1 }, // G
+  { p: 3, d: 1 }, // F
+  { p: 2, d: 1 }, // E
+  { p: 0, d: 4 }, // D
+];
+
+// ---- 変換関数 ----
+const clone = (ns) => ns.map((n) => ({ p: n.p, d: n.d }));
+const transpose = (ns, iv) => ns.map((n) => ({ p: n.p + iv, d: n.d }));
+const invert = (ns) => {
+  const ax = ns[0].p;
+  return ns.map((n) => ({ p: 2 * ax - n.p, d: n.d }));
+};
+const retrograde = (ns) => clone(ns).reverse();
+const augment = (ns) => ns.map((n) => ({ p: n.p, d: n.d * 2 }));
+const diminish = (ns) => ns.map((n) => ({ p: n.p, d: n.d * 0.5 }));
+
+// ---- 五操作（表示テキストはホスト側の HTML に置く。ここは音と色鍵だけ）----
+const OPERATIONS = [
+  { tag: "transposition", notes: transpose(SUBJECT, 7), colorKey: "brass" },
+  { tag: "inversion", notes: invert(SUBJECT), colorKey: "copper" },
+  { tag: "retrograde", notes: retrograde(SUBJECT), colorKey: "soft" },
+  { tag: "augmentation", notes: augment(SUBJECT), colorKey: "rose" },
+  { tag: "diminution", notes: diminish(SUBJECT), colorKey: "patina" },
+];
+
+// ---- ストレッタ（第七曲の質感）----
+const STRETTO_VOICES = [
+  { tag: "augmentation", notes: augment(SUBJECT), entry: 0, colorKey: "rose" },
+  { tag: "subject", notes: SUBJECT, entry: 8, colorKey: "brass" },
+  { tag: "answer", notes: transpose(SUBJECT, 7), entry: 12, colorKey: "soft" },
+  { tag: "inversion", notes: invert(SUBJECT), entry: 16, colorKey: "copper" },
+  { tag: "diminution", notes: diminish(SUBJECT), entry: 20, colorKey: "patina" },
+];
+
+// ---- 拍のテンポ定数（旧ドラフトと同値）----
+const BEAT_HERO = 0.34;
+const BEAT_OP = 0.28;
+const BEAT_STRETTO = 0.3;
+
+// ---- 既定色（旧ドラフト :root の値と同一）----
+const DEFAULT_COLORS = {
+  brass: "#d9a441", // 主題
+  soft: "#e6c37e", // 応答（移調）
+  copper: "#cf8552", // 反行
+  rose: "#d4967a", // 拡大
+  patina: "#7fc0b6", // 縮小
+  bone: "#efece4",
+  dim: "#b9c2cf",
+  grid: "rgba(217,164,65,0.13)",
+};
+
+// ---- 幾何ヘルパ（旧ドラフトと同一計算）----
+const totalDur = (ns) => ns.reduce((s, n) => s + n.d, 0);
+
+function pitchRange(sets) {
+  let lo = Infinity,
+    hi = -Infinity;
+  sets.forEach((ns) => ns.forEach((n) => { lo = Math.min(lo, n.p); hi = Math.max(hi, n.p); }));
+  if (lo === hi) { lo -= 1; hi += 1; }
+  return { lo, hi };
+}
+
+function setupCanvas(cv, h) {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const w = cv.clientWidth || cv.parentElement.clientWidth;
+  cv.width = Math.round(w * dpr);
+  cv.height = Math.round(h * dpr);
+  cv.style.height = h + "px";
+  const ctx = cv.getContext("2d");
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  return { ctx, w, h };
+}
+
+function contourPoints(ns, dur, range, pad, w, h) {
+  const { lo, hi } = range;
+  const innerW = w - pad.l - pad.r;
+  const innerH = h - pad.t - pad.b;
+  const x = (t) => pad.l + (t / dur) * innerW;
+  const y = (p) => pad.t + (1 - (p - lo) / (hi - lo || 1)) * innerH;
+  const pts = [];
+  let t = 0;
+  ns.forEach((n) => { pts.push({ x0: x(t), x1: x(t + n.d), y: y(n.p) }); t += n.d; });
+  return pts;
+}
+
+function drawGrid(ctx, w, h, pad, gridColor) {
+  ctx.save();
+  ctx.strokeStyle = gridColor;
+  ctx.lineWidth = 1;
+  for (let i = 0; i < 5; i++) {
+    const y = pad.t + (i / 4) * (h - pad.t - pad.b);
+    ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(w - pad.r, y); ctx.stroke();
+  }
+  ctx.restore();
+}
+
+// ステップ状の輪郭（音価は横棒、跳躍は縦線）＋音頭に点
+function drawContour(ctx, pts, color, opts = {}) {
+  const { alpha = 1, lw = 2.5, dot = true, playX = null, playH = null, dash = null, playColor = "#efece4" } = opts;
+  ctx.save();
+  ctx.globalAlpha = alpha;
+  ctx.strokeStyle = color;
+  ctx.lineWidth = lw;
+  ctx.lineJoin = "round";
+  ctx.lineCap = "round";
+  if (dash) ctx.setLineDash(dash);
+  ctx.beginPath();
+  pts.forEach((p, i) => {
+    if (i > 0) { ctx.moveTo(pts[i - 1].x1, pts[i - 1].y); ctx.lineTo(p.x0, p.y); }
+    ctx.moveTo(p.x0, p.y); ctx.lineTo(p.x1, p.y);
+  });
+  ctx.stroke();
+  if (dash) ctx.setLineDash([]);
+  if (dot) {
+    ctx.fillStyle = color;
+    pts.forEach((p) => { ctx.beginPath(); ctx.arc(p.x0, p.y, lw * 1.15, 0, 7); ctx.fill(); });
+  }
+  if (playX !== null) {
+    ctx.globalAlpha = 1;
+    ctx.strokeStyle = playColor;
+    ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(playX, 6); ctx.lineTo(playX, (playH || 0) - 6); ctx.stroke();
+  }
+  ctx.restore();
+}
+
+function buildStrettoEvents(voices) {
+  const evs = [];
+  voices.forEach((v, vi) => {
+    let t = v.entry;
+    v.notes.forEach((n) => { evs.push({ beat: t, dur: n.d, p: n.p, colorKey: v.colorKey, vi }); t += n.d; });
+  });
+  return evs;
+}
+
+function densityAt(events, b) {
+  return events.filter((e) => b >= e.beat && b < e.beat + e.dur).length;
+}
+
+/**
+ * エンジンを作る。何も渡さなくても既定値で動く。
+ * @param {object} [options]
+ * @param {object} [options.colors] - DEFAULT_COLORS の一部/全部を上書き
+ * @param {boolean} [options.reduceMotion] - 省略時は prefers-reduced-motion を見る
+ * @param {(n:number)=>string} [options.formatVoiceCount] - ストレッタの密度表示テキスト
+ */
+function createFugueAudio(options = {}) {
+  const colors = Object.assign({}, DEFAULT_COLORS, options.colors || {});
+  const getColor = (key) => colors[key] || colors.brass;
+  const reduce =
+    typeof options.reduceMotion === "boolean"
+      ? options.reduceMotion
+      : typeof window !== "undefined" && window.matchMedia
+        ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        : false;
+  const formatVoiceCount =
+    options.formatVoiceCount || ((n) => (n === 1 ? "1 voice" : n + " voices"));
+
+  // ---- Web Audio ----
+  let AC = null, MASTER = null;
+  function ac() {
+    if (!AC) {
+      AC = new (window.AudioContext || window.webkitAudioContext)();
+      MASTER = AC.createGain();
+      MASTER.gain.value = 0.55; // 5声部同時でも歪ませない余裕
+      MASTER.connect(AC.destination);
+    }
+    return AC;
+  }
+  const hz = (p) => TONIC_HZ * Math.pow(2, p / 12);
+
+  let activeStop = null; // 単一再生ポリシー
+  function stopAll() { if (activeStop) { activeStop(); activeStop = null; } }
+
+  // 一声部を「順に」鳴らす。t を音価ぶん進めるのが本体。
+  function scheduleVoice(ctx, ns, beat, t0) {
+    const events = [];
+    let t = t0;
+    ns.forEach((n) => {
+      const start = t, dur = n.d * beat;
+      const osc = ctx.createOscillator();
+      const g = ctx.createGain();
+      const lp = ctx.createBiquadFilter();
+      lp.type = "lowpass"; lp.frequency.value = 2600;
+      osc.type = "triangle";
+      osc.frequency.value = hz(n.p);
+      const a = 0.012, r = Math.min(0.16, dur * 0.5);
+      const sus = Math.max(start + a, start + dur - r);
+      g.gain.setValueAtTime(0.0001, start);
+      g.gain.exponentialRampToValueAtTime(0.22, start + a);
+      g.gain.setValueAtTime(0.22, sus);
+      g.gain.exponentialRampToValueAtTime(0.0001, start + dur);
+      osc.connect(lp); lp.connect(g); g.connect(MASTER);
+      osc.start(start); osc.stop(start + dur + 0.02);
+      events.push(osc);
+      t += dur;
+    });
+    return events;
+  }
+
+  const redrawers = [];
+
+  // ---- 単一輪郭の再生（主題 & 変換パネル）----
+  function mountPlayer(cv, ns, colorKey, btn, h, beat) {
+    const dur = totalDur(ns);
+    const span = Math.max(dur, totalDur(SUBJECT)); // 拡大=倍幅・縮小=半幅に見える
+    const range = pitchRange([SUBJECT, ns]);
+    const pad = { l: 10, r: 10, t: 14, b: 14 };
+    const color = getColor(colorKey);
+
+    function render(playX) {
+      const { ctx, w, h: hh } = setupCanvas(cv, h);
+      ctx.clearRect(0, 0, w, hh);
+      drawGrid(ctx, w, hh, pad, colors.grid);
+      if (ns !== SUBJECT) {
+        const gp = contourPoints(SUBJECT, span, range, pad, w, hh);
+        drawContour(ctx, gp, colors.bone, { alpha: 1, lw: 2.2, dot: true, dash: [7, 5] });
+      }
+      const pts = contourPoints(ns, span, range, pad, w, hh);
+      const px = playX == null ? null : pad.l + (playX / span) * (w - pad.l - pad.r);
+      drawContour(ctx, pts, color, { playX: px, playH: hh, playColor: colors.bone });
+    }
+    render(null);
+    redrawers.push(() => render(null));
+
+    let raf = null;
+    btn.addEventListener("click", () => {
+      stopAll();
+      const ctx = ac(); if (ctx.state === "suspended") ctx.resume();
+      btn.setAttribute("aria-pressed", "true");
+      const t0 = ctx.currentTime + 0.06;
+      const evs = scheduleVoice(ctx, ns, beat, t0);
+      const end = t0 + dur * beat;
+      const tick = () => {
+        const now = ctx.currentTime;
+        if (now < end) { if (!reduce) render(Math.max(0, (now - t0) / beat)); raf = requestAnimationFrame(tick); }
+        else { render(null); btn.setAttribute("aria-pressed", "false"); raf = null; }
+      };
+      if (!reduce) raf = requestAnimationFrame(tick); else render(null);
+      activeStop = () => {
+        evs.forEach((o) => { try { o.stop(); } catch (e) {} });
+        if (raf) cancelAnimationFrame(raf);
+        render(null); btn.setAttribute("aria-pressed", "false");
+      };
+    });
+
+    let rz;
+    window.addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(() => render(null), 120); });
+
+    return { render };
+  }
+
+  // ---- ストレッタ（密度）----
+  function mountStretto(cvS, fillEl, dvalEl, legendEl, btn, beat) {
+    beat = beat || BEAT_STRETTO;
+    if (legendEl) {
+      STRETTO_VOICES.forEach((v) => {
+        const s = document.createElement("span");
+        const i = document.createElement("i");
+        i.style.background = getColor(v.colorKey);
+        s.appendChild(i);
+        s.appendChild(document.createTextNode(v.tag));
+        legendEl.appendChild(s);
+      });
+    }
+
+    const SE = buildStrettoEvents(STRETTO_VOICES);
+    const spanBeats = Math.max(...SE.map((e) => e.beat + e.dur));
+    const range = pitchRange(STRETTO_VOICES.map((v) => v.notes));
+    let PEAK = 0;
+    for (let b = 0; b <= spanBeats; b += 0.05) PEAK = Math.max(PEAK, densityAt(SE, b));
+
+    function renderStretto(uptoBeat) {
+      const pad = { l: 12, r: 12, t: 16, b: 16 };
+      const { ctx, w, h } = setupCanvas(cvS, 280);
+      ctx.clearRect(0, 0, w, h);
+      drawGrid(ctx, w, h, pad, colors.grid);
+      const innerW = w - pad.l - pad.r, innerH = h - pad.t - pad.b;
+      const { lo, hi } = range;
+      const x = (b) => pad.l + (b / spanBeats) * innerW;
+      const y = (p) => pad.t + (1 - (p - lo) / (hi - lo || 1)) * innerH;
+      // これから鳴る全体の骨格（細線）
+      SE.forEach((e) => {
+        ctx.save();
+        ctx.globalAlpha = 0.42;
+        ctx.strokeStyle = getColor(e.colorKey);
+        ctx.lineWidth = 1.6; ctx.lineCap = "round";
+        ctx.beginPath(); ctx.moveTo(x(e.beat), y(e.p)); ctx.lineTo(x(e.beat + e.dur), y(e.p)); ctx.stroke();
+        ctx.restore();
+      });
+      // 既に鳴った音を痕跡として堆積
+      SE.forEach((e) => {
+        if (e.beat > uptoBeat) return;
+        const sounding = uptoBeat < e.beat + e.dur;
+        ctx.save();
+        ctx.globalAlpha = sounding ? 1 : 0.8;
+        const col = getColor(e.colorKey);
+        ctx.strokeStyle = col; ctx.lineWidth = sounding ? 3.4 : 2.6; ctx.lineCap = "round";
+        ctx.beginPath(); ctx.moveTo(x(e.beat), y(e.p)); ctx.lineTo(x(Math.min(uptoBeat, e.beat + e.dur)), y(e.p)); ctx.stroke();
+        if (sounding) {
+          ctx.globalAlpha = 1; ctx.fillStyle = col; ctx.beginPath(); ctx.arc(x(e.beat), y(e.p), 4, 0, 7); ctx.fill();
+          ctx.shadowColor = col; ctx.shadowBlur = 12; ctx.beginPath(); ctx.arc(x(e.beat), y(e.p), 2, 0, 7); ctx.fill();
+        }
+        ctx.restore();
+      });
+      if (uptoBeat < spanBeats) {
+        ctx.strokeStyle = colors.bone; ctx.globalAlpha = 0.5; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(x(uptoBeat), 6); ctx.lineTo(x(uptoBeat), h - 6); ctx.stroke(); ctx.globalAlpha = 1;
+      }
+      const d = densityAt(SE, uptoBeat);
+      if (fillEl) fillEl.style.width = (100 * d / PEAK) + "%";
+      if (dvalEl) dvalEl.textContent = formatVoiceCount(d);
+    }
+    renderStretto(0);
+    redrawers.push(() => renderStretto(0));
+
+    let rafS = null;
+    btn.addEventListener("click", () => {
+      stopAll();
+      const ctx = ac(); if (ctx.state === "suspended") ctx.resume();
+      btn.setAttribute("aria-pressed", "true");
+      const t0 = ctx.currentTime + 0.08;
+      const evs = [];
+      STRETTO_VOICES.forEach((v) => { evs.push(...scheduleVoice(ctx, v.notes, beat, t0 + v.entry * beat)); });
+      const end = t0 + spanBeats * beat;
+      const tick = () => {
+        const now = ctx.currentTime;
+        const b = Math.max(0, (now - t0) / beat);
+        if (now < end) { renderStretto(Math.min(b, spanBeats)); rafS = requestAnimationFrame(tick); }
+        else {
+          renderStretto(spanBeats);
+          if (dvalEl) dvalEl.textContent = "peak " + formatVoiceCount(PEAK);
+          if (fillEl) fillEl.style.width = "100%";
+          btn.setAttribute("aria-pressed", "false"); rafS = null;
+        }
+      };
+      if (!reduce) rafS = requestAnimationFrame(tick);
+      else { renderStretto(spanBeats); if (fillEl) fillEl.style.width = "100%"; btn.setAttribute("aria-pressed", "false"); }
+      activeStop = () => {
+        evs.forEach((o) => { try { o.stop(); } catch (e) {} });
+        if (rafS) cancelAnimationFrame(rafS);
+        renderStretto(0); btn.setAttribute("aria-pressed", "false");
+      };
+    });
+
+    let rzS;
+    window.addEventListener("resize", () => { clearTimeout(rzS); rzS = setTimeout(() => renderStretto(0), 120); });
+
+    return { render: renderStretto, events: SE, spanBeats, peak: PEAK };
+  }
+
+  return {
+    colors, getColor, ac, hz, stopAll, scheduleVoice,
+    mountPlayer, mountStretto,
+    redrawAll: () => { stopAll(); redrawers.forEach((f) => f()); },
+  };
+}
+
+</script>
+<script>
+  // ---- 生成物: build-mirror.mjs の buildMirror() が kern から計算したデータ（装置A）----
+  const MUS3_MIRROR = {"A":[{"runs":[{"start":0,"notes":[{"p":-12,"d":2},{"p":-5,"d":4},{"p":-9,"d":2},{"p":-12,"d":4},{"p":-13,"d":2},{"p":-12,"d":2},{"p":-10,"d":2},{"p":-9,"d":3},{"p":-7,"d":1},{"p":-9,"d":1},{"p":-10,"d":1},{"p":-12,"d":2}]},{"start":27,"notes":[{"p":-10,"d":1},{"p":-9,"d":1},{"p":-7,"d":1},{"p":-5,"d":2}]},{"start":33,"notes":[{"p":-3,"d":1},{"p":-2,"d":1},{"p":0,"d":1},{"p":2,"d":1},{"p":0,"d":1},{"p":-2,"d":1},{"p":-3,"d":1},{"p":-5,"d":1},{"p":-6,"d":1},{"p":-5,"d":1},{"p":-7,"d":0.5},{"p":-9,"d":0.5},{"p":-10,"d":3},{"p":-12,"d":0.5},{"p":-10,"d":0.5},{"p":-9,"d":1},{"p":-10,"d":0.5},{"p":-12,"d":0.5},{"p":-13,"d":3},{"p":-15,"d":0.5},{"p":-13,"d":0.5},{"p":-12,"d":2}]},{"start":57,"notes":[{"p":-21,"d":1},{"p":-19,"d":1},{"p":-17,"d":1},{"p":-16,"d":1},{"p":-17,"d":1},{"p":-16,"d":4},{"p":-17,"d":6.5},{"p":-19,"d":0.5},{"p":-21,"d":0.5},{"p":-19,"d":0.5},{"p":-17,"d":1},{"p":-16,"d":1},{"p":-17,"d":1},{"p":-19,"d":1},{"p":-21,"d":1},{"p":-22,"d":1},{"p":-24,"d":2}]},{"start":83,"notes":[{"p":-16,"d":1}]}]},{"runs":[{"start":24,"notes":[{"p":-5,"d":2},{"p":0,"d":4},{"p":-2,"d":2},{"p":-5,"d":4},{"p":-6,"d":2},{"p":-5,"d":2},{"p":-3,"d":2},{"p":-2,"d":3},{"p":0,"d":1},{"p":-2,"d":1},{"p":-3,"d":1},{"p":-5,"d":3},{"p":-4,"d":1},{"p":-5,"d":1},{"p":-7,"d":1},{"p":-9,"d":0.5},{"p":-7,"d":0.5},{"p":-9,"d":0.5},{"p":-10,"d":0.5},{"p":-12,"d":1},{"p":-5,"d":1},{"p":-3,"d":1},{"p":-1,"d":1},{"p":0,"d":2}]},{"start":63,"notes":[{"p":2,"d":1},{"p":3,"d":1},{"p":5,"d":1},{"p":7,"d":1},{"p":5,"d":1},{"p":3,"d":1},{"p":2,"d":1},{"p":0,"d":1},{"p":-1,"d":1},{"p":0,"d":3},{"p":-1,"d":1},{"p":0,"d":1},{"p":2,"d":1},{"p":-5,"d":1},{"p":-7,"d":1},{"p":-9,"d":1},{"p":-10,"d":1},{"p":-12,"d":1},{"p":-10,"d":1}]}]},{"runs":[{"start":54,"notes":[{"p":0,"d":2},{"p":7,"d":4},{"p":3,"d":2},{"p":0,"d":4},{"p":-1,"d":2},{"p":0,"d":2},{"p":2,"d":2},{"p":3,"d":3},{"p":5,"d":1},{"p":3,"d":1},{"p":2,"d":1},{"p":0,"d":2}]},{"start":81,"notes":[{"p":2,"d":1},{"p":3,"d":1},{"p":5,"d":1}]}]},{"runs":[{"start":78,"notes":[{"p":7,"d":2},{"p":12,"d":4}]}]}],"B":[{"runs":[{"start":78,"notes":[{"p":-12,"d":2},{"p":-17,"d":4}]}]},{"runs":[{"start":54,"notes":[{"p":-5,"d":2},{"p":-12,"d":4},{"p":-9,"d":2},{"p":-5,"d":4},{"p":-4,"d":2},{"p":-5,"d":2},{"p":-7,"d":2},{"p":-9,"d":3},{"p":-10,"d":1},{"p":-9,"d":1},{"p":-7,"d":1},{"p":-5,"d":2}]},{"start":81,"notes":[{"p":-7,"d":1},{"p":-9,"d":1},{"p":-10,"d":1}]}]},{"runs":[{"start":24,"notes":[{"p":0,"d":2},{"p":-5,"d":4},{"p":-4,"d":2},{"p":0,"d":4},{"p":1,"d":2},{"p":0,"d":2},{"p":-2,"d":2},{"p":-4,"d":3},{"p":-5,"d":1},{"p":-3,"d":1},{"p":-1,"d":1},{"p":0,"d":3},{"p":-1,"d":1},{"p":0,"d":1},{"p":2,"d":1},{"p":3,"d":0.5},{"p":2,"d":0.5},{"p":3,"d":0.5},{"p":5,"d":0.5},{"p":7,"d":1},{"p":0,"d":1},{"p":-2,"d":1},{"p":-4,"d":1},{"p":-5,"d":2}]},{"start":63,"notes":[{"p":-7,"d":1},{"p":-9,"d":1},{"p":-10,"d":1},{"p":-12,"d":1},{"p":-10,"d":1},{"p":-9,"d":1},{"p":-7,"d":1},{"p":-5,"d":1},{"p":-4,"d":1},{"p":-5,"d":3},{"p":-4,"d":1},{"p":-5,"d":1},{"p":-7,"d":1},{"p":0,"d":1},{"p":2,"d":1},{"p":3,"d":1},{"p":5,"d":1},{"p":7,"d":1},{"p":5,"d":1}]}]},{"runs":[{"start":0,"notes":[{"p":7,"d":2},{"p":0,"d":4},{"p":3,"d":2},{"p":7,"d":4},{"p":8,"d":2},{"p":7,"d":2},{"p":5,"d":2},{"p":3,"d":3},{"p":2,"d":1},{"p":3,"d":1},{"p":5,"d":1},{"p":7,"d":2}]},{"start":27,"notes":[{"p":5,"d":1},{"p":3,"d":1},{"p":2,"d":1},{"p":0,"d":2}]},{"start":33,"notes":[{"p":-2,"d":1},{"p":-4,"d":1},{"p":-5,"d":1},{"p":-7,"d":1},{"p":-5,"d":1},{"p":-4,"d":1},{"p":-2,"d":1},{"p":0,"d":1},{"p":1,"d":1},{"p":0,"d":1},{"p":2,"d":0.5},{"p":4,"d":0.5},{"p":5,"d":3},{"p":7,"d":0.5},{"p":5,"d":0.5},{"p":3,"d":1},{"p":5,"d":0.5},{"p":7,"d":0.5},{"p":8,"d":3},{"p":10,"d":0.5},{"p":8,"d":0.5},{"p":7,"d":2}]},{"start":57,"notes":[{"p":15,"d":1},{"p":14,"d":1},{"p":12,"d":1},{"p":10,"d":1},{"p":12,"d":1},{"p":11,"d":4},{"p":12,"d":6.5},{"p":14,"d":0.5},{"p":15,"d":0.5},{"p":14,"d":0.5},{"p":12,"d":1},{"p":11,"d":1},{"p":12,"d":1},{"p":14,"d":1},{"p":15,"d":1},{"p":17,"d":1},{"p":19,"d":2}]},{"start":83,"notes":[{"p":11,"d":1}]}]}],"C":[{"runs":[{"start":0,"notes":[{"p":-12,"d":2},{"p":-19,"d":4},{"p":-15,"d":2},{"p":-12,"d":4},{"p":-11,"d":2},{"p":-12,"d":2},{"p":-14,"d":2},{"p":-15,"d":3},{"p":-17,"d":1},{"p":-15,"d":1},{"p":-14,"d":1},{"p":-12,"d":2}]},{"start":27,"notes":[{"p":-14,"d":1},{"p":-15,"d":1},{"p":-17,"d":1},{"p":-19,"d":2}]},{"start":33,"notes":[{"p":-21,"d":1},{"p":-22,"d":1},{"p":-24,"d":1},{"p":-26,"d":1},{"p":-24,"d":1},{"p":-22,"d":1},{"p":-21,"d":1},{"p":-19,"d":1},{"p":-18,"d":1},{"p":-19,"d":1},{"p":-17,"d":0.5},{"p":-15,"d":0.5},{"p":-14,"d":3},{"p":-12,"d":0.5},{"p":-14,"d":0.5},{"p":-15,"d":1},{"p":-14,"d":0.5},{"p":-12,"d":0.5},{"p":-11,"d":3},{"p":-9,"d":0.5},{"p":-11,"d":0.5},{"p":-12,"d":2}]},{"start":57,"notes":[{"p":-3,"d":1},{"p":-5,"d":1},{"p":-7,"d":1},{"p":-8,"d":1},{"p":-7,"d":1},{"p":-8,"d":4},{"p":-7,"d":6.5},{"p":-5,"d":0.5},{"p":-3,"d":0.5},{"p":-5,"d":0.5},{"p":-7,"d":1},{"p":-8,"d":1},{"p":-7,"d":1},{"p":-5,"d":1},{"p":-3,"d":1},{"p":-2,"d":1},{"p":0,"d":2}]},{"start":83,"notes":[{"p":-8,"d":1}]}]},{"runs":[{"start":24,"notes":[{"p":-5,"d":2},{"p":-10,"d":4},{"p":-8,"d":2},{"p":-5,"d":4},{"p":-4,"d":2},{"p":-5,"d":2},{"p":-7,"d":2},{"p":-8,"d":3},{"p":-10,"d":1},{"p":-8,"d":1},{"p":-7,"d":1},{"p":-5,"d":3},{"p":-6,"d":1},{"p":-5,"d":1},{"p":-3,"d":1},{"p":-1,"d":0.5},{"p":-3,"d":0.5},{"p":-1,"d":0.5},{"p":0,"d":0.5},{"p":2,"d":1},{"p":-5,"d":1},{"p":-7,"d":1},{"p":-9,"d":1},{"p":-10,"d":2}]},{"start":63,"notes":[{"p":-12,"d":1},{"p":-13,"d":1},{"p":-15,"d":1},{"p":-17,"d":1},{"p":-15,"d":1},{"p":-13,"d":1},{"p":-12,"d":1},{"p":-10,"d":1},{"p":-9,"d":1},{"p":-10,"d":3},{"p":-9,"d":1},{"p":-10,"d":1},{"p":-12,"d":1},{"p":-5,"d":1},{"p":-3,"d":1},{"p":-1,"d":1},{"p":0,"d":1},{"p":2,"d":1},{"p":0,"d":1}]}]},{"runs":[{"start":54,"notes":[{"p":0,"d":2},{"p":-7,"d":4},{"p":-3,"d":2},{"p":0,"d":4},{"p":1,"d":2},{"p":0,"d":2},{"p":-2,"d":2},{"p":-3,"d":3},{"p":-5,"d":1},{"p":-3,"d":1},{"p":-2,"d":1},{"p":0,"d":2}]},{"start":81,"notes":[{"p":-2,"d":1},{"p":-3,"d":1},{"p":-5,"d":1}]}]},{"runs":[{"start":78,"notes":[{"p":7,"d":2},{"p":2,"d":4}]}]}],"cutoffQuarters":84};
+  // ---- 生成物: fugue-audio.js の SUBJECT と invert(SUBJECT)（装置B・無改変で呼んだだけ）----
+  const MUS3_SUBJECT = [{"p":0,"d":2},{"p":7,"d":2},{"p":3,"d":2},{"p":0,"d":2},{"p":-1,"d":1},{"p":0,"d":1},{"p":2,"d":2},{"p":3,"d":1},{"p":5,"d":1},{"p":3,"d":1},{"p":2,"d":1},{"p":0,"d":4}];
+  const MUS3_INVERSION = [{"p":0,"d":2},{"p":-7,"d":2},{"p":-3,"d":2},{"p":0,"d":2},{"p":1,"d":1},{"p":0,"d":1},{"p":-2,"d":2},{"p":-3,"d":1},{"p":-5,"d":1},{"p":-3,"d":1},{"p":-2,"d":1},{"p":0,"d":4}];
+
+  (function () {
+    const errEl = document.getElementById("mus3-err");
+    window.addEventListener("error", (e) => {
+      if (errEl) errEl.textContent += "pageerror: " + e.message + "\n";
+    });
+
+    const engine = createFugueAudio({});
+    // ---- 単一再生ポリシー: 装置A/B 共通の1つの currentStop ＋世代トークンで管理 ----
+    let currentStop = null;
+    let playGen = 0;
+    function stopCurrent() { playGen += 1; if (currentStop) { currentStop(); currentStop = null; } }
+
+    function clearPressed() {
+      document.querySelectorAll('.mus3-btn[aria-pressed="true"]').forEach((b) => b.setAttribute("aria-pressed", "false"));
+    }
+
+    // ---- 装置A: (A)/(B)/(C) を鏡像フーガの声部run構造のまま鳴らす ----
+    function playMirrorVersion(key, btn) {
+      stopCurrent();
+      const myGen = playGen;
+      const ctx = engine.ac();
+      if (ctx.state === "suspended") ctx.resume();
+      clearPressed();
+      btn.setAttribute("aria-pressed", "true");
+      const t0 = ctx.currentTime + 0.06;
+      const beat = BEAT_HERO;
+      let allOsc = [];
+      MUS3_MIRROR[key].forEach((voice) => {
+        voice.runs.forEach((run) => {
+          const startSec = t0 + run.start * beat;
+          const osc = engine.scheduleVoice(ctx, run.notes, beat, startSec);
+          allOsc = allOsc.concat(osc);
+        });
+      });
+      const endSec = t0 + MUS3_MIRROR.cutoffQuarters * beat;
+      currentStop = () => { allOsc.forEach((o) => { try { o.stop(); } catch (e) {} }); btn.setAttribute("aria-pressed", "false"); };
+      const tick = () => {
+        if (playGen !== myGen) return;
+        if (ctx.currentTime >= endSec) { btn.setAttribute("aria-pressed", "false"); currentStop = null; }
+        else requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }
+
+    document.querySelectorAll('#mus3-device-a [data-mus3-version]').forEach((btn) => {
+      btn.addEventListener("click", () => playMirrorVersion(btn.dataset.mus3Version, btn));
+    });
+
+    // ---- 装置B: 主題 / その反行 を単声部として鳴らす ----
+    function playPair(key, btn) {
+      stopCurrent();
+      const myGen = playGen;
+      const ctx = engine.ac();
+      if (ctx.state === "suspended") ctx.resume();
+      clearPressed();
+      btn.setAttribute("aria-pressed", "true");
+      const notes = key === "subject" ? MUS3_SUBJECT : MUS3_INVERSION;
+      const beat = BEAT_HERO;
+      const t0 = ctx.currentTime + 0.06;
+      const osc = engine.scheduleVoice(ctx, notes, beat, t0);
+      const dur = notes.reduce((s, n) => s + n.d, 0);
+      const endSec = t0 + dur * beat;
+      currentStop = () => { osc.forEach((o) => { try { o.stop(); } catch (e) {} }); btn.setAttribute("aria-pressed", "false"); };
+      const tick = () => {
+        if (playGen !== myGen) return;
+        if (ctx.currentTime >= endSec) { btn.setAttribute("aria-pressed", "false"); currentStop = null; }
+        else requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }
+
+    document.querySelectorAll('#mus3-device-b [data-mus3-pair]').forEach((btn) => {
+      btn.addEventListener("click", () => playPair(btn.dataset.mus3Pair, btn));
+    });
+  })();
+</script>
+<!-- ===== /生成物: 共有スクリプト ===== -->
+
+<script>
+function toggleLang() {
+  const b = document.body;
+  const ja = b.classList.contains('lang-ja');
+  b.classList.toggle('lang-ja', !ja);
+  b.classList.toggle('lang-en', ja);
+  document.documentElement.lang = ja ? 'en' : 'ja';
+  try { localStorage.setItem('sy-lang', document.body.classList.contains('lang-ja') ? 'ja' : 'en'); } catch (e) {}
+}
+try { if (localStorage.getItem('sy-lang') === 'en' && document.body.classList.contains('lang-ja')) toggleLang(); } catch (e) {}
+</script>
+</body>
+</html>
