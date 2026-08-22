@@ -205,12 +205,17 @@ function buildWorld(key){
   seek(0); drawMap();
   document.getElementById('p001').classList.toggle('on',key==='001');
   document.getElementById('p007').classList.toggle('on',key==='007');
-  // 統計行
-  const st={inv:0,aug:0,dim:0,ret:0};
-  P.entries.forEach(e=>{if(e.form==='inversion')st.inv++;if(e.form.startsWith('retro'))st.ret++;
-    if(e.ratio>=1.8)st.aug++;if(e.ratio<=0.6)st.dim++;});
-  document.getElementById('statLine').textContent=
-    `${P.name}: 主題エントリー ${P.entries.length} 件を自動検出（反行${st.inv}・拡大${st.aug}・縮小${st.dim}）`;
+  // 統計行 (#statLine は開始オーバーレイ #tapHint の中にあり、再生開始のタップで tapHint ごと
+  // remove される。以後の曲切替でここに来るのは正常な状態なので、要素が無ければ何もせず抜ける
+  // — 表示すべき先が消えているだけで、要素そのものが消えてはいけないわけではない。)
+  const statLineEl=document.getElementById('statLine');
+  if(statLineEl){
+    const st={inv:0,aug:0,dim:0,ret:0};
+    P.entries.forEach(e=>{if(e.form==='inversion')st.inv++;if(e.form.startsWith('retro'))st.ret++;
+      if(e.ratio>=1.8)st.aug++;if(e.ratio<=0.6)st.dim++;});
+    statLineEl.textContent=
+      `${P.name}: 主題エントリー ${P.entries.length} 件を自動検出（反行${st.inv}・拡大${st.aug}・縮小${st.dim}）`;
+  }
 }
 let markers=[];
 
