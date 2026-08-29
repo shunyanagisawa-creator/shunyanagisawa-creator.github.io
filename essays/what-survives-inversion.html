@@ -204,15 +204,16 @@ body.lang-ja .mus3-btn { font-family: var(--font-jp); }
     <span class="ja">日本語 約8分</span>
   </div>
 
-  <div class="pull en">
-    <span class="pull-label">Not Yet in English</span>
-    <span>This essay is written in Japanese; an English draft has not been prepared yet, so the section headings and prose are hidden here. The two audio devices and the sources below still work in English — toggle back to 日本語 above for the full piece.</span>
-  </div>
 
+  <p class="en">I once pointed a machine at Bach's <em>Art of Fugue</em>. I had it search the score data for the subject, to see how much it could pick up. The result was about half and half — some it found, some it missed. About the ones it missed, I ended by writing this. The rule can be written down. The understanding of how far that rule may be bent is not written down. It isn't in the score either. If it were, the detector would have found it.</p>
   <p class="ja">前に一度、バッハの『フーガの技法』に機械を向けたことがある。譜面のデータから主題を探させて、どこまで拾えるかを見るためだった。結果は半々で、拾えたものもあったし、拾えなかったものもあった。拾えなかった方について、そのときはこう書いて終えた。規則は書ける。その規則をどこまで緩めてよいかという了解は、書かれていない。譜面にも書かれていない。書かれていたら、検出器が拾えていたはずである。</p>
+  <p class="en">Afterward I noticed something. There is a place in this collection where the answer is written down.</p>
   <p class="ja">その後で気がついた。この曲集には、答えが書いてある箇所がある。</p>
+  <p class="en">Two of the pieces are called mirror fugues, and in each of them the original and its inversion are set side by side as separate pieces. The relation — flip one upside down and you get the other — is declared by the composer himself, by placing the two together. There is a four-voice one and a three-voice one; in the numbering of the first edition the four-voice is the twelfth piece and the three-voice the thirteenth.<sup>1</sup></p>
   <p class="ja">鏡像フーガと呼ばれる曲が二つあって、どちらも正置と反行が別々の曲として並べて置かれている。片方を上下ひっくり返すともう片方になる、という関係を、作曲者自身が二曲並べることで宣言している。四声のものと三声のものがあり、四声の方は初版の番号で第十二曲、三声の方が第十三曲にあたる<sup>1</sup>。</p>
+  <p class="en">If the answer is written down, it can be measured from outside. I don't have to be the one who decides whether it matches.</p>
   <p class="ja">答えが書いてあるなら、外から測れる。合っているかどうかを、こちらが判定する必要がない。</p>
+  <p class="en">What follows is a record of measuring it. To give the result first: what I thought would break didn't, and what I thought was preserved wasn't.</p>
   <p class="ja">以下は測ってみた記録である。結果を先に言うと、壊れると思っていたものは壊れず、保存されていると思っていたものは保存されていなかった。</p>
 
   <!-- ===== 生成物: build-essay-embed.mjs（装置B・主題とその反行）手で書き起こさない ===== -->
@@ -226,18 +227,26 @@ body.lang-ja .mus3-btn { font-family: var(--font-jp); }
   </div>
   <!-- ===== /生成物: 装置B ===== -->
 
-  <h2 class="ja"><span class="hnum">1</span>半音で測ると、六割しか合わない</h2>
+  <h2><span class="hnum">1</span><span class="en">Measured in Semitones, Only Six in Ten Line Up</span><span class="ja">半音で測ると、六割しか合わない</span></h2>
 
+  <p class="en">The method is simple. For each voice of the original, I make a list of the intervals between adjacent notes. I do the same on the inversion side. If it is a flip, the signs of those intervals should all be reversed — wherever the line rose, it should fall by the same amount. I line the two lists up and count how often the sign is inverted.</p>
   <p class="ja">やり方は単純である。正置の各声部について、隣り合う音の間隔を並べた列を作る。反行の側でも同じことをする。裏返しなら、間隔の符号が全部ひっくり返っているはずだ。上がっていた所は同じだけ下がる。列を一つずつ突き合わせて、符号が反転しているかを数えればいい。</p>
+  <p class="en">Doing this on the four-voice piece, 597 of 1,016 places matched. That is <span class="em">58.8%</span>.</p>
   <p class="ja">四声の方でこれをやると、千十六箇所のうち五百九十七箇所が合った。<span class="em">五十八・八パーセント</span>である。</p>
+  <p class="en">Short of six in ten. Too low to call it a flip.</p>
   <p class="ja">六割に届かない。裏返しと呼ぶには低すぎる。</p>
+  <p class="en">But the way it missed looked wrong. <span class="em">Almost every discrepancy was exactly one semitone</span>, and the misses in the larger direction and in the smaller direction were about equal in number. This is not random failure. Something is moving one step, regularly.</p>
   <p class="ja">しかし外れ方を見ると、様子がおかしかった。<span class="em">ずれはほとんど全部が半音ひとつ分</span>で、しかも大きい方へのずれと小さい方へのずれがほぼ同数ある。でたらめに外れているのではない。何かが規則的に一段だけ動いている。</p>
+  <p class="en">When something fails in a way that isn't random, it is better to suspect the ruler.</p>
   <p class="ja">でたらめでない外れ方をするときは、測っている側を疑ったほうがいい。</p>
 
-  <h2 class="ja"><span class="hnum">2</span>物差しを替えると、ほぼ完全に一致する</h2>
+  <h2><span class="hnum">2</span><span class="en">Change the Ruler and It Matches Almost Exactly</span><span class="ja">物差しを替えると、ほぼ完全に一致する</span></h2>
 
+  <p class="en">What deserved suspicion was the decision to measure in semitones.</p>
   <p class="ja">疑うべきは「半音の数で測る」という決め方だった。</p>
+  <p class="en">A count of semitones is a distance between two notes — the number of piano keys, if you like. But when you name where a note sits in tonal music, you don't normally speak in distance. You speak in <span class="em">scale degrees</span>. In D minor, D is the first, E the second, F the third — you count position on the scale. Under this way of counting, E to F is one semitone and F to G is two, and yet both are simply the next one along: the physical spacing stays uneven while both become neighbours.</p>
   <p class="ja">半音の数は、音と音の距離である。ピアノの鍵盤を数えた数と言ってもいい。だが調のある音楽で音の位置を言うとき、普通は距離では言わない。<span class="em">度数</span>で言う。二短調ならレを一番目として、ミが二番目、ファが三番目、と音階の上で何番目かを数える。この数え方だと、ミからファまでは半音一つぶん、ファからソまでは二つぶんと、物理的な間隔がばらばらのまま、どちらも「隣」になる。</p>
+  <p class="en">The scale itself is not built out of equal steps.</p>
   <p class="ja">音階そのものが、等間隔でできていない。</p>
 
 <div class="figure">
@@ -276,16 +285,24 @@ body.lang-ja .mus3-btn { font-family: var(--font-jp); }
   <div class="figcap"><span class="en">Fig. 1 — The same scale under two rulers: semitone distance above, scale position below.</span><span class="ja">図1　同じ音階を、二つの物差しで見る。上は半音の数、下は音階の上での位置。</span></div>
 </div>
 
+  <p class="en">So I measured again in scale degrees. I took the position on the scale and looked for sign inversion in that sequence of numbers. Same piece, same voices, same way of lining them up; the only thing I changed was the ruler.</p>
   <p class="ja">そこで度数で測り直した。音階の上で何番目かを取り、その番号の列で符号の反転を見る。同じ曲、同じ声部、同じ突き合わせ方で、変えたのは物差しだけである。</p>
+  <p class="en">The match rate for the four-voice piece became <span class="em">99.8%</span> — 1,014 places out of 1,016. All four voices are above 99.2%.</p>
   <p class="ja">四声の方の一致率は、<span class="em">九十九・八パーセント</span>になった。千十六箇所のうち千十四箇所。四つの声部すべてが九十九・二パーセントを超えている。</p>
+  <p class="en">The six in ten was the fault of the measurement. <span class="em">The whole piece really is a flip.</span></p>
   <p class="ja">六割は、測り方のせいだった。<span class="em">曲全体が、本当に裏返しである。</span></p>
+  <p class="en">That alone, though, doesn't tell me whether the figure is peculiar to the mirror fugues. The scale has only seven notes, so mapping onto degrees may simply make any two melodies easier to match. To check, I ran the same procedure on voices that stand in no mirror relation: other voices within the same piece, voices from other pieces, and the highest of all six pairings taken by brute force. Whichever I took, the figure in degrees stayed between 15% and 42%. A fugue in the same collection that uses the inverted form of its subject but is not a mirror of itself as a whole came out at 24%.</p>
   <p class="ja">もっとも、この数字が鏡像フーガに固有のものかどうかは、それだけでは分からない。音階は七つしか音が無いから、度数に写した時点でどんな旋律同士でも当たりやすくなっているだけかもしれない。確かめるために、鏡像の関係にない声部同士を同じ手順で突き合わせてみた。同じ曲の中の別の声部、別の曲の声部、六通りの組み合わせを総当たりして一番高く出たもの、どれを取っても度数で十五から四十二パーセントの範囲に留まった。同じ曲集の中で、主題に反行形を使いながら曲全体は鏡像になっていないフーガを測ると、二十四パーセントだった。</p>
+  <p class="en"><span class="em">99.8% is a figure that appears only for a piece that has been flipped whole.</span></p>
   <p class="ja"><span class="em">九十九・八パーセントは、曲をまるごと裏返した曲にだけ出る数字である。</span></p>
 
-  <h2 class="ja"><span class="hnum">3</span>二短調のままである</h2>
+  <h2><span class="hnum">3</span><span class="en">It Stays in D Minor</span><span class="ja">二短調のままである</span></h2>
 
+  <p class="en">So where does the flipped piece live?</p>
   <p class="ja">では、裏返した曲はどこに居るのか。</p>
+  <p class="en">I counted the notes that fall outside the scale — how many pitches not in the D minor scale are mixed in. In the original it is 7.6%; in the inversion, <span class="em">2.6%</span>. The flipped one is <span class="em">more obedient to the scale</span>, not less.</p>
   <p class="ja">音階の外へ出た音を数えてみた。二短調の音階に無い音がどれだけ混ざっているかである。正置では七・六パーセント、反行では<span class="em">二・六パーセント</span>だった。裏返した方が、<span class="em">むしろ音階に素直になっている</span>。</p>
+  <p class="en">One correspondence came out sharply. In D minor, C&#9839; — the note a semitone below the tonic — is a note with an upward pull. I collected every place this note appears in the collection and counted what note stands at the corresponding position on the inversion side. <span class="em">In 47 places out of 47 — that is, without a single exception — it was B&#9837;.</span></p>
   <p class="ja">一箇所、はっきりした対応が出た。二短調で主音の半音下にあるド♯は、上へ向かう力を持つ音である。この曲集の中でこの音が現れる箇所を全部拾って、反行の側で対応する位置に何の音が来ているかを数えた。<span class="em">四十七箇所のうち四十七箇所、つまり例外なく、シ♭になっていた。</span></p>
 
 <div class="figure">
@@ -332,35 +349,48 @@ body.lang-ja .mus3-btn { font-family: var(--font-jp); }
   <div class="figcap"><span class="en">Fig. 2 — A leading tone that rises maps onto one that falls. Both belong to the same key.</span><span class="ja">図2　上へ向かう音が、下へ向かう音へ。どちらも二短調の中に居場所がある。</span></div>
 </div>
 
+  <p class="en">B&#9837; is the sixth degree, and the motion down from it to A is proper to the minor. A note that pulls upward maps onto a note that pulls downward. Both are notes with a role inside D minor. A note with a role corresponds, without exception, to another note with a role.</p>
   <p class="ja">シ♭は音階の六番目で、そこからラへ下る動きは短調に固有のものだ。上へ向かう音が、下へ向かう音に写っている。どちらも二短調の中で役割を持つ音である。役割を持つ音が、役割を持つ別の音へ、例外なく対応している。</p>
+  <p class="en">And under the flip the sound itself barely moves.</p>
   <p class="ja">そして、裏返しても響きそのものはほとんど動かない。</p>
+  <p class="en">I took every note sounding at each moment, sorted the intervals between the voices into consonant and dissonant, and worked out the ratio. The original gives 70.6%, the inversion 70.5%. <span class="em">The difference is 0.1 points</span>. Every individual interval is turned over, and the make-up of the sound does not move.</p>
   <p class="ja">各時点で同時に鳴っている音を全部取り出し、声部の間の音程を協和と不協和に分けて比率を出した。正置が七十・六パーセント、反行が七十・五パーセントである。<span class="em">差は〇・一ポイント</span>しかない。個々の音程は全部ひっくり返っているのに、響きの構成比は動かない。</p>
+  <p class="en">Because distance was not preserved, the key was.</p>
   <p class="ja">距離を保存しなかったから、調が保存された。</p>
 
-  <h2 class="ja"><span class="hnum">4</span>距離ではなく、位置だった</h2>
+  <h2><span class="hnum">4</span><span class="en">Not Distance, but Position</span><span class="ja">距離ではなく、位置だった</span></h2>
 
+  <p class="en">Let me set the three rulers side by side for a moment.</p>
   <p class="ja">ここで一度、三つの物差しを並べてみる。</p>
 
-  <div class="figure ja">
+  <!-- 表は1つ。セルごとに en/ja を出し分ける（稿と同じ「同じ HTML に2つの完成した稿」の形）。
+       数字は両言語で同じだが、片方だけに置くともう片方で消えるので両方に書く。 -->
+  <div class="figure">
     <table>
-      <thead><tr><th>何で測るか</th><th>見ているもの</th><th>四声の一致率</th></tr></thead>
+      <thead><tr><th><span class="en">What I measure with</span><span class="ja">何で測るか</span></th><th><span class="en">What it looks at</span><span class="ja">見ているもの</span></th><th><span class="en">Four-voice match rate</span><span class="ja">四声の一致率</span></th></tr></thead>
       <tbody>
-        <tr><td>半音の数</td><td>距離</td><td>58.8%</td></tr>
-        <tr><td>音階の上の位置</td><td>調の中での位置</td><td><span class="em">99.8%</span></td></tr>
-        <tr><td>上がったか下がったかだけ</td><td>向き</td><td>99.7%</td></tr>
+        <tr><td><span class="en">Semitone count</span><span class="ja">半音の数</span></td><td><span class="en">Distance</span><span class="ja">距離</span></td><td><span class="en">58.8%</span><span class="ja">58.8%</span></td></tr>
+        <tr><td><span class="en">Position on the scale</span><span class="ja">音階の上の位置</span></td><td><span class="en">Position within the key</span><span class="ja">調の中での位置</span></td><td><span class="en"><span class="em">99.8%</span></span><span class="ja"><span class="em">99.8%</span></span></td></tr>
+        <tr><td><span class="en">Only whether it rose or fell</span><span class="ja">上がったか下がったかだけ</span></td><td><span class="en">Direction</span><span class="ja">向き</span></td><td><span class="en">99.7%</span><span class="ja">99.7%</span></td></tr>
       </tbody>
     </table>
-    <div class="figcap">三つの物差しで、同じ譜面を測る。</div>
+    <div class="figcap"><span class="en">Three rulers on the same score.</span><span class="ja">三つの物差しで、同じ譜面を測る。</span></div>
   </div>
 
+  <p class="en">I added the third one because of this thought. Throwing distance away made the match rate jump. So — throw away more, and would it go higher still? Drop every bit of information about how high or low, reduce it to the binary of up or down, and you have the coarsest comparison there is.</p>
   <p class="ja">三つ目を足したのは、こう考えたからである。距離を捨てたら一致率が跳ね上がった。なら、もっと捨てたらもっと上がるのではないか。音の高低の情報を全部落として、上がったか下がったかの二値にしてしまえば、一番粗い比較になる。</p>
+  <p class="en">It did not go higher. 99.7%, slightly below the figure in degrees. <span class="em">Throwing more away gains nothing.</span></p>
   <p class="ja">上がらなかった。九十九・七パーセントで、度数のときをわずかに下回る。<span class="em">捨てても増えない。</span></p>
+  <p class="en">Which means everything is already captured at the level of degrees. What was preserved was not the coarse shape of rising or falling, but <span class="em">the exact place that note occupies on the coordinate system of the scale</span>.</p>
   <p class="ja">つまり、度数の段階でもう全部取れている。保存されていたのは「上がるか下がるか」という粗い形ではなく、<span class="em">音階という座標の上での、その音の正確な居場所</span>だった。</p>
+  <p class="en">When I wrote about this collection before, I said that the transformations are visible as figures, and that this is not a metaphor but actual geometry. I don't retract it. One thing has to be added, though. <span class="em">That geometry breaks the moment you measure distance.</span> It is hard to call something geometry when the distances are not kept and the shape is. What is kept is the side of it that survives stretching.</p>
   <p class="ja">以前この曲集について書いたとき、変換が図形として目に映ることを指して、比喩ではなく実際に幾何だと書いた。訂正はしない。ただ、一つ付け加わる。<span class="em">その幾何は、距離を測ると壊れる。</span> 距離が保たれていないのに形が保たれているものを、幾何とは呼びにくい。保たれているのは、伸び縮みしても変わらない側の性質である。</p>
 
-  <h2 class="ja"><span class="hnum">5</span>聴き比べる</h2>
+  <h2><span class="hnum">5</span><span class="en">Listening Side by Side</span><span class="ja">聴き比べる</span></h2>
 
+  <p class="en">Up to here this has been about the score, not about the ear. So I made it possible to hear.</p>
   <p class="ja">ここまでは譜面の話で、耳の話ではない。だから鳴らせるようにした。</p>
+  <p class="en">Three versions of the opening of the four-voice mirror fugue are set side by side. The first is the original. The second is the inversion Bach wrote. The third is the original's pitches <span class="em">flipped mechanically by semitone count</span>. The third one is mine — each voice folded over its own first note, up for down, with no judgement in it at all.</p>
   <p class="ja">四声の鏡像フーガの冒頭を三つ並べてある。一つ目は正置。二つ目はバッハの書いた反行。三つ目は、正置の音高を<span class="em">半音の数で機械的に反転させた</span>ものである。三つ目は私が作った。各声部の最初の音を軸にして、上下をそのまま折り返しただけの、何の判断も入っていない反転である。</p>
 
   <!-- ===== 生成物: build-essay-embed.mjs（装置A・鏡像フーガ聴き比べ）手で書き起こさない ===== -->
@@ -377,33 +407,52 @@ body.lang-ja .mus3-btn { font-family: var(--font-jp); }
   </div>
   <!-- ===== /生成物: 装置A ===== -->
 
+  <p class="en">In numbers it comes out like this. The proportion of notes outside the scale is 1.7% for the original, 2.6% for Bach's inversion, and <span class="em">11.2%</span> for the mechanical flip. Against consonance ratios of 70.0 and 69.3, the mechanical flip gives <span class="em">57.1</span>.</p>
   <p class="ja">数字で言うとこうなる。音階の外へ出た音の割合が、正置一・七パーセント、バッハの反行二・六パーセント、機械の反転<span class="em">十一・二パーセント</span>。協和の比率が七十・〇、六十九・三に対して、機械の反転は<span class="em">五十七・一</span>。</p>
+  <p class="en">An inversion that preserves distance leaves the key. Bach's inversion stays inside it. That is as far as the numbers go; how it sounds I won't write down. Better to listen and judge.</p>
   <p class="ja">距離を保存する反転は、調の外へ出る。バッハの反転は調の中に留まる。数字が言っているのはそこまでで、それがどう聞こえるかは書かない。聴いて判断してもらう方がいい。</p>
 
-  <h2 class="ja"><span class="hnum">6</span>三声の方は、そうきれいにいかない</h2>
+  <h2><span class="hnum">6</span><span class="en">The Three-Voice One Doesn't Come Out So Cleanly</span><span class="ja">三声の方は、そうきれいにいかない</span></h2>
 
+  <p class="en">Do the same thing with the three-voice mirror fugue and it gets complicated.</p>
   <p class="ja">同じことを三声の鏡像フーガでやると、話が込み入る。</p>
+  <p class="en">First, a plain top-to-bottom exchange doesn't fit. In the four-voice piece the highest voice becomes the lowest in the inversion and the lowest becomes the highest, symmetrically, and this was clearly the best fit. In the three-voice piece that plain correspondence stays in the fifties. Search the voice correspondences by brute force and <span class="em">a different arrangement</span> scores higher.</p>
   <p class="ja">まず、素直な上下の入れ替えでは合わない。四声の方では、一番上の声部が反行では一番下に、一番下が一番上に、と対称に入れ替わっており、これが明確に最良だった。三声では、その素直な対応の一致率が五十パーセント台に留まる。声部の対応を総当たりで探すと、<span class="em">別の並び方</span>の方が高く出る。</p>
+  <p class="en">And even measured with that best arrangement, <span class="em">one of the three voices alone</span> is low. The other two are above 98.5%; that one is at 68.1%. In semitones, in degrees, in direction alone — <span class="em">the same voice is lowest under every ruler</span>. If the same voice survives a change of ruler, it isn't noise in the measurement. That voice is actually doing something different.</p>
   <p class="ja">そして、その最良の並びで測っても、三声のうち<span class="em">一声だけ</span>が低い。他の二声が九十八・五パーセントを超えているのに、その一声は六十八・一パーセントである。半音で測っても、度数で測っても、向きだけで測っても、<span class="em">どの物差しでも同じ声部が最も低い</span>。物差しを替えても同じ声部が残るなら、測定の揺らぎではない。その声部が実際に他と違うことをしている。</p>
+  <p class="en">At this point I read a commentary on the piece. It says that in the three-voice one the disposition of the voices is not a simple exchange. That it is not a strict mirror — and that a strict mirror is <span class="em">impossible</span>.</p>
   <p class="ja">ここで、この曲についての解説を読んだ。三声の方は声部の配置が単純な入れ替えにならない、と書いてある。厳密な鏡像にはなっていない、そしてそれは<span class="em">不可能である</span>、とも。</p>
+  <p class="en">Qualitatively that agrees with what my brute-force search found. But when I tried to match it further, down to exactly how the voices exchange, I stopped. Going on would have meant choosing the answer to fit the data. So I stopped deciding.</p>
   <p class="ja">こちらが総当たりで見つけたことと、定性的には合っている。だが具体的にどう入れ替わるのかまで突き合わせようとして、止まった。しかし、それではデータに合わせて答えを選んだことになる。だから決めるのをやめた。</p>
+  <p class="en">The same caution is needed about the one low voice. It is tempting to read it as stepping off the rule there. But if a strict three-voice mirror is impossible to begin with, it may not be stepping off at all — it may be what that form makes inevitable. From the data I have, I cannot separate the two.</p>
   <p class="ja">一声だけ低いことについても、同じ慎重さが要る。そこで規則から降りている、と読みたくなる。だが三声の厳密な鏡像がそもそも不可能なら、降りたのではなく、その形では原理的にそうなるだけかもしれない。手元のデータからは、この二つを切り分けられない。</p>
 
-  <h2 class="ja"><span class="hnum">7</span>測ったものと、聴いているもの</h2>
+  <h2><span class="hnum">7</span><span class="en">What I Measured, and What Is Being Heard</span><span class="ja">測ったものと、聴いているもの</span></h2>
 
+  <p class="en">The difference between 99.8% measured in degrees and 99.7% measured in direction alone is 0.1 points. A machine tells that difference apart. Whether the human ear does is another question.</p>
   <p class="ja">度数で測った九十九・八パーセントと、向きだけで測った九十九・七パーセントの差は、〇・一ポイントである。この差を、機械は区別する。人間の耳が区別するかどうかは、別の問題だ。</p>
+  <p class="en">In research on melodic memory there is a report that, when a listener is holding an unfamiliar melody for a few seconds, people can barely tell an exact transposition apart from a melody with the same contour and key but different intervals. Accuracy was no better than chance.<sup>2</sup> The same researcher later showed that as the retention interval lengthens the advantage of contour disappears and interval information begins to matter, and framed it himself as this: whether contour is enough depends on the conditions.<sup>3</sup></p>
   <p class="ja">旋律の記憶を扱った研究に、初めて聴く旋律を数秒だけ覚えている状況では、人は「正確に移した旋律」と「輪郭と調は同じだが音程が違う旋律」をほとんど区別できない、という報告がある。正答率は偶然と変わらなかった<sup>2</sup>。同じ研究者は後に、覚えておく時間が延びると輪郭の優位が消えて音程の情報の方が効いてくることを示していて、輪郭で足りるかどうかは条件によると自ら整理している<sup>3</sup>。</p>
+  <p class="en">If that is so, what I measured and what a listener receives may not be the same thing. Even if what is preserved on the page is the scale degree, the ear may not be following at that resolution.</p>
   <p class="ja">だとすると、こちらが測ったものと、聴いている人が受け取っているものは、同じではないかもしれない。譜面の上で保存されているのが度数だとしても、耳がそこまで細かく追っていない可能性がある。</p>
+  <p class="en">The conditions differ, though. That research deals with unfamiliar melodies, and with a few seconds. A mirror fugue is not a piece that gets heard that way. It is made to be heard again and again, read in the score, set side by side for comparison. That the composer placed the original and the inversion as two separate pieces <span class="em">presupposes that they will be compared</span>.</p>
   <p class="ja">ただし条件が違う。その研究が扱っているのは初めて聴く旋律で、しかも数秒である。鏡像フーガは、そういう聴かれ方をする曲ではない。何度も聴き、譜面を見て、二つを並べて比べる対象として作られている。作曲者が正置と反行を別々の曲として置いたこと自体が、<span class="em">比べられることを前提にしている</span>。</p>
+  <p class="en">Still, I'll draw the line. What I measured here is the score, not the listening.</p>
   <p class="ja">それでも線は引いておく。ここで測ったのは譜面であって、聴取ではない。</p>
 
-  <h2 class="ja"><span class="hnum">8</span>結び</h2>
+  <h2><span class="hnum">8</span><span class="en">Closing</span><span class="ja">結び</span></h2>
 
+  <p class="en">What did not break was an order called D minor.</p>
   <p class="ja">壊れなかったのは、二短調という秩序だった。</p>
+  <p class="en">Everything else is broken down to a considerable degree. The distance between the notes is broken. In the three-voice piece the disposition of the voices is broken too, and one voice within it is broken further still. What can be broken without breaking, and what breaks when broken, are separated inside this collection.</p>
   <p class="ja">それ以外は、かなりの程度まで崩されている。音と音の距離は崩されている。三声の方では声部の配置も崩されていて、その中の一つはさらに崩されている。崩しても壊れないものと、崩したら壊れるものが、この曲集の中で分かれている。</p>
+  <p class="en">So how far may one break it? Where that line is drawn is not written in the score. The instruction to flip it upside down is made explicit, in the form of two pieces placed side by side. But that the fold goes by scale degree and not by semitone, and that in three voices the disposition of the voices is not plainly exchanged — neither of those is written anywhere.</p>
   <p class="ja">では、どこまで崩してよいのか。その線がどこに引かれているのかは、譜面には書かれていない。上下を裏返せという指示は、二つの曲を並べて置くという形で明示されている。だが半音ではなく音階の度数で折り返すことも、三声では声部の配置を素直に入れ替えないことも、どこにも書かれていない。</p>
+  <p class="en">It isn't written, but <span class="em">the places where it was broken remain</span>. In the four-voice piece all four voices move by the rule at above 99%; in the three-voice piece one voice alone moves at 68%. The places where the rule is kept tell me nothing. What tells me something is where it departs. The distribution of the departures is the outline of an understanding that was never written down.</p>
   <p class="ja">書かれていないが、<span class="em">崩した場所は残っている</span>。四声の方では四つの声部すべてが九十九パーセントを超えて規則どおりに動いていて、三声の方では一つの声部だけが六十八パーセントで動いている。守られている所からは何も分からない。分かるのは、外れている所からである。外れた場所の分布が、書かれなかった了解の輪郭になっている。</p>
+  <p class="en">On what grounds did he judge that there, and only there, it was permitted to depart? That remains unknown.</p>
   <p class="ja">何を根拠に、そこでなら外してよいと判断したのか。それは分からないままである。</p>
+  <p class="en">And one more question is left that this measurement does not answer. What I measured here is the score. When someone is listening to the same piece, what is the ear hearing?</p>
   <p class="ja">そしてもう一つ、この測定が答えていない問いが残った。ここで測ったのは譜面である。同じ曲を聴いているとき、耳は何を聞いているのか。</p>
 
   <div class="essay-note">
