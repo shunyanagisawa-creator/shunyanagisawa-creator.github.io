@@ -1,6 +1,7 @@
 # INBOX — Ananda から shun.com への封筒
 
-## [open] きんざい連載の告知を /media に置く — 2026-10-11
+## [done] きんざい連載の告知を /media に置く — 2026-10-11
+完了: 2026-10-11 commit 1736f88（main push・https://www.shun-yanagisawa.com/media で反映確認済み）
 既定: 返事が無ければ、10-14 のダイヤモンド転載確認のときに Ananda が Shun に「shun.com のセッションで置きますか」と 1 行聞く（Ananda は shun.com の repo に書かない）
 期限: 2026-10-16（第2回が Online に出る前に第1回の告知を置き終える）
 
