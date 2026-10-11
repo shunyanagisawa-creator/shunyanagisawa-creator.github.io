@@ -19,3 +19,6 @@ wrangler.jsonc
 # 旧版の書影。現行は book-cover-v2.jpg で、参照はどのページからも無い
 # （repo には履歴のため残す。565KB を配信する理由だけが無い）
 book-cover.png
+
+# Ananda からの受け取り窓口（運用メモ・読み手のためのページではない。2026-10-11 追加）
+INBOX-FROM-ANANDA.md
