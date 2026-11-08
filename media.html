@@ -182,7 +182,7 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 
 <div class="page">
 
-  <!-- 週刊金融財政事情 連載セミナー（2026-10-11 追加・2026-10-17 第2回とダイヤモンド転載を追加・2026-10-25 第2回のダイヤモンド転載を追加・2026-10-31 第3回と転載を追加・以後は各回が Online に出た後に Part の箇条書きを足す） -->
+  <!-- 週刊金融財政事情 連載セミナー（2026-10-11 追加・2026-10-17 第2回とダイヤモンド転載を追加・2026-10-25 第2回のダイヤモンド転載を追加・2026-10-31 第3回と転載を追加・2026-11-08 第4回・第5回と第4回の転載を追加・以後は各回が Online に出た後に Part の箇条書きを足す） -->
   <div class="media-featured">
     <div class="media-badge" style="background:var(--gold-dark);font-size:.9rem;letter-spacing:.02em;line-height:1.35;"><span class="en">Kinzai<br>&amp;<br>Diamond<br>Online</span><span class="ja">きんざい<br>&amp;<br>ダイヤモンド<br>オンライン</span></div>
     <div>
@@ -211,6 +211,20 @@ footer a { color: var(--teal-dark); text-decoration: none; }
           <li>Liquidity decides where to clear. In practice it appears as the cost of unwinding: whether a large position can be built without moving the market and closed on the day it needs to be. In yen swaps, JSCC has deep liquidity beyond ten years</li>
           <li>In 2018 yen swaps traded at two prices in Tokyo and London, with the 20-year gap widening to almost 16bp; it persisted because participants could see both prices but could not access both clearing houses at once</li>
         </ul>
+        <p style="margin:.6rem 0 .4rem;"><strong>Part 4 &mdash; &ldquo;How Margin Measures Future Losses&rdquo; (3 November 2026 issue)</strong></p>
+        <ul>
+          <li>Margin has two roles: variation margin (VM) settles gains and losses that have already occurred, while initial margin (IM) covers losses that may arise after a participant defaults, until its positions are closed out. The margin period of risk is typically 1&ndash;2 business days for futures, 5 for cleared OTC derivatives and 10 for uncleared trades</li>
+          <li>How much IM is enough depends on the margin period of risk, the data used, the confidence level covered (99% VaR or 99% ES) and how far recent markets are reflected. Margin is not a single &ldquo;safe percentage&rdquo; but a designed value combining time, data, probability, stress and liquidity</li>
+          <li>IM also sets position size: a futures contract with a 5% IM rate implies 20x leverage, falling to 10x if the rate rises to 10%. When markets turn volatile and IM is raised, participants post more collateral or cut positions</li>
+          <li>In September 2018, a move in the Nordic power market reached 17 times normal daily volatility; at Nasdaq Clearing, a loss of &euro;114 million remained after the defaulter&rsquo;s collateral and default fund contribution, absorbed by &euro;7 million of the CCP&rsquo;s own capital and &euro;107 million of the default fund contributed by surviving members. The lesson is not uniformly higher margin, but arrangements to absorb losses beyond IM</li>
+        </ul>
+        <p style="margin:.6rem 0 .4rem;"><strong>Part 5 &mdash; &ldquo;When Safeguards Amplify a Crisis&rdquo; (10 November 2026 issue)</strong></p>
+        <ul>
+          <li>In September 2022, 30-year gilt yields rose 160bp in four days, against the 100bp rise the Bank of England had tested before the crisis. Pension funds using interest rate swaps in LDI strategies faced variation margin calls; Bank staff estimated margin and collateral calls over the period at more than &pound;70 billion</li>
+          <li>VM on cleared swaps is in principle paid in cash. Selling gilts to meet it pushed yields higher and brought new calls. What the Bank set out to stop was not a particular level of rates but the loop of sales and margin calls; its purchases ran to 14 October and totalled &pound;19.3 billion</li>
+          <li>Containing procyclicality requires looking at margin design together with the payer&rsquo;s positions and liquidity management. VM is paid in the currency of the trade; at JSCC, VM on yen swaps is paid in yen cash. Holding government bonds is not the same as being able to pay in the right currency at the right time</li>
+          <li>In 1866, when Overend, Gurney stopped payment, the Bank of England refused to lend to the firm but lent to banks and bill brokers on an unprecedented scale. Saving a firm and saving a market are not the same; the crisis marked a turning point toward the modern lender of last resort</li>
+        </ul>
         <p>Full text in Kinyu Zaisei Jijo and on Kinzai Online (Japanese). Views are the author's own and not those of his employer.</p>
       </div>
       <div class="media-summary ja">
@@ -236,14 +250,31 @@ footer a { color: var(--teal-dark); text-decoration: none; }
           <li>どこで清算するかを左右するのは流動性である。大きなポジションを市場価格を崩さずに建て、必要な日に解消できるかという実務から見れば、流動性は解消のためのコストとして現れる。円金利スワップでは、10年超の年限で JSCC に厚い流動性がある</li>
           <li>2018年、東京とロンドンで円金利スワップに二つの価格が付き、20年ゾーンの差は16bp弱まで拡大した。差が残ったのは、価格が見えていても二つの清算機関へ同時にアクセスできなかったからである</li>
         </ul>
+        <p style="font-family:var(--font-jp);font-size:.88rem;margin:.6rem 0 .4rem;"><strong>第4回「証拠金は「未来の損失」をどう測るか」（11月3日号）</strong></p>
+        <ul style="font-family:var(--font-jp);font-size:.88rem;">
+          <li>証拠金制度には二つの役割がある。変動証拠金（VM）はすでに生じた損益を清算し、当初証拠金（IM）は参加者の破綻後、ポジションの処理が終わるまでに生じ得る損失に備える。損失想定期間（MPOR）は、先物は1～2営業日、清算された店頭デリバティブは5営業日、非清算取引は10営業日が一つの目安</li>
+          <li>IMの水準は、損失想定期間、使うデータ、カバーする確率（99％VaR・99％ES）、足元の相場の反映の仕方で決まる。証拠金は「何％なら安全か」という唯一の数字ではなく、時間とデータ、確率、ストレス、流動性を組み合わせた設計値である</li>
+          <li>IMはポジションの大きさも決める。IM率が5％の先物なら計算上のレバレッジは20倍、10％へ上がれば10倍へ下がる。市場が荒れてIMが引き上げられれば、参加者は追加担保を差し入れるか、ポジションを縮小する</li>
+          <li>2018年9月、北欧の電力市場で市場変動が通常の日次変動の17倍に達した。ナスダッククリアリングでは、破綻した参加者の担保と清算基金への拠出分を使い切っても1億1,400万ユーロの損失が残り、CCP自身の資金700万ユーロと、健全な清算参加者が拠出した清算基金1億700万ユーロが使われた。教訓は、証拠金を一律に高くすることではなく、IMを超えた損失を受け止める仕組みまで用意することである</li>
+        </ul>
+        <p style="font-family:var(--font-jp);font-size:.88rem;margin:.6rem 0 .4rem;"><strong>第5回「安全策が危機を増幅するとき」（11月10日号）</strong></p>
+        <ul style="font-family:var(--font-jp);font-size:.88rem;">
+          <li>2022年9月、英国の30年物国債（ギルト）の利回りは4日間で160bp上昇した。イングランド銀行（BoE）が危機前に点検していたのは100bpの上昇だった。LDI（負債主導型投資）で金利スワップを用いていた年金基金に変動証拠金（VM）の請求が及び、BoEスタッフの推計では、この間の証拠金・担保請求は700億ポンドを超えた</li>
+          <li>清算された金利スワップのVMは、原則として現金で支払う。VMを払うためにギルトを売れば利回りはさらに上昇し、新たな請求が届く。BoEが止めようとしたのは特定の金利水準ではなく、売却と証拠金請求が互いを増幅する循環であり、買い入れは10月14日まで続き、総額193億ポンドに達した</li>
+          <li>プロシクリカリティー（順循環性）を抑えるには、証拠金の仕組みと、払う側のポジション・資金管理を併せて見る必要がある。VMは原則として取引通貨建てで支払い、JSCC では円金利スワップの VM は円現金で支払う。国債を持っていることと、必要な時刻に必要な通貨で払えることには、距離がある</li>
+          <li>1866年、手形割引商オーバレンド・ガーニーが支払いを停止したとき、BoE は同社への融資を断る一方、銀行や手形仲買業者には、かつてない規模で融資した。会社を救うことと、市場を救うことは同じではない。この危機は、BoE が現代的な「最後の貸し手」へ近づく転機となった</li>
+        </ul>
         <p style="font-family:var(--font-jp);font-size:.88rem;">本文は『週刊金融財政事情』およびきんざいOnline にて。記述は個人の見解であり、所属先の見解ではありません。</p>
       </div>
       <a class="media-link" style="margin-right:1.2rem;" href="https://kinzai-online.jp/node/14913" target="_blank"><span class="en">&rarr; Part 1 &middot; kinzai-online.jp (subscription required)</span><span class="ja">&rarr; 第1回 &middot; kinzai-online.jp（会員向け）</span></a>
       <a class="media-link" style="margin-right:1.2rem;" href="https://kinzai-online.jp/node/14934" target="_blank"><span class="en">&rarr; Part 2 &middot; kinzai-online.jp (subscription required)</span><span class="ja">&rarr; 第2回 &middot; kinzai-online.jp（会員向け）</span></a>
       <a class="media-link" style="margin-right:1.2rem;" href="https://kinzai-online.jp/node/14956" target="_blank"><span class="en">&rarr; Part 3 &middot; kinzai-online.jp (subscription required)</span><span class="ja">&rarr; 第3回 &middot; kinzai-online.jp（会員向け）</span></a>
+      <a class="media-link" style="margin-right:1.2rem;" href="https://kinzai-online.jp/node/15006" target="_blank"><span class="en">&rarr; Part 4 &middot; kinzai-online.jp (subscription required)</span><span class="ja">&rarr; 第4回 &middot; kinzai-online.jp（会員向け）</span></a>
+      <a class="media-link" style="margin-right:1.2rem;" href="https://kinzai-online.jp/node/15033" target="_blank"><span class="en">&rarr; Part 5 &middot; kinzai-online.jp (subscription required)</span><span class="ja">&rarr; 第5回 &middot; kinzai-online.jp（会員向け）</span></a>
       <a class="media-link" style="margin-right:1.2rem;" href="https://diamond.jp/articles/-/401020" target="_blank"><span class="en">&rarr; Part 1 &middot; Diamond Online (full text for paid members)</span><span class="ja">&rarr; 第1回 &middot; ダイヤモンド・オンライン（全文は有料会員限定）</span></a>
       <a class="media-link" style="margin-right:1.2rem;" href="https://diamond.jp/articles/-/401478" target="_blank"><span class="en">&rarr; Part 2 &middot; Diamond Online (full text for paid members)</span><span class="ja">&rarr; 第2回 &middot; ダイヤモンド・オンライン（全文は有料会員限定）</span></a>
-      <a class="media-link" href="https://diamond.jp/articles/-/402050" target="_blank"><span class="en">&rarr; Part 3 &middot; Diamond Online (full text for paid members)</span><span class="ja">&rarr; 第3回 &middot; ダイヤモンド・オンライン（全文は有料会員限定）</span></a>
+      <a class="media-link" style="margin-right:1.2rem;" href="https://diamond.jp/articles/-/402050" target="_blank"><span class="en">&rarr; Part 3 &middot; Diamond Online (full text for paid members)</span><span class="ja">&rarr; 第3回 &middot; ダイヤモンド・オンライン（全文は有料会員限定）</span></a>
+      <a class="media-link" href="https://diamond.jp/articles/-/402509" target="_blank"><span class="en">&rarr; Part 4 &middot; Diamond Online (full text for paid members)</span><span class="ja">&rarr; 第4回 &middot; ダイヤモンド・オンライン（全文は有料会員限定）</span></a>
     </div>
   </div>
 
