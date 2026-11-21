@@ -15,6 +15,7 @@
 
 ## Essays (English / Japanese, self-contained)
 
+- [Putting a Thought on a Single Card](https://www.shun-yanagisawa.com/essays/thoughts-as-cards)
 - [What Survives Inversion](https://www.shun-yanagisawa.com/essays/what-survives-inversion)
 - [What Counts as the Same](https://www.shun-yanagisawa.com/essays/what-counts-as-the-same)
 - [The Density of Transformation](https://www.shun-yanagisawa.com/essays/the-density-of-transformation)
