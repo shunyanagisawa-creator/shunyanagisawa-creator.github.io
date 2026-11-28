@@ -489,6 +489,7 @@ footer { flex-wrap: wrap; }
 .excerpt-toggle .ja { font-family: var(--font-jp); letter-spacing: .04em; }
 
 
+
 /* rule:common:begin — 共通ルール（Claude Design キャンバス Rules・2026-11-28）。各ページ同文。 */
 :root { --border: #cfcac0; --rule-head: #1a2332; --rule-body: #3d4148; --rule-link: #1d5c5c; --rule-read: #b5832a; }
 .ja { letter-spacing: .04em; }
@@ -505,6 +506,8 @@ footer { flex-wrap: wrap; }
 .speaking-table td { padding: 1.3rem 1.4rem; }
 .td-date { color: var(--rule-link); }
 .td-title { font-size: 1.12rem; line-height: 1.55; }
+/* リンク: 本文の書体・16px・下線（等幅＋広い字間をやめる） */
+.media-link, .speaking-table td a, .media-card a, .featured-card .read-more { font-family: var(--font-body) !important; letter-spacing: 0 !important; font-size: .94rem !important; text-transform: none !important; border-bottom: 0 !important; text-decoration: underline; text-underline-offset: 4px; color: var(--rule-link); }
 /* rule:common:end */
 </style>
 </head>
