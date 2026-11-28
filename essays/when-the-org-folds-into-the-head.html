@@ -69,8 +69,9 @@ nav {
 .nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
 .nav-logo span { color: var(--teal-dark); }
 .nav-right { display: flex; align-items: center; gap: 1.2rem; }
-.nav-back { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--text-muted); text-decoration: none; }
+.nav-back { font-family: var(--font-mono); font-size: .78rem; letter-spacing: .1em; color: var(--text-muted); text-decoration: none; }
 .nav-back:hover { color: var(--teal-dark); }
+@media (max-width: 560px) { nav { padding: 0 1rem; } .nav-logo { white-space: nowrap; font-size: 1rem; } .nav-right { gap: .6rem; } .nav-back { line-height: 1.3; text-align: right; word-break: keep-all; } }
 .lang-toggle {
   font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: .08em;
   background: none; border: 1px solid var(--border); border-radius: 3px;
@@ -87,8 +88,8 @@ h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); fo
 
 .essay h2 {
   font-family: var(--font-display); font-size: 1.22rem; font-weight: 500; color: var(--navy);
-  margin: 2.8rem 0 1rem; padding: .35rem 0 .45rem .9rem;
-  border-left: 3px solid var(--navy); border-bottom: 1px solid var(--border);
+  margin: 2.8rem 0 1rem; padding: .35rem 0 .45rem;
+  border-bottom: 1px solid var(--border);
 }
 body.lang-ja .essay h2 { font-family: var(--font-jp); font-weight: 500; }
 .essay h2 .hnum { font-family: var(--font-mono); font-size: 1rem; color: var(--teal-dark); margin-right: .7rem; letter-spacing: .05em; }
@@ -120,11 +121,11 @@ body.lang-ja .essay h2 { font-family: var(--font-jp); font-weight: 500; }
 body.lang-ja .figcap { font-family: var(--font-jp); font-size: 0.9rem; }
 
 .seed-box {
-  border: 1px solid var(--gold); border-left: 4px solid var(--gold);
+  border: 1px solid var(--border); border-top: 3px solid var(--gold); background: var(--white);
   padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0 0; border-radius: 2px;
   font-size: 1.02rem; color: var(--navy); line-height: 1.85; position: relative; text-align: justify;
 }
-.seed-box .pull-label { position: absolute; top: -0.7rem; left: 1rem; background: var(--white); font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: .2em; color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase; }
+.seed-box .pull-label { display: block; margin-bottom: .5rem; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: .2em; color: var(--gold-dark); text-transform: uppercase; }
 
 .essay-close { border-top: 2px solid var(--gold); margin-top: 3rem; padding-top: 1.6rem; }
 
@@ -468,7 +469,7 @@ footer a { color: var(--teal-dark); text-decoration: none; }
   <p class="en">The organization began there. And, in a sense, folded back into the same point.</p>
   <p class="ja">組織は、ここから始まって、ここに畳まれた。</p>
   <div class="essay-close">
-    <h2 style="border-left-color:var(--gold);"><span class="hnum" style="color:var(--gold-dark);">6</span><span class="en">The Organization Measured Its Own Retirement</span><span class="ja">組織は、自分の退役を自分で測った</span></h2>
+    <h2><span class="hnum" style="color:var(--gold-dark);">6</span><span class="en">The Organization Measured Its Own Retirement</span><span class="ja">組織は、自分の退役を自分で測った</span></h2>
   <p class="en">There is one final episode worth keeping. ArayaOS contained an organizational-learning function. Every week, it read the failures and lessons produced by the other roles and compressed them into candidate "doctrines" — rules that might eventually become part of the operating system. It sounded sensible.</p>
   <p class="en">After roughly ten runs, I audited it. There were eighteen draft doctrines. Not one had been formally promoted. The advisory mechanism had gone quiet as well. The one clearly demonstrated effect of the learning machinery was largely concerned with ensuring that the learning machinery itself continued to run.</p>
   <p class="ja">後日談として、書いておきたいことがある。私が作った統治層には、組織学習の部門があった。毎週、全員の失敗と学びを読んで「教義」に圧縮するCleanerである。最後に監査したところ、十回の試走で草案は十八件溜まっていた。しかし、正式に昇格したものは一件もなかった。定期諮問も止まっていた。実証できた効果の大部分は、組織学習そのものではなく、その組織学習の仕組みを動かし続けることに向かっていた。</p>
