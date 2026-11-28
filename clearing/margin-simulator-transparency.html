@@ -47,6 +47,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
+html{font-size:17px} /* 共通ルール: rem の基準を本文 17px に（2026-11-28） */
 /* /clearing — クリアリングの体系（第2版に向けた断片）
    essays と同じブランド palette を使うが、以下を変える:
    - 日本語のみ（言語トグルなし・扉写真なし）
@@ -77,7 +78,7 @@ nav {
 .nav-back { font-family: var(--font-jp); font-size: .82rem; letter-spacing: .04em; color: var(--text-sub); text-decoration: none; }
 .nav-back:hover { color: var(--teal-dark); }
 .lang-toggle {
-  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .06em;
+  font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: .06em;
   background: none; border: 1px solid var(--border); border-radius: 3px;
   padding: .3rem .75rem; cursor: pointer; color: var(--text-sub);
 }
@@ -87,7 +88,7 @@ nav {
 
 /* 帰属 — 初版のどこの続きか */
 .column-kicker {
-  font-family: var(--font-jp); font-size: .78rem; letter-spacing: .1em; color: var(--teal-dark);
+  font-family: var(--font-jp); font-size: 0.9rem; letter-spacing: .1em; color: var(--teal-dark);
   padding-bottom: .5rem; margin-bottom: 1.1rem; border-bottom: 1px solid var(--border);
 }
 .column-kicker .bookmark { color: var(--text-sub); }
@@ -95,7 +96,7 @@ h1 { font-family: var(--font-jp); font-size: clamp(1.5rem, 3.6vw, 2.1rem); font-
 .column-sub { font-size: 1rem; color: var(--text-sub); margin-bottom: 1.4rem; line-height: 1.85; }
 .column-meta {
   display: flex; flex-wrap: wrap; gap: .35rem 1.5rem;
-  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .06em; color: var(--text-sub);
+  font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: .06em; color: var(--text-sub);
   padding-bottom: 1.5rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.3rem;
 }
 
@@ -104,7 +105,7 @@ h1 { font-family: var(--font-jp); font-size: clamp(1.5rem, 3.6vw, 2.1rem); font-
   margin: 3rem 0 1rem; padding: .35rem 0 .5rem .9rem;
   border-left: 3px solid var(--navy); border-bottom: 1px solid var(--border);
 }
-.column h2 .hnum { font-family: var(--font-mono); font-size: .82rem; font-weight: 400; color: var(--teal-dark); margin-right: .75rem; letter-spacing: .05em; }
+.column h2 .hnum { font-family: var(--font-mono); font-size: 1rem; font-weight: 400; color: var(--teal-dark); margin-right: .75rem; letter-spacing: .05em; }
 
 .column p { margin: 1.15rem 0; color: var(--text-mid); text-align: justify; letter-spacing: .015em; }
 .column a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.45); }
@@ -122,22 +123,22 @@ h1 { font-family: var(--font-jp); font-size: clamp(1.5rem, 3.6vw, 2.1rem); font-
 .box {
   border: 1px solid var(--gold); border-left: 4px solid var(--gold); background: var(--gold-light);
   padding: 1.4rem 1.5rem 1.2rem; margin: 2rem 0; border-radius: 2px;
-  font-size: .98rem; color: var(--navy); line-height: 1.9; position: relative; text-align: justify;
+  font-size: 1.02rem; color: var(--navy); line-height: 1.9; position: relative; text-align: justify;
 }
 .box .box-label {
   position: absolute; top: -.72rem; left: 1rem; background: var(--white);
-  font-family: var(--font-mono); font-size: .64rem; letter-spacing: .18em;
+  font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: .18em;
   color: var(--gold-dark); padding: 0 .6rem; text-transform: uppercase;
 }
 .box p:first-of-type { margin-top: .2rem; }
 .box p:last-of-type { margin-bottom: 0; }
-.box .src { display: block; margin-top: .7rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .05em; color: var(--gold-dark); }
+.box .src { display: block; margin-top: .7rem; font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: .05em; color: var(--gold-dark); }
 
 /* 表（台帳ふう・細罫） */
 .ledger-wrap { overflow-x: auto; margin: 2rem 0; }
-table.ledger { width: 100%; border-collapse: collapse; font-size: .9rem; line-height: 1.7; }
+table.ledger { width: 100%; border-collapse: collapse; font-size: 1rem; line-height: 1.7; }
 table.ledger caption {
-  caption-side: top; text-align: left; font-family: var(--font-mono); font-size: .66rem;
+  caption-side: top; text-align: left; font-family: var(--font-mono); font-size: 0.78rem;
   letter-spacing: .16em; text-transform: uppercase; color: var(--gold-dark); padding-bottom: .55rem;
 }
 table.ledger th, table.ledger td { border: 1px solid var(--border); padding: .6rem .8rem; text-align: left; vertical-align: top; color: var(--text-mid); }
@@ -146,24 +147,24 @@ table.ledger th { background: var(--off-white); color: var(--navy); font-weight:
 /* 線画図版 */
 .figure { border: 1px solid var(--border); border-radius: 2px; padding: 1.2rem 1rem .8rem; margin: 2rem 0; background: var(--white); }
 .figure svg { width: 100%; height: auto; display: block; }
-.figcap { margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--border); font-size: .8rem; letter-spacing: .04em; color: var(--text-sub); text-align: center; }
+.figcap { margin-top: .7rem; padding-top: .55rem; border-top: 1px solid var(--border); font-size: 0.9rem; letter-spacing: .04em; color: var(--text-sub); text-align: center; }
 
 /* 出典 */
-.column-note { margin-top: 3rem; padding-top: 1.3rem; border-top: 1px solid var(--border); font-size: .84rem; line-height: 1.85; color: var(--text-sub); }
-.column-note .note-label { display: block; font-family: var(--font-mono); font-size: .64rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .8rem; }
+.column-note { margin-top: 3rem; padding-top: 1.3rem; border-top: 1px solid var(--border); font-size: 1rem; line-height: 1.85; color: var(--text-sub); }
+.column-note .note-label { display: block; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: .8rem; }
 .column-note ul { margin: 0; padding-left: 1.4rem; list-style: none; }
 .column-note li { margin: .55rem 0; text-indent: -1.4rem; padding-left: 1.4rem; }
 .column-note a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.35); word-break: break-all; }
 
 /* 奥付 — 初出と権利、書籍と章立てへの導線 */
-.colophon { margin-top: 2.6rem; padding-top: 1.5rem; border-top: 2px solid var(--gold); font-size: .88rem; line-height: 1.9; color: var(--text-sub); }
+.colophon { margin-top: 2.6rem; padding-top: 1.5rem; border-top: 2px solid var(--gold); font-size: 1rem; line-height: 1.9; color: var(--text-sub); }
 .colophon p { margin: .5rem 0; }
-.colophon .rights { font-family: var(--font-mono); font-size: .74rem; letter-spacing: .06em; color: var(--text-sub); }
+.colophon .rights { font-family: var(--font-mono); font-size: 0.9rem; letter-spacing: .06em; color: var(--text-sub); }
 .colophon a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(29,92,92,.45); }
 
-footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .06em; color: var(--text-sub); text-align: center; line-height: 2.1; }
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: .06em; color: var(--text-sub); text-align: center; line-height: 2.1; }
 footer a { color: var(--teal-dark); text-decoration: none; }
-.disclaimer { max-width: 900px; margin: 0 auto 1.2rem; padding: 0 1.6rem; font-size: .66rem; color: var(--text-sub); line-height: 1.8; text-align: center; }
+.disclaimer { max-width: 900px; margin: 0 auto 1.2rem; padding: 0 1.6rem; font-size: 0.78rem; color: var(--text-sub); line-height: 1.8; text-align: center; }
 @media (max-width: 560px) {
   nav { padding: 0 1.1rem; }
   .column { padding: 2.4rem 1.2rem 4rem; }

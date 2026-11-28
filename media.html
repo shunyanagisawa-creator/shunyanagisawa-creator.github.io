@@ -19,11 +19,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:wght@500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
+html{font-size:17px} /* 共通ルール: rem の基準を本文 17px に（2026-11-28） */
 :root {
   --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
   --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f5ead8;
   --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
-  --text: #1a1a1a; --text-mid: #3d3d3d; --text-muted: #666666; --border: #ddd9d0;
+  --text: #1a1a1a; --text-mid: #3d3d3d; --text-muted: #3d4148; --border: #ddd9d0;
   --font-display: 'Noto Sans', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
   --font-body: 'Noto Sans', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
   --font-jp: 'Noto Sans JP', 'Noto Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
@@ -46,24 +47,24 @@ nav {
 .nav-back { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--text-muted); text-decoration: none; }
 .nav-back:hover { color: var(--teal-dark); }
 .lang-toggle {
-  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em;
+  font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: .08em;
   background: none; border: 1px solid var(--border); border-radius: 3px;
   padding: .35rem .8rem; cursor: pointer; color: var(--text-mid);
 }
 .lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
 
 .page { max-width: 1000px; margin: 0 auto; padding: 4rem 1.6rem 5rem; }
-.page-kicker { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.2rem; }
+.page-kicker { font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: .25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.2rem; }
 h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 500; line-height: 1.3; color: var(--navy); margin-bottom: .8rem; }
 .page-sub { font-size: 1.02rem; color: var(--text-muted); margin-bottom: 1.4rem; line-height: 1.7; }
-.page-meta { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); padding-bottom: 1.6rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.4rem; }
+.page-meta { font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: .08em; color: var(--text-muted); padding-bottom: 1.6rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.4rem; }
 
 /* QUOTES — moved from index.html rotating quote bar (media items only) */
 .quotes-block { background: var(--navy); padding: 2.4rem 2.2rem; margin-bottom: 3rem; }
 .quote-item { max-width: 780px; margin: 0 auto 1.8rem; padding-bottom: 1.8rem; border-bottom: 1px solid rgba(255,255,255,.15); }
 .quote-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
 .quote-item .qtext { font-family: var(--font-display); font-style: italic; font-size: 1.05rem; color: rgba(255,255,255,.92); line-height: 1.65; margin-bottom: .6rem; }
-.quote-item .qsrc { font-family: var(--font-mono); font-size: .64rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+.quote-item .qsrc { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
 
 .section-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--navy); margin: 2.6rem 0 1.2rem; }
 
@@ -75,25 +76,25 @@ h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); fo
 }
 .media-badge { background: var(--teal-dark); color: var(--white); font-family: var(--font-display); font-weight: 500; font-size: 1.1rem; padding: .8rem 1.4rem; text-align: center; min-width: 90px; }
 .media-featured h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; color: var(--navy); margin-bottom: .4rem; line-height: 1.35; }
-.media-meta { font-family: var(--font-mono); font-size: .65rem; color: var(--text-muted); letter-spacing: .1em; margin-bottom: 1rem; }
-.media-summary { font-size: .92rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 1rem; }
+.media-meta { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); letter-spacing: .1em; margin-bottom: 1rem; }
+.media-summary { font-size: 1rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 1rem; }
 .media-summary ul { padding-left: 1.3rem; }
 .media-summary li { margin-bottom: .35rem; }
-.media-link { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .1em; color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); }
+.media-link { font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: .1em; color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); }
 .media-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem; }
 .media-card { background: var(--white); border: 1px solid var(--border); padding: 1.4rem; }
-.media-outlet { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: .6rem; }
-.media-card h4 { font-size: .9rem; font-weight: 500; color: var(--navy); line-height: 1.45; margin-bottom: .5rem; }
-.media-date { font-family: var(--font-mono); font-size: .62rem; color: var(--text-muted); }
+.media-outlet { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: .2em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: .6rem; }
+.media-card h4 { font-size: 1rem; font-weight: 500; color: var(--navy); line-height: 1.45; margin-bottom: .5rem; }
+.media-date { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); }
 
 .topics-bar { margin-top: 2rem; padding: 1.2rem 1.5rem; background: var(--off-white); border-left: 3px solid var(--border); display: flex; flex-wrap: wrap; align-items: baseline; gap: 1rem; }
-.topics-bar .k { font-family: var(--font-mono); font-size: .62rem; color: var(--text-muted); letter-spacing: .08em; }
-.topics-bar .v { font-size: .85rem; color: var(--text-mid); }
-.page-note { margin-top: 1rem; font-family: var(--font-mono); font-size: .62rem; color: var(--text-muted); letter-spacing: .08em; }
+.topics-bar .k { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); letter-spacing: .08em; }
+.topics-bar .v { font-size: 1rem; color: var(--text-mid); }
+.page-note { margin-top: 1rem; font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); letter-spacing: .08em; }
 
-footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
 footer a { color: var(--teal-dark); text-decoration: none; }
-.disclaimer { max-width: 1000px; margin: 0 auto 1.2rem; padding: 0 1.6rem; font-size: .68rem; color: var(--text-muted); line-height: 1.8; text-align: center; }
+.disclaimer { max-width: 1000px; margin: 0 auto 1.2rem; padding: 0 1.6rem; font-size: 0.82rem; color: var(--text-muted); line-height: 1.8; text-align: center; }
 
 /* PAGE HEADER — 見出し右側の淡い透かし (線画・装飾扱い。index.html の
    .section-header--art と同型で、下層ページは見出し帯だけに敷く) */
@@ -128,6 +129,28 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 
 /* Japanese has no true italic — never synthesise oblique on JA text */
 .ja, .ja em, .ja i, .ja blockquote { font-style: normal !important; }
+
+
+
+/* rule:common:begin — 共通ルール（Claude Design キャンバス Rules・2026-11-28）。各ページ同文。 */
+:root { --border: #cfcac0; --rule-head: #1a2332; --rule-body: #3d4148; --rule-link: #1d5c5c; --rule-read: #b5832a; }
+.ja { letter-spacing: .04em; }
+/* 部品 1 — カード: 白地・枠 #cfcac0・上に 3px の帯（実務＝青緑、読み物＝金） */
+.media-card, .featured-card { background: #fff; border: 1px solid var(--border); border-top: 3px solid var(--rule-link); }
+#essays .featured-card, #essays .essay-card-grid > a, .essay-card-grid > a { border-top-color: var(--rule-read); }
+.media-card h4 { font-size: 1.12rem; line-height: 1.55; }
+/* 部品 2 — 行の一覧: 紺の見出しの表をやめ、白い箱に罫線の行で並べる */
+.speaking-table { background: #fff; border: 1px solid var(--border); border-top: 3px solid var(--rule-link); }
+.speaking-table thead { display: none; }
+.speaking-table tbody tr { border-bottom: 1px solid #e6e2d9; }
+.speaking-table tbody tr:hover { background: transparent; }
+.speaking-table tbody tr.upcoming { background: #fff; border-left: 0; }
+.speaking-table td { padding: 1.3rem 1.4rem; }
+.td-date { color: var(--rule-link); }
+.td-title { font-size: 1.12rem; line-height: 1.55; }
+/* リンク: 本文の書体・16px・下線（等幅＋広い字間をやめる） */
+.media-link, .speaking-table td a, .media-card a, .featured-card .read-more { font-family: var(--font-body) !important; letter-spacing: 0 !important; font-size: .94rem !important; text-transform: none !important; border-bottom: 0 !important; text-decoration: underline; text-underline-offset: 4px; color: var(--rule-link); }
+/* rule:common:end */
 </style>
 </head>
 <body class="lang-ja">
@@ -182,9 +205,9 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 
 <div class="page">
 
-  <!-- 週刊金融財政事情 連載セミナー（2026-10-11 追加・2026-10-17 第2回とダイヤモンド転載を追加・2026-10-25 第2回のダイヤモンド転載を追加・2026-10-31 第3回と転載を追加・2026-11-08 第4回と転載を追加・2026-11-14 第5回・2026-11-21 第6回と転載を追加・以後は各回を LinkedIn で紹介する週（土曜）に Part の箇条書きを足す。Online に出ただけの回は載せない（Shun 2026-11-08）） -->
+  <!-- 週刊金融財政事情 連載セミナー（2026-10-11 追加・2026-10-17 第2回とダイヤモンド転載を追加・2026-10-25 第2回のダイヤモンド転載を追加・2026-10-31 第3回と転載を追加・2026-11-08 第4回と転載を追加・2026-11-14 第5回・2026-11-21 第6回と転載を追加・2026-11-28 第7回と転載を追加・以後は各回を LinkedIn で紹介する週（土曜）に Part の箇条書きを足す。Online に出ただけの回は載せない（Shun 2026-11-08）。索引ページ /media/kinzai も同じ規律で、回を足すのはこの節に足す週と同じ） -->
   <div class="media-featured">
-    <div class="media-badge" style="background:var(--gold-dark);font-size:.9rem;letter-spacing:.02em;line-height:1.35;"><span class="en">Kinzai<br>&amp;<br>Diamond<br>Online</span><span class="ja">きんざい<br>&amp;<br>ダイヤモンド<br>オンライン</span></div>
+    <div class="media-badge" style="background:var(--gold-dark);font-size:1rem;letter-spacing:.02em;line-height:1.35;"><span class="en">Kinzai<br>&amp;<br>Diamond<br>Online</span><span class="ja">きんざい<br>&amp;<br>ダイヤモンド<br>オンライン</span></div>
     <div>
       <h3><span class="en">Serial Column &mdash; &ldquo;Clearing and Technology: What Moves the Derivatives Market&rdquo; (10 parts, in Japanese)</span><span class="ja">連載セミナー「デリバティブ市場を動かすクリアリングと技術」（全10回）</span></h3>
       <div class="media-meta"><span class="en">Weekly Kinyu Zaisei Jijo &middot; from 13 October 2026 &middot; by Shun Yanagisawa</span><span class="ja">週刊金融財政事情 &middot; 2026年10月13日号〜 &middot; 柳沢俊 著</span></div>
@@ -232,72 +255,89 @@ footer a { color: var(--teal-dark); text-decoration: none; }
           <li>The broker manages credit lines and risk limits for each client and monitors positions, P&amp;L and collateral values intraday. A client&rsquo;s trading capacity also depends on how far the broker can supply funding and credit. Choosing a broker therefore involves not only fees and terms, but also how far it will fund margin, how much time it allows before payment, and how it responds in a sudden market move</li>
           <li>In March 2021 Credit Suisse told Archegos that the next day&rsquo;s call would be about $2.7 billion, and was told it could not be paid; the bank&rsquo;s losses reached about $5.5 billion. According to the report commissioned by its board, the risk limit was $20 million, but exposure reached $528 million by August 2020, and the excess was flagged as requiring remediation for 169 days. The report states that the risks were identified and conspicuous; the point of a risk limit lies in actually stopping at the limit</li>
         </ul>
+        <p style="margin:.6rem 0 .4rem;"><strong>Part 7 &mdash; &ldquo;How CCPs and Their Members Contain the Market Impact of a Default&rdquo; (24 November 2026 issue)</strong></p>
+        <ul>
+          <li>When Lehman Brothers failed on 15 September 2008, LCH&rsquo;s interest rate swap clearing service, SwapClear, was left with about 66,000 trades and roughly $9 trillion in notional. Experienced traders assigned in advance by clearing member banks hedged the portfolio, which was then split by currency and auctioned to the remaining members. The auctions for five currencies were completed by 3 October, and the loss was contained within about one third of the margin Lehman itself had posted</li>
+          <li>The default waterfall sets the order in which losses from the process are absorbed: first the defaulter&rsquo;s margin and default fund contribution, then, against any shortfall, the CCP&rsquo;s own contribution and the default fund contributions of other members. Funds to absorb losses and the capacity to handle positions are combined to contain the spread of losses from a single default</li>
+          <li>Segregation protects client assets, but it does not protect client hedges. Porting moves client positions and margin to another sound broker; the receiving broker needs credit lines and funding, and if the transfer cannot be agreed and prepared, the client&rsquo;s positions may also be closed out. Financial institutions should build relationships with multiple brokers in normal times and keep contracts and trade data ready for a transfer</li>
+          <li>Japan Securities Clearing Corporation (JSCC) runs a default management fire drill for interest rate swaps every year. The hedged portfolio goes to auction a few days later with more than 10,000 trades, and bids are accepted for only 30 minutes. What the drill tests is whether people and organisations work as intended between receiving the notice and submitting a bid</li>
+        </ul>
         <p>Full text in Kinyu Zaisei Jijo and on Kinzai Online (Japanese). Views are the author's own and not those of his employer.</p>
       </div>
       <div class="media-summary ja">
-        <p style="font-family:var(--font-jp);font-size:.88rem;margin-bottom:.6rem;">約定の後で動き始める清算（クリアリング）の仕組みを、CCP・クリアリングブローカー・市場参加者の三つの立場から読み解く連載。</p>
-        <p style="font-family:var(--font-jp);font-size:.88rem;margin-bottom:.4rem;"><strong>第1回「デリバティブは約定しても終わらない」（10月13日号）</strong></p>
-        <ul style="font-family:var(--font-jp);font-size:.88rem;">
+        <p style="font-family:var(--font-jp);font-size:1rem;margin-bottom:.6rem;">約定の後で動き始める清算（クリアリング）の仕組みを、CCP・クリアリングブローカー・市場参加者の三つの立場から読み解く連載。</p>
+        <p style="font-family:var(--font-jp);font-size:1rem;margin-bottom:.4rem;"><strong>第1回「デリバティブは約定しても終わらない」（10月13日号）</strong></p>
+        <ul style="font-family:var(--font-jp);font-size:1rem;">
           <li>取引の相手方、証拠金と担保、資金の手当て、破綻時の処理 &mdash; 約定の後に決めるべきことを担うのがクリアリングである</li>
           <li>金融危機後の改革は市場を縮めたのではなく、取引を CCP に集めて相殺・圧縮する方向へ配線を組み替えた。その結果、CCP がリスクの集中点になった</li>
           <li>同じ価格変動が、市場参加者には損益、クリアリングブローカーには与信と資金繰り、CCP には破綻への備えとして現れる</li>
           <li>清算の場・参加資格の限定・少数への集約という骨格は、300年前の大坂・堂島にすでにあった</li>
         </ul>
-        <p style="font-family:var(--font-jp);font-size:.88rem;margin:.6rem 0 .4rem;"><strong>第2回「復活した円金利市場」（10月20日号）</strong></p>
-        <ul style="font-family:var(--font-jp);font-size:.88rem;">
+        <p style="font-family:var(--font-jp);font-size:1rem;margin:.6rem 0 .4rem;"><strong>第2回「復活した円金利市場」（10月20日号）</strong></p>
+        <ul style="font-family:var(--font-jp);font-size:1rem;">
           <li>日本証券クリアリング機構（JSCC）が清算する円金利スワップの1日平均額は、2021年の約6兆円から26年1～3月に約66兆円へ。金利の復活が、金利リスクを管理し取引する需要を戻した</li>
           <li>非居住者比率は20年の44％から25年第4四半期に65％へ。25年9月の CFTC の措置で米国顧客の JSCC 清算が可能になり、「誰が、何のために取引する市場なのか」も変わった</li>
           <li>取引が10倍になっても、残高や証拠金が10倍になるとは限らない。市場に見える残高は、建てられ、相殺され、圧縮された後の数字である</li>
           <li>金利が動き、アクセスの壁が下がったとき、価格のわずかなゆがみが世界の運用会社から取引機会として見えるようになった</li>
         </ul>
-        <p style="font-family:var(--font-jp);font-size:.88rem;margin:.6rem 0 .4rem;"><strong>第3回「ネッティングは何を生むか」（10月27日号）</strong></p>
-        <ul style="font-family:var(--font-jp);font-size:.88rem;">
+        <p style="font-family:var(--font-jp);font-size:1rem;margin:.6rem 0 .4rem;"><strong>第3回「ネッティングは何を生むか」（10月27日号）</strong></p>
+        <ul style="font-family:var(--font-jp);font-size:1rem;">
           <li>清算機関（CCP）へ取引を集約すると、相対取引のままなら受け払いの総額が200になる参加者に、残るのは20の受け取りだけとなる。マルチラテラル・ネッティングで決済額とエクスポージャーが減り、規制資本にも影響が及ぶ</li>
           <li>相対取引は一見「安い」が、反対取引で市場リスクを打ち消しても元の契約は残り、そのバランスシートコストはスプレッドに織り込まれる。比べるべきは、可視化されたコストと、見えないまま支払っているコストである</li>
           <li>どこで清算するかを左右するのは流動性である。大きなポジションを市場価格を崩さずに建て、必要な日に解消できるかという実務から見れば、流動性は解消のためのコストとして現れる。円金利スワップでは、10年超の年限で JSCC に厚い流動性がある</li>
           <li>2018年、東京とロンドンで円金利スワップに二つの価格が付き、20年ゾーンの差は16bp弱まで拡大した。差が残ったのは、価格が見えていても二つの清算機関へ同時にアクセスできなかったからである</li>
         </ul>
-        <p style="font-family:var(--font-jp);font-size:.88rem;margin:.6rem 0 .4rem;"><strong>第4回「証拠金は「未来の損失」をどう測るか」（11月3日号）</strong></p>
-        <ul style="font-family:var(--font-jp);font-size:.88rem;">
+        <p style="font-family:var(--font-jp);font-size:1rem;margin:.6rem 0 .4rem;"><strong>第4回「証拠金は「未来の損失」をどう測るか」（11月3日号）</strong></p>
+        <ul style="font-family:var(--font-jp);font-size:1rem;">
           <li>証拠金制度には二つの役割がある。変動証拠金（VM）はすでに生じた損益を清算し、当初証拠金（IM）は参加者の破綻後、ポジションの処理が終わるまでに生じ得る損失に備える。損失想定期間（MPOR）は、先物は1～2営業日、清算された店頭デリバティブは5営業日、非清算取引は10営業日が一つの目安</li>
           <li>IMの水準は、損失想定期間、使うデータ、カバーする確率（99％VaR・99％ES）、足元の相場の反映の仕方で決まる。証拠金は「何％なら安全か」という唯一の数字ではなく、時間とデータ、確率、ストレス、流動性を組み合わせた設計値である</li>
           <li>IMはポジションの大きさも決める。IM率が5％の先物なら計算上のレバレッジは20倍、10％へ上がれば10倍へ下がる。市場が荒れてIMが引き上げられれば、参加者は追加担保を差し入れるか、ポジションを縮小する</li>
           <li>2018年9月、北欧の電力市場で市場変動が通常の日次変動の17倍に達した。ナスダッククリアリングでは、破綻した参加者の担保と清算基金への拠出分を使い切っても1億1,400万ユーロの損失が残り、CCP自身の資金700万ユーロと、健全な清算参加者が拠出した清算基金1億700万ユーロが使われた。教訓は、証拠金を一律に高くすることではなく、IMを超えた損失を受け止める仕組みまで用意することである</li>
         </ul>
-        <p style="font-family:var(--font-jp);font-size:.88rem;margin:.6rem 0 .4rem;"><strong>第5回「安全策が危機を増幅するとき」（11月10日号）</strong></p>
-        <ul style="font-family:var(--font-jp);font-size:.88rem;">
+        <p style="font-family:var(--font-jp);font-size:1rem;margin:.6rem 0 .4rem;"><strong>第5回「安全策が危機を増幅するとき」（11月10日号）</strong></p>
+        <ul style="font-family:var(--font-jp);font-size:1rem;">
           <li>2022年秋の英国。イングランド銀行（BoE）が危機前に点検していたのは、金利が100bp上昇しても証拠金請求に応じられるかだったが、30年物英国債（ギルト）の利回りは4日間で160bp上昇した。LDI（負債主導型投資）ファンドへの変動証拠金（VM）の請求がギルトの売却を呼び、売却が利回りを押し上げて新たな請求を生んだ。BoEスタッフの推計では、この間の証拠金・担保請求は700億ポンドを超えた</li>
           <li>BoEのギルト買い入れが止めようとしたのは、特定の金利水準ではなく、売却と証拠金請求が互いを増幅する循環だった。プロシクリカリティー（順循環性）を抑えるには、証拠金の仕組みと、払う側のポジション・資金管理を併せて見る必要がある</li>
           <li>VMは原則として取引通貨建ての現金で支払う。日本証券クリアリング機構（JSCC）では、当初証拠金（IM）には日本国債や米国債を充てられる一方、円金利スワップのVMは円現金で支払う。国債を持っていることと、必要な時刻に必要な通貨で払えることには、距離がある</li>
           <li>1866年、手形割引商オーバレンド・ガーニーが支払いを停止した。BoEは同社への融資を断る一方、銀行や手形仲買業者にはかつてない規模で融資した。会社を救うことと、市場を救うことは同じではない。この危機は、BoEが現代的な「最後の貸し手」へ近づく転機となった</li>
         </ul>
-        <p style="font-family:var(--font-jp);font-size:.88rem;margin:.6rem 0 .4rem;"><strong>第6回「CCPと顧客をつなぐクリアリングブローカー」（11月17日号）</strong></p>
-        <ul style="font-family:var(--font-jp);font-size:.88rem;">
+        <p style="font-family:var(--font-jp);font-size:1rem;margin:.6rem 0 .4rem;"><strong>第6回「CCPと顧客をつなぐクリアリングブローカー」（11月17日号）</strong></p>
+        <ul style="font-family:var(--font-jp);font-size:1rem;">
           <li>顧客から現金が届く前に、清算機関（CCP）への支払期限が来る。その時間差を、自らの資金と信用で引き受けるのがクリアリングブローカーである。顧客が支払い不能や破綻に陥っても、ブローカーのCCPへの支払い義務は続く</li>
           <li>LCHは日中にも値洗いを行い、追加の証拠金を請求する。請求は定時だけで1日3回。ブローカーは1時間以内にドルの現金を用意して支払う一方、顧客へは日締め後のポジションをもとに1日1回請求する。CCPへの日中の支払いと、顧客からの日次の回収をつなぐのは、ブローカー自身のバランスシートである</li>
           <li>ブローカーは顧客ごとの与信枠やリスクリミットを管理し、ポジションや損益、担保価値を日中も監視する。顧客の取引余力（キャパシティー）は、ブローカーが資金と信用をどこまで供給できるかにも左右される。ブローカーの選定では、手数料や取引条件と共に、証拠金の立て替え範囲や支払いまでの猶予期間、急変時の対応も問われる</li>
           <li>2021年3月、クレディ・スイスは顧客のアルケゴスに翌日の請求が約27億ドルになると伝え、払えないという返事を受けた。同社の損失は約55億ドルに達した。取締役会が委ねた調査報告書によれば、リスクリミットは2,000万ドルだったが、20年8月には5億2,800万ドルに達し、リスク量超過は要是正として169日間示され続けた。リスクは特定され、目立っていた。リスクリミットの意義は、上限で実際に止められることにある</li>
         </ul>
-        <p style="font-family:var(--font-jp);font-size:.88rem;">本文は『週刊金融財政事情』およびきんざいOnline にて。記述は個人の見解であり、所属先の見解ではありません。</p>
+        <p style="font-family:var(--font-jp);font-size:1rem;margin:.6rem 0 .4rem;"><strong>第7回「破綻の市場への影響を抑える清算機関と参加者の動き」（11月24日号）</strong></p>
+        <ul style="font-family:var(--font-jp);font-size:1rem;">
+          <li>2008年9月15日にリーマン・ブラザーズが破綻した際、LCHの金利スワップ清算サービスであるスワップクリアには、約6万6千件、想定元本約9兆ドルの取引が残された。清算参加者の銀行から事前に割り当てられていた経験豊富なトレーダーがヘッジを行い、ポートフォリオを通貨別に分けて、残る参加者を対象とするオークションにかけた。5通貨のオークションは10月3日までに終了し、損失はリーマン自身が預けていた証拠金の約3分の1で収まった</li>
+          <li>処理に伴う損失の負担順序を定めるのがデフォルト・ウォーターフォールである。まず破綻参加者の証拠金や清算基金拠出金を使い、不足に備えて清算機関（CCP）の自己拠出金や他の参加者の清算基金などを用意する。損失を負担する資金と、ポジションを処理する能力を組み合わせ、1社の破綻による損失の拡大と、他の参加者への波及を抑える</li>
+          <li>分別管理によって守られるのは顧客の資産であり、ヘッジではない。顧客の取引と証拠金を別の健全なブローカーへ移すのがポーティング（移管）で、移管先には与信枠と資金が要る。合意や準備が整わなければ、顧客のポジションも解消の対象となる。金融機関は平時から複数のブローカーと関係を築き、移管を想定して契約や取引情報を整えておくことが肝要となる</li>
+          <li>日本証券クリアリング機構（JSCC）は金利スワップについて、毎年破綻時演習（ファイアードリル）を行っている。ヘッジを終えたポートフォリオは数日後のオークションにかけられ、取引は1万件を超える。入札を受け付けるのは30分だけである。演習で確かめるのは、知らせを受けてから入札するまでの、人と組織の動きが機能するかどうかである</li>
+        </ul>
+        <p style="font-family:var(--font-jp);font-size:1rem;">本文は『週刊金融財政事情』およびきんざいOnline にて。記述は個人の見解であり、所属先の見解ではありません。</p>
       </div>
+      <p style="margin-bottom:.9rem;"><a class="media-link" href="/media/kinzai"><span class="en">&rarr; Series index: each part &rarr; book chapters &rarr; glossary terms</span><span class="ja">&rarr; 連載の索引（各回 &rarr; 書籍の章 &rarr; 用語集の語）</span></a></p>
       <a class="media-link" style="margin-right:1.2rem;" href="https://kinzai-online.jp/node/14913" target="_blank"><span class="en">&rarr; Part 1 &middot; kinzai-online.jp (subscription required)</span><span class="ja">&rarr; 第1回 &middot; kinzai-online.jp（会員向け）</span></a>
       <a class="media-link" style="margin-right:1.2rem;" href="https://kinzai-online.jp/node/14934" target="_blank"><span class="en">&rarr; Part 2 &middot; kinzai-online.jp (subscription required)</span><span class="ja">&rarr; 第2回 &middot; kinzai-online.jp（会員向け）</span></a>
       <a class="media-link" style="margin-right:1.2rem;" href="https://kinzai-online.jp/node/14956" target="_blank"><span class="en">&rarr; Part 3 &middot; kinzai-online.jp (subscription required)</span><span class="ja">&rarr; 第3回 &middot; kinzai-online.jp（会員向け）</span></a>
       <a class="media-link" style="margin-right:1.2rem;" href="https://kinzai-online.jp/node/15006" target="_blank"><span class="en">&rarr; Part 4 &middot; kinzai-online.jp (subscription required)</span><span class="ja">&rarr; 第4回 &middot; kinzai-online.jp（会員向け）</span></a>
       <a class="media-link" style="margin-right:1.2rem;" href="https://kinzai-online.jp/node/15033" target="_blank"><span class="en">&rarr; Part 5 &middot; kinzai-online.jp (subscription required)</span><span class="ja">&rarr; 第5回 &middot; kinzai-online.jp（会員向け）</span></a>
       <a class="media-link" style="margin-right:1.2rem;" href="https://kinzai-online.jp/node/15057" target="_blank"><span class="en">&rarr; Part 6 &middot; kinzai-online.jp (subscription required)</span><span class="ja">&rarr; 第6回 &middot; kinzai-online.jp（会員向け）</span></a>
+      <a class="media-link" style="margin-right:1.2rem;" href="https://kinzai-online.jp/node/15098" target="_blank"><span class="en">&rarr; Part 7 &middot; kinzai-online.jp (subscription required)</span><span class="ja">&rarr; 第7回 &middot; kinzai-online.jp（会員向け）</span></a>
       <a class="media-link" style="margin-right:1.2rem;" href="https://diamond.jp/articles/-/401020" target="_blank"><span class="en">&rarr; Part 1 &middot; Diamond Online (full text for paid members)</span><span class="ja">&rarr; 第1回 &middot; ダイヤモンド・オンライン（全文は有料会員限定）</span></a>
       <a class="media-link" style="margin-right:1.2rem;" href="https://diamond.jp/articles/-/401478" target="_blank"><span class="en">&rarr; Part 2 &middot; Diamond Online (full text for paid members)</span><span class="ja">&rarr; 第2回 &middot; ダイヤモンド・オンライン（全文は有料会員限定）</span></a>
       <a class="media-link" style="margin-right:1.2rem;" href="https://diamond.jp/articles/-/402050" target="_blank"><span class="en">&rarr; Part 3 &middot; Diamond Online (full text for paid members)</span><span class="ja">&rarr; 第3回 &middot; ダイヤモンド・オンライン（全文は有料会員限定）</span></a>
       <a class="media-link" style="margin-right:1.2rem;" href="https://diamond.jp/articles/-/402509" target="_blank"><span class="en">&rarr; Part 4 &middot; Diamond Online (full text for paid members)</span><span class="ja">&rarr; 第4回 &middot; ダイヤモンド・オンライン（全文は有料会員限定）</span></a>
       <a class="media-link" style="margin-right:1.2rem;" href="https://diamond.jp/articles/-/403046" target="_blank"><span class="en">&rarr; Part 5 &middot; Diamond Online (full text for paid members)</span><span class="ja">&rarr; 第5回 &middot; ダイヤモンド・オンライン（全文は有料会員限定）</span></a>
-      <a class="media-link" href="https://diamond.jp/articles/-/403592" target="_blank"><span class="en">&rarr; Part 6 &middot; Diamond Online (full text for paid members)</span><span class="ja">&rarr; 第6回 &middot; ダイヤモンド・オンライン（全文は有料会員限定）</span></a>
+      <a class="media-link" style="margin-right:1.2rem;" href="https://diamond.jp/articles/-/403592" target="_blank"><span class="en">&rarr; Part 6 &middot; Diamond Online (full text for paid members)</span><span class="ja">&rarr; 第6回 &middot; ダイヤモンド・オンライン（全文は有料会員限定）</span></a>
+      <a class="media-link" href="https://diamond.jp/articles/-/404064" target="_blank"><span class="en">&rarr; Part 7 &middot; Diamond Online (full text for paid members)</span><span class="ja">&rarr; 第7回 &middot; ダイヤモンド・オンライン（全文は有料会員限定）</span></a>
     </div>
   </div>
 
   <!-- Risk.net Sep 2026 -->
   <div class="media-featured">
-    <div class="media-badge" style="background:var(--navy);font-size:.9rem;letter-spacing:.02em;">Risk<br>.net</div>
+    <div class="media-badge" style="background:var(--navy);font-size:1rem;letter-spacing:.02em;">Risk<br>.net</div>
     <div>
       <h3>JSCC Faces Pushback on Plans to Merge Futures Default Funds</h3>
       <div class="media-meta">Risk.net &middot; 8 September 2026 &middot; Karen Lai &middot; Quoted in</div>
@@ -311,7 +351,7 @@ footer a { color: var(--teal-dark); text-decoration: none; }
         </ul>
       </div>
       <div class="media-summary ja">
-        <p style="font-family:var(--font-jp);font-size:.88rem;">JSCCが先物の6つのデフォルトファンドを単一の計算・単一のデフォルト・ウォーターフォールへ統合する案に対し、清算参加者が再考を求めている。柳沢俊が、相互化（ミューチュアライゼーション）の境界をどこに引くかについてコメント &mdash; 相互化が各市場セグメントの生むリスクと整合し続けるか、性質の異なる市場へ損失分担を広げることがリスク配分と波及について何を問うか、参加者の信用・リスク特性が揃っている場合に相互化が最も機能すること、そして商品先物市場の参加者・商品の多様性を統合後の構造がどう認識すべきか。</p>
+        <p style="font-family:var(--font-jp);font-size:1rem;">JSCCが先物の6つのデフォルトファンドを単一の計算・単一のデフォルト・ウォーターフォールへ統合する案に対し、清算参加者が再考を求めている。柳沢俊が、相互化（ミューチュアライゼーション）の境界をどこに引くかについてコメント &mdash; 相互化が各市場セグメントの生むリスクと整合し続けるか、性質の異なる市場へ損失分担を広げることがリスク配分と波及について何を問うか、参加者の信用・リスク特性が揃っている場合に相互化が最も機能すること、そして商品先物市場の参加者・商品の多様性を統合後の構造がどう認識すべきか。</p>
       </div>
       <a class="media-link" href="https://www.risk.net/risk-management/7964073/jscc-faces-pushback-on-plans-to-merge-futures-default-funds" target="_blank">&rarr; risk.net (subscription required)</a>
     </div>
@@ -319,7 +359,7 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 
   <!-- Risk.net Aug 2026 -->
   <div class="media-featured">
-    <div class="media-badge" style="background:var(--navy);font-size:.9rem;letter-spacing:.02em;">Risk<br>.net</div>
+    <div class="media-badge" style="background:var(--navy);font-size:1rem;letter-spacing:.02em;">Risk<br>.net</div>
     <div>
       <h3>Citadel, Millenium Lead US Funds to JSCC as JGB Yields Soar</h3>
       <div class="media-meta">Risk.net · 10 August 2026 · Chris Davis · Quoted in</div>
@@ -333,7 +373,7 @@ footer a { color: var(--teal-dark); text-decoration: none; }
         </ul>
       </div>
       <div class="media-summary ja">
-        <p style="font-family:var(--font-jp);font-size:.88rem;">米国の投資会社10社が東京で円金利スワップを清算する体制を整え、顧客清算の約4分の1（DV01ベース）を占めるに至った。柳沢俊が、20年・30年ゾーンの動きを背景とした長期ゾーンの取引拡大、年限によって流動性が分かれる構造、そしてアジアに拠点を持たない先に残る課題が経済性ではなく時差と運用体制であることについてコメント。</p>
+        <p style="font-family:var(--font-jp);font-size:1rem;">米国の投資会社10社が東京で円金利スワップを清算する体制を整え、顧客清算の約4分の1（DV01ベース）を占めるに至った。柳沢俊が、20年・30年ゾーンの動きを背景とした長期ゾーンの取引拡大、年限によって流動性が分かれる構造、そしてアジアに拠点を持たない先に残る課題が経済性ではなく時差と運用体制であることについてコメント。</p>
       </div>
       <a class="media-link" href="https://www.risk.net/markets/7963965/citadel-millenium-lead-us-funds-to-jscc-as-jgb-yields-soar" target="_blank">→ risk.net (subscription required)</a>
     </div>
@@ -341,7 +381,7 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 
   <!-- Risk.net Dec 2025 -->
   <div class="media-featured">
-    <div class="media-badge" style="background:var(--navy);font-size:.9rem;letter-spacing:.02em;">Risk<br>.net</div>
+    <div class="media-badge" style="background:var(--navy);font-size:1rem;letter-spacing:.02em;">Risk<br>.net</div>
     <div>
       <h3>Japan's Yen Swaps Go Global</h3>
       <div class="media-meta">Risk.net · 16 December 2025 · Sponsored by JPX/JSCC · Quoted in</div>
@@ -355,7 +395,7 @@ footer a { color: var(--teal-dark); text-decoration: none; }
         </ul>
       </div>
       <div class="media-summary ja">
-        <p style="font-family:var(--font-jp);font-size:.88rem;">CFTCノーアクションレター（2025年9月12日）によるJSCC開放を受けた市場の歴史的転換を分析。柳沢俊がCitiの立場から、米国顧客向け初取引清算の実現と、円金利エコシステム全体にわたるグローバル市場アクセス戦略について語った。</p>
+        <p style="font-family:var(--font-jp);font-size:1rem;">CFTCノーアクションレター（2025年9月12日）によるJSCC開放を受けた市場の歴史的転換を分析。柳沢俊がCitiの立場から、米国顧客向け初取引清算の実現と、円金利エコシステム全体にわたるグローバル市場アクセス戦略について語った。</p>
       </div>
       <a class="media-link" href="https://www.risk.net/insight/markets/7962837/japan%E2%80%99s-yen-swaps-go-global" target="_blank">→ risk.net (subscription required)</a>
     </div>
@@ -378,7 +418,7 @@ footer a { color: var(--teal-dark); text-decoration: none; }
         </ul>
       </div>
       <div class="media-summary ja">
-        <p style="font-family:var(--font-jp);font-size:.88rem;">BOJ政策正常化を受けた円金利市場の構造転換、CFTCノーアクションレター（2025年9月）による米系ヘッジファンドのJSCC参入（Citadel・Millennium・ExodusPoint等65社）、米国SEC Treasuryレポマンデートが日系銀行に与える影響について詳述。円スワップ日次清算量8倍超（229兆円、2025年）、非居住者シェア65%（2025年Q4）などの具体的データを提供。</p>
+        <p style="font-family:var(--font-jp);font-size:1rem;">BOJ政策正常化を受けた円金利市場の構造転換、CFTCノーアクションレター（2025年9月）による米系ヘッジファンドのJSCC参入（Citadel・Millennium・ExodusPoint等65社）、米国SEC Treasuryレポマンデートが日系銀行に与える影響について詳述。円スワップ日次清算量8倍超（229兆円、2025年）、非居住者シェア65%（2025年Q4）などの具体的データを提供。</p>
       </div>
       <a class="media-link" href="https://www.fow.com/insights/analysis-japan-yen-swap-and-futures-markets-see-increasing-liquidity" target="_blank">→ fow.com (subscription required)</a>
     </div>
@@ -391,23 +431,23 @@ footer a { color: var(--teal-dark); text-decoration: none; }
       <div class="media-outlet">Risk.net</div>
       <h4>US Hedge Funds Eyeing JSCC After Regulations Eased</h4>
       <div class="media-date">23 October 2025 · Chris Davis · Quoted in</div>
-      <p style="font-size:.82rem;color:var(--text-mid);margin-top:.7rem;line-height:1.6;" class="en">
+      <p style="font-size:1rem;color:var(--text-mid);margin-top:.7rem;line-height:1.6;" class="en">
         Quoted on liquidity dynamics at JSCC vs. LCH, US client onboarding timeline, and the competitive advantage of JSCC's diverse buy-side ecosystem — particularly in the 20–30 year tenor range.
       </p>
-      <p style="font-size:.82rem;color:var(--text-mid);margin-top:.7rem;line-height:1.6;font-family:var(--font-jp);" class="ja">
+      <p style="font-size:1rem;color:var(--text-mid);margin-top:.7rem;line-height:1.6;font-family:var(--font-jp);" class="ja">
         JSCCとLCHの流動性比較、米国顧客オンボーディングの時系列、20〜30年ゾーンにおけるJSCCの競争優位について直接コメント。
       </p>
       <a class="media-link" style="display:inline-block;margin-top:.9rem;" href="https://www.risk.net/markets/7962410/us-hedge-funds-eyeing-jscc-after-regulations-eased" target="_blank">→ risk.net</a>
     </div>
 
     <div class="media-card">
-      <div class="media-outlet">Risk.net <span style="font-size:.58rem;color:var(--text-muted);font-family:var(--font-mono);">Sponsored · JPX/JSCC</span></div>
+      <div class="media-outlet">Risk.net <span style="font-size:0.78rem;color:var(--text-muted);font-family:var(--font-mono);">Sponsored · JPX/JSCC</span></div>
       <h4>JSCC and the Future of Clearing and Settling Yen-Denominated Trades</h4>
       <div class="media-date">28 March 2023 · Sponsored Content · Quoted in</div>
-      <p style="font-size:.82rem;color:var(--text-mid);margin-top:.7rem;line-height:1.6;" class="en">
+      <p style="font-size:1rem;color:var(--text-mid);margin-top:.7rem;line-height:1.6;" class="en">
         Quoted on the introduction of VAR-based initial margin for exchange-traded derivatives — its role in mitigating margin fluctuation, providing efficiencies for correlated products, and ensuring stability in low-volatility environments.
       </p>
-      <p style="font-size:.82rem;color:var(--text-mid);margin-top:.7rem;line-height:1.6;font-family:var(--font-jp);" class="ja">
+      <p style="font-size:1rem;color:var(--text-mid);margin-top:.7rem;line-height:1.6;font-family:var(--font-jp);" class="ja">
         上場デリバティブへのVAR方式初期証拠金導入について、相関商品の効率性、低ボラ環境での安定性の観点から直接コメント。
       </p>
     </div>
@@ -416,22 +456,22 @@ footer a { color: var(--teal-dark); text-decoration: none; }
       <div class="media-outlet">Risk.net</div>
       <h4>LCH Japan Plan Signals New Fight for Global Clearing Model</h4>
       <div class="media-date">04 January 2023 · Luke Clancy &amp; Chris Davis · Referenced</div>
-      <p style="font-size:.82rem;color:var(--text-mid);margin-top:.7rem;line-height:1.6;" class="en">
+      <p style="font-size:1rem;color:var(--text-mid);margin-top:.7rem;line-height:1.6;" class="en">
         Referenced as a senior US bank voice in the analysis of LCH's renewed bid for a JFSA licence, global CCP competition, and the CFTC regulatory reform debate around US client access to JSCC.
       </p>
-      <p style="font-size:.82rem;color:var(--text-mid);margin-top:.7rem;line-height:1.6;font-family:var(--font-jp);" class="ja">
+      <p style="font-size:1rem;color:var(--text-mid);margin-top:.7rem;line-height:1.6;font-family:var(--font-jp);" class="ja">
         LCHのJFSAライセンス再申請、グローバルCCP競争、JSCCへの米国顧客アクセスをめぐるCFTC規制改革論議において、米系銀行の代表的見解として参照された。
       </p>
     </div>
 
     <div class="media-card">
-      <div class="media-outlet">Risk.net <span style="font-size:.58rem;color:var(--text-muted);font-family:var(--font-mono);">Sponsored · JPX/JSCC</span></div>
+      <div class="media-outlet">Risk.net <span style="font-size:0.78rem;color:var(--text-muted);font-family:var(--font-mono);">Sponsored · JPX/JSCC</span></div>
       <h4>Japan's Yen Swaps Go Global</h4>
       <div class="media-date">16 December 2025 · Quoted in · See above</div>
-      <p style="font-size:.82rem;color:var(--text-mid);margin-top:.7rem;line-height:1.6;" class="en">
+      <p style="font-size:1rem;color:var(--text-mid);margin-top:.7rem;line-height:1.6;" class="en">
         Quoted on Citi's first US client trade cleared on JSCC and the strategic importance of a holistic, agnostic market access platform across the full yen rates ecosystem.
       </p>
-      <p style="font-size:.82rem;color:var(--text-mid);margin-top:.7rem;line-height:1.6;font-family:var(--font-jp);" class="ja">
+      <p style="font-size:1rem;color:var(--text-mid);margin-top:.7rem;line-height:1.6;font-family:var(--font-jp);" class="ja">
         JSCCでの米国顧客向け初取引清算と、円金利エコシステム全体にわたるアクセスプラットフォームの戦略的意義について直接コメント。
       </p>
     </div>
@@ -440,14 +480,14 @@ footer a { color: var(--teal-dark); text-decoration: none; }
       <div class="media-outlet">FIA Japan</div>
       <h4>Annual Review: Japan Listed Derivatives Markets</h4>
       <div class="media-date">2024 · Contribution</div>
-      <p style="font-size:.82rem;color:var(--text-mid);margin-top:.7rem;line-height:1.6;" class="en">Contribution to FIA Japan's annual review of listed derivatives market developments, regulatory trends, and infrastructure evolution in Japan.</p>
+      <p style="font-size:1rem;color:var(--text-mid);margin-top:.7rem;line-height:1.6;" class="en">Contribution to FIA Japan's annual review of listed derivatives market developments, regulatory trends, and infrastructure evolution in Japan.</p>
     </div>
 
     <div class="media-card">
       <div class="media-outlet">ISDA Japan</div>
       <h4>OTC Derivatives Regulations Working Group</h4>
       <div class="media-date">Ongoing · Working group</div>
-      <p style="font-size:.82rem;color:var(--text-mid);margin-top:.7rem;line-height:1.6;" class="en">Active member of ISDA Japan's OTC Derivatives Regulations Working Group, contributing to regulatory policy development and market practice standards.</p>
+      <p style="font-size:1rem;color:var(--text-mid);margin-top:.7rem;line-height:1.6;" class="en">Active member of ISDA Japan's OTC Derivatives Regulations Working Group, contributing to regulatory policy development and market practice standards.</p>
     </div>
 
   </div>

@@ -1,0 +1,37 @@
+# Essay 020「無限に存在する記憶と、想起」の公開予約（Shun 2026-11-21「公開は１２月１日公開予約」）。
+# 2026-12-01 09:00 JST に作業ブランチ essay-020-endless-memory を main へ合流させる。
+# main への push で Cloudflare が自動でデプロイする。合流と同時にこのファイル自身を消す。
+name: scheduled-publish-essay-020
+on:
+  schedule:
+    - cron: '0 0 1 12 *'   # 00:00 UTC = 09:00 JST
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'true = 合流を試すだけで push しない'
+        default: 'true'
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: merge essay-020 into main
+        env:
+          DRY: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
+        run: |
+          set -e
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "$(TZ=Asia/Tokyo date +%F)" != "2026-12-01" ]; then echo "not the day"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin essay-020-endless-memory
+          git merge --no-ff origin/essay-020-endless-memory -m "essays: Essay 020 公開（2026-12-01 予約）"
+          git rm -q .github/workflows/scheduled-publish-020.yml
+          git commit -q -m "ci: Essay 020 の公開予約を片付ける"
+          git log --oneline -4
+          if [ "$DRY" = "true" ]; then echo "dry run: push しない"; exit 0; fi
+          git push origin HEAD:main
