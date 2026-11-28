@@ -332,6 +332,7 @@ body.lang-en .en { display: block !important; }
 .essays-sub-label { font-family: var(--font-mono); font-size: 0.9rem; letter-spacing: .2em; text-transform: uppercase; color: #3d4148; margin: 0 0 1.2rem; }
 .essays-sub-label .ja { font-family: var(--font-jp); letter-spacing: .1em; }
 .essay-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.4rem; }
+#essays-latest, #essays-archive { grid-template-columns: repeat(2, minmax(0, 1fr)); } /* 4 枚を 2×2 に（Shun 2026-11-28） */
 
 /* RESPONSIVE */
 @media (max-width:900px) {
@@ -1175,7 +1176,7 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.08 });
 document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 
-// ── ESSAYS: newest three + three drawn at random from the rest ──
+// ── ESSAYS: newest four + four drawn at random from the rest (Shun 2026-11-28: 4 で箱が揃う) ──
 // Reads the canonical list at /essays/ so the top page never drifts from it.
 // If anything fails, the statically rendered six cards stay as they are.
 (function renderEssays() {
@@ -1196,15 +1197,15 @@ document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
       var cards = Array.prototype.filter.call(grid.children, function (el) {
         return el.tagName === 'A';
       });
-      if (cards.length < 6) throw new Error('only ' + cards.length + ' cards');
+      if (cards.length < 8) throw new Error('only ' + cards.length + ' cards');
 
-      var newest = cards.slice(0, 3);
-      var rest   = cards.slice(3);
+      var newest = cards.slice(0, 4);
+      var rest   = cards.slice(4);
       for (var i = rest.length - 1; i > 0; i--) {          // Fisher–Yates
         var j = Math.floor(Math.random() * (i + 1));
         var t = rest[i]; rest[i] = rest[j]; rest[j] = t;
       }
-      var picks = rest.slice(0, 3);                         // disjoint from newest
+      var picks = rest.slice(0, 4);                         // disjoint from newest
 
       function fill(container, list) {
         while (container.firstChild) container.removeChild(container.firstChild);

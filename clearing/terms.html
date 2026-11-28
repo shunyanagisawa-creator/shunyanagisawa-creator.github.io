@@ -2445,17 +2445,52 @@ var Q_PLACEHOLDER_EN = "Filter by term, Japanese rendering, or definition (e.g. 
   }
   terms.forEach(function (t) { t.dataset.hay = norm(t.textContent); });
 
+  // 関連度（2026-11-28 Shun「関連度順に並べるには」）: 見出しの語そのもの > 見出しの先頭 >
+  // 見出し・訳語・別表記に含む > 定義に含む（出てくる回数を足す）> 関連語の欄にだけある
+  function txt(t, sel) { var e = t.querySelector(sel); return e ? norm(e.textContent) : ''; }
+  terms.forEach(function (t) {
+    t._key = txt(t, '.term-key'); t._en = txt(t, '.term-en');
+    t._ja = txt(t, '.term-ja'); t._def = txt(t, '.term-def') + ' ' + txt(t, '.term-def-en');
+  });
+  function score(t, v) {
+    var heads = [t._key, t._en];
+    var jaMain = t._ja.split('／')[0].split('（')[0].trim();
+    if (heads.indexOf(v) !== -1 || jaMain === v) return 1000;
+    for (var i = 0; i < heads.length; i++) { if (heads[i].indexOf(v) === 0) return 800; }
+    if (jaMain.indexOf(v) === 0) return 800;
+    if (t._key.indexOf(v) !== -1 || t._en.indexOf(v) !== -1 || t._ja.indexOf(v) !== -1) return 600;
+    var n = t._def.split(v).length - 1;
+    if (n) return 100 + Math.min(n, 50);
+    return 0;
+  }
+  var box = terms.length ? terms[0].parentNode : null;
+  var orig = box ? Array.prototype.slice.call(box.children) : [];
+  var reordered = false;
+
   function apply() {
     var v = norm(q.value.trim());
     var cats = Object.keys(active).filter(function (k) { return active[k]; });
     var shown = 0;
+    var hits = [];
     terms.forEach(function (t) {
       var hit = (!v || t.dataset.hay.indexOf(v) !== -1) &&
                 (!cats.length || cats.indexOf(t.dataset.cat) !== -1);
       t.classList.toggle('is-hidden', !hit);
-      if (hit) shown++;
+      if (hit) { shown++; hits.push(t); }
     });
+    if (box && v) {
+      // 語を打ったときは関連度順に並べ、頭文字の見出しは隠す
+      hits.forEach(function (t, i) { t._s = score(t, v); t._i = i; });
+      hits.sort(function (a, b) { return (b._s - a._s) || (a._i - b._i); });
+      hits.forEach(function (t) { box.appendChild(t); });
+      orig.forEach(function (e) { if (hits.indexOf(e) === -1) box.appendChild(e); });
+      reordered = true;
+    } else if (box && reordered) {
+      orig.forEach(function (e) { box.appendChild(e); });
+      reordered = false;
+    }
     letters.forEach(function (l) {
+      if (v) { l.classList.add('is-hidden'); return; }
       var any = false, n = l.nextElementSibling;
       while (n && !n.classList.contains('letter')) {
         if (n.classList.contains('term') && !n.classList.contains('is-hidden')) { any = true; break; }
