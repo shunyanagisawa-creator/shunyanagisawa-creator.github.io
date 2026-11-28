@@ -19,11 +19,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:wght@500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
+html{font-size:17px} /* 共通ルール: rem の基準を本文 17px に（2026-11-28） */
 :root {
   --teal-dark: #1d5c5c; --teal: #2a7a7a; --teal-light: #e8f2f2;
   --gold: #b5832a; --gold-dark: #8a6020; --gold-light: #f5ead8;
   --navy: #1a2332; --white: #ffffff; --off-white: #f7f6f2;
-  --text: #1a1a1a; --text-mid: #3d3d3d; --text-muted: #666666; --border: #ddd9d0;
+  --text: #1a1a1a; --text-mid: #3d3d3d; --text-muted: #3d4148; --border: #ddd9d0;
   --font-display: 'Noto Sans', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
   --font-body: 'Noto Sans', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
   --font-jp: 'Noto Sans JP', 'Noto Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
@@ -46,24 +47,24 @@ nav {
 .nav-back { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--text-muted); text-decoration: none; }
 .nav-back:hover { color: var(--teal-dark); }
 .lang-toggle {
-  font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em;
+  font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: .08em;
   background: none; border: 1px solid var(--border); border-radius: 3px;
   padding: .35rem .8rem; cursor: pointer; color: var(--text-mid);
 }
 .lang-toggle:hover { border-color: var(--teal-dark); color: var(--teal-dark); }
 
 .page { max-width: 1000px; margin: 0 auto; padding: 4rem 1.6rem 5rem; }
-.page-kicker { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.2rem; }
+.page-kicker { font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: .25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.2rem; }
 h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 500; line-height: 1.3; color: var(--navy); margin-bottom: .8rem; }
 .page-sub { font-size: 1.02rem; color: var(--text-muted); margin-bottom: 1.4rem; line-height: 1.7; }
-.page-meta { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; color: var(--text-muted); padding-bottom: 1.6rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.4rem; }
+.page-meta { font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: .08em; color: var(--text-muted); padding-bottom: 1.6rem; border-bottom: 2px solid var(--navy); margin-bottom: 2.4rem; }
 
 /* QUOTES — moved from index.html rotating quote bar (media items only) */
 .quotes-block { background: var(--navy); padding: 2.4rem 2.2rem; margin-bottom: 3rem; }
 .quote-item { max-width: 780px; margin: 0 auto 1.8rem; padding-bottom: 1.8rem; border-bottom: 1px solid rgba(255,255,255,.15); }
 .quote-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
 .quote-item .qtext { font-family: var(--font-display); font-style: italic; font-size: 1.05rem; color: rgba(255,255,255,.92); line-height: 1.65; margin-bottom: .6rem; }
-.quote-item .qsrc { font-family: var(--font-mono); font-size: .64rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
+.quote-item .qsrc { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
 
 .section-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--navy); margin: 2.6rem 0 1.2rem; }
 
@@ -75,25 +76,25 @@ h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); fo
 }
 .media-badge { background: var(--teal-dark); color: var(--white); font-family: var(--font-display); font-weight: 500; font-size: 1.1rem; padding: .8rem 1.4rem; text-align: center; min-width: 90px; }
 .media-featured h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; color: var(--navy); margin-bottom: .4rem; line-height: 1.35; }
-.media-meta { font-family: var(--font-mono); font-size: .65rem; color: var(--text-muted); letter-spacing: .1em; margin-bottom: 1rem; }
-.media-summary { font-size: .92rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 1rem; }
+.media-meta { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); letter-spacing: .1em; margin-bottom: 1rem; }
+.media-summary { font-size: 1rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 1rem; }
 .media-summary ul { padding-left: 1.3rem; }
 .media-summary li { margin-bottom: .35rem; }
-.media-link { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .1em; color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); }
+.media-link { font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: .1em; color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); }
 .media-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.4rem; }
 .media-card { background: var(--white); border: 1px solid var(--border); padding: 1.4rem; }
-.media-outlet { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: .6rem; }
-.media-card h4 { font-size: .9rem; font-weight: 500; color: var(--navy); line-height: 1.45; margin-bottom: .5rem; }
-.media-date { font-family: var(--font-mono); font-size: .62rem; color: var(--text-muted); }
+.media-outlet { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: .2em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: .6rem; }
+.media-card h4 { font-size: 1rem; font-weight: 500; color: var(--navy); line-height: 1.45; margin-bottom: .5rem; }
+.media-date { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); }
 
 .topics-bar { margin-top: 2rem; padding: 1.2rem 1.5rem; background: var(--off-white); border-left: 3px solid var(--border); display: flex; flex-wrap: wrap; align-items: baseline; gap: 1rem; }
-.topics-bar .k { font-family: var(--font-mono); font-size: .62rem; color: var(--text-muted); letter-spacing: .08em; }
-.topics-bar .v { font-size: .85rem; color: var(--text-mid); }
-.page-note { margin-top: 1rem; font-family: var(--font-mono); font-size: .62rem; color: var(--text-muted); letter-spacing: .08em; }
+.topics-bar .k { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); letter-spacing: .08em; }
+.topics-bar .v { font-size: 1rem; color: var(--text-mid); }
+.page-note { margin-top: 1rem; font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); letter-spacing: .08em; }
 
-footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
+footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 2.4rem; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: .08em; color: var(--text-muted); text-align: center; line-height: 2; }
 footer a { color: var(--teal-dark); text-decoration: none; }
-.disclaimer { max-width: 1000px; margin: 0 auto 1.2rem; padding: 0 1.6rem; font-size: .68rem; color: var(--text-muted); line-height: 1.8; text-align: center; }
+.disclaimer { max-width: 1000px; margin: 0 auto 1.2rem; padding: 0 1.6rem; font-size: 0.82rem; color: var(--text-muted); line-height: 1.8; text-align: center; }
 
 /* PAGE HEADER — 見出し右側の淡い透かし (線画・装飾扱い。index.html の
    .section-header--art と同型で、下層ページは見出し帯だけに敷く) */
@@ -129,18 +130,37 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 /* Japanese has no true italic — never synthesise oblique on JA text */
 .ja, .ja em, .ja i, .ja blockquote { font-style: normal !important; }
 
+
+/* rule:common:begin — 共通ルール（Claude Design キャンバス Rules・2026-11-28）。各ページ同文。 */
+:root { --border: #cfcac0; --rule-head: #1a2332; --rule-body: #3d4148; --rule-link: #1d5c5c; --rule-read: #b5832a; }
+.ja { letter-spacing: .04em; }
+/* 部品 1 — カード: 白地・枠 #cfcac0・上に 3px の帯（実務＝青緑、読み物＝金） */
+.media-card, .featured-card { background: #fff; border: 1px solid var(--border); border-top: 3px solid var(--rule-link); }
+#essays .featured-card, #essays .essay-card-grid > a, .essay-card-grid > a { border-top-color: var(--rule-read); }
+.media-card h4 { font-size: 1.12rem; line-height: 1.55; }
+/* 部品 2 — 行の一覧: 紺の見出しの表をやめ、白い箱に罫線の行で並べる */
+.speaking-table { background: #fff; border: 1px solid var(--border); border-top: 3px solid var(--rule-link); }
+.speaking-table thead { display: none; }
+.speaking-table tbody tr { border-bottom: 1px solid #e6e2d9; }
+.speaking-table tbody tr:hover { background: transparent; }
+.speaking-table tbody tr.upcoming { background: #fff; border-left: 0; }
+.speaking-table td { padding: 1.3rem 1.4rem; }
+.td-date { color: var(--rule-link); }
+.td-title { font-size: 1.12rem; line-height: 1.55; }
+/* rule:common:end */
+
 /* /media/kinzai — 文字色は #3d4148 より濃い値だけ（Shun は薄い色が読めない） */
-.k-badge { background: var(--gold-dark); font-size: .9rem; letter-spacing: .02em; line-height: 1.35; }
+.k-badge { background: var(--gold-dark); font-size: 1rem; letter-spacing: .02em; line-height: 1.35; }
 .k-rel { margin: 1.1rem 0 1.2rem; padding: 1rem 1.2rem; background: var(--off-white); border-left: 3px solid var(--border); }
-.k-label { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .12em; color: #1a2332; margin: .2rem 0 .4rem; }
+.k-label { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: .12em; color: #1a2332; margin: .2rem 0 .4rem; }
 .k-label:not(:first-child) { margin-top: .9rem; }
-.k-list { padding-left: 1.3rem; font-size: .88rem; color: #1a1a1a; line-height: 1.7; }
+.k-list { padding-left: 1.3rem; font-size: 1rem; color: #1a1a1a; line-height: 1.7; }
 .k-list a { color: var(--teal-dark); }
 .k-chips { display: flex; flex-wrap: wrap; gap: .45rem; }
 body.lang-en .k-chips.ja, body.lang-ja .k-chips.en { display: none; }
-.k-chip { font-size: .8rem; color: var(--teal-dark); text-decoration: none; border: 1px solid var(--teal-dark); border-radius: 3px; padding: .1rem .6rem; background: var(--white); }
+.k-chip { font-size: 0.9rem; color: var(--teal-dark); text-decoration: none; border: 1px solid var(--teal-dark); border-radius: 3px; padding: .1rem .6rem; background: var(--white); }
 .k-chip:hover { background: var(--teal-light); }
-.k-note { font-size: .88rem; color: #1a1a1a; line-height: 1.75; margin: 0 0 2rem; }
+.k-note { font-size: 1rem; color: #1a1a1a; line-height: 1.75; margin: 0 0 2rem; }
 .page-kicker, .page-meta, .page-sub, .page-note, footer, .disclaimer, .nav-back, .lang-toggle { color: #3d3d3d; }
 .media-meta, .media-summary { color: #1a1a1a; }
 </style>
@@ -171,7 +191,7 @@ body.lang-en .k-chips.ja, body.lang-ja .k-chips.en { display: none; }
     <div>
       <h3><span class="en">Part 1 &mdash; &ldquo;A Derivative Trade Does Not End at Execution&rdquo; (13 October 2026 issue)</span><span class="ja">第1回「デリバティブは約定しても終わらない」（10月13日号）</span></h3>
       <div class="media-summary en"><ul><li>Clearing decides what follows execution: who the counterparty is, what margin and collateral are posted, who funds the gap, and how a default is handled</li><li>Post-crisis reform did not simply shrink the market; it rewired trades into CCPs where they can be netted and compressed &mdash; making the CCP a new point of risk concentration</li><li>The same price move shows up as P&amp;L for the participant, as credit and funding for the clearing broker, and as default preparedness for the CCP</li><li>The skeleton of clearing &mdash; a dedicated venue, licensed access and consolidation into a few hands &mdash; was already present in Osaka's Dojima rice market 300 years ago</li></ul></div>
-      <div class="media-summary ja"><ul style="font-family:var(--font-jp);font-size:.88rem;"><li>取引の相手方、証拠金と担保、資金の手当て、破綻時の処理 &mdash; 約定の後に決めるべきことを担うのがクリアリングである</li><li>金融危機後の改革は市場を縮めたのではなく、取引を CCP に集めて相殺・圧縮する方向へ配線を組み替えた。その結果、CCP がリスクの集中点になった</li><li>同じ価格変動が、市場参加者には損益、クリアリングブローカーには与信と資金繰り、CCP には破綻への備えとして現れる</li><li>清算の場・参加資格の限定・少数への集約という骨格は、300年前の大坂・堂島にすでにあった</li></ul></div>
+      <div class="media-summary ja"><ul style="font-family:var(--font-jp);font-size:1rem;"><li>取引の相手方、証拠金と担保、資金の手当て、破綻時の処理 &mdash; 約定の後に決めるべきことを担うのがクリアリングである</li><li>金融危機後の改革は市場を縮めたのではなく、取引を CCP に集めて相殺・圧縮する方向へ配線を組み替えた。その結果、CCP がリスクの集中点になった</li><li>同じ価格変動が、市場参加者には損益、クリアリングブローカーには与信と資金繰り、CCP には破綻への備えとして現れる</li><li>清算の場・参加資格の限定・少数への集約という骨格は、300年前の大坂・堂島にすでにあった</li></ul></div>
       <div class="k-rel">
         <div class="k-label"><span class="en">Book chapters</span><span class="ja">書籍の章</span></div>
         <ul class="k-list en"><li><a href="/book">Chapter 1 — クリアリングの基礎</a></li><li>Chapter 3 — The Clearing Process in Practice</li><li>Chapter 4 — 法規制と地域別の特徴</li></ul><ul class="k-list ja"><li><a href="/book">第1章　クリアリングの基礎</a></li><li>第3章　クリアリング・プロセスの実践</li><li>第4章　法規制と地域別の特徴</li></ul>
@@ -187,7 +207,7 @@ body.lang-en .k-chips.ja, body.lang-ja .k-chips.en { display: none; }
     <div>
       <h3><span class="en">Part 2 &mdash; &ldquo;The Return of the Yen Rates Market&rdquo; (20 October 2026 issue)</span><span class="ja">第2回「復活した円金利市場」（10月20日号）</span></h3>
       <div class="media-summary en"><ul><li>Average daily yen interest rate swap volume cleared at JSCC rose from about &yen;6 trillion in 2021 to about &yen;66 trillion in January&ndash;March 2026, as the return of interest rates revived demand to manage and trade rate risk</li><li>The non-resident share rose from 44% in 2020 to 65% in Q4 2025; CFTC relief in September 2025 opened JSCC clearing to US customers, changing who trades the market and why</li><li>Ten times the trading does not mean ten times the outstanding or the margin: what the market shows is what remains after trades are opened, offset and compressed</li><li>As rates moved and access barriers fell, small price dislocations inside the market became visible to global managers as trading opportunities</li></ul></div>
-      <div class="media-summary ja"><ul style="font-family:var(--font-jp);font-size:.88rem;"><li>日本証券クリアリング機構（JSCC）が清算する円金利スワップの1日平均額は、2021年の約6兆円から26年1～3月に約66兆円へ。金利の復活が、金利リスクを管理し取引する需要を戻した</li><li>非居住者比率は20年の44％から25年第4四半期に65％へ。25年9月の CFTC の措置で米国顧客の JSCC 清算が可能になり、「誰が、何のために取引する市場なのか」も変わった</li><li>取引が10倍になっても、残高や証拠金が10倍になるとは限らない。市場に見える残高は、建てられ、相殺され、圧縮された後の数字である</li><li>金利が動き、アクセスの壁が下がったとき、価格のわずかなゆがみが世界の運用会社から取引機会として見えるようになった</li></ul></div>
+      <div class="media-summary ja"><ul style="font-family:var(--font-jp);font-size:1rem;"><li>日本証券クリアリング機構（JSCC）が清算する円金利スワップの1日平均額は、2021年の約6兆円から26年1～3月に約66兆円へ。金利の復活が、金利リスクを管理し取引する需要を戻した</li><li>非居住者比率は20年の44％から25年第4四半期に65％へ。25年9月の CFTC の措置で米国顧客の JSCC 清算が可能になり、「誰が、何のために取引する市場なのか」も変わった</li><li>取引が10倍になっても、残高や証拠金が10倍になるとは限らない。市場に見える残高は、建てられ、相殺され、圧縮された後の数字である</li><li>金利が動き、アクセスの壁が下がったとき、価格のわずかなゆがみが世界の運用会社から取引機会として見えるようになった</li></ul></div>
       <div class="k-rel">
         <div class="k-label"><span class="en">Book chapters</span><span class="ja">書籍の章</span></div>
         <ul class="k-list en"><li>Chapter 3 — The Clearing Process in Practice</li><li>Chapter 5 — Risk Management in Clearing</li></ul><ul class="k-list ja"><li>第3章　クリアリング・プロセスの実践</li><li>第5章　クリアリングのリスク管理</li></ul>
@@ -203,7 +223,7 @@ body.lang-en .k-chips.ja, body.lang-ja .k-chips.en { display: none; }
     <div>
       <h3><span class="en">Part 3 &mdash; &ldquo;What Netting Produces&rdquo; (27 October 2026 issue)</span><span class="ja">第3回「ネッティングは何を生むか」（10月27日号）</span></h3>
       <div class="media-summary en"><ul><li>Moving trades into a CCP turns a participant&rsquo;s gross payments of 200 under bilateral trading into a single receipt of 20; multilateral netting reduces settlement amounts and exposure, and affects regulatory capital as well</li><li>Bilateral trading looks cheap, but offsetting trades leave the original contracts in place and their balance-sheet cost is priced into the spread; the comparison is between visible costs and costs paid without being seen</li><li>Liquidity decides where to clear. In practice it appears as the cost of unwinding: whether a large position can be built without moving the market and closed on the day it needs to be. In yen swaps, JSCC has deep liquidity beyond ten years</li><li>In 2018 yen swaps traded at two prices in Tokyo and London, with the 20-year gap widening to almost 16bp; it persisted because participants could see both prices but could not access both clearing houses at once</li></ul></div>
-      <div class="media-summary ja"><ul style="font-family:var(--font-jp);font-size:.88rem;"><li>清算機関（CCP）へ取引を集約すると、相対取引のままなら受け払いの総額が200になる参加者に、残るのは20の受け取りだけとなる。マルチラテラル・ネッティングで決済額とエクスポージャーが減り、規制資本にも影響が及ぶ</li><li>相対取引は一見「安い」が、反対取引で市場リスクを打ち消しても元の契約は残り、そのバランスシートコストはスプレッドに織り込まれる。比べるべきは、可視化されたコストと、見えないまま支払っているコストである</li><li>どこで清算するかを左右するのは流動性である。大きなポジションを市場価格を崩さずに建て、必要な日に解消できるかという実務から見れば、流動性は解消のためのコストとして現れる。円金利スワップでは、10年超の年限で JSCC に厚い流動性がある</li><li>2018年、東京とロンドンで円金利スワップに二つの価格が付き、20年ゾーンの差は16bp弱まで拡大した。差が残ったのは、価格が見えていても二つの清算機関へ同時にアクセスできなかったからである</li></ul></div>
+      <div class="media-summary ja"><ul style="font-family:var(--font-jp);font-size:1rem;"><li>清算機関（CCP）へ取引を集約すると、相対取引のままなら受け払いの総額が200になる参加者に、残るのは20の受け取りだけとなる。マルチラテラル・ネッティングで決済額とエクスポージャーが減り、規制資本にも影響が及ぶ</li><li>相対取引は一見「安い」が、反対取引で市場リスクを打ち消しても元の契約は残り、そのバランスシートコストはスプレッドに織り込まれる。比べるべきは、可視化されたコストと、見えないまま支払っているコストである</li><li>どこで清算するかを左右するのは流動性である。大きなポジションを市場価格を崩さずに建て、必要な日に解消できるかという実務から見れば、流動性は解消のためのコストとして現れる。円金利スワップでは、10年超の年限で JSCC に厚い流動性がある</li><li>2018年、東京とロンドンで円金利スワップに二つの価格が付き、20年ゾーンの差は16bp弱まで拡大した。差が残ったのは、価格が見えていても二つの清算機関へ同時にアクセスできなかったからである</li></ul></div>
       <div class="k-rel">
         <div class="k-label"><span class="en">Book chapters</span><span class="ja">書籍の章</span></div>
         <ul class="k-list en"><li>Chapter 3 — The Clearing Process in Practice</li><li>Chapter 6 — オンボーディングとドキュメンテーション</li></ul><ul class="k-list ja"><li>第3章　クリアリング・プロセスの実践</li><li>第6章　オンボーディングとドキュメンテーション</li></ul>
@@ -219,7 +239,7 @@ body.lang-en .k-chips.ja, body.lang-ja .k-chips.en { display: none; }
     <div>
       <h3><span class="en">Part 4 &mdash; &ldquo;How Margin Measures Future Losses&rdquo; (3 November 2026 issue)</span><span class="ja">第4回「証拠金は「未来の損失」をどう測るか」（11月3日号）</span></h3>
       <div class="media-summary en"><ul><li>Margin has two roles: variation margin (VM) settles gains and losses that have already occurred, while initial margin (IM) covers losses that may arise after a participant defaults, until its positions are closed out. The margin period of risk is typically 1&ndash;2 business days for futures, 5 for cleared OTC derivatives and 10 for uncleared trades</li><li>How much IM is enough depends on the margin period of risk, the data used, the confidence level covered (99% VaR or 99% ES) and how far recent markets are reflected. Margin is not a single &ldquo;safe percentage&rdquo; but a designed value combining time, data, probability, stress and liquidity</li><li>IM also sets position size: a futures contract with a 5% IM rate implies 20x leverage, falling to 10x if the rate rises to 10%. When markets turn volatile and IM is raised, participants post more collateral or cut positions</li><li>In September 2018, a move in the Nordic power market reached 17 times normal daily volatility; at Nasdaq Clearing, a loss of &euro;114 million remained after the defaulter&rsquo;s collateral and default fund contribution, absorbed by &euro;7 million of the CCP&rsquo;s own capital and &euro;107 million of the default fund contributed by surviving members. The lesson is not uniformly higher margin, but arrangements to absorb losses beyond IM</li></ul></div>
-      <div class="media-summary ja"><ul style="font-family:var(--font-jp);font-size:.88rem;"><li>証拠金制度には二つの役割がある。変動証拠金（VM）はすでに生じた損益を清算し、当初証拠金（IM）は参加者の破綻後、ポジションの処理が終わるまでに生じ得る損失に備える。損失想定期間（MPOR）は、先物は1～2営業日、清算された店頭デリバティブは5営業日、非清算取引は10営業日が一つの目安</li><li>IMの水準は、損失想定期間、使うデータ、カバーする確率（99％VaR・99％ES）、足元の相場の反映の仕方で決まる。証拠金は「何％なら安全か」という唯一の数字ではなく、時間とデータ、確率、ストレス、流動性を組み合わせた設計値である</li><li>IMはポジションの大きさも決める。IM率が5％の先物なら計算上のレバレッジは20倍、10％へ上がれば10倍へ下がる。市場が荒れてIMが引き上げられれば、参加者は追加担保を差し入れるか、ポジションを縮小する</li><li>2018年9月、北欧の電力市場で市場変動が通常の日次変動の17倍に達した。ナスダッククリアリングでは、破綻した参加者の担保と清算基金への拠出分を使い切っても1億1,400万ユーロの損失が残り、CCP自身の資金700万ユーロと、健全な清算参加者が拠出した清算基金1億700万ユーロが使われた。教訓は、証拠金を一律に高くすることではなく、IMを超えた損失を受け止める仕組みまで用意することである</li></ul></div>
+      <div class="media-summary ja"><ul style="font-family:var(--font-jp);font-size:1rem;"><li>証拠金制度には二つの役割がある。変動証拠金（VM）はすでに生じた損益を清算し、当初証拠金（IM）は参加者の破綻後、ポジションの処理が終わるまでに生じ得る損失に備える。損失想定期間（MPOR）は、先物は1～2営業日、清算された店頭デリバティブは5営業日、非清算取引は10営業日が一つの目安</li><li>IMの水準は、損失想定期間、使うデータ、カバーする確率（99％VaR・99％ES）、足元の相場の反映の仕方で決まる。証拠金は「何％なら安全か」という唯一の数字ではなく、時間とデータ、確率、ストレス、流動性を組み合わせた設計値である</li><li>IMはポジションの大きさも決める。IM率が5％の先物なら計算上のレバレッジは20倍、10％へ上がれば10倍へ下がる。市場が荒れてIMが引き上げられれば、参加者は追加担保を差し入れるか、ポジションを縮小する</li><li>2018年9月、北欧の電力市場で市場変動が通常の日次変動の17倍に達した。ナスダッククリアリングでは、破綻した参加者の担保と清算基金への拠出分を使い切っても1億1,400万ユーロの損失が残り、CCP自身の資金700万ユーロと、健全な清算参加者が拠出した清算基金1億700万ユーロが使われた。教訓は、証拠金を一律に高くすることではなく、IMを超えた損失を受け止める仕組みまで用意することである</li></ul></div>
       <div class="k-rel">
         <div class="k-label"><span class="en">Book chapters</span><span class="ja">書籍の章</span></div>
         <ul class="k-list en"><li><a href="/book">Chapter 1 — クリアリングの基礎</a></li><li>Chapter 2 — クリアリング対象商品の基本解説</li><li>Chapter 5 — Risk Management in Clearing</li></ul><ul class="k-list ja"><li><a href="/book">第1章　クリアリングの基礎</a></li><li>第2章　クリアリング対象商品の基本解説</li><li>第5章　クリアリングのリスク管理</li></ul>
@@ -235,7 +255,7 @@ body.lang-en .k-chips.ja, body.lang-ja .k-chips.en { display: none; }
     <div>
       <h3><span class="en">Part 5 &mdash; &ldquo;When Safeguards Amplify a Crisis&rdquo; (10 November 2026 issue)</span><span class="ja">第5回「安全策が危機を増幅するとき」（11月10日号）</span></h3>
       <div class="media-summary en"><ul><li>In autumn 2022 the Bank of England had tested whether funds could meet margin calls after a 100bp rise in rates, but 30-year gilt yields rose 160bp in four days. Variation margin (VM) calls on LDI funds led to gilt sales, which pushed yields higher and triggered new calls; Bank staff estimated margin and collateral calls over the period at more than &pound;70 billion</li><li>The Bank&rsquo;s gilt purchases were aimed not at a particular level of rates but at the loop in which selling and margin calls amplified each other. Containing procyclicality requires looking at margin design together with the payer&rsquo;s positions and liquidity management</li><li>VM is in principle paid in cash in the currency of the trade. At JSCC, Japanese and US government bonds can be posted as initial margin (IM), while VM on yen interest rate swaps is paid in yen cash. Holding government bonds and being able to pay in the right currency at the right time are not the same thing</li><li>In 1866 the discount house Overend, Gurney suspended payments. The Bank refused to lend to the firm but lent to banks and bill brokers on an unprecedented scale. Rescuing a firm and rescuing a market are not the same; the crisis marked a turning point toward the Bank&rsquo;s modern role as lender of last resort</li></ul></div>
-      <div class="media-summary ja"><ul style="font-family:var(--font-jp);font-size:.88rem;"><li>2022年秋の英国。イングランド銀行（BoE）が危機前に点検していたのは、金利が100bp上昇しても証拠金請求に応じられるかだったが、30年物英国債（ギルト）の利回りは4日間で160bp上昇した。LDI（負債主導型投資）ファンドへの変動証拠金（VM）の請求がギルトの売却を呼び、売却が利回りを押し上げて新たな請求を生んだ。BoEスタッフの推計では、この間の証拠金・担保請求は700億ポンドを超えた</li><li>BoEのギルト買い入れが止めようとしたのは、特定の金利水準ではなく、売却と証拠金請求が互いを増幅する循環だった。プロシクリカリティー（順循環性）を抑えるには、証拠金の仕組みと、払う側のポジション・資金管理を併せて見る必要がある</li><li>VMは原則として取引通貨建ての現金で支払う。日本証券クリアリング機構（JSCC）では、当初証拠金（IM）には日本国債や米国債を充てられる一方、円金利スワップのVMは円現金で支払う。国債を持っていることと、必要な時刻に必要な通貨で払えることには、距離がある</li><li>1866年、手形割引商オーバレンド・ガーニーが支払いを停止した。BoEは同社への融資を断る一方、銀行や手形仲買業者にはかつてない規模で融資した。会社を救うことと、市場を救うことは同じではない。この危機は、BoEが現代的な「最後の貸し手」へ近づく転機となった</li></ul></div>
+      <div class="media-summary ja"><ul style="font-family:var(--font-jp);font-size:1rem;"><li>2022年秋の英国。イングランド銀行（BoE）が危機前に点検していたのは、金利が100bp上昇しても証拠金請求に応じられるかだったが、30年物英国債（ギルト）の利回りは4日間で160bp上昇した。LDI（負債主導型投資）ファンドへの変動証拠金（VM）の請求がギルトの売却を呼び、売却が利回りを押し上げて新たな請求を生んだ。BoEスタッフの推計では、この間の証拠金・担保請求は700億ポンドを超えた</li><li>BoEのギルト買い入れが止めようとしたのは、特定の金利水準ではなく、売却と証拠金請求が互いを増幅する循環だった。プロシクリカリティー（順循環性）を抑えるには、証拠金の仕組みと、払う側のポジション・資金管理を併せて見る必要がある</li><li>VMは原則として取引通貨建ての現金で支払う。日本証券クリアリング機構（JSCC）では、当初証拠金（IM）には日本国債や米国債を充てられる一方、円金利スワップのVMは円現金で支払う。国債を持っていることと、必要な時刻に必要な通貨で払えることには、距離がある</li><li>1866年、手形割引商オーバレンド・ガーニーが支払いを停止した。BoEは同社への融資を断る一方、銀行や手形仲買業者にはかつてない規模で融資した。会社を救うことと、市場を救うことは同じではない。この危機は、BoEが現代的な「最後の貸し手」へ近づく転機となった</li></ul></div>
       <div class="k-rel">
         <div class="k-label"><span class="en">Book chapters</span><span class="ja">書籍の章</span></div>
         <ul class="k-list en"><li>Chapter 3 — The Clearing Process in Practice</li><li>Chapter 5 — Risk Management in Clearing</li></ul><ul class="k-list ja"><li>第3章　クリアリング・プロセスの実践</li><li>第5章　クリアリングのリスク管理</li></ul>
@@ -251,7 +271,7 @@ body.lang-en .k-chips.ja, body.lang-ja .k-chips.en { display: none; }
     <div>
       <h3><span class="en">Part 6 &mdash; &ldquo;The Clearing Broker Connecting the CCP and Its Clients&rdquo; (17 November 2026 issue)</span><span class="ja">第6回「CCPと顧客をつなぐクリアリングブローカー」（11月17日号）</span></h3>
       <div class="media-summary en"><ul><li>Payment deadlines at the CCP arrive before cash arrives from clients. The clearing broker absorbs that time gap with its own funds and credit; even if a client becomes unable to pay or defaults, the broker&rsquo;s payment obligation to the CCP continues</li><li>LCH marks positions to market intraday and calls additional margin three times a day on its scheduled runs alone; the broker must have US dollar cash ready and pay within an hour, while it calls margin from clients once a day based on end-of-day positions. What bridges intraday payments to the CCP and daily collection from clients is the broker&rsquo;s own balance sheet</li><li>The broker manages credit lines and risk limits for each client and monitors positions, P&amp;L and collateral values intraday. A client&rsquo;s trading capacity also depends on how far the broker can supply funding and credit. Choosing a broker therefore involves not only fees and terms, but also how far it will fund margin, how much time it allows before payment, and how it responds in a sudden market move</li><li>In March 2021 Credit Suisse told Archegos that the next day&rsquo;s call would be about $2.7 billion, and was told it could not be paid; the bank&rsquo;s losses reached about $5.5 billion. According to the report commissioned by its board, the risk limit was $20 million, but exposure reached $528 million by August 2020, and the excess was flagged as requiring remediation for 169 days. The report states that the risks were identified and conspicuous; the point of a risk limit lies in actually stopping at the limit</li></ul></div>
-      <div class="media-summary ja"><ul style="font-family:var(--font-jp);font-size:.88rem;"><li>顧客から現金が届く前に、清算機関（CCP）への支払期限が来る。その時間差を、自らの資金と信用で引き受けるのがクリアリングブローカーである。顧客が支払い不能や破綻に陥っても、ブローカーのCCPへの支払い義務は続く</li><li>LCHは日中にも値洗いを行い、追加の証拠金を請求する。請求は定時だけで1日3回。ブローカーは1時間以内にドルの現金を用意して支払う一方、顧客へは日締め後のポジションをもとに1日1回請求する。CCPへの日中の支払いと、顧客からの日次の回収をつなぐのは、ブローカー自身のバランスシートである</li><li>ブローカーは顧客ごとの与信枠やリスクリミットを管理し、ポジションや損益、担保価値を日中も監視する。顧客の取引余力（キャパシティー）は、ブローカーが資金と信用をどこまで供給できるかにも左右される。ブローカーの選定では、手数料や取引条件と共に、証拠金の立て替え範囲や支払いまでの猶予期間、急変時の対応も問われる</li><li>2021年3月、クレディ・スイスは顧客のアルケゴスに翌日の請求が約27億ドルになると伝え、払えないという返事を受けた。同社の損失は約55億ドルに達した。取締役会が委ねた調査報告書によれば、リスクリミットは2,000万ドルだったが、20年8月には5億2,800万ドルに達し、リスク量超過は要是正として169日間示され続けた。リスクは特定され、目立っていた。リスクリミットの意義は、上限で実際に止められることにある</li></ul></div>
+      <div class="media-summary ja"><ul style="font-family:var(--font-jp);font-size:1rem;"><li>顧客から現金が届く前に、清算機関（CCP）への支払期限が来る。その時間差を、自らの資金と信用で引き受けるのがクリアリングブローカーである。顧客が支払い不能や破綻に陥っても、ブローカーのCCPへの支払い義務は続く</li><li>LCHは日中にも値洗いを行い、追加の証拠金を請求する。請求は定時だけで1日3回。ブローカーは1時間以内にドルの現金を用意して支払う一方、顧客へは日締め後のポジションをもとに1日1回請求する。CCPへの日中の支払いと、顧客からの日次の回収をつなぐのは、ブローカー自身のバランスシートである</li><li>ブローカーは顧客ごとの与信枠やリスクリミットを管理し、ポジションや損益、担保価値を日中も監視する。顧客の取引余力（キャパシティー）は、ブローカーが資金と信用をどこまで供給できるかにも左右される。ブローカーの選定では、手数料や取引条件と共に、証拠金の立て替え範囲や支払いまでの猶予期間、急変時の対応も問われる</li><li>2021年3月、クレディ・スイスは顧客のアルケゴスに翌日の請求が約27億ドルになると伝え、払えないという返事を受けた。同社の損失は約55億ドルに達した。取締役会が委ねた調査報告書によれば、リスクリミットは2,000万ドルだったが、20年8月には5億2,800万ドルに達し、リスク量超過は要是正として169日間示され続けた。リスクは特定され、目立っていた。リスクリミットの意義は、上限で実際に止められることにある</li></ul></div>
       <div class="k-rel">
         <div class="k-label"><span class="en">Book chapters</span><span class="ja">書籍の章</span></div>
         <ul class="k-list en"><li><a href="/book">Chapter 1 — クリアリングの基礎</a></li><li>Chapter 5 — Risk Management in Clearing</li><li>Chapter 6 — オンボーディングとドキュメンテーション</li><li>Chapter 7 — The Future of Client Clearing</li></ul><ul class="k-list ja"><li><a href="/book">第1章　クリアリングの基礎</a></li><li>第5章　クリアリングのリスク管理</li><li>第6章　オンボーディングとドキュメンテーション</li><li>第7章　クライアント・クリアリングの未来展望</li></ul>
@@ -267,7 +287,7 @@ body.lang-en .k-chips.ja, body.lang-ja .k-chips.en { display: none; }
     <div>
       <h3><span class="en">Part 7 &mdash; &ldquo;How CCPs and Their Members Contain the Market Impact of a Default&rdquo; (24 November 2026 issue)</span><span class="ja">第7回「破綻の市場への影響を抑える清算機関と参加者の動き」（11月24日号）</span></h3>
       <div class="media-summary en"><ul><li>When Lehman Brothers failed on 15 September 2008, LCH&rsquo;s interest rate swap clearing service, SwapClear, was left with about 66,000 trades and roughly $9 trillion in notional. Experienced traders assigned in advance by clearing member banks hedged the portfolio, which was then split by currency and auctioned to the remaining members. The auctions for five currencies were completed by 3 October, and the loss was contained within about one third of the margin Lehman itself had posted</li><li>The default waterfall sets the order in which losses from the process are absorbed: first the defaulter&rsquo;s margin and default fund contribution, then, against any shortfall, the CCP&rsquo;s own contribution and the default fund contributions of other members. Funds to absorb losses and the capacity to handle positions are combined to contain the spread of losses from a single default</li><li>Segregation protects client assets, but it does not protect client hedges. Porting moves client positions and margin to another sound broker; the receiving broker needs credit lines and funding, and if the transfer cannot be agreed and prepared, the client&rsquo;s positions may also be closed out. Financial institutions should build relationships with multiple brokers in normal times and keep contracts and trade data ready for a transfer</li><li>Japan Securities Clearing Corporation (JSCC) runs a default management fire drill for interest rate swaps every year. The hedged portfolio goes to auction a few days later with more than 10,000 trades, and bids are accepted for only 30 minutes. What the drill tests is whether people and organisations work as intended between receiving the notice and submitting a bid</li></ul></div>
-      <div class="media-summary ja"><ul style="font-family:var(--font-jp);font-size:.88rem;"><li>2008年9月15日にリーマン・ブラザーズが破綻した際、LCHの金利スワップ清算サービスであるスワップクリアには、約6万6千件、想定元本約9兆ドルの取引が残された。清算参加者の銀行から事前に割り当てられていた経験豊富なトレーダーがヘッジを行い、ポートフォリオを通貨別に分けて、残る参加者を対象とするオークションにかけた。5通貨のオークションは10月3日までに終了し、損失はリーマン自身が預けていた証拠金の約3分の1で収まった</li><li>処理に伴う損失の負担順序を定めるのがデフォルト・ウォーターフォールである。まず破綻参加者の証拠金や清算基金拠出金を使い、不足に備えて清算機関（CCP）の自己拠出金や他の参加者の清算基金などを用意する。損失を負担する資金と、ポジションを処理する能力を組み合わせ、1社の破綻による損失の拡大と、他の参加者への波及を抑える</li><li>分別管理によって守られるのは顧客の資産であり、ヘッジではない。顧客の取引と証拠金を別の健全なブローカーへ移すのがポーティング（移管）で、移管先には与信枠と資金が要る。合意や準備が整わなければ、顧客のポジションも解消の対象となる。金融機関は平時から複数のブローカーと関係を築き、移管を想定して契約や取引情報を整えておくことが肝要となる</li><li>日本証券クリアリング機構（JSCC）は金利スワップについて、毎年破綻時演習（ファイアードリル）を行っている。ヘッジを終えたポートフォリオは数日後のオークションにかけられ、取引は1万件を超える。入札を受け付けるのは30分だけである。演習で確かめるのは、知らせを受けてから入札するまでの、人と組織の動きが機能するかどうかである</li></ul></div>
+      <div class="media-summary ja"><ul style="font-family:var(--font-jp);font-size:1rem;"><li>2008年9月15日にリーマン・ブラザーズが破綻した際、LCHの金利スワップ清算サービスであるスワップクリアには、約6万6千件、想定元本約9兆ドルの取引が残された。清算参加者の銀行から事前に割り当てられていた経験豊富なトレーダーがヘッジを行い、ポートフォリオを通貨別に分けて、残る参加者を対象とするオークションにかけた。5通貨のオークションは10月3日までに終了し、損失はリーマン自身が預けていた証拠金の約3分の1で収まった</li><li>処理に伴う損失の負担順序を定めるのがデフォルト・ウォーターフォールである。まず破綻参加者の証拠金や清算基金拠出金を使い、不足に備えて清算機関（CCP）の自己拠出金や他の参加者の清算基金などを用意する。損失を負担する資金と、ポジションを処理する能力を組み合わせ、1社の破綻による損失の拡大と、他の参加者への波及を抑える</li><li>分別管理によって守られるのは顧客の資産であり、ヘッジではない。顧客の取引と証拠金を別の健全なブローカーへ移すのがポーティング（移管）で、移管先には与信枠と資金が要る。合意や準備が整わなければ、顧客のポジションも解消の対象となる。金融機関は平時から複数のブローカーと関係を築き、移管を想定して契約や取引情報を整えておくことが肝要となる</li><li>日本証券クリアリング機構（JSCC）は金利スワップについて、毎年破綻時演習（ファイアードリル）を行っている。ヘッジを終えたポートフォリオは数日後のオークションにかけられ、取引は1万件を超える。入札を受け付けるのは30分だけである。演習で確かめるのは、知らせを受けてから入札するまでの、人と組織の動きが機能するかどうかである</li></ul></div>
       <div class="k-rel">
         <div class="k-label"><span class="en">Book chapters</span><span class="ja">書籍の章</span></div>
         <ul class="k-list en"><li>Chapter 5 — Risk Management in Clearing</li></ul><ul class="k-list ja"><li>第5章　クリアリングのリスク管理</li></ul>

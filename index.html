@@ -61,6 +61,7 @@
 <noscript><style>.fade-in { opacity: 1; transform: none; }</style></noscript>
 
 <style>
+html{font-size:17px} /* 共通ルール: rem の基準を本文 17px に（2026-11-28） */
 :root {
   --white: #ffffff;
   --off-white: #f7f6f2;
@@ -73,8 +74,8 @@
   --navy: #1a2332;
   --text: #1a1a1a;
   --text-mid: #3d3d3d;
-  --text-muted: #666666;
-  --text-light: #999999;
+  --text-muted: #3d4148;
+  --text-light: #3d4148;
   --border: #ddd9d0;
   --border-light: #eeebe4;
   /* 面分け: gothic = 実務・情報の面（専門書 / Clearing Notes / In Public / ナビ項目） */
@@ -107,7 +108,7 @@ nav {
 }
 .nav-links a:hover { color: var(--teal-dark); border-bottom-color: var(--teal-dark); }
 .lang-toggle {
-  font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.1em;
+  font-family: var(--font-mono); font-size: 1rem; letter-spacing: 0.1em;
   color: var(--teal-dark); background: none; border: 1.5px solid var(--teal-dark);
   padding: .35rem .9rem; cursor: pointer; transition: all .2s;
 }
@@ -124,7 +125,7 @@ nav {
 .hero::before { content:''; position:absolute; top:0;left:0;right:0; height:5px; background: linear-gradient(to right, var(--teal-dark), var(--gold)); }
 .hero::after { content:''; position:absolute; bottom:0;left:0;right:0; height:1px; background: var(--border); }
 .hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: end; }
-.hero-tag { font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.5rem; }
+.hero-tag { font-family: var(--font-mono); font-size: 1rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 1.5rem; }
 /* Hero の名前は「柳沢 俊」が h1（欧文名はナビのロゴと重複するため置かない） */
 .hero-name-jp {
   font-family: var(--font-serif-jp); font-size: clamp(1.45rem,2.2vw,1.9rem); font-weight: 500;
@@ -136,7 +137,7 @@ nav {
 .hero-lede.ja { font-family: var(--font-serif-jp); }
 .hero-cta { display: flex; flex-wrap: wrap; gap: .8rem; }
 .hero-cta a {
-  font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: .12em; text-transform: uppercase;
+  font-family: var(--font-mono); font-size: 1rem; letter-spacing: .12em; text-transform: uppercase;
   color: var(--teal-dark); border: 1.5px solid var(--teal-dark); padding: .62rem 1.5rem;
   text-decoration: none; transition: background .2s, color .2s;
 }
@@ -200,7 +201,7 @@ section.alt { background: var(--off-white); }
 .cred-panel { background: var(--white); border: 1px solid var(--border); border-top: 4px solid var(--teal-dark); padding: 2rem; }
 .cred-section { margin-bottom: 2rem; }
 .cred-section:last-child { margin-bottom: 0; }
-.cred-title { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: .2em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: .8rem; padding-bottom: .4rem; border-bottom: 1px solid var(--border-light); }
+.cred-title { font-family: var(--font-mono); font-size: 0.9rem; letter-spacing: .2em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: .8rem; padding-bottom: .4rem; border-bottom: 1px solid var(--border-light); }
 .cred-item { padding: .52rem 0; border-bottom: 1px solid var(--border-light); display: grid; grid-template-columns: 1fr auto; gap: .5rem; align-items: baseline; }
 .cred-item:last-child { border: none; }
 .cred-name { font-size: 1rem; color: var(--text-mid); line-height: 1.4; }
@@ -212,34 +213,34 @@ section.alt { background: var(--off-white); }
 .pub-img-header { height: 320px; overflow: hidden; position: relative; background: var(--off-white); display: flex; align-items: center; justify-content: center; }
 .pub-img-header img { width: 100%; height: 100%; object-fit: contain; object-position: center; padding: 1rem; }
 .pub-dark-header { background: var(--navy); padding: 2rem; position: relative; }
-.pub-year-badge { position: absolute; top: 1rem; right: 1rem; background: var(--gold); color: var(--white); font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: .1em; padding: .25rem .7rem; }
-.pub-label { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: .2em; text-transform: uppercase; margin-bottom: .8rem; }
-.pub-dark-header .pub-label { color: rgba(255,255,255,.5); }
+.pub-year-badge { position: absolute; top: 1rem; right: 1rem; background: var(--gold-dark); color: var(--white); font-family: var(--font-mono); font-size: 0.9rem; letter-spacing: .1em; padding: .25rem .7rem; }
+.pub-label { font-family: var(--font-mono); font-size: 0.9rem; letter-spacing: .2em; text-transform: uppercase; margin-bottom: .8rem; }
+.pub-dark-header .pub-label { color: rgba(255,255,255,.85); }
 .pub-dark-header h3 { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 400; color: var(--white); margin-bottom: .3rem; }
-.pub-dark-header .pub-jp { font-family: var(--font-serif-jp); font-size: 1rem; color: rgba(255,255,255,.55); letter-spacing: .1em; }
+.pub-dark-header .pub-jp { font-family: var(--font-serif-jp); font-size: 1rem; color: rgba(255,255,255,.85); letter-spacing: .1em; }
 .pub-body { padding: 1.8rem; }
 /* 書名の階層: 主=日本語書名 / 副題 / 従属=英題（EN 表示時は主従が入れ替わる） */
 .pub-body h3.pub-title { font-family: var(--font-jp); font-size: 1.34rem; font-weight: 500; line-height: 1.4; color: var(--navy); margin-bottom: .25rem; }
 .pub-body h3.pub-title .en { font-family: var(--font-display); }
 .pub-body .pub-subtitle { font-family: var(--font-jp); font-size: 1.02rem; line-height: 1.55; color: #3d4148; margin-bottom: .45rem; }
 .pub-body .pub-subtitle .en { font-family: var(--font-display); }
-.pub-body .pub-alt-title { font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: .06em; color: #3d4148; margin-bottom: 1rem; }
+.pub-body .pub-alt-title { font-family: var(--font-mono); font-size: 1rem; letter-spacing: .06em; color: #3d4148; margin-bottom: 1rem; }
 .pub-body .pub-alt-title .ja { font-family: var(--font-jp); letter-spacing: .02em; }
 .pub-body p { font-size: 1rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1.2rem; }
 .pub-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
-.pub-tag { display: inline-block; font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: .1em; text-transform: uppercase; color: var(--teal-dark); border: 1.5px solid var(--teal-dark); padding: .28rem .8rem; }
+.pub-tag { display: inline-block; font-family: var(--font-mono); font-size: 1rem; letter-spacing: .1em; text-transform: uppercase; color: var(--teal-dark); border: 1.5px solid var(--teal-dark); padding: .28rem .8rem; }
 .pub-tag.solid { background: var(--teal-dark); color: var(--white); border-color: var(--teal-dark); }
 .pub-tag.gold { color: var(--gold-dark); border-color: var(--gold-dark); }
 
 /* SPEAKING */
 .speaking-table { width: 100%; border-collapse: collapse; font-size: 1.02rem; }
 .speaking-table thead tr { background: var(--navy); color: var(--white); }
-.speaking-table th { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: .15em; text-transform: uppercase; padding: .9rem 1.2rem; text-align: left; font-weight: 400; }
+.speaking-table th { font-family: var(--font-mono); font-size: 0.9rem; letter-spacing: .15em; text-transform: uppercase; padding: .9rem 1.2rem; text-align: left; font-weight: 400; }
 .speaking-table tbody tr { border-bottom: 1px solid var(--border-light); transition: background .15s; }
 .speaking-table tbody tr:hover { background: var(--teal-light); }
 .speaking-table tbody tr.upcoming { background: var(--gold-light); border-left: 3px solid var(--gold); }
 .speaking-table td { padding: 1rem 1.2rem; vertical-align: top; }
-.td-date { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-light); white-space: nowrap; width: 100px; }
+.td-date { font-family: var(--font-mono); font-size: 1rem; color: var(--text-light); white-space: nowrap; width: 100px; }
 .td-title { font-size: 1.02rem; font-weight: 500; color: var(--navy); line-height: 1.4; }
 .td-org { font-size: 1rem; color: var(--text-muted); margin-top: .2rem; }
 
@@ -251,33 +252,33 @@ section.alt { background: var(--off-white); }
 }
 .media-badge { background: var(--teal-dark); color: var(--white); font-family: var(--font-display); font-weight: 500; font-size: 1.1rem; padding: .8rem 1.4rem; text-align: center; min-width: 90px; }
 .media-featured h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 400; color: var(--navy); margin-bottom: .4rem; line-height: 1.35; }
-.media-meta { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-light); letter-spacing: .1em; margin-bottom: 1rem; }
+.media-meta { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-light); letter-spacing: .1em; margin-bottom: 1rem; }
 .media-summary { font-size: 1rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1rem; }
 .media-summary ul { padding-left: 1.3rem; }
 .media-summary li { margin-bottom: .35rem; }
-.media-link { font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: .1em; color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); }
+.media-link { font-family: var(--font-mono); font-size: 1rem; letter-spacing: .1em; color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); }
 .media-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
 .media-card { background: var(--white); border: 1px solid var(--border); padding: 1.5rem; transition: border-color .2s; }
 .media-card:hover { border-color: var(--teal); }
-.media-outlet { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: .2em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: .6rem; }
+.media-outlet { font-family: var(--font-mono); font-size: 0.9rem; letter-spacing: .2em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: .6rem; }
 .media-card h4 { font-size: 1rem; font-weight: 500; color: var(--navy); line-height: 1.45; margin-bottom: .5rem; }
-.media-date { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-light); }
+.media-date { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-light); }
 
 .contact-section { background: var(--navy) !important; color: var(--white); }
 .contact-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
 .contact-block h3 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; color: var(--white); margin-bottom: 1rem; }
-.contact-block p { font-size: 1.02rem; color: rgba(255,255,255,.6); line-height: 1.8; margin-bottom: 1.5rem; }
+.contact-block p { font-size: 1.02rem; color: rgba(255,255,255,.85); line-height: 1.8; margin-bottom: 1.5rem; }
 .contact-cta { display: inline-block; background: var(--teal); color: var(--white); font-size: 1rem; font-weight: 500; letter-spacing: .05em; padding: .85rem 2rem; text-decoration: none; transition: background .2s; }
 .contact-cta:hover { background: var(--teal-dark); }
 .wam-panel { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.15); border-top: 3px solid var(--gold); padding: 2.5rem; }
 .wam-panel h4 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 400; color: var(--gold); margin-bottom: .5rem; }
-.wam-panel p { font-size: 1rem; color: rgba(255,255,255,.6); line-height: 1.75; margin-bottom: 1.5rem; }
+.wam-panel p { font-size: 1rem; color: rgba(255,255,255,.85); line-height: 1.75; margin-bottom: 1.5rem; }
 .wam-link { display: inline-flex; align-items: center; gap: .5rem; font-size: 1rem; font-weight: 500; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(181,131,42,.4); padding-bottom: .2rem; }
 
 /* FOOTER */
-footer { background: #111; color: rgba(255,255,255,.35); padding: 2.5rem 3rem; display: flex; justify-content: space-between; align-items: center; }
-footer p { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: .08em; }
-footer em { font-family: var(--font-display); font-style: italic; font-size: 1rem; color: rgba(255,255,255,.2); }
+footer { background: #111; color: rgba(255,255,255,.85); padding: 2.5rem 3rem; display: flex; justify-content: space-between; align-items: center; }
+footer p { font-family: var(--font-mono); font-size: 0.9rem; letter-spacing: .08em; }
+footer em { font-family: var(--font-display); font-style: italic; font-size: 1rem; color: rgba(255,255,255,.85); }
 
 /* LANG */
 body.lang-ja .en { display: none !important; }
@@ -289,7 +290,7 @@ body.lang-en .en { display: block !important; }
 /* FAMILY OFFICE THOUGHT */
 .section-label {
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: 1rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--teal-dark);
@@ -327,8 +328,8 @@ body.lang-en .en { display: block !important; }
 .featured-card:hover { box-shadow: 0 8px 28px rgba(26,35,50,.12); }
 .featured-card img { display: block; width: 100%; aspect-ratio: 1200 / 375; object-fit: cover; }
 .featured-body { padding: 1.6rem 1.9rem 2rem; }
-.featured-lane { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: .2em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: .9rem; }
-.essays-sub-label { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: .2em; text-transform: uppercase; color: #3d4148; margin: 0 0 1.2rem; }
+.featured-lane { font-family: var(--font-mono); font-size: 0.9rem; letter-spacing: .2em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: .9rem; }
+.essays-sub-label { font-family: var(--font-mono); font-size: 0.9rem; letter-spacing: .2em; text-transform: uppercase; color: #3d4148; margin: 0 0 1.2rem; }
 .essays-sub-label .ja { font-family: var(--font-jp); letter-spacing: .1em; }
 .essay-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.4rem; }
 
@@ -361,7 +362,7 @@ body.lang-en .en { display: block !important; }
 
 /* NAV — contact button */
 .nav-contact {
-  font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: .1em; text-transform: uppercase;
+  font-family: var(--font-mono); font-size: 1rem; letter-spacing: .1em; text-transform: uppercase;
   color: var(--white); background: var(--teal-dark); border: 1.5px solid var(--teal-dark);
   padding: .38rem .95rem; text-decoration: none; transition: background .2s, border-color .2s;
 }
@@ -374,11 +375,11 @@ body.lang-en .en { display: block !important; }
 .section-lede.ja { font-family: var(--font-serif-jp); }
 .sub-header { display: flex; align-items: baseline; gap: 1.2rem; margin: 0 0 1.6rem; padding-bottom: .7rem; border-bottom: 1px solid var(--border); }
 .sub-title { font-family: var(--font-serif); font-size: 1.35rem; font-weight: 400; color: var(--navy); }
-.sub-note { font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-dark); }
+.sub-note { font-family: var(--font-mono); font-size: 1rem; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-dark); }
 /* SECTION-END LINK — bordered button (matches hero CTA / nav contact) */
 .more-link {
   display: inline-flex; align-items: center; gap: .55rem; margin-top: 1.8rem;
-  font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: .12em; text-transform: uppercase;
+  font-family: var(--font-mono); font-size: 1rem; letter-spacing: .12em; text-transform: uppercase;
   color: var(--teal-dark); background: var(--white); text-decoration: none;
   border: 1.5px solid var(--teal-dark); padding: .62rem 1.5rem;
   transition: background .2s, color .2s;
@@ -400,7 +401,7 @@ body.lang-en .en { display: block !important; }
   border: 1px solid var(--border); box-shadow: 0 3px 14px rgba(26,35,50,.16);
 }
 .pub-img-header.pub-img-duo figcaption {
-  font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: .12em; text-transform: uppercase;
+  font-family: var(--font-mono); font-size: 0.9rem; letter-spacing: .12em; text-transform: uppercase;
   color: #3d4148; text-align: center; line-height: 1.5;
 }
 .pub-img-header.pub-img-duo figcaption .ja { font-family: var(--font-jp); letter-spacing: .06em; }
@@ -410,7 +411,7 @@ body.lang-en .en { display: block !important; }
 .editions { display: flex; flex-direction: column; gap: .55rem; }
 .edition-row { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
 .edition-lang {
-  font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: .14em; text-transform: uppercase;
+  font-family: var(--font-mono); font-size: 1rem; letter-spacing: .14em; text-transform: uppercase;
   color: #2b2f34; font-weight: 500; min-width: 5.9rem;
 }
 .edition-lang .ja { font-family: var(--font-jp); letter-spacing: .12em; }
@@ -423,13 +424,13 @@ body.lang-en .en { display: block !important; }
 .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 .project-item { background: var(--white); border: 1px solid var(--border); border-left: 3px solid var(--gold-dark); padding: 1.3rem 1.5rem; }
 .project-item h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; color: var(--navy); margin-bottom: .35rem; }
-.project-item a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: .08em; }
+.project-item a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid var(--teal-dark); font-family: var(--font-mono); font-size: 0.9rem; letter-spacing: .08em; }
 .project-note { font-size: 1rem; color: var(--text-mid); }
 .project-note.ja { font-family: var(--font-jp); }
 
 /* FOOTER — disclaimer */
 footer { flex-wrap: wrap; }
-.footer-disclaimer { flex-basis: 100%; order: 3; font-size: 0.82rem; line-height: 1.7; color: rgba(255,255,255,.72); }
+.footer-disclaimer { flex-basis: 100%; order: 3; font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,.85); }
 .footer-disclaimer.ja { font-family: var(--font-jp); }
 
 @media (max-width:900px) {
@@ -492,7 +493,7 @@ footer { flex-wrap: wrap; }
 .book-links { margin-top: 1.2rem; border: 1px solid rgba(29,92,92,.30); border-left: 3px solid var(--teal-dark); background: var(--white); }
 .book-links a {
   display: block; padding: .66rem 1rem; text-decoration: none;
-  font-size: 0.9rem; line-height: 1.55; font-weight: 500; color: var(--teal-dark);
+  font-size: 1rem; line-height: 1.55; font-weight: 500; color: var(--teal-dark);
   border-bottom: 1px solid rgba(29,92,92,.18); transition: background .2s, color .2s;
 }
 .book-links a:last-child { border-bottom: none; }
@@ -502,13 +503,32 @@ footer { flex-wrap: wrap; }
 /* BOOKS — 抜粋トグルはセクション末リンクと同じ罫線囲みボタン様式に寄せる */
 .excerpt-toggle {
   display: inline-flex; align-items: center; gap: .5rem;
-  font-family: var(--font-mono); font-size: 0.9rem; letter-spacing: .1em;
+  font-family: var(--font-mono); font-size: 1rem; letter-spacing: .1em;
   color: var(--teal-dark); background: var(--white);
   border: 1.5px solid var(--teal-dark); padding: .55rem 1.3rem; cursor: pointer;
   transition: background .2s, color .2s;
 }
 .excerpt-toggle:hover { background: var(--teal-dark); color: var(--white); }
 .excerpt-toggle .ja { font-family: var(--font-jp); letter-spacing: .04em; }
+
+
+/* rule:common:begin — 共通ルール（Claude Design キャンバス Rules・2026-11-28）。各ページ同文。 */
+:root { --border: #cfcac0; --rule-head: #1a2332; --rule-body: #3d4148; --rule-link: #1d5c5c; --rule-read: #b5832a; }
+.ja { letter-spacing: .04em; }
+/* 部品 1 — カード: 白地・枠 #cfcac0・上に 3px の帯（実務＝青緑、読み物＝金） */
+.media-card, .featured-card { background: #fff; border: 1px solid var(--border); border-top: 3px solid var(--rule-link); }
+#essays .featured-card, #essays .essay-card-grid > a, .essay-card-grid > a { border-top-color: var(--rule-read); }
+.media-card h4 { font-size: 1.12rem; line-height: 1.55; }
+/* 部品 2 — 行の一覧: 紺の見出しの表をやめ、白い箱に罫線の行で並べる */
+.speaking-table { background: #fff; border: 1px solid var(--border); border-top: 3px solid var(--rule-link); }
+.speaking-table thead { display: none; }
+.speaking-table tbody tr { border-bottom: 1px solid #e6e2d9; }
+.speaking-table tbody tr:hover { background: transparent; }
+.speaking-table tbody tr.upcoming { background: #fff; border-left: 0; }
+.speaking-table td { padding: 1.3rem 1.4rem; }
+.td-date { color: var(--rule-link); }
+.td-title { font-size: 1.12rem; line-height: 1.55; }
+/* rule:common:end */
 </style>
 </head>
 <body class="lang-ja">
@@ -592,8 +612,8 @@ footer { flex-wrap: wrap; }
           </div>
           <a href="https://amzn.asia/d/00Aawrf8" target="_blank"
              style="display:inline-flex;align-items:center;gap:.5rem;margin-top:1.2rem;
-                    font-family:var(--font-mono);font-size:0.9rem;letter-spacing:.08em;
-                    background:#FF9900;color:#fff;padding:.6rem 1.3rem;text-decoration:none;
+                    font-family:var(--font-mono);font-size:1rem;letter-spacing:.08em;
+                    background:#FF9900;color:#1a1a1a;padding:.6rem 1.3rem;text-decoration:none;
                     font-weight:500;transition:opacity .2s;"
              onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13.23 10.56V10c-1.94.02-3.99.37-3.99 2.67 0 1.16.61 1.95 1.63 1.95.76 0 1.43-.47 1.86-1.22.52-.93.5-1.79.5-2.84zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.23 13.24c-.28.2-.57.36-.89.36-1.14 0-1.81-.87-1.81-2.17 0-1.8 1.29-2.17 2.53-2.17.35 0 .7.05 1.04.09v-.38c0-.77-.03-1.45-1.05-1.45-.81 0-1.35.39-1.75.94l-.96-.96c.73-.83 1.7-1.3 2.74-1.3 1.92 0 2.78 1.08 2.78 2.96v2.75c0 .7.28 1.01.85 1.01.07 0 .14-.01.21-.03l.12.94c-.24.07-.54.11-.84.11-.76 0-1.42-.32-1.78-.9z"/></svg>
@@ -604,7 +624,7 @@ footer { flex-wrap: wrap; }
           <!-- Read preview button -->
           <a href="book" target="_blank"
              style="display:inline-flex;align-items:center;gap:.5rem;margin-top:.6rem;
-                    font-family:var(--font-mono);font-size:0.9rem;letter-spacing:.08em;
+                    font-family:var(--font-mono);font-size:1rem;letter-spacing:.08em;
                     background:var(--teal-dark);color:#fff;padding:.6rem 1.3rem;text-decoration:none;
                     font-weight:400;transition:opacity .2s;"
              onmouseover="this.style.opacity='.82'" onmouseout="this.style.opacity='1'">
@@ -642,7 +662,7 @@ footer { flex-wrap: wrap; }
             <div class="book-excerpt" style="display:none; margin-top:1.2rem;">
 
               <div style="margin-bottom:1.5rem;">
-                <div style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.6rem;"><span class="en">From the Preface / 序章より</span><span class="ja">序章より</span></div>
+                <div style="font-family:var(--font-mono);font-size:0.9rem;letter-spacing:.15em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.6rem;"><span class="en">From the Preface / 序章より</span><span class="ja">序章より</span></div>
                 <blockquote style="border-left:3px solid var(--teal-dark);padding-left:1rem;font-style:italic;color:var(--text-mid);font-size:1rem;line-height:1.8;">
                   <p class="en" style="margin-bottom:.6rem;">"Clearing is not merely a back-office settlement process. It is a field that demands advanced risk management, complex regulatory compliance, and cutting-edge technology — an extraordinarily specialised and strategic discipline."</p>
                   <p class="ja" style="font-family:var(--font-jp);font-size:1rem;line-height:2;">「クリアリングが単なる取引後の事務処理（オペレーション）ではなく、高度なリスク管理、複雑な規制への対応、最先端テクノロジーの活用が求められる、極めて専門的かつ戦略的な分野である」</p>
@@ -650,7 +670,7 @@ footer { flex-wrap: wrap; }
               </div>
 
               <div>
-                <div style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.6rem;"><span class="en">From the Afterword / あとがきより</span><span class="ja">あとがきより</span></div>
+                <div style="font-family:var(--font-mono);font-size:0.9rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.6rem;"><span class="en">From the Afterword / あとがきより</span><span class="ja">あとがきより</span></div>
                 <blockquote style="border-left:3px solid var(--gold);padding-left:1rem;font-style:italic;color:var(--text-mid);font-size:1rem;line-height:1.8;">
                   <p class="en" style="margin-bottom:.6rem;">"The clearing ecosystem cannot function with any single player alone. CCPs, clearing members, clients, exchanges, regulators, and technology vendors all relate to one another, forming a single ecology. Only when you can perceive this ecosystem in three dimensions can you truly be said to understand clearing."</p>
                   <p class="ja" style="font-family:var(--font-jp);font-size:1rem;line-height:2;">「エコシステムは、単独のプレイヤーだけでは成立しません。CCP、清算参加者、クライアント、取引所、規制当局、テクノロジーベンダーなど、多様な存在が相互に関係しながら、一つの生態系を形作っています。このエコシステムを三次元的に捉えられるようになったとき、初めて『クリアリングを理解した』と言えるのかもしれません。」</p>
@@ -681,7 +701,7 @@ footer { flex-wrap: wrap; }
           </div>
           <a href="https://manus-press.com/liber-1" target="_blank" rel="noopener"
              style="display:inline-flex;align-items:center;gap:.5rem;margin-top:1.4rem;
-                    font-family:var(--font-mono);font-size:0.9rem;letter-spacing:.08em;
+                    font-family:var(--font-mono);font-size:1rem;letter-spacing:.08em;
                     background:var(--navy);color:#fff;padding:.6rem 1.3rem;text-decoration:none;
                     font-weight:400;transition:opacity .2s;"
              onmouseover="this.style.opacity='.82'" onmouseout="this.style.opacity='1'">
@@ -713,27 +733,27 @@ footer { flex-wrap: wrap; }
       <!-- static fallback: replaced at runtime by the three newest from /essays/ -->
 
       <a href="/essays/yuishiki-and-the-path" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
-        <div style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 016 · July 2026</div>
+        <div style="font-family:var(--font-mono);font-size:0.9rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 016 · July 2026</div>
         <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">Yuishiki, and the Path to Awakening</span><span class="ja">唯識と、悟りへの道</span></h3>
         <p class="en" style="font-size:1rem;color:var(--text-mid);line-height:1.65;margin:0;">What the monk of Journey to the West actually went to the far end of India to fetch was the account of the mind as layered consciousness. Why a system this central never came out where people could see it — and where the thing kept in the back had its place.</p>
         <p class="ja" style="font-size:1rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">三蔵法師が命懸けで天竺まで取りに行ったのは、心が層になっているという話だった。なぜこれほど中心にあるものが民の目に触れる場所に出てこなかったのか。奥に在り続けたものの居場所を辿る。</p>
-        <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.78rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+        <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.9rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
       </a>
 
       <a href="/essays/koyasan-and-religion" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
-        <div style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 015 · July 2026</div>
+        <div style="font-family:var(--font-mono);font-size:0.9rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 015 · July 2026</div>
         <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">Koyasan, and Religion</span><span class="ja">高野山と、宗教。</span></h3>
         <p class="en" style="font-size:1rem;color:var(--text-mid);line-height:1.65;margin:0;">A teaching that began by showing one person the way out of suffering ended up wearing the shape of a state. From early Buddhism to the Edo parishioner registers — and why, compared with gods cast down elsewhere, it kept changing shape instead of falling.</p>
         <p class="ja" style="font-size:1rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">一人の苦しみに向けられていた教えは、なぜ国家の形になったのか。十二月の雪の参道から、初期仏教・大乗・密教・鎌倉の諸宗・江戸の寺請制度までを辿り、堕とされた神々と比べて考える。</p>
-        <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.78rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+        <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.9rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
       </a>
 
       <a href="/essays/design-under-stress" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
-        <div style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 013 · July 2026</div>
+        <div style="font-family:var(--font-mono);font-size:0.9rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 013 · July 2026</div>
         <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">Design for the Day It Breaks</span><span class="ja">壊れた日のための設計</span></h3>
         <p class="en" style="font-size:1rem;color:var(--text-mid);line-height:1.65;margin:0;">A bridge's strength is invisible on a sunny day. Clearing's layered defense worked as designed in 2008, reached into mutualized resources in 2018, and in 2022, reality ran past what the design had assumed. Who bears the first loss, from what point is it mutualized, and who decides when the rules run out?</p>
         <p class="ja" style="font-size:1rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">橋の強さは、晴れた日には分からない。清算の多層防御が設計どおり機能した2008年、共同資源まで使われた2018年、想定を超えられた2022年。誰が最初に損失を負い、どこから共同化し、ルールが尽きたとき誰が判断するのか。</p>
-        <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.78rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+        <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.9rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
       </a>
 
     </div>
@@ -743,27 +763,27 @@ footer { flex-wrap: wrap; }
       <!-- static fallback: replaced at runtime by three random earlier essays -->
 
       <a href="/essays/when-the-org-folds-into-the-head" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
-        <div style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 012 · July 2026</div>
+        <div style="font-family:var(--font-mono);font-size:0.9rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 012 · July 2026</div>
         <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">When the Organization Folds Into the Mind</span><span class="ja">組織は知能の関数だった</span></h3>
         <p class="en" style="font-size:1rem;color:var(--text-mid);line-height:1.65;margin:0;">I governed my own AI development like a company — six roles, written handoffs, an advisory board. A stronger model folded it into a single head. But the division of labor came back, in another shape.</p>
         <p class="ja" style="font-size:1rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">自分のAI開発を会社そっくりに統治していた——六つの役割、報連相の書面連鎖。賢くなったモデルで同じ仕事をやり直したら、その組織は消えた。ところが、分業まで消えたわけではなかった。</p>
-        <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.78rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+        <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.9rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
       </a>
 
       <a href="/essays/the-order-you-dont-maintain" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
-        <div style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 011 · June 2026</div>
+        <div style="font-family:var(--font-mono);font-size:0.9rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 011 · June 2026</div>
         <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">You Were Never the Problem</span><span class="ja">「使いこなせなかった」のは、あなたのせいではない</span></h3>
         <p class="en" style="font-size:1rem;color:var(--text-mid);line-height:1.65;margin:0;">Your note-taking tools never stuck — and it wasn't your discipline. What was missing was a way for classification to keep going without you maintaining it: the machine holds the routing, you keep the boundaries.</p>
         <p class="ja" style="font-size:1rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">ノートツールが続かなかったのは、整理能力のせいではない。欠けていたのは、こちらが維持し続けなくてもよい分類の仕組みだった。一件ごとの振り分けは機械に、境界を引く判断は人に。</p>
-        <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.78rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+        <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.9rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
       </a>
 
       <a href="/essays/when-ai-knows-the-world" style="display:block;background:var(--white);border:1px solid var(--border);border-top:3px solid var(--gold);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
-        <div style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 010 · June 2026</div>
+        <div style="font-family:var(--font-mono);font-size:0.9rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:.7rem;">Essay 010 · June 2026</div>
         <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;"><span class="en">When AI Comes to Know the World</span><span class="ja">AI が、世界を識る時</span></h3>
         <p class="en" style="font-size:1rem;color:var(--text-mid);line-height:1.65;margin:0;">AI began with words — the easy part. The hard part was always the limbs. And the brain does not pilot all of them; the limbs fit the physics on their own. That is where what Japan still holds in its hand may yet matter.</p>
         <p class="ja" style="font-size:1rem;color:var(--text-mid);line-height:1.65;margin:0;font-family:var(--font-jp);">AI は言葉から始まった——易しい側だ。難しいのは、いつも手足だった。そして脳は、手足のすべてを操縦しない。手足が、自分で物理を擦り合わせる。日本がまだ手に持っているものが効くとすれば、そこだ。</p>
-        <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.78rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
+        <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.9rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Read →</span><span class="ja">読む →</span></div>
       </a>
 
     </div>
@@ -789,11 +809,11 @@ footer { flex-wrap: wrap; }
 
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.4rem;margin-bottom:2.4rem;">
 
-      <a href="/clearing/" class="fade-in" style="display:block;background:var(--teal-light);border:1px solid var(--border);border-left:3px solid var(--teal-dark);padding:1.6rem 1.7rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
-        <div style="font-family:var(--font-mono);font-size:0.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-dark);margin-bottom:.7rem;"><span class="en">Index</span><span class="ja">章立て</span></div>
-        <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.4;margin-bottom:.35rem;">クリアリング — 章立て</h3>
-        <p style="font-size:1rem;color:var(--text-sub, #3d4148);line-height:1.65;margin:0;font-family:var(--font-jp);">各稿を初版の関連する章に沿って並べています。稿のある章だけを載せ、参照資料と初出の日付を記載しています。</p>
-        <div style="margin-top:1rem;font-family:var(--font-mono);font-size:0.78rem;letter-spacing:.1em;color:var(--teal-dark);"><span class="en">Open →</span><span class="ja">開く →</span></div>
+      <a href="/clearing/" class="fade-in" style="display:block;background:#fff;border:1px solid var(--border);border-top:3px solid var(--teal-dark);padding:1.75rem;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 6px 24px rgba(26,35,50,.10)'" onmouseout="this.style.boxShadow='none'">
+        <div style="font-family:var(--font-mono);font-size:0.82rem;letter-spacing:.06em;color:var(--teal-dark);margin-bottom:.7rem;"><span class="en">INDEX</span><span class="ja">章立て</span></div>
+        <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.5;margin-bottom:.5rem;">クリアリング — 章立て</h3>
+        <p style="font-size:1rem;color:#3d4148;line-height:1.85;margin:0;font-family:var(--font-jp);">各稿を初版の関連する章に沿って並べています。稿のある章だけを載せ、参照資料と初出の日付を記載しています。</p>
+        <div style="margin-top:1rem;font-size:.94rem;color:var(--teal-dark);text-decoration:underline;text-underline-offset:4px;"><span class="en">Open →</span><span class="ja">開く →</span></div>
       </a>
 
     </div>
@@ -829,7 +849,7 @@ footer { flex-wrap: wrap; }
 
           <tr>
             <td class="td-date"><span class="en">Sep 2026</span><span class="ja">2026年9月</span>
-              <div style="margin-top:.35rem;font-family:var(--font-mono);font-size:0.78rem;letter-spacing:.08em;color:var(--text-mid);"><span class="en">10 Sep</span><span class="ja">9月10日</span></div>
+              <div style="margin-top:.35rem;font-family:var(--font-mono);font-size:0.9rem;letter-spacing:.08em;color:var(--text-mid);"><span class="en">10 Sep</span><span class="ja">9月10日</span></div>
             </td>
             <td>
               <div class="td-title">
@@ -840,13 +860,13 @@ footer { flex-wrap: wrap; }
                 <span class="en">FIA Forum: Tokyo 2026 · Co-organized with FIA Japan · Tokyo Stock Exchange · Moderator</span>
                 <span class="ja">FIA Forum: Tokyo 2026 · FIA Japan 共催 · 東京証券取引所 · モデレーター</span>
               </div>
-              <div style="margin-top:.6rem;font-size:0.9rem;color:var(--text-muted);line-height:1.55;" class="en">
+              <div style="margin-top:.6rem;font-size:1rem;color:var(--text-muted);line-height:1.55;" class="en">
                 New products and longer trading windows · Liquidity, hedging efficiency and risk management under macro and geopolitical uncertainty · Supporting continued growth while keeping markets resilient and efficient
               </div>
-              <div style="margin-top:.6rem;font-size:0.9rem;color:var(--text-muted);line-height:1.55;font-family:var(--font-jp);" class="ja">
+              <div style="margin-top:.6rem;font-size:1rem;color:var(--text-muted);line-height:1.55;font-family:var(--font-jp);" class="ja">
                 新商品と取引時間の拡大 · マクロ・地政学の不確実性のもとでの流動性・ヘッジ効率・リスク管理 · 市場の頑健性と効率を保ちながら成長を支える
               </div>
-              <div style="margin-top:.7rem;font-family:var(--font-mono);font-size:0.78rem;letter-spacing:.06em;"><a href="https://www.fia.org/fia/events/fia-forum-tokyo-2026" style="color:var(--teal-dark);text-decoration:none;border-bottom:1px solid var(--teal-dark);"><span class="en">Event page (FIA) →</span><span class="ja">イベント詳細（FIA）→</span></a></div>
+              <div style="margin-top:.7rem;font-family:var(--font-mono);font-size:0.9rem;letter-spacing:.06em;"><a href="https://www.fia.org/fia/events/fia-forum-tokyo-2026" style="color:var(--teal-dark);text-decoration:none;border-bottom:1px solid var(--teal-dark);"><span class="en">Event page (FIA) →</span><span class="ja">イベント詳細（FIA）→</span></a></div>
             </td>
           </tr>
 
@@ -861,13 +881,13 @@ footer { flex-wrap: wrap; }
                 <span class="en">Risk Live Japan 2026 · Financial Risk &amp; Capital Strategy · Tokyo</span>
                 <span class="ja">Risk Live Japan 2026 · 金融リスクと資本戦略 · 東京</span>
               </div>
-              <div style="margin-top:.6rem;font-size:0.9rem;color:var(--text-muted);line-height:1.55;" class="en">
+              <div style="margin-top:.6rem;font-size:1rem;color:var(--text-muted);line-height:1.55;" class="en">
                 YCC post-transition margin model impacts · IM/VM burdens on regional banks · Collateral scarcity and transformation services · Clearing strategies to reduce liquidity strain
               </div>
-              <div style="margin-top:.6rem;font-size:0.9rem;color:var(--text-muted);line-height:1.55;font-family:var(--font-jp);" class="ja">
+              <div style="margin-top:.6rem;font-size:1rem;color:var(--text-muted);line-height:1.55;font-family:var(--font-jp);" class="ja">
                 YCC移行後の証拠金モデルへの影響 · 地方銀行へのIM/VM負荷と二極化リスク · 担保不足と担保転換サービスの役割 · 流動性負担軽減のためのクリアリング戦略
               </div>
-              <div style="margin-top:.7rem;font-family:var(--font-mono);font-size:0.78rem;letter-spacing:.06em;"><a href="essays/when-a-frozen-market-thaws" style="color:var(--teal-dark);text-decoration:none;border-bottom:1px solid var(--teal-dark);"><span class="en">Related thinking: When a Frozen Market Thaws →</span><span class="ja">関連する思考：凍結されていた市場が、動き出すとき →</span></a></div>
+              <div style="margin-top:.7rem;font-family:var(--font-mono);font-size:0.9rem;letter-spacing:.06em;"><a href="essays/when-a-frozen-market-thaws" style="color:var(--teal-dark);text-decoration:none;border-bottom:1px solid var(--teal-dark);"><span class="en">Related thinking: When a Frozen Market Thaws →</span><span class="ja">関連する思考：凍結されていた市場が、動き出すとき →</span></a></div>
             </td>
           </tr>
 
@@ -876,7 +896,7 @@ footer { flex-wrap: wrap; }
             <td>
               <div class="td-title"><span class="en">Spotlight on Japan Rates Markets</span><span class="ja">日本金利市場の現在と展望</span></div>
               <div class="td-org"><span class="en">FIA Japan New Year Panel · Tokyo</span><span class="ja">FIA Japan 新年パネル · 東京</span></div>
-              <div style="margin-top:.55rem;font-family:var(--font-mono);font-size:0.78rem;letter-spacing:.06em;"><a href="essays/when-a-frozen-market-thaws" style="color:var(--teal-dark);text-decoration:none;border-bottom:1px solid var(--teal-dark);"><span class="en">Related thinking: When a Frozen Market Thaws →</span><span class="ja">関連する思考：凍結されていた市場が、動き出すとき →</span></a></div>
+              <div style="margin-top:.55rem;font-family:var(--font-mono);font-size:0.9rem;letter-spacing:.06em;"><a href="essays/when-a-frozen-market-thaws" style="color:var(--teal-dark);text-decoration:none;border-bottom:1px solid var(--teal-dark);"><span class="en">Related thinking: When a Frozen Market Thaws →</span><span class="ja">関連する思考：凍結されていた市場が、動き出すとき →</span></a></div>
             </td>
           </tr>
 
@@ -1025,7 +1045,7 @@ footer { flex-wrap: wrap; }
       </div>
 
     </div>
-    <p style="margin-top:1.2rem;font-family:var(--font-mono);font-size:0.78rem;color:var(--text-mid);letter-spacing:.08em;"><span class="en">Full articles available on each publication&rsquo;s website (subscriptions required)</span><span class="ja">記事の全文は各媒体のサイトで（購読制）</span></p>
+    <p style="margin-top:1.2rem;font-family:var(--font-mono);font-size:0.9rem;color:var(--text-mid);letter-spacing:.08em;"><span class="en">Full articles available on each publication&rsquo;s website (subscriptions required)</span><span class="ja">記事の全文は各媒体のサイトで（購読制）</span></p>
     <a class="more-link" href="/media"><span class="en">All media →</span><span class="ja">メディア掲載の一覧 →</span></a>
   </div>
 </section>
