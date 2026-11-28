@@ -44,8 +44,9 @@ nav {
 .nav-logo { font-family: 'Playfair Display', Georgia, serif; font-size: 1.1rem; font-weight: 500; color: var(--navy); text-decoration: none; }
 .nav-logo span { color: var(--teal-dark); }
 .nav-right { display: flex; align-items: center; gap: 1.2rem; }
-.nav-back { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; color: var(--text-muted); text-decoration: none; }
+.nav-back { font-family: var(--font-mono); font-size: .78rem; letter-spacing: .1em; color: var(--text-muted); text-decoration: none; }
 .nav-back:hover { color: var(--teal-dark); }
+@media (max-width: 560px) { nav { padding: 0 1rem; } .nav-logo { white-space: nowrap; font-size: 1rem; } .nav-right { gap: .6rem; } .nav-back { line-height: 1.3; text-align: right; word-break: keep-all; } }
 .lang-toggle {
   font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: .08em;
   background: none; border: 1px solid var(--border); border-radius: 3px;
@@ -70,7 +71,7 @@ h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); fo
 
 /* MEDIA (from index.html) */
 .media-featured {
-  background: var(--white); border: 1px solid var(--border); border-left: 5px solid var(--teal-dark);
+  background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--teal-dark);
   padding: 2.2rem; margin-bottom: 2.2rem;
   display: grid; grid-template-columns: auto 1fr; gap: 2.2rem; align-items: start;
 }
@@ -152,6 +153,63 @@ footer a { color: var(--teal-dark); text-decoration: none; }
 .media-link, .speaking-table td a, .media-card a, .featured-card .read-more { font-family: var(--font-body) !important; letter-spacing: 0 !important; font-size: .94rem !important; text-transform: none !important; border-bottom: 0 !important; text-decoration: underline; text-underline-offset: 4px; color: var(--rule-link); }
 /* rule:common:end */
 </style>
+<style>
+/* rule:mobile:begin — 携帯の段（幅 600px 以下・2026-11-28）。全ページ同文（変えるときは全ページと Ananda の clearing-article-template.html を同時に）。
+   本文 15px・行間 1.75／h1 24・h2 22・h3 18・h4 とカードの題 17／ラベルは 13px 以上（rem の基準 16.7px）で字間を詰める／左右の余白とカードの内側 16px。 */
+@media (max-width: 600px) {
+  /* rem の基準は 16.7px（最小のラベル .78rem が 13px を割らない値）。本文は px で 15px に固定する */
+  html { font-size: 16.7px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { font-size: 15px; line-height: 1.75; overflow-wrap: break-word; }
+  p, li, dd, td, blockquote, .td-org, .td-desc { font-size: 15px !important; }
+  sup, sub { font-size: 13px !important; }
+  body *:not(svg):not(svg *) { letter-spacing: .02em !important; }
+  p, li, dd, dt, td, blockquote { line-height: 1.75; }
+  /* 見出しの段 */
+  h1 { font-size: 24px !important; line-height: 1.4 !important; }
+  h2 { font-size: 22px !important; line-height: 1.45 !important; }
+  h3 { font-size: 18px !important; line-height: 1.5 !important; }
+  h4 { font-size: 17px !important; line-height: 1.5 !important; }
+  .section-title { font-size: 24px !important; }
+  .td-title, .piece-title, .node-title, .mem-role, .serial-row > div > div:first-child { font-size: 17px !important; line-height: 1.5 !important; }
+  .chapter-title { font-size: 20px !important; }
+  /* 本文に当たる div の部品も 15px */
+  .piece-gist, .term-ja, .g, .figcap, .cred-name, .mem-sub, .hero-role, .footer-disclaimer, .pub-subtitle, .media-badge,
+  .book-bar-title, .serial-row > div > div.ja, .serial-row > div > div.en { font-size: 15px !important; }
+  .qtext { font-size: 16px !important; }
+  /* 左右の余白 16px */
+  nav, nav.site-nav, section, .page, article.essay, article.column, .hub, footer, .disclaimer, p.disclaimer,
+  .book-bar, .bottom-nav, .topics-bar, .disclaimer-bar { padding-left: 16px !important; padding-right: 16px !important; }
+  /* カードの内側 16px */
+  .featured-body, .media-featured, .media-card, .media-badge, .pub-body, .cred-panel, .mem-card, .box, .pull, .seed-box,
+  .term-more, .quotes-block, .k-rel, .essay-card-grid > a, a.piece, a.hub-terms, a.more-link { padding-left: 16px !important; padding-right: 16px !important; }
+  .essay-card-grid { grid-template-columns: 1fr !important; }
+  /* ナビ: ロゴは 1 行 */
+  .nav-logo { white-space: nowrap; font-size: 16px !important; flex: 0 0 auto; }
+  nav { gap: 10px; }
+  .nav-right { min-width: 0; gap: 10px !important; }
+  .nav-back { font-size: 13px !important; line-height: 1.3; white-space: nowrap !important; }
+  /* 「← 戻る」のあるナビは 2 段: 上にロゴと言語、下に戻る */
+  nav:has(.nav-back) { height: auto !important; min-height: 0; flex-wrap: wrap; padding-top: 8px !important; padding-bottom: 6px !important; row-gap: 0; }
+  nav:has(.nav-back) .nav-right { display: contents; }
+  nav:has(.nav-back) .lang-toggle { margin-left: auto; }
+  nav:has(.nav-back) .nav-back { order: 3; flex: 0 0 100%; text-align: left !important; padding: 2px 0; }
+  .lang-toggle { font-size: 13px !important; padding: .3rem .6rem !important; flex: 0 0 auto; }
+  /* 書籍の試し読み（/book）: ボタンの並びと操作バーは折り返す */
+  nav.site-nav { height: auto !important; flex-wrap: wrap; row-gap: 6px; padding-top: 8px !important; padding-bottom: 8px !important; }
+  nav.site-nav .nav-right { flex-wrap: wrap; gap: 6px !important; }
+  .btn-amazon, .btn-back, .btn-forthcoming { font-size: 13px !important; padding: .25rem .6rem !important; }
+  .toolbar { height: auto !important; flex-wrap: wrap; row-gap: 6px; padding: 6px 8px !important; }
+  .toolbar .tb-group { gap: 6px !important; }
+  .tb-btn { padding: .25rem .5rem !important; font-size: 13px !important; }
+  .tb-page-info, .tb-page-info span { white-space: nowrap; font-size: 13px !important; }
+  /* 登壇の表: 日付の列をやめ、1 列に積む */
+  .speaking-table, .speaking-table tbody, .speaking-table tr, .speaking-table td { display: block; width: auto !important; }
+  .speaking-table tr { padding: 14px 16px; }
+  .speaking-table td { padding: 0 !important; white-space: normal !important; }
+  .speaking-table td + td { margin-top: 4px; }
+}
+/* rule:mobile:end */
+</style>
 </head>
 <body class="lang-ja">
 
@@ -200,6 +258,12 @@ footer a { color: var(--teal-dark); text-decoration: none; }
     <div class="qtext ja">「デフォルトファンドを統合するいかなる提案も、相互化が各市場セグメントの生むリスクと適切に整合し続けるかを慎重に検討すべきです。性質の根本的に異なる市場へ損失分担を広げることは、リスク配分と波及の可能性について重要な問いを投げかけます。」</div>
     <div class="qsrc en">Risk.net, September 2026</div>
     <div class="qsrc ja">Risk.net、2026年9月</div>
+  </div>
+  <div class="quote-item">
+    <div class="qtext en">"The framework will likely need to evolve. Otherwise, even if clearing is opened up, the balance-sheet cost could limit the number of dealers able to offer the service."</div>
+    <div class="qtext ja">「枠組みは変わっていく必要があるでしょう。そうでなければ、清算の門戸が開かれても、バランスシートのコストが、このサービスを提供できるディーラーの数を限ってしまうおそれがあります。」</div>
+    <div class="qsrc en">Risk.net, November 2026</div>
+    <div class="qsrc ja">Risk.net、2026年11月</div>
   </div>
 </div>
 
@@ -332,6 +396,28 @@ footer a { color: var(--teal-dark); text-decoration: none; }
       <a class="media-link" style="margin-right:1.2rem;" href="https://diamond.jp/articles/-/403046" target="_blank"><span class="en">&rarr; Part 5 &middot; Diamond Online (full text for paid members)</span><span class="ja">&rarr; 第5回 &middot; ダイヤモンド・オンライン（全文は有料会員限定）</span></a>
       <a class="media-link" style="margin-right:1.2rem;" href="https://diamond.jp/articles/-/403592" target="_blank"><span class="en">&rarr; Part 6 &middot; Diamond Online (full text for paid members)</span><span class="ja">&rarr; 第6回 &middot; ダイヤモンド・オンライン（全文は有料会員限定）</span></a>
       <a class="media-link" href="https://diamond.jp/articles/-/404064" target="_blank"><span class="en">&rarr; Part 7 &middot; Diamond Online (full text for paid members)</span><span class="ja">&rarr; 第7回 &middot; ダイヤモンド・オンライン（全文は有料会員限定）</span></a>
+    </div>
+  </div>
+
+  <!-- Risk.net Nov 2026 -->
+  <div class="media-featured">
+    <div class="media-badge" style="background:var(--navy);font-size:1rem;letter-spacing:.02em;">Risk<br>.net</div>
+    <div>
+      <h3>JSCC Repo Plan Faces Accounting Hurdle for Agency Model</h3>
+      <div class="media-meta">Risk.net &middot; 16 November 2026 &middot; Chris Davis &middot; Quoted in</div>
+      <div class="media-summary en">
+        <p style="margin-bottom:.6rem;">JSCC plans to launch client clearing for cash and repo JGBs in March 2027 through an agency model, in which clearing members submit and manage trades for clients without acting as principal. The open question is whether trades cleared on an agency basis can stay off-balance-sheet in Japan. Shun Yanagisawa is quoted on what the market needs:</p>
+        <ul>
+          <li>After yen swaps, cash and repo as the natural next channel for global investors to access yen rates</li>
+          <li>The infrastructure needed to bring hedge funds and investment managers into repo clearing &mdash; pre-trade credit checks and post-trade client trade submission</li>
+          <li>Accounting treatment as the biggest obstacle, with a similar debate already seen in the US around FICC &mdash; and why, if trades stay on-balance-sheet, the balance-sheet cost could limit the number of dealers able to offer the service</li>
+          <li>Netting opinions and cross-jurisdictional arrangements as questions that may grow in importance as the market develops</li>
+        </ul>
+      </div>
+      <div class="media-summary ja">
+        <p style="font-family:var(--font-jp);font-size:1rem;">JSCCは2027年3月、国債の現物・レポ取引の顧客清算を始める計画で、清算参加者が当事者とならずに顧客の取引を取り次ぐエージェント型を採る。残る論点は、エージェント型で清算した取引を日本でオフバランスにできるかどうか。柳沢俊が、円金利スワップに続く次の入口としての現物・レポ、ヘッジファンドや運用会社をレポ清算に迎えるためのインフラ（取引前の与信チェックと取引後の顧客取引の持ち込み）、最大の障害としての会計の扱い（米国でもFICCをめぐり同様の議論があった）と、オンバランスのままならバランスシートのコストがサービスを提供できるディーラーの数を限りうること、そして市場の発展とともにネッティングの法的意見や国をまたぐ取り決めの問いが重みを増すことについてコメント。</p>
+      </div>
+      <a class="media-link" href="https://www.risk.net/risk-management/7964428/jscc-repo-plan-faces-accounting-hurdle-for-agency-model" target="_blank">&rarr; risk.net (subscription required)</a>
     </div>
   </div>
 
