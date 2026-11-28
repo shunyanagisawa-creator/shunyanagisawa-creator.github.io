@@ -595,6 +595,7 @@ footer { flex-wrap: wrap; }
     <li><a href="#books">Books</a></li>
     <li><a href="#essays">Essays</a></li>
     <li><a href="#clearing-notes">Clearing Notes</a></li>
+    <li><a href="/clearing/terms">Glossary</a></li>
     <li><a href="#work">Work</a></li>
     <li><a href="/about">About</a></li>
   </ul>
@@ -871,6 +872,18 @@ footer { flex-wrap: wrap; }
         <p style="font-size:1rem;color:#3d4148;line-height:1.85;margin:0;font-family:var(--font-jp);">各稿を初版の関連する章に沿って並べています。稿のある章だけを載せ、参照資料と初出の日付を記載しています。</p>
         <div style="margin-top:1rem;font-size:.94rem;color:var(--teal-dark);text-decoration:underline;text-underline-offset:4px;"><span class="en">Open →</span><span class="ja">開く →</span></div>
       </a>
+
+      <style>.glossary-card input::placeholder{color:#3d4148;opacity:1}</style>
+      <div class="fade-in glossary-card" style="background:#fff;border:1px solid var(--border);border-top:3px solid var(--teal-dark);padding:1.75rem;">
+        <div style="font-family:var(--font-mono);font-size:0.82rem;letter-spacing:.06em;color:var(--teal-dark);margin-bottom:.7rem;"><span class="en">GLOSSARY</span><span class="ja">用語集</span></div>
+        <h3 style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;color:var(--navy);line-height:1.5;margin-bottom:.5rem;"><a href="/clearing/terms" style="color:inherit;text-decoration:none;"><span class="en">Clearing Glossary</span><span class="ja">クリアリング用語集</span></a></h3>
+        <p style="font-size:1rem;color:#3d4148;line-height:1.85;margin:0;font-family:var(--font-jp);"><span class="en">Short definitions of clearing and derivatives terms, in Japanese and English.</span><span class="ja">クリアリングとデリバティブの用語を、短い定義で引けます（日本語・英語）。</span></p>
+        <form action="/clearing/terms" method="get" role="search" style="display:flex;gap:.5rem;margin-top:1rem;">
+          <input type="search" name="q" aria-label="用語集を検索" placeholder="例: 証拠金、CCP、レポ" autocomplete="off" style="flex:1;min-width:0;font-family:var(--font-jp);font-size:1rem;color:#1a2332;background:#fff;border:1px solid #8a8f96;padding:.55rem .7rem;">
+          <button type="submit" style="font-family:var(--font-jp);font-size:.94rem;color:#fff;background:var(--teal-dark);border:1px solid var(--teal-dark);padding:.55rem 1rem;cursor:pointer;"><span class="en">Search</span><span class="ja">検索</span></button>
+        </form>
+        <div style="margin-top:1rem;font-size:.94rem;"><a href="/clearing/terms" style="color:var(--teal-dark);text-decoration:underline;text-underline-offset:4px;"><span class="en">Open the glossary →</span><span class="ja">用語集を開く →</span></a></div>
+      </div>
 
     </div>
 

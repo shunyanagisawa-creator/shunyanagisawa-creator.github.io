@@ -2478,6 +2478,10 @@ var Q_PLACEHOLDER_EN = "Filter by term, Japanese rendering, or definition (e.g. 
       apply();
     });
   });
+
+  // トップの検索箱から来たとき（/clearing/terms?q=語）は、その語で絞り込んだ状態で開く
+  var initial = new URLSearchParams(window.location.search).get('q');
+  if (initial) { q.value = initial; apply(); }
 })();
 </script>
 <script>
